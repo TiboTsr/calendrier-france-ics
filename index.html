@@ -8,6 +8,17 @@
       name="description"
       content="Calendrier France complet au format ICS : jours fériés, fêtes, vacances scolaires, changements d'heure et événements spéciaux."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calendrier Complet France 🇫🇷" />
+    <meta property="og:description" content="Calendrier ICS France : jours fériés, vacances scolaires, saisons et événements clés." />
+    <meta property="og:url" content="https://calendrier-fr.tibotsr.dev/" />
+    <meta property="og:image" content="https://calendrier-fr.tibotsr.dev/og-image.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calendrier Complet France 🇫🇷" />
+    <meta name="twitter:description" content="Abonne-toi au calendrier ICS France (fériés, vacances, événements)." />
+    <meta name="twitter:image" content="https://calendrier-fr.tibotsr.dev/og-image.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <style>
       :root {
         color-scheme: dark;
@@ -152,6 +163,68 @@
         flex-wrap: wrap;
         gap: 12px;
         margin-top: 28px;
+      }
+
+      .zone-links {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .zone-link {
+        text-decoration: none;
+        color: #d9e5ff;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 6px 11px;
+        font-size: 12px;
+      }
+
+      .zones-explainer {
+        margin-top: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 14px;
+      }
+
+      .zones-explainer h3 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+
+      .zones-explainer p {
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .zones-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .zone-card {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .zone-card strong {
+        display: block;
+        margin-bottom: 6px;
+        color: #e8f2ff;
+        font-size: 13px;
+      }
+
+      .zone-card span {
+        color: #c7d5f2;
+        font-size: 12px;
+        line-height: 1.4;
       }
 
       .hero-meta {
@@ -307,8 +380,28 @@
         font-size: 14px;
       }
 
+      .weekly-new {
+        margin-top: 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #def6f0;
+        border: 1px solid rgba(77, 226, 197, 0.45);
+        border-radius: 999px;
+        background: rgba(77, 226, 197, 0.1);
+        padding: 7px 12px;
+        font-size: 12px;
+      }
+
       .year-pagination {
         margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .month-pagination {
+        margin-top: 10px;
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
@@ -334,6 +427,38 @@
         background: linear-gradient(135deg, rgba(110, 168, 254, 0.35), rgba(159, 122, 234, 0.35));
         border-color: rgba(176, 198, 255, 0.55);
         color: #f4f8ff;
+      }
+
+      .month-btn {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        color: #d8e5ff;
+        padding: 6px 11px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      .month-btn.active {
+        background: linear-gradient(135deg, rgba(77, 226, 197, 0.25), rgba(110, 168, 254, 0.25));
+        border-color: rgba(125, 218, 255, 0.55);
+        color: #f4f8ff;
+      }
+
+      .load-more-wrap {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .load-more-btn {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #e8f0ff;
+        padding: 8px 14px;
+        font-size: 13px;
+        cursor: pointer;
       }
 
       .events-meta {
@@ -467,6 +592,10 @@
           grid-template-columns: 1fr;
         }
 
+        .zones-grid {
+          grid-template-columns: 1fr;
+        }
+
         .event-item {
           grid-template-columns: 1fr;
           gap: 6px;
@@ -494,6 +623,34 @@
         <a class="btn btn-primary" href="/calendrier.ics">Ouvrir le fichier ICS</a>
         <a class="btn btn-secondary" href="webcal://calendrier-fr.tibotsr.dev/calendrier.ics">S’abonner (webcal)</a>
       </div>
+      <div class="zone-links">
+        <a class="zone-link" href="/zone-a.ics">Zone A (.ics)</a>
+        <a class="zone-link" href="/zone-b.ics">Zone B (.ics)</a>
+        <a class="zone-link" href="/zone-c.ics">Zone C (.ics)</a>
+      </div>
+
+      <section class="zones-explainer" aria-label="Correspondance des zones scolaires">
+        <h3>📚 Fichiers par zone (générés automatiquement)</h3>
+        <p>
+          Les fichiers <strong>calendrier.ics</strong>, <strong>zone-a.ics</strong>,
+          <strong>zone-b.ics</strong> et <strong>zone-c.ics</strong> sont régénérés automatiquement
+          à chaque mise à jour (cron quotidien + push sur <strong>main</strong>).
+        </p>
+        <div class="zones-grid">
+          <article class="zone-card">
+            <strong>Zone A</strong>
+            <span>Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers.</span>
+          </article>
+          <article class="zone-card">
+            <strong>Zone B</strong>
+            <span>Aix-Marseille, Amiens, Lille, Nancy-Metz, Nantes, Nice, Normandie, Orléans-Tours, Reims, Rennes, Strasbourg.</span>
+          </article>
+          <article class="zone-card">
+            <strong>Zone C</strong>
+            <span>Créteil, Montpellier, Paris, Toulouse, Versailles.</span>
+          </article>
+        </div>
+      </section>
 
       <section class="grid" aria-label="Contenu du calendrier">
         <article class="card">
@@ -527,8 +684,11 @@
         </div>
         <div id="events-stats" class="events-stats"></div>
         <div id="events-status" class="events-status">Chargement des événements…</div>
+        <div id="weekly-new" class="weekly-new">Chargement des nouveautés hebdo…</div>
         <div id="year-pagination" class="year-pagination"></div>
+        <div id="month-pagination" class="month-pagination"></div>
         <div id="events-root"></div>
+        <div id="load-more-wrap" class="load-more-wrap"></div>
       </section>
 
       <footer>
@@ -544,6 +704,9 @@
       ];
       let allEvents = [];
       let currentYearPage = null;
+      let currentMonthPage = "all";
+      let renderedMonthCount = 0;
+      const MONTH_RENDER_CHUNK = 4;
 
       function parseIcsDate(value) {
         const match = value.match(/^(\d{4})(\d{2})(\d{2})$/);
@@ -618,9 +781,13 @@
         const meta = document.getElementById("events-meta");
         const stats = document.getElementById("events-stats");
         const yearPagination = document.getElementById("year-pagination");
+        const monthPagination = document.getElementById("month-pagination");
+        const loadMoreWrap = document.getElementById("load-more-wrap");
         root.innerHTML = "";
         stats.innerHTML = "";
         yearPagination.innerHTML = "";
+        monthPagination.innerHTML = "";
+        loadMoreWrap.innerHTML = "";
 
         if (!events.length) {
           status.textContent = "Aucun événement trouvé pour cette recherche.";
@@ -642,6 +809,8 @@
           button.textContent = String(year);
           button.addEventListener("click", () => {
             currentYearPage = year;
+            currentMonthPage = "all";
+            renderedMonthCount = 0;
             renderEvents(events);
           });
           yearPagination.appendChild(button);
@@ -697,7 +866,43 @@
           grouped.get(key).push(event);
         }
 
-        for (const [key, monthEvents] of grouped) {
+        const monthEntries = [...grouped.entries()];
+        const monthKeys = monthEntries.map(([key]) => key);
+
+        const allMonthBtn = document.createElement("button");
+        allMonthBtn.type = "button";
+        allMonthBtn.className = `month-btn${currentMonthPage === "all" ? " active" : ""}`;
+        allMonthBtn.textContent = "Tous les mois";
+        allMonthBtn.addEventListener("click", () => {
+          currentMonthPage = "all";
+          renderedMonthCount = 0;
+          renderEvents(events);
+        });
+        monthPagination.appendChild(allMonthBtn);
+
+        for (const monthKey of monthKeys) {
+          const monthIndex = Number(monthKey) - 1;
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = `month-btn${currentMonthPage === monthKey ? " active" : ""}`;
+          btn.textContent = MONTHS_FR[monthIndex];
+          btn.addEventListener("click", () => {
+            currentMonthPage = monthKey;
+            renderedMonthCount = 0;
+            renderEvents(events);
+          });
+          monthPagination.appendChild(btn);
+        }
+
+        let entriesToRender = monthEntries;
+        if (currentMonthPage !== "all") {
+          entriesToRender = monthEntries.filter(([key]) => key === currentMonthPage);
+        } else {
+          const target = Math.max(MONTH_RENDER_CHUNK, renderedMonthCount || MONTH_RENDER_CHUNK);
+          entriesToRender = monthEntries.slice(0, target);
+        }
+
+        for (const [key, monthEvents] of entriesToRender) {
           const monthIndex = Number(key) - 1;
 
           const block = document.createElement("section");
@@ -743,6 +948,19 @@
           block.appendChild(list);
           root.appendChild(block);
         }
+
+        if (currentMonthPage === "all" && entriesToRender.length < monthEntries.length) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "load-more-btn";
+          const remaining = monthEntries.length - entriesToRender.length;
+          btn.textContent = `Afficher ${Math.min(MONTH_RENDER_CHUNK, remaining)} mois de plus`;
+          btn.addEventListener("click", () => {
+            renderedMonthCount = entriesToRender.length + MONTH_RENDER_CHUNK;
+            renderEvents(events);
+          });
+          loadMoreWrap.appendChild(btn);
+        }
       }
 
       function normalizeText(value) {
@@ -784,7 +1002,25 @@
         }
       }
 
+      async function loadEventsMeta() {
+        const weeklyBadge = document.getElementById("weekly-new");
+        try {
+          const response = await fetch("/events-meta.json", { cache: "no-store" });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const meta = await response.json();
+          const count = Number(meta.newEventsThisWeek || 0);
+          weeklyBadge.textContent = count > 0
+            ? `✨ Nouveaux événements ajoutés cette semaine : ${count}`
+            : "✅ Aucun nouvel événement ajouté cette semaine";
+        } catch (error) {
+          weeklyBadge.textContent = "ℹ️ Statut des nouveautés hebdo indisponible pour le moment";
+        }
+      }
+
       loadIcsEvents();
+      loadEventsMeta();
     </script>
   </body>
 </html>

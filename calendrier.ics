@@ -1,0 +1,1283 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Calendrier Complet//FR//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Calendrier Complet France
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VEVENT
+UID:2538818400177716d87408ab@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances de Noël - Zones A\, B et C
+DESCRIPTION:Vacances de Noël pour les zones A\, B et C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20251220
+DTEND;VALUE=DATE:20260105
+END:VEVENT
+BEGIN:VEVENT
+UID:55fc7493fe0d07f88b329812@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour de l'an
+DESCRIPTION:Jour férié en France : Jour de l'an.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260101
+END:VEVENT
+BEGIN:VEVENT
+UID:83c4f598d5b725e394f024a8@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début soldes d’hiver
+DESCRIPTION:Repère commercial national.
+CATEGORIES:Événements spéciaux
+DTSTART;VALUE=DATE:20260111
+END:VEVENT
+BEGIN:VEVENT
+UID:e6b45f1e667e8f62c054b476@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Chandeleur
+DESCRIPTION:Fête de la Chandeleur.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20260202
+END:VEVENT
+BEGIN:VEVENT
+UID:6cfd092158f3543255b2fd39@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée mondiale contre le cancer
+DESCRIPTION:Journée de sensibilisation santé.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20260204
+END:VEVENT
+BEGIN:VEVENT
+UID:6cc6f8c7f98768eed1b9641b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances d'Hiver - Zone A
+DESCRIPTION:Vacances d'Hiver pour la zone A.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20260207
+DTEND;VALUE=DATE:20260223
+END:VEVENT
+BEGIN:VEVENT
+UID:c7ad23c325f65697ed48a84c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances d'Hiver - Zone B
+DESCRIPTION:Vacances d'Hiver pour la zone B.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20260214
+DTEND;VALUE=DATE:20260302
+END:VEVENT
+BEGIN:VEVENT
+UID:d535ac6a9e530a110d8e8674@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début du Carême
+DESCRIPTION:Repère liturgique : début du Carême.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20260218
+END:VEVENT
+BEGIN:VEVENT
+UID:4aaa051c75da6fa4994c1b73@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances d'Hiver - Zone C
+DESCRIPTION:Vacances d'Hiver pour la zone C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20260221
+DTEND;VALUE=DATE:20260309
+END:VEVENT
+BEGIN:VEVENT
+UID:c74f94bfe87fe57659c037bc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des grands-mères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20260301
+END:VEVENT
+BEGIN:VEVENT
+UID:0a4788952dae1ffb251e0aad@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée internationale des femmes
+DESCRIPTION:Journée internationale des droits des femmes.
+CATEGORIES:Société
+DTSTART;VALUE=DATE:20260308
+END:VEVENT
+BEGIN:VEVENT
+UID:bf1c1051c9c777d35f110d2b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début du Printemps
+DESCRIPTION:Date de l'équinoxe de printemps.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20260320
+END:VEVENT
+BEGIN:VEVENT
+UID:e3ecfd93371dd260af3a7e3f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Passage à l'heure d'été
+DESCRIPTION:Passage officiel à l'heure d'été en France.
+CATEGORIES:Changement d'heure
+DTSTART;VALUE=DATE:20260329
+END:VEVENT
+BEGIN:VEVENT
+UID:98bb9f3324f74757ad0daebc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Poisson d’avril
+DESCRIPTION:Tradition populaire française.
+CATEGORIES:Culture
+DTSTART;VALUE=DATE:20260401
+END:VEVENT
+BEGIN:VEVENT
+UID:8bde17c8496c516dcb1416ab@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances de Printemps - Zone A
+DESCRIPTION:Vacances de Printemps pour la zone A.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20260404
+DTEND;VALUE=DATE:20260420
+END:VEVENT
+BEGIN:VEVENT
+UID:02351e4029215dc46f494b97@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Pâques
+DESCRIPTION:Fête chrétienne : Pâques.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20260405
+END:VEVENT
+BEGIN:VEVENT
+UID:4d16e90b2897f2d198034f88@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lundi de Pâques
+DESCRIPTION:Jour férié en France : Lundi de Pâques.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260406
+END:VEVENT
+BEGIN:VEVENT
+UID:bc0b74271e834cafd76909a6@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances de Printemps - Zone B
+DESCRIPTION:Vacances de Printemps pour la zone B.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20260411
+DTEND;VALUE=DATE:20260427
+END:VEVENT
+BEGIN:VEVENT
+UID:4757ad6eb6cb30bbd34e7585@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances de Printemps - Zone C
+DESCRIPTION:Vacances de Printemps pour la zone C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20260418
+DTEND;VALUE=DATE:20260504
+END:VEVENT
+BEGIN:VEVENT
+UID:c52ce4f904d752401c02e830@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour de la Terre
+DESCRIPTION:Journée de sensibilisation environnementale.
+CATEGORIES:Environnement
+DTSTART;VALUE=DATE:20260422
+END:VEVENT
+BEGIN:VEVENT
+UID:7bf2ed015d5ceb9fce3dfd5c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête du Travail
+DESCRIPTION:Jour férié en France : Fête du Travail.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260501
+END:VEVENT
+BEGIN:VEVENT
+UID:92ffc006b17920fde0b6522d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête de la Victoire
+DESCRIPTION:Jour férié en France : Fête de la Victoire.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260508
+END:VEVENT
+BEGIN:VEVENT
+UID:8b05698515b600b86d312d11@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Ascension
+DESCRIPTION:Jour férié en France : Ascension.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260514
+END:VEVENT
+BEGIN:VEVENT
+UID:f445bb9da149aa4004b69f05@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Ascension
+DESCRIPTION:Fête chrétienne : Ascension.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20260514
+END:VEVENT
+BEGIN:VEVENT
+UID:4b88c9dcf1c020650574d8da@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Pont de l'Ascension - Zones A\, B et C
+DESCRIPTION:Pont de l'Ascension pour les zones A\, B et C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20260514
+DTEND;VALUE=DATE:20260518
+END:VEVENT
+BEGIN:VEVENT
+UID:cff5ae20da3866cf3e61f308@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Pentecôte
+DESCRIPTION:Fête chrétienne : Pentecôte.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20260524
+END:VEVENT
+BEGIN:VEVENT
+UID:f9e6b22971a4684ee447d084@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lundi de Pentecôte
+DESCRIPTION:Jour férié en France : Lundi de Pentecôte.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260525
+END:VEVENT
+BEGIN:VEVENT
+UID:e5a524cb21bb8a4f8940e3e7@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des Voisins
+DESCRIPTION:Événement convivial national.
+CATEGORIES:Vie citoyenne
+DTSTART;VALUE=DATE:20260529
+END:VEVENT
+BEGIN:VEVENT
+UID:ed9be9971bc5d8e5fb94fa39@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des mères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20260531
+END:VEVENT
+BEGIN:VEVENT
+UID:9efc93e951553d4034fb42cf@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée mondiale sans tabac
+DESCRIPTION:Journée de sensibilisation santé.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20260531
+END:VEVENT
+BEGIN:VEVENT
+UID:8ac263ae1ad9f29a2ccbf916@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée mondiale de l’océan
+DESCRIPTION:Journée de sensibilisation environnementale.
+CATEGORIES:Environnement
+DTSTART;VALUE=DATE:20260608
+END:VEVENT
+BEGIN:VEVENT
+UID:ed4c0b0968e0db5c987152a4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début de l’Été
+DESCRIPTION:Date du solstice d'été.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20260621
+END:VEVENT
+BEGIN:VEVENT
+UID:c71bbfb172616364ca4f2bf7@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête de la Musique
+DESCRIPTION:Événement culturel national.
+CATEGORIES:Culture
+DTSTART;VALUE=DATE:20260621
+END:VEVENT
+BEGIN:VEVENT
+UID:9aa2247fd89aac0195c73da5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des pères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20260621
+END:VEVENT
+BEGIN:VEVENT
+UID:da497fea55dd5c7ef986a77c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour le plus long de l’année
+DESCRIPTION:Correspond au solstice d'été.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20260621
+END:VEVENT
+BEGIN:VEVENT
+UID:6f1dfa2b7331f103db31bdcd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début soldes d’été
+DESCRIPTION:Repère commercial national.
+CATEGORIES:Événements spéciaux
+DTSTART;VALUE=DATE:20260628
+END:VEVENT
+BEGIN:VEVENT
+UID:d6095e29c423d5cb338f1cdf@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances d'Été - Zones A\, B et C
+DESCRIPTION:Vacances d'Été pour les zones A\, B et C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20260704
+DTEND;VALUE=DATE:20260901
+END:VEVENT
+BEGIN:VEVENT
+UID:31aa86178022d54b2788f451@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête nationale
+DESCRIPTION:Jour férié en France : Fête nationale.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260714
+END:VEVENT
+BEGIN:VEVENT
+UID:baeafd7eb958fefc57fe989e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Assomption
+DESCRIPTION:Jour férié en France : Assomption.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260815
+END:VEVENT
+BEGIN:VEVENT
+UID:0e5ba2c64ac418e80d73b41c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journées Européennes du Patrimoine (samedi)
+DESCRIPTION:Ouverture de lieux patrimoniaux au public.
+CATEGORIES:Vie citoyenne
+DTSTART;VALUE=DATE:20260919
+END:VEVENT
+BEGIN:VEVENT
+UID:4a17fb3af6ab106c5bc5df27@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journées Européennes du Patrimoine (dimanche)
+DESCRIPTION:Ouverture de lieux patrimoniaux au public.
+CATEGORIES:Vie citoyenne
+DTSTART;VALUE=DATE:20260920
+END:VEVENT
+BEGIN:VEVENT
+UID:2db8950ef61a2fda1335243c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début de l’Automne
+DESCRIPTION:Date de l'équinoxe d'automne.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20260923
+END:VEVENT
+BEGIN:VEVENT
+UID:632c17de23e28ba09340be9d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lancement d’Octobre Rose
+DESCRIPTION:Campagne de sensibilisation santé.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20261001
+END:VEVENT
+BEGIN:VEVENT
+UID:6eed785d1791498f032b72d7@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des grands-pères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20261004
+END:VEVENT
+BEGIN:VEVENT
+UID:35a2016044cc34d178ac195b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances de la Toussaint - Zones A\, B et C
+DESCRIPTION:Vacances de la Toussaint pour les zones A\, B et C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261102
+END:VEVENT
+BEGIN:VEVENT
+UID:f3eaa611ba33466017ae9fe1@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Passage à l'heure d'hiver
+DESCRIPTION:Passage officiel à l'heure d'hiver en France.
+CATEGORIES:Changement d'heure
+DTSTART;VALUE=DATE:20261025
+END:VEVENT
+BEGIN:VEVENT
+UID:c361befcd891ced6890b7803@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Halloween
+DESCRIPTION:Événement culturel populaire.
+CATEGORIES:Culture
+DTSTART;VALUE=DATE:20261031
+END:VEVENT
+BEGIN:VEVENT
+UID:38709bab68a61ff68ff0b21b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lancement du Mois sans Tabac
+DESCRIPTION:Campagne nationale de prévention.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20261101
+END:VEVENT
+BEGIN:VEVENT
+UID:e1a393e9f63c1d0f7a023ee9@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Toussaint
+DESCRIPTION:Jour férié en France : Toussaint.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20261101
+END:VEVENT
+BEGIN:VEVENT
+UID:812630998bd0913a810f4e97@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Armistice 1918
+DESCRIPTION:Jour férié en France : Armistice 1918.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20261111
+END:VEVENT
+BEGIN:VEVENT
+UID:fb20842dd53f32671206f78c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée internationale des droits de l'enfant
+DESCRIPTION:Journée internationale des droits de l'enfant.
+CATEGORIES:Société
+DTSTART;VALUE=DATE:20261120
+END:VEVENT
+BEGIN:VEVENT
+UID:5fe7d8da00db7b5a03957fbd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Black Friday
+DESCRIPTION:Événement commercial.
+CATEGORIES:Événements spéciaux
+DTSTART;VALUE=DATE:20261127
+END:VEVENT
+BEGIN:VEVENT
+UID:bf3642195656884a76c8ee2a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Immaculée Conception
+DESCRIPTION:Fête chrétienne : Immaculée Conception.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20261208
+END:VEVENT
+BEGIN:VEVENT
+UID:e9f46ab5757e75285a2393de@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances de Noël - Zones A\, B et C
+DESCRIPTION:Vacances de Noël pour les zones A\, B et C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20270104
+END:VEVENT
+BEGIN:VEVENT
+UID:0f525380fc39c910029fa22f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début de l’Hiver
+DESCRIPTION:Date du solstice d'hiver.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20261221
+END:VEVENT
+BEGIN:VEVENT
+UID:a2a6ad479d6a78f777cfb535@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour le plus court de l’année
+DESCRIPTION:Correspond au solstice d'hiver.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20261221
+END:VEVENT
+BEGIN:VEVENT
+UID:a4c7828f001a42a32b86af35@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Noël
+DESCRIPTION:Jour férié en France : Noël.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20261225
+END:VEVENT
+BEGIN:VEVENT
+UID:6f5a38fae550e9984b4b6183@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour de l'an
+DESCRIPTION:Jour férié en France : Jour de l'an.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270101
+END:VEVENT
+BEGIN:VEVENT
+UID:5a358af4b7eb301a6f2f3fd0@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début soldes d’hiver
+DESCRIPTION:Repère commercial national.
+CATEGORIES:Événements spéciaux
+DTSTART;VALUE=DATE:20270111
+END:VEVENT
+BEGIN:VEVENT
+UID:13eb7d7fbd056a2ffc94be4b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Chandeleur
+DESCRIPTION:Fête de la Chandeleur.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20270202
+END:VEVENT
+BEGIN:VEVENT
+UID:4829f4e6b2948634128c0d64@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée mondiale contre le cancer
+DESCRIPTION:Journée de sensibilisation santé.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20270204
+END:VEVENT
+BEGIN:VEVENT
+UID:4ee4d7f05ea46a0588dc56af@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances d'Hiver - Zone C
+DESCRIPTION:Vacances d'Hiver pour la zone C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270222
+END:VEVENT
+BEGIN:VEVENT
+UID:383abe5de51144fd0397e4b1@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début du Carême
+DESCRIPTION:Repère liturgique : début du Carême.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20270210
+END:VEVENT
+BEGIN:VEVENT
+UID:73500bf8b659c92a2777972a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances d'Hiver - Zone A
+DESCRIPTION:Vacances d'Hiver pour la zone A.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270301
+END:VEVENT
+BEGIN:VEVENT
+UID:8e4ee902b412f24fb18b6ff7@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances d'Hiver - Zone B
+DESCRIPTION:Vacances d'Hiver pour la zone B.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270308
+END:VEVENT
+BEGIN:VEVENT
+UID:743d4da13c9d51d9a0a3f9cd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des grands-mères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20270307
+END:VEVENT
+BEGIN:VEVENT
+UID:c1d7e13e17219c13657aa2f2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée internationale des femmes
+DESCRIPTION:Journée internationale des droits des femmes.
+CATEGORIES:Société
+DTSTART;VALUE=DATE:20270308
+END:VEVENT
+BEGIN:VEVENT
+UID:b4fd2ffaadf6e74b31df24cd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début du Printemps
+DESCRIPTION:Date de l'équinoxe de printemps.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20270320
+END:VEVENT
+BEGIN:VEVENT
+UID:fdf2d5b8bf47e09939490375@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Passage à l'heure d'été
+DESCRIPTION:Passage officiel à l'heure d'été en France.
+CATEGORIES:Changement d'heure
+DTSTART;VALUE=DATE:20270328
+END:VEVENT
+BEGIN:VEVENT
+UID:4c2799de9c1186881b96d1aa@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Pâques
+DESCRIPTION:Fête chrétienne : Pâques.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20270328
+END:VEVENT
+BEGIN:VEVENT
+UID:a3736d7cd928229f32a51c6b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lundi de Pâques
+DESCRIPTION:Jour férié en France : Lundi de Pâques.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270329
+END:VEVENT
+BEGIN:VEVENT
+UID:316c792904a330ff27571459@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Poisson d’avril
+DESCRIPTION:Tradition populaire française.
+CATEGORIES:Culture
+DTSTART;VALUE=DATE:20270401
+END:VEVENT
+BEGIN:VEVENT
+UID:71f7d17cf5e12ac44998ad60@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances de Printemps - Zone C
+DESCRIPTION:Vacances de Printemps pour la zone C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270419
+END:VEVENT
+BEGIN:VEVENT
+UID:739668d4474d51c406bb64ce@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances de Printemps - Zone A
+DESCRIPTION:Vacances de Printemps pour la zone A.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270426
+END:VEVENT
+BEGIN:VEVENT
+UID:26a711f4e221300464809699@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances de Printemps - Zone B
+DESCRIPTION:Vacances de Printemps pour la zone B.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270503
+END:VEVENT
+BEGIN:VEVENT
+UID:519a9e684e3d44525d193033@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour de la Terre
+DESCRIPTION:Journée de sensibilisation environnementale.
+CATEGORIES:Environnement
+DTSTART;VALUE=DATE:20270422
+END:VEVENT
+BEGIN:VEVENT
+UID:f9abe39877b26df18f53351e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête du Travail
+DESCRIPTION:Jour férié en France : Fête du Travail.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270501
+END:VEVENT
+BEGIN:VEVENT
+UID:ada44c93d091a6ea2f04b3d4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Ascension
+DESCRIPTION:Jour férié en France : Ascension.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270506
+END:VEVENT
+BEGIN:VEVENT
+UID:b971452139b9b833ed40a94c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Ascension
+DESCRIPTION:Fête chrétienne : Ascension.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20270506
+END:VEVENT
+BEGIN:VEVENT
+UID:db33761c37c8af47f1ae9f7a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Pont de l'Ascension - Zones A\, B et C
+DESCRIPTION:Pont de l'Ascension pour les zones A\, B et C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270507
+END:VEVENT
+BEGIN:VEVENT
+UID:3516ef9d0f8fa4e47bd1424c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête de la Victoire
+DESCRIPTION:Jour férié en France : Fête de la Victoire.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270508
+END:VEVENT
+BEGIN:VEVENT
+UID:485e382f8ab7ee79a9d14c7d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Pentecôte
+DESCRIPTION:Fête chrétienne : Pentecôte.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20270516
+END:VEVENT
+BEGIN:VEVENT
+UID:f0ab7de8b97730e9001dc0c4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lundi de Pentecôte
+DESCRIPTION:Jour férié en France : Lundi de Pentecôte.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270517
+END:VEVENT
+BEGIN:VEVENT
+UID:9965b687e161aca2a85be334@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des Voisins
+DESCRIPTION:Événement convivial national.
+CATEGORIES:Vie citoyenne
+DTSTART;VALUE=DATE:20270528
+END:VEVENT
+BEGIN:VEVENT
+UID:b12096c3215b226e439acd1f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des mères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20270530
+END:VEVENT
+BEGIN:VEVENT
+UID:c5f4db398bde18eb89b7c1e3@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée mondiale sans tabac
+DESCRIPTION:Journée de sensibilisation santé.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20270531
+END:VEVENT
+BEGIN:VEVENT
+UID:bd8ee1c598400b22f5657479@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée mondiale de l’océan
+DESCRIPTION:Journée de sensibilisation environnementale.
+CATEGORIES:Environnement
+DTSTART;VALUE=DATE:20270608
+END:VEVENT
+BEGIN:VEVENT
+UID:56f7c2ce0376d5baa57c4706@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des pères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20270620
+END:VEVENT
+BEGIN:VEVENT
+UID:6b8ba042dfe1f6b30253352a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début de l’Été
+DESCRIPTION:Date du solstice d'été.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20270621
+END:VEVENT
+BEGIN:VEVENT
+UID:4e46bdbf0d57608c5a28c41b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête de la Musique
+DESCRIPTION:Événement culturel national.
+CATEGORIES:Culture
+DTSTART;VALUE=DATE:20270621
+END:VEVENT
+BEGIN:VEVENT
+UID:9f898ee64a870d324e301e8f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour le plus long de l’année
+DESCRIPTION:Correspond au solstice d'été.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20270621
+END:VEVENT
+BEGIN:VEVENT
+UID:a1c6826362ff52dd0007fe2e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début soldes d’été
+DESCRIPTION:Repère commercial national.
+CATEGORIES:Événements spéciaux
+DTSTART;VALUE=DATE:20270628
+END:VEVENT
+BEGIN:VEVENT
+UID:7d01e8d10143843da982a8f3@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Vacances d'Été - Zones A\, B et C
+DESCRIPTION:Vacances d'Été pour les zones A\, B et C.
+CATEGORIES:Vacances scolaires
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270703
+END:VEVENT
+BEGIN:VEVENT
+UID:97d447e166db31f6f1648ffd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête nationale
+DESCRIPTION:Jour férié en France : Fête nationale.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270714
+END:VEVENT
+BEGIN:VEVENT
+UID:4b25dae386cc6460eb1b1f68@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Assomption
+DESCRIPTION:Jour férié en France : Assomption.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270815
+END:VEVENT
+BEGIN:VEVENT
+UID:0b5df303e524499ada774a60@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journées Européennes du Patrimoine (samedi)
+DESCRIPTION:Ouverture de lieux patrimoniaux au public.
+CATEGORIES:Vie citoyenne
+DTSTART;VALUE=DATE:20270918
+END:VEVENT
+BEGIN:VEVENT
+UID:b55b23ed219372d0c1a727e6@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journées Européennes du Patrimoine (dimanche)
+DESCRIPTION:Ouverture de lieux patrimoniaux au public.
+CATEGORIES:Vie citoyenne
+DTSTART;VALUE=DATE:20270919
+END:VEVENT
+BEGIN:VEVENT
+UID:08c6bb80c481cd56f5ff40cc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début de l’Automne
+DESCRIPTION:Date de l'équinoxe d'automne.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20270923
+END:VEVENT
+BEGIN:VEVENT
+UID:1f8e9ef278b23998cb4d6598@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lancement d’Octobre Rose
+DESCRIPTION:Campagne de sensibilisation santé.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20271001
+END:VEVENT
+BEGIN:VEVENT
+UID:52d420fb9a81ceae4fa0c40d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des grands-pères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20271003
+END:VEVENT
+BEGIN:VEVENT
+UID:63e815da5f82d30c0c590f0c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Halloween
+DESCRIPTION:Événement culturel populaire.
+CATEGORIES:Culture
+DTSTART;VALUE=DATE:20271031
+END:VEVENT
+BEGIN:VEVENT
+UID:b70ec6f97344882638e6bede@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Passage à l'heure d'hiver
+DESCRIPTION:Passage officiel à l'heure d'hiver en France.
+CATEGORIES:Changement d'heure
+DTSTART;VALUE=DATE:20271031
+END:VEVENT
+BEGIN:VEVENT
+UID:fff2fa15c317b64fa5d4336d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lancement du Mois sans Tabac
+DESCRIPTION:Campagne nationale de prévention.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20271101
+END:VEVENT
+BEGIN:VEVENT
+UID:a96b3354bde07563b30c8698@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Toussaint
+DESCRIPTION:Jour férié en France : Toussaint.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20271101
+END:VEVENT
+BEGIN:VEVENT
+UID:a9f85eb4c6e8331ebe15a515@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Armistice 1918
+DESCRIPTION:Jour férié en France : Armistice 1918.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20271111
+END:VEVENT
+BEGIN:VEVENT
+UID:5a62b79972919eefacfa6d5b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée internationale des droits de l'enfant
+DESCRIPTION:Journée internationale des droits de l'enfant.
+CATEGORIES:Société
+DTSTART;VALUE=DATE:20271120
+END:VEVENT
+BEGIN:VEVENT
+UID:a9ef6a3708155d0f01df5c0e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Black Friday
+DESCRIPTION:Événement commercial.
+CATEGORIES:Événements spéciaux
+DTSTART;VALUE=DATE:20271126
+END:VEVENT
+BEGIN:VEVENT
+UID:fbd1ab9445b599b991aa8469@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Immaculée Conception
+DESCRIPTION:Fête chrétienne : Immaculée Conception.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20271208
+END:VEVENT
+BEGIN:VEVENT
+UID:c3ef084ae4dee5f381d51b19@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début de l’Hiver
+DESCRIPTION:Date du solstice d'hiver.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20271222
+END:VEVENT
+BEGIN:VEVENT
+UID:f86e04d9742ca13d325d5bc4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour le plus court de l’année
+DESCRIPTION:Correspond au solstice d'hiver.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20271222
+END:VEVENT
+BEGIN:VEVENT
+UID:5bc3470690ef0fd00549072c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Noël
+DESCRIPTION:Jour férié en France : Noël.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20271225
+END:VEVENT
+BEGIN:VEVENT
+UID:0ebdffce2d69d7255e21dbf5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour de l'an
+DESCRIPTION:Jour férié en France : Jour de l'an.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280101
+END:VEVENT
+BEGIN:VEVENT
+UID:18b58bff929eb459be7f177b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début soldes d’hiver
+DESCRIPTION:Repère commercial national.
+CATEGORIES:Événements spéciaux
+DTSTART;VALUE=DATE:20280111
+END:VEVENT
+BEGIN:VEVENT
+UID:6080f49698430e6067d1ff28@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Chandeleur
+DESCRIPTION:Fête de la Chandeleur.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20280202
+END:VEVENT
+BEGIN:VEVENT
+UID:4cb74190c3b2793dd086ee19@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée mondiale contre le cancer
+DESCRIPTION:Journée de sensibilisation santé.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20280204
+END:VEVENT
+BEGIN:VEVENT
+UID:732e4896af2ecadc8a2f09c2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début du Carême
+DESCRIPTION:Repère liturgique : début du Carême.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20280301
+END:VEVENT
+BEGIN:VEVENT
+UID:eec80eae5b0e934eb298045b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des grands-mères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20280305
+END:VEVENT
+BEGIN:VEVENT
+UID:e380b16908035a550713f4c2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée internationale des femmes
+DESCRIPTION:Journée internationale des droits des femmes.
+CATEGORIES:Société
+DTSTART;VALUE=DATE:20280308
+END:VEVENT
+BEGIN:VEVENT
+UID:e8c0acb1837316073632c320@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début du Printemps
+DESCRIPTION:Date de l'équinoxe de printemps.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20280320
+END:VEVENT
+BEGIN:VEVENT
+UID:9cdf8c1d557a63341acebfd3@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Passage à l'heure d'été
+DESCRIPTION:Passage officiel à l'heure d'été en France.
+CATEGORIES:Changement d'heure
+DTSTART;VALUE=DATE:20280326
+END:VEVENT
+BEGIN:VEVENT
+UID:9723665d334437e46bfdf0a4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Poisson d’avril
+DESCRIPTION:Tradition populaire française.
+CATEGORIES:Culture
+DTSTART;VALUE=DATE:20280401
+END:VEVENT
+BEGIN:VEVENT
+UID:2758b65620842d42ee197929@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Pâques
+DESCRIPTION:Fête chrétienne : Pâques.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20280416
+END:VEVENT
+BEGIN:VEVENT
+UID:b4ea3fd669664713c3922f21@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lundi de Pâques
+DESCRIPTION:Jour férié en France : Lundi de Pâques.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280417
+END:VEVENT
+BEGIN:VEVENT
+UID:87bfa797574bee38933b719f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour de la Terre
+DESCRIPTION:Journée de sensibilisation environnementale.
+CATEGORIES:Environnement
+DTSTART;VALUE=DATE:20280422
+END:VEVENT
+BEGIN:VEVENT
+UID:c993a246dce56ec54179fe80@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête du Travail
+DESCRIPTION:Jour férié en France : Fête du Travail.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280501
+END:VEVENT
+BEGIN:VEVENT
+UID:2a74689fe4f7bb09e3edb617@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête de la Victoire
+DESCRIPTION:Jour férié en France : Fête de la Victoire.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280508
+END:VEVENT
+BEGIN:VEVENT
+UID:4ea8e314a21955a63672d260@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Ascension
+DESCRIPTION:Jour férié en France : Ascension.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280525
+END:VEVENT
+BEGIN:VEVENT
+UID:c468307af40610b5d1000489@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Ascension
+DESCRIPTION:Fête chrétienne : Ascension.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20280525
+END:VEVENT
+BEGIN:VEVENT
+UID:8aa7732023d4e63623999923@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des Voisins
+DESCRIPTION:Événement convivial national.
+CATEGORIES:Vie citoyenne
+DTSTART;VALUE=DATE:20280526
+END:VEVENT
+BEGIN:VEVENT
+UID:7f476a1ec074b77def917713@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des mères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20280528
+END:VEVENT
+BEGIN:VEVENT
+UID:83ef2dcec07893be8d79f38d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée mondiale sans tabac
+DESCRIPTION:Journée de sensibilisation santé.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20280531
+END:VEVENT
+BEGIN:VEVENT
+UID:34d410503cb42737d83dc0b1@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Pentecôte
+DESCRIPTION:Fête chrétienne : Pentecôte.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20280604
+END:VEVENT
+BEGIN:VEVENT
+UID:41c82ed3fb1a1ddd15304a13@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lundi de Pentecôte
+DESCRIPTION:Jour férié en France : Lundi de Pentecôte.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280605
+END:VEVENT
+BEGIN:VEVENT
+UID:6a067e6603638eadb3b4b773@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée mondiale de l’océan
+DESCRIPTION:Journée de sensibilisation environnementale.
+CATEGORIES:Environnement
+DTSTART;VALUE=DATE:20280608
+END:VEVENT
+BEGIN:VEVENT
+UID:48b0966bb0ee83bcc85db016@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des pères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20280618
+END:VEVENT
+BEGIN:VEVENT
+UID:4d4efb3a5bcf8fc75c022b8f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début de l’Été
+DESCRIPTION:Date du solstice d'été.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20280620
+END:VEVENT
+BEGIN:VEVENT
+UID:764ce8f93f8635b7d4d0ebf5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour le plus long de l’année
+DESCRIPTION:Correspond au solstice d'été.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20280620
+END:VEVENT
+BEGIN:VEVENT
+UID:5fd8a30a55942879c09c117b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête de la Musique
+DESCRIPTION:Événement culturel national.
+CATEGORIES:Culture
+DTSTART;VALUE=DATE:20280621
+END:VEVENT
+BEGIN:VEVENT
+UID:4aaeb6da388587d5b7597f37@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début soldes d’été
+DESCRIPTION:Repère commercial national.
+CATEGORIES:Événements spéciaux
+DTSTART;VALUE=DATE:20280628
+END:VEVENT
+BEGIN:VEVENT
+UID:4dc657163bbf8ae6a80dfdb7@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête nationale
+DESCRIPTION:Jour férié en France : Fête nationale.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280714
+END:VEVENT
+BEGIN:VEVENT
+UID:afd828d0e2e6416a49b49f5a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Assomption
+DESCRIPTION:Jour férié en France : Assomption.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280815
+END:VEVENT
+BEGIN:VEVENT
+UID:87577c0a1bc816d26564df1f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journées Européennes du Patrimoine (samedi)
+DESCRIPTION:Ouverture de lieux patrimoniaux au public.
+CATEGORIES:Vie citoyenne
+DTSTART;VALUE=DATE:20280916
+END:VEVENT
+BEGIN:VEVENT
+UID:675ea463f62f1446ffd95cf3@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journées Européennes du Patrimoine (dimanche)
+DESCRIPTION:Ouverture de lieux patrimoniaux au public.
+CATEGORIES:Vie citoyenne
+DTSTART;VALUE=DATE:20280917
+END:VEVENT
+BEGIN:VEVENT
+UID:2793d9f8995bd41a50db8c92@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début de l’Automne
+DESCRIPTION:Date de l'équinoxe d'automne.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20280922
+END:VEVENT
+BEGIN:VEVENT
+UID:b033910a21f4020ef3ca5ba5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Fête des grands-pères
+DESCRIPTION:Fête familiale annuelle.
+CATEGORIES:Fêtes familiales
+DTSTART;VALUE=DATE:20281001
+END:VEVENT
+BEGIN:VEVENT
+UID:34642dde080e1bdda3ecf1bc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lancement d’Octobre Rose
+DESCRIPTION:Campagne de sensibilisation santé.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20281001
+END:VEVENT
+BEGIN:VEVENT
+UID:aa57e94d6106fd6089968c17@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Passage à l'heure d'hiver
+DESCRIPTION:Passage officiel à l'heure d'hiver en France.
+CATEGORIES:Changement d'heure
+DTSTART;VALUE=DATE:20281029
+END:VEVENT
+BEGIN:VEVENT
+UID:33caa51e01d905b2c7859a86@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Halloween
+DESCRIPTION:Événement culturel populaire.
+CATEGORIES:Culture
+DTSTART;VALUE=DATE:20281031
+END:VEVENT
+BEGIN:VEVENT
+UID:4826143f8f7fbec923829c7e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Lancement du Mois sans Tabac
+DESCRIPTION:Campagne nationale de prévention.
+CATEGORIES:Santé
+DTSTART;VALUE=DATE:20281101
+END:VEVENT
+BEGIN:VEVENT
+UID:196f640f8bbec2df7a95fbb1@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Toussaint
+DESCRIPTION:Jour férié en France : Toussaint.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20281101
+END:VEVENT
+BEGIN:VEVENT
+UID:e15df3a64efba7be0277ff52@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Armistice 1918
+DESCRIPTION:Jour férié en France : Armistice 1918.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20281111
+END:VEVENT
+BEGIN:VEVENT
+UID:c132090a211bc6b769504c3d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Journée internationale des droits de l'enfant
+DESCRIPTION:Journée internationale des droits de l'enfant.
+CATEGORIES:Société
+DTSTART;VALUE=DATE:20281120
+END:VEVENT
+BEGIN:VEVENT
+UID:16ce909e57309da1d39da468@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Black Friday
+DESCRIPTION:Événement commercial.
+CATEGORIES:Événements spéciaux
+DTSTART;VALUE=DATE:20281124
+END:VEVENT
+BEGIN:VEVENT
+UID:11e22f6cc02fcf1c85478960@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Immaculée Conception
+DESCRIPTION:Fête chrétienne : Immaculée Conception.
+CATEGORIES:Fêtes chrétiennes
+DTSTART;VALUE=DATE:20281208
+END:VEVENT
+BEGIN:VEVENT
+UID:71bf2499c2d19fdd6d63fef9@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Début de l’Hiver
+DESCRIPTION:Date du solstice d'hiver.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20281221
+END:VEVENT
+BEGIN:VEVENT
+UID:eade28127147df59be95d8a8@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Jour le plus court de l’année
+DESCRIPTION:Correspond au solstice d'hiver.
+CATEGORIES:Saisons
+DTSTART;VALUE=DATE:20281221
+END:VEVENT
+BEGIN:VEVENT
+UID:7bd21b95868a95c0777122b1@calendrier-fr.tibotsr.dev
+DTSTAMP:20260302T172418Z
+SUMMARY:Noël
+DESCRIPTION:Jour férié en France : Noël.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20281225
+END:VEVENT
+END:VCALENDAR
