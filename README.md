@@ -17,7 +17,7 @@ Le fichier `.ics` est mis à jour automatiquement grâce à GitHub Actions et es
 
 Tu peux ajouter ce calendrier sur ton iPhone ou Google Calendar en utilisant le lien suivant :
 
-**[Calendrier Complet France](https://tibotsr.github.io/calendrier-france-ics/calendrier.ics)**
+**[Calendrier Complet France](https://calendrier-fr.tibotsr.dev/calendrier.ics)**
 
 
 ---
