@@ -146,8 +146,6 @@ def season_start_dates(year):
     except (requests.RequestException, ValueError, TypeError):
         pass
 
-    return fallback
-
 # ---------------------
 # GÉNÉRATION DU .ICS
 # ---------------------
