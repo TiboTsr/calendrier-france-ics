@@ -3,6 +3,7 @@ import re
 import holidays
 import requests
 from dateutil.parser import isoparse
+from zoneinfo import ZoneInfo
 
 # ---------------------
 # CONFIGURATION
@@ -87,14 +88,26 @@ def canonical_vacation_description(desc):
         return "Pont de l'Ascension"
     return desc or "Vacances"
 
-def to_ics_event(summary, dt_start):
-    return f"BEGIN:VEVENT\nSUMMARY:{summary}\nDTSTART;VALUE=DATE:{dt_start.strftime('%Y%m%d')}\nEND:VEVENT\n"
+def parse_api_date_to_fr_date(value):
+    if not value:
+        return None
+    dt = isoparse(value)
+    if dt.tzinfo is not None:
+        dt = dt.astimezone(ZoneInfo("Europe/Paris"))
+    return dt.date()
 
-def add_unique_event(summary, dt_start, events_seen):
-    event_key = (summary, dt_start)
+def to_ics_event(summary, dt_start, dt_end=None):
+    event = f"BEGIN:VEVENT\nSUMMARY:{summary}\nDTSTART;VALUE=DATE:{dt_start.strftime('%Y%m%d')}\n"
+    if dt_end:
+        event += f"DTEND;VALUE=DATE:{dt_end.strftime('%Y%m%d')}\n"
+    event += "END:VEVENT\n"
+    return event
+
+def add_unique_event(summary, dt_start, events_seen, dt_end=None):
+    event_key = (summary, dt_start, dt_end)
     if event_key not in events_seen:
         events_seen.add(event_key)
-        return to_ics_event(summary, dt_start)
+        return to_ics_event(summary, dt_start, dt_end)
     return ""
 
 def localize_holiday_name(name):
@@ -115,6 +128,13 @@ def localize_holiday_name(name):
     return translations.get(name, name)
 
 def season_start_dates(year):
+    fallback = {
+        "printemps": date(year, 3, 20),
+        "ete": date(year, 6, 21),
+        "automne": date(year, 9, 22),
+        "hiver": date(year, 12, 21),
+    }
+
     try:
         response = requests.get(
             "https://aa.usno.navy.mil/api/seasons",
@@ -145,6 +165,8 @@ def season_start_dates(year):
             return seasons
     except (requests.RequestException, ValueError, TypeError):
         pass
+
+    return fallback
 
 # ---------------------
 # GÉNÉRATION DU .ICS
@@ -224,19 +246,38 @@ response = requests.get(url, params=params, timeout=30)
 response.raise_for_status()
 data = response.json()
 
+vacation_periods = {}
+
 for record in data.get("records", []):
     fields = record.get("fields", {})
     start_str = fields.get("start_date")
+    end_str = fields.get("end_date")
     desc = canonical_vacation_description(fields.get("description", "Vacances"))
     normalized_zones = normalize_zones(fields.get("zones", []))
     population = (fields.get("population") or "").strip().lower()
-    if start_str and "élèves" in population:
-        start = isoparse(start_str).date()
-        if start.year in YEARS:
-            for zone in ZONES:
-                if zone in normalized_zones:
-                    summary = f"{desc} - Zone {zone}"
-                    ics_content += add_unique_event(summary, start, events_seen)
+    is_teacher_only = "enseignant" in population
+    if start_str and end_str and not is_teacher_only:
+        start = parse_api_date_to_fr_date(start_str)
+        end = parse_api_date_to_fr_date(end_str)
+        if not start or not end:
+            continue
+
+        if start.year in YEARS or end.year in YEARS:
+            record_zones = sorted(zone for zone in ZONES if zone in normalized_zones)
+            if record_zones:
+                key = (desc, start, end)
+                if key not in vacation_periods:
+                    vacation_periods[key] = set()
+                vacation_periods[key].update(record_zones)
+
+for (desc, start, end), zones in sorted(vacation_periods.items(), key=lambda item: (item[0][1], item[0][0])):
+    if set(zones) == set(ZONES):
+        summary = f"{desc} - Zones A, B et C"
+        ics_content += add_unique_event(summary, start, events_seen, end)
+    else:
+        for zone in sorted(zones):
+            summary = f"{desc} - Zone {zone}"
+            ics_content += add_unique_event(summary, start, events_seen, end)
 
 ics_content += "END:VCALENDAR\n"
 
