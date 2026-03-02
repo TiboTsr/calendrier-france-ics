@@ -146,6 +146,95 @@
         color: #d4e3ff;
       }
 
+      .events-wrap {
+        margin-top: 28px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 16px;
+      }
+
+      .events-title {
+        margin: 0 0 6px;
+        font-size: 20px;
+      }
+
+      .events-subtitle {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .events-toolbar {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .events-search {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        outline: none;
+      }
+
+      .events-search::placeholder {
+        color: #b9c5e0;
+      }
+
+      .events-search:focus {
+        border-color: #8eb8ff;
+        box-shadow: 0 0 0 3px rgba(110, 168, 254, 0.2);
+      }
+
+      .events-status {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .month-block {
+        margin-top: 16px;
+      }
+
+      .month-heading {
+        margin: 0 0 8px;
+        font-size: 15px;
+        color: #dbe6ff;
+        letter-spacing: 0.2px;
+      }
+
+      .event-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 8px;
+      }
+
+      .event-item {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .event-date {
+        color: #c5d8ff;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .event-name {
+        color: #eff4ff;
+        font-size: 14px;
+      }
+
       footer {
         margin-top: 20px;
         color: var(--muted);
@@ -155,6 +244,11 @@
       @media (max-width: 760px) {
         .grid {
           grid-template-columns: 1fr;
+        }
+
+        .event-item {
+          grid-template-columns: 1fr;
+          gap: 6px;
         }
       }
     </style>
@@ -197,10 +291,185 @@
         <code>https://calendrier-fr.tibotsr.dev/calendrier.ics</code>
       </div>
 
+      <section class="events-wrap" aria-label="Toutes les dates du calendrier ICS">
+        <h2 class="events-title">Toutes les dates du calendrier</h2>
+        <p class="events-subtitle">Liste générée automatiquement depuis le fichier <strong>calendrier.ics</strong>.</p>
+        <div class="events-toolbar">
+          <input id="events-search" class="events-search" type="search" placeholder="Rechercher (ex: vacances, férié, musique, hiver...)" aria-label="Rechercher un événement" />
+        </div>
+        <div id="events-status" class="events-status">Chargement des événements…</div>
+        <div id="events-root"></div>
+      </section>
+
       <footer>
         Projet open source :
         <a href="https://github.com/TiboTsr/calendrier-france-ics" style="color: #c9d8ff">TiboTsr/calendrier-france-ics</a>
       </footer>
     </main>
+
+    <script>
+      const MONTHS_FR = [
+        "janvier", "février", "mars", "avril", "mai", "juin",
+        "juillet", "août", "septembre", "octobre", "novembre", "décembre"
+      ];
+      let allEvents = [];
+
+      function parseIcsDate(value) {
+        const match = value.match(/^(\d{4})(\d{2})(\d{2})$/);
+        if (!match) return null;
+        const year = Number(match[1]);
+        const month = Number(match[2]);
+        const day = Number(match[3]);
+        return new Date(year, month - 1, day);
+      }
+
+      function formatDateFr(dateObj) {
+        return new Intl.DateTimeFormat("fr-FR", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric"
+        }).format(dateObj);
+      }
+
+      function unfoldLines(text) {
+        return text.replace(/\r\n[ \t]/g, "").replace(/\n[ \t]/g, "");
+      }
+
+      function parseEvents(icsText) {
+        const lines = unfoldLines(icsText).split(/\r?\n/);
+        const events = [];
+        let current = null;
+
+        for (const line of lines) {
+          if (line === "BEGIN:VEVENT") {
+            current = { summary: "", dtstart: "" };
+            continue;
+          }
+
+          if (line === "END:VEVENT" && current) {
+            const dateObj = parseIcsDate(current.dtstart);
+            if (current.summary && dateObj) {
+              events.push({
+                summary: current.summary,
+                date: dateObj,
+              });
+            }
+            current = null;
+            continue;
+          }
+
+          if (!current) continue;
+
+          if (line.startsWith("SUMMARY:")) {
+            current.summary = line.substring("SUMMARY:".length).trim();
+          } else if (line.startsWith("DTSTART")) {
+            const idx = line.indexOf(":");
+            if (idx !== -1) {
+              current.dtstart = line.substring(idx + 1).trim();
+            }
+          }
+        }
+
+        events.sort((a, b) => a.date - b.date || a.summary.localeCompare(b.summary, "fr"));
+        return events;
+      }
+
+      function renderEvents(events) {
+        const root = document.getElementById("events-root");
+        const status = document.getElementById("events-status");
+        root.innerHTML = "";
+
+        if (!events.length) {
+          status.textContent = "Aucun événement trouvé pour cette recherche.";
+          return;
+        }
+
+        status.textContent = `${events.length} événements chargés.`;
+        const grouped = new Map();
+
+        for (const event of events) {
+          const key = `${event.date.getFullYear()}-${String(event.date.getMonth() + 1).padStart(2, "0")}`;
+          if (!grouped.has(key)) grouped.set(key, []);
+          grouped.get(key).push(event);
+        }
+
+        for (const [key, monthEvents] of grouped) {
+          const [year, month] = key.split("-");
+          const monthIndex = Number(month) - 1;
+
+          const block = document.createElement("section");
+          block.className = "month-block";
+
+          const heading = document.createElement("h3");
+          heading.className = "month-heading";
+          heading.textContent = `${MONTHS_FR[monthIndex]} ${year}`;
+          block.appendChild(heading);
+
+          const list = document.createElement("ul");
+          list.className = "event-list";
+
+          for (const event of monthEvents) {
+            const item = document.createElement("li");
+            item.className = "event-item";
+
+            const dateSpan = document.createElement("span");
+            dateSpan.className = "event-date";
+            dateSpan.textContent = formatDateFr(event.date);
+
+            const nameSpan = document.createElement("span");
+            nameSpan.className = "event-name";
+            nameSpan.textContent = event.summary;
+
+            item.appendChild(dateSpan);
+            item.appendChild(nameSpan);
+            list.appendChild(item);
+          }
+
+          block.appendChild(list);
+          root.appendChild(block);
+        }
+      }
+
+      function normalizeText(value) {
+        return value
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+      }
+
+      function applyFilter() {
+        const input = document.getElementById("events-search");
+        const query = normalizeText(input.value.trim());
+
+        if (!query) {
+          renderEvents(allEvents);
+          return;
+        }
+
+        const filtered = allEvents.filter((event) => {
+          return normalizeText(event.summary).includes(query);
+        });
+
+        renderEvents(filtered);
+      }
+
+      async function loadIcsEvents() {
+        const status = document.getElementById("events-status");
+        try {
+          const response = await fetch("/calendrier.ics", { cache: "no-store" });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const icsText = await response.text();
+          allEvents = parseEvents(icsText);
+          renderEvents(allEvents);
+          document.getElementById("events-search").addEventListener("input", applyFilter);
+        } catch (error) {
+          status.textContent = "Impossible de charger les événements pour le moment.";
+        }
+      }
+
+      loadIcsEvents();
+    </script>
   </body>
 </html>
