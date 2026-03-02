@@ -40,13 +40,24 @@
       }
 
       .container {
-        width: min(980px, 100%);
+        width: min(1080px, 100%);
         background: var(--card);
         border: 1px solid var(--border);
         backdrop-filter: blur(10px);
         border-radius: 24px;
         padding: clamp(20px, 4vw, 42px);
         box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 2px;
+        background: linear-gradient(90deg, #6ea8fe, #9f7aea, #6ea8fe);
+        opacity: 0.9;
       }
 
       .badge {
@@ -67,6 +78,13 @@
         line-height: 1.05;
       }
 
+      .title-gradient {
+        background: linear-gradient(135deg, #e8efff, #b5c9ff 45%, #d5b5ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
       .subtitle {
         margin: 0;
         color: var(--muted);
@@ -79,6 +97,25 @@
         flex-wrap: wrap;
         gap: 12px;
         margin-top: 28px;
+      }
+
+      .hero-meta {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .meta-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: #dce7ff;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        padding: 6px 10px;
+        background: rgba(255, 255, 255, 0.04);
       }
 
       .btn {
@@ -118,6 +155,13 @@
         border-radius: 16px;
         padding: 16px;
         background: rgba(255, 255, 255, 0.04);
+        transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(183, 212, 255, 0.45);
+        background: rgba(255, 255, 255, 0.07);
       }
 
       .card h3 {
@@ -150,7 +194,7 @@
         margin-top: 28px;
         border: 1px solid var(--border);
         border-radius: 16px;
-        background: rgba(255, 255, 255, 0.03);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
         padding: 16px;
       }
 
@@ -168,6 +212,7 @@
       .events-toolbar {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
         margin-bottom: 12px;
       }
 
@@ -193,6 +238,15 @@
       .events-status {
         color: var(--muted);
         font-size: 14px;
+      }
+
+      .events-meta {
+        color: #c9d8ff;
+        font-size: 13px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        padding: 9px 12px;
+        background: rgba(255, 255, 255, 0.04);
       }
 
       .month-block {
@@ -222,6 +276,12 @@
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background: rgba(255, 255, 255, 0.04);
+        transition: border-color 0.15s ease, background 0.15s ease;
+      }
+
+      .event-item:hover {
+        border-color: rgba(183, 212, 255, 0.45);
+        background: rgba(255, 255, 255, 0.08);
       }
 
       .event-date {
@@ -256,12 +316,18 @@
   <body>
     <main class="container">
       <span class="badge">📅 Mis à jour automatiquement chaque jour</span>
-      <h1>Calendrier Complet France 🇫🇷</h1>
+      <h1 class="title-gradient">Calendrier Complet France 🇫🇷</h1>
       <p class="subtitle">
         Un calendrier ICS prêt à l’emploi pour iPhone, Google Calendar, Outlook et autres apps.
         Il inclut les jours fériés, fêtes, vacances scolaires (zones A/B/C), changements d’heure
         et événements spéciaux.
       </p>
+
+      <div class="hero-meta">
+        <span class="meta-pill">⚡ Mise à jour quotidienne</span>
+        <span class="meta-pill">📱 Compatible iPhone / Google</span>
+        <span class="meta-pill">🇫🇷 Données France</span>
+      </div>
 
       <div class="cta">
         <a class="btn btn-primary" href="/calendrier.ics">Ouvrir le fichier ICS</a>
@@ -296,6 +362,7 @@
         <p class="events-subtitle">Liste générée automatiquement depuis le fichier <strong>calendrier.ics</strong>.</p>
         <div class="events-toolbar">
           <input id="events-search" class="events-search" type="search" placeholder="Rechercher (ex: vacances, férié, musique, hiver...)" aria-label="Rechercher un événement" />
+          <div id="events-meta" class="events-meta">Préparation de l’aperçu…</div>
         </div>
         <div id="events-status" class="events-status">Chargement des événements…</div>
         <div id="events-root"></div>
@@ -377,14 +444,22 @@
       function renderEvents(events) {
         const root = document.getElementById("events-root");
         const status = document.getElementById("events-status");
+        const meta = document.getElementById("events-meta");
         root.innerHTML = "";
 
         if (!events.length) {
           status.textContent = "Aucun événement trouvé pour cette recherche.";
+          meta.textContent = "Aucun résultat";
           return;
         }
 
         status.textContent = `${events.length} événements chargés.`;
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const nextEvent = events.find((event) => event.date >= today);
+        meta.textContent = nextEvent
+          ? `Prochain événement : ${formatDateFr(nextEvent.date)} — ${nextEvent.summary}`
+          : `Dernier événement : ${formatDateFr(events[events.length - 1].date)}`;
         const grouped = new Map();
 
         for (const event of events) {
