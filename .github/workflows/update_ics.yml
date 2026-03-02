@@ -33,6 +33,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./
+          cname: calendrier-fr.tibotsr.dev
           keep_files: true
           commit_message: "🤖 Update ICS"
           force_orphan: true
