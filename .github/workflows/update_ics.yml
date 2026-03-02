@@ -1,0 +1,35 @@
+name: Update ICS
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # tous les jours à minuit
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install holidays requests python-dateutil
+
+      - name: Generate ICS
+        run: python calendrier.py
+
+      - name: Push ICS to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./
+          keep_files: true
+          commit_message: "🤖 Update ICS"
+          force_orphan: true
