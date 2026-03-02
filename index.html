@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendrier Complet France 🇫🇷</title>
+    <meta
+      name="description"
+      content="Calendrier France complet au format ICS : jours fériés, fêtes, vacances scolaires, changements d'heure et événements spéciaux."
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #05070f;
+        --bg-alt: #0b1224;
+        --text: #f4f7ff;
+        --muted: #a9b4d0;
+        --primary: #6ea8fe;
+        --primary-2: #9f7aea;
+        --card: rgba(255, 255, 255, 0.08);
+        --border: rgba(255, 255, 255, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        background:
+          radial-gradient(900px 500px at -10% -10%, #1d2f6f 0%, transparent 55%),
+          radial-gradient(900px 500px at 120% 0%, #3f2a74 0%, transparent 55%),
+          linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 100%);
+        color: var(--text);
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .container {
+        width: min(980px, 100%);
+        background: var(--card);
+        border: 1px solid var(--border);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        padding: clamp(20px, 4vw, 42px);
+        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.06);
+        color: #dbe6ff;
+      }
+
+      h1 {
+        margin: 18px 0 12px;
+        font-size: clamp(30px, 5vw, 56px);
+        line-height: 1.05;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(16px, 2vw, 20px);
+        max-width: 68ch;
+      }
+
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .btn {
+        text-decoration: none;
+        border-radius: 12px;
+        padding: 12px 18px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        color: white;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        box-shadow: 0 10px 30px rgba(110, 168, 254, 0.35);
+      }
+
+      .btn-secondary {
+        color: #e7eeff;
+        border-color: var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .grid {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .link-box {
+        margin-top: 24px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 12px;
+      }
+
+      .link-box code {
+        display: block;
+        word-break: break-all;
+        font-size: 14px;
+        color: #d4e3ff;
+      }
+
+      footer {
+        margin-top: 20px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      @media (max-width: 760px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <span class="badge">📅 Mis à jour automatiquement chaque jour</span>
+      <h1>Calendrier Complet France 🇫🇷</h1>
+      <p class="subtitle">
+        Un calendrier ICS prêt à l’emploi pour iPhone, Google Calendar, Outlook et autres apps.
+        Il inclut les jours fériés, fêtes, vacances scolaires (zones A/B/C), changements d’heure
+        et événements spéciaux.
+      </p>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="/calendrier.ics">Ouvrir le fichier ICS</a>
+        <a class="btn btn-secondary" href="webcal://calendrier-fr.tibotsr.dev/calendrier.ics">S’abonner (webcal)</a>
+      </div>
+
+      <section class="grid" aria-label="Contenu du calendrier">
+        <article class="card">
+          <h3>Jours fériés</h3>
+          <p>Fêtes légales nationales en France, sur plusieurs années glissantes.</p>
+        </article>
+        <article class="card">
+          <h3>Fêtes & dates clés</h3>
+          <p>Fêtes chrétiennes, fêtes familiales et événements spéciaux importants.</p>
+        </article>
+        <article class="card">
+          <h3>Vacances scolaires</h3>
+          <p>Vacances officielles des zones A, B et C.</p>
+        </article>
+        <article class="card">
+          <h3>Changement d’heure</h3>
+          <p>Passages à l’heure d’été et à l’heure d’hiver.</p>
+        </article>
+      </section>
+
+      <div class="link-box">
+        <code>https://calendrier-fr.tibotsr.dev/calendrier.ics</code>
+      </div>
+
+      <footer>
+        Projet open source :
+        <a href="https://github.com/TiboTsr/calendrier-france-ics" style="color: #c9d8ff">TiboTsr/calendrier-france-ics</a>
+      </footer>
+    </main>
+  </body>
+</html>
