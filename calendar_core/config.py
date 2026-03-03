@@ -2,7 +2,9 @@ from datetime import date
 from pathlib import Path
 
 CURRENT_YEAR = date.today().year
-YEARS = range(CURRENT_YEAR, CURRENT_YEAR + 3)
+SITE_START_YEAR = 2000
+FUTURE_YEARS = 5
+YEARS = range(SITE_START_YEAR, CURRENT_YEAR + FUTURE_YEARS + 1)
 ZONES = ["A", "B", "C"]
 DOMAIN = "calendrier-fr.tibotsr.dev"
 

@@ -668,6 +668,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
+        align-items: center;
       }
 
       .month-pagination {
@@ -697,6 +698,66 @@
         background: linear-gradient(135deg, rgba(110, 168, 254, 0.35), rgba(159, 122, 234, 0.35));
         border-color: rgba(176, 198, 255, 0.55);
         color: #f4f8ff;
+      }
+
+      .year-select {
+        border: 1px solid rgba(176, 198, 255, 0.38);
+        border-radius: 999px;
+        background:
+          linear-gradient(135deg, rgba(110, 168, 254, 0.2), rgba(159, 122, 234, 0.18)),
+          #101a34;
+        color: #eef4ff;
+        padding: 8px 38px 8px 14px;
+        font-size: 13px;
+        font-weight: 600;
+        appearance: none;
+        -webkit-appearance: none;
+        min-width: 150px;
+        cursor: pointer;
+        line-height: 1.2;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+        background-image:
+          linear-gradient(45deg, transparent 50%, #dbe8ff 50%),
+          linear-gradient(135deg, #dbe8ff 50%, transparent 50%);
+        background-position:
+          calc(100% - 18px) calc(50% + 2px),
+          calc(100% - 12px) calc(50% + 2px);
+        background-size: 6px 6px, 6px 6px;
+        background-repeat: no-repeat;
+      }
+
+      .year-select:hover {
+        border-color: rgba(198, 219, 255, 0.55);
+        transform: translateY(-1px);
+      }
+
+      .year-select:focus,
+      .year-select:focus-visible {
+        outline: none;
+        border-color: rgba(163, 211, 255, 0.78);
+        box-shadow: 0 0 0 3px rgba(110, 168, 254, 0.28);
+      }
+
+      .year-select option {
+        background: #101a34;
+        color: #eef4ff;
+      }
+
+      .year-picker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 4px;
+      }
+
+      .year-label {
+        color: #d6e4ff;
+        font-size: 12px;
+        font-weight: 600;
+        padding-left: 10px;
       }
 
       .month-btn {
@@ -1080,13 +1141,13 @@
         "Vacances scolaires": "Périodes de vacances des zones A, B et C.",
         "Ponts / Congés": "Dates utiles pour poser des congés autour des jours clés.",
         "Fêtes chrétiennes": "Grandes dates du calendrier chrétien.",
-        Culture: "Fêtes, musique, patrimoine et journées culturelles.",
-        Société: "Dates citoyennes, santé publique et solidarité.",
-        Commercial: "Périodes commerciales et rendez-vous shopping.",
-        Astronomie: "Lune, saisons, phénomènes célestes.",
-        Saisons: "Débuts de saisons et changements de cycle.",
+        "Culture": "Fêtes, musique, patrimoine et journées culturelles.",
+        "Société": "Dates citoyennes, santé publique et solidarité.",
+        "Commercial": "Périodes commerciales et rendez-vous shopping.",
+        "Astronomie": "Lune, saisons, phénomènes célestes.",
+        "Saisons": "Débuts de saisons et changements de cycle.",
         "Événements spéciaux": "Temps forts nationaux ou événementiels.",
-        Personnel: "Événements que tu ajoutes toi-même.",
+        "Personnel": "Événements que tu ajoutes toi-même.",
       };
 
       let sourceEvents = [];
@@ -1463,24 +1524,45 @@
         }
 
         const years = [...new Set(events.map((event) => event.date.getFullYear()))].sort((a, b) => a - b);
-        if (currentYearPage === null || !years.includes(currentYearPage)) {
-          const currentYear = new Date().getFullYear();
-          currentYearPage = years.includes(currentYear) ? currentYear : years[0];
+        const currentYear = new Date().getFullYear();
+        const yearsForSelect = years.filter((year) => year >= 2000);
+        const yearsForPaging = yearsForSelect.length ? yearsForSelect : years;
+
+        if (currentYearPage === null || !yearsForPaging.includes(currentYearPage)) {
+          currentYearPage = yearsForPaging.includes(currentYear) ? currentYear : yearsForPaging[0];
         }
 
-        years.forEach((year) => {
-          const button = document.createElement("button");
-          button.type = "button";
-          button.className = `year-btn${year === currentYearPage ? " active" : ""}`;
-          button.textContent = String(year);
-          button.onclick = () => {
-            currentYearPage = year;
-            currentMonthPage = "all";
-            renderedMonthCount = 0;
-            renderEvents(events);
-          };
-          yearPagination.appendChild(button);
+        const yearPicker = document.createElement("div");
+        yearPicker.className = "year-picker";
+
+        const yearLabel = document.createElement("label");
+        yearLabel.className = "year-label";
+        yearLabel.textContent = "Année";
+        yearLabel.setAttribute("for", "year-select-main");
+
+        const yearSelect = document.createElement("select");
+        yearSelect.id = "year-select-main";
+        yearSelect.className = "year-select";
+        yearSelect.setAttribute("aria-label", "Choisir l'année à afficher");
+        yearsForPaging
+          .slice()
+          .sort((a, b) => b - a)
+          .forEach((year) => {
+          const option = document.createElement("option");
+          option.value = String(year);
+          option.textContent = String(year);
+          yearSelect.appendChild(option);
         });
+        yearSelect.value = String(currentYearPage);
+        yearSelect.onchange = () => {
+          currentYearPage = Number(yearSelect.value);
+          currentMonthPage = "all";
+          renderedMonthCount = 0;
+          renderEvents(events);
+        };
+        yearPicker.appendChild(yearLabel);
+        yearPicker.appendChild(yearSelect);
+        yearPagination.appendChild(yearPicker);
 
         const eventsForYear = events.filter((event) => event.date.getFullYear() === currentYearPage);
         status.textContent = `${eventsForYear.length} événements affichés pour ${currentYearPage} (${events.length} au total).`;

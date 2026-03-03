@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 import re
 
 import requests
@@ -164,6 +164,56 @@ def moon_phase_name(phase: float) -> str:
 
 
 def simple_moon_phases(year: int) -> list[tuple[date, str]]:
+    phase_map = {
+        "New Moon": "Nouvelle Lune",
+        "First Quarter": "Premier Quartier",
+        "Full Moon": "Pleine Lune",
+        "Last Quarter": "Dernier Quartier",
+    }
+
+    try:
+        response = requests.get(
+            "https://aa.usno.navy.mil/api/moon/phases/year",
+            params={"year": year},
+            timeout=20,
+        )
+        response.raise_for_status()
+        payload = response.json()
+        phases: list[tuple[date, str]] = []
+
+        for item in payload.get("phasedata", []):
+            phase_label = phase_map.get(str(item.get("phase", "")).strip())
+            if not phase_label:
+                continue
+
+            item_year = int(item.get("year", year))
+            month = int(item.get("month"))
+            day = int(item.get("day"))
+            raw_time = str(item.get("time", "00:00"))
+
+            try:
+                hour, minute = [int(part) for part in raw_time.split(":", 1)]
+            except (ValueError, TypeError):
+                hour, minute = 0, 0
+
+            dt_utc = datetime(item_year, month, day, hour, minute, tzinfo=timezone.utc)
+            dt_paris = dt_utc.astimezone(ZoneInfo("Europe/Paris"))
+            phases.append((dt_paris.date(), phase_label))
+
+        if phases:
+            deduped: list[tuple[date, str]] = []
+            seen = set()
+            for moon_date, moon_name in sorted(phases, key=lambda value: (value[0], value[1])):
+                key = (moon_date, moon_name)
+                if key in seen:
+                    continue
+                seen.add(key)
+                deduped.append((moon_date, moon_name))
+            if deduped:
+                return deduped
+    except (requests.RequestException, ValueError, TypeError):
+        pass
+
     epoch = date(2000, 1, 6)
     phases: list[tuple[date, str]] = []
     day = date(year, 1, 1)
