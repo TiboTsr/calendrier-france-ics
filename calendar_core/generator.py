@@ -60,8 +60,9 @@ def generate_all() -> None:
 
 	events = build_base_events()
 	events.extend(build_vacation_events())
+	base_events = [event for event in events if "Lunaire" not in event.categories]
 
-	global_ics, global_uids = serialize_calendar(events, "Calendrier Complet France", DOMAIN)
+	global_ics, global_uids = serialize_calendar(base_events, "Calendrier Complet France", DOMAIN)
 	MAIN_ICS_FILE.write_text(global_ics, encoding="utf-8")
 
 	for zone, path in ZONE_FILES.items():
