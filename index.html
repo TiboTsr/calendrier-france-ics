@@ -19,6 +19,31 @@
     <meta name="twitter:description" content="Abonne-toi au calendrier ICS France (fériés, vacances, événements)." />
     <meta name="twitter:image" content="https://calendrier-fr.tibotsr.dev/og-image.svg" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Calendrier Complet France",
+        "description": "Calendrier France personnalisable avec exports ICS globaux et par zone scolaire.",
+        "url": "https://calendrier-fr.tibotsr.dev/",
+        "creator": {
+          "@type": "Person",
+          "name": "TiboTsr"
+        },
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/calendar",
+            "contentUrl": "https://calendrier-fr.tibotsr.dev/calendrier.ics"
+          },
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": "https://calendrier-fr.tibotsr.dev/calendrier.json"
+          }
+        ]
+      }
+    </script>
     <style>
       :root {
         color-scheme: dark;
@@ -225,6 +250,251 @@
         color: #c7d5f2;
         font-size: 12px;
         line-height: 1.4;
+      }
+
+      .customizer {
+        margin-top: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 14px;
+      }
+
+      .customizer-entry {
+        margin-top: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 14px;
+      }
+
+      .customizer-entry p {
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(3, 7, 18, 0.74);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 60;
+      }
+
+      .modal-overlay.open {
+        display: flex;
+      }
+
+      .modal-card {
+        width: min(980px, 100%);
+        max-height: 92vh;
+        overflow: auto;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(16, 26, 52, 0.96), rgba(11, 18, 36, 0.96));
+        backdrop-filter: blur(8px);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
+        padding: 14px;
+      }
+
+      .modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+
+      .modal-head h3 {
+        margin: 0;
+        font-size: 17px;
+      }
+
+      .modal-close {
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #e8f0ff;
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .customizer h3 {
+        margin: 0 0 10px;
+        font-size: 17px;
+      }
+
+      .customizer-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .control-card {
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 12px;
+      }
+
+      .control-card h4 {
+        margin: 0 0 8px;
+        font-size: 14px;
+      }
+
+      .control-card label,
+      .control-card select,
+      .control-card input {
+        font-size: 13px;
+      }
+
+      .control-card select,
+      .control-card input[type="text"],
+      .control-card input[type="date"] {
+        width: 100%;
+        padding: 8px 9px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.17);
+        background: #111b35;
+        color: #f2f6ff;
+      }
+
+      .control-card select {
+        appearance: none;
+        -webkit-appearance: none;
+      }
+
+      .control-card select option {
+        background: #111b35;
+        color: #f2f6ff;
+      }
+
+      .checkbox-list {
+        display: grid;
+        gap: 8px;
+        max-height: 160px;
+        overflow: auto;
+        padding-right: 6px;
+      }
+
+      .category-item {
+        display: block;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 8px 10px;
+      }
+
+      .category-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .category-name {
+        color: #edf3ff;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .category-count {
+        color: #c2d4ff;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 999px;
+        padding: 2px 8px;
+        font-size: 11px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .category-desc {
+        margin-top: 5px;
+        color: #b9c9e8;
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .inline-row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .custom-output {
+        margin-top: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 10px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.04);
+        color: #d2e1ff;
+        font-size: 12px;
+        word-break: break-all;
+      }
+
+      .quick-links {
+        margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .quick-links a {
+        text-decoration: none;
+        color: #e2eeff;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      .preview-wrap {
+        margin-top: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 10px;
+      }
+
+      .preview-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .month-grid {
+        margin-top: 8px;
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      .month-cell {
+        text-align: center;
+        padding: 7px 4px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        background: rgba(255, 255, 255, 0.02);
+        font-size: 12px;
+      }
+
+      .month-cell.highlight {
+        border-color: rgba(77, 226, 197, 0.65);
+        background: rgba(77, 226, 197, 0.18);
+        color: #e8fff9;
+        font-weight: 600;
+      }
+
+      .month-cell.dim {
+        opacity: 0.35;
       }
 
       .hero-meta {
@@ -588,6 +858,10 @@
           grid-template-columns: 1fr;
         }
 
+        .customizer-grid {
+          grid-template-columns: 1fr;
+        }
+
         .events-stats {
           grid-template-columns: 1fr;
         }
@@ -652,6 +926,11 @@
         </div>
       </section>
 
+      <section class="customizer-entry" aria-label="Accès au générateur personnalisé">
+        <p>Tu veux un calendrier sur-mesure ? Ouvre le générateur dans une fenêtre dédiée.</p>
+        <button id="open-customizer" class="btn btn-secondary" type="button">🔗 Faire un lien personnalisé</button>
+      </section>
+
       <section class="grid" aria-label="Contenu du calendrier">
         <article class="card">
           <h3>🎉 Jours fériés</h3>
@@ -697,82 +976,468 @@
       </footer>
     </main>
 
+    <div id="customizer-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Générateur de calendrier personnalisé">
+      <div class="modal-card">
+        <div class="modal-head">
+          <h3>🛠️ Générateur personnalisé (sur-mesure)</h3>
+          <button id="close-customizer" class="modal-close" type="button" aria-label="Fermer le générateur">×</button>
+        </div>
+
+        <section class="customizer">
+          <div class="customizer-grid">
+            <article class="control-card">
+              <h4>Profil & zone</h4>
+              <div class="inline-row">
+                <label for="profile-select">Profil</label>
+              </div>
+              <select id="profile-select">
+                <option value="complet">Complet</option>
+                <option value="essentiel">Essentiel</option>
+                <option value="culturel">Culturel</option>
+                <option value="commercial">Commercial</option>
+              </select>
+              <div class="inline-row" style="margin-top:8px;">
+                <label for="zone-select">Zone scolaire</label>
+              </div>
+              <select id="zone-select">
+                <option value="all">Toutes</option>
+                <option value="A">Zone A</option>
+                <option value="B">Zone B</option>
+                <option value="C">Zone C</option>
+              </select>
+              <div class="inline-row" style="margin-top:8px;">
+                <input id="alarm-toggle" type="checkbox" />
+                <label for="alarm-toggle">Ajouter une alerte 1 jour avant (VALARM)</label>
+              </div>
+            </article>
+
+            <article class="control-card">
+              <h4>Catégories</h4>
+              <div id="categories-list" class="checkbox-list"></div>
+            </article>
+
+            <article class="control-card">
+              <h4>Événements personnels</h4>
+              <input id="personal-title" type="text" placeholder="Titre (ex: Anniversaire Alice)" />
+              <div class="inline-row" style="margin-top:8px;">
+                <label for="personal-recurrence">Récurrence</label>
+              </div>
+              <select id="personal-recurrence" style="margin-top:6px;">
+                <option value="none">Aucune</option>
+                <option value="yearly">Tous les ans</option>
+                <option value="monthly">Tous les mois</option>
+                <option value="weekly">Toutes les semaines</option>
+              </select>
+              <div class="inline-row" style="margin-top:8px;">
+                <input id="personal-date" type="date" />
+                <button id="add-personal-btn" class="load-more-btn" type="button">Ajouter</button>
+              </div>
+              <div id="personal-list" class="custom-output" style="margin-top:8px;">Aucun événement personnel.</div>
+            </article>
+
+            <article class="control-card">
+              <h4>Export & abonnements</h4>
+              <button id="download-custom-btn" class="load-more-btn" type="button">Télécharger mon .ics personnalisé</button>
+              <div id="custom-url" class="custom-output" style="margin-top:8px;">URL personnalisée en préparation…</div>
+              <div class="quick-links">
+                <a id="google-link" href="#" target="_blank" rel="noreferrer">Ajouter Google Calendar</a>
+                <a id="outlook-link" href="#" target="_blank" rel="noreferrer">Ajouter Outlook</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="preview-wrap">
+            <div class="preview-header">
+              <strong id="preview-title">Prévisualisation mensuelle</strong>
+              <div class="inline-row">
+                <button id="prev-month" class="year-btn" type="button">←</button>
+                <button id="next-month" class="year-btn" type="button">→</button>
+              </div>
+            </div>
+            <div id="month-grid" class="month-grid"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
     <script>
-      const MONTHS_FR = [
-        "janvier", "février", "mars", "avril", "mai", "juin",
-        "juillet", "août", "septembre", "octobre", "novembre", "décembre"
-      ];
+      const MONTHS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+      const DAYS_FR = ["L", "M", "M", "J", "V", "S", "D"];
+      const PROFILE_MAP = {
+        essentiel: ["Jours fériés", "Vacances scolaires", "Ponts / Congés"],
+        culturel: ["Jours fériés", "Vacances scolaires", "Culture", "Saisons", "Astronomie", "Société", "Fêtes chrétiennes"],
+        commercial: ["Jours fériés", "Ponts / Congés", "Événements spéciaux", "Commercial"],
+        complet: null,
+      };
+      const RECURRENCE_LABELS = {
+        none: "Aucune",
+        yearly: "Tous les ans",
+        monthly: "Tous les mois",
+        weekly: "Toutes les semaines",
+      };
+      const CATEGORY_DESCRIPTIONS = {
+        "Jours fériés": "Jours fériés nationaux officiels en France.",
+        "Vacances scolaires": "Périodes de vacances des zones A, B et C.",
+        "Ponts / Congés": "Dates utiles pour poser des congés autour des jours clés.",
+        "Fêtes chrétiennes": "Grandes dates du calendrier chrétien.",
+        Culture: "Fêtes, musique, patrimoine et journées culturelles.",
+        Société: "Dates citoyennes, santé publique et solidarité.",
+        Commercial: "Périodes commerciales et rendez-vous shopping.",
+        Astronomie: "Lune, saisons, phénomènes célestes.",
+        Saisons: "Débuts de saisons et changements de cycle.",
+        "Événements spéciaux": "Temps forts nationaux ou événementiels.",
+        Personnel: "Événements que tu ajoutes toi-même.",
+      };
+
+      let sourceEvents = [];
       let allEvents = [];
+      let personalEvents = [];
       let currentYearPage = null;
       let currentMonthPage = "all";
       let renderedMonthCount = 0;
+      let previewDate = new Date();
       const MONTH_RENDER_CHUNK = 4;
 
-      function parseIcsDate(value) {
-        const match = value.match(/^(\d{4})(\d{2})(\d{2})$/);
-        if (!match) return null;
-        const year = Number(match[1]);
-        const month = Number(match[2]);
-        const day = Number(match[3]);
-        return new Date(year, month - 1, day);
+      function parseIsoDate(value) {
+        if (!value) return null;
+        const [y, m, d] = value.split("-").map(Number);
+        return new Date(y, m - 1, d);
+      }
+
+      function toIsoDate(dateObj) {
+        const y = dateObj.getFullYear();
+        const m = String(dateObj.getMonth() + 1).padStart(2, "0");
+        const d = String(dateObj.getDate()).padStart(2, "0");
+        return `${y}-${m}-${d}`;
       }
 
       function formatDateFr(dateObj) {
-        return new Intl.DateTimeFormat("fr-FR", {
-          day: "2-digit",
-          month: "long",
-          year: "numeric"
-        }).format(dateObj);
+        return new Intl.DateTimeFormat("fr-FR", { day: "2-digit", month: "long", year: "numeric" }).format(dateObj);
       }
 
-      function unfoldLines(text) {
-        return text.replace(/\r\n[ \t]/g, "").replace(/\n[ \t]/g, "");
+      function normalizeText(value) {
+        return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       }
 
-      function parseEvents(icsText) {
-        const lines = unfoldLines(icsText).split(/\r?\n/);
-        const events = [];
-        let current = null;
+      function loadPersonalEvents() {
+        try {
+          const raw = localStorage.getItem("calendrier_personal_events");
+          personalEvents = raw ? JSON.parse(raw) : [];
+          personalEvents = personalEvents
+            .filter((ev) => ev && ev.title && ev.date)
+            .map((ev) => ({
+              title: ev.title,
+              date: ev.date,
+              recurrence: ["none", "yearly", "monthly", "weekly"].includes(ev.recurrence) ? ev.recurrence : "none",
+            }));
+        } catch {
+          personalEvents = [];
+        }
+      }
 
-        for (const line of lines) {
-          if (line === "BEGIN:VEVENT") {
-            current = { summary: "", dtstart: "", dtend: "" };
-            continue;
+      function savePersonalEvents() {
+        localStorage.setItem("calendrier_personal_events", JSON.stringify(personalEvents));
+      }
+
+      function renderPersonalList() {
+        const el = document.getElementById("personal-list");
+        if (!personalEvents.length) {
+          el.textContent = "Aucun événement personnel.";
+          return;
+        }
+        el.innerHTML = personalEvents
+          .map((ev, idx) => {
+            const recurrence = RECURRENCE_LABELS[ev.recurrence || "none"] || RECURRENCE_LABELS.none;
+            return `${ev.date} — ${ev.title} <span style="opacity:.8;">(${recurrence})</span> <button data-del="${idx}" class="year-btn" style="padding:2px 8px;">Suppr</button>`;
+          })
+          .join("<br>");
+        el.querySelectorAll("button[data-del]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            personalEvents.splice(Number(btn.getAttribute("data-del")), 1);
+            savePersonalEvents();
+            renderPersonalList();
+            refreshAll();
+          });
+        });
+      }
+
+      function buildCategoriesUI(categories) {
+        const container = document.getElementById("categories-list");
+        container.innerHTML = "";
+        const counts = new Map();
+        sourceEvents.forEach((event) => {
+          (event.categories || []).forEach((category) => {
+            counts.set(category, (counts.get(category) || 0) + 1);
+          });
+        });
+        categories.forEach((cat) => {
+          const id = `cat-${normalizeText(cat).replace(/[^a-z0-9]/g, "-")}`;
+          const row = document.createElement("label");
+          row.className = "category-item";
+          const description = CATEGORY_DESCRIPTIONS[cat] || "Événements liés à cette catégorie.";
+          const count = counts.get(cat) || (cat === "Personnel" ? personalEvents.length : 0);
+          row.innerHTML = `
+            <div class="category-top">
+              <span class="inline-row">
+                <input type="checkbox" id="${id}" data-category="${cat}" checked />
+                <span class="category-name">${cat}</span>
+              </span>
+              <span class="category-count">${count}</span>
+            </div>
+            <div class="category-desc">${description}</div>
+          `;
+          container.appendChild(row);
+        });
+      }
+
+      function expandPersonalEvents(startRange, endRange) {
+        const results = [];
+        personalEvents.forEach((event) => {
+          const startDate = parseIsoDate(event.date);
+          if (!startDate) return;
+          const recurrence = event.recurrence || "none";
+
+          if (recurrence === "none") {
+            if (startDate >= startRange && startDate <= endRange) {
+              results.push({ title: event.title, date: toIsoDate(startDate) });
+            }
+            return;
           }
 
-          if (line === "END:VEVENT" && current) {
-            const dateObj = parseIcsDate(current.dtstart);
-            const endDateObj = parseIcsDate(current.dtend);
-            if (current.summary && dateObj) {
-              events.push({
-                summary: current.summary,
-                date: dateObj,
-                endDate: endDateObj,
-              });
+          if (recurrence === "yearly") {
+            const month = startDate.getMonth();
+            const day = startDate.getDate();
+            for (let year = startRange.getFullYear(); year <= endRange.getFullYear(); year++) {
+              const occurrence = new Date(year, month, day);
+              if (occurrence.getMonth() !== month) continue;
+              if (occurrence >= startRange && occurrence <= endRange) {
+                results.push({ title: event.title, date: toIsoDate(occurrence) });
+              }
             }
-            current = null;
-            continue;
+            return;
           }
 
-          if (!current) continue;
-
-          if (line.startsWith("SUMMARY:")) {
-            current.summary = line.substring("SUMMARY:".length).trim();
-          } else if (line.startsWith("DTSTART")) {
-            const idx = line.indexOf(":");
-            if (idx !== -1) {
-              current.dtstart = line.substring(idx + 1).trim();
+          if (recurrence === "monthly") {
+            const day = startDate.getDate();
+            let cursor = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+            while (cursor <= endRange) {
+              const occurrence = new Date(cursor.getFullYear(), cursor.getMonth(), day);
+              if (occurrence.getMonth() === cursor.getMonth() && occurrence >= startRange && occurrence <= endRange) {
+                results.push({ title: event.title, date: toIsoDate(occurrence) });
+              }
+              cursor = new Date(cursor.getFullYear(), cursor.getMonth() + 1, 1);
             }
-          } else if (line.startsWith("DTEND")) {
-            const idx = line.indexOf(":");
-            if (idx !== -1) {
-              current.dtend = line.substring(idx + 1).trim();
+            return;
+          }
+
+          if (recurrence === "weekly") {
+            let cursor = new Date(startDate);
+            while (cursor < startRange) {
+              cursor = new Date(cursor.getFullYear(), cursor.getMonth(), cursor.getDate() + 7);
+            }
+            while (cursor <= endRange) {
+              results.push({ title: event.title, date: toIsoDate(cursor) });
+              cursor = new Date(cursor.getFullYear(), cursor.getMonth(), cursor.getDate() + 7);
             }
           }
+        });
+        return results;
+      }
+
+      function getSelectedCategories() {
+        return [...document.querySelectorAll("#categories-list input[data-category]:checked")].map((i) => i.getAttribute("data-category"));
+      }
+
+      function applyProfile(profile) {
+        const allowed = PROFILE_MAP[profile];
+        document.querySelectorAll("#categories-list input[data-category]").forEach((input) => {
+          const cat = input.getAttribute("data-category");
+          input.checked = allowed === null ? true : allowed.includes(cat);
+        });
+      }
+
+      function applyStateFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const profile = params.get("profile");
+        const zone = params.get("zone");
+        const alarm = params.get("alarm");
+        const cats = params.get("cats");
+
+        if (profile && PROFILE_MAP.hasOwnProperty(profile)) {
+          document.getElementById("profile-select").value = profile;
+          applyProfile(profile);
         }
 
-        events.sort((a, b) => a.date - b.date || a.summary.localeCompare(b.summary, "fr"));
-        return events;
+        if (zone && ["all", "A", "B", "C"].includes(zone)) {
+          document.getElementById("zone-select").value = zone;
+        }
+
+        if (alarm === "1") {
+          document.getElementById("alarm-toggle").checked = true;
+        }
+
+        if (cats) {
+          const wanted = new Set(cats.split(",").filter(Boolean));
+          document.querySelectorAll("#categories-list input[data-category]").forEach((input) => {
+            input.checked = wanted.has(input.getAttribute("data-category"));
+          });
+        }
+      }
+
+      function getFilteredEvents() {
+        const profile = document.getElementById("profile-select").value;
+        const zone = document.getElementById("zone-select").value;
+        const search = normalizeText(document.getElementById("events-search").value.trim());
+        const selectedCategories = new Set(getSelectedCategories());
+
+        let filtered = sourceEvents.filter((event) => {
+          const eventCategories = event.categories || [];
+          const categoryOk = eventCategories.some((c) => selectedCategories.has(c));
+          const zoneOk = zone === "all" || (event.zones || []).length === 0 || event.zones.includes(zone);
+          const searchOk = !search || normalizeText(event.summary).includes(search) || normalizeText(event.description || "").includes(search);
+          return categoryOk && zoneOk && searchOk;
+        });
+
+        const sourceDates = sourceEvents
+          .map((event) => parseIsoDate(event.start))
+          .filter((date) => date instanceof Date && !Number.isNaN(date.getTime()));
+        const minSourceDate = sourceDates.length ? new Date(Math.min(...sourceDates.map((date) => date.getTime()))) : new Date(new Date().getFullYear(), 0, 1);
+        const maxSourceDate = sourceDates.length ? new Date(Math.max(...sourceDates.map((date) => date.getTime()))) : new Date(new Date().getFullYear() + 2, 11, 31);
+        const personalExpanded = expandPersonalEvents(minSourceDate, maxSourceDate);
+        const personal = personalExpanded.map((ev) => ({
+          summary: ev.title,
+          start: ev.date,
+          end: null,
+          description: "Événement personnel",
+          categories: ["Personnel"],
+          zones: [],
+        }));
+
+        if (profile !== "commercial" && selectedCategories.has("Personnel")) {
+          filtered = filtered.concat(personal);
+        }
+
+        return filtered
+          .map((event) => ({ ...event, date: parseIsoDate(event.start), endDate: parseIsoDate(event.end) }))
+          .sort((a, b) => a.date - b.date || a.summary.localeCompare(b.summary, "fr"));
+      }
+
+      function updateExportLinks(events) {
+        const profile = document.getElementById("profile-select").value;
+        const zone = document.getElementById("zone-select").value;
+        const alarm = document.getElementById("alarm-toggle").checked ? 1 : 0;
+        const selectedCategories = getSelectedCategories();
+        const params = new URLSearchParams({ profile, zone, alarm: String(alarm), cats: selectedCategories.join(",") });
+        const customUrl = `${location.origin}${location.pathname}?${params.toString()}`;
+        document.getElementById("custom-url").textContent = customUrl;
+
+        let icsUrl = `${location.origin}/calendrier.ics`;
+        if (zone !== "all" && profile === "complet") {
+          icsUrl = `${location.origin}/zone-${zone.toLowerCase()}.ics`;
+        } else if (zone === "all" && ["essentiel", "culturel", "commercial", "complet"].includes(profile)) {
+          icsUrl = `${location.origin}/calendrier-${profile}.ics`;
+        }
+
+        const encoded = encodeURIComponent(icsUrl);
+        document.getElementById("google-link").href = `https://www.google.com/calendar/render?cid=${encoded}`;
+        document.getElementById("outlook-link").href = `https://outlook.live.com/calendar/0/deeplink/compose?rru=addsubscription&url=${encoded}`;
+
+        document.getElementById("download-custom-btn").onclick = () => {
+          const ics = buildCustomIcs(events, document.getElementById("alarm-toggle").checked);
+          const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+          const href = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = href;
+          a.download = "calendrier-personnalise.ics";
+          a.click();
+          URL.revokeObjectURL(href);
+        };
+      }
+
+      function buildCustomIcs(events, withAlarm) {
+        const dtstamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+        const lines = [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Calendrier Personnalisé//FR//FR",
+          "CALSCALE:GREGORIAN",
+          "METHOD:PUBLISH",
+        ];
+        events.forEach((event, idx) => {
+          lines.push("BEGIN:VEVENT");
+          lines.push(`UID:custom-${idx}-${toIsoDate(event.date)}@calendrier-fr.tibotsr.dev`);
+          lines.push(`DTSTAMP:${dtstamp}`);
+          lines.push(`SUMMARY:${event.summary.replace(/,/g, "\\,")}`);
+          lines.push(`DESCRIPTION:${(event.description || "").replace(/,/g, "\\,")}`);
+          if ((event.categories || []).length) lines.push(`CATEGORIES:${event.categories.join(",")}`);
+          lines.push(`DTSTART;VALUE=DATE:${toIsoDate(event.date).replace(/-/g, "")}`);
+          if (event.endDate) lines.push(`DTEND;VALUE=DATE:${toIsoDate(event.endDate).replace(/-/g, "")}`);
+          if (withAlarm) {
+            lines.push("BEGIN:VALARM");
+            lines.push("ACTION:DISPLAY");
+            lines.push("DESCRIPTION:Rappel événement");
+            lines.push("TRIGGER:-P1D");
+            lines.push("END:VALARM");
+          }
+          lines.push("END:VEVENT");
+        });
+        lines.push("END:VCALENDAR");
+        return `${lines.join("\n")}\n`;
+      }
+
+      function renderMonthPreview(events) {
+        const title = document.getElementById("preview-title");
+        const grid = document.getElementById("month-grid");
+        grid.innerHTML = "";
+
+        const y = previewDate.getFullYear();
+        const m = previewDate.getMonth();
+        title.textContent = `Prévisualisation mensuelle — ${MONTHS_FR[m]} ${y}`;
+
+        DAYS_FR.forEach((d) => {
+          const head = document.createElement("div");
+          head.className = "month-cell";
+          head.style.fontWeight = "700";
+          head.textContent = d;
+          grid.appendChild(head);
+        });
+
+        const first = new Date(y, m, 1);
+        const offset = (first.getDay() + 6) % 7;
+        const daysInMonth = new Date(y, m + 1, 0).getDate();
+        const monthStart = new Date(y, m, 1);
+        const monthEnd = new Date(y, m, daysInMonth);
+        const highlighted = new Set();
+
+        events.forEach((event) => {
+          const start = event.date;
+          const end = event.endDate && event.endDate >= start ? event.endDate : event.date;
+
+          if (end < monthStart || start > monthEnd) {
+            return;
+          }
+
+          const visibleStart = start < monthStart ? monthStart : start;
+          const visibleEnd = end > monthEnd ? monthEnd : end;
+
+          for (let day = visibleStart.getDate(); day <= visibleEnd.getDate(); day++) {
+            highlighted.add(day);
+          }
+        });
+
+        for (let i = 0; i < offset; i++) {
+          const cell = document.createElement("div");
+          cell.className = "month-cell dim";
+          cell.textContent = "";
+          grid.appendChild(cell);
+        }
+
+        for (let d = 1; d <= daysInMonth; d++) {
+          const cell = document.createElement("div");
+          cell.className = `month-cell${highlighted.has(d) ? " highlight" : ""}`;
+          cell.textContent = String(d);
+          grid.appendChild(cell);
+        }
       }
 
       function renderEvents(events) {
@@ -790,236 +1455,226 @@
         loadMoreWrap.innerHTML = "";
 
         if (!events.length) {
-          status.textContent = "Aucun événement trouvé pour cette recherche.";
+          status.textContent = "Aucun événement trouvé pour cette configuration.";
           meta.textContent = "Aucun résultat";
           currentYearPage = null;
+          renderMonthPreview([]);
           return;
         }
 
         const years = [...new Set(events.map((event) => event.date.getFullYear()))].sort((a, b) => a - b);
         if (currentYearPage === null || !years.includes(currentYearPage)) {
-          const thisYear = new Date().getFullYear();
-          currentYearPage = years.includes(thisYear) ? thisYear : years[0];
+          const currentYear = new Date().getFullYear();
+          currentYearPage = years.includes(currentYear) ? currentYear : years[0];
         }
 
-        for (const year of years) {
+        years.forEach((year) => {
           const button = document.createElement("button");
           button.type = "button";
           button.className = `year-btn${year === currentYearPage ? " active" : ""}`;
           button.textContent = String(year);
-          button.addEventListener("click", () => {
+          button.onclick = () => {
             currentYearPage = year;
             currentMonthPage = "all";
             renderedMonthCount = 0;
             renderEvents(events);
-          });
+          };
           yearPagination.appendChild(button);
-        }
+        });
 
         const eventsForYear = events.filter((event) => event.date.getFullYear() === currentYearPage);
         status.textContent = `${eventsForYear.length} événements affichés pour ${currentYearPage} (${events.length} au total).`;
 
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        const nextEvent = eventsForYear.find((event) => event.date >= today) || events.find((event) => event.date >= today);
-        meta.textContent = nextEvent
-          ? `Prochain événement : ${formatDateFr(nextEvent.date)} — ${nextEvent.summary}`
-          : `Dernier événement : ${formatDateFr(events[events.length - 1].date)}`;
-
-        const firstDate = events[0].date;
-        const lastDate = events[events.length - 1].date;
-        const firstDateYear = eventsForYear[0]?.date;
-        const lastDateYear = eventsForYear[eventsForYear.length - 1]?.date;
+        const next = events.find((e) => e.date >= today);
+        meta.textContent = next ? `Prochain événement : ${formatDateFr(next.date)} — ${next.summary}` : `Dernier événement : ${formatDateFr(events[events.length - 1].date)}`;
 
         const statItems = [
-          {
-            label: `Période ${currentYearPage}`,
-            value: firstDateYear && lastDateYear
-              ? `${formatDateFr(firstDateYear)} → ${formatDateFr(lastDateYear)}`
-              : "-",
-          },
-          { label: "Années couvertes", value: `${years.length} an${years.length > 1 ? "s" : ""}` },
-          { label: "Total d'événements", value: `${events.length}` },
+          { label: "Votre calendrier", value: `${eventsForYear.length} événements cette année` },
+          { label: "Années couvertes", value: `${years.length}` },
+          { label: "Total filtré", value: `${events.length}` },
         ];
-
-        for (const stat of statItems) {
+        statItems.forEach((stat) => {
           const card = document.createElement("div");
           card.className = "events-stat";
-
-          const label = document.createElement("span");
-          label.className = "events-stat-label";
-          label.textContent = stat.label;
-
-          const value = document.createElement("span");
-          value.className = "events-stat-value";
-          value.textContent = stat.value;
-
-          card.appendChild(label);
-          card.appendChild(value);
+          card.innerHTML = `<span class="events-stat-label">${stat.label}</span><span class="events-stat-value">${stat.value}</span>`;
           stats.appendChild(card);
-        }
-        const grouped = new Map();
+        });
 
-        for (const event of eventsForYear) {
+        const grouped = new Map();
+        eventsForYear.forEach((event) => {
           const key = String(event.date.getMonth() + 1).padStart(2, "0");
           if (!grouped.has(key)) grouped.set(key, []);
           grouped.get(key).push(event);
-        }
+        });
 
         const monthEntries = [...grouped.entries()];
-        const monthKeys = monthEntries.map(([key]) => key);
-
-        const allMonthBtn = document.createElement("button");
-        allMonthBtn.type = "button";
-        allMonthBtn.className = `month-btn${currentMonthPage === "all" ? " active" : ""}`;
-        allMonthBtn.textContent = "Tous les mois";
-        allMonthBtn.addEventListener("click", () => {
+        const allBtn = document.createElement("button");
+        allBtn.type = "button";
+        allBtn.className = `month-btn${currentMonthPage === "all" ? " active" : ""}`;
+        allBtn.textContent = "Tous les mois";
+        allBtn.onclick = () => {
           currentMonthPage = "all";
           renderedMonthCount = 0;
           renderEvents(events);
-        });
-        monthPagination.appendChild(allMonthBtn);
+        };
+        monthPagination.appendChild(allBtn);
 
-        for (const monthKey of monthKeys) {
-          const monthIndex = Number(monthKey) - 1;
+        monthEntries.forEach(([key]) => {
+          const idx = Number(key) - 1;
           const btn = document.createElement("button");
           btn.type = "button";
-          btn.className = `month-btn${currentMonthPage === monthKey ? " active" : ""}`;
-          btn.textContent = MONTHS_FR[monthIndex];
-          btn.addEventListener("click", () => {
-            currentMonthPage = monthKey;
+          btn.className = `month-btn${currentMonthPage === key ? " active" : ""}`;
+          btn.textContent = MONTHS_FR[idx];
+          btn.onclick = () => {
+            currentMonthPage = key;
             renderedMonthCount = 0;
             renderEvents(events);
-          });
+          };
           monthPagination.appendChild(btn);
-        }
+        });
 
-        let entriesToRender = monthEntries;
+        let entries = monthEntries;
         if (currentMonthPage !== "all") {
-          entriesToRender = monthEntries.filter(([key]) => key === currentMonthPage);
+          entries = monthEntries.filter(([key]) => key === currentMonthPage);
         } else {
           const target = Math.max(MONTH_RENDER_CHUNK, renderedMonthCount || MONTH_RENDER_CHUNK);
-          entriesToRender = monthEntries.slice(0, target);
+          entries = monthEntries.slice(0, target);
         }
 
-        for (const [key, monthEvents] of entriesToRender) {
+        entries.forEach(([key, monthEvents]) => {
           const monthIndex = Number(key) - 1;
-
           const block = document.createElement("section");
           block.className = "month-block";
-
           const heading = document.createElement("h3");
           heading.className = "month-heading";
-          const monthTitle = document.createElement("span");
-          monthTitle.textContent = `${MONTHS_FR[monthIndex]} ${currentYearPage}`;
-
-          const monthCount = document.createElement("span");
-          monthCount.className = "month-count";
-          monthCount.textContent = `${monthEvents.length} événements`;
-
-          heading.appendChild(monthTitle);
-          heading.appendChild(monthCount);
+          heading.innerHTML = `<span>${MONTHS_FR[monthIndex]} ${currentYearPage}</span><span class="month-count">${monthEvents.length} événements</span>`;
           block.appendChild(heading);
 
           const list = document.createElement("ul");
           list.className = "event-list";
-
-          for (const event of monthEvents) {
+          monthEvents.forEach((event) => {
             const item = document.createElement("li");
             item.className = "event-item";
-
-            const dateSpan = document.createElement("span");
-            dateSpan.className = "event-date";
-            if (event.endDate) {
-              dateSpan.textContent = `${formatDateFr(event.date)} → ${formatDateFr(event.endDate)}`;
-            } else {
-              dateSpan.textContent = formatDateFr(event.date);
-            }
-
-            const nameSpan = document.createElement("span");
-            nameSpan.className = "event-name";
-            nameSpan.textContent = event.summary;
-
-            item.appendChild(dateSpan);
-            item.appendChild(nameSpan);
+            const dateText = event.endDate ? `${formatDateFr(event.date)} → ${formatDateFr(event.endDate)}` : formatDateFr(event.date);
+            item.innerHTML = `<span class="event-date">${dateText}</span><span class="event-name">${event.summary}</span>`;
             list.appendChild(item);
-          }
-
+          });
           block.appendChild(list);
           root.appendChild(block);
-        }
+        });
 
-        if (currentMonthPage === "all" && entriesToRender.length < monthEntries.length) {
+        if (currentMonthPage === "all" && entries.length < monthEntries.length) {
           const btn = document.createElement("button");
           btn.type = "button";
           btn.className = "load-more-btn";
-          const remaining = monthEntries.length - entriesToRender.length;
+          const remaining = monthEntries.length - entries.length;
           btn.textContent = `Afficher ${Math.min(MONTH_RENDER_CHUNK, remaining)} mois de plus`;
-          btn.addEventListener("click", () => {
-            renderedMonthCount = entriesToRender.length + MONTH_RENDER_CHUNK;
+          btn.onclick = () => {
+            renderedMonthCount = entries.length + MONTH_RENDER_CHUNK;
             renderEvents(events);
-          });
+          };
           loadMoreWrap.appendChild(btn);
         }
+
+        renderMonthPreview(events);
       }
 
-      function normalizeText(value) {
-        return value
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "");
+      function refreshAll() {
+        allEvents = getFilteredEvents();
+        updateExportLinks(allEvents);
+        renderEvents(allEvents);
       }
 
-      function applyFilter() {
-        const input = document.getElementById("events-search");
-        const query = normalizeText(input.value.trim());
-
-        if (!query) {
-          renderEvents(allEvents);
-          return;
-        }
-
-        const filtered = allEvents.filter((event) => {
-          return normalizeText(event.summary).includes(query);
-        });
-
-        renderEvents(filtered);
-      }
-
-      async function loadIcsEvents() {
+      async function loadSourceEvents() {
         const status = document.getElementById("events-status");
         try {
-          const response = await fetch("/calendrier.ics", { cache: "no-store" });
-          if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-          }
-          const icsText = await response.text();
-          allEvents = parseEvents(icsText);
-          renderEvents(allEvents);
-          document.getElementById("events-search").addEventListener("input", applyFilter);
+          const response = await fetch("/calendrier.json", { cache: "no-store" });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const payload = await response.json();
+          sourceEvents = payload.events || [];
+          loadPersonalEvents();
+          const categories = [...new Set(sourceEvents.flatMap((event) => event.categories || []))].sort((a, b) => a.localeCompare(b, "fr"));
+          buildCategoriesUI(categories.concat(["Personnel"]));
+          applyProfile("complet");
+          applyStateFromUrl();
+          renderPersonalList();
+          refreshAll();
         } catch (error) {
           status.textContent = "Impossible de charger les événements pour le moment.";
         }
       }
 
       async function loadEventsMeta() {
-        const weeklyBadge = document.getElementById("weekly-new");
+        const badge = document.getElementById("weekly-new");
         try {
           const response = await fetch("/events-meta.json", { cache: "no-store" });
-          if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-          }
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const meta = await response.json();
           const count = Number(meta.newEventsThisWeek || 0);
-          weeklyBadge.textContent = count > 0
-            ? `✨ Nouveaux événements ajoutés cette semaine : ${count}`
-            : "✅ Aucun nouvel événement ajouté cette semaine";
-        } catch (error) {
-          weeklyBadge.textContent = "ℹ️ Statut des nouveautés hebdo indisponible pour le moment";
+          badge.textContent = count > 0 ? `✨ Nouveaux événements ajoutés cette semaine : ${count}` : "✅ Aucun nouvel événement ajouté cette semaine";
+        } catch {
+          badge.textContent = "ℹ️ Statut des nouveautés hebdo indisponible pour le moment";
         }
       }
 
-      loadIcsEvents();
+      document.getElementById("events-search").addEventListener("input", refreshAll);
+      document.getElementById("profile-select").addEventListener("change", (e) => {
+        applyProfile(e.target.value);
+        refreshAll();
+      });
+      document.getElementById("zone-select").addEventListener("change", refreshAll);
+      document.getElementById("alarm-toggle").addEventListener("change", refreshAll);
+      document.getElementById("categories-list").addEventListener("change", refreshAll);
+
+      document.getElementById("add-personal-btn").addEventListener("click", () => {
+        const title = document.getElementById("personal-title").value.trim();
+        const dateValue = document.getElementById("personal-date").value;
+        const recurrence = document.getElementById("personal-recurrence").value;
+        if (!title || !dateValue) return;
+        personalEvents.push({ title, date: dateValue, recurrence });
+        personalEvents.sort((a, b) => a.date.localeCompare(b.date));
+        savePersonalEvents();
+        renderPersonalList();
+        document.getElementById("personal-title").value = "";
+        refreshAll();
+      });
+
+      document.getElementById("prev-month").addEventListener("click", () => {
+        previewDate = new Date(previewDate.getFullYear(), previewDate.getMonth() - 1, 1);
+        renderMonthPreview(allEvents);
+      });
+      document.getElementById("next-month").addEventListener("click", () => {
+        previewDate = new Date(previewDate.getFullYear(), previewDate.getMonth() + 1, 1);
+        renderMonthPreview(allEvents);
+      });
+
+      const customizerModal = document.getElementById("customizer-modal");
+      const openCustomizerBtn = document.getElementById("open-customizer");
+      const closeCustomizerBtn = document.getElementById("close-customizer");
+
+      openCustomizerBtn.addEventListener("click", () => {
+        customizerModal.classList.add("open");
+      });
+
+      closeCustomizerBtn.addEventListener("click", () => {
+        customizerModal.classList.remove("open");
+      });
+
+      customizerModal.addEventListener("click", (event) => {
+        if (event.target === customizerModal) {
+          customizerModal.classList.remove("open");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && customizerModal.classList.contains("open")) {
+          customizerModal.classList.remove("open");
+        }
+      });
+
+      loadSourceEvents();
       loadEventsMeta();
     </script>
   </body>

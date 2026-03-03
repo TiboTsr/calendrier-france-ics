@@ -2,39 +2,41 @@
 
 Ce projet génère un calendrier complet pour la France incluant :
 
-- Jours fériés
-- Fêtes chrétiennes
-- Fêtes familiales
-- Changement d’heure
-- Événements spéciaux (Black Friday, soldes, etc.)
-- Vacances scolaires pour les zones A, B et C
+# Calendrier Complet France 🇫🇷
 
-Le fichier `.ics` est mis à jour automatiquement grâce à GitHub Actions et est accessible publiquement via GitHub Pages.
+Plateforme de calendrier personnalisable (ICS + JSON) avec :
 
----
+- export global `calendrier.ics`
+- export par zone `zone-a.ics`, `zone-b.ics`, `zone-c.ics`
+- export par profil de bruit `calendrier-essentiel.ics`, `calendrier-culturel.ics`, `calendrier-commercial.ics`, `calendrier-complet.ics`
+- base ouverte `calendrier.json`
+- méta changements `events-meta.json`
 
-## 📅 Lien pour iPhone / Google Calendar
+## Lien public
 
-Tu peux ajouter ce calendrier sur ton iPhone ou Google Calendar en utilisant le lien suivant :
+- https://calendrier-fr.tibotsr.dev/
 
-**[Calendrier Complet France](https://calendrier-fr.tibotsr.dev/calendrier.ics)**
-
-
----
-
-## ℹ️ Instructions rapides
-
-1. Ajouter un abonnement sur iPhone :
-   - Ouvre **Calendrier → Calendriers → Ajouter un abonnement**
-   - Colle le lien `.ics` ci-dessus
-   - Ton calendrier se mettra à jour automatiquement chaque jour
-2. Le script `generate_ics.py` régénère le fichier `.ics` avec toutes les fêtes et vacances.
-
----
-
-## 💻 Génération du fichier
-
-Pour générer localement le `.ics` (optionnel) :
+## Génération locale
 
 ```bash
-python generate_ics.py
+python calendrier.py
+```
+
+## Structure du projet
+
+- `calendrier.py` : point d’entrée
+- `calendar_core/config.py` : constantes et profils
+- `calendar_core/models.py` : modèle d’événement
+- `calendar_core/utils.py` : calculs de dates/utilitaires
+- `calendar_core/providers.py` : sources d’événements (fériés, vacances, culture, sport, santé, etc.)
+- `calendar_core/exporters.py` : sérialisation ICS
+- `calendar_core/generator.py` : orchestration globale, exports et métadonnées
+- `scripts/validate_ics.py` : validation automatique de syntaxe ICS
+
+## Déploiement auto
+
+Le workflow GitHub Actions publie automatiquement sur `gh-pages` :
+
+- tous les jours (cron)
+- à chaque push sur `main`
+- à la demande (`workflow_dispatch`)

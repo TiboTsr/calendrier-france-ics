@@ -30,6 +30,9 @@ jobs:
       - name: Generate ICS
         run: python calendrier.py
 
+      - name: Validate ICS syntax
+        run: python scripts/validate_ics.py
+
       - name: Push ICS to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
