@@ -33,12 +33,34 @@ jobs:
       - name: Validate ICS syntax
         run: python scripts/validate_ics.py
 
+      - name: Prepare publish directory
+        run: |
+          rm -rf public
+          mkdir -p public
+          cp index.html public/
+          cp CNAME public/
+          cp .nojekyll public/
+          cp favicon.svg public/
+          cp og-image.svg public/
+          cp calendrier.ics public/
+          cp zone-a.ics public/
+          cp zone-b.ics public/
+          cp zone-c.ics public/
+          cp calendrier-essentiel.ics public/
+          cp calendrier-culturel.ics public/
+          cp calendrier-commercial.ics public/
+          cp calendrier-complet.ics public/
+          cp calendrier.json public/
+          cp calendrier.csv public/
+          cp calendrier.xml public/
+          cp events-meta.json public/
+
       - name: Push ICS to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./
+          publish_dir: ./public
           cname: calendrier-fr.tibotsr.dev
           keep_files: true
           commit_message: "🤖 Update ICS"

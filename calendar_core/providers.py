@@ -210,6 +210,23 @@ def build_base_events() -> list[CalendarEvent]:
             ]
         )
 
+        events.extend(
+            [
+                CalendarEvent(
+                    "Passage à l'heure d'été",
+                    last_sunday(year, 3),
+                    categories=["Changement d’heure"],
+                    description="En France métropolitaine, les horloges avancent d'une heure (UTC+1 vers UTC+2).",
+                ),
+                CalendarEvent(
+                    "Passage à l'heure d'hiver",
+                    last_sunday(year, 10),
+                    categories=["Changement d’heure"],
+                    description="En France métropolitaine, les horloges reculent d'une heure (UTC+2 vers UTC+1).",
+                ),
+            ]
+        )
+
         seasons = season_start_dates(year)
         events.extend(
             [

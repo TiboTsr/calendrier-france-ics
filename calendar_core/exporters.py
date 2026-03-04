@@ -1,4 +1,7 @@
 from datetime import datetime, timezone
+import csv
+from io import StringIO
+from xml.sax.saxutils import escape
 
 from .models import CalendarEvent
 
@@ -48,3 +51,61 @@ def serialize_calendar(events: list[CalendarEvent], cal_name: str, domain: str, 
 
     lines.append("END:VCALENDAR")
     return "\n".join(lines) + "\n", uids
+
+
+def serialize_csv(events: list[CalendarEvent]) -> str:
+    sorted_events = sorted(events, key=lambda event: (event.start, event.summary))
+    buffer = StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(["summary", "start", "end", "categories", "description", "zones"])
+    for event in sorted_events:
+        writer.writerow(
+            [
+                event.summary,
+                event.start.isoformat(),
+                event.end.isoformat() if event.end else "",
+                "|".join(event.categories),
+                event.description,
+                "|".join(sorted(event.zones)) if event.zones else "",
+            ]
+        )
+    return buffer.getvalue()
+
+
+def serialize_rss(events: list[CalendarEvent], title: str, site_url: str) -> str:
+    now_rfc2822 = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
+    sorted_events = sorted(events, key=lambda event: (event.start, event.summary))
+    items = []
+    for event in sorted_events[:200]:
+        event_url = f"{site_url}?date={event.start.isoformat()}"
+        description = event.description or "Événement du calendrier"
+        pub_date = datetime(event.start.year, event.start.month, event.start.day, tzinfo=timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
+        items.append(
+            "\n".join(
+                [
+                    "    <item>",
+                    f"      <title>{escape(event.summary)}</title>",
+                    f"      <link>{escape(event_url)}</link>",
+                    f"      <guid>{escape(event.uid('calendrier-fr.tibotsr.dev'))}</guid>",
+                    f"      <description>{escape(description)}</description>",
+                    f"      <pubDate>{pub_date}</pubDate>",
+                    "    </item>",
+                ]
+            )
+        )
+
+    rss = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<rss version="2.0">',
+        "  <channel>",
+        f"    <title>{escape(title)}</title>",
+        f"    <link>{escape(site_url)}</link>",
+        "    <description>Mises à jour du calendrier France.</description>",
+        "    <language>fr-fr</language>",
+        f"    <lastBuildDate>{now_rfc2822}</lastBuildDate>",
+        *items,
+        "  </channel>",
+        "</rss>",
+        "",
+    ]
+    return "\n".join(rss)

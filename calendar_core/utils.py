@@ -5,6 +5,8 @@ import requests
 from dateutil.parser import isoparse
 from zoneinfo import ZoneInfo
 
+from .models import CalendarEvent
+
 
 def nth_weekday(year: int, month: int, weekday: int, n: int) -> date:
     current = date(year, month, 1)
@@ -226,4 +228,29 @@ def simple_moon_phases(year: int) -> list[tuple[date, str]]:
                 phases.append((day, name))
         day += timedelta(days=1)
     return phases
+
+
+def deduplicate_events(events: list[CalendarEvent]) -> list[CalendarEvent]:
+    merged: dict[tuple[str, date, date | None, tuple[str, ...]], CalendarEvent] = {}
+
+    for event in events:
+        zones_key = tuple(sorted(event.zones)) if event.zones else tuple()
+        key = (event.summary, event.start, event.end, zones_key)
+        if key not in merged:
+            merged[key] = CalendarEvent(
+                summary=event.summary,
+                start=event.start,
+                end=event.end,
+                categories=list(dict.fromkeys(event.categories)),
+                description=event.description,
+                zones=set(event.zones) if event.zones else None,
+            )
+            continue
+
+        current = merged[key]
+        current.categories = list(dict.fromkeys([*current.categories, *event.categories]))
+        if not current.description and event.description:
+            current.description = event.description
+
+    return sorted(merged.values(), key=lambda item: (item.start, item.summary, item.end or item.start))
 

@@ -3,7 +3,9 @@ import json
 from pathlib import Path
 
 from .config import (
+	CALENDAR_CSV_FILE,
 	CALENDAR_JSON_FILE,
+	CALENDAR_RSS_FILE,
 	DOMAIN,
 	EVENTS_META_FILE,
 	MAIN_ICS_FILE,
@@ -11,9 +13,10 @@ from .config import (
 	STRICT_FUTURE_ONLY,
 	ZONE_FILES,
 )
-from .exporters import serialize_calendar
+from .exporters import serialize_calendar, serialize_csv, serialize_rss
 from .models import CalendarEvent
 from .providers import build_base_events, build_vacation_events
+from .utils import deduplicate_events
 
 
 def event_in_zone(event: CalendarEvent, zone: str) -> bool:
@@ -69,6 +72,7 @@ def generate_all() -> None:
 
 	events = build_base_events()
 	events.extend(build_vacation_events())
+	events = deduplicate_events(events)
 	base_events = [event for event in events if "Lunaire" not in event.categories]
 	ics_base_events = [event for event in base_events if event_is_exportable(event, today, STRICT_FUTURE_ONLY)]
 
@@ -94,6 +98,12 @@ def generate_all() -> None:
 		profile_ics, _ = serialize_calendar(profile_events, f"Calendrier France - Profil {profile}", DOMAIN)
 		profile_file.write_text(profile_ics, encoding="utf-8")
 
+	CALENDAR_CSV_FILE.write_text(serialize_csv(events), encoding="utf-8")
+	CALENDAR_RSS_FILE.write_text(
+		serialize_rss(ics_base_events, "Calendrier Complet France - Flux RSS", f"https://{DOMAIN}/"),
+		encoding="utf-8",
+	)
+
 	save_calendar_json(events)
 	save_weekly_meta(global_uids, previous_uids)
 
@@ -103,4 +113,6 @@ def generate_all() -> None:
 	for profile in NOISE_PROFILES.keys():
 		print(f"calendrier-{profile}.ics généré avec succès !")
 	print(f"{CALENDAR_JSON_FILE} généré avec succès !")
+	print(f"{CALENDAR_CSV_FILE} généré avec succès !")
+	print(f"{CALENDAR_RSS_FILE} généré avec succès !")
 	print(f"{EVENTS_META_FILE} généré avec succès !")

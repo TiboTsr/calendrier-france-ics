@@ -59,6 +59,17 @@
         --border: rgba(255, 255, 255, 0.18);
       }
 
+      :root[data-theme="light"] {
+        color-scheme: light;
+        --bg: #f2f6ff;
+        --bg-alt: #e8efff;
+        --bg-soft: #dde8ff;
+        --text: #0f1b34;
+        --muted: #4d5d80;
+        --card: rgba(255, 255, 255, 0.75);
+        --border: rgba(20, 45, 92, 0.18);
+      }
+
       * {
         box-sizing: border-box;
       }
@@ -78,6 +89,14 @@
         padding: 24px;
         background-attachment: fixed;
         position: relative;
+      }
+
+      :root[data-theme="light"] body {
+        background:
+          radial-gradient(900px 500px at -10% -10%, #c7d8ff 0%, transparent 55%),
+          radial-gradient(900px 500px at 120% 0%, #e1d3ff 0%, transparent 55%),
+          radial-gradient(700px 500px at 60% 120%, #b9dcff66 0%, transparent 60%),
+          linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 55%, var(--bg-soft) 100%);
       }
 
       body::before,
@@ -161,6 +180,29 @@
         background: rgba(255, 255, 255, 0.06);
         color: #dbe6ff;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+
+      .top-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .theme-toggle {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #dbe6ff;
+        padding: 8px 12px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      :root[data-theme="light"] .theme-toggle {
+        color: #223457;
+        background: rgba(255, 255, 255, 0.9);
       }
 
       h1 {
@@ -663,6 +705,41 @@
         font-size: 12px;
       }
 
+      .week-preview {
+        margin-top: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 12px;
+      }
+
+      .week-preview h3 {
+        margin: 0 0 8px;
+        font-size: 14px;
+        color: #e6eeff;
+      }
+
+      .week-preview-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 6px;
+      }
+
+      .week-preview-item {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 8px;
+        font-size: 13px;
+        color: #dee9ff;
+      }
+
+      .week-preview-date {
+        color: #b9ccf5;
+        font-weight: 600;
+      }
+
       .year-pagination {
         margin-top: 12px;
         display: flex;
@@ -1007,7 +1084,10 @@
   </head>
   <body>
     <main class="container">
-      <span class="badge">📅 Mis à jour automatiquement chaque jour</span>
+      <div class="top-row">
+        <span class="badge">📅 Mis à jour automatiquement chaque jour</span>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Changer le thème">🌙 Mode sombre</button>
+      </div>
       <h1 class="title-gradient">Calendrier Complet France 🇫🇷</h1>
       <p class="subtitle">
         Un calendrier ICS prêt à l’emploi pour iPhone, Google Calendar, Outlook et autres apps.
@@ -1092,6 +1172,11 @@
         <div id="events-stats" class="events-stats"></div>
         <div id="events-status" class="events-status">Chargement des événements…</div>
         <div id="weekly-new" class="weekly-new">Chargement des nouveautés hebdo…</div>
+        <section class="week-preview" aria-label="Aperçu des 7 prochains jours">
+          <h3>🗓️ Aperçu de la semaine (7 prochains jours)</h3>
+          <div id="week-preview-status" class="events-status">Préparation…</div>
+          <ul id="week-preview-root" class="week-preview-list"></ul>
+        </section>
         <div id="year-pagination" class="year-pagination"></div>
         <div id="month-pagination" class="month-pagination"></div>
         <div id="events-root"></div>
@@ -1134,13 +1219,22 @@
                 <option value="C">Zone C</option>
               </select>
               <div class="inline-row" style="margin-top:8px;">
-                <input id="alarm-toggle" type="checkbox" />
-                <label for="alarm-toggle">Ajouter une alerte 1 jour avant (VALARM)</label>
+                <label for="alarm-offset">Rappel (VALARM)</label>
+              </div>
+              <select id="alarm-offset" style="margin-top:6px;">
+                <option value="none">Aucun rappel</option>
+                <option value="1h">1h avant</option>
+                <option value="1d">1 jour avant</option>
+                <option value="9am">Le jour même à 9h</option>
               </div>
             </article>
 
             <article class="control-card">
               <h4>Catégories</h4>
+              <div class="inline-row" style="margin-bottom:8px;">
+                <button id="save-favorites-btn" class="load-more-btn" type="button">⭐ Sauver favoris</button>
+                <button id="reset-favorites-btn" class="load-more-btn" type="button">♻ Réinitialiser</button>
+              </div>
               <div id="categories-list" class="checkbox-list"></div>
             </article>
 
@@ -1231,6 +1325,7 @@
         "Vacances scolaires": "Périodes de vacances des zones A, B et C.",
         "Ponts / Congés": "Dates utiles pour poser des congés autour des jours clés.",
         "Christianisme": "Grandes fêtes et repères du calendrier chrétien.",
+        "Changement d’heure": "Passages officiels à l'heure d'été et à l'heure d'hiver en France.",
         "Culture": "Fêtes, musique, patrimoine et journées culturelles.",
         "Société": "Dates citoyennes, santé publique et solidarité.",
         "Commercial": "Périodes commerciales et rendez-vous shopping.",
@@ -1250,6 +1345,8 @@
       let previewDate = new Date();
       let preferredYear = null;
       const MONTH_RENDER_CHUNK = 4;
+      const FAVORITE_CATEGORIES_KEY = "calendrier_category_favorites";
+      const THEME_KEY = "calendrier_theme";
 
       function parseIsoDate(value) {
         if (!value) return null;
@@ -1292,6 +1389,75 @@
         const query = url.searchParams.toString();
         const next = `${url.pathname}${query ? `?${query}` : ""}${url.hash}`;
         history.replaceState(null, "", next);
+      }
+
+      function saveCategoryFavorites() {
+        const categories = getSelectedCategories();
+        localStorage.setItem(FAVORITE_CATEGORIES_KEY, JSON.stringify(categories));
+      }
+
+      function applyFavoriteCategories() {
+        const raw = localStorage.getItem(FAVORITE_CATEGORIES_KEY);
+        if (!raw) return false;
+        let saved;
+        try {
+          saved = JSON.parse(raw);
+        } catch {
+          return false;
+        }
+        if (!Array.isArray(saved) || !saved.length) return false;
+        const selected = new Set(saved);
+        document.querySelectorAll("#categories-list input[data-category]").forEach((input) => {
+          input.checked = selected.has(input.getAttribute("data-category"));
+        });
+        return true;
+      }
+
+      function getPreferredTheme() {
+        const saved = localStorage.getItem(THEME_KEY);
+        if (saved === "light" || saved === "dark") return saved;
+        return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+
+      function applyTheme(theme, persist = true) {
+        document.documentElement.setAttribute("data-theme", theme);
+        const button = document.getElementById("theme-toggle");
+        button.textContent = theme === "dark" ? "☀️ Mode clair" : "🌙 Mode sombre";
+        if (persist) {
+          localStorage.setItem(THEME_KEY, theme);
+        }
+      }
+
+      function renderWeekPreview(events) {
+        const status = document.getElementById("week-preview-status");
+        const root = document.getElementById("week-preview-root");
+        root.innerHTML = "";
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const weekEnd = new Date(today);
+        weekEnd.setDate(weekEnd.getDate() + 6);
+
+        const weekEvents = events
+          .filter((event) => {
+            const start = event.date;
+            const end = event.endDate || event.date;
+            return start <= weekEnd && end >= today;
+          })
+          .slice(0, 20);
+
+        if (!weekEvents.length) {
+          status.textContent = "Aucun événement prévu sur les 7 prochains jours.";
+          return;
+        }
+
+        status.textContent = `${weekEvents.length} événement(s) à venir cette semaine.`;
+        weekEvents.forEach((event) => {
+          const item = document.createElement("li");
+          item.className = "week-preview-item";
+          item.innerHTML = `<span class="week-preview-date">${formatEventDateRange(event)}</span><span>${event.summary}</span>`;
+          root.appendChild(item);
+        });
       }
 
       function loadPersonalEvents() {
@@ -1451,7 +1617,9 @@
         }
 
         if (alarm === "1") {
-          document.getElementById("alarm-toggle").checked = true;
+          document.getElementById("alarm-offset").value = "1d";
+        } else if (["none", "1h", "1d", "9am"].includes(alarm || "")) {
+          document.getElementById("alarm-offset").value = alarm;
         }
 
         if (cats) {
@@ -1459,6 +1627,8 @@
           document.querySelectorAll("#categories-list input[data-category]").forEach((input) => {
             input.checked = wanted.has(input.getAttribute("data-category"));
           });
+        } else {
+          applyFavoriteCategories();
         }
       }
 
@@ -1503,7 +1673,7 @@
       function updateExportLinks(events) {
         const profile = document.getElementById("profile-select").value;
         const zone = document.getElementById("zone-select").value;
-        const alarm = document.getElementById("alarm-toggle").checked ? 1 : 0;
+        const alarm = document.getElementById("alarm-offset").value;
         const selectedCategories = getSelectedCategories();
         const params = new URLSearchParams({ profile, zone, alarm: String(alarm), cats: selectedCategories.join(",") });
         const customUrl = `${location.origin}${location.pathname}?${params.toString()}`;
@@ -1521,7 +1691,7 @@
         document.getElementById("outlook-link").href = `https://outlook.live.com/calendar/0/deeplink/compose?rru=addsubscription&url=${encoded}`;
 
         document.getElementById("download-custom-btn").onclick = () => {
-          const ics = buildCustomIcs(events, document.getElementById("alarm-toggle").checked);
+          const ics = buildCustomIcs(events, document.getElementById("alarm-offset").value);
           const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
           const href = URL.createObjectURL(blob);
           const a = document.createElement("a");
@@ -1532,7 +1702,7 @@
         };
       }
 
-      function buildCustomIcs(events, withAlarm) {
+      function buildCustomIcs(events, alarmOffset) {
         const dtstamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
         const lines = [
           "BEGIN:VCALENDAR",
@@ -1550,11 +1720,17 @@
           if ((event.categories || []).length) lines.push(`CATEGORIES:${event.categories.join(",")}`);
           lines.push(`DTSTART;VALUE=DATE:${toIsoDate(event.date).replace(/-/g, "")}`);
           if (event.endDate) lines.push(`DTEND;VALUE=DATE:${toIsoDate(event.endDate).replace(/-/g, "")}`);
-          if (withAlarm) {
+          if (alarmOffset && alarmOffset !== "none") {
             lines.push("BEGIN:VALARM");
             lines.push("ACTION:DISPLAY");
             lines.push("DESCRIPTION:Rappel événement");
-            lines.push("TRIGGER:-P1D");
+            if (alarmOffset === "1h") {
+              lines.push("TRIGGER:-PT1H");
+            } else if (alarmOffset === "9am") {
+              lines.push("TRIGGER;RELATED=START:PT9H");
+            } else {
+              lines.push("TRIGGER:-P1D");
+            }
             lines.push("END:VALARM");
           }
           lines.push("END:VEVENT");
@@ -1850,6 +2026,7 @@
       function refreshAll() {
         allEvents = getFilteredEvents();
         updateExportLinks(allEvents);
+        renderWeekPreview(allEvents);
         renderEvents(allEvents);
       }
 
@@ -1891,8 +2068,20 @@
         refreshAll();
       });
       document.getElementById("zone-select").addEventListener("change", refreshAll);
-      document.getElementById("alarm-toggle").addEventListener("change", refreshAll);
-      document.getElementById("categories-list").addEventListener("change", refreshAll);
+      document.getElementById("alarm-offset").addEventListener("change", refreshAll);
+      document.getElementById("categories-list").addEventListener("change", () => {
+        saveCategoryFavorites();
+        refreshAll();
+      });
+      document.getElementById("save-favorites-btn").addEventListener("click", () => {
+        saveCategoryFavorites();
+        refreshAll();
+      });
+      document.getElementById("reset-favorites-btn").addEventListener("click", () => {
+        localStorage.removeItem(FAVORITE_CATEGORIES_KEY);
+        applyProfile(document.getElementById("profile-select").value);
+        refreshAll();
+      });
 
       document.getElementById("add-personal-btn").addEventListener("click", () => {
         const title = document.getElementById("personal-title").value.trim();
@@ -1953,6 +2142,14 @@
         if (event.target === eventDetailsModal) {
           eventDetailsModal.classList.remove("open");
         }
+      });
+
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      applyTheme(getPreferredTheme(), false);
+      themeToggleBtn.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme") || "dark";
+        const next = current === "dark" ? "light" : "dark";
+        applyTheme(next, true);
       });
 
       loadSourceEvents();

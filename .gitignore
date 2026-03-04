@@ -9,3 +9,5 @@ zone-a.ics
 zone-b.ics
 zone-c.ics
 __pycache__/
+calendrier.csv
+calendrier.xml

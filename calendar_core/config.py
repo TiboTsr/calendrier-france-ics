@@ -12,6 +12,8 @@ DOMAIN = "calendrier-fr.tibotsr.dev"
 MAIN_ICS_FILE = Path("calendrier.ics")
 CALENDAR_JSON_FILE = Path("calendrier.json")
 EVENTS_META_FILE = Path("events-meta.json")
+CALENDAR_CSV_FILE = Path("calendrier.csv")
+CALENDAR_RSS_FILE = Path("calendrier.xml")
 
 ZONE_FILES = {
     "A": Path("zone-a.ics"),
