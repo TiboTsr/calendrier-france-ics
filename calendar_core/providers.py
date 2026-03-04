@@ -19,6 +19,31 @@ from .utils import (
 )
 
 
+def to_roman(value: int) -> str:
+    mapping = [
+        (1000, "M"),
+        (900, "CM"),
+        (500, "D"),
+        (400, "CD"),
+        (100, "C"),
+        (90, "XC"),
+        (50, "L"),
+        (40, "XL"),
+        (10, "X"),
+        (9, "IX"),
+        (5, "V"),
+        (4, "IV"),
+        (1, "I"),
+    ]
+    remaining = value
+    result = []
+    for number, symbol in mapping:
+        while remaining >= number:
+            result.append(symbol)
+            remaining -= number
+    return "".join(result)
+
+
 def build_base_events() -> list[CalendarEvent]:
     events: list[CalendarEvent] = []
 
@@ -40,13 +65,13 @@ def build_base_events() -> list[CalendarEvent]:
         pentecote = easter + timedelta(days=49)
         events.extend(
             [
-                CalendarEvent("Pâques", easter, categories=["Fêtes chrétiennes"], description="Fête chrétienne : Pâques."),
-                CalendarEvent("Ascension", ascension, categories=["Fêtes chrétiennes"], description="Fête chrétienne : Ascension."),
-                CalendarEvent("Pentecôte", pentecote, categories=["Fêtes chrétiennes"], description="Fête chrétienne : Pentecôte."),
+                CalendarEvent("Pâques", easter, categories=["Christianisme"], description="Fête chrétienne : Pâques."),
+                CalendarEvent("Ascension", ascension, categories=["Christianisme"], description="Fête chrétienne : Ascension."),
+                CalendarEvent("Pentecôte", pentecote, categories=["Christianisme"], description="Fête chrétienne : Pentecôte."),
                 CalendarEvent(
                     "Début du Carême",
                     easter - timedelta(days=46),
-                    categories=["Fêtes chrétiennes"],
+                    categories=["Christianisme"],
                     description="Repère liturgique : début du Carême.",
                 ),
             ]
@@ -60,6 +85,105 @@ def build_base_events() -> list[CalendarEvent]:
                 CalendarEvent("Halloween", date(year, 10, 31), categories=["Culture"], description="Événement culturel populaire."),
             ]
         )
+
+        if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
+            events.append(
+                CalendarEvent(
+                    "Jour supplémentaire (année bissextile)",
+                    date(year, 2, 29),
+                    categories=["Dates spéciales"],
+                    description=f"Le 29 février existe uniquement les années bissextiles (tous les 4 ans).",
+                )
+            )
+
+        is_leap_year = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+        mid_year_date = date(year, 7, 1) if is_leap_year else date(year, 7, 2)
+        events.extend(
+            [
+                CalendarEvent(
+                    "Milieu de l'année",
+                    mid_year_date,
+                    categories=["Dates spéciales"],
+                    description=f"Point médian de l'année civile {year} ({mid_year_date.strftime('%d/%m')}).",
+                ),
+                CalendarEvent(
+                    "Dernier jour de l'année",
+                    date(year, 12, 31),
+                    categories=["Dates spéciales"],
+                    description=f"Clôture officielle de l'année civile {year}.",
+                ),
+            ]
+        )
+
+        if year % 10 == 0:
+            decade_end = year + 9
+            events.append(
+                CalendarEvent(
+                    "Début d'une nouvelle décennie",
+                    date(year, 1, 1),
+                    categories=["Dates spéciales"],
+                    description=f"Début de la décennie {year}-{decade_end}.",
+                )
+            )
+
+        if year % 10 == 9:
+            decade_start = year - 9
+            events.append(
+                CalendarEvent(
+                    "Fin d'une décennie",
+                    date(year, 12, 31),
+                    categories=["Dates spéciales"],
+                    description=f"Fin de la décennie {decade_start}-{year}.",
+                )
+            )
+
+        if year % 100 == 1:
+            century_number = (year - 1) // 100 + 1
+            century_label = f"{to_roman(century_number)}e siècle"
+            events.append(
+                CalendarEvent(
+                    "Début d'un nouveau siècle",
+                    date(year, 1, 1),
+                    categories=["Dates spéciales"],
+                    description=f"Début du {century_label} dans le calendrier grégorien.",
+                )
+            )
+
+        if year % 100 == 0:
+            century_number = year // 100
+            century_label = f"{to_roman(century_number)}e siècle"
+            events.append(
+                CalendarEvent(
+                    "Fin d'un siècle",
+                    date(year, 12, 31),
+                    categories=["Dates spéciales"],
+                    description=f"Fin du {century_label} avant le passage au siècle suivant.",
+                )
+            )
+
+        if date(year, 12, 28).isocalendar().week == 53:
+            events.append(
+                CalendarEvent(
+                    "Année avec 53e semaine ISO",
+                    date(year, 12, 28),
+                    categories=["Dates spéciales"],
+                    description=f"L'année {year} comporte une semaine ISO 53 (repère de planning).",
+                )
+            )
+
+        day_cursor = date(year, 1, 1)
+        while day_cursor.year == year:
+            stamp = day_cursor.strftime("%d%m%Y")
+            if stamp == stamp[::-1]:
+                events.append(
+                    CalendarEvent(
+                        "Date palindrome",
+                        day_cursor,
+                        categories=["Dates spéciales"],
+                        description=f"Date lisible dans les deux sens au format JJMMAAAA ({day_cursor.strftime('%d/%m/%Y')}).",
+                    )
+                )
+            day_cursor += timedelta(days=1)
 
         events.extend(
             [

@@ -877,9 +877,72 @@
         transition: border-color 0.15s ease, background 0.15s ease;
       }
 
+      .event-item.clickable {
+        cursor: pointer;
+      }
+
       .event-item:hover {
         border-color: rgba(183, 212, 255, 0.45);
         background: rgba(255, 255, 255, 0.08);
+      }
+
+      .event-item-content {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .event-click-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.04);
+        color: #cfe0ff;
+        font-size: 12px;
+        flex-shrink: 0;
+      }
+
+      .event-details-grid {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .event-detail-card {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 10px;
+      }
+
+      .event-detail-label {
+        display: block;
+        font-size: 12px;
+        color: #b8c7e9;
+        margin-bottom: 4px;
+      }
+
+      .event-detail-value {
+        display: block;
+        font-size: 14px;
+        color: #eef4ff;
+        font-weight: 600;
+      }
+
+      .event-detail-desc {
+        margin-top: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 10px;
+        color: #dbe7ff;
+        font-size: 13px;
+        line-height: 1.45;
       }
 
       .event-date {
@@ -934,6 +997,10 @@
         .event-item {
           grid-template-columns: 1fr;
           gap: 6px;
+        }
+
+        .event-details-grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -999,7 +1066,7 @@
         </article>
         <article class="card">
           <h3>⛪ Fêtes & dates clés</h3>
-          <p>Fêtes chrétiennes, fêtes familiales et événements spéciaux importants.</p>
+          <p>Fêtes chrétiennes, fêtes familiales et dates clés importantes.</p>
         </article>
         <article class="card">
           <h3>🏖️ Vacances scolaires</h3>
@@ -1121,12 +1188,35 @@
       </div>
     </div>
 
+    <div id="event-details-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Détails de l'événement">
+      <div class="modal-card">
+        <div class="modal-head">
+          <h3 id="event-details-title">Détails de l'événement</h3>
+          <button id="close-event-details" class="modal-close" type="button" aria-label="Fermer les détails">×</button>
+        </div>
+        <div class="event-details-grid">
+          <article class="event-detail-card">
+            <span class="event-detail-label">Dernière occurrence</span>
+            <span id="event-last-occurrence" class="event-detail-value">—</span>
+          </article>
+          <article class="event-detail-card">
+            <span class="event-detail-label">Prochaine occurrence</span>
+            <span id="event-next-occurrence" class="event-detail-value">—</span>
+          </article>
+        </div>
+        <div class="event-detail-desc">
+          <strong>Description</strong>
+          <div id="event-details-description" style="margin-top:6px;">Aucune description disponible.</div>
+        </div>
+      </div>
+    </div>
+
     <script>
       const MONTHS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
       const DAYS_FR = ["L", "M", "M", "J", "V", "S", "D"];
       const PROFILE_MAP = {
         essentiel: ["Jours fériés", "Vacances scolaires", "Ponts / Congés"],
-        culturel: ["Jours fériés", "Vacances scolaires", "Culture", "Saisons", "Astronomie", "Société", "Fêtes chrétiennes"],
+        culturel: ["Jours fériés", "Vacances scolaires", "Culture", "Saisons", "Astronomie", "Société", "Christianisme"],
         commercial: ["Jours fériés", "Ponts / Congés", "Événements spéciaux", "Commercial"],
         complet: null,
       };
@@ -1140,12 +1230,13 @@
         "Jours fériés": "Jours fériés nationaux officiels en France.",
         "Vacances scolaires": "Périodes de vacances des zones A, B et C.",
         "Ponts / Congés": "Dates utiles pour poser des congés autour des jours clés.",
-        "Fêtes chrétiennes": "Grandes dates du calendrier chrétien.",
+        "Christianisme": "Grandes fêtes et repères du calendrier chrétien.",
         "Culture": "Fêtes, musique, patrimoine et journées culturelles.",
         "Société": "Dates citoyennes, santé publique et solidarité.",
         "Commercial": "Périodes commerciales et rendez-vous shopping.",
         "Astronomie": "Lune, saisons, phénomènes célestes.",
         "Saisons": "Débuts de saisons et changements de cycle.",
+        "Dates spéciales": "Dates rares, repères calendaires et singularités de l'année.",
         "Événements spéciaux": "Temps forts nationaux ou événementiels.",
         "Personnel": "Événements que tu ajoutes toi-même.",
       };
@@ -1157,6 +1248,7 @@
       let currentMonthPage = "all";
       let renderedMonthCount = 0;
       let previewDate = new Date();
+      let preferredYear = null;
       const MONTH_RENDER_CHUNK = 4;
 
       function parseIsoDate(value) {
@@ -1176,8 +1268,30 @@
         return new Intl.DateTimeFormat("fr-FR", { day: "2-digit", month: "long", year: "numeric" }).format(dateObj);
       }
 
+      function formatEventDateRange(event) {
+        return event.endDate ? `${formatDateFr(event.date)} → ${formatDateFr(event.endDate)}` : formatDateFr(event.date);
+      }
+
       function normalizeText(value) {
         return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      }
+
+      function readStoredYear() {
+        const raw = localStorage.getItem("calendrier_selected_year");
+        if (!raw || !/^\d{4}$/.test(raw)) return null;
+        return Number(raw);
+      }
+
+      function storeSelectedYear(year) {
+        localStorage.setItem("calendrier_selected_year", String(year));
+      }
+
+      function syncYearQueryParam(year) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("year", String(year));
+        const query = url.searchParams.toString();
+        const next = `${url.pathname}${query ? `?${query}` : ""}${url.hash}`;
+        history.replaceState(null, "", next);
       }
 
       function loadPersonalEvents() {
@@ -1323,6 +1437,9 @@
         const zone = params.get("zone");
         const alarm = params.get("alarm");
         const cats = params.get("cats");
+        const year = params.get("year");
+
+        preferredYear = /^\d{4}$/.test(year || "") ? Number(year) : readStoredYear();
 
         if (profile && PROFILE_MAP.hasOwnProperty(profile)) {
           document.getElementById("profile-select").value = profile;
@@ -1501,6 +1618,32 @@
         }
       }
 
+      function openEventDetails(event) {
+        const modal = document.getElementById("event-details-modal");
+        const title = document.getElementById("event-details-title");
+        const lastOccurrenceEl = document.getElementById("event-last-occurrence");
+        const nextOccurrenceEl = document.getElementById("event-next-occurrence");
+        const descriptionEl = document.getElementById("event-details-description");
+
+        const sameSummaryEvents = allEvents
+          .filter((entry) => entry.summary === event.summary)
+          .slice()
+          .sort((a, b) => a.date - b.date);
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const lastOccurrence = [...sameSummaryEvents].reverse().find((entry) => entry.date < today) || null;
+        const nextOccurrence = sameSummaryEvents.find((entry) => entry.date >= today) || null;
+
+        title.textContent = event.summary;
+        lastOccurrenceEl.textContent = lastOccurrence ? formatEventDateRange(lastOccurrence) : "Aucune occurrence passée";
+        nextOccurrenceEl.textContent = nextOccurrence ? formatEventDateRange(nextOccurrence) : "Aucune occurrence future";
+        descriptionEl.textContent = event.description || "Aucune description disponible.";
+
+        modal.classList.add("open");
+      }
+
       function renderEvents(events) {
         const root = document.getElementById("events-root");
         const status = document.getElementById("events-status");
@@ -1527,6 +1670,11 @@
         const currentYear = new Date().getFullYear();
         const yearsForSelect = years.filter((year) => year >= 2000);
         const yearsForPaging = yearsForSelect.length ? yearsForSelect : years;
+
+        if (preferredYear !== null && yearsForPaging.includes(preferredYear)) {
+          currentYearPage = preferredYear;
+          preferredYear = null;
+        }
 
         if (currentYearPage === null || !yearsForPaging.includes(currentYearPage)) {
           currentYearPage = yearsForPaging.includes(currentYear) ? currentYear : yearsForPaging[0];
@@ -1556,13 +1704,39 @@
         yearSelect.value = String(currentYearPage);
         yearSelect.onchange = () => {
           currentYearPage = Number(yearSelect.value);
+          storeSelectedYear(currentYearPage);
+          syncYearQueryParam(currentYearPage);
           currentMonthPage = "all";
           renderedMonthCount = 0;
           renderEvents(events);
         };
+
+        const currentYearBtn = document.createElement("button");
+        currentYearBtn.type = "button";
+        currentYearBtn.className = "year-btn";
+        currentYearBtn.textContent = "Aujourd’hui";
+        currentYearBtn.setAttribute("aria-label", "Revenir à l'année en cours");
+        currentYearBtn.onclick = () => {
+          const targetYear = yearsForPaging.includes(currentYear) ? currentYear : yearsForPaging[yearsForPaging.length - 1];
+          currentYearPage = targetYear;
+          storeSelectedYear(currentYearPage);
+          syncYearQueryParam(currentYearPage);
+          currentMonthPage = "all";
+          renderedMonthCount = 0;
+          renderEvents(events);
+        };
+
+        if (currentYearPage === currentYear) {
+          currentYearBtn.classList.add("active");
+        }
+
         yearPicker.appendChild(yearLabel);
         yearPicker.appendChild(yearSelect);
+        yearPicker.appendChild(currentYearBtn);
         yearPagination.appendChild(yearPicker);
+
+        storeSelectedYear(currentYearPage);
+        syncYearQueryParam(currentYearPage);
 
         const eventsForYear = events.filter((event) => event.date.getFullYear() === currentYearPage);
         status.textContent = `${eventsForYear.length} événements affichés pour ${currentYearPage} (${events.length} au total).`;
@@ -1638,9 +1812,19 @@
           list.className = "event-list";
           monthEvents.forEach((event) => {
             const item = document.createElement("li");
-            item.className = "event-item";
-            const dateText = event.endDate ? `${formatDateFr(event.date)} → ${formatDateFr(event.endDate)}` : formatDateFr(event.date);
-            item.innerHTML = `<span class="event-date">${dateText}</span><span class="event-name">${event.summary}</span>`;
+            item.className = "event-item clickable";
+            item.setAttribute("role", "button");
+            item.setAttribute("tabindex", "0");
+            item.setAttribute("aria-label", `Afficher les détails de ${event.summary}`);
+            const dateText = formatEventDateRange(event);
+            item.innerHTML = `<span class="event-date">${dateText}</span><span class="event-name"><span class="event-item-content">${event.summary}<span class="event-click-icon" aria-hidden="true">ⓘ</span></span></span>`;
+            item.addEventListener("click", () => openEventDetails(event));
+            item.addEventListener("keydown", (keyboardEvent) => {
+              if (keyboardEvent.key === "Enter" || keyboardEvent.key === " ") {
+                keyboardEvent.preventDefault();
+                openEventDetails(event);
+              }
+            });
             list.appendChild(item);
           });
           block.appendChild(list);
@@ -1735,6 +1919,8 @@
       const customizerModal = document.getElementById("customizer-modal");
       const openCustomizerBtn = document.getElementById("open-customizer");
       const closeCustomizerBtn = document.getElementById("close-customizer");
+      const eventDetailsModal = document.getElementById("event-details-modal");
+      const closeEventDetailsBtn = document.getElementById("close-event-details");
 
       openCustomizerBtn.addEventListener("click", () => {
         customizerModal.classList.add("open");
@@ -1753,6 +1939,19 @@
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && customizerModal.classList.contains("open")) {
           customizerModal.classList.remove("open");
+        }
+        if (event.key === "Escape" && eventDetailsModal.classList.contains("open")) {
+          eventDetailsModal.classList.remove("open");
+        }
+      });
+
+      closeEventDetailsBtn.addEventListener("click", () => {
+        eventDetailsModal.classList.remove("open");
+      });
+
+      eventDetailsModal.addEventListener("click", (event) => {
+        if (event.target === eventDetailsModal) {
+          eventDetailsModal.classList.remove("open");
         }
       });
 

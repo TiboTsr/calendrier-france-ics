@@ -8,6 +8,7 @@ from .config import (
 	EVENTS_META_FILE,
 	MAIN_ICS_FILE,
 	NOISE_PROFILES,
+	STRICT_FUTURE_ONLY,
 	ZONE_FILES,
 )
 from .exporters import serialize_calendar
@@ -33,7 +34,9 @@ def parse_uids_from_ics(path: Path) -> set[str]:
 	return {line[4:].strip() for line in content.splitlines() if line.startswith("UID:")}
 
 
-def event_is_current_or_future(event: CalendarEvent, today) -> bool:
+def event_is_exportable(event: CalendarEvent, today, strict_future_only: bool) -> bool:
+	if strict_future_only:
+		return event.start > today
 	effective_end = event.end or event.start
 	return effective_end >= today
 
@@ -67,13 +70,17 @@ def generate_all() -> None:
 	events = build_base_events()
 	events.extend(build_vacation_events())
 	base_events = [event for event in events if "Lunaire" not in event.categories]
-	ics_base_events = [event for event in base_events if event_is_current_or_future(event, today)]
+	ics_base_events = [event for event in base_events if event_is_exportable(event, today, STRICT_FUTURE_ONLY)]
 
 	global_ics, global_uids = serialize_calendar(ics_base_events, "Calendrier Complet France", DOMAIN)
 	MAIN_ICS_FILE.write_text(global_ics, encoding="utf-8")
 
 	for zone, path in ZONE_FILES.items():
-		zone_events = [event for event in events if event_in_zone(event, zone) and event_is_current_or_future(event, today)]
+		zone_events = [
+			event
+			for event in events
+			if event_in_zone(event, zone) and event_is_exportable(event, today, STRICT_FUTURE_ONLY)
+		]
 		zone_ics, _ = serialize_calendar(zone_events, f"Calendrier France - Zone {zone}", DOMAIN)
 		path.write_text(zone_ics, encoding="utf-8")
 
@@ -81,7 +88,7 @@ def generate_all() -> None:
 		profile_events = [
 			event
 			for event in events
-			if event_matches_profile(event, profile) and event_is_current_or_future(event, today)
+			if event_matches_profile(event, profile) and event_is_exportable(event, today, STRICT_FUTURE_ONLY)
 		]
 		profile_file = Path(f"calendrier-{profile}.ics")
 		profile_ics, _ = serialize_calendar(profile_events, f"Calendrier France - Profil {profile}", DOMAIN)

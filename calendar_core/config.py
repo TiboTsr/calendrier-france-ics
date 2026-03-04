@@ -5,6 +5,7 @@ CURRENT_YEAR = date.today().year
 SITE_START_YEAR = 2000
 FUTURE_YEARS = 5
 YEARS = range(SITE_START_YEAR, CURRENT_YEAR + FUTURE_YEARS + 1)
+STRICT_FUTURE_ONLY = False
 ZONES = ["A", "B", "C"]
 DOMAIN = "calendrier-fr.tibotsr.dev"
 
@@ -23,7 +24,7 @@ NOISE_PROFILES = {
     "culturel": {
         "Jours fériés",
         "Vacances scolaires",
-        "Fêtes chrétiennes",
+        "Christianisme",
         "Culture",
         "Saisons",
         "Société",
