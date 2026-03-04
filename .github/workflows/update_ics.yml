@@ -39,7 +39,7 @@ jobs:
           mkdir -p public
           cp index.html public/
           cp CNAME public/
-          cp .nojekyll public/
+          if [ -f .nojekyll ]; then cp .nojekyll public/; else touch public/.nojekyll; fi
           cp favicon.svg public/
           cp og-image.svg public/
           cp calendrier.ics public/
