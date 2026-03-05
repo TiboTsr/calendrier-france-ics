@@ -4,6 +4,7 @@ CONFIG & CONSTANTS
 const MONTHS=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
 const TK="cal_th", FK="cal_fav", YK="cal_yr", PEK="cal_pe";
 const CHUNK=3;
+const DYNAMIC_API_BASE=(window.CALENDAR_API_BASE||"calendrier-fr.tibotsr.dev").replace(/^https?:\/\//,"").replace(/\/$/,"");
 
 const CATS=[
   {n:"Jours fériés",        c:"#ff5a5a",d:"rgba(255,90,90,.12)",   b:"rgba(255,90,90,.3)"},
@@ -340,8 +341,8 @@ function buildAdvUrl(){
   const alarm=document.getElementById("adv-alarm")?.value||"none";
   const cats=[...document.querySelectorAll("#adv-cats input:checked")].map(i=>i.value);
   const p=new URLSearchParams({zone:zones,alarm,cats:cats.join(",")});
-  const wc=`webcal://calendrier-fr.tibotsr.dev/calendrier.ics?${p}`;
-  const ht=`https://calendrier-fr.tibotsr.dev/calendrier.ics?${p}`;
+  const wc=`webcal://${DYNAMIC_API_BASE}/api/calendrier.ics?${p}`;
+  const ht=`https://${DYNAMIC_API_BASE}/api/calendrier.ics?${p}`;
   const el=document.getElementById("adv-url");if(el)el.textContent=wc;
   const s=document.getElementById("adv-sub");if(s)s.href=wc;
   const gg=document.getElementById("adv-ggl");if(gg)gg.href=`https://calendar.google.com/calendar/r?cid=${encodeURIComponent(ht)}`;
@@ -436,7 +437,7 @@ function renderRadar(evts){
   const root=document.getElementById("r-root"),cnt=document.getElementById("r-cnt");
   root.innerHTML="";
   const today=new Date();today.setHours(0,0,0,0);
-  const end=new Date(today);end.setDate(end.getDate()+21);
+  const end=new Date(today);end.setDate(end.getDate()+30);
   const items=evts.filter(e=>e.date<=end&&(e.endDate||e.date)>=today).slice(0,10);
   if(!items.length){root.innerHTML='<span style="font-size:13px;color:var(--t3)">Aucun événement dans les 3 prochaines semaines.</span>';cnt.textContent="";return;}
   cnt.textContent=`${items.length} en approche`;
@@ -780,7 +781,7 @@ init();
       sel:     '#explorer .radar',
       icon:    '📡',
       title:   'Les prochains événements',
-      desc:    'Le radar affiche les événements des 21 prochains jours. Cliquez sur une carte pour voir la fiche détaillée avec occurrences passées et futures.',
+      desc:    'Le radar affiche les événements des 30 prochains jours. Cliquez sur une carte pour voir la fiche détaillée avec occurrences passées et futures.',
       isLast:  true,
       onEnter: function() {
         document.querySelector('#explorer').scrollIntoView({behavior:'smooth',block:'start'});

@@ -52,3 +52,10 @@ Le workflow GitHub Actions publie automatiquement sur `gh-pages` :
 - tous les jours (cron)
 - à chaque push sur `main`
 - à la demande (`workflow_dispatch`)
+
+## API ICS dynamique (Vercel)
+
+Pour que les options avancées (`zone`, `cats`, `alarm`) fonctionnent vraiment, une API dynamique est fournie :
+
+- endpoint : `/api/calendrier.ics`
+- implémentation : [api/calendrier.ics.js](api/calendrier.ics.js)
