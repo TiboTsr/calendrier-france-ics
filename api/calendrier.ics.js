@@ -48,7 +48,7 @@ function makeUid(event) {
     hash ^= key.charCodeAt(i);
     hash = Math.imul(hash, 16777619);
   }
-  return `${(hash >>> 0).toString(16)}@calendrier-fr.vercel.app`;
+  return `${(hash >>> 0).toString(16)}@calendrier-fr.tibotsr.dev`;
 }
 
 function normalizeList(raw) {
@@ -110,7 +110,22 @@ function filterEvents(events, selectedZones, selectedCats) {
   });
 }
 
+function setCorsHeaders(res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+}
+
 module.exports = async function handler(req, res) {
+  setCorsHeaders(res);
+
+  // Preflight OPTIONS
+  if (req.method === "OPTIONS") {
+    res.statusCode = 204;
+    res.end();
+    return;
+  }
+
   try {
     const url = new URL(req.url, `https://${req.headers.host}`);
     const selectedZones = normalizeList(url.searchParams.get("zone"));

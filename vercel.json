@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "name": "calendrier-fr-api",
+  "routes": [
+    {
+      "src": "/api/calendrier.ics",
+      "dest": "/api/calendrier.ics.js",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
+      }
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/calendrier.ics.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    }
+  ],
+  "env": {
+    "CALENDAR_JSON_URL": "https://calendrier-fr.tibotsr.dev/calendrier.json"
+  }
+}

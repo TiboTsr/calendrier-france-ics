@@ -5,8 +5,8 @@ const MONTHS=["janvier","février","mars","avril","mai","juin","juillet","août"
 const TK="cal_th", FK="cal_fav", YK="cal_yr", PEK="cal_pe";
 const CHUNK=3;
 const DYNAMIC_API_BASE=(window.CALENDAR_API_BASE||"calendrier-fr.vercel.app").replace(/^https?:\/\//,"").replace(/\/$/,"");
-const DYNAMIC_ICS_WEBCAL=`webcal://${DYNAMIC_API_BASE}/api/calendrier.ics`;
-const DYNAMIC_ICS_HTTPS=`https://${DYNAMIC_API_BASE}/api/calendrier.ics`;
+const DYNAMIC_ICS_WEBCAL=`webcal://api.calendrier-fr.tibotsr.dev/api/calendrier.ics`;
+const DYNAMIC_ICS_HTTPS=`https://api.calendrier-fr.tibotsr.dev/calendrier.ics`;
 
 const CATS=[
   {n:"Jours fériés",        c:"#ff5a5a",d:"rgba(255,90,90,.12)",   b:"rgba(255,90,90,.3)"},

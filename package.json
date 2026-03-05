@@ -1,0 +1,8 @@
+{
+  "name": "calendrier-fr-api",
+  "version": "1.0.0",
+  "description": "API ICS dynamique pour Calendrier France",
+  "engines": {
+    "node": ">=18"
+  }
+}
