@@ -54,6 +54,7 @@ jobs:
           cp calendrier.csv public/
           cp calendrier.xml public/
           cp events-meta.json public/
+          cp zone-departments.json public/
 
       - name: Push ICS to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

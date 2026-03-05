@@ -288,7 +288,6 @@ def build_vacation_events() -> list[CalendarEvent]:
             summary = f"{description} - Zones A, B et C"
             event_zones = set(ZONES)
         else:
-            # One event per zone when dates differ.
             for zone in sorted(zones):
                 events.append(
                     CalendarEvent(

@@ -32,6 +32,6 @@ NOISE_PROFILES = {
         "Société",
         "Astronomie",
     },
-    "commercial": {"Événements spéciaux", "Jours fériés", "Ponts / Congés"},
+    "commercial": {"Événements spéciaux", "Jours fériés", "Ponts / Congés", "Commercial"},
     "complet": None,
 }

@@ -1,22 +1,31 @@
 # Calendrier Complet France 🇫🇷
 
-Ce projet génère un calendrier complet pour la France incluant :
+Plateforme de calendrier personnalisable (ICS + JSON) pour la France.
 
-# Calendrier Complet France 🇫🇷
-
-Plateforme de calendrier personnalisable (ICS + JSON) avec :
+## Contenu généré
 
 - export global `calendrier.ics`
 - export par zone `zone-a.ics`, `zone-b.ics`, `zone-c.ics`
-- export par profil de bruit `calendrier-essentiel.ics`, `calendrier-culturel.ics`, `calendrier-commercial.ics`, `calendrier-complet.ics`
+- export par profil `calendrier-essentiel.ics`, `calendrier-culturel.ics`, `calendrier-commercial.ics`, `calendrier-complet.ics`
 - base ouverte `calendrier.json`
-- méta changements `events-meta.json`
+- métadonnées `events-meta.json`
+
+## Nouveautés récentes
+
+- Frontend séparé en fichiers dédiés :
+	- `index.html` (structure)
+	- `assets/css/styles.css` (styles)
+	- `assets/js/app.js` (logique)
+- Ajout d’un écran de chargement au démarrage de l’application.
+- Ajout d’un tutoriel de première visite (onboarding guidé).
+- Amélioration de la recherche de zone scolaire par ville (gestion des communes homonymes).
+- Améliorations UX de navigation/lecture (barres sticky, section de découverte enrichie).
 
 ## Lien public
 
 - https://calendrier-fr.tibotsr.dev/
 
-## Génération locale
+## Génération locale (optionnel)
 
 ```bash
 python calendrier.py
@@ -24,7 +33,7 @@ python calendrier.py
 
 ## Structure du projet
 
-- `calendrier.py` : point d’entrée
+- `calendrier.py` : point d’entrée de génération
 - `calendar_core/config.py` : constantes et profils
 - `calendar_core/models.py` : modèle d’événement
 - `calendar_core/utils.py` : calculs de dates/utilitaires
@@ -32,6 +41,9 @@ python calendrier.py
 - `calendar_core/exporters.py` : sérialisation ICS
 - `calendar_core/generator.py` : orchestration globale, exports et métadonnées
 - `scripts/validate_ics.py` : validation automatique de syntaxe ICS
+- `index.html` : page web principale
+- `assets/css/styles.css` : styles de l’interface
+- `assets/js/app.js` : scripts frontend (filtres, zone finder, rendu)
 
 ## Déploiement auto
 

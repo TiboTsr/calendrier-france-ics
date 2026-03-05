@@ -1,2159 +1,651 @@
-<!doctype html>
-<html lang="fr">
+﻿<!doctype html>
+<html lang="fr" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendrier Complet France 🇫🇷</title>
+    <title>Calendrier France — Jours fériés, vacances & plus</title>
     <meta
       name="description"
-      content="Calendrier France complet au format ICS : jours fériés, fêtes, vacances scolaires, changements d'heure et événements spéciaux."
+      content="Calendrier France complet : jours fériés, vacances scolaires zones A/B/C, saisons et changements d'heure. Abonnement ICS gratuit compatible Google, Apple et Outlook."
     />
+    <meta
+      name="keywords"
+      content="calendrier france, jours fériés, vacances scolaires, zone a, zone b, zone c, ics, google calendar, outlook, apple calendar"
+    />
+    <meta name="author" content="Calendrier France" />
+    <meta
+      name="robots"
+      content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+    />
+    <link rel="canonical" href="https://calendrier-fr.tibotsr.dev/" />
+
+    <meta property="og:locale" content="fr_FR" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Calendrier Complet France 🇫🇷" />
-    <meta property="og:description" content="Calendrier ICS France : jours fériés, vacances scolaires, saisons et événements clés." />
+    <meta property="og:site_name" content="Calendrier France" />
+    <meta
+      property="og:title"
+      content="Calendrier France — Jours fériés, vacances & plus"
+    />
+    <meta
+      property="og:description"
+      content="Synchronisez automatiquement jours fériés, vacances scolaires A/B/C et changements d'heure avec un lien ICS gratuit."
+    />
     <meta property="og:url" content="https://calendrier-fr.tibotsr.dev/" />
-    <meta property="og:image" content="https://calendrier-fr.tibotsr.dev/og-image.svg" />
-    <meta property="og:image:type" content="image/svg+xml" />
+    <meta
+      property="og:image"
+      content="https://calendrier-fr.tibotsr.dev/og-image.svg"
+    />
+    <meta property="og:image:alt" content="Aperçu Calendrier France" />
+
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Calendrier Complet France 🇫🇷" />
-    <meta name="twitter:description" content="Abonne-toi au calendrier ICS France (fériés, vacances, événements)." />
-    <meta name="twitter:image" content="https://calendrier-fr.tibotsr.dev/og-image.svg" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="twitter:title"
+      content="Calendrier France — Jours fériés, vacances & plus"
+    />
+    <meta
+      name="twitter:description"
+      content="Flux ICS gratuit pour suivre les événements clés en France sur Google, Apple et Outlook."
+    />
+    <meta
+      name="twitter:image"
+      content="https://calendrier-fr.tibotsr.dev/og-image.svg"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="./img/icon.svg" />
+    <link rel="shortcut icon" href="./img/icon.svg" />
+    <link rel="apple-touch-icon" href="./img/icon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Dataset",
-        "name": "Calendrier Complet France",
-        "description": "Calendrier France personnalisable avec exports ICS globaux et par zone scolaire.",
+        "@type": "WebSite",
+        "name": "Calendrier France",
         "url": "https://calendrier-fr.tibotsr.dev/",
-        "creator": {
-          "@type": "Person",
-          "name": "TiboTsr"
-        },
-        "distribution": [
-          {
-            "@type": "DataDownload",
-            "encodingFormat": "text/calendar",
-            "contentUrl": "https://calendrier-fr.tibotsr.dev/calendrier.ics"
-          },
-          {
-            "@type": "DataDownload",
-            "encodingFormat": "application/json",
-            "contentUrl": "https://calendrier-fr.tibotsr.dev/calendrier.json"
-          }
-        ]
+        "inLanguage": "fr-FR",
+        "description": "Calendrier France complet avec jours fériés, vacances scolaires zones A/B/C et export ICS.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://calendrier-fr.tibotsr.dev/#zone",
+          "query-input": "required name=ville"
+        }
       }
     </script>
-    <style>
-      :root {
-        color-scheme: dark;
-        --bg: #05070f;
-        --bg-alt: #0b1224;
-        --bg-soft: #101a34;
-        --text: #f4f7ff;
-        --muted: #a9b4d0;
-        --primary: #6ea8fe;
-        --primary-2: #9f7aea;
-        --primary-3: #4de2c5;
-        --card: rgba(255, 255, 255, 0.08);
-        --border: rgba(255, 255, 255, 0.18);
-      }
-
-      :root[data-theme="light"] {
-        color-scheme: light;
-        --bg: #f2f6ff;
-        --bg-alt: #e8efff;
-        --bg-soft: #dde8ff;
-        --text: #0f1b34;
-        --muted: #4d5d80;
-        --card: rgba(255, 255, 255, 0.75);
-        --border: rgba(20, 45, 92, 0.18);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-        background:
-          radial-gradient(900px 500px at -10% -10%, #1d2f6f 0%, transparent 55%),
-          radial-gradient(900px 500px at 120% 0%, #3f2a74 0%, transparent 55%),
-          radial-gradient(700px 500px at 60% 120%, #12426f33 0%, transparent 60%),
-          linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 55%, var(--bg-soft) 100%);
-        color: var(--text);
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-        background-attachment: fixed;
-        position: relative;
-      }
-
-      :root[data-theme="light"] body {
-        background:
-          radial-gradient(900px 500px at -10% -10%, #c7d8ff 0%, transparent 55%),
-          radial-gradient(900px 500px at 120% 0%, #e1d3ff 0%, transparent 55%),
-          radial-gradient(700px 500px at 60% 120%, #b9dcff66 0%, transparent 60%),
-          linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 55%, var(--bg-soft) 100%);
-      }
-
-      body::before,
-      body::after {
-        content: "";
-        position: fixed;
-        width: 380px;
-        height: 380px;
-        border-radius: 999px;
-        filter: blur(40px);
-        z-index: -1;
-        opacity: 0.28;
-        pointer-events: none;
-      }
-
-      body::before {
-        background: #6ea8fe;
-        top: -140px;
-        left: -120px;
-        animation: floatA 14s ease-in-out infinite;
-      }
-
-      body::after {
-        background: #9f7aea;
-        bottom: -180px;
-        right: -120px;
-        animation: floatB 18s ease-in-out infinite;
-      }
-
-      @keyframes floatA {
-        0%, 100% { transform: translate(0, 0); }
-        50% { transform: translate(30px, 20px); }
-      }
-
-      @keyframes floatB {
-        0%, 100% { transform: translate(0, 0); }
-        50% { transform: translate(-25px, -25px); }
-      }
-
-      .container {
-        width: min(1080px, 100%);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.05));
-        border: 1px solid var(--border);
-        backdrop-filter: blur(10px);
-        border-radius: 26px;
-        padding: clamp(20px, 4vw, 42px);
-        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .container::before {
-        content: "";
-        position: absolute;
-        inset: 0 0 auto 0;
-        height: 2px;
-        background: linear-gradient(90deg, #6ea8fe, #9f7aea, #6ea8fe);
-        opacity: 0.9;
-      }
-
-      .container::after {
-        content: "";
-        position: absolute;
-        right: -140px;
-        top: -140px;
-        width: 320px;
-        height: 320px;
-        border-radius: 999px;
-        background: radial-gradient(circle at center, rgba(110, 168, 254, 0.35), rgba(110, 168, 254, 0));
-        pointer-events: none;
-      }
-
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        padding: 8px 12px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.06);
-        color: #dbe6ff;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      }
-
-      .top-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .theme-toggle {
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
-        color: #dbe6ff;
-        padding: 8px 12px;
-        font-size: 12px;
-        cursor: pointer;
-      }
-
-      :root[data-theme="light"] .theme-toggle {
-        color: #223457;
-        background: rgba(255, 255, 255, 0.9);
-      }
-
-      h1 {
-        margin: 18px 0 12px;
-        font-size: clamp(30px, 5vw, 56px);
-        line-height: 1.05;
-      }
-
-      .title-gradient {
-        background: linear-gradient(135deg, #e8efff, #b5c9ff 45%, #d5b5ff);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .subtitle {
-        margin: 0;
-        color: var(--muted);
-        font-size: clamp(16px, 2vw, 20px);
-        max-width: 68ch;
-      }
-
-      .cta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 28px;
-      }
-
-      .zone-links {
-        margin-top: 12px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .zone-link {
-        text-decoration: none;
-        color: #d9e5ff;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        padding: 6px 11px;
-        font-size: 12px;
-      }
-
-      .zones-explainer {
-        margin-top: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.03);
-        padding: 14px;
-      }
-
-      .zones-explainer h3 {
-        margin: 0 0 8px;
-        font-size: 16px;
-      }
-
-      .zones-explainer p {
-        margin: 0 0 10px;
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .zones-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .zone-card {
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 12px;
-        padding: 10px;
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .zone-card strong {
-        display: block;
-        margin-bottom: 6px;
-        color: #e8f2ff;
-        font-size: 13px;
-      }
-
-      .zone-card span {
-        color: #c7d5f2;
-        font-size: 12px;
-        line-height: 1.4;
-      }
-
-      .customizer {
-        margin-top: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.03);
-        padding: 14px;
-      }
-
-      .customizer-entry {
-        margin-top: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.03);
-        padding: 14px;
-      }
-
-      .customizer-entry p {
-        margin: 0 0 10px;
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(3, 7, 18, 0.74);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        z-index: 60;
-      }
-
-      .modal-overlay.open {
-        display: flex;
-      }
-
-      .modal-card {
-        width: min(980px, 100%);
-        max-height: 92vh;
-        overflow: auto;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 18px;
-        background: linear-gradient(180deg, rgba(16, 26, 52, 0.96), rgba(11, 18, 36, 0.96));
-        backdrop-filter: blur(8px);
-        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
-        padding: 14px;
-      }
-
-      .modal-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        margin-bottom: 8px;
-      }
-
-      .modal-head h3 {
-        margin: 0;
-        font-size: 17px;
-      }
-
-      .modal-close {
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
-        color: #e8f0ff;
-        width: 34px;
-        height: 34px;
-        font-size: 18px;
-        line-height: 1;
-        cursor: pointer;
-      }
-
-      .customizer h3 {
-        margin: 0 0 10px;
-        font-size: 17px;
-      }
-
-      .customizer-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .control-card {
-        border: 1px solid rgba(255, 255, 255, 0.13);
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        padding: 12px;
-      }
-
-      .control-card h4 {
-        margin: 0 0 8px;
-        font-size: 14px;
-      }
-
-      .control-card label,
-      .control-card select,
-      .control-card input {
-        font-size: 13px;
-      }
-
-      .control-card select,
-      .control-card input[type="text"],
-      .control-card input[type="date"] {
-        width: 100%;
-        padding: 8px 9px;
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.17);
-        background: #111b35;
-        color: #f2f6ff;
-      }
-
-      .control-card select {
-        appearance: none;
-        -webkit-appearance: none;
-      }
-
-      .control-card select option {
-        background: #111b35;
-        color: #f2f6ff;
-      }
-
-      .checkbox-list {
-        display: grid;
-        gap: 8px;
-        max-height: 160px;
-        overflow: auto;
-        padding-right: 6px;
-      }
-
-      .category-item {
-        display: block;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.03);
-        padding: 8px 10px;
-      }
-
-      .category-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-      }
-
-      .category-name {
-        color: #edf3ff;
-        font-size: 13px;
-        font-weight: 600;
-      }
-
-      .category-count {
-        color: #c2d4ff;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 999px;
-        padding: 2px 8px;
-        font-size: 11px;
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .category-desc {
-        margin-top: 5px;
-        color: #b9c9e8;
-        font-size: 12px;
-        line-height: 1.35;
-      }
-
-      .inline-row {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
-
-      .custom-output {
-        margin-top: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 10px;
-        padding: 10px;
-        background: rgba(255, 255, 255, 0.04);
-        color: #d2e1ff;
-        font-size: 12px;
-        word-break: break-all;
-      }
-
-      .quick-links {
-        margin-top: 8px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .quick-links a {
-        text-decoration: none;
-        color: #e2eeff;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
-        padding: 6px 10px;
-        font-size: 12px;
-      }
-
-      .preview-wrap {
-        margin-top: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        padding: 10px;
-      }
-
-      .preview-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .month-grid {
-        margin-top: 8px;
-        display: grid;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-        gap: 6px;
-      }
-
-      .month-cell {
-        text-align: center;
-        padding: 7px 4px;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        background: rgba(255, 255, 255, 0.02);
-        font-size: 12px;
-      }
-
-      .month-cell.highlight {
-        border-color: rgba(77, 226, 197, 0.65);
-        background: rgba(77, 226, 197, 0.18);
-        color: #e8fff9;
-        font-weight: 600;
-      }
-
-      .month-cell.dim {
-        opacity: 0.35;
-      }
-
-      .hero-meta {
-        margin-top: 14px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .meta-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 12px;
-        color: #dce7ff;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 999px;
-        padding: 6px 10px;
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .btn {
-        text-decoration: none;
-        border-radius: 12px;
-        padding: 12px 18px;
-        font-weight: 600;
-        border: 1px solid transparent;
-        transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
-      }
-
-      .btn:hover {
-        transform: translateY(-1px);
-      }
-
-      .btn-primary {
-        color: white;
-        background: linear-gradient(135deg, var(--primary), var(--primary-2), var(--primary-3));
-        box-shadow: 0 12px 30px rgba(110, 168, 254, 0.32);
-      }
-
-      .btn-secondary {
-        color: #e7eeff;
-        border-color: var(--border);
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .grid {
-        margin-top: 28px;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .card {
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.04);
-        transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .card::before {
-        content: "";
-        position: absolute;
-        inset: 0 auto auto 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, rgba(110, 168, 254, 0.8), rgba(159, 122, 234, 0));
-      }
-
-      .card:hover {
-        transform: translateY(-2px);
-        border-color: rgba(183, 212, 255, 0.45);
-        background: rgba(255, 255, 255, 0.07);
-      }
-
-      .card h3 {
-        margin: 0 0 8px;
-        font-size: 16px;
-      }
-
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .link-box {
-        margin-top: 24px;
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        background: rgba(0, 0, 0, 0.2);
-        padding: 12px;
-      }
-
-      .link-box code {
-        display: block;
-        word-break: break-all;
-        font-size: 14px;
-        color: #d4e3ff;
-      }
-
-      .events-wrap {
-        margin-top: 28px;
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
-        padding: 16px;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      }
-
-      .events-title {
-        margin: 0 0 6px;
-        font-size: 20px;
-      }
-
-      .events-subtitle {
-        margin: 0 0 16px;
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .events-toolbar {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-bottom: 12px;
-      }
-
-      .events-search {
-        width: 100%;
-        padding: 10px 12px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.06);
-        color: var(--text);
-        outline: none;
-      }
-
-      .events-search::placeholder {
-        color: #b9c5e0;
-      }
-
-      .events-search:focus {
-        border-color: #8eb8ff;
-        box-shadow: 0 0 0 3px rgba(110, 168, 254, 0.2);
-      }
-
-      .events-status {
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .weekly-new {
-        margin-top: 8px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: #def6f0;
-        border: 1px solid rgba(77, 226, 197, 0.45);
-        border-radius: 999px;
-        background: rgba(77, 226, 197, 0.1);
-        padding: 7px 12px;
-        font-size: 12px;
-      }
-
-      .week-preview {
-        margin-top: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        padding: 12px;
-      }
-
-      .week-preview h3 {
-        margin: 0 0 8px;
-        font-size: 14px;
-        color: #e6eeff;
-      }
-
-      .week-preview-list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 6px;
-      }
-
-      .week-preview-item {
-        display: grid;
-        grid-template-columns: 120px 1fr;
-        gap: 8px;
-        font-size: 13px;
-        color: #dee9ff;
-      }
-
-      .week-preview-date {
-        color: #b9ccf5;
-        font-weight: 600;
-      }
-
-      .year-pagination {
-        margin-top: 12px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        align-items: center;
-      }
-
-      .month-pagination {
-        margin-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .year-btn {
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        color: #d8e5ff;
-        padding: 6px 12px;
-        font-size: 13px;
-        cursor: pointer;
-        transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
-      }
-
-      .year-btn:hover {
-        transform: translateY(-1px);
-        border-color: rgba(176, 198, 255, 0.45);
-      }
-
-      .year-btn.active {
-        background: linear-gradient(135deg, rgba(110, 168, 254, 0.35), rgba(159, 122, 234, 0.35));
-        border-color: rgba(176, 198, 255, 0.55);
-        color: #f4f8ff;
-      }
-
-      .year-select {
-        border: 1px solid rgba(176, 198, 255, 0.38);
-        border-radius: 999px;
-        background:
-          linear-gradient(135deg, rgba(110, 168, 254, 0.2), rgba(159, 122, 234, 0.18)),
-          #101a34;
-        color: #eef4ff;
-        padding: 8px 38px 8px 14px;
-        font-size: 13px;
-        font-weight: 600;
-        appearance: none;
-        -webkit-appearance: none;
-        min-width: 150px;
-        cursor: pointer;
-        line-height: 1.2;
-        transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
-        background-image:
-          linear-gradient(45deg, transparent 50%, #dbe8ff 50%),
-          linear-gradient(135deg, #dbe8ff 50%, transparent 50%);
-        background-position:
-          calc(100% - 18px) calc(50% + 2px),
-          calc(100% - 12px) calc(50% + 2px);
-        background-size: 6px 6px, 6px 6px;
-        background-repeat: no-repeat;
-      }
-
-      .year-select:hover {
-        border-color: rgba(198, 219, 255, 0.55);
-        transform: translateY(-1px);
-      }
-
-      .year-select:focus,
-      .year-select:focus-visible {
-        outline: none;
-        border-color: rgba(163, 211, 255, 0.78);
-        box-shadow: 0 0 0 3px rgba(110, 168, 254, 0.28);
-      }
-
-      .year-select option {
-        background: #101a34;
-        color: #eef4ff;
-      }
-
-      .year-picker {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.03);
-        padding: 4px;
-      }
-
-      .year-label {
-        color: #d6e4ff;
-        font-size: 12px;
-        font-weight: 600;
-        padding-left: 10px;
-      }
-
-      .month-btn {
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        color: #d8e5ff;
-        padding: 6px 11px;
-        font-size: 12px;
-        cursor: pointer;
-      }
-
-      .month-btn.active {
-        background: linear-gradient(135deg, rgba(77, 226, 197, 0.25), rgba(110, 168, 254, 0.25));
-        border-color: rgba(125, 218, 255, 0.55);
-        color: #f4f8ff;
-      }
-
-      .load-more-wrap {
-        margin-top: 10px;
-        display: flex;
-        justify-content: center;
-      }
-
-      .load-more-btn {
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.06);
-        color: #e8f0ff;
-        padding: 8px 14px;
-        font-size: 13px;
-        cursor: pointer;
-      }
-
-      .events-meta {
-        color: #c9d8ff;
-        font-size: 13px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 12px;
-        padding: 9px 12px;
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .events-stats {
-        margin-top: 10px;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .events-stat {
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        padding: 10px 12px;
-      }
-
-      .events-stat-label {
-        display: block;
-        font-size: 12px;
-        color: #b8c7e9;
-        margin-bottom: 4px;
-      }
-
-      .events-stat-value {
-        display: block;
-        font-size: 14px;
-        color: #f0f5ff;
-        font-weight: 600;
-      }
-
-      .month-block {
-        margin-top: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 14px;
-        padding: 12px;
-        background: rgba(9, 17, 35, 0.55);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      .month-heading {
-        margin: 0 0 10px;
-        font-size: 15px;
-        color: #dbe6ff;
-        letter-spacing: 0.2px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-      }
-
-      .month-count {
-        font-size: 12px;
-        color: #bdd0ff;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 999px;
-        padding: 4px 8px;
-        background: rgba(255, 255, 255, 0.05);
-      }
-
-      .event-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        gap: 8px;
-      }
-
-      .event-item {
-        display: grid;
-        grid-template-columns: 110px 1fr;
-        gap: 10px;
-        padding: 10px 12px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.04);
-        transition: border-color 0.15s ease, background 0.15s ease;
-      }
-
-      .event-item.clickable {
-        cursor: pointer;
-      }
-
-      .event-item:hover {
-        border-color: rgba(183, 212, 255, 0.45);
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      .event-item-content {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .event-click-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 20px;
-        height: 20px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        background: rgba(255, 255, 255, 0.04);
-        color: #cfe0ff;
-        font-size: 12px;
-        flex-shrink: 0;
-      }
-
-      .event-details-grid {
-        margin-top: 10px;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .event-detail-card {
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        padding: 10px;
-      }
-
-      .event-detail-label {
-        display: block;
-        font-size: 12px;
-        color: #b8c7e9;
-        margin-bottom: 4px;
-      }
-
-      .event-detail-value {
-        display: block;
-        font-size: 14px;
-        color: #eef4ff;
-        font-weight: 600;
-      }
-
-      .event-detail-desc {
-        margin-top: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        padding: 10px;
-        color: #dbe7ff;
-        font-size: 13px;
-        line-height: 1.45;
-      }
-
-      .event-date {
-        color: #c5d8ff;
-        font-size: 13px;
-        font-weight: 600;
-      }
-
-      .event-name {
-        color: #eff4ff;
-        font-size: 14px;
-      }
-
-      footer {
-        margin-top: 20px;
-        color: var(--muted);
-        font-size: 13px;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-        padding-top: 16px;
-      }
-
-      #events-root {
-        margin-top: 8px;
-      }
-
-      #events-root::-webkit-scrollbar {
-        width: 10px;
-      }
-
-      #events-root::-webkit-scrollbar-thumb {
-        background: rgba(176, 198, 255, 0.35);
-        border-radius: 8px;
-      }
-
-      @media (max-width: 760px) {
-        .grid {
-          grid-template-columns: 1fr;
-        }
-
-        .customizer-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .events-stats {
-          grid-template-columns: 1fr;
-        }
-
-        .zones-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .event-item {
-          grid-template-columns: 1fr;
-          gap: 6px;
-        }
-
-        .event-details-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
   </head>
-  <body>
-    <main class="container">
-      <div class="top-row">
-        <span class="badge">📅 Mis à jour automatiquement chaque jour</span>
-        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Changer le thème">🌙 Mode sombre</button>
-      </div>
-      <h1 class="title-gradient">Calendrier Complet France 🇫🇷</h1>
-      <p class="subtitle">
-        Un calendrier ICS prêt à l’emploi pour iPhone, Google Calendar, Outlook et autres apps.
-        Il inclut les jours fériés, fêtes, vacances scolaires (zones A/B/C), changements d’heure
-        et événements spéciaux.
-      </p>
+  <body class="app-loading">
+    <div
+      id="app-loader"
+      role="status"
+      aria-live="polite"
+      aria-label="Chargement"
+    >
+      <div class="app-loader-spin"></div>
+      <div class="app-loader-txt">Chargement des données...</div>
+    </div>
 
-      <div class="hero-meta">
-        <span class="meta-pill">⚡ Mise à jour quotidienne</span>
-        <span class="meta-pill">📱 Compatible iPhone / Google</span>
-        <span class="meta-pill">🇫🇷 Données France</span>
+    <nav class="topbar">
+      <div class="topbar-in">
+        <div class="brand">
+          <div class="flag" role="img" aria-label="Drapeau France">
+            <span class="fb"></span><span class="fw"></span
+            ><span class="fr_" style="background: #ed2939"></span>
+          </div>
+          Calendrier France
+        </div>
+        <div class="topbar-r">
+          <div class="sync-pill" id="sync-pill">
+            Synchronisé <span class="sync-age" id="sync-age"></span>
+          </div>
+          <span id="theme-label" class="theme-label" aria-live="polite"
+            >Thème sombre</span
+          >
+          <button
+            id="theme-btn"
+            class="tbtn"
+            aria-label="Passer en thème clair"
+            title="Passer en thème clair"
+          >
+            ☀️
+          </button>
+        </div>
       </div>
+    </nav>
 
-      <div class="cta">
-        <a class="btn btn-primary" href="/calendrier.ics">Ouvrir le fichier ICS</a>
-        <a class="btn btn-secondary" href="webcal://calendrier-fr.tibotsr.dev/calendrier.ics">S’abonner (webcal)</a>
-      </div>
-      <div class="zone-links">
-        <a class="zone-link" href="/zone-a.ics">Zone A (.ics)</a>
-        <a class="zone-link" href="/zone-b.ics">Zone B (.ics)</a>
-        <a class="zone-link" href="/zone-c.ics">Zone C (.ics)</a>
-      </div>
-
-      <section class="zones-explainer" aria-label="Correspondance des zones scolaires">
-        <h3>📚 Fichiers par zone (générés automatiquement)</h3>
-        <p>
-          Les fichiers <strong>calendrier.ics</strong>, <strong>zone-a.ics</strong>,
-          <strong>zone-b.ics</strong> et <strong>zone-c.ics</strong> sont régénérés automatiquement
-          à chaque mise à jour (cron quotidien + push sur <strong>main</strong>).
+    <section class="hero" id="hero">
+      <div
+        class="page"
+        style="display: flex; flex-direction: column; align-items: center"
+      >
+        <!--<div class="hero-eyebrow">
+          📅 Flux ICS gratuit · Open source · Données officielles
+        </div>-->
+        <h1>Votre agenda<br /><em>enfin complet.</em></h1>
+        <p class="hero-sub">
+          Synchronisez automatiquement jours fériés, vacances scolaires A/B/C et
+          changements d'heure — directement dans votre agenda, sans aucune appli
+          à installer.
         </p>
-        <div class="zones-grid">
-          <article class="zone-card">
-            <strong>Zone A</strong>
-            <span>Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers.</span>
-          </article>
-          <article class="zone-card">
-            <strong>Zone B</strong>
-            <span>Aix-Marseille, Amiens, Lille, Nancy-Metz, Nantes, Nice, Normandie, Orléans-Tours, Reims, Rennes, Strasbourg.</span>
-          </article>
-          <article class="zone-card">
-            <strong>Zone C</strong>
-            <span>Créteil, Montpellier, Paris, Toulouse, Versailles.</span>
-          </article>
+        <div class="hero-cta-row">
+          <a href="#sync" class="btn-hero btn-hero-p"
+            >⚡ Synchroniser mon agenda</a
+          >
+          <a href="#explorer" class="btn-hero btn-hero-s"
+            >🗓 Parcourir les dates</a
+          >
         </div>
-      </section>
-
-      <section class="customizer-entry" aria-label="Accès au générateur personnalisé">
-        <p>Tu veux un calendrier sur-mesure ? Ouvre le générateur dans une fenêtre dédiée.</p>
-        <button id="open-customizer" class="btn btn-secondary" type="button">🔗 Faire un lien personnalisé</button>
-      </section>
-
-      <section class="grid" aria-label="Contenu du calendrier">
-        <article class="card">
-          <h3>🎉 Jours fériés</h3>
-          <p>Fêtes légales nationales en France, sur plusieurs années glissantes.</p>
-        </article>
-        <article class="card">
-          <h3>⛪ Fêtes & dates clés</h3>
-          <p>Fêtes chrétiennes, fêtes familiales et dates clés importantes.</p>
-        </article>
-        <article class="card">
-          <h3>🏖️ Vacances scolaires</h3>
-          <p>Vacances officielles des zones A, B et C.</p>
-        </article>
-        <article class="card">
-          <h3>🕒 Changement d’heure</h3>
-          <p>Passages à l’heure d’été et à l’heure d’hiver.</p>
-        </article>
-      </section>
-
-      <div class="link-box">
-        <code>https://calendrier-fr.tibotsr.dev/calendrier.ics</code>
-      </div>
-
-      <section class="events-wrap" aria-label="Toutes les dates du calendrier ICS">
-        <h2 class="events-title">Toutes les dates du calendrier</h2>
-        <p class="events-subtitle">Liste générée automatiquement depuis le fichier <strong>calendrier.ics</strong>.</p>
-        <div class="events-toolbar">
-          <input id="events-search" class="events-search" type="search" placeholder="Rechercher (ex: vacances, férié, musique, hiver...)" aria-label="Rechercher un événement" />
-          <div id="events-meta" class="events-meta">Préparation de l’aperçu…</div>
+        <div class="scroll-hint">
+          <span>Défiler pour continuer</span>
+          <svg
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 5v14M5 12l7 7 7-7"></path>
+          </svg>
         </div>
-        <div id="events-stats" class="events-stats"></div>
-        <div id="events-status" class="events-status">Chargement des événements…</div>
-        <div id="weekly-new" class="weekly-new">Chargement des nouveautés hebdo…</div>
-        <section class="week-preview" aria-label="Aperçu des 7 prochains jours">
-          <h3>🗓️ Aperçu de la semaine (7 prochains jours)</h3>
-          <div id="week-preview-status" class="events-status">Préparation…</div>
-          <ul id="week-preview-root" class="week-preview-list"></ul>
-        </section>
-        <div id="year-pagination" class="year-pagination"></div>
-        <div id="month-pagination" class="month-pagination"></div>
-        <div id="events-root"></div>
-        <div id="load-more-wrap" class="load-more-wrap"></div>
-      </section>
-
-      <footer>
-        Projet open source :
-        <a href="https://github.com/TiboTsr/calendrier-france-ics" style="color: #c9d8ff">TiboTsr/calendrier-france-ics</a>
-      </footer>
-    </main>
-
-    <div id="customizer-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Générateur de calendrier personnalisé">
-      <div class="modal-card">
-        <div class="modal-head">
-          <h3>🛠️ Générateur personnalisé (sur-mesure)</h3>
-          <button id="close-customizer" class="modal-close" type="button" aria-label="Fermer le générateur">×</button>
-        </div>
-
-        <section class="customizer">
-          <div class="customizer-grid">
-            <article class="control-card">
-              <h4>Profil & zone</h4>
-              <div class="inline-row">
-                <label for="profile-select">Profil</label>
-              </div>
-              <select id="profile-select">
-                <option value="complet">Complet</option>
-                <option value="essentiel">Essentiel</option>
-                <option value="culturel">Culturel</option>
-                <option value="commercial">Commercial</option>
-              </select>
-              <div class="inline-row" style="margin-top:8px;">
-                <label for="zone-select">Zone scolaire</label>
-              </div>
-              <select id="zone-select">
-                <option value="all">Toutes</option>
-                <option value="A">Zone A</option>
-                <option value="B">Zone B</option>
-                <option value="C">Zone C</option>
-              </select>
-              <div class="inline-row" style="margin-top:8px;">
-                <label for="alarm-offset">Rappel (VALARM)</label>
-              </div>
-              <select id="alarm-offset" style="margin-top:6px;">
-                <option value="none">Aucun rappel</option>
-                <option value="1h">1h avant</option>
-                <option value="1d">1 jour avant</option>
-                <option value="9am">Le jour même à 9h</option>
-              </div>
-            </article>
-
-            <article class="control-card">
-              <h4>Catégories</h4>
-              <div class="inline-row" style="margin-bottom:8px;">
-                <button id="save-favorites-btn" class="load-more-btn" type="button">⭐ Sauver favoris</button>
-                <button id="reset-favorites-btn" class="load-more-btn" type="button">♻ Réinitialiser</button>
-              </div>
-              <div id="categories-list" class="checkbox-list"></div>
-            </article>
-
-            <article class="control-card">
-              <h4>Événements personnels</h4>
-              <input id="personal-title" type="text" placeholder="Titre (ex: Anniversaire Alice)" />
-              <div class="inline-row" style="margin-top:8px;">
-                <label for="personal-recurrence">Récurrence</label>
-              </div>
-              <select id="personal-recurrence" style="margin-top:6px;">
-                <option value="none">Aucune</option>
-                <option value="yearly">Tous les ans</option>
-                <option value="monthly">Tous les mois</option>
-                <option value="weekly">Toutes les semaines</option>
-              </select>
-              <div class="inline-row" style="margin-top:8px;">
-                <input id="personal-date" type="date" />
-                <button id="add-personal-btn" class="load-more-btn" type="button">Ajouter</button>
-              </div>
-              <div id="personal-list" class="custom-output" style="margin-top:8px;">Aucun événement personnel.</div>
-            </article>
-
-            <article class="control-card">
-              <h4>Export & abonnements</h4>
-              <button id="download-custom-btn" class="load-more-btn" type="button">Télécharger mon .ics personnalisé</button>
-              <div id="custom-url" class="custom-output" style="margin-top:8px;">URL personnalisée en préparation…</div>
-              <div class="quick-links">
-                <a id="google-link" href="#" target="_blank" rel="noreferrer">Ajouter Google Calendar</a>
-                <a id="outlook-link" href="#" target="_blank" rel="noreferrer">Ajouter Outlook</a>
-              </div>
-            </article>
+        <div
+          class="hero-feats"
+          role="group"
+          aria-label="Fonctionnalités principales"
+        >
+          <div class="hero-feats-row top" aria-hidden="true">
+            <div class="hero-feats-track">
+              <span class="hf-pill">✅ Jours fériés</span>
+              <span class="hf-pill">🏫 Vacances Zones A / B / C</span>
+              <span class="hf-pill">🕐 Changements d'heure</span>
+              <span class="hf-pill">🌸 Saisons & Astronomie</span>
+              <span class="hf-pill">🔄 Mise à jour auto</span>
+              <span class="hf-pill">📱 Apple · Google · Outlook</span>
+              <span class="hf-pill">📍 Recherche de zone par ville</span>
+              <span class="hf-pill">🧩 Liens ICS séparés</span>
+              <span class="hf-pill">📆 Compatible WebCal</span>
+              <span class="hf-pill">🆓 Gratuit, sans compte</span>
+              <span class="hf-pill">✅ Jours fériés</span>
+              <span class="hf-pill">🏫 Vacances Zones A / B / C</span>
+              <span class="hf-pill">🕐 Changements d'heure</span>
+              <span class="hf-pill">🌸 Saisons & Astronomie</span>
+              <span class="hf-pill">🔄 Mise à jour auto</span>
+              <span class="hf-pill">📱 Apple · Google · Outlook</span>
+              <span class="hf-pill">📍 Recherche de zone par ville</span>
+              <span class="hf-pill">🧩 Liens ICS séparés</span>
+              <span class="hf-pill">📆 Compatible WebCal</span>
+              <span class="hf-pill">🆓 Gratuit, sans compte</span>
+            </div>
           </div>
+          <div class="hero-feats-row bottom" aria-hidden="true">
+            <div class="hero-feats-track">
+              <span class="hf-pill">🔔 Rappels des temps forts</span>
+              <span class="hf-pill">📚 Calendrier scolaire France</span>
+              <span class="hf-pill">🌙 Passage heure été / hiver</span>
+              <span class="hf-pill">🔭 Équinoxes & solstices</span>
+              <span class="hf-pill">⚡ Mises à jour automatiques</span>
+              <span class="hf-pill">🍎 Google · Outlook · Apple</span>
+              <span class="hf-pill">🛠 Projet open source</span>
+              <span class="hf-pill">📥 Abonnement en un clic</span>
+              <span class="hf-pill">🌐 URL ICS universelle</span>
+              <span class="hf-pill">🎯 Données officielles FR</span>
+              <span class="hf-pill">🔔 Rappels des temps forts</span>
+              <span class="hf-pill">📚 Calendrier scolaire France</span>
+              <span class="hf-pill">🌙 Passage heure été / hiver</span>
+              <span class="hf-pill">🔭 Équinoxes & solstices</span>
+              <span class="hf-pill">⚡ Mises à jour automatiques</span>
+              <span class="hf-pill">🍎 Google · Outlook · Apple</span>
+              <span class="hf-pill">🛠 Projet open source</span>
+              <span class="hf-pill">📥 Abonnement en un clic</span>
+              <span class="hf-pill">🌐 URL ICS universelle</span>
+              <span class="hf-pill">🎯 Données officielles FR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="preview-wrap">
-            <div class="preview-header">
-              <strong id="preview-title">Prévisualisation mensuelle</strong>
-              <div class="inline-row">
-                <button id="prev-month" class="year-btn" type="button">←</button>
-                <button id="next-month" class="year-btn" type="button">→</button>
+    <div class="page">
+      <section id="zone" style="padding-top: 80px; padding-bottom: 0">
+        <div class="sh">
+          <div class="sh-eye">Quelle est ma zone ?</div>
+          <h2>Trouvez votre zone scolaire</h2>
+          <p>
+            Les vacances scolaires varient selon la zone de votre académie.
+            Entrez votre ville pour la trouver.
+          </p>
+        </div>
+        <div class="zone-sec">
+          <div class="zone-search-row">
+            <input
+              class="zone-big-input"
+              id="zf-in"
+              type="text"
+              placeholder="Ex : Bordeaux, Saint-Nazaire, Cergy, Montpellier…"
+              autocomplete="off"
+            />
+            <button class="zone-big-btn" id="zf-btn">Trouver ma zone</button>
+          </div>
+          <div class="zone-result-big" id="zf-res"></div>
+          <div class="zone-chips-title" style="margin-top: 18px">
+            Villes fréquentes :
+          </div>
+          <div class="zone-chips-grid" id="zf-chips"></div>
+        </div>
+      </section>
+
+      <section id="sync">
+        <div class="sh">
+          <div class="sh-eye">Synchronisation</div>
+          <h2>Ajoutez le calendrier à votre agenda</h2>
+          <p>Mode Simple pour la plupart · Mode Avancé pour personnaliser</p>
+        </div>
+        <div class="tabs-row">
+          <div class="tabs" role="tablist">
+            <button
+              class="tbtn2 on"
+              id="tab-simple"
+              data-t="simple"
+              role="tab"
+              aria-controls="tp-simple"
+              aria-selected="true"
+            >
+              ✨ Simple
+            </button>
+            <button
+              class="tbtn2"
+              id="tab-advanced"
+              data-t="advanced"
+              role="tab"
+              aria-controls="tp-advanced"
+              aria-selected="false"
+            >
+              ⚙️ Avancé <span class="tdot"></span>
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="tpanel on"
+          id="tp-simple"
+          role="tabpanel"
+          aria-labelledby="tab-simple"
+        >
+          <div class="sp">
+            <div class="sp-h">
+              <h2>Sur quel appareil / appli ?</h2>
+              <p>
+                Sélectionnez votre application pour voir les instructions
+                exactes.
+              </p>
+            </div>
+            <div class="app-grid">
+              <button class="abtn on" data-app="apple">
+                <span class="aico">📱</span>iPhone / Mac
+              </button>
+              <button class="abtn" data-app="google">
+                <span class="aico">📆</span>Google Cal.
+              </button>
+              <button class="abtn" data-app="outlook">
+                <span class="aico">📊</span>Outlook
+              </button>
+            </div>
+            <div class="url-box">
+              <code id="simple-url"></code
+              ><button class="cpbtn" id="cp-simple">Copier</button>
+            </div>
+            <div class="app-steps" id="app-steps"></div>
+            <div class="sp-cta">
+              <a id="sub-btn" href="#" class="bp">⚡ S'abonner maintenant</a>
+              <a href="/calendrier.ics" class="bs" download
+                >⬇️ Télécharger .ICS</a
+              >
+            </div>
+          </div>
+          <div class="zone-alt">
+            <div style="margin-bottom: 12px">
+              Ou télécharger uniquement les vacances de votre zone :
+            </div>
+            <div class="zcards">
+              <div class="zcard za" onclick="toggleZoneHint('A', this)">
+                <span class="zcl">Zone A</span
+                ><span class="zcc">Lyon, Bordeaux<br />Grenoble, Nantes…</span>
+              </div>
+              <div class="zcard zb" onclick="toggleZoneHint('B', this)">
+                <span class="zcl">Zone B</span
+                ><span class="zcc"
+                  >Paris, Versailles<br />Lille, Strasbourg…</span
+                >
+              </div>
+              <div class="zcard zc" onclick="toggleZoneHint('C', this)">
+                <span class="zcl">Zone C</span
+                ><span class="zcc">Aix-Marseille<br />Montpellier, Nice…</span>
               </div>
             </div>
-            <div id="month-grid" class="month-grid"></div>
+            <div class="zhint" id="zhint"></div>
           </div>
-        </section>
+        </div>
+
+        <div
+          class="tpanel"
+          id="tp-advanced"
+          role="tabpanel"
+          aria-labelledby="tab-advanced"
+        >
+          <div class="adv">
+            <span class="adv-lbl">Profil rapide</span>
+            <div class="pcards" id="pcards">
+              <div class="pc on" data-p="complet">
+                <div class="pc-name">Complet</div>
+                <div class="pc-desc">
+                  Tout inclus : fériés, vacances, saisons, horloges, fêtes…
+                </div>
+              </div>
+              <div class="pc" data-p="essentiel">
+                <div class="pc-name">Essentiel</div>
+                <div class="pc-desc">
+                  Jours fériés + vacances scolaires. Léger, sans bruit.
+                </div>
+              </div>
+              <div class="pc" data-p="familial">
+                <div class="pc-name">Familial</div>
+                <div class="pc-desc">
+                  Fériés, vacances, fêtes enfants, saisons et culture.
+                </div>
+              </div>
+              <div class="pc" data-p="pro">
+                <div class="pc-name">Pro</div>
+                <div class="pc-desc">
+                  Fériés, ponts, événements commerciaux. Idéal pros.
+                </div>
+              </div>
+            </div>
+            <span class="adv-lbl" style="margin-top: 20px"
+              >Zone(s) scolaire(s) — sélection multiple possible</span
+            >
+            <div class="zmulti" id="zmulti">
+              <button class="zmb sall" data-z="all">Toutes</button>
+              <button class="zmb" data-z="A">Zone A</button>
+              <button class="zmb" data-z="B">Zone B</button>
+              <button class="zmb" data-z="C">Zone C</button>
+            </div>
+            <p style="font-size: 12px; color: var(--t3); margin-top: 7px">
+              Combinez plusieurs zones si vous avez des enfants dans deux
+              académies différentes.
+            </p>
+            <span class="adv-lbl" style="margin-top: 20px"
+              >Catégories à inclure —
+              <span
+                style="
+                  font-weight: 400;
+                  text-transform: none;
+                  letter-spacing: 0;
+                  color: var(--t3);
+                "
+                >cliquer pour activer / désactiver</span
+              ></span
+            >
+            <div class="cat-grid" id="adv-cats"></div>
+            <span class="adv-lbl" style="margin-top: 20px">Options</span>
+            <div class="adv-opts">
+              <div>
+                <label class="fld-l" for="adv-alarm"
+                  >Rappels automatiques</label
+                >
+                <select class="fld-s" id="adv-alarm">
+                  <option value="none">Désactivés (recommandé)</option>
+                  <option value="1h">1h avant l'événement</option>
+                  <option value="1d">La veille à la même heure</option>
+                  <option value="9am">Le jour même à 9h</option>
+                </select>
+              </div>
+            </div>
+            <div class="pe-section">
+              <h3>➕ Événements personnels</h3>
+              <p>
+                Ajoutez vos propres dates pour les intégrer dans le fichier ICS
+                généré (anniversaires, RDV récurrents…).
+              </p>
+              <div class="pe-form">
+                <input
+                  class="pe-input"
+                  id="pe-title"
+                  type="text"
+                  placeholder="Titre de l'événement"
+                />
+                <input class="pe-date" id="pe-date" type="date" />
+                <select class="pe-sel" id="pe-rec">
+                  <option value="none">Une seule fois</option>
+                  <option value="yearly">Chaque année</option>
+                  <option value="monthly">Chaque mois</option>
+                  <option value="weekly">Chaque semaine</option>
+                </select>
+                <button class="pe-add" id="pe-add-btn">Ajouter</button>
+              </div>
+              <div class="pe-list" id="pe-list">
+                <div class="pe-empty">Aucun événement personnel.</div>
+              </div>
+            </div>
+            <div class="gen-out">
+              <div class="gen-url" id="adv-url"></div>
+              <div class="gen-acts">
+                <a id="adv-sub" href="#" class="bp">⚡ S'abonner</a>
+                <a id="adv-ggl" href="#" target="_blank" class="bs"
+                  >Google Cal.</a
+                >
+                <a id="adv-out" href="#" target="_blank" class="bs">Outlook</a>
+                <button id="cp-adv" class="cpbtn" style="align-self: center">
+                  Copier URL
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sh">
+          <div class="sh-eye">Pourquoi ce flux ?</div>
+          <h2>Tout ce dont vous avez besoin</h2>
+        </div>
+        <div class="feats">
+          <article class="fcard">
+            <span class="fc-ico">🔄</span>
+            <h3>Mise à jour continue</h3>
+            <p>
+              Le fichier se régénère chaque jour. Les nouvelles années
+              s'ajoutent sans action de votre part.
+            </p>
+          </article>
+          <article class="fcard">
+            <span class="fc-ico">🎯</span>
+            <h3>Zones A, B et C</h3>
+            <p>
+              Vacances extraites des données officielles du Ministère de
+              l'Éducation Nationale.
+            </p>
+          </article>
+          <article class="fcard">
+            <span class="fc-ico">📱</span>
+            <h3>Compatible partout</h3>
+            <p>
+              Format .ICS standard : iPhone, Android, Google Calendar et Outlook
+              — nativement.
+            </p>
+          </article>
+          <article class="fcard">
+            <span class="fc-ico">🔒</span>
+            <h3>Open source</h3>
+            <p>
+              Code sur GitHub. Aucune donnée collectée, aucun compte requis.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="explorer">
+        <div class="sh">
+          <div class="sh-eye">Explorateur</div>
+          <h2>Parcourez les dates</h2>
+          <p>
+            Naviguez dans le contenu du calendrier — en partant d'aujourd'hui,
+            avec défilement continu.
+          </p>
+        </div>
+        <div class="exp-layout">
+          <aside class="sidebar">
+            <div class="sb-s">
+              <div class="srch-w">
+                <span class="srch-i">🔍</span
+                ><input
+                  class="srch"
+                  id="srch"
+                  type="search"
+                  placeholder="Rechercher…"
+                  aria-label="Rechercher"
+                />
+              </div>
+            </div>
+            <div class="sb-s">
+              <div class="sb-t">Zone</div>
+              <div class="szpills">
+                <button class="szp sall" data-z="all">Toutes</button
+                ><button class="szp" data-z="A">A</button
+                ><button class="szp" data-z="B">B</button
+                ><button class="szp" data-z="C">C</button>
+              </div>
+            </div>
+            <div class="sb-s">
+              <div class="sb-t">
+                Catégories
+                <button class="sb-rst" id="sb-rst">Tout reset</button>
+              </div>
+              <div class="cats-hint">Cliquez pour activer / désactiver</div>
+              <div class="sb-cats" id="sb-cats"></div>
+            </div>
+          </aside>
+          <div class="exp-main">
+            <div class="radar">
+              <div class="radar-top">
+                <h3>📡 Prochains événements</h3>
+                <span class="radar-cnt" id="r-cnt"></span>
+              </div>
+              <div class="radar-sc" id="r-root">
+                <span style="font-size: 13px; color: var(--t3)"
+                  >Chargement…</span
+                >
+              </div>
+            </div>
+            <div class="ex-tb">
+              <div class="ex-top">
+                <div class="yr-nav">
+                  <button class="yb" id="yr-p">‹</button
+                  ><select class="ys" id="yr-s"></select
+                  ><button class="yb" id="yr-n">›</button>
+                </div>
+                <button class="today-btn" id="btn-today">Aujourd'hui</button>
+              </div>
+              <div class="mo-scroll" id="mo-nav"></div>
+            </div>
+            <div class="tl-wrap" id="tl-wrap">
+              <div id="ev-root"></div>
+              <div class="tl-sentinel" id="tl-sentinel"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="page">
+        <p>
+          Projet open source par
+          <a
+            href="https://github.com/TiboTsr/calendrier-france-ics"
+            target="_blank"
+            >TiboTsr</a
+          >
+          · Données Ministère de l'Éducation Nationale · Format iCalendar RFC
+          5545
+        </p>
+      </div>
+    </footer>
+
+    <div id="tuto-welcome">
+      <div class="tuto-welcome-card">
+        <span class="tuto-welcome-emoji">🗓️</span>
+        <h2>Bienvenue sur Calendrier France&nbsp;!</h2>
+        <p>
+          C'est votre première visite. Voulez-vous un
+          <strong>petit tour rapide</strong> pour découvrir les fonctionnalités
+          principales&nbsp;? Ça ne prend que 30 secondes.
+        </p>
+        <div class="tuto-welcome-btns">
+          <button class="tuto-start-btn" id="tuto-start">
+            Oui, montrez-moi ✨
+          </button>
+          <button class="tuto-skip-all" id="tuto-skip-all">
+            Non merci, je découvre seul
+          </button>
+        </div>
       </div>
     </div>
 
-    <div id="event-details-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Détails de l'événement">
-      <div class="modal-card">
-        <div class="modal-head">
-          <h3 id="event-details-title">Détails de l'événement</h3>
-          <button id="close-event-details" class="modal-close" type="button" aria-label="Fermer les détails">×</button>
+    <div id="tuto-overlay">
+      <div id="tuto-spot"></div>
+      <div id="tuto-card">
+        <div id="tuto-arrow"></div>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+          "
+        >
+          <div class="tuto-step-badge">
+            <span id="tuto-step-label">Étape 1 / 5</span>
+          </div>
+          <div class="tuto-step-dots" id="tuto-dots"></div>
         </div>
-        <div class="event-details-grid">
-          <article class="event-detail-card">
-            <span class="event-detail-label">Dernière occurrence</span>
-            <span id="event-last-occurrence" class="event-detail-value">—</span>
-          </article>
-          <article class="event-detail-card">
-            <span class="event-detail-label">Prochaine occurrence</span>
-            <span id="event-next-occurrence" class="event-detail-value">—</span>
-          </article>
-        </div>
-        <div class="event-detail-desc">
-          <strong>Description</strong>
-          <div id="event-details-description" style="margin-top:6px;">Aucune description disponible.</div>
+        <span id="tuto-icon">📅</span>
+        <div id="tuto-title">Titre</div>
+        <div id="tuto-desc">Description</div>
+        <div class="tuto-actions">
+          <button class="tuto-skip" id="tuto-skip-btn">
+            Passer le tutoriel
+          </button>
+          <div class="tuto-btns">
+            <button class="tuto-prev" id="tuto-prev-btn">←</button>
+            <button class="tuto-next" id="tuto-next-btn">Suivant →</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <script>
-      const MONTHS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-      const DAYS_FR = ["L", "M", "M", "J", "V", "S", "D"];
-      const PROFILE_MAP = {
-        essentiel: ["Jours fériés", "Vacances scolaires", "Ponts / Congés"],
-        culturel: ["Jours fériés", "Vacances scolaires", "Culture", "Saisons", "Astronomie", "Société", "Christianisme"],
-        commercial: ["Jours fériés", "Ponts / Congés", "Événements spéciaux", "Commercial"],
-        complet: null,
-      };
-      const RECURRENCE_LABELS = {
-        none: "Aucune",
-        yearly: "Tous les ans",
-        monthly: "Tous les mois",
-        weekly: "Toutes les semaines",
-      };
-      const CATEGORY_DESCRIPTIONS = {
-        "Jours fériés": "Jours fériés nationaux officiels en France.",
-        "Vacances scolaires": "Périodes de vacances des zones A, B et C.",
-        "Ponts / Congés": "Dates utiles pour poser des congés autour des jours clés.",
-        "Christianisme": "Grandes fêtes et repères du calendrier chrétien.",
-        "Changement d’heure": "Passages officiels à l'heure d'été et à l'heure d'hiver en France.",
-        "Culture": "Fêtes, musique, patrimoine et journées culturelles.",
-        "Société": "Dates citoyennes, santé publique et solidarité.",
-        "Commercial": "Périodes commerciales et rendez-vous shopping.",
-        "Astronomie": "Lune, saisons, phénomènes célestes.",
-        "Saisons": "Débuts de saisons et changements de cycle.",
-        "Dates spéciales": "Dates rares, repères calendaires et singularités de l'année.",
-        "Événements spéciaux": "Temps forts nationaux ou événementiels.",
-        "Personnel": "Événements que tu ajoutes toi-même.",
-      };
-
-      let sourceEvents = [];
-      let allEvents = [];
-      let personalEvents = [];
-      let currentYearPage = null;
-      let currentMonthPage = "all";
-      let renderedMonthCount = 0;
-      let previewDate = new Date();
-      let preferredYear = null;
-      const MONTH_RENDER_CHUNK = 4;
-      const FAVORITE_CATEGORIES_KEY = "calendrier_category_favorites";
-      const THEME_KEY = "calendrier_theme";
-
-      function parseIsoDate(value) {
-        if (!value) return null;
-        const [y, m, d] = value.split("-").map(Number);
-        return new Date(y, m - 1, d);
-      }
-
-      function toIsoDate(dateObj) {
-        const y = dateObj.getFullYear();
-        const m = String(dateObj.getMonth() + 1).padStart(2, "0");
-        const d = String(dateObj.getDate()).padStart(2, "0");
-        return `${y}-${m}-${d}`;
-      }
-
-      function formatDateFr(dateObj) {
-        return new Intl.DateTimeFormat("fr-FR", { day: "2-digit", month: "long", year: "numeric" }).format(dateObj);
-      }
-
-      function formatEventDateRange(event) {
-        return event.endDate ? `${formatDateFr(event.date)} → ${formatDateFr(event.endDate)}` : formatDateFr(event.date);
-      }
-
-      function normalizeText(value) {
-        return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      }
-
-      function readStoredYear() {
-        const raw = localStorage.getItem("calendrier_selected_year");
-        if (!raw || !/^\d{4}$/.test(raw)) return null;
-        return Number(raw);
-      }
-
-      function storeSelectedYear(year) {
-        localStorage.setItem("calendrier_selected_year", String(year));
-      }
-
-      function syncYearQueryParam(year) {
-        const url = new URL(window.location.href);
-        url.searchParams.set("year", String(year));
-        const query = url.searchParams.toString();
-        const next = `${url.pathname}${query ? `?${query}` : ""}${url.hash}`;
-        history.replaceState(null, "", next);
-      }
-
-      function saveCategoryFavorites() {
-        const categories = getSelectedCategories();
-        localStorage.setItem(FAVORITE_CATEGORIES_KEY, JSON.stringify(categories));
-      }
-
-      function applyFavoriteCategories() {
-        const raw = localStorage.getItem(FAVORITE_CATEGORIES_KEY);
-        if (!raw) return false;
-        let saved;
-        try {
-          saved = JSON.parse(raw);
-        } catch {
-          return false;
-        }
-        if (!Array.isArray(saved) || !saved.length) return false;
-        const selected = new Set(saved);
-        document.querySelectorAll("#categories-list input[data-category]").forEach((input) => {
-          input.checked = selected.has(input.getAttribute("data-category"));
-        });
-        return true;
-      }
-
-      function getPreferredTheme() {
-        const saved = localStorage.getItem(THEME_KEY);
-        if (saved === "light" || saved === "dark") return saved;
-        return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-      }
-
-      function applyTheme(theme, persist = true) {
-        document.documentElement.setAttribute("data-theme", theme);
-        const button = document.getElementById("theme-toggle");
-        button.textContent = theme === "dark" ? "☀️ Mode clair" : "🌙 Mode sombre";
-        if (persist) {
-          localStorage.setItem(THEME_KEY, theme);
-        }
-      }
-
-      function renderWeekPreview(events) {
-        const status = document.getElementById("week-preview-status");
-        const root = document.getElementById("week-preview-root");
-        root.innerHTML = "";
-
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        const weekEnd = new Date(today);
-        weekEnd.setDate(weekEnd.getDate() + 6);
-
-        const weekEvents = events
-          .filter((event) => {
-            const start = event.date;
-            const end = event.endDate || event.date;
-            return start <= weekEnd && end >= today;
-          })
-          .slice(0, 20);
-
-        if (!weekEvents.length) {
-          status.textContent = "Aucun événement prévu sur les 7 prochains jours.";
-          return;
-        }
-
-        status.textContent = `${weekEvents.length} événement(s) à venir cette semaine.`;
-        weekEvents.forEach((event) => {
-          const item = document.createElement("li");
-          item.className = "week-preview-item";
-          item.innerHTML = `<span class="week-preview-date">${formatEventDateRange(event)}</span><span>${event.summary}</span>`;
-          root.appendChild(item);
-        });
-      }
-
-      function loadPersonalEvents() {
-        try {
-          const raw = localStorage.getItem("calendrier_personal_events");
-          personalEvents = raw ? JSON.parse(raw) : [];
-          personalEvents = personalEvents
-            .filter((ev) => ev && ev.title && ev.date)
-            .map((ev) => ({
-              title: ev.title,
-              date: ev.date,
-              recurrence: ["none", "yearly", "monthly", "weekly"].includes(ev.recurrence) ? ev.recurrence : "none",
-            }));
-        } catch {
-          personalEvents = [];
-        }
-      }
-
-      function savePersonalEvents() {
-        localStorage.setItem("calendrier_personal_events", JSON.stringify(personalEvents));
-      }
-
-      function renderPersonalList() {
-        const el = document.getElementById("personal-list");
-        if (!personalEvents.length) {
-          el.textContent = "Aucun événement personnel.";
-          return;
-        }
-        el.innerHTML = personalEvents
-          .map((ev, idx) => {
-            const recurrence = RECURRENCE_LABELS[ev.recurrence || "none"] || RECURRENCE_LABELS.none;
-            return `${ev.date} — ${ev.title} <span style="opacity:.8;">(${recurrence})</span> <button data-del="${idx}" class="year-btn" style="padding:2px 8px;">Suppr</button>`;
-          })
-          .join("<br>");
-        el.querySelectorAll("button[data-del]").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            personalEvents.splice(Number(btn.getAttribute("data-del")), 1);
-            savePersonalEvents();
-            renderPersonalList();
-            refreshAll();
-          });
-        });
-      }
-
-      function buildCategoriesUI(categories) {
-        const container = document.getElementById("categories-list");
-        container.innerHTML = "";
-        const counts = new Map();
-        sourceEvents.forEach((event) => {
-          (event.categories || []).forEach((category) => {
-            counts.set(category, (counts.get(category) || 0) + 1);
-          });
-        });
-        categories.forEach((cat) => {
-          const id = `cat-${normalizeText(cat).replace(/[^a-z0-9]/g, "-")}`;
-          const row = document.createElement("label");
-          row.className = "category-item";
-          const description = CATEGORY_DESCRIPTIONS[cat] || "Événements liés à cette catégorie.";
-          const count = counts.get(cat) || (cat === "Personnel" ? personalEvents.length : 0);
-          row.innerHTML = `
-            <div class="category-top">
-              <span class="inline-row">
-                <input type="checkbox" id="${id}" data-category="${cat}" checked />
-                <span class="category-name">${cat}</span>
-              </span>
-              <span class="category-count">${count}</span>
-            </div>
-            <div class="category-desc">${description}</div>
-          `;
-          container.appendChild(row);
-        });
-      }
-
-      function expandPersonalEvents(startRange, endRange) {
-        const results = [];
-        personalEvents.forEach((event) => {
-          const startDate = parseIsoDate(event.date);
-          if (!startDate) return;
-          const recurrence = event.recurrence || "none";
-
-          if (recurrence === "none") {
-            if (startDate >= startRange && startDate <= endRange) {
-              results.push({ title: event.title, date: toIsoDate(startDate) });
-            }
-            return;
-          }
-
-          if (recurrence === "yearly") {
-            const month = startDate.getMonth();
-            const day = startDate.getDate();
-            for (let year = startRange.getFullYear(); year <= endRange.getFullYear(); year++) {
-              const occurrence = new Date(year, month, day);
-              if (occurrence.getMonth() !== month) continue;
-              if (occurrence >= startRange && occurrence <= endRange) {
-                results.push({ title: event.title, date: toIsoDate(occurrence) });
-              }
-            }
-            return;
-          }
-
-          if (recurrence === "monthly") {
-            const day = startDate.getDate();
-            let cursor = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
-            while (cursor <= endRange) {
-              const occurrence = new Date(cursor.getFullYear(), cursor.getMonth(), day);
-              if (occurrence.getMonth() === cursor.getMonth() && occurrence >= startRange && occurrence <= endRange) {
-                results.push({ title: event.title, date: toIsoDate(occurrence) });
-              }
-              cursor = new Date(cursor.getFullYear(), cursor.getMonth() + 1, 1);
-            }
-            return;
-          }
-
-          if (recurrence === "weekly") {
-            let cursor = new Date(startDate);
-            while (cursor < startRange) {
-              cursor = new Date(cursor.getFullYear(), cursor.getMonth(), cursor.getDate() + 7);
-            }
-            while (cursor <= endRange) {
-              results.push({ title: event.title, date: toIsoDate(cursor) });
-              cursor = new Date(cursor.getFullYear(), cursor.getMonth(), cursor.getDate() + 7);
-            }
-          }
-        });
-        return results;
-      }
-
-      function getSelectedCategories() {
-        return [...document.querySelectorAll("#categories-list input[data-category]:checked")].map((i) => i.getAttribute("data-category"));
-      }
-
-      function applyProfile(profile) {
-        const allowed = PROFILE_MAP[profile];
-        document.querySelectorAll("#categories-list input[data-category]").forEach((input) => {
-          const cat = input.getAttribute("data-category");
-          input.checked = allowed === null ? true : allowed.includes(cat);
-        });
-      }
-
-      function applyStateFromUrl() {
-        const params = new URLSearchParams(window.location.search);
-        const profile = params.get("profile");
-        const zone = params.get("zone");
-        const alarm = params.get("alarm");
-        const cats = params.get("cats");
-        const year = params.get("year");
-
-        preferredYear = /^\d{4}$/.test(year || "") ? Number(year) : readStoredYear();
-
-        if (profile && PROFILE_MAP.hasOwnProperty(profile)) {
-          document.getElementById("profile-select").value = profile;
-          applyProfile(profile);
-        }
-
-        if (zone && ["all", "A", "B", "C"].includes(zone)) {
-          document.getElementById("zone-select").value = zone;
-        }
-
-        if (alarm === "1") {
-          document.getElementById("alarm-offset").value = "1d";
-        } else if (["none", "1h", "1d", "9am"].includes(alarm || "")) {
-          document.getElementById("alarm-offset").value = alarm;
-        }
-
-        if (cats) {
-          const wanted = new Set(cats.split(",").filter(Boolean));
-          document.querySelectorAll("#categories-list input[data-category]").forEach((input) => {
-            input.checked = wanted.has(input.getAttribute("data-category"));
-          });
-        } else {
-          applyFavoriteCategories();
-        }
-      }
-
-      function getFilteredEvents() {
-        const profile = document.getElementById("profile-select").value;
-        const zone = document.getElementById("zone-select").value;
-        const search = normalizeText(document.getElementById("events-search").value.trim());
-        const selectedCategories = new Set(getSelectedCategories());
-
-        let filtered = sourceEvents.filter((event) => {
-          const eventCategories = event.categories || [];
-          const categoryOk = eventCategories.some((c) => selectedCategories.has(c));
-          const zoneOk = zone === "all" || (event.zones || []).length === 0 || event.zones.includes(zone);
-          const searchOk = !search || normalizeText(event.summary).includes(search) || normalizeText(event.description || "").includes(search);
-          return categoryOk && zoneOk && searchOk;
-        });
-
-        const sourceDates = sourceEvents
-          .map((event) => parseIsoDate(event.start))
-          .filter((date) => date instanceof Date && !Number.isNaN(date.getTime()));
-        const minSourceDate = sourceDates.length ? new Date(Math.min(...sourceDates.map((date) => date.getTime()))) : new Date(new Date().getFullYear(), 0, 1);
-        const maxSourceDate = sourceDates.length ? new Date(Math.max(...sourceDates.map((date) => date.getTime()))) : new Date(new Date().getFullYear() + 2, 11, 31);
-        const personalExpanded = expandPersonalEvents(minSourceDate, maxSourceDate);
-        const personal = personalExpanded.map((ev) => ({
-          summary: ev.title,
-          start: ev.date,
-          end: null,
-          description: "Événement personnel",
-          categories: ["Personnel"],
-          zones: [],
-        }));
-
-        if (profile !== "commercial" && selectedCategories.has("Personnel")) {
-          filtered = filtered.concat(personal);
-        }
-
-        return filtered
-          .map((event) => ({ ...event, date: parseIsoDate(event.start), endDate: parseIsoDate(event.end) }))
-          .sort((a, b) => a.date - b.date || a.summary.localeCompare(b.summary, "fr"));
-      }
-
-      function updateExportLinks(events) {
-        const profile = document.getElementById("profile-select").value;
-        const zone = document.getElementById("zone-select").value;
-        const alarm = document.getElementById("alarm-offset").value;
-        const selectedCategories = getSelectedCategories();
-        const params = new URLSearchParams({ profile, zone, alarm: String(alarm), cats: selectedCategories.join(",") });
-        const customUrl = `${location.origin}${location.pathname}?${params.toString()}`;
-        document.getElementById("custom-url").textContent = customUrl;
-
-        let icsUrl = `${location.origin}/calendrier.ics`;
-        if (zone !== "all" && profile === "complet") {
-          icsUrl = `${location.origin}/zone-${zone.toLowerCase()}.ics`;
-        } else if (zone === "all" && ["essentiel", "culturel", "commercial", "complet"].includes(profile)) {
-          icsUrl = `${location.origin}/calendrier-${profile}.ics`;
-        }
-
-        const encoded = encodeURIComponent(icsUrl);
-        document.getElementById("google-link").href = `https://www.google.com/calendar/render?cid=${encoded}`;
-        document.getElementById("outlook-link").href = `https://outlook.live.com/calendar/0/deeplink/compose?rru=addsubscription&url=${encoded}`;
-
-        document.getElementById("download-custom-btn").onclick = () => {
-          const ics = buildCustomIcs(events, document.getElementById("alarm-offset").value);
-          const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-          const href = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = href;
-          a.download = "calendrier-personnalise.ics";
-          a.click();
-          URL.revokeObjectURL(href);
-        };
-      }
-
-      function buildCustomIcs(events, alarmOffset) {
-        const dtstamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
-        const lines = [
-          "BEGIN:VCALENDAR",
-          "VERSION:2.0",
-          "PRODID:-//Calendrier Personnalisé//FR//FR",
-          "CALSCALE:GREGORIAN",
-          "METHOD:PUBLISH",
-        ];
-        events.forEach((event, idx) => {
-          lines.push("BEGIN:VEVENT");
-          lines.push(`UID:custom-${idx}-${toIsoDate(event.date)}@calendrier-fr.tibotsr.dev`);
-          lines.push(`DTSTAMP:${dtstamp}`);
-          lines.push(`SUMMARY:${event.summary.replace(/,/g, "\\,")}`);
-          lines.push(`DESCRIPTION:${(event.description || "").replace(/,/g, "\\,")}`);
-          if ((event.categories || []).length) lines.push(`CATEGORIES:${event.categories.join(",")}`);
-          lines.push(`DTSTART;VALUE=DATE:${toIsoDate(event.date).replace(/-/g, "")}`);
-          if (event.endDate) lines.push(`DTEND;VALUE=DATE:${toIsoDate(event.endDate).replace(/-/g, "")}`);
-          if (alarmOffset && alarmOffset !== "none") {
-            lines.push("BEGIN:VALARM");
-            lines.push("ACTION:DISPLAY");
-            lines.push("DESCRIPTION:Rappel événement");
-            if (alarmOffset === "1h") {
-              lines.push("TRIGGER:-PT1H");
-            } else if (alarmOffset === "9am") {
-              lines.push("TRIGGER;RELATED=START:PT9H");
-            } else {
-              lines.push("TRIGGER:-P1D");
-            }
-            lines.push("END:VALARM");
-          }
-          lines.push("END:VEVENT");
-        });
-        lines.push("END:VCALENDAR");
-        return `${lines.join("\n")}\n`;
-      }
-
-      function renderMonthPreview(events) {
-        const title = document.getElementById("preview-title");
-        const grid = document.getElementById("month-grid");
-        grid.innerHTML = "";
-
-        const y = previewDate.getFullYear();
-        const m = previewDate.getMonth();
-        title.textContent = `Prévisualisation mensuelle — ${MONTHS_FR[m]} ${y}`;
-
-        DAYS_FR.forEach((d) => {
-          const head = document.createElement("div");
-          head.className = "month-cell";
-          head.style.fontWeight = "700";
-          head.textContent = d;
-          grid.appendChild(head);
-        });
-
-        const first = new Date(y, m, 1);
-        const offset = (first.getDay() + 6) % 7;
-        const daysInMonth = new Date(y, m + 1, 0).getDate();
-        const monthStart = new Date(y, m, 1);
-        const monthEnd = new Date(y, m, daysInMonth);
-        const highlighted = new Set();
-
-        events.forEach((event) => {
-          const start = event.date;
-          const end = event.endDate && event.endDate >= start ? event.endDate : event.date;
-
-          if (end < monthStart || start > monthEnd) {
-            return;
-          }
-
-          const visibleStart = start < monthStart ? monthStart : start;
-          const visibleEnd = end > monthEnd ? monthEnd : end;
-
-          for (let day = visibleStart.getDate(); day <= visibleEnd.getDate(); day++) {
-            highlighted.add(day);
-          }
-        });
-
-        for (let i = 0; i < offset; i++) {
-          const cell = document.createElement("div");
-          cell.className = "month-cell dim";
-          cell.textContent = "";
-          grid.appendChild(cell);
-        }
-
-        for (let d = 1; d <= daysInMonth; d++) {
-          const cell = document.createElement("div");
-          cell.className = `month-cell${highlighted.has(d) ? " highlight" : ""}`;
-          cell.textContent = String(d);
-          grid.appendChild(cell);
-        }
-      }
-
-      function openEventDetails(event) {
-        const modal = document.getElementById("event-details-modal");
-        const title = document.getElementById("event-details-title");
-        const lastOccurrenceEl = document.getElementById("event-last-occurrence");
-        const nextOccurrenceEl = document.getElementById("event-next-occurrence");
-        const descriptionEl = document.getElementById("event-details-description");
-
-        const sameSummaryEvents = allEvents
-          .filter((entry) => entry.summary === event.summary)
-          .slice()
-          .sort((a, b) => a.date - b.date);
-
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        const lastOccurrence = [...sameSummaryEvents].reverse().find((entry) => entry.date < today) || null;
-        const nextOccurrence = sameSummaryEvents.find((entry) => entry.date >= today) || null;
-
-        title.textContent = event.summary;
-        lastOccurrenceEl.textContent = lastOccurrence ? formatEventDateRange(lastOccurrence) : "Aucune occurrence passée";
-        nextOccurrenceEl.textContent = nextOccurrence ? formatEventDateRange(nextOccurrence) : "Aucune occurrence future";
-        descriptionEl.textContent = event.description || "Aucune description disponible.";
-
-        modal.classList.add("open");
-      }
-
-      function renderEvents(events) {
-        const root = document.getElementById("events-root");
-        const status = document.getElementById("events-status");
-        const meta = document.getElementById("events-meta");
-        const stats = document.getElementById("events-stats");
-        const yearPagination = document.getElementById("year-pagination");
-        const monthPagination = document.getElementById("month-pagination");
-        const loadMoreWrap = document.getElementById("load-more-wrap");
-        root.innerHTML = "";
-        stats.innerHTML = "";
-        yearPagination.innerHTML = "";
-        monthPagination.innerHTML = "";
-        loadMoreWrap.innerHTML = "";
-
-        if (!events.length) {
-          status.textContent = "Aucun événement trouvé pour cette configuration.";
-          meta.textContent = "Aucun résultat";
-          currentYearPage = null;
-          renderMonthPreview([]);
-          return;
-        }
-
-        const years = [...new Set(events.map((event) => event.date.getFullYear()))].sort((a, b) => a - b);
-        const currentYear = new Date().getFullYear();
-        const yearsForSelect = years.filter((year) => year >= 2000);
-        const yearsForPaging = yearsForSelect.length ? yearsForSelect : years;
-
-        if (preferredYear !== null && yearsForPaging.includes(preferredYear)) {
-          currentYearPage = preferredYear;
-          preferredYear = null;
-        }
-
-        if (currentYearPage === null || !yearsForPaging.includes(currentYearPage)) {
-          currentYearPage = yearsForPaging.includes(currentYear) ? currentYear : yearsForPaging[0];
-        }
-
-        const yearPicker = document.createElement("div");
-        yearPicker.className = "year-picker";
-
-        const yearLabel = document.createElement("label");
-        yearLabel.className = "year-label";
-        yearLabel.textContent = "Année";
-        yearLabel.setAttribute("for", "year-select-main");
-
-        const yearSelect = document.createElement("select");
-        yearSelect.id = "year-select-main";
-        yearSelect.className = "year-select";
-        yearSelect.setAttribute("aria-label", "Choisir l'année à afficher");
-        yearsForPaging
-          .slice()
-          .sort((a, b) => b - a)
-          .forEach((year) => {
-          const option = document.createElement("option");
-          option.value = String(year);
-          option.textContent = String(year);
-          yearSelect.appendChild(option);
-        });
-        yearSelect.value = String(currentYearPage);
-        yearSelect.onchange = () => {
-          currentYearPage = Number(yearSelect.value);
-          storeSelectedYear(currentYearPage);
-          syncYearQueryParam(currentYearPage);
-          currentMonthPage = "all";
-          renderedMonthCount = 0;
-          renderEvents(events);
-        };
-
-        const currentYearBtn = document.createElement("button");
-        currentYearBtn.type = "button";
-        currentYearBtn.className = "year-btn";
-        currentYearBtn.textContent = "Aujourd’hui";
-        currentYearBtn.setAttribute("aria-label", "Revenir à l'année en cours");
-        currentYearBtn.onclick = () => {
-          const targetYear = yearsForPaging.includes(currentYear) ? currentYear : yearsForPaging[yearsForPaging.length - 1];
-          currentYearPage = targetYear;
-          storeSelectedYear(currentYearPage);
-          syncYearQueryParam(currentYearPage);
-          currentMonthPage = "all";
-          renderedMonthCount = 0;
-          renderEvents(events);
-        };
-
-        if (currentYearPage === currentYear) {
-          currentYearBtn.classList.add("active");
-        }
-
-        yearPicker.appendChild(yearLabel);
-        yearPicker.appendChild(yearSelect);
-        yearPicker.appendChild(currentYearBtn);
-        yearPagination.appendChild(yearPicker);
-
-        storeSelectedYear(currentYearPage);
-        syncYearQueryParam(currentYearPage);
-
-        const eventsForYear = events.filter((event) => event.date.getFullYear() === currentYearPage);
-        status.textContent = `${eventsForYear.length} événements affichés pour ${currentYearPage} (${events.length} au total).`;
-
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        const next = events.find((e) => e.date >= today);
-        meta.textContent = next ? `Prochain événement : ${formatDateFr(next.date)} — ${next.summary}` : `Dernier événement : ${formatDateFr(events[events.length - 1].date)}`;
-
-        const statItems = [
-          { label: "Votre calendrier", value: `${eventsForYear.length} événements cette année` },
-          { label: "Années couvertes", value: `${years.length}` },
-          { label: "Total filtré", value: `${events.length}` },
-        ];
-        statItems.forEach((stat) => {
-          const card = document.createElement("div");
-          card.className = "events-stat";
-          card.innerHTML = `<span class="events-stat-label">${stat.label}</span><span class="events-stat-value">${stat.value}</span>`;
-          stats.appendChild(card);
-        });
-
-        const grouped = new Map();
-        eventsForYear.forEach((event) => {
-          const key = String(event.date.getMonth() + 1).padStart(2, "0");
-          if (!grouped.has(key)) grouped.set(key, []);
-          grouped.get(key).push(event);
-        });
-
-        const monthEntries = [...grouped.entries()];
-        const allBtn = document.createElement("button");
-        allBtn.type = "button";
-        allBtn.className = `month-btn${currentMonthPage === "all" ? " active" : ""}`;
-        allBtn.textContent = "Tous les mois";
-        allBtn.onclick = () => {
-          currentMonthPage = "all";
-          renderedMonthCount = 0;
-          renderEvents(events);
-        };
-        monthPagination.appendChild(allBtn);
-
-        monthEntries.forEach(([key]) => {
-          const idx = Number(key) - 1;
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = `month-btn${currentMonthPage === key ? " active" : ""}`;
-          btn.textContent = MONTHS_FR[idx];
-          btn.onclick = () => {
-            currentMonthPage = key;
-            renderedMonthCount = 0;
-            renderEvents(events);
-          };
-          monthPagination.appendChild(btn);
-        });
-
-        let entries = monthEntries;
-        if (currentMonthPage !== "all") {
-          entries = monthEntries.filter(([key]) => key === currentMonthPage);
-        } else {
-          const target = Math.max(MONTH_RENDER_CHUNK, renderedMonthCount || MONTH_RENDER_CHUNK);
-          entries = monthEntries.slice(0, target);
-        }
-
-        entries.forEach(([key, monthEvents]) => {
-          const monthIndex = Number(key) - 1;
-          const block = document.createElement("section");
-          block.className = "month-block";
-          const heading = document.createElement("h3");
-          heading.className = "month-heading";
-          heading.innerHTML = `<span>${MONTHS_FR[monthIndex]} ${currentYearPage}</span><span class="month-count">${monthEvents.length} événements</span>`;
-          block.appendChild(heading);
-
-          const list = document.createElement("ul");
-          list.className = "event-list";
-          monthEvents.forEach((event) => {
-            const item = document.createElement("li");
-            item.className = "event-item clickable";
-            item.setAttribute("role", "button");
-            item.setAttribute("tabindex", "0");
-            item.setAttribute("aria-label", `Afficher les détails de ${event.summary}`);
-            const dateText = formatEventDateRange(event);
-            item.innerHTML = `<span class="event-date">${dateText}</span><span class="event-name"><span class="event-item-content">${event.summary}<span class="event-click-icon" aria-hidden="true">ⓘ</span></span></span>`;
-            item.addEventListener("click", () => openEventDetails(event));
-            item.addEventListener("keydown", (keyboardEvent) => {
-              if (keyboardEvent.key === "Enter" || keyboardEvent.key === " ") {
-                keyboardEvent.preventDefault();
-                openEventDetails(event);
-              }
-            });
-            list.appendChild(item);
-          });
-          block.appendChild(list);
-          root.appendChild(block);
-        });
-
-        if (currentMonthPage === "all" && entries.length < monthEntries.length) {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "load-more-btn";
-          const remaining = monthEntries.length - entries.length;
-          btn.textContent = `Afficher ${Math.min(MONTH_RENDER_CHUNK, remaining)} mois de plus`;
-          btn.onclick = () => {
-            renderedMonthCount = entries.length + MONTH_RENDER_CHUNK;
-            renderEvents(events);
-          };
-          loadMoreWrap.appendChild(btn);
-        }
-
-        renderMonthPreview(events);
-      }
-
-      function refreshAll() {
-        allEvents = getFilteredEvents();
-        updateExportLinks(allEvents);
-        renderWeekPreview(allEvents);
-        renderEvents(allEvents);
-      }
-
-      async function loadSourceEvents() {
-        const status = document.getElementById("events-status");
-        try {
-          const response = await fetch("/calendrier.json", { cache: "no-store" });
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          const payload = await response.json();
-          sourceEvents = payload.events || [];
-          loadPersonalEvents();
-          const categories = [...new Set(sourceEvents.flatMap((event) => event.categories || []))].sort((a, b) => a.localeCompare(b, "fr"));
-          buildCategoriesUI(categories.concat(["Personnel"]));
-          applyProfile("complet");
-          applyStateFromUrl();
-          renderPersonalList();
-          refreshAll();
-        } catch (error) {
-          status.textContent = "Impossible de charger les événements pour le moment.";
-        }
-      }
-
-      async function loadEventsMeta() {
-        const badge = document.getElementById("weekly-new");
-        try {
-          const response = await fetch("/events-meta.json", { cache: "no-store" });
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          const meta = await response.json();
-          const count = Number(meta.newEventsThisWeek || 0);
-          badge.textContent = count > 0 ? `✨ Nouveaux événements ajoutés cette semaine : ${count}` : "✅ Aucun nouvel événement ajouté cette semaine";
-        } catch {
-          badge.textContent = "ℹ️ Statut des nouveautés hebdo indisponible pour le moment";
-        }
-      }
-
-      document.getElementById("events-search").addEventListener("input", refreshAll);
-      document.getElementById("profile-select").addEventListener("change", (e) => {
-        applyProfile(e.target.value);
-        refreshAll();
-      });
-      document.getElementById("zone-select").addEventListener("change", refreshAll);
-      document.getElementById("alarm-offset").addEventListener("change", refreshAll);
-      document.getElementById("categories-list").addEventListener("change", () => {
-        saveCategoryFavorites();
-        refreshAll();
-      });
-      document.getElementById("save-favorites-btn").addEventListener("click", () => {
-        saveCategoryFavorites();
-        refreshAll();
-      });
-      document.getElementById("reset-favorites-btn").addEventListener("click", () => {
-        localStorage.removeItem(FAVORITE_CATEGORIES_KEY);
-        applyProfile(document.getElementById("profile-select").value);
-        refreshAll();
-      });
-
-      document.getElementById("add-personal-btn").addEventListener("click", () => {
-        const title = document.getElementById("personal-title").value.trim();
-        const dateValue = document.getElementById("personal-date").value;
-        const recurrence = document.getElementById("personal-recurrence").value;
-        if (!title || !dateValue) return;
-        personalEvents.push({ title, date: dateValue, recurrence });
-        personalEvents.sort((a, b) => a.date.localeCompare(b.date));
-        savePersonalEvents();
-        renderPersonalList();
-        document.getElementById("personal-title").value = "";
-        refreshAll();
-      });
-
-      document.getElementById("prev-month").addEventListener("click", () => {
-        previewDate = new Date(previewDate.getFullYear(), previewDate.getMonth() - 1, 1);
-        renderMonthPreview(allEvents);
-      });
-      document.getElementById("next-month").addEventListener("click", () => {
-        previewDate = new Date(previewDate.getFullYear(), previewDate.getMonth() + 1, 1);
-        renderMonthPreview(allEvents);
-      });
-
-      const customizerModal = document.getElementById("customizer-modal");
-      const openCustomizerBtn = document.getElementById("open-customizer");
-      const closeCustomizerBtn = document.getElementById("close-customizer");
-      const eventDetailsModal = document.getElementById("event-details-modal");
-      const closeEventDetailsBtn = document.getElementById("close-event-details");
-
-      openCustomizerBtn.addEventListener("click", () => {
-        customizerModal.classList.add("open");
-      });
-
-      closeCustomizerBtn.addEventListener("click", () => {
-        customizerModal.classList.remove("open");
-      });
-
-      customizerModal.addEventListener("click", (event) => {
-        if (event.target === customizerModal) {
-          customizerModal.classList.remove("open");
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && customizerModal.classList.contains("open")) {
-          customizerModal.classList.remove("open");
-        }
-        if (event.key === "Escape" && eventDetailsModal.classList.contains("open")) {
-          eventDetailsModal.classList.remove("open");
-        }
-      });
-
-      closeEventDetailsBtn.addEventListener("click", () => {
-        eventDetailsModal.classList.remove("open");
-      });
-
-      eventDetailsModal.addEventListener("click", (event) => {
-        if (event.target === eventDetailsModal) {
-          eventDetailsModal.classList.remove("open");
-        }
-      });
-
-      const themeToggleBtn = document.getElementById("theme-toggle");
-      applyTheme(getPreferredTheme(), false);
-      themeToggleBtn.addEventListener("click", () => {
-        const current = document.documentElement.getAttribute("data-theme") || "dark";
-        const next = current === "dark" ? "light" : "dark";
-        applyTheme(next, true);
-      });
-
-      loadSourceEvents();
-      loadEventsMeta();
-    </script>
+    <div class="mbg" id="ev-modal" role="dialog" aria-modal="true">
+      <div class="ms">
+        <div class="mt">
+          <h2 class="m-title" id="m-ttl">Événement</h2>
+          <button class="mcl" id="m-cl">✕</button>
+        </div>
+        <div class="m-meta">
+          <div class="mbox">
+            <div class="ml">Occurrence précédente</div>
+            <div class="mv" id="m-prev">—</div>
+          </div>
+          <div class="mbox acc">
+            <div class="ml">Prochaine occurrence</div>
+            <div class="mv" id="m-next">—</div>
+          </div>
+        </div>
+        <div class="mdl">Description</div>
+        <div class="md" id="m-desc">—</div>
+      </div>
+    </div>
+
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>

@@ -11,3 +11,4 @@ zone-c.ics
 __pycache__/
 calendrier.csv
 calendrier.xml
+.vercel
