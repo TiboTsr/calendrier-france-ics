@@ -38,8 +38,12 @@ jobs:
           rm -rf public
           mkdir -p public
           cp index.html public/
+          if [ -d assets ]; then cp -R assets public/; fi
+          if [ -d img ]; then cp -R img public/; fi
           cp CNAME public/
           if [ -f .nojekyll ]; then cp .nojekyll public/; else touch public/.nojekyll; fi
+          if [ -f robots.txt ]; then cp robots.txt public/; fi
+          if [ -f sitemap.xml ]; then cp sitemap.xml public/; fi
           cp favicon.svg public/
           cp og-image.svg public/
           cp calendrier.ics public/

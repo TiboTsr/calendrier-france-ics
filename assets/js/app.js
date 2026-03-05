@@ -663,10 +663,10 @@ function buildMoBlock(k,evts,today,isPast){
    MODAL
 ══════════════════════════════════════ */
 function openModal(ev,evts){
-  const today=new Date();today.setHours(0,0,0,0);
   const same=evts.filter(e=>e.summary===ev.summary).sort((a,b)=>a.date-b.date);
-  const prev=[...same].reverse().find(e=>e.date<today);
-  const next=same.find(e=>e.date>=today);
+  const currentTs=ev.date.getTime();
+  const prev=[...same].reverse().find(e=>e.date.getTime()<currentTs);
+  const next=same.find(e=>e.date.getTime()>currentTs);
   document.getElementById("m-ttl").textContent=ev.summary;
   document.getElementById("m-prev").textContent=prev?fmt(prev.date):"Aucune donnée";
   document.getElementById("m-next").textContent=next?fmt(next.date):"Aucune prévision";
