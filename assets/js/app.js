@@ -4,7 +4,9 @@ CONFIG & CONSTANTS
 const MONTHS=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
 const TK="cal_th", FK="cal_fav", YK="cal_yr", PEK="cal_pe";
 const CHUNK=3;
-const DYNAMIC_API_BASE=(window.CALENDAR_API_BASE||"calendrier-fr.tibotsr.dev").replace(/^https?:\/\//,"").replace(/\/$/,"");
+const DYNAMIC_API_BASE=(window.CALENDAR_API_BASE||"calendrier-fr.vercel.app").replace(/^https?:\/\//,"").replace(/\/$/,"");
+const DYNAMIC_ICS_WEBCAL=`webcal://${DYNAMIC_API_BASE}/api/calendrier.ics`;
+const DYNAMIC_ICS_HTTPS=`https://${DYNAMIC_API_BASE}/api/calendrier.ics`;
 
 const CATS=[
   {n:"Jours fériés",        c:"#ff5a5a",d:"rgba(255,90,90,.12)",   b:"rgba(255,90,90,.3)"},
@@ -29,9 +31,9 @@ const PROFILES={
 };
 
 const APP_INFO={
-  apple:{url:()=>"webcal://calendrier-fr.tibotsr.dev/calendrier.ics",sub:()=>"webcal://calendrier-fr.tibotsr.dev/calendrier.ics",steps:`<span class="sn">1</span> Copiez l'URL ci-dessus &nbsp;·&nbsp; <span class="sn">2</span> Sur <strong>iPhone</strong> : Réglages → Calendrier → Comptes → Ajouter un compte → Autre → Abonnement calendrier → collez &nbsp;·&nbsp; <span class="sn">3</span> Sur <strong>Mac</strong> : Calendar → Fichier → Nouvel abonnement calendrier`},
-  google:{url:()=>"https://calendrier-fr.tibotsr.dev/calendrier.ics",sub:()=>`https://calendar.google.com/calendar/r?cid=${encodeURIComponent("https://calendrier-fr.tibotsr.dev/calendrier.ics")}`,steps:`<span class="sn">1</span> Copiez l'URL ci-dessus &nbsp;·&nbsp; <span class="sn">2</span> Google Calendar → <strong>+ Autres agendas → À partir d'une URL</strong> → collez et validez &nbsp;·&nbsp; <em style="opacity:.65">Note : Google peut prendre 12-24h pour la première sync.</em>`},
-  outlook:{url:()=>"webcal://calendrier-fr.tibotsr.dev/calendrier.ics",sub:()=>`https://outlook.live.com/calendar/0/deeplink/compose?rru=addsubscription&url=${encodeURIComponent("https://calendrier-fr.tibotsr.dev/calendrier.ics")}`,steps:`<span class="sn">1</span> Cliquez <strong>S'abonner maintenant</strong> ci-dessous — Outlook s'ouvre automatiquement &nbsp;·&nbsp; <em style="opacity:.65">ou</em> : Calendrier → Ajouter un calendrier → S'abonner par Internet → collez`},
+  apple:{url:()=>DYNAMIC_ICS_WEBCAL,sub:()=>DYNAMIC_ICS_WEBCAL,steps:`<span class="sn">1</span> Copiez l'URL ci-dessus &nbsp;·&nbsp; <span class="sn">2</span> Sur <strong>iPhone</strong> : Réglages → Calendrier → Comptes → Ajouter un compte → Autre → Abonnement calendrier → collez &nbsp;·&nbsp; <span class="sn">3</span> Sur <strong>Mac</strong> : Calendar → Fichier → Nouvel abonnement calendrier`},
+  google:{url:()=>DYNAMIC_ICS_HTTPS,sub:()=>`https://calendar.google.com/calendar/r?cid=${encodeURIComponent(DYNAMIC_ICS_HTTPS)}`,steps:`<span class="sn">1</span> Copiez l'URL ci-dessus &nbsp;·&nbsp; <span class="sn">2</span> Google Calendar → <strong>+ Autres agendas → À partir d'une URL</strong> → collez et validez &nbsp;·&nbsp; <em style="opacity:.65">Note : Google peut prendre 12-24h pour la première sync.</em>`},
+  outlook:{url:()=>DYNAMIC_ICS_WEBCAL,sub:()=>`https://outlook.live.com/calendar/0/deeplink/compose?rru=addsubscription&url=${encodeURIComponent(DYNAMIC_ICS_HTTPS)}`,steps:`<span class="sn">1</span> Cliquez <strong>S'abonner maintenant</strong> ci-dessous — Outlook s'ouvre automatiquement &nbsp;·&nbsp; <em style="opacity:.65">ou</em> : Calendrier → Ajouter un calendrier → S'abonner par Internet → collez`},
 };
 
 /* ══════════════════════════════════════
