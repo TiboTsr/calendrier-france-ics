@@ -59,6 +59,26 @@ function normalizeList(raw) {
     .filter(Boolean);
 }
 
+function normalizeCategoryLabel(label) {
+  return String(label || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[’']/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function expandSelectedCategoryAliases(selectedCats) {
+  const expanded = new Set(selectedCats.map((cat) => normalizeCategoryLabel(cat)));
+
+  if (expanded.has("ponts conges")) {
+    expanded.add("dates speciales");
+  }
+
+  return expanded;
+}
+
 function alarmBlock(alarm) {
   if (!alarm || alarm === "none") return [];
   if (alarm === "1h") {
@@ -94,6 +114,7 @@ function alarmBlock(alarm) {
 function filterEvents(events, selectedZones, selectedCats) {
   const zoneFilter = selectedZones.length > 0 && !selectedZones.includes("all");
   const catFilter = selectedCats.length > 0;
+  const selectedCatsNorm = catFilter ? expandSelectedCategoryAliases(selectedCats) : null;
 
   return events.filter((event) => {
     const eventZones = Array.isArray(event.zones) ? event.zones : [];
@@ -104,10 +125,29 @@ function filterEvents(events, selectedZones, selectedCats) {
       eventZones.length === 0 ||
       eventZones.some((zone) => selectedZones.includes(zone));
 
-    const catOk = !catFilter || eventCats.some((cat) => selectedCats.includes(cat));
+    const catOk =
+      !catFilter ||
+      eventCats.some((cat) => selectedCatsNorm.has(normalizeCategoryLabel(cat)));
 
     return zoneOk && catOk;
   });
+}
+
+function parsePersonalEvents(raw) {
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .map((event) => ({
+        title: String(event?.title || "").trim(),
+        date: String(event?.date || "").trim(),
+        rec: ["none", "yearly", "monthly", "weekly"].includes(event?.rec) ? event.rec : "none",
+      }))
+      .filter((event) => event.title && /^\d{4}-\d{2}-\d{2}$/.test(event.date));
+  } catch {
+    return [];
+  }
 }
 
 function setCorsHeaders(res) {
@@ -131,6 +171,7 @@ module.exports = async function handler(req, res) {
     const selectedZones = normalizeList(url.searchParams.get("zone"));
     const selectedCats = normalizeList(url.searchParams.get("cats"));
     const alarm = (url.searchParams.get("alarm") || "none").trim();
+    const personalEvents = parsePersonalEvents(url.searchParams.get("pe"));
 
     const sourceUrl =
       process.env.CALENDAR_JSON_URL ||
@@ -191,6 +232,31 @@ module.exports = async function handler(req, res) {
       eventLines.push(...alarmBlock(alarm));
       eventLines.push("END:VEVENT");
 
+      lines.push(...eventLines);
+    }
+
+    for (const event of personalEvents) {
+      const start = toIcsDate(event.date);
+      const endExclusive = toIcsDate(addOneDay(event.date));
+      if (!start || !endExclusive) continue;
+
+      const eventLines = [
+        "BEGIN:VEVENT",
+        `UID:${makeUid({ summary: event.title, start: event.date, end: event.date, categories: ["Personnel"], zones: [] })}`,
+        `DTSTAMP:${dtstamp}`,
+        `DTSTART;VALUE=DATE:${start}`,
+        `DTEND;VALUE=DATE:${endExclusive}`,
+        `SUMMARY:${escapeIcsText(event.title)}`,
+        "DESCRIPTION:Événement personnel ajouté depuis le mode avancé.",
+        "CATEGORIES:Personnel",
+      ];
+
+      if (event.rec === "yearly") eventLines.push("RRULE:FREQ=YEARLY");
+      if (event.rec === "monthly") eventLines.push("RRULE:FREQ=MONTHLY");
+      if (event.rec === "weekly") eventLines.push("RRULE:FREQ=WEEKLY");
+
+      eventLines.push(...alarmBlock(alarm));
+      eventLines.push("END:VEVENT");
       lines.push(...eventLines);
     }
 

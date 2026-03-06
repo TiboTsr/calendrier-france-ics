@@ -5,8 +5,11 @@ const MONTHS=["janvier","février","mars","avril","mai","juin","juillet","août"
 const TK="cal_th", FK="cal_fav", YK="cal_yr", PEK="cal_pe";
 const CHUNK=3;
 const DYNAMIC_API_BASE=(window.CALENDAR_API_BASE||"api.calendrier-fr.tibotsr.dev").replace(/^https?:\/\//,"").replace(/\/$/,"");
-const DYNAMIC_ICS_WEBCAL=`webcal://api.calendrier-fr.tibotsr.dev/api/calendrier.ics`;
-const DYNAMIC_ICS_HTTPS=`https://api.calendrier-fr.tibotsr.dev/api/calendrier.ics`;
+const GOOGLE_FEED_BASE=(window.CALENDAR_GOOGLE_FEED_BASE||DYNAMIC_API_BASE).replace(/^https?:\/\//,"").replace(/\/$/,"");
+const DYNAMIC_ICS_WEBCAL=`webcal://${DYNAMIC_API_BASE}/api/calendrier.ics`;
+const DYNAMIC_ICS_HTTPS=`https://${DYNAMIC_API_BASE}/api/calendrier.ics`;
+const GOOGLE_ICS_HTTPS=`https://${GOOGLE_FEED_BASE}/api/calendrier.ics`;
+const GOOGLE_ICS_WEBCAL=`webcal://${GOOGLE_FEED_BASE}/api/calendrier.ics`;
 
 const CATS=[
   {n:"Jours fériés",        c:"#ff5a5a",d:"rgba(255,90,90,.12)",   b:"rgba(255,90,90,.3)"},
@@ -32,8 +35,8 @@ const PROFILES={
 
 const APP_INFO={
   apple:{url:()=>DYNAMIC_ICS_WEBCAL,sub:()=>DYNAMIC_ICS_WEBCAL,steps:`<span class="sn">1</span> Copiez l'URL ci-dessus &nbsp;·&nbsp; <span class="sn">2</span> Sur <strong>iPhone</strong> : Réglages → Calendrier → Comptes → Ajouter un compte → Autre → Abonnement calendrier → collez &nbsp;·&nbsp; <span class="sn">3</span> Sur <strong>Mac</strong> : Calendar → Fichier → Nouvel abonnement calendrier`},
-  google:{url:()=>DYNAMIC_ICS_HTTPS,sub:()=>`https://calendar.google.com/calendar/r?cid=${encodeURIComponent(DYNAMIC_ICS_HTTPS)}`,steps:`<span class="sn">1</span> Copiez l'URL ci-dessus &nbsp;·&nbsp; <span class="sn">2</span> Google Calendar → <strong>+ Autres agendas → À partir d'une URL</strong> → collez et validez &nbsp;·&nbsp; <em style="opacity:.65">Note : Google peut prendre 12-24h pour la première sync.</em>`},
-  outlook:{url:()=>DYNAMIC_ICS_WEBCAL,sub:()=>`https://outlook.live.com/calendar/0/deeplink/compose?rru=addsubscription&url=${encodeURIComponent(DYNAMIC_ICS_HTTPS)}`,steps:`<span class="sn">1</span> Cliquez <strong>S'abonner maintenant</strong> ci-dessous — Outlook s'ouvre automatiquement &nbsp;·&nbsp; <em style="opacity:.65">ou</em> : Calendrier → Ajouter un calendrier → S'abonner par Internet → collez`},
+  google:{url:()=>GOOGLE_ICS_WEBCAL,sub:()=>`https://calendar.google.com/calendar/r?cid=${encodeURIComponent(GOOGLE_ICS_WEBCAL)}`,steps:`<span class="sn">1</span> Copiez l'URL ci-dessus &nbsp;·&nbsp; <span class="sn">2</span> Google Calendar → <strong>+ Autres agendas → À partir d'une URL</strong> → collez et validez &nbsp;·&nbsp; <em style="opacity:.65">Note : Google peut prendre 12-24h pour la première sync.</em>`},
+  outlook:{url:()=>DYNAMIC_ICS_WEBCAL,sub:()=>`https://outlook.live.com/calendar/0/deeplink/compose?rru=addsubscription&url=${encodeURIComponent(DYNAMIC_ICS_WEBCAL)}`,steps:`<span class="sn">1</span> Cliquez <strong>S'abonner maintenant</strong> ci-dessous — Outlook s'ouvre automatiquement &nbsp;·&nbsp; <em style="opacity:.65">ou</em> : Calendrier → Ajouter un calendrier → S'abonner par Internet → collez`},
 };
 
 /* ══════════════════════════════════════
@@ -284,7 +287,7 @@ function mkCopy(id,get){
   b.addEventListener("click",function(){navigator.clipboard.writeText(get()).then(()=>{const o=this.textContent;this.textContent="Copié ✓";this.classList.add("ok");setTimeout(()=>{this.textContent=o;this.classList.remove("ok");},2000);});});
 }
 mkCopy("cp-simple",()=>document.getElementById("simple-url").textContent);
-mkCopy("cp-adv",()=>document.getElementById("adv-url").textContent);
+mkCopy("adv-url-copy",()=>window._advWcUrl||"");
 
 /* ══════════════════════════════════════
    PROFILES
@@ -296,7 +299,7 @@ document.querySelectorAll(".pc").forEach(c=>{
     c.classList.add("on");activeP=c.dataset.p;
     const al=PROFILES[activeP];
     document.querySelectorAll("#adv-cats .ctog").forEach(t=>{const chk=al===null||al.includes(t.dataset.name);t.querySelector("input").checked=chk;t.classList.toggle("active",chk);});
-    buildAdvUrl();
+    markAdvAsDirty();
   });
 });
 
@@ -310,7 +313,7 @@ document.querySelectorAll(".zmb").forEach(b=>{
     if(z==="all"){advZones=new Set(["all"]);}
     else{advZones.delete("all");advZones.has(z)?advZones.delete(z):advZones.add(z);if(advZones.size===0)advZones.add("all");}
     document.querySelectorAll(".zmb").forEach(x=>{x.className="zmb";if(advZones.has(x.dataset.z))x.classList.add(x.dataset.z==="all"?"sall":"s"+x.dataset.z.toLowerCase());});
-    buildAdvUrl();
+    markAdvAsDirty();
   });
 });
 
@@ -327,7 +330,7 @@ function buildAdvCats(cats){
       const inp=l.querySelector("input");inp.checked=!inp.checked;
       l.classList.toggle("active",inp.checked);
       applyToggleStyle(l,inp.checked,def);
-      buildAdvUrl();
+      markAdvAsDirty();
     });
     g.appendChild(l);
   });
@@ -338,20 +341,222 @@ function applyToggleStyle(el,on,def){
   el.style.color=on?def.c:"var(--t3)";
 }
 
-function buildAdvUrl(){
-  const zones=advZones.has("all")?"all":[...advZones].join(",");
+function _escHtml(s){
+  return String(s)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;");
+}
+
+function _parseUrlSegments(urlStr){
+  try{
+    const isWebcal=urlStr.startsWith("webcal://");
+    const httpUrl=urlStr.replace("webcal://","https://");
+    const u=new URL(httpUrl);
+    const segs=[];
+    segs.push({text:isWebcal?"webcal://":"https://",type:"proto"});
+    segs.push({text:u.hostname,type:"host"});
+    segs.push({text:u.pathname,type:"path"});
+    if(u.search){
+      segs.push({text:"?",type:"sep"});
+      const params=[...u.searchParams.entries()];
+      params.forEach(([k,v],i)=>{
+        if(i>0)segs.push({text:"&",type:"sep"});
+        segs.push({text:k,type:"key"});
+        segs.push({text:"=",type:"eq"});
+        segs.push({text:decodeURIComponent(v)||"toutes",type:"val"+(i%3)});
+      });
+    }
+    return segs;
+  }catch{
+    return [{text:urlStr,type:"plain"}];
+  }
+}
+
+let _urlAnimTimer=null;
+let _lastAnimUrl="";
+let _advBuildTimer=null;
+
+function _animateUrl(webcalUrl){
+  const container=document.getElementById("adv-url-animated");
+  const badge=document.getElementById("adv-url-badge");
+  const copyBtn=document.getElementById("adv-url-copy");
+  if(!container)return;
+
+  if(webcalUrl===_lastAnimUrl)return;
+  _lastAnimUrl=webcalUrl;
+
+  clearTimeout(_urlAnimTimer);
+  container.classList.remove("built","building");
+  container.innerHTML="";
+  if(badge)badge.style.display="none";
+  if(copyBtn){copyBtn.style.opacity="0";copyBtn.style.pointerEvents="none";}
+
+  const genOut=container.closest(".gen-out");
+  if(genOut){genOut.classList.add("refreshing");setTimeout(()=>genOut.classList.remove("refreshing"),200);}
+
+  container.classList.add("building");
+  const segs=_parseUrlSegments(webcalUrl);
+  const cursor='<span class="url-cursor"></span>';
+  const segHtml=segs.map((s,i)=>`<span class="url-seg url-seg-${s.type}" style="animation-delay:${i*55}ms">${_escHtml(s.text)}</span>`).join("");
+  container.innerHTML=cursor+segHtml;
+
+  const totalMs=segs.length*55+350;
+  _urlAnimTimer=setTimeout(()=>{
+    container.classList.remove("building");
+    container.classList.add("built");
+    if(badge)badge.style.display="flex";
+    if(copyBtn){copyBtn.style.opacity="1";copyBtn.style.pointerEvents="auto";}
+  },totalMs);
+}
+
+function _alarmLabel(v){
+  if(v==="1h")return "rappel 1h avant";
+  if(v==="1d")return "rappel la veille";
+  if(v==="9am")return "rappel à 9h";
+  return "sans rappel";
+}
+
+function _zoneLabel(zones){
+  if(zones.includes("all"))return "toutes les zones";
+  return `zone${zones.length>1?"s":""} ${zones.join(", ")}`;
+}
+
+function _setAdvActionsEnabled(enabled){
+  ["adv-sub","adv-ggl","adv-out","adv-url-copy"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    el.style.pointerEvents=enabled?"":"none";
+    el.style.opacity=enabled?"":".6";
+  });
+}
+
+function _setQrState(enabled){
+  const panel=document.getElementById("adv-qr-panel");
+  if(!panel)return;
+  panel.classList.toggle("ready",!!enabled);
+}
+
+function _qrSrc(url){
+  return `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&data=${encodeURIComponent(url)}`;
+}
+
+function _updateQrCodes(url){
+  const mainLink=document.getElementById("qr-link-main");
+  const mainImg=document.getElementById("qr-img-main");
+  if(!mainLink||!mainImg)return;
+
+  mainLink.href=url;
+  mainImg.src=_qrSrc(url);
+}
+
+function _setAdvRecap(html){
+  const recap=document.getElementById("adv-url-recap");
+  if(recap)recap.innerHTML=html;
+}
+
+function _currentAdvSelection(){
+  const zonesArr=advZones.has("all")?["all"]:[...advZones];
   const alarm=document.getElementById("adv-alarm")?.value||"none";
   const cats=[...document.querySelectorAll("#adv-cats input:checked")].map(i=>i.value);
-  const p=new URLSearchParams({zone:zones,alarm,cats:cats.join(",")});
-  const wc=`webcal://${DYNAMIC_API_BASE}/api/calendrier.ics?${p}`;
-  const ht=`https://${DYNAMIC_API_BASE}/api/calendrier.ics?${p}`;
-  const el=document.getElementById("adv-url");if(el)el.textContent=wc;
-  const s=document.getElementById("adv-sub");if(s)s.href=wc;
-  const gg=document.getElementById("adv-ggl");if(gg)gg.href=`https://calendar.google.com/calendar/r?cid=${encodeURIComponent(ht)}`;
-  const oo=document.getElementById("adv-out");if(oo)oo.href=`https://outlook.live.com/calendar/0/deeplink/compose?rru=addsubscription&url=${encodeURIComponent(ht)}`;
+  return {zonesArr,alarm,cats};
 }
-document.getElementById("adv-alarm")?.addEventListener("change",buildAdvUrl);
-buildAdvUrl();
+
+function _getPersonalEventsForUrl(){
+  try{
+    const raw=localStorage.getItem(PEK);
+    const arr=raw?JSON.parse(raw):[];
+    if(!Array.isArray(arr))return [];
+    return arr
+      .filter(e=>e&&e.title&&e.date)
+      .map(e=>({
+        title:String(e.title).trim(),
+        date:String(e.date).trim(),
+        rec:["none","yearly","monthly","weekly"].includes(e.rec)?e.rec:"none",
+      }))
+      .filter(e=>e.title&&e.date);
+  }catch{
+    return [];
+  }
+}
+
+function markAdvAsDirty(){
+  const {zonesArr,alarm,cats}=_currentAdvSelection();
+  const personal=_getPersonalEventsForUrl();
+  const container=document.getElementById("adv-url-animated");
+  const badge=document.getElementById("adv-url-badge");
+  const copyBtn=document.getElementById("adv-url-copy");
+
+  clearTimeout(_advBuildTimer);
+  window._advWcUrl="";
+  window._advHtUrl="";
+  _lastAnimUrl="";
+
+  _setAdvActionsEnabled(false);
+  _setQrState(false);
+
+  if(cats.length===0){
+    _setAdvRecap(`⚠️ Sélectionne au moins <strong>1 catégorie</strong> puis clique sur <strong>Générer mon calendrier</strong>.`);
+  }else{
+    _setAdvRecap(`🧾 Récap prêt : <strong>${_zoneLabel(zonesArr)}</strong> • <strong>${cats.length}</strong> catégorie${cats.length>1?"s":""} • <strong>${_alarmLabel(alarm)}</strong> • <strong>${personal.length}</strong> événement${personal.length>1?"s":""} perso<br>👉 Clique sur <strong>Générer mon calendrier</strong>.`);
+  }
+
+  if(container){
+    container.classList.remove("building","built");
+    container.innerHTML='<span class="url-seg url-seg-plain" style="opacity:1;transform:none;animation:none">En attente de génération…</span>';
+  }
+  if(badge)badge.style.display="none";
+  if(copyBtn){copyBtn.style.opacity="0";copyBtn.style.pointerEvents="none";}
+}
+
+function buildAdvUrl(){
+  const {zonesArr,alarm,cats}=_currentAdvSelection();
+  const personal=_getPersonalEventsForUrl();
+  const zones=zonesArr.join(",");
+  const container=document.getElementById("adv-url-animated");
+
+  clearTimeout(_advBuildTimer);
+
+  if(cats.length===0){
+    window._advWcUrl="";
+    window._advHtUrl="";
+    _setAdvActionsEnabled(false);
+    _setAdvRecap(`⚠️ Sélectionne au moins <strong>1 catégorie</strong> pour générer le lien.`);
+    if(container){
+      container.classList.remove("building","built");
+      container.innerHTML='<span class="url-seg url-seg-plain" style="opacity:1;transform:none;animation:none">En attente de sélection…</span>';
+    }
+    _lastAnimUrl="";
+    return;
+  }
+
+  _setAdvActionsEnabled(false);
+  _setQrState(false);
+  _setAdvRecap(`🧾 Récap : <strong>${_zoneLabel(zonesArr)}</strong> • <strong>${cats.length}</strong> catégorie${cats.length>1?"s":""} • <strong>${_alarmLabel(alarm)}</strong> • <strong>${personal.length}</strong> événement${personal.length>1?"s":""} perso<br>⏳ Préparation du lien…`);
+
+  _advBuildTimer=setTimeout(()=>{
+    const p=new URLSearchParams({zone:zones,alarm,cats:cats.join(",")});
+    if(personal.length)p.set("pe",JSON.stringify(personal));
+    const wc=`webcal://${DYNAMIC_API_BASE}/api/calendrier.ics?${p}`;
+    const wcGoogle=`webcal://${GOOGLE_FEED_BASE}/api/calendrier.ics?${p}`;
+
+    window._advWcUrl=wc;
+    window._advHtUrl=wc;
+
+    const s=document.getElementById("adv-sub");if(s)s.href=wc;
+    const gg=document.getElementById("adv-ggl");if(gg)gg.href=`https://calendar.google.com/calendar/r?cid=${encodeURIComponent(wcGoogle)}`;
+    const oo=document.getElementById("adv-out");if(oo)oo.href=`https://outlook.live.com/calendar/0/deeplink/compose?rru=addsubscription&url=${encodeURIComponent(wc)}`;
+    _updateQrCodes(wc);
+
+    _animateUrl(wc);
+    _setAdvActionsEnabled(true);
+    _setQrState(true);
+    _setAdvRecap(`✅ Lien prêt : <strong>${_zoneLabel(zonesArr)}</strong> • <strong>${cats.length}</strong> catégorie${cats.length>1?"s":""} • <strong>${_alarmLabel(alarm)}</strong> • <strong>${personal.length}</strong> événement${personal.length>1?"s":""} perso`);
+  },220);
+}
+document.getElementById("adv-alarm")?.addEventListener("change",markAdvAsDirty);
+document.getElementById("adv-generate")?.addEventListener("click",buildAdvUrl);
+markAdvAsDirty();
 
 /* ══════════════════════════════════════
    PERSONAL EVENTS
@@ -364,7 +569,7 @@ function renderPEList(){
   const el=document.getElementById("pe-list");if(!el)return;
   if(!personalEvts.length){el.innerHTML='<div class="pe-empty">Aucun événement personnel ajouté.</div>';return;}
   el.innerHTML=personalEvts.map((e,i)=>`<div class="pe-item"><div class="pe-item-info"><div class="pe-item-title">${e.title}</div><div class="pe-item-meta">${e.date} · ${REC_LABELS[e.rec||"none"]}</div></div><button class="pe-del" data-i="${i}">✕</button></div>`).join("");
-  el.querySelectorAll(".pe-del").forEach(b=>b.addEventListener("click",()=>{personalEvts.splice(Number(b.dataset.i),1);savePE();renderPEList();}));
+  el.querySelectorAll(".pe-del").forEach(b=>b.addEventListener("click",()=>{personalEvts.splice(Number(b.dataset.i),1);savePE();renderPEList();markAdvAsDirty();}));
 }
 loadPE();
 document.getElementById("pe-add-btn").addEventListener("click",()=>{
@@ -374,6 +579,7 @@ document.getElementById("pe-add-btn").addEventListener("click",()=>{
   if(!title||!date)return;
   personalEvts.push({title,date,rec});personalEvts.sort((a,b)=>a.date.localeCompare(b.date));
   savePE();renderPEList();
+  markAdvAsDirty();
   document.getElementById("pe-title").value="";
 });
 renderPEList();
@@ -716,7 +922,7 @@ async function init(){
     try{const s=Number(localStorage.getItem(YK));curYear=(s&&years.includes(s))?s:(years.includes(thisYr)?thisYr:([...years].sort().reverse()[0]||thisYr));}catch{curYear=thisYr;}
     buildYrNav(years);document.getElementById("yr-s").value=String(curYear);
     const cats=[...new Set(srcEvts.flatMap(e=>e.categories||[]))].sort();
-    buildSbCats(cats);buildAdvCats(cats);
+    buildSbCats(cats);buildAdvCats(cats);markAdvAsDirty();
     refreshAll();
   }catch(err){
     document.getElementById("ev-root").innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div><p>Impossible de charger les données.<br><small style="color:var(--t3)">${err.message}</small></p></div>`;

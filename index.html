@@ -429,16 +429,28 @@
               </div>
             </div>
             <div class="gen-out">
-              <div class="gen-url" id="adv-url"></div>
-              <div class="gen-acts">
-                <a id="adv-sub" href="#" class="bp">⚡ S'abonner</a>
-                <a id="adv-ggl" href="#" target="_blank" class="bs"
-                  >Google Cal.</a
-                >
-                <a id="adv-out" href="#" target="_blank" class="bs">Outlook</a>
-                <button id="cp-adv" class="cpbtn" style="align-self: center">
-                  Copier URL
-                </button>
+              <div class="url-anim-label">URL générée</div>
+              <div id="adv-url-recap" class="url-recap" aria-live="polite"></div>
+              <div class="url-anim-wrap">
+                <div id="adv-url-animated"></div>
+                <span id="adv-url-badge" class="url-built-badge" style="display:none">✓ Prêt</span>
+                <button id="adv-url-copy" class="url-copy-btn" style="opacity:0;pointer-events:none">Copier</button>
+              </div>
+              <button id="adv-generate" class="bp adv-generate-btn">⚙️ Générer mon calendrier</button>
+              <div class="gen-links-and-qr">
+                <div class="gen-acts">
+                  <a id="adv-sub" href="#" class="bp">⚡ S'abonner</a>
+                  <a id="adv-ggl" href="#" target="_blank" class="bs"
+                    >Google Cal.</a
+                  >
+                  <a id="adv-out" href="#" target="_blank" class="bs">Outlook</a>
+                </div>
+                <div class="qr-panel" id="adv-qr-panel" aria-live="polite">
+                  <a class="qr-item qr-item-main" id="qr-link-main" href="#" target="_blank" rel="noopener noreferrer">
+                    <img id="qr-img-main" alt="QR import calendrier" />
+                    <span>Scan pour importer (iPhone / Android)</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -647,7 +659,7 @@
     </div>
 
     <script>
-      window.CALENDAR_API_BASE = "calendrier-fr.vercel.app";
+      window.CALENDAR_API_BASE = "api.calendrier-fr.tibotsr.dev";
     </script>
     <script src="./assets/js/app.js"></script>
   </body>
