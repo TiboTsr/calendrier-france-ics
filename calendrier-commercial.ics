@@ -1,0 +1,2032 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Calendrier Complet//FR//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Calendrier France - Profil commercial
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VEVENT
+UID:d4db2c2e1e8a8983ca6009ec@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue 1 — Saison 2025-2026
+DESCRIPTION:La saison 2025-2026 de Ligue 1 regroupe 20 clubs pour 380 matchs d'août à mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20250815
+DTEND;VALUE=DATE:20260516
+END:VEVENT
+BEGIN:VEVENT
+UID:042dde92b154b8d3e920ef38@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue des Champions UEFA — Saison 2025-2026
+DESCRIPTION:La saison 2025-2026 de la Ligue des Champions UEFA\, de septembre à fin mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20250910
+DTEND;VALUE=DATE:20260531
+END:VEVENT
+BEGIN:VEVENT
+UID:68f34cb4835843cd0de812d4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tournoi des Six Nations — Période
+DESCRIPTION:Le plus vieux tournoi international de rugby à XV\, né en 1883. Il réunit chaque année de février à mars l'Angleterre\, la France\, l'Irlande\, l'Écosse\, le Pays de Galles et l'Italie.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20260205
+DTEND;VALUE=DATE:20260314
+END:VEVENT
+BEGIN:VEVENT
+UID:85aae5abc4ec875d0877e2da@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Patrick
+DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de saint Patrick (461)\, évangélisateur de l'Irlande. Exportée dans le monde entier par la diaspora irlandaise\, elle est aujourd'hui fêtée partout où il y a un pub.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20260317
+END:VEVENT
+BEGIN:VEVENT
+UID:288a32cc6ed41bfc9de5f3db@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pâques
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20260406
+END:VEVENT
+BEGIN:VEVENT
+UID:17617e8815f0d514d63a5095@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête du Travail
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Société
+DTSTART;VALUE=DATE:20260501
+END:VEVENT
+BEGIN:VEVENT
+UID:92ffc006b17920fde0b6522d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Victoire
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260508
+END:VEVENT
+BEGIN:VEVENT
+UID:75ecce2511bb99af5b21bbf1@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Victoire 1945 — Capitulation de l'Allemagne nazie
+DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans condition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé par Giscard en 1975\, puis rétabli par Mitterrand en 1981.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20260508
+END:VEVENT
+BEGIN:VEVENT
+UID:57170bbe9ab63e13d2d569f4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ascension
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20260514
+END:VEVENT
+BEGIN:VEVENT
+UID:4b98c30964d9015410088708@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Roland-Garros — Début du tournoi
+DESCRIPTION:Seul Grand Chelem sur terre battue\, disputé fin mai à Paris. Le tournoi dure environ deux semaines. Il porte le nom d'un aviateur de la Première Guerre mondiale\, pas d'un joueur de tennis.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20260518
+DTEND;VALUE=DATE:20260607
+END:VEVENT
+BEGIN:VEVENT
+UID:641ee9eb4e0f679644ed0830@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pentecôte
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20260525
+END:VEVENT
+BEGIN:VEVENT
+UID:b0c2a1c45336fc672a20923c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale de la Coupe de France de Football
+DESCRIPTION:Ouverte à tous les clubs\, des amateurs de district jusqu'aux pros. Fondée en 1917\, sa finale se joue au Stade de France — n'importe quel club peut théoriquement la remporter.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20260530
+END:VEVENT
+BEGIN:VEVENT
+UID:9beeb4b52a9ea5fe3c143705@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Mères
+DESCRIPTION:Officialisée en France par la loi de 1926. Elle tombe le dernier dimanche de mai\, sauf si ce jour coïncide avec la Pentecôte — dans ce cas elle est reportée au premier dimanche de juin.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20260607
+END:VEVENT
+BEGIN:VEVENT
+UID:2e007d627867a806c99c301a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Grand Prix de Monaco (Formule 1)
+DESCRIPTION:Disputé dans les rues de Monaco depuis 1929. Son circuit étroit et lent en fait paradoxalement la plus difficile des courses F1 à remporter — dépasser y est presque impossible.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20260607
+END:VEVENT
+BEGIN:VEVENT
+UID:4ad741e6d95d81ce20679262@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Coupe du monde de football 2026
+DESCRIPTION:Compétition internationale masculine organisée par la FIFA tous les quatre ans.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20260611
+DTEND;VALUE=DATE:20260719
+END:VEVENT
+BEGIN:VEVENT
+UID:9e5e873156754ce55cdb204c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:24 Heures du Mans — Départ
+DESCRIPTION:Course d'endurance mythique créée en 1923 sur le circuit de la Sarthe. Voitures et pilotes se relaient pendant 24 heures consécutives\, de jour comme de nuit.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20260613
+DTEND;VALUE=DATE:20260614
+END:VEVENT
+BEGIN:VEVENT
+UID:5e8ffc7fef10c1c7db6dd8e9@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Musique
+DESCRIPTION:Créée en 1982 par le ministre Jack Lang. Elle ouvre les rues à tous les musiciens gratuitement\, le jour du solstice d'été. Le nom est un jeu de mots intentionnel : Fête de la musique / Faites de la musique.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20260621
+END:VEVENT
+BEGIN:VEVENT
+UID:deae48b8676ae8a7496ab4b4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Pères
+DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les années 1950 par le fabricant de briquets Flaminaire\, qui cherchait à créer un événement commercial symétrique à la Fête des Mères.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20260621
+END:VEVENT
+BEGIN:VEVENT
+UID:138558d53b861c4781496a1a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale du Top 14 de Rugby
+DESCRIPTION:La finale du championnat professionnel de rugby français se joue au Stade de France en juin. Toulouse est le club le plus titré avec plus de 20 boucliers de Brennus.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20260627
+END:VEVENT
+BEGIN:VEVENT
+UID:52bb9d0a19206b745d304884@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tour de France — Grand Départ
+DESCRIPTION:La course cycliste la plus célèbre au monde\, créée en 1903. Trois semaines\, 21 étapes\, environ 3 500 km. Le maillot jaune tire son nom de la couleur du papier journal L'Auto\, organisateur historique.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20260704
+DTEND;VALUE=DATE:20260726
+END:VEVENT
+BEGIN:VEVENT
+UID:4de6885772fbd80be7b6fdb7@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête Nationale
+DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole de la Révolution française. Jour férié depuis 1880. Défilé militaire sur les Champs-Élysées\, bals des pompiers et feux d'artifice dans toute la France.
+CATEGORIES:Jours fériés,Société,Dates spéciales
+DTSTART;VALUE=DATE:20260714
+END:VEVENT
+BEGIN:VEVENT
+UID:31aa86178022d54b2788f451@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête nationale
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260714
+END:VEVENT
+BEGIN:VEVENT
+UID:07ff065217ffb89ab66974e8@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue 1 — Saison 2026-2027
+DESCRIPTION:La saison 2026-2027 de Ligue 1 regroupe 20 clubs pour 380 matchs d'août à mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20260810
+DTEND;VALUE=DATE:20270525
+END:VEVENT
+BEGIN:VEVENT
+UID:baeafd7eb958fefc57fe989e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20260815
+END:VEVENT
+BEGIN:VEVENT
+UID:b88502f66517aa35959cd07c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption de Marie
+DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en plein cœur de l'été\, au milieu des grandes vacances.
+CATEGORIES:Christianisme,Jours fériés
+DTSTART;VALUE=DATE:20260815
+END:VEVENT
+BEGIN:VEVENT
+UID:6f91bf2c93f9a04a1fcf1ab6@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue des Champions UEFA — Saison 2026-2027
+DESCRIPTION:La saison 2026-2027 de la Ligue des Champions UEFA\, de septembre à fin mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20260910
+DTEND;VALUE=DATE:20270531
+END:VEVENT
+BEGIN:VEVENT
+UID:a20ae0c068acf55e35c69106@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale du cacao et du chocolat
+DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internationale du cacao (ICCO). Elle met en avant la filière cacao\, l'histoire du chocolat et les enjeux de production durable.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20261001
+END:VEVENT
+BEGIN:VEVENT
+UID:0480655f6dc620ad7a8963ba@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Semaine du Goût
+DESCRIPTION:Créée en 1990 par le chef Joël Robuchon. Chaque deuxième semaine d'octobre\, des cuisiniers interviennent dans les écoles pour sensibiliser les enfants aux saveurs et au patrimoine culinaire français.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20261012
+END:VEVENT
+BEGIN:VEVENT
+UID:57d4dac8de0ac595c5a44c08@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale de l'alimentation
+DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945. Elle rappelle que 733 millions de personnes souffrent de la faim dans le monde\, alors qu'un tiers de la nourriture produite est gaspillée.
+CATEGORIES:Gastronomie,Société,Santé
+DTSTART;VALUE=DATE:20261016
+END:VEVENT
+BEGIN:VEVENT
+UID:6f619142e0bb89a3f97863b8@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Halloween
+DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis popularisée par la diaspora irlandaise aux États-Unis au XIXe siècle. Arrivée en France dans les années 1990\, d'abord mal accueillie\, elle s'est depuis bien installée.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20261031
+END:VEVENT
+BEGIN:VEVENT
+UID:32d5f97c38992f22dbc90379@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Toussaint
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20261101
+END:VEVENT
+BEGIN:VEVENT
+UID:812630998bd0913a810f4e97@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice 1918
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20261111
+END:VEVENT
+BEGIN:VEVENT
+UID:aad929bdea1e4f502d6db53c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice de 1918 — Journée du Souvenir
+DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première Guerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque commune française a son monument aux morts — 36 000 érigés entre 1920 et 1925.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20261111
+END:VEVENT
+BEGIN:VEVENT
+UID:bc05c77ee90c8be0ea7f4275@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Beaujolais Nouveau
+DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est mis en vente — vin primeur issu de la récolte de l'été. Une tradition née dans les années 1950 devenue événement mondial : le vin voyage parfois en avion pour arriver à l'heure au Japon.
+CATEGORIES:Gastronomie,Culture,Commercial
+DTSTART;VALUE=DATE:20261119
+END:VEVENT
+BEGIN:VEVENT
+UID:016c6de3188af0aebebe9f88@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Nicolas
+DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron des enfants. Très célébrée en Alsace\, Lorraine et dans le Nord\, où Saint-Nicolas défile en distribuant des friandises le 6 décembre.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20261206
+END:VEVENT
+BEGIN:VEVENT
+UID:adb51ac987e73e1380728039@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Noël
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme,Fêtes
+DTSTART;VALUE=DATE:20261225
+END:VEVENT
+BEGIN:VEVENT
+UID:949519ec7d2272ec8b3ac81e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
+DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier mort ce jour en 335. C'est le soir du grand réveillon — champagne\, feux d'artifice et compte à rebours à minuit.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20261231
+END:VEVENT
+BEGIN:VEVENT
+UID:5acd4e128d5b576deb07ed3e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Jour de l'An
+DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une coutume druidique bien antérieure au christianisme.
+CATEGORIES:Fêtes,Jours fériés
+DTSTART;VALUE=DATE:20270101
+END:VEVENT
+BEGIN:VEVENT
+UID:6f5a38fae550e9984b4b6183@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Jour de l'an
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270101
+END:VEVENT
+BEGIN:VEVENT
+UID:4a3dff3802ef9e3bc9a669b4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Épiphanie
+DESCRIPTION:Célèbre la visite des Rois Mages à Jésus\, 12 jours après Noël. En France c'est l'occasion de la galette des Rois — feuilletée à la frangipane au nord\, briochée aux fruits confits au sud.
+CATEGORIES:Christianisme,Culture,Gastronomie
+DTSTART;VALUE=DATE:20270106
+END:VEVENT
+BEGIN:VEVENT
+UID:a7cf54754bea5b6fd354ad1a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Chandeleur
+DESCRIPTION:Fête de la Présentation de Jésus au Temple\, 40 jours après Noël. La tradition des crêpes vient de leur forme ronde et dorée évoquant le soleil qui revient après l'hiver — une symbolique solaire bien antérieure au christianisme.
+CATEGORIES:Culture,Christianisme,Gastronomie
+DTSTART;VALUE=DATE:20270202
+END:VEVENT
+BEGIN:VEVENT
+UID:cb6e1ce6aafea353efb7af2b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tournoi des Six Nations — Période
+DESCRIPTION:Le plus vieux tournoi international de rugby à XV\, né en 1883. Il réunit chaque année de février à mars l'Angleterre\, la France\, l'Irlande\, l'Écosse\, le Pays de Galles et l'Italie.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270320
+END:VEVENT
+BEGIN:VEVENT
+UID:5486d8684dde18d840cee5d3@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Mardi Gras
+DESCRIPTION:Dernier jour avant le Carême\, où la tradition voulait qu'on fasse bombance avant l'abstinence. Le nom vient de là : dernier mardi pour manger gras. Aujourd'hui synonyme de carnavals et de crêpes.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20270209
+END:VEVENT
+BEGIN:VEVENT
+UID:a4bae4b5410291d5e78211b5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Valentin
+DESCRIPTION:Fête des amoureux le 14 février. Le lien avec les amoureux viendrait d'une tradition médiévale anglaise selon laquelle les oiseaux choisissaient leur partenaire ce jour-là — documentée chez Chaucer dès 1382.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20270214
+END:VEVENT
+BEGIN:VEVENT
+UID:d4aa681cf1556db6ed26ec97@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Salon de l'Agriculture — Ouverture
+DESCRIPTION:Le Salon International de l'Agriculture se tient chaque fin février à Paris. Créé en 1964\, c'est le plus grand salon agricole d'Europe — et le rendez-vous traditionnel des candidats à l'élection présidentielle.
+CATEGORIES:Gastronomie,Agriculture,Culture
+DTSTART;VALUE=DATE:20270227
+END:VEVENT
+BEGIN:VEVENT
+UID:63b0d36ced0207ed04175239@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Grands-Mères
+DESCRIPTION:Créée en 1987 par la marque de café Grand'Mère pour valoriser les aïeules. Célébrée le premier dimanche de mars\, elle est devenue une tradition familiale bien ancrée malgré ses origines purement commerciales.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20270307
+END:VEVENT
+BEGIN:VEVENT
+UID:99f8427a5e85ffc8ce768a11@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Patrick
+DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de saint Patrick (461)\, évangélisateur de l'Irlande. Exportée dans le monde entier par la diaspora irlandaise\, elle est aujourd'hui fêtée partout où il y a un pub.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20270317
+END:VEVENT
+BEGIN:VEVENT
+UID:30a60144d37644d35ce84da9@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pâques
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20270329
+END:VEVENT
+BEGIN:VEVENT
+UID:e9362f9cd210f305893d8734@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête du Travail
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Société
+DTSTART;VALUE=DATE:20270501
+END:VEVENT
+BEGIN:VEVENT
+UID:14dddc8b694173ef6a28017c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ascension
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20270506
+END:VEVENT
+BEGIN:VEVENT
+UID:3516ef9d0f8fa4e47bd1424c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Victoire
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270508
+END:VEVENT
+BEGIN:VEVENT
+UID:efae590c2772e24ab40c56b3@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Victoire 1945 — Capitulation de l'Allemagne nazie
+DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans condition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé par Giscard en 1975\, puis rétabli par Mitterrand en 1981.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20270508
+END:VEVENT
+BEGIN:VEVENT
+UID:ef35bc70743c1083a24f6f83@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pentecôte
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20270517
+END:VEVENT
+BEGIN:VEVENT
+UID:0426f3ca65ba0ac451586d8b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Mères
+DESCRIPTION:Officialisée en France par la loi de 1926. Elle tombe le dernier dimanche de mai\, sauf si ce jour coïncide avec la Pentecôte — dans ce cas elle est reportée au premier dimanche de juin.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20270523
+END:VEVENT
+BEGIN:VEVENT
+UID:4ee4781f0ed07de571d036fc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale de la Coupe de France de Football
+DESCRIPTION:Ouverte à tous les clubs\, des amateurs de district jusqu'aux pros. Fondée en 1917\, sa finale se joue au Stade de France — n'importe quel club peut théoriquement la remporter.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20270529
+END:VEVENT
+BEGIN:VEVENT
+UID:9a90350ac9cf9d50656dc26a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Grand Prix de Monaco (Formule 1)
+DESCRIPTION:Disputé dans les rues de Monaco depuis 1929. Son circuit étroit et lent en fait paradoxalement la plus difficile des courses F1 à remporter — dépasser y est presque impossible.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20270530
+END:VEVENT
+BEGIN:VEVENT
+UID:428e772eb7d4764eee4ae492@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Roland-Garros — Début du tournoi
+DESCRIPTION:Seul Grand Chelem sur terre battue\, disputé fin mai à Paris. Le tournoi dure environ deux semaines. Il porte le nom d'un aviateur de la Première Guerre mondiale\, pas d'un joueur de tennis.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270613
+END:VEVENT
+BEGIN:VEVENT
+UID:2b27a9bb187c99cf7d70ccb9@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:24 Heures du Mans — Départ
+DESCRIPTION:Course d'endurance mythique créée en 1923 sur le circuit de la Sarthe. Voitures et pilotes se relaient pendant 24 heures consécutives\, de jour comme de nuit.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+END:VEVENT
+BEGIN:VEVENT
+UID:a86f1437a289f7e264ba3f2a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Pères
+DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les années 1950 par le fabricant de briquets Flaminaire\, qui cherchait à créer un événement commercial symétrique à la Fête des Mères.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20270620
+END:VEVENT
+BEGIN:VEVENT
+UID:ea277ffd7cf242130ea75ee8@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Musique
+DESCRIPTION:Créée en 1982 par le ministre Jack Lang. Elle ouvre les rues à tous les musiciens gratuitement\, le jour du solstice d'été. Le nom est un jeu de mots intentionnel : Fête de la musique / Faites de la musique.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20270621
+END:VEVENT
+BEGIN:VEVENT
+UID:5430444419a0e36cfa9ff4b0@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale du Top 14 de Rugby
+DESCRIPTION:La finale du championnat professionnel de rugby français se joue au Stade de France en juin. Toulouse est le club le plus titré avec plus de 20 boucliers de Brennus.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20270626
+END:VEVENT
+BEGIN:VEVENT
+UID:e5263df5b5d90435c8c196f7@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tour de France — Grand Départ
+DESCRIPTION:La course cycliste la plus célèbre au monde\, créée en 1903. Trois semaines\, 21 étapes\, environ 3 500 km. Le maillot jaune tire son nom de la couleur du papier journal L'Auto\, organisateur historique.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270725
+END:VEVENT
+BEGIN:VEVENT
+UID:eb7fd8d52f710d8c15b3ba3f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête Nationale
+DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole de la Révolution française. Jour férié depuis 1880. Défilé militaire sur les Champs-Élysées\, bals des pompiers et feux d'artifice dans toute la France.
+CATEGORIES:Jours fériés,Société,Dates spéciales
+DTSTART;VALUE=DATE:20270714
+END:VEVENT
+BEGIN:VEVENT
+UID:97d447e166db31f6f1648ffd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête nationale
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270714
+END:VEVENT
+BEGIN:VEVENT
+UID:315f3b6c8e81dd21f34eeeca@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue 1 — Saison 2027-2028
+DESCRIPTION:La saison 2027-2028 de Ligue 1 regroupe 20 clubs pour 380 matchs d'août à mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20270810
+DTEND;VALUE=DATE:20280525
+END:VEVENT
+BEGIN:VEVENT
+UID:4b25dae386cc6460eb1b1f68@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20270815
+END:VEVENT
+BEGIN:VEVENT
+UID:202d29147d75a5aef75230dc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption de Marie
+DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en plein cœur de l'été\, au milieu des grandes vacances.
+CATEGORIES:Christianisme,Jours fériés
+DTSTART;VALUE=DATE:20270815
+END:VEVENT
+BEGIN:VEVENT
+UID:9d3777b73f77f9646a6f9a0b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue des Champions UEFA — Saison 2027-2028
+DESCRIPTION:La saison 2027-2028 de la Ligue des Champions UEFA\, de septembre à fin mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20270910
+DTEND;VALUE=DATE:20280531
+END:VEVENT
+BEGIN:VEVENT
+UID:90fa35edb982b4e0baea69be@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale du cacao et du chocolat
+DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internationale du cacao (ICCO). Elle met en avant la filière cacao\, l'histoire du chocolat et les enjeux de production durable.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20271001
+END:VEVENT
+BEGIN:VEVENT
+UID:3d7b80ad2f0eb72915055d5e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Semaine du Goût
+DESCRIPTION:Créée en 1990 par le chef Joël Robuchon. Chaque deuxième semaine d'octobre\, des cuisiniers interviennent dans les écoles pour sensibiliser les enfants aux saveurs et au patrimoine culinaire français.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20271011
+END:VEVENT
+BEGIN:VEVENT
+UID:5991885a0125288f57900816@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale de l'alimentation
+DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945. Elle rappelle que 733 millions de personnes souffrent de la faim dans le monde\, alors qu'un tiers de la nourriture produite est gaspillée.
+CATEGORIES:Gastronomie,Société,Santé
+DTSTART;VALUE=DATE:20271016
+END:VEVENT
+BEGIN:VEVENT
+UID:d9b26d165df3c8c5ee092ca8@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Halloween
+DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis popularisée par la diaspora irlandaise aux États-Unis au XIXe siècle. Arrivée en France dans les années 1990\, d'abord mal accueillie\, elle s'est depuis bien installée.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20271031
+END:VEVENT
+BEGIN:VEVENT
+UID:ff845ce5cf2ad13c81c58c9d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Toussaint
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20271101
+END:VEVENT
+BEGIN:VEVENT
+UID:a9f85eb4c6e8331ebe15a515@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice 1918
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20271111
+END:VEVENT
+BEGIN:VEVENT
+UID:f3fb0828e965797d1b8bb21c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice de 1918 — Journée du Souvenir
+DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première Guerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque commune française a son monument aux morts — 36 000 érigés entre 1920 et 1925.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20271111
+END:VEVENT
+BEGIN:VEVENT
+UID:f582e02496fe287a49f5f584@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Beaujolais Nouveau
+DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est mis en vente — vin primeur issu de la récolte de l'été. Une tradition née dans les années 1950 devenue événement mondial : le vin voyage parfois en avion pour arriver à l'heure au Japon.
+CATEGORIES:Gastronomie,Culture,Commercial
+DTSTART;VALUE=DATE:20271118
+END:VEVENT
+BEGIN:VEVENT
+UID:fe4352a8aefea92b93fec35d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Nicolas
+DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron des enfants. Très célébrée en Alsace\, Lorraine et dans le Nord\, où Saint-Nicolas défile en distribuant des friandises le 6 décembre.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20271206
+END:VEVENT
+BEGIN:VEVENT
+UID:91900ff7a42f580260b62b1c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Noël
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme,Fêtes
+DTSTART;VALUE=DATE:20271225
+END:VEVENT
+BEGIN:VEVENT
+UID:15ec94cab0ce814495052bc1@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
+DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier mort ce jour en 335. C'est le soir du grand réveillon — champagne\, feux d'artifice et compte à rebours à minuit.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20271231
+END:VEVENT
+BEGIN:VEVENT
+UID:15e0314340c113b1918ac683@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Jour de l'An
+DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une coutume druidique bien antérieure au christianisme.
+CATEGORIES:Fêtes,Jours fériés
+DTSTART;VALUE=DATE:20280101
+END:VEVENT
+BEGIN:VEVENT
+UID:0ebdffce2d69d7255e21dbf5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Jour de l'an
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280101
+END:VEVENT
+BEGIN:VEVENT
+UID:ca1d453621722d3bb2504dfe@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Épiphanie
+DESCRIPTION:Célèbre la visite des Rois Mages à Jésus\, 12 jours après Noël. En France c'est l'occasion de la galette des Rois — feuilletée à la frangipane au nord\, briochée aux fruits confits au sud.
+CATEGORIES:Christianisme,Culture,Gastronomie
+DTSTART;VALUE=DATE:20280106
+END:VEVENT
+BEGIN:VEVENT
+UID:c79f754d1f9a4c153214ac1d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Chandeleur
+DESCRIPTION:Fête de la Présentation de Jésus au Temple\, 40 jours après Noël. La tradition des crêpes vient de leur forme ronde et dorée évoquant le soleil qui revient après l'hiver — une symbolique solaire bien antérieure au christianisme.
+CATEGORIES:Culture,Christianisme,Gastronomie
+DTSTART;VALUE=DATE:20280202
+END:VEVENT
+BEGIN:VEVENT
+UID:bd40bfd7bed4cbe703346d26@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tournoi des Six Nations — Période
+DESCRIPTION:Le plus vieux tournoi international de rugby à XV\, né en 1883. Il réunit chaque année de février à mars l'Angleterre\, la France\, l'Irlande\, l'Écosse\, le Pays de Galles et l'Italie.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20280205
+DTEND;VALUE=DATE:20280318
+END:VEVENT
+BEGIN:VEVENT
+UID:fcfa39064d0c04d899e2372e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Valentin
+DESCRIPTION:Fête des amoureux le 14 février. Le lien avec les amoureux viendrait d'une tradition médiévale anglaise selon laquelle les oiseaux choisissaient leur partenaire ce jour-là — documentée chez Chaucer dès 1382.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20280214
+END:VEVENT
+BEGIN:VEVENT
+UID:940b6b6514d9e86bc54c9a9c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Salon de l'Agriculture — Ouverture
+DESCRIPTION:Le Salon International de l'Agriculture se tient chaque fin février à Paris. Créé en 1964\, c'est le plus grand salon agricole d'Europe — et le rendez-vous traditionnel des candidats à l'élection présidentielle.
+CATEGORIES:Gastronomie,Agriculture,Culture
+DTSTART;VALUE=DATE:20280226
+END:VEVENT
+BEGIN:VEVENT
+UID:3df3aac217bb79cf1323b180@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Mardi Gras
+DESCRIPTION:Dernier jour avant le Carême\, où la tradition voulait qu'on fasse bombance avant l'abstinence. Le nom vient de là : dernier mardi pour manger gras. Aujourd'hui synonyme de carnavals et de crêpes.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20280229
+END:VEVENT
+BEGIN:VEVENT
+UID:943c497d9653e82ae08f0c46@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Grands-Mères
+DESCRIPTION:Créée en 1987 par la marque de café Grand'Mère pour valoriser les aïeules. Célébrée le premier dimanche de mars\, elle est devenue une tradition familiale bien ancrée malgré ses origines purement commerciales.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20280305
+END:VEVENT
+BEGIN:VEVENT
+UID:4a08b37944081950305e2ae2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Patrick
+DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de saint Patrick (461)\, évangélisateur de l'Irlande. Exportée dans le monde entier par la diaspora irlandaise\, elle est aujourd'hui fêtée partout où il y a un pub.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20280317
+END:VEVENT
+BEGIN:VEVENT
+UID:f4752e9806e707258b2d3ea4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pâques
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20280417
+END:VEVENT
+BEGIN:VEVENT
+UID:49dfdd9f2e4575d0fc960a6a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête du Travail
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Société
+DTSTART;VALUE=DATE:20280501
+END:VEVENT
+BEGIN:VEVENT
+UID:2a74689fe4f7bb09e3edb617@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Victoire
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280508
+END:VEVENT
+BEGIN:VEVENT
+UID:62a1bab58e8e3011e23d8af7@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Victoire 1945 — Capitulation de l'Allemagne nazie
+DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans condition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé par Giscard en 1975\, puis rétabli par Mitterrand en 1981.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20280508
+END:VEVENT
+BEGIN:VEVENT
+UID:06e4d9dcc3c68ddcb625dcbd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ascension
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20280525
+END:VEVENT
+BEGIN:VEVENT
+UID:5618905788f28f6ccce6d32e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale de la Coupe de France de Football
+DESCRIPTION:Ouverte à tous les clubs\, des amateurs de district jusqu'aux pros. Fondée en 1917\, sa finale se joue au Stade de France — n'importe quel club peut théoriquement la remporter.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20280527
+END:VEVENT
+BEGIN:VEVENT
+UID:8a659fdb632df84cd5ed3b0b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Mères
+DESCRIPTION:Officialisée en France par la loi de 1926. Elle tombe le dernier dimanche de mai\, sauf si ce jour coïncide avec la Pentecôte — dans ce cas elle est reportée au premier dimanche de juin.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20280528
+END:VEVENT
+BEGIN:VEVENT
+UID:18dfdc72b4c3f0305a806ccf@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Grand Prix de Monaco (Formule 1)
+DESCRIPTION:Disputé dans les rues de Monaco depuis 1929. Son circuit étroit et lent en fait paradoxalement la plus difficile des courses F1 à remporter — dépasser y est presque impossible.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20280528
+END:VEVENT
+BEGIN:VEVENT
+UID:8df09652c35b73c649858626@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Roland-Garros — Début du tournoi
+DESCRIPTION:Seul Grand Chelem sur terre battue\, disputé fin mai à Paris. Le tournoi dure environ deux semaines. Il porte le nom d'un aviateur de la Première Guerre mondiale\, pas d'un joueur de tennis.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20280528
+DTEND;VALUE=DATE:20280611
+END:VEVENT
+BEGIN:VEVENT
+UID:816fa7ae3a9b6028ff1c1fb9@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pentecôte
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20280605
+END:VEVENT
+BEGIN:VEVENT
+UID:c5102c9587d2b1c62842dcd1@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:UEFA Euro 2028
+DESCRIPTION:Championnat d'Europe des nations de football\, organisé tous les quatre ans par l'UEFA.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20280609
+DTEND;VALUE=DATE:20280709
+END:VEVENT
+BEGIN:VEVENT
+UID:dd9b690740211cca33fb1b8b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:24 Heures du Mans — Départ
+DESCRIPTION:Course d'endurance mythique créée en 1923 sur le circuit de la Sarthe. Voitures et pilotes se relaient pendant 24 heures consécutives\, de jour comme de nuit.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20280610
+DTEND;VALUE=DATE:20280611
+END:VEVENT
+BEGIN:VEVENT
+UID:d52abc2ffaaa460ccc60d2f6@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Pères
+DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les années 1950 par le fabricant de briquets Flaminaire\, qui cherchait à créer un événement commercial symétrique à la Fête des Mères.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20280618
+END:VEVENT
+BEGIN:VEVENT
+UID:b8f769308f5c86fc8b5fdc0f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Musique
+DESCRIPTION:Créée en 1982 par le ministre Jack Lang. Elle ouvre les rues à tous les musiciens gratuitement\, le jour du solstice d'été. Le nom est un jeu de mots intentionnel : Fête de la musique / Faites de la musique.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20280621
+END:VEVENT
+BEGIN:VEVENT
+UID:922f4c47b1bc0d82726140e0@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale du Top 14 de Rugby
+DESCRIPTION:La finale du championnat professionnel de rugby français se joue au Stade de France en juin. Toulouse est le club le plus titré avec plus de 20 boucliers de Brennus.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20280624
+END:VEVENT
+BEGIN:VEVENT
+UID:d912c9435228ffc26d40a7cd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tour de France — Grand Départ
+DESCRIPTION:La course cycliste la plus célèbre au monde\, créée en 1903. Trois semaines\, 21 étapes\, environ 3 500 km. Le maillot jaune tire son nom de la couleur du papier journal L'Auto\, organisateur historique.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20280701
+DTEND;VALUE=DATE:20280723
+END:VEVENT
+BEGIN:VEVENT
+UID:1ffd69c5ae9ddd70693e2bb2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête Nationale
+DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole de la Révolution française. Jour férié depuis 1880. Défilé militaire sur les Champs-Élysées\, bals des pompiers et feux d'artifice dans toute la France.
+CATEGORIES:Jours fériés,Société,Dates spéciales
+DTSTART;VALUE=DATE:20280714
+END:VEVENT
+BEGIN:VEVENT
+UID:4dc657163bbf8ae6a80dfdb7@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête nationale
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280714
+END:VEVENT
+BEGIN:VEVENT
+UID:4b74f69920a32057eef965c5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue 1 — Saison 2028-2029
+DESCRIPTION:La saison 2028-2029 de Ligue 1 regroupe 20 clubs pour 380 matchs d'août à mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20280810
+DTEND;VALUE=DATE:20290525
+END:VEVENT
+BEGIN:VEVENT
+UID:afd828d0e2e6416a49b49f5a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20280815
+END:VEVENT
+BEGIN:VEVENT
+UID:88c72ae3b6fd3c18fd85937f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption de Marie
+DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en plein cœur de l'été\, au milieu des grandes vacances.
+CATEGORIES:Christianisme,Jours fériés
+DTSTART;VALUE=DATE:20280815
+END:VEVENT
+BEGIN:VEVENT
+UID:3e925e6ca3a2038601881165@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue des Champions UEFA — Saison 2028-2029
+DESCRIPTION:La saison 2028-2029 de la Ligue des Champions UEFA\, de septembre à fin mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20280910
+DTEND;VALUE=DATE:20290531
+END:VEVENT
+BEGIN:VEVENT
+UID:ad3dcc3c60909896b3b2371d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale du cacao et du chocolat
+DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internationale du cacao (ICCO). Elle met en avant la filière cacao\, l'histoire du chocolat et les enjeux de production durable.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20281001
+END:VEVENT
+BEGIN:VEVENT
+UID:a2bf927a15f426c8898ce580@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Semaine du Goût
+DESCRIPTION:Créée en 1990 par le chef Joël Robuchon. Chaque deuxième semaine d'octobre\, des cuisiniers interviennent dans les écoles pour sensibiliser les enfants aux saveurs et au patrimoine culinaire français.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20281009
+END:VEVENT
+BEGIN:VEVENT
+UID:6d78f4e6e9c7eb084c381a30@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale de l'alimentation
+DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945. Elle rappelle que 733 millions de personnes souffrent de la faim dans le monde\, alors qu'un tiers de la nourriture produite est gaspillée.
+CATEGORIES:Gastronomie,Société,Santé
+DTSTART;VALUE=DATE:20281016
+END:VEVENT
+BEGIN:VEVENT
+UID:ba8264553a26e587c9f3d0cc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Halloween
+DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis popularisée par la diaspora irlandaise aux États-Unis au XIXe siècle. Arrivée en France dans les années 1990\, d'abord mal accueillie\, elle s'est depuis bien installée.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20281031
+END:VEVENT
+BEGIN:VEVENT
+UID:011e73fbfe0a1746d5d327ed@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Toussaint
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20281101
+END:VEVENT
+BEGIN:VEVENT
+UID:e15df3a64efba7be0277ff52@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice 1918
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20281111
+END:VEVENT
+BEGIN:VEVENT
+UID:6a113b7b475e021adcd5827f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice de 1918 — Journée du Souvenir
+DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première Guerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque commune française a son monument aux morts — 36 000 érigés entre 1920 et 1925.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20281111
+END:VEVENT
+BEGIN:VEVENT
+UID:ccc2618b879126b53638a534@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Beaujolais Nouveau
+DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est mis en vente — vin primeur issu de la récolte de l'été. Une tradition née dans les années 1950 devenue événement mondial : le vin voyage parfois en avion pour arriver à l'heure au Japon.
+CATEGORIES:Gastronomie,Culture,Commercial
+DTSTART;VALUE=DATE:20281116
+END:VEVENT
+BEGIN:VEVENT
+UID:657632e1ac08595153f4c6fd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Nicolas
+DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron des enfants. Très célébrée en Alsace\, Lorraine et dans le Nord\, où Saint-Nicolas défile en distribuant des friandises le 6 décembre.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20281206
+END:VEVENT
+BEGIN:VEVENT
+UID:b857af26284412efcfdbfbcd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Noël
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme,Fêtes
+DTSTART;VALUE=DATE:20281225
+END:VEVENT
+BEGIN:VEVENT
+UID:afa3d916c819dfdeee1fe95b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
+DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier mort ce jour en 335. C'est le soir du grand réveillon — champagne\, feux d'artifice et compte à rebours à minuit.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20281231
+END:VEVENT
+BEGIN:VEVENT
+UID:82f423fcb46d71ecb5baa168@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Jour de l'An
+DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une coutume druidique bien antérieure au christianisme.
+CATEGORIES:Fêtes,Jours fériés
+DTSTART;VALUE=DATE:20290101
+END:VEVENT
+BEGIN:VEVENT
+UID:2454c34bdbf6d4d8f24e1cbc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Jour de l'an
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20290101
+END:VEVENT
+BEGIN:VEVENT
+UID:a5235df528d8b5cbd06f1acd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Épiphanie
+DESCRIPTION:Célèbre la visite des Rois Mages à Jésus\, 12 jours après Noël. En France c'est l'occasion de la galette des Rois — feuilletée à la frangipane au nord\, briochée aux fruits confits au sud.
+CATEGORIES:Christianisme,Culture,Gastronomie
+DTSTART;VALUE=DATE:20290106
+END:VEVENT
+BEGIN:VEVENT
+UID:2e170f31ad1966c52aeaf45e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Chandeleur
+DESCRIPTION:Fête de la Présentation de Jésus au Temple\, 40 jours après Noël. La tradition des crêpes vient de leur forme ronde et dorée évoquant le soleil qui revient après l'hiver — une symbolique solaire bien antérieure au christianisme.
+CATEGORIES:Culture,Christianisme,Gastronomie
+DTSTART;VALUE=DATE:20290202
+END:VEVENT
+BEGIN:VEVENT
+UID:88bfa38e95995a88522976dc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tournoi des Six Nations — Période
+DESCRIPTION:Le plus vieux tournoi international de rugby à XV\, né en 1883. Il réunit chaque année de février à mars l'Angleterre\, la France\, l'Irlande\, l'Écosse\, le Pays de Galles et l'Italie.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20290203
+DTEND;VALUE=DATE:20290317
+END:VEVENT
+BEGIN:VEVENT
+UID:8fedc4ea6666733a95e0777c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Mardi Gras
+DESCRIPTION:Dernier jour avant le Carême\, où la tradition voulait qu'on fasse bombance avant l'abstinence. Le nom vient de là : dernier mardi pour manger gras. Aujourd'hui synonyme de carnavals et de crêpes.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20290213
+END:VEVENT
+BEGIN:VEVENT
+UID:c59afe80bd235246a0ba144c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Valentin
+DESCRIPTION:Fête des amoureux le 14 février. Le lien avec les amoureux viendrait d'une tradition médiévale anglaise selon laquelle les oiseaux choisissaient leur partenaire ce jour-là — documentée chez Chaucer dès 1382.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20290214
+END:VEVENT
+BEGIN:VEVENT
+UID:b5b38b65753de395faab18d9@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Salon de l'Agriculture — Ouverture
+DESCRIPTION:Le Salon International de l'Agriculture se tient chaque fin février à Paris. Créé en 1964\, c'est le plus grand salon agricole d'Europe — et le rendez-vous traditionnel des candidats à l'élection présidentielle.
+CATEGORIES:Gastronomie,Agriculture,Culture
+DTSTART;VALUE=DATE:20290224
+END:VEVENT
+BEGIN:VEVENT
+UID:dfeb4e8b4ddb2c2e5a8aca7b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Grands-Mères
+DESCRIPTION:Créée en 1987 par la marque de café Grand'Mère pour valoriser les aïeules. Célébrée le premier dimanche de mars\, elle est devenue une tradition familiale bien ancrée malgré ses origines purement commerciales.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20290304
+END:VEVENT
+BEGIN:VEVENT
+UID:b93cacbf084da6c454a0f3e0@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Patrick
+DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de saint Patrick (461)\, évangélisateur de l'Irlande. Exportée dans le monde entier par la diaspora irlandaise\, elle est aujourd'hui fêtée partout où il y a un pub.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20290317
+END:VEVENT
+BEGIN:VEVENT
+UID:e4ba015c14f409a880de8775@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pâques
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20290402
+END:VEVENT
+BEGIN:VEVENT
+UID:b88bd6f555d3fcddbe55385f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête du Travail
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Société
+DTSTART;VALUE=DATE:20290501
+END:VEVENT
+BEGIN:VEVENT
+UID:59d465f32cfaa3516e99d706@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Victoire
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20290508
+END:VEVENT
+BEGIN:VEVENT
+UID:c09af68eb11ab072e3eef684@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Victoire 1945 — Capitulation de l'Allemagne nazie
+DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans condition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé par Giscard en 1975\, puis rétabli par Mitterrand en 1981.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20290508
+END:VEVENT
+BEGIN:VEVENT
+UID:566e29c39532e9fb8c755485@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ascension
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20290510
+END:VEVENT
+BEGIN:VEVENT
+UID:90c3e8317f7618294b0a5145@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pentecôte
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20290521
+END:VEVENT
+BEGIN:VEVENT
+UID:317d2f43bbba45c4a04e3539@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale de la Coupe de France de Football
+DESCRIPTION:Ouverte à tous les clubs\, des amateurs de district jusqu'aux pros. Fondée en 1917\, sa finale se joue au Stade de France — n'importe quel club peut théoriquement la remporter.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20290526
+END:VEVENT
+BEGIN:VEVENT
+UID:abbc1465637af2e370df5cd3@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Mères
+DESCRIPTION:Officialisée en France par la loi de 1926. Elle tombe le dernier dimanche de mai\, sauf si ce jour coïncide avec la Pentecôte — dans ce cas elle est reportée au premier dimanche de juin.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20290527
+END:VEVENT
+BEGIN:VEVENT
+UID:48bbca4654e355080bc43688@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Grand Prix de Monaco (Formule 1)
+DESCRIPTION:Disputé dans les rues de Monaco depuis 1929. Son circuit étroit et lent en fait paradoxalement la plus difficile des courses F1 à remporter — dépasser y est presque impossible.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20290527
+END:VEVENT
+BEGIN:VEVENT
+UID:9867a63a509ae774224949a2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Roland-Garros — Début du tournoi
+DESCRIPTION:Seul Grand Chelem sur terre battue\, disputé fin mai à Paris. Le tournoi dure environ deux semaines. Il porte le nom d'un aviateur de la Première Guerre mondiale\, pas d'un joueur de tennis.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20290527
+DTEND;VALUE=DATE:20290610
+END:VEVENT
+BEGIN:VEVENT
+UID:a5703e76f61a4db51cae27d2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:24 Heures du Mans — Départ
+DESCRIPTION:Course d'endurance mythique créée en 1923 sur le circuit de la Sarthe. Voitures et pilotes se relaient pendant 24 heures consécutives\, de jour comme de nuit.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20290609
+DTEND;VALUE=DATE:20290610
+END:VEVENT
+BEGIN:VEVENT
+UID:4c424bf5c4d0fb895d8dcfef@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Pères
+DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les années 1950 par le fabricant de briquets Flaminaire\, qui cherchait à créer un événement commercial symétrique à la Fête des Mères.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20290617
+END:VEVENT
+BEGIN:VEVENT
+UID:f0d886dca6a7e6cffcf4e670@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Musique
+DESCRIPTION:Créée en 1982 par le ministre Jack Lang. Elle ouvre les rues à tous les musiciens gratuitement\, le jour du solstice d'été. Le nom est un jeu de mots intentionnel : Fête de la musique / Faites de la musique.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20290621
+END:VEVENT
+BEGIN:VEVENT
+UID:5e4a86744fec3b1b103b9b2d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale du Top 14 de Rugby
+DESCRIPTION:La finale du championnat professionnel de rugby français se joue au Stade de France en juin. Toulouse est le club le plus titré avec plus de 20 boucliers de Brennus.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20290630
+END:VEVENT
+BEGIN:VEVENT
+UID:2a44e4ab62036bce5c4efa2f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tour de France — Grand Départ
+DESCRIPTION:La course cycliste la plus célèbre au monde\, créée en 1903. Trois semaines\, 21 étapes\, environ 3 500 km. Le maillot jaune tire son nom de la couleur du papier journal L'Auto\, organisateur historique.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20290707
+DTEND;VALUE=DATE:20290729
+END:VEVENT
+BEGIN:VEVENT
+UID:2991f32d4fd0625b169bf480@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête Nationale
+DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole de la Révolution française. Jour férié depuis 1880. Défilé militaire sur les Champs-Élysées\, bals des pompiers et feux d'artifice dans toute la France.
+CATEGORIES:Jours fériés,Société,Dates spéciales
+DTSTART;VALUE=DATE:20290714
+END:VEVENT
+BEGIN:VEVENT
+UID:aaa4170f91bf6964d55eacdc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête nationale
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20290714
+END:VEVENT
+BEGIN:VEVENT
+UID:27d53d6173ab061794f5d5b2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue 1 — Saison 2029-2030
+DESCRIPTION:La saison 2029-2030 de Ligue 1 regroupe 20 clubs pour 380 matchs d'août à mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20290810
+DTEND;VALUE=DATE:20300525
+END:VEVENT
+BEGIN:VEVENT
+UID:8f48fc8c7bd29f01fb936ca6@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20290815
+END:VEVENT
+BEGIN:VEVENT
+UID:8fcca01f43420530c6d9d505@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption de Marie
+DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en plein cœur de l'été\, au milieu des grandes vacances.
+CATEGORIES:Christianisme,Jours fériés
+DTSTART;VALUE=DATE:20290815
+END:VEVENT
+BEGIN:VEVENT
+UID:89804e17f32fa6f83c156574@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue des Champions UEFA — Saison 2029-2030
+DESCRIPTION:La saison 2029-2030 de la Ligue des Champions UEFA\, de septembre à fin mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20290910
+DTEND;VALUE=DATE:20300531
+END:VEVENT
+BEGIN:VEVENT
+UID:1ff14e704519b1130f332bfe@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale du cacao et du chocolat
+DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internationale du cacao (ICCO). Elle met en avant la filière cacao\, l'histoire du chocolat et les enjeux de production durable.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20291001
+END:VEVENT
+BEGIN:VEVENT
+UID:581197918a67f52e42940cf1@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Semaine du Goût
+DESCRIPTION:Créée en 1990 par le chef Joël Robuchon. Chaque deuxième semaine d'octobre\, des cuisiniers interviennent dans les écoles pour sensibiliser les enfants aux saveurs et au patrimoine culinaire français.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20291008
+END:VEVENT
+BEGIN:VEVENT
+UID:8eece5e051a0c3234957d2f5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale de l'alimentation
+DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945. Elle rappelle que 733 millions de personnes souffrent de la faim dans le monde\, alors qu'un tiers de la nourriture produite est gaspillée.
+CATEGORIES:Gastronomie,Société,Santé
+DTSTART;VALUE=DATE:20291016
+END:VEVENT
+BEGIN:VEVENT
+UID:37cdb151df9a779eae9ecd56@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Halloween
+DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis popularisée par la diaspora irlandaise aux États-Unis au XIXe siècle. Arrivée en France dans les années 1990\, d'abord mal accueillie\, elle s'est depuis bien installée.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20291031
+END:VEVENT
+BEGIN:VEVENT
+UID:060d7f4d2b2ec8d68f0d5fdb@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Toussaint
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20291101
+END:VEVENT
+BEGIN:VEVENT
+UID:719f1e74771f44d85959c352@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice 1918
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20291111
+END:VEVENT
+BEGIN:VEVENT
+UID:f86b94e9ede539e656382369@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice de 1918 — Journée du Souvenir
+DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première Guerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque commune française a son monument aux morts — 36 000 érigés entre 1920 et 1925.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20291111
+END:VEVENT
+BEGIN:VEVENT
+UID:cae6e89d961175efd79575c2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Beaujolais Nouveau
+DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est mis en vente — vin primeur issu de la récolte de l'été. Une tradition née dans les années 1950 devenue événement mondial : le vin voyage parfois en avion pour arriver à l'heure au Japon.
+CATEGORIES:Gastronomie,Culture,Commercial
+DTSTART;VALUE=DATE:20291115
+END:VEVENT
+BEGIN:VEVENT
+UID:8e37f36f10551e34909b314f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Nicolas
+DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron des enfants. Très célébrée en Alsace\, Lorraine et dans le Nord\, où Saint-Nicolas défile en distribuant des friandises le 6 décembre.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20291206
+END:VEVENT
+BEGIN:VEVENT
+UID:74b25b0d2011f570f7335bba@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Noël
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme,Fêtes
+DTSTART;VALUE=DATE:20291225
+END:VEVENT
+BEGIN:VEVENT
+UID:5c370053f8e00643d639b257@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
+DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier mort ce jour en 335. C'est le soir du grand réveillon — champagne\, feux d'artifice et compte à rebours à minuit.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20291231
+END:VEVENT
+BEGIN:VEVENT
+UID:7892ff79e2ed067094f76455@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Jour de l'An
+DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une coutume druidique bien antérieure au christianisme.
+CATEGORIES:Fêtes,Jours fériés
+DTSTART;VALUE=DATE:20300101
+END:VEVENT
+BEGIN:VEVENT
+UID:85f7ae92f5465a96ab1723a5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Jour de l'an
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20300101
+END:VEVENT
+BEGIN:VEVENT
+UID:84efcd64ef501eeaed1dc97c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Épiphanie
+DESCRIPTION:Célèbre la visite des Rois Mages à Jésus\, 12 jours après Noël. En France c'est l'occasion de la galette des Rois — feuilletée à la frangipane au nord\, briochée aux fruits confits au sud.
+CATEGORIES:Christianisme,Culture,Gastronomie
+DTSTART;VALUE=DATE:20300106
+END:VEVENT
+BEGIN:VEVENT
+UID:bcea944581da95e66c036346@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Chandeleur
+DESCRIPTION:Fête de la Présentation de Jésus au Temple\, 40 jours après Noël. La tradition des crêpes vient de leur forme ronde et dorée évoquant le soleil qui revient après l'hiver — une symbolique solaire bien antérieure au christianisme.
+CATEGORIES:Culture,Christianisme,Gastronomie
+DTSTART;VALUE=DATE:20300202
+END:VEVENT
+BEGIN:VEVENT
+UID:b67c058680a33415d6014a01@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tournoi des Six Nations — Période
+DESCRIPTION:Le plus vieux tournoi international de rugby à XV\, né en 1883. Il réunit chaque année de février à mars l'Angleterre\, la France\, l'Irlande\, l'Écosse\, le Pays de Galles et l'Italie.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20300202
+DTEND;VALUE=DATE:20300316
+END:VEVENT
+BEGIN:VEVENT
+UID:bf80b946f9eef4ea0fc1d4fa@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Valentin
+DESCRIPTION:Fête des amoureux le 14 février. Le lien avec les amoureux viendrait d'une tradition médiévale anglaise selon laquelle les oiseaux choisissaient leur partenaire ce jour-là — documentée chez Chaucer dès 1382.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20300214
+END:VEVENT
+BEGIN:VEVENT
+UID:9c885d6a87540278f3d9a41c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Salon de l'Agriculture — Ouverture
+DESCRIPTION:Le Salon International de l'Agriculture se tient chaque fin février à Paris. Créé en 1964\, c'est le plus grand salon agricole d'Europe — et le rendez-vous traditionnel des candidats à l'élection présidentielle.
+CATEGORIES:Gastronomie,Agriculture,Culture
+DTSTART;VALUE=DATE:20300223
+END:VEVENT
+BEGIN:VEVENT
+UID:8a02a5578b6e8b110163f80b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Grands-Mères
+DESCRIPTION:Créée en 1987 par la marque de café Grand'Mère pour valoriser les aïeules. Célébrée le premier dimanche de mars\, elle est devenue une tradition familiale bien ancrée malgré ses origines purement commerciales.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20300303
+END:VEVENT
+BEGIN:VEVENT
+UID:eaeb08b5c2867976756ee1b1@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Mardi Gras
+DESCRIPTION:Dernier jour avant le Carême\, où la tradition voulait qu'on fasse bombance avant l'abstinence. Le nom vient de là : dernier mardi pour manger gras. Aujourd'hui synonyme de carnavals et de crêpes.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20300305
+END:VEVENT
+BEGIN:VEVENT
+UID:3788f7f5acc5340179aaf2b4@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Patrick
+DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de saint Patrick (461)\, évangélisateur de l'Irlande. Exportée dans le monde entier par la diaspora irlandaise\, elle est aujourd'hui fêtée partout où il y a un pub.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20300317
+END:VEVENT
+BEGIN:VEVENT
+UID:b5e593183ee86f3d3be9b0b8@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pâques
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20300422
+END:VEVENT
+BEGIN:VEVENT
+UID:baf3489774d1edf2644fded3@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête du Travail
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Société
+DTSTART;VALUE=DATE:20300501
+END:VEVENT
+BEGIN:VEVENT
+UID:c335c84a032f535766450d9e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Victoire
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20300508
+END:VEVENT
+BEGIN:VEVENT
+UID:ed2423c1e8835c89292d18df@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Victoire 1945 — Capitulation de l'Allemagne nazie
+DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans condition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé par Giscard en 1975\, puis rétabli par Mitterrand en 1981.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20300508
+END:VEVENT
+BEGIN:VEVENT
+UID:010013c1d7345f7be82ef78b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale de la Coupe de France de Football
+DESCRIPTION:Ouverte à tous les clubs\, des amateurs de district jusqu'aux pros. Fondée en 1917\, sa finale se joue au Stade de France — n'importe quel club peut théoriquement la remporter.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20300525
+END:VEVENT
+BEGIN:VEVENT
+UID:2e40cafe128787d60eac4472@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Mères
+DESCRIPTION:Officialisée en France par la loi de 1926. Elle tombe le dernier dimanche de mai\, sauf si ce jour coïncide avec la Pentecôte — dans ce cas elle est reportée au premier dimanche de juin.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20300526
+END:VEVENT
+BEGIN:VEVENT
+UID:e2a6b81bedb90f25e530c0b5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Grand Prix de Monaco (Formule 1)
+DESCRIPTION:Disputé dans les rues de Monaco depuis 1929. Son circuit étroit et lent en fait paradoxalement la plus difficile des courses F1 à remporter — dépasser y est presque impossible.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20300526
+END:VEVENT
+BEGIN:VEVENT
+UID:d0bcfe0c2d92aab775c009c8@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Roland-Garros — Début du tournoi
+DESCRIPTION:Seul Grand Chelem sur terre battue\, disputé fin mai à Paris. Le tournoi dure environ deux semaines. Il porte le nom d'un aviateur de la Première Guerre mondiale\, pas d'un joueur de tennis.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20300526
+DTEND;VALUE=DATE:20300609
+END:VEVENT
+BEGIN:VEVENT
+UID:bd56330120ca07a821042abe@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ascension
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20300530
+END:VEVENT
+BEGIN:VEVENT
+UID:e3d9ae81b038f5466c6c4ba9@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:24 Heures du Mans — Départ
+DESCRIPTION:Course d'endurance mythique créée en 1923 sur le circuit de la Sarthe. Voitures et pilotes se relaient pendant 24 heures consécutives\, de jour comme de nuit.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20300608
+DTEND;VALUE=DATE:20300609
+END:VEVENT
+BEGIN:VEVENT
+UID:ba3f55a217cd7337b3e7075a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pentecôte
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20300610
+END:VEVENT
+BEGIN:VEVENT
+UID:e3bd230e8e0b8f922193919e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Pères
+DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les années 1950 par le fabricant de briquets Flaminaire\, qui cherchait à créer un événement commercial symétrique à la Fête des Mères.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20300616
+END:VEVENT
+BEGIN:VEVENT
+UID:48aa2f52926bcdcc5e727b7a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Musique
+DESCRIPTION:Créée en 1982 par le ministre Jack Lang. Elle ouvre les rues à tous les musiciens gratuitement\, le jour du solstice d'été. Le nom est un jeu de mots intentionnel : Fête de la musique / Faites de la musique.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20300621
+END:VEVENT
+BEGIN:VEVENT
+UID:71e7481b33dae3e0ce1af32b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale du Top 14 de Rugby
+DESCRIPTION:La finale du championnat professionnel de rugby français se joue au Stade de France en juin. Toulouse est le club le plus titré avec plus de 20 boucliers de Brennus.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20300629
+END:VEVENT
+BEGIN:VEVENT
+UID:3e4bcfc543f76a7e5bc66389@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tour de France — Grand Départ
+DESCRIPTION:La course cycliste la plus célèbre au monde\, créée en 1903. Trois semaines\, 21 étapes\, environ 3 500 km. Le maillot jaune tire son nom de la couleur du papier journal L'Auto\, organisateur historique.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20300706
+DTEND;VALUE=DATE:20300728
+END:VEVENT
+BEGIN:VEVENT
+UID:1f50a2f5ca1a7a7215860d1d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête Nationale
+DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole de la Révolution française. Jour férié depuis 1880. Défilé militaire sur les Champs-Élysées\, bals des pompiers et feux d'artifice dans toute la France.
+CATEGORIES:Jours fériés,Société,Dates spéciales
+DTSTART;VALUE=DATE:20300714
+END:VEVENT
+BEGIN:VEVENT
+UID:c6e2c8497c56dad39f27d4de@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête nationale
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20300714
+END:VEVENT
+BEGIN:VEVENT
+UID:057034db8ac4bd411a77c135@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue 1 — Saison 2030-2031
+DESCRIPTION:La saison 2030-2031 de Ligue 1 regroupe 20 clubs pour 380 matchs d'août à mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20300810
+DTEND;VALUE=DATE:20310525
+END:VEVENT
+BEGIN:VEVENT
+UID:098b84248c7d82aab59bbeba@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20300815
+END:VEVENT
+BEGIN:VEVENT
+UID:5aaf9facfb07d612e3c8c88f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption de Marie
+DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en plein cœur de l'été\, au milieu des grandes vacances.
+CATEGORIES:Christianisme,Jours fériés
+DTSTART;VALUE=DATE:20300815
+END:VEVENT
+BEGIN:VEVENT
+UID:c49162775f610398feede062@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue des Champions UEFA — Saison 2030-2031
+DESCRIPTION:La saison 2030-2031 de la Ligue des Champions UEFA\, de septembre à fin mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20300910
+DTEND;VALUE=DATE:20310531
+END:VEVENT
+BEGIN:VEVENT
+UID:0a88d46f280856bb1c2f2f49@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale du cacao et du chocolat
+DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internationale du cacao (ICCO). Elle met en avant la filière cacao\, l'histoire du chocolat et les enjeux de production durable.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20301001
+END:VEVENT
+BEGIN:VEVENT
+UID:34702fb5029a87d65223cc91@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Semaine du Goût
+DESCRIPTION:Créée en 1990 par le chef Joël Robuchon. Chaque deuxième semaine d'octobre\, des cuisiniers interviennent dans les écoles pour sensibiliser les enfants aux saveurs et au patrimoine culinaire français.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20301014
+END:VEVENT
+BEGIN:VEVENT
+UID:1b75bc116119ac9b7f1c8214@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale de l'alimentation
+DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945. Elle rappelle que 733 millions de personnes souffrent de la faim dans le monde\, alors qu'un tiers de la nourriture produite est gaspillée.
+CATEGORIES:Gastronomie,Société,Santé
+DTSTART;VALUE=DATE:20301016
+END:VEVENT
+BEGIN:VEVENT
+UID:317a630f35b6d880f06f1279@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Halloween
+DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis popularisée par la diaspora irlandaise aux États-Unis au XIXe siècle. Arrivée en France dans les années 1990\, d'abord mal accueillie\, elle s'est depuis bien installée.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20301031
+END:VEVENT
+BEGIN:VEVENT
+UID:95ca691dda4a2a084453e993@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Toussaint
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20301101
+END:VEVENT
+BEGIN:VEVENT
+UID:fb3c694b843f362fd7a4a6ab@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice 1918
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20301111
+END:VEVENT
+BEGIN:VEVENT
+UID:0fbd6d6e24afa1c3c0f97ccb@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice de 1918 — Journée du Souvenir
+DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première Guerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque commune française a son monument aux morts — 36 000 érigés entre 1920 et 1925.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20301111
+END:VEVENT
+BEGIN:VEVENT
+UID:6c52bdbb32622685791f1284@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Beaujolais Nouveau
+DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est mis en vente — vin primeur issu de la récolte de l'été. Une tradition née dans les années 1950 devenue événement mondial : le vin voyage parfois en avion pour arriver à l'heure au Japon.
+CATEGORIES:Gastronomie,Culture,Commercial
+DTSTART;VALUE=DATE:20301121
+END:VEVENT
+BEGIN:VEVENT
+UID:2a3861c82cb5903780a2fe1b@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Nicolas
+DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron des enfants. Très célébrée en Alsace\, Lorraine et dans le Nord\, où Saint-Nicolas défile en distribuant des friandises le 6 décembre.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20301206
+END:VEVENT
+BEGIN:VEVENT
+UID:c8744fc47930debe76e0e078@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Noël
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme,Fêtes
+DTSTART;VALUE=DATE:20301225
+END:VEVENT
+BEGIN:VEVENT
+UID:b32ea0a5c91780e04523bb01@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
+DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier mort ce jour en 335. C'est le soir du grand réveillon — champagne\, feux d'artifice et compte à rebours à minuit.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20301231
+END:VEVENT
+BEGIN:VEVENT
+UID:f38311066ce3f88aa035fb77@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Jour de l'An
+DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une coutume druidique bien antérieure au christianisme.
+CATEGORIES:Fêtes,Jours fériés
+DTSTART;VALUE=DATE:20310101
+END:VEVENT
+BEGIN:VEVENT
+UID:483c43e345d61facd7a84ff2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Jour de l'an
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20310101
+END:VEVENT
+BEGIN:VEVENT
+UID:ce14e80232138205ff0f2789@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Épiphanie
+DESCRIPTION:Célèbre la visite des Rois Mages à Jésus\, 12 jours après Noël. En France c'est l'occasion de la galette des Rois — feuilletée à la frangipane au nord\, briochée aux fruits confits au sud.
+CATEGORIES:Christianisme,Culture,Gastronomie
+DTSTART;VALUE=DATE:20310106
+END:VEVENT
+BEGIN:VEVENT
+UID:5ed459e74caea94e3539ce50@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tournoi des Six Nations — Période
+DESCRIPTION:Le plus vieux tournoi international de rugby à XV\, né en 1883. Il réunit chaque année de février à mars l'Angleterre\, la France\, l'Irlande\, l'Écosse\, le Pays de Galles et l'Italie.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20310201
+DTEND;VALUE=DATE:20310315
+END:VEVENT
+BEGIN:VEVENT
+UID:a18d8b7863ea4aabac0008bd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Chandeleur
+DESCRIPTION:Fête de la Présentation de Jésus au Temple\, 40 jours après Noël. La tradition des crêpes vient de leur forme ronde et dorée évoquant le soleil qui revient après l'hiver — une symbolique solaire bien antérieure au christianisme.
+CATEGORIES:Culture,Christianisme,Gastronomie
+DTSTART;VALUE=DATE:20310202
+END:VEVENT
+BEGIN:VEVENT
+UID:d49f40448b7bacca33943e3e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Valentin
+DESCRIPTION:Fête des amoureux le 14 février. Le lien avec les amoureux viendrait d'une tradition médiévale anglaise selon laquelle les oiseaux choisissaient leur partenaire ce jour-là — documentée chez Chaucer dès 1382.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20310214
+END:VEVENT
+BEGIN:VEVENT
+UID:ca4441f2ead65dee668b0523@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Salon de l'Agriculture — Ouverture
+DESCRIPTION:Le Salon International de l'Agriculture se tient chaque fin février à Paris. Créé en 1964\, c'est le plus grand salon agricole d'Europe — et le rendez-vous traditionnel des candidats à l'élection présidentielle.
+CATEGORIES:Gastronomie,Agriculture,Culture
+DTSTART;VALUE=DATE:20310222
+END:VEVENT
+BEGIN:VEVENT
+UID:f71a4f4412a4d9ee37647497@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Mardi Gras
+DESCRIPTION:Dernier jour avant le Carême\, où la tradition voulait qu'on fasse bombance avant l'abstinence. Le nom vient de là : dernier mardi pour manger gras. Aujourd'hui synonyme de carnavals et de crêpes.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20310225
+END:VEVENT
+BEGIN:VEVENT
+UID:c2a35cb142965941ff85ff40@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Grands-Mères
+DESCRIPTION:Créée en 1987 par la marque de café Grand'Mère pour valoriser les aïeules. Célébrée le premier dimanche de mars\, elle est devenue une tradition familiale bien ancrée malgré ses origines purement commerciales.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20310302
+END:VEVENT
+BEGIN:VEVENT
+UID:e854234eeb675185df787c2f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Patrick
+DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de saint Patrick (461)\, évangélisateur de l'Irlande. Exportée dans le monde entier par la diaspora irlandaise\, elle est aujourd'hui fêtée partout où il y a un pub.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20310317
+END:VEVENT
+BEGIN:VEVENT
+UID:84c50ef3ebafd3e31f80ee3c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pâques
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20310414
+END:VEVENT
+BEGIN:VEVENT
+UID:1fe4a42dbada05fa9d17197c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête du Travail
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Société
+DTSTART;VALUE=DATE:20310501
+END:VEVENT
+BEGIN:VEVENT
+UID:f51f66ddff40bfe3ea3e17e7@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Victoire
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20310508
+END:VEVENT
+BEGIN:VEVENT
+UID:49bd826d7d6a6d4e1ecb8e1a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Victoire 1945 — Capitulation de l'Allemagne nazie
+DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans condition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé par Giscard en 1975\, puis rétabli par Mitterrand en 1981.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20310508
+END:VEVENT
+BEGIN:VEVENT
+UID:a6edb6e77ae99a2e357cf1e2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ascension
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20310522
+END:VEVENT
+BEGIN:VEVENT
+UID:20b77d340e03d9aca335c5f0@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Mères
+DESCRIPTION:Officialisée en France par la loi de 1926. Elle tombe le dernier dimanche de mai\, sauf si ce jour coïncide avec la Pentecôte — dans ce cas elle est reportée au premier dimanche de juin.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20310525
+END:VEVENT
+BEGIN:VEVENT
+UID:2dbb6e33230e6539b5d2ad50@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Grand Prix de Monaco (Formule 1)
+DESCRIPTION:Disputé dans les rues de Monaco depuis 1929. Son circuit étroit et lent en fait paradoxalement la plus difficile des courses F1 à remporter — dépasser y est presque impossible.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20310525
+END:VEVENT
+BEGIN:VEVENT
+UID:2ee125d0654516b4a992c962@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Roland-Garros — Début du tournoi
+DESCRIPTION:Seul Grand Chelem sur terre battue\, disputé fin mai à Paris. Le tournoi dure environ deux semaines. Il porte le nom d'un aviateur de la Première Guerre mondiale\, pas d'un joueur de tennis.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20310525
+DTEND;VALUE=DATE:20310608
+END:VEVENT
+BEGIN:VEVENT
+UID:0582cf3878f4842661690524@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale de la Coupe de France de Football
+DESCRIPTION:Ouverte à tous les clubs\, des amateurs de district jusqu'aux pros. Fondée en 1917\, sa finale se joue au Stade de France — n'importe quel club peut théoriquement la remporter.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20310531
+END:VEVENT
+BEGIN:VEVENT
+UID:5f57acce1f532d9465e4d61c@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Lundi de Pentecôte
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20310602
+END:VEVENT
+BEGIN:VEVENT
+UID:a2d9c12c54167328a5ce5821@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:24 Heures du Mans — Départ
+DESCRIPTION:Course d'endurance mythique créée en 1923 sur le circuit de la Sarthe. Voitures et pilotes se relaient pendant 24 heures consécutives\, de jour comme de nuit.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20310614
+DTEND;VALUE=DATE:20310615
+END:VEVENT
+BEGIN:VEVENT
+UID:9963e362964e092f48eb5281@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête des Pères
+DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les années 1950 par le fabricant de briquets Flaminaire\, qui cherchait à créer un événement commercial symétrique à la Fête des Mères.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20310615
+END:VEVENT
+BEGIN:VEVENT
+UID:2277c049773c483a2f302822@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête de la Musique
+DESCRIPTION:Créée en 1982 par le ministre Jack Lang. Elle ouvre les rues à tous les musiciens gratuitement\, le jour du solstice d'été. Le nom est un jeu de mots intentionnel : Fête de la musique / Faites de la musique.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20310621
+END:VEVENT
+BEGIN:VEVENT
+UID:f9f8feaa71d7216f0dd02c80@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Finale du Top 14 de Rugby
+DESCRIPTION:La finale du championnat professionnel de rugby français se joue au Stade de France en juin. Toulouse est le club le plus titré avec plus de 20 boucliers de Brennus.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20310628
+END:VEVENT
+BEGIN:VEVENT
+UID:b07a57a87a16c506f51cd2d3@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Tour de France — Grand Départ
+DESCRIPTION:La course cycliste la plus célèbre au monde\, créée en 1903. Trois semaines\, 21 étapes\, environ 3 500 km. Le maillot jaune tire son nom de la couleur du papier journal L'Auto\, organisateur historique.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20310705
+DTEND;VALUE=DATE:20310727
+END:VEVENT
+BEGIN:VEVENT
+UID:57a4990c1a25249d679a945a@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête Nationale
+DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole de la Révolution française. Jour férié depuis 1880. Défilé militaire sur les Champs-Élysées\, bals des pompiers et feux d'artifice dans toute la France.
+CATEGORIES:Jours fériés,Société,Dates spéciales
+DTSTART;VALUE=DATE:20310714
+END:VEVENT
+BEGIN:VEVENT
+UID:9fb314f4024fe687c2f1e12f@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Fête nationale
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20310714
+END:VEVENT
+BEGIN:VEVENT
+UID:79ba7c0681ba1fd989cb6354@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue 1 — Saison 2031-2032
+DESCRIPTION:La saison 2031-2032 de Ligue 1 regroupe 20 clubs pour 380 matchs d'août à mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20310810
+DTEND;VALUE=DATE:20320525
+END:VEVENT
+BEGIN:VEVENT
+UID:05de32e960e3dcd3c6a71c08@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20310815
+END:VEVENT
+BEGIN:VEVENT
+UID:fb9f534ed0a88f00d352a3dd@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Assomption de Marie
+DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en plein cœur de l'été\, au milieu des grandes vacances.
+CATEGORIES:Christianisme,Jours fériés
+DTSTART;VALUE=DATE:20310815
+END:VEVENT
+BEGIN:VEVENT
+UID:6852a19797361db239f05167@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Ligue des Champions UEFA — Saison 2031-2032
+DESCRIPTION:La saison 2031-2032 de la Ligue des Champions UEFA\, de septembre à fin mai.
+CATEGORIES:Sport
+DTSTART;VALUE=DATE:20310910
+DTEND;VALUE=DATE:20320531
+END:VEVENT
+BEGIN:VEVENT
+UID:b08c7812162ba55c50616931@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale du cacao et du chocolat
+DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internationale du cacao (ICCO). Elle met en avant la filière cacao\, l'histoire du chocolat et les enjeux de production durable.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20311001
+END:VEVENT
+BEGIN:VEVENT
+UID:9eb0106a730233f6d5350b88@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Semaine du Goût
+DESCRIPTION:Créée en 1990 par le chef Joël Robuchon. Chaque deuxième semaine d'octobre\, des cuisiniers interviennent dans les écoles pour sensibiliser les enfants aux saveurs et au patrimoine culinaire français.
+CATEGORIES:Gastronomie,Culture
+DTSTART;VALUE=DATE:20311013
+END:VEVENT
+BEGIN:VEVENT
+UID:e11f21e30dedbbc3668cfbbc@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Journée mondiale de l'alimentation
+DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945. Elle rappelle que 733 millions de personnes souffrent de la faim dans le monde\, alors qu'un tiers de la nourriture produite est gaspillée.
+CATEGORIES:Gastronomie,Société,Santé
+DTSTART;VALUE=DATE:20311016
+END:VEVENT
+BEGIN:VEVENT
+UID:d730e7bf76038a809f69cd77@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Halloween
+DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis popularisée par la diaspora irlandaise aux États-Unis au XIXe siècle. Arrivée en France dans les années 1990\, d'abord mal accueillie\, elle s'est depuis bien installée.
+CATEGORIES:Culture,Fêtes
+DTSTART;VALUE=DATE:20311031
+END:VEVENT
+BEGIN:VEVENT
+UID:27aaf36fd5c439d347765a3d@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Toussaint
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme
+DTSTART;VALUE=DATE:20311101
+END:VEVENT
+BEGIN:VEVENT
+UID:1a2acf70940655da5f988eef@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice 1918
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés
+DTSTART;VALUE=DATE:20311111
+END:VEVENT
+BEGIN:VEVENT
+UID:124cc7ac1e6f58addb7ffd28@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Armistice de 1918 — Journée du Souvenir
+DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première Guerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque commune française a son monument aux morts — 36 000 érigés entre 1920 et 1925.
+CATEGORIES:Jours fériés,Mémoire,Dates spéciales
+DTSTART;VALUE=DATE:20311111
+END:VEVENT
+BEGIN:VEVENT
+UID:7966137fddd5e678e73cf6e2@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Beaujolais Nouveau
+DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est mis en vente — vin primeur issu de la récolte de l'été. Une tradition née dans les années 1950 devenue événement mondial : le vin voyage parfois en avion pour arriver à l'heure au Japon.
+CATEGORIES:Gastronomie,Culture,Commercial
+DTSTART;VALUE=DATE:20311120
+END:VEVENT
+BEGIN:VEVENT
+UID:a68ae73f832875509e5f14e5@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Nicolas
+DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron des enfants. Très célébrée en Alsace\, Lorraine et dans le Nord\, où Saint-Nicolas défile en distribuant des friandises le 6 décembre.
+CATEGORIES:Christianisme,Culture,Fêtes
+DTSTART;VALUE=DATE:20311206
+END:VEVENT
+BEGIN:VEVENT
+UID:9e17c7ef1f55de017036f37e@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Noël
+DESCRIPTION:Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.
+CATEGORIES:Jours fériés,Christianisme,Fêtes
+DTSTART;VALUE=DATE:20311225
+END:VEVENT
+BEGIN:VEVENT
+UID:2c169ca5ee2882324eb70a99@calendrier-fr.tibotsr.dev
+DTSTAMP:20260308T160427Z
+SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
+DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier mort ce jour en 335. C'est le soir du grand réveillon — champagne\, feux d'artifice et compte à rebours à minuit.
+CATEGORIES:Fêtes,Culture
+DTSTART;VALUE=DATE:20311231
+END:VEVENT
+END:VCALENDAR
