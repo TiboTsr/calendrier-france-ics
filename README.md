@@ -1,4 +1,4 @@
-# Calendrier Complet France 🇫🇷
+# Calendrier Complet France 🇫🇷 (Toujours en développement)
 
 Plateforme de calendrier personnalisable (ICS + JSON) pour la France.
 
