@@ -57,8 +57,12 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <script type="application/ld+json">
@@ -101,6 +105,17 @@
           <div class="sync-pill" id="sync-pill">
             Synchronisé <span class="sync-age" id="sync-age"></span>
           </div>
+          <span id="a11y-label" class="theme-label" aria-live="polite"
+            >Accessibilité</span
+          >
+          <button
+            id="a11y-btn"
+            class="tbtn"
+            aria-label="Activer le mode accessibilité"
+            title="Activer le mode accessibilité"
+          >
+            <i class="fa-solid fa-universal-access"></i>
+          </button>
           <span id="theme-label" class="theme-label" aria-live="polite"
             >Thème sombre</span
           >
@@ -110,7 +125,7 @@
             aria-label="Passer en thème clair"
             title="Passer en thème clair"
           >
-            ☀️
+            <i class="fa-solid fa-sun"></i>
           </button>
         </div>
       </div>
@@ -122,7 +137,7 @@
         style="display: flex; flex-direction: column; align-items: center"
       >
         <!--<div class="hero-eyebrow">
-          📅 Flux ICS gratuit · Open source · Données officielles
+          Flux ICS gratuit · Open source · Données officielles
         </div>-->
         <h1>Votre agenda<br /><em>enfin complet.</em></h1>
         <p class="hero-sub">
@@ -132,10 +147,10 @@
         </p>
         <div class="hero-cta-row">
           <a href="#sync" class="btn-hero btn-hero-p"
-            >⚡ Synchroniser mon agenda</a
+            ><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>Synchroniser mon agenda</a
           >
           <a href="#explorer" class="btn-hero btn-hero-s"
-            >🗓 Parcourir les dates</a
+            ><i class="fa-regular fa-calendar ui-ico" aria-hidden="true"></i>Parcourir les dates</a
           >
         </div>
         <div class="scroll-hint">
@@ -157,50 +172,50 @@
         >
           <div class="hero-feats-row top" aria-hidden="true">
             <div class="hero-feats-track">
-              <span class="hf-pill">✅ Jours fériés</span>
-              <span class="hf-pill">🏫 Vacances Zones A / B / C</span>
-              <span class="hf-pill">🕐 Changements d'heure</span>
-              <span class="hf-pill">🌸 Saisons & Astronomie</span>
-              <span class="hf-pill">🔄 Mise à jour auto</span>
-              <span class="hf-pill">📱 Apple · Google · Outlook</span>
-              <span class="hf-pill">📍 Recherche de zone par ville</span>
-              <span class="hf-pill">🧩 Liens ICS séparés</span>
-              <span class="hf-pill">📆 Compatible WebCal</span>
-              <span class="hf-pill">🆓 Gratuit, sans compte</span>
-              <span class="hf-pill">✅ Jours fériés</span>
-              <span class="hf-pill">🏫 Vacances Zones A / B / C</span>
-              <span class="hf-pill">🕐 Changements d'heure</span>
-              <span class="hf-pill">🌸 Saisons & Astronomie</span>
-              <span class="hf-pill">🔄 Mise à jour auto</span>
-              <span class="hf-pill">📱 Apple · Google · Outlook</span>
-              <span class="hf-pill">📍 Recherche de zone par ville</span>
-              <span class="hf-pill">🧩 Liens ICS séparés</span>
-              <span class="hf-pill">📆 Compatible WebCal</span>
-              <span class="hf-pill">🆓 Gratuit, sans compte</span>
+              <span class="hf-pill"><i class="fa-solid fa-circle-check ui-ico" aria-hidden="true"></i>Jours fériés</span>
+              <span class="hf-pill"><i class="fa-solid fa-school ui-ico" aria-hidden="true"></i>Vacances Zones A / B / C</span>
+              <span class="hf-pill"><i class="fa-regular fa-clock ui-ico" aria-hidden="true"></i>Changements d'heure</span>
+              <span class="hf-pill"><i class="fa-solid fa-seedling ui-ico" aria-hidden="true"></i>Saisons & Astronomie</span>
+              <span class="hf-pill"><i class="fa-solid fa-rotate ui-ico" aria-hidden="true"></i>Mise à jour auto</span>
+              <span class="hf-pill"><i class="fa-solid fa-mobile-screen-button ui-ico" aria-hidden="true"></i>Apple · Google · Outlook</span>
+              <span class="hf-pill"><i class="fa-solid fa-location-dot ui-ico" aria-hidden="true"></i>Recherche de zone par ville</span>
+              <span class="hf-pill"><i class="fa-solid fa-puzzle-piece ui-ico" aria-hidden="true"></i>Liens ICS séparés</span>
+              <span class="hf-pill"><i class="fa-solid fa-link ui-ico" aria-hidden="true"></i>Compatible WebCal</span>
+              <span class="hf-pill"><i class="fa-solid fa-gift ui-ico" aria-hidden="true"></i>Gratuit, sans compte</span>
+              <span class="hf-pill"><i class="fa-solid fa-circle-check ui-ico" aria-hidden="true"></i>Jours fériés</span>
+              <span class="hf-pill"><i class="fa-solid fa-school ui-ico" aria-hidden="true"></i>Vacances Zones A / B / C</span>
+              <span class="hf-pill"><i class="fa-regular fa-clock ui-ico" aria-hidden="true"></i>Changements d'heure</span>
+              <span class="hf-pill"><i class="fa-solid fa-seedling ui-ico" aria-hidden="true"></i>Saisons & Astronomie</span>
+              <span class="hf-pill"><i class="fa-solid fa-rotate ui-ico" aria-hidden="true"></i>Mise à jour auto</span>
+              <span class="hf-pill"><i class="fa-solid fa-mobile-screen-button ui-ico" aria-hidden="true"></i>Apple · Google · Outlook</span>
+              <span class="hf-pill"><i class="fa-solid fa-location-dot ui-ico" aria-hidden="true"></i>Recherche de zone par ville</span>
+              <span class="hf-pill"><i class="fa-solid fa-puzzle-piece ui-ico" aria-hidden="true"></i>Liens ICS séparés</span>
+              <span class="hf-pill"><i class="fa-solid fa-link ui-ico" aria-hidden="true"></i>Compatible WebCal</span>
+              <span class="hf-pill"><i class="fa-solid fa-gift ui-ico" aria-hidden="true"></i>Gratuit, sans compte</span>
             </div>
           </div>
           <div class="hero-feats-row bottom" aria-hidden="true">
             <div class="hero-feats-track">
-              <span class="hf-pill">🔔 Rappels des temps forts</span>
-              <span class="hf-pill">📚 Calendrier scolaire France</span>
-              <span class="hf-pill">🌙 Passage heure été / hiver</span>
-              <span class="hf-pill">🔭 Équinoxes & solstices</span>
-              <span class="hf-pill">⚡ Mises à jour automatiques</span>
-              <span class="hf-pill">🍎 Google · Outlook · Apple</span>
-              <span class="hf-pill">🛠 Projet open source</span>
-              <span class="hf-pill">📥 Abonnement en un clic</span>
-              <span class="hf-pill">🌐 URL ICS universelle</span>
-              <span class="hf-pill">🎯 Données officielles FR</span>
-              <span class="hf-pill">🔔 Rappels des temps forts</span>
-              <span class="hf-pill">📚 Calendrier scolaire France</span>
-              <span class="hf-pill">🌙 Passage heure été / hiver</span>
-              <span class="hf-pill">🔭 Équinoxes & solstices</span>
-              <span class="hf-pill">⚡ Mises à jour automatiques</span>
-              <span class="hf-pill">🍎 Google · Outlook · Apple</span>
-              <span class="hf-pill">🛠 Projet open source</span>
-              <span class="hf-pill">📥 Abonnement en un clic</span>
-              <span class="hf-pill">🌐 URL ICS universelle</span>
-              <span class="hf-pill">🎯 Données officielles FR</span>
+              <span class="hf-pill"><i class="fa-regular fa-bell ui-ico" aria-hidden="true"></i>Rappels des temps forts</span>
+              <span class="hf-pill"><i class="fa-solid fa-book ui-ico" aria-hidden="true"></i>Calendrier scolaire France</span>
+              <span class="hf-pill"><i class="fa-regular fa-moon ui-ico" aria-hidden="true"></i>Passage heure été / hiver</span>
+              <span class="hf-pill"><i class="fa-solid fa-star ui-ico" aria-hidden="true"></i>Équinoxes & solstices</span>
+              <span class="hf-pill"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>Mises à jour automatiques</span>
+              <span class="hf-pill"><i class="fa-solid fa-calendar-days ui-ico" aria-hidden="true"></i>Google · Outlook · Apple</span>
+              <span class="hf-pill"><i class="fa-solid fa-code-branch ui-ico" aria-hidden="true"></i>Projet open source</span>
+              <span class="hf-pill"><i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Abonnement en un clic</span>
+              <span class="hf-pill"><i class="fa-solid fa-globe ui-ico" aria-hidden="true"></i>URL ICS universelle</span>
+              <span class="hf-pill"><i class="fa-solid fa-bullseye ui-ico" aria-hidden="true"></i>Données officielles FR</span>
+              <span class="hf-pill"><i class="fa-regular fa-bell ui-ico" aria-hidden="true"></i>Rappels des temps forts</span>
+              <span class="hf-pill"><i class="fa-solid fa-book ui-ico" aria-hidden="true"></i>Calendrier scolaire France</span>
+              <span class="hf-pill"><i class="fa-regular fa-moon ui-ico" aria-hidden="true"></i>Passage heure été / hiver</span>
+              <span class="hf-pill"><i class="fa-solid fa-star ui-ico" aria-hidden="true"></i>Équinoxes & solstices</span>
+              <span class="hf-pill"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>Mises à jour automatiques</span>
+              <span class="hf-pill"><i class="fa-solid fa-calendar-days ui-ico" aria-hidden="true"></i>Google · Outlook · Apple</span>
+              <span class="hf-pill"><i class="fa-solid fa-code-branch ui-ico" aria-hidden="true"></i>Projet open source</span>
+              <span class="hf-pill"><i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Abonnement en un clic</span>
+              <span class="hf-pill"><i class="fa-solid fa-globe ui-ico" aria-hidden="true"></i>URL ICS universelle</span>
+              <span class="hf-pill"><i class="fa-solid fa-bullseye ui-ico" aria-hidden="true"></i>Données officielles FR</span>
             </div>
           </div>
         </div>
@@ -252,7 +267,7 @@
               aria-controls="tp-simple"
               aria-selected="true"
             >
-              ✨ Simple
+              <i class="fa-regular fa-star ui-ico" aria-hidden="true"></i>Simple
             </button>
             <button
               class="tbtn2"
@@ -262,7 +277,7 @@
               aria-controls="tp-advanced"
               aria-selected="false"
             >
-              ⚙️ Avancé <span class="tdot"></span>
+              <i class="fa-solid fa-sliders ui-ico" aria-hidden="true"></i>Avancé <span class="tdot"></span>
             </button>
           </div>
         </div>
@@ -283,13 +298,13 @@
             </div>
             <div class="app-grid">
               <button class="abtn on" data-app="apple">
-                <span class="aico">📱</span>iPhone / Mac
+                <span class="aico"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>iPhone / Mac
               </button>
               <button class="abtn" data-app="google">
-                <span class="aico">📆</span>Google Cal.
+                <span class="aico"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span>Google Cal.
               </button>
               <button class="abtn" data-app="outlook">
-                <span class="aico">📊</span>Outlook
+                <span class="aico"><i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i></span>Outlook
               </button>
             </div>
             <div class="url-box">
@@ -298,9 +313,9 @@
             </div>
             <div class="app-steps" id="app-steps"></div>
             <div class="sp-cta">
-              <a id="sub-btn" href="#" class="bp">⚡ S'abonner maintenant</a>
+              <a id="sub-btn" href="#" class="bp"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner maintenant</a>
               <a href="/calendrier.ics" class="bs" download
-                >⬇️ Télécharger .ICS</a
+                ><i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Télécharger .ICS</a
               >
             </div>
           </div>
@@ -403,7 +418,7 @@
               </div>
             </div>
             <div class="pe-section">
-              <h3>➕ Événements personnels</h3>
+              <h3><i class="fa-solid fa-plus ui-ico" aria-hidden="true"></i>Événements personnels</h3>
               <p>
                 Ajoutez vos propres dates pour les intégrer dans le fichier ICS
                 généré (anniversaires, RDV récurrents…).
@@ -427,28 +442,35 @@
               <div class="pe-list" id="pe-list">
                 <div class="pe-empty">Aucun événement personnel.</div>
               </div>
+
             </div>
             <div class="gen-out">
-              <div class="url-anim-label">URL générée</div>
+              <div class="url-anim-label"><i class="fa-solid fa-link ui-ico" aria-hidden="true"></i>URL générée</div>
               <div id="adv-url-recap" class="url-recap" aria-live="polite"></div>
               <div class="url-anim-wrap">
                 <div id="adv-url-animated"></div>
-                <span id="adv-url-badge" class="url-built-badge" style="display:none">✓ Prêt</span>
-                <button id="adv-url-copy" class="url-copy-btn" style="opacity:0;pointer-events:none">Copier</button>
+                <span id="adv-url-badge" class="url-built-badge" style="display:none"><i class="fa-solid fa-check" aria-hidden="true"></i> Prêt</span>
+                <button id="adv-url-copy" class="url-copy-btn" style="opacity:0;pointer-events:none"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copier</button>
               </div>
-              <button id="adv-generate" class="bp adv-generate-btn">⚙️ Générer mon calendrier</button>
+              <button id="adv-generate" class="bp adv-generate-btn"><i class="fa-solid fa-sliders ui-ico" aria-hidden="true"></i>Générer mon calendrier</button>
               <div class="gen-links-and-qr">
                 <div class="gen-acts">
-                  <a id="adv-sub" href="#" class="bp">⚡ S'abonner</a>
+                  <a id="adv-sub" href="#" class="bp"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner</a>
                   <a id="adv-ggl" href="#" target="_blank" class="bs"
-                    >Google Cal.</a
+                    ><i class="fa-brands fa-google ui-ico" aria-hidden="true"></i>Google Cal.</a
                   >
-                  <a id="adv-out" href="#" target="_blank" class="bs">Outlook</a>
+                  <a id="adv-out" href="#" target="_blank" class="bs"><i class="fa-brands fa-microsoft ui-ico" aria-hidden="true"></i>Outlook</a>
                 </div>
                 <div class="qr-panel" id="adv-qr-panel" aria-live="polite">
+                  <div class="qr-head">Import mobile rapide</div>
+                  <div class="qr-help">Scanne pour ouvrir directement le lien d'abonnement sur ton téléphone.</div>
+                  <div class="qr-placeholder">
+                    <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
+                    <span>Le QR apparaîtra après génération du lien.</span>
+                  </div>
                   <a class="qr-item qr-item-main" id="qr-link-main" href="#" target="_blank" rel="noopener noreferrer">
                     <img id="qr-img-main" alt="QR import calendrier" />
-                    <span>Scan pour importer (iPhone / Android)</span>
+                    <span><i class="fa-solid fa-qrcode ui-ico" aria-hidden="true"></i>Scanner sur iPhone / Android</span>
                   </a>
                 </div>
               </div>
@@ -464,7 +486,7 @@
         </div>
         <div class="feats">
           <article class="fcard">
-            <span class="fc-ico">🔄</span>
+            <span class="fc-ico"><i class="fa-solid fa-rotate" aria-hidden="true"></i></span>
             <h3>Mise à jour continue</h3>
             <p>
               Le fichier se régénère chaque jour. Les nouvelles années
@@ -472,7 +494,7 @@
             </p>
           </article>
           <article class="fcard">
-            <span class="fc-ico">🎯</span>
+            <span class="fc-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
             <h3>Zones A, B et C</h3>
             <p>
               Vacances extraites des données officielles du Ministère de
@@ -480,7 +502,7 @@
             </p>
           </article>
           <article class="fcard">
-            <span class="fc-ico">📱</span>
+            <span class="fc-ico"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
             <h3>Compatible partout</h3>
             <p>
               Format .ICS standard : iPhone, Android, Google Calendar et Outlook
@@ -488,7 +510,7 @@
             </p>
           </article>
           <article class="fcard">
-            <span class="fc-ico">🔒</span>
+            <span class="fc-ico"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
             <h3>Open source</h3>
             <p>
               Code sur GitHub. Aucune donnée collectée, aucun compte requis.
@@ -510,7 +532,7 @@
           <aside class="sidebar">
             <div class="sb-s">
               <div class="srch-w">
-                <span class="srch-i">🔍</span
+                <span class="srch-i"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span
                 ><input
                   class="srch"
                   id="srch"
@@ -541,10 +563,19 @@
           <div class="exp-main">
             <div class="radar">
               <div class="radar-top">
-                <h3>📡 Prochains événements</h3>
+                <h3><i class="fa-solid fa-satellite-dish ui-ico" aria-hidden="true"></i>Prochains événements</h3>
                 <span class="radar-cnt" id="r-cnt"></span>
               </div>
               <div class="radar-sc" id="r-root">
+                <span style="font-size: 13px; color: var(--t3)"
+                  >Chargement…</span
+                >
+              </div>
+              <div class="radar-subtop">
+                <h4><i class="fa-solid fa-circle ui-ico" aria-hidden="true"></i>Événements en cours</h4>
+                <span class="radar-cnt" id="r-active-cnt"></span>
+              </div>
+              <div class="radar-sc" id="r-active">
                 <span style="font-size: 13px; color: var(--t3)"
                   >Chargement…</span
                 >
@@ -587,7 +618,7 @@
 
     <div id="tuto-welcome">
       <div class="tuto-welcome-card">
-        <span class="tuto-welcome-emoji">🗓️</span>
+        <span class="tuto-welcome-emoji"><i class="fa-regular fa-calendar" aria-hidden="true"></i></span>
         <h2>Bienvenue sur Calendrier France&nbsp;!</h2>
         <p>
           C'est votre première visite. Voulez-vous un
@@ -596,7 +627,7 @@
         </p>
         <div class="tuto-welcome-btns">
           <button class="tuto-start-btn" id="tuto-start">
-            Oui, montrez-moi ✨
+            Oui, montrez-moi <i class="fa-regular fa-star" aria-hidden="true"></i>
           </button>
           <button class="tuto-skip-all" id="tuto-skip-all">
             Non merci, je découvre seul
@@ -622,7 +653,7 @@
           </div>
           <div class="tuto-step-dots" id="tuto-dots"></div>
         </div>
-        <span id="tuto-icon">📅</span>
+        <span id="tuto-icon"><i class="fa-regular fa-calendar" aria-hidden="true"></i></span>
         <div id="tuto-title">Titre</div>
         <div id="tuto-desc">Description</div>
         <div class="tuto-actions">
@@ -641,7 +672,7 @@
       <div class="ms">
         <div class="mt">
           <h2 class="m-title" id="m-ttl">Événement</h2>
-          <button class="mcl" id="m-cl">✕</button>
+          <button class="mcl" id="m-cl"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
         <div class="m-meta m-meta-main">
           <div class="mbox prev">

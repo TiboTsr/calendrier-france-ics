@@ -150,6 +150,157 @@ function parsePersonalEvents(raw) {
   }
 }
 
+function normalizeFirstName(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z' -]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function formatDisplayFirstName(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .split(" ")
+    .map((part) =>
+      part
+        .split("-")
+        .map((chunk) => (chunk ? chunk[0].toUpperCase() + chunk.slice(1) : ""))
+        .join("-")
+    )
+    .join(" ")
+    .trim();
+}
+
+function parseFirstNames(raw) {
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    const names = parsed
+      .map((name) => String(name || "").trim())
+      .filter(Boolean)
+      .slice(0, 30);
+
+    const seen = new Set();
+    return names.filter((name) => {
+      const key = normalizeFirstName(name);
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  } catch {
+    const names = String(raw)
+      .split(",")
+      .map((name) => String(name || "").trim())
+      .filter(Boolean)
+      .slice(0, 30);
+    const seen = new Set();
+    return names.filter((name) => {
+      const key = normalizeFirstName(name);
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
+}
+
+function buildFirstNameLookupCandidates(name) {
+  const key = normalizeFirstName(name);
+  const aliasMap = {
+    thibaut: "tibo",
+    thibaud: "tibo",
+    mat: "mathieu",
+    max: "maxime",
+    alex: "alexandre",
+  };
+
+  const candidates = [];
+  const push = (value) => {
+    const cleaned = String(value || "").trim();
+    if (!cleaned) return;
+    if (!candidates.some((existing) => existing.toLowerCase() === cleaned.toLowerCase())) {
+      candidates.push(cleaned);
+    }
+  };
+
+  push(name);
+  push(key);
+  if (aliasMap[key]) push(aliasMap[key]);
+
+  return candidates;
+}
+
+function fallbackFirstNameMonthDay(name) {
+  const key = normalizeFirstName(name);
+  const fallback = {
+    aurelie: { month: 7, day: 15 },
+    aurelien: { month: 6, day: 16 },
+    tibo: { month: 7, day: 8 },
+    thibaut: { month: 7, day: 8 },
+    thibaud: { month: 7, day: 8 },
+  };
+  return fallback[key] || null;
+}
+
+function extractMonthDayFromNamedayPayload(payload) {
+  if (payload?.success && Array.isArray(payload?.data)) {
+    for (const entry of payload.data) {
+      if (!entry || typeof entry !== "object") continue;
+      const country = String(entry.country || "").toLowerCase();
+      if (country !== "fr") continue;
+
+      const numericKeys = Object.keys(entry)
+        .filter((key) => /^\d+$/.test(key))
+        .sort((a, b) => Number(a) - Number(b));
+
+      for (const key of numericKeys) {
+        const item = entry[key];
+        const month = Number(item?.month);
+        const day = Number(item?.day);
+        if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+          return { month, day };
+        }
+      }
+    }
+    return null;
+  }
+
+  const candidates = [payload?.data, payload?.nameday, payload];
+
+  for (const candidate of candidates) {
+    if (!candidate) continue;
+
+    const month = Number(candidate.month);
+    const day = Number(candidate.day);
+    if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+      return { month, day };
+    }
+
+    const dateRaw = candidate.date || candidate.full_date || candidate.nameday_date;
+    if (typeof dateRaw === "string") {
+      const match = dateRaw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (match) {
+        const parsedMonth = Number(match[2]);
+        const parsedDay = Number(match[3]);
+        if (parsedMonth >= 1 && parsedMonth <= 12 && parsedDay >= 1 && parsedDay <= 31) {
+          return { month: parsedMonth, day: parsedDay };
+        }
+      }
+    }
+  }
+
+  return null;
+}
+
+async function fetchNamedayDate(name, year) {
+  return null;
+}
+
 function setCorsHeaders(res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
@@ -172,6 +323,7 @@ module.exports = async function handler(req, res) {
     const selectedCats = normalizeList(url.searchParams.get("cats"));
     const alarm = (url.searchParams.get("alarm") || "none").trim();
     const personalEvents = parsePersonalEvents(url.searchParams.get("pe"));
+    const firstNames = [];
 
     const sourceUrl =
       process.env.CALENDAR_JSON_URL ||
@@ -254,6 +406,45 @@ module.exports = async function handler(req, res) {
       if (event.rec === "yearly") eventLines.push("RRULE:FREQ=YEARLY");
       if (event.rec === "monthly") eventLines.push("RRULE:FREQ=MONTHLY");
       if (event.rec === "weekly") eventLines.push("RRULE:FREQ=WEEKLY");
+
+      eventLines.push(...alarmBlock(alarm));
+      eventLines.push("END:VEVENT");
+      lines.push(...eventLines);
+    }
+
+    const currentYear = new Date().getUTCFullYear();
+    const feastResults = await Promise.all(
+      firstNames.map(async (rawName) => {
+        try {
+          const monthDay = await fetchNamedayDate(rawName, currentYear);
+          if (!monthDay) return null;
+          return { rawName, ...monthDay };
+        } catch {
+          return null;
+        }
+      })
+    );
+
+    for (const feast of feastResults.filter(Boolean)) {
+      const mm = String(feast.month).padStart(2, "0");
+      const dd = String(feast.day).padStart(2, "0");
+      const baseDate = `${currentYear}-${mm}-${dd}`;
+      const start = toIcsDate(baseDate);
+      const endExclusive = toIcsDate(addOneDay(baseDate));
+      if (!start || !endExclusive) continue;
+
+      const displayName = formatDisplayFirstName(feast.rawName);
+      const eventLines = [
+        "BEGIN:VEVENT",
+        `UID:${makeUid({ summary: `Fête de ${displayName}`, start: baseDate, end: baseDate, categories: ["Fêtes prénom"], zones: [] })}`,
+        `DTSTAMP:${dtstamp}`,
+        `DTSTART;VALUE=DATE:${start}`,
+        `DTEND;VALUE=DATE:${endExclusive}`,
+        `SUMMARY:${escapeIcsText(`Fête de ${displayName}`)}`,
+        `DESCRIPTION:${escapeIcsText(`Rappel annuel de la fête du prénom ${displayName} (date issue d'une API externe).`)}`,
+        "CATEGORIES:Fêtes prénom",
+        "RRULE:FREQ=YEARLY",
+      ];
 
       eventLines.push(...alarmBlock(alarm));
       eventLines.push("END:VEVENT");

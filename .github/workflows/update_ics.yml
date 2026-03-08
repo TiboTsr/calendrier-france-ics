@@ -27,6 +27,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install holidays requests python-dateutil
 
+      - name: Health Check CalendrierFR
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python scripts/health_check.py --notify webhook
+
       - name: Generate ICS
         run: python calendrier.py
 

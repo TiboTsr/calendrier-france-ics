@@ -2,7 +2,7 @@
 CONFIG & CONSTANTS
  */
 const MONTHS=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
-const TK="cal_th", FK="cal_fav", YK="cal_yr", PEK="cal_pe";
+const TK="cal_th", FK="cal_fav", YK="cal_yr", PEK="cal_pe", AK="cal_a11y";
 const CHUNK=3;
 const DYNAMIC_API_BASE=(window.CALENDAR_API_BASE||"api.calendrier-fr.tibotsr.dev").replace(/^https?:\/\//,"").replace(/\/$/,"");
 const GOOGLE_FEED_BASE=(window.CALENDAR_GOOGLE_FEED_BASE||DYNAMIC_API_BASE).replace(/^https?:\/\//,"").replace(/\/$/,"");
@@ -48,6 +48,21 @@ function fmts(d){return new Intl.DateTimeFormat("fr-FR",{day:"2-digit",month:"sh
 function fmtwd(d){return new Intl.DateTimeFormat("fr-FR",{weekday:"short"}).format(d).replace('.','');}
 function norm(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
 
+function countWeekdaysInclusive(start,end){
+  if(!start||!end)return 0;
+  const from=new Date(start.getFullYear(),start.getMonth(),start.getDate());
+  const to=new Date(end.getFullYear(),end.getMonth(),end.getDate());
+  if(to<from)return 0;
+  let count=0;
+  const cur=new Date(from);
+  while(cur<=to){
+    const wd=cur.getDay();
+    if(wd!==0&&wd!==6)count++;
+    cur.setDate(cur.getDate()+1);
+  }
+  return count;
+}
+
 const APP_LOADER_STARTED_AT=Date.now();
 function hideAppLoader(){
   const loader=document.getElementById("app-loader");
@@ -72,11 +87,11 @@ function ath(t,sv=true){
   const lbl=document.getElementById("theme-label");
   if(btn){
     if(t==="dark"){
-      btn.textContent="☀️";
+      btn.innerHTML='<i class="fa-solid fa-sun"></i>';
       btn.setAttribute("aria-label","Passer en thème clair");
       btn.setAttribute("title","Passer en thème clair");
     }else{
-      btn.textContent="🌙";
+      btn.innerHTML='<i class="fa-regular fa-moon"></i>';
       btn.setAttribute("aria-label","Passer en thème sombre");
       btn.setAttribute("title","Passer en thème sombre");
     }
@@ -86,6 +101,30 @@ function ath(t,sv=true){
 }
 document.getElementById("theme-btn").addEventListener("click",()=>ath(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark"));
 ath(gth(),false);
+
+/* ══════════════════════════════════════
+   ACCESSIBILITY MODE
+══════════════════════════════════════ */
+function ga11y(){
+  try{return localStorage.getItem(AK)==="on";}catch{return false;}
+}
+function aa11y(on,save=true){
+  const enabled=!!on;
+  document.documentElement.setAttribute("data-accessibility",enabled?"on":"off");
+  const btn=document.getElementById("a11y-btn");
+  const lbl=document.getElementById("a11y-label");
+  if(btn){
+    btn.classList.toggle("on",enabled);
+    btn.setAttribute("aria-label",enabled?"Désactiver le mode accessibilité":"Activer le mode accessibilité");
+    btn.setAttribute("title",enabled?"Désactiver le mode accessibilité":"Activer le mode accessibilité");
+  }
+  if(lbl)lbl.textContent=enabled?"Accessibilité renforcée":"Accessibilité";
+  if(save){
+    try{localStorage.setItem(AK,enabled?"on":"off");}catch{}
+  }
+}
+document.getElementById("a11y-btn")?.addEventListener("click",()=>aa11y(document.documentElement.getAttribute("data-accessibility")!=="on"));
+aa11y(ga11y(),false);
 
 /* ══════════════════════════════════════
    SYNC DATE
@@ -251,7 +290,7 @@ function toggleZoneHint(zone,el){
   if(openZone===zone&&hint.classList.contains("on")){hint.classList.remove("on");openZone=null;return;}
   openZone=zone;el.classList.add("open");
   const ci={A:"Lyon, Bordeaux, Grenoble, Clermont-Ferrand, Limoges, Nantes, Rennes, Caen, Angers, Poitiers, Le Mans, Tours, Orléans",B:"Paris, Versailles, Lille, Amiens, Nancy, Metz, Reims, Strasbourg, Besançon, Dijon, Rouen, Le Havre, Caen",C:"Aix-Marseille, Nice, Montpellier, Toulouse, Toulon, Nîmes, Perpignan, Avignon, Bayonne, Pau, Albi, Rodez"};
-  hint.innerHTML=`<strong>Zone ${zone}</strong> — <span style="color:var(--t3);font-size:12px">${ci[zone]}</span><br><div style="margin-top:10px;font-size:13px;color:var(--t2)">Ce fichier contient les <strong>jours fériés nationaux</strong> + les vacances de la <strong>Zone ${zone}</strong> uniquement.<br><span class="sn">1</span> Téléchargez &nbsp; <span class="sn">2</span> Ouvrez le fichier — votre appli calendrier proposera l'import</div><div class="zhint-btns"><a href="/zone-${zone.toLowerCase()}.ics" class="bp">⬇️ Télécharger Zone ${zone}</a><a href="webcal://calendrier-fr.tibotsr.dev/zone-${zone.toLowerCase()}.ics" class="bs">⚡ S'abonner Zone ${zone}</a></div>`;
+  hint.innerHTML=`<strong>Zone ${zone}</strong> — <span style="color:var(--t3);font-size:12px">${ci[zone]}</span><br><div style="margin-top:10px;font-size:13px;color:var(--t2)">Ce fichier contient les <strong>jours fériés nationaux</strong> + les vacances de la <strong>Zone ${zone}</strong> uniquement.<br><span class="sn">1</span> Téléchargez &nbsp; <span class="sn">2</span> Ouvrez le fichier — votre appli calendrier proposera l'import</div><div class="zhint-btns"><a href="/zone-${zone.toLowerCase()}.ics" class="bp"><i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Télécharger Zone ${zone}</a><a href="webcal://calendrier-fr.tibotsr.dev/zone-${zone.toLowerCase()}.ics" class="bs"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner Zone ${zone}</a></div>`;
   hint.classList.add("on");
 }
 
@@ -284,7 +323,7 @@ updateApp();
 
 function mkCopy(id,get){
   const b=document.getElementById(id);if(!b)return;
-  b.addEventListener("click",function(){navigator.clipboard.writeText(get()).then(()=>{const o=this.textContent;this.textContent="Copié ✓";this.classList.add("ok");setTimeout(()=>{this.textContent=o;this.classList.remove("ok");},2000);});});
+  b.addEventListener("click",function(){navigator.clipboard.writeText(get()).then(()=>{const o=this.innerHTML;this.innerHTML='Copié <i class="fa-solid fa-check" aria-hidden="true"></i>';this.classList.add("ok");setTimeout(()=>{this.innerHTML=o;this.classList.remove("ok");},2000);});});
 }
 mkCopy("cp-simple",()=>document.getElementById("simple-url").textContent);
 mkCopy("adv-url-copy",()=>window._advWcUrl||"");
@@ -455,6 +494,10 @@ function _setAdvRecap(html){
   if(recap)recap.innerHTML=html;
 }
 
+function _buildRecapHtml(iconClass,title,zonesArr,cats,alarm,personal,footer){
+  return `<div class="recap-line"><i class="${iconClass} ui-ico" aria-hidden="true"></i>${title}</div><div class="recap-chips"><span class="recap-chip">${_zoneLabel(zonesArr)}</span><span class="recap-chip">${cats.length} catégorie${cats.length>1?"s":""}</span><span class="recap-chip">${_alarmLabel(alarm)}</span><span class="recap-chip">${personal.length} événement${personal.length>1?"s":""} perso</span></div>${footer?`<div style="margin-top:7px">${footer}</div>`:""}`;
+}
+
 function _currentAdvSelection(){
   const zonesArr=advZones.has("all")?["all"]:[...advZones];
   const alarm=document.getElementById("adv-alarm")?.value||"none";
@@ -496,14 +539,14 @@ function markAdvAsDirty(){
   _setQrState(false);
 
   if(cats.length===0){
-    _setAdvRecap(`⚠️ Sélectionne au moins <strong>1 catégorie</strong> puis clique sur <strong>Générer mon calendrier</strong>.`);
+    _setAdvRecap(`<i class="fa-solid fa-triangle-exclamation ui-ico" aria-hidden="true"></i>Sélectionne au moins <strong>1 catégorie</strong> puis clique sur <strong>Générer mon calendrier</strong>.`);
   }else{
-    _setAdvRecap(`🧾 Récap prêt : <strong>${_zoneLabel(zonesArr)}</strong> • <strong>${cats.length}</strong> catégorie${cats.length>1?"s":""} • <strong>${_alarmLabel(alarm)}</strong> • <strong>${personal.length}</strong> événement${personal.length>1?"s":""} perso<br>👉 Clique sur <strong>Générer mon calendrier</strong>.`);
+    _setAdvRecap(_buildRecapHtml("fa-regular fa-rectangle-list","Récap prêt",zonesArr,cats,alarm,personal,'<i class="fa-solid fa-arrow-right ui-ico" aria-hidden="true"></i>Clique sur <strong>Générer mon calendrier</strong>.'));
   }
 
   if(container){
     container.classList.remove("building","built");
-    container.innerHTML='<span class="url-seg url-seg-plain" style="opacity:1;transform:none;animation:none">En attente de génération…</span>';
+    container.innerHTML='<span class="url-seg url-seg-plain" style="opacity:1;transform:none;animation:none"><i class="fa-regular fa-clock ui-ico" aria-hidden="true"></i>En attente de génération…</span>';
   }
   if(badge)badge.style.display="none";
   if(copyBtn){copyBtn.style.opacity="0";copyBtn.style.pointerEvents="none";}
@@ -521,10 +564,10 @@ function buildAdvUrl(){
     window._advWcUrl="";
     window._advHtUrl="";
     _setAdvActionsEnabled(false);
-    _setAdvRecap(`⚠️ Sélectionne au moins <strong>1 catégorie</strong> pour générer le lien.`);
+    _setAdvRecap(`<i class="fa-solid fa-triangle-exclamation ui-ico" aria-hidden="true"></i>Sélectionne au moins <strong>1 catégorie</strong> pour générer le lien.`);
     if(container){
       container.classList.remove("building","built");
-      container.innerHTML='<span class="url-seg url-seg-plain" style="opacity:1;transform:none;animation:none">En attente de sélection…</span>';
+      container.innerHTML='<span class="url-seg url-seg-plain" style="opacity:1;transform:none;animation:none"><i class="fa-regular fa-clock ui-ico" aria-hidden="true"></i>En attente de sélection…</span>';
     }
     _lastAnimUrl="";
     return;
@@ -532,7 +575,7 @@ function buildAdvUrl(){
 
   _setAdvActionsEnabled(false);
   _setQrState(false);
-  _setAdvRecap(`🧾 Récap : <strong>${_zoneLabel(zonesArr)}</strong> • <strong>${cats.length}</strong> catégorie${cats.length>1?"s":""} • <strong>${_alarmLabel(alarm)}</strong> • <strong>${personal.length}</strong> événement${personal.length>1?"s":""} perso<br>⏳ Préparation du lien…`);
+  _setAdvRecap(_buildRecapHtml("fa-regular fa-rectangle-list","Récap",zonesArr,cats,alarm,personal,'<i class="fa-regular fa-hourglass-half ui-ico" aria-hidden="true"></i>Préparation du lien…'));
 
   _advBuildTimer=setTimeout(()=>{
     const p=new URLSearchParams({zone:zones,alarm,cats:cats.join(",")});
@@ -551,7 +594,7 @@ function buildAdvUrl(){
     _animateUrl(wc);
     _setAdvActionsEnabled(true);
     _setQrState(true);
-    _setAdvRecap(`✅ Lien prêt : <strong>${_zoneLabel(zonesArr)}</strong> • <strong>${cats.length}</strong> catégorie${cats.length>1?"s":""} • <strong>${_alarmLabel(alarm)}</strong> • <strong>${personal.length}</strong> événement${personal.length>1?"s":""} perso`);
+    _setAdvRecap(_buildRecapHtml("fa-solid fa-circle-check","Lien prêt",zonesArr,cats,alarm,personal,""));
   },220);
 }
 document.getElementById("adv-alarm")?.addEventListener("change",markAdvAsDirty);
@@ -568,7 +611,7 @@ function savePE(){try{localStorage.setItem(PEK,JSON.stringify(personalEvts));}ca
 function renderPEList(){
   const el=document.getElementById("pe-list");if(!el)return;
   if(!personalEvts.length){el.innerHTML='<div class="pe-empty">Aucun événement personnel ajouté.</div>';return;}
-  el.innerHTML=personalEvts.map((e,i)=>`<div class="pe-item"><div class="pe-item-info"><div class="pe-item-title">${e.title}</div><div class="pe-item-meta">${e.date} · ${REC_LABELS[e.rec||"none"]}</div></div><button class="pe-del" data-i="${i}">✕</button></div>`).join("");
+  el.innerHTML=personalEvts.map((e,i)=>`<div class="pe-item"><div class="pe-item-info"><div class="pe-item-title">${e.title}</div><div class="pe-item-meta">${e.date} · ${REC_LABELS[e.rec||"none"]}</div></div><button class="pe-del" data-i="${i}"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div>`).join("");
   el.querySelectorAll(".pe-del").forEach(b=>b.addEventListener("click",()=>{personalEvts.splice(Number(b.dataset.i),1);savePE();renderPEList();markAdvAsDirty();}));
 }
 loadPE();
@@ -643,13 +686,38 @@ function getFiltered(){
 ══════════════════════════════════════ */
 function renderRadar(evts){
   const root=document.getElementById("r-root"),cnt=document.getElementById("r-cnt");
+  const activeRoot=document.getElementById("r-active"),activeCnt=document.getElementById("r-active-cnt");
   root.innerHTML="";
+  activeRoot.innerHTML="";
   const today=new Date();today.setHours(0,0,0,0);
   const end=new Date(today);end.setDate(end.getDate()+30);
-  const items=evts.filter(e=>e.date<=end&&(e.endDate||e.date)>=today).slice(0,10);
-  if(!items.length){root.innerHTML='<span style="font-size:13px;color:var(--t3)">Aucun événement dans les 3 prochaines semaines.</span>';cnt.textContent="";return;}
-  cnt.textContent=`${items.length} en approche`;
-  items.forEach(e=>{const c=document.createElement("div");c.className="rc";c.innerHTML=`<div class="rc-date">${fmts(e.date)}</div><div class="rc-name">${e.summary}</div>`;c.addEventListener("click",()=>openModal(e,allEvts));root.appendChild(c);});
+  const items=evts
+    .filter(e=>e.date>=today&&e.date<=end)
+    .slice(0,10);
+  const ongoing=evts
+    .filter(e=>e.endDate&&e.date<today&&e.endDate>=today)
+    .sort((a,b)=>a.endDate-b.endDate||a.summary.localeCompare(b.summary,"fr"))
+    .slice(0,8);
+  if(!items.length){
+    root.innerHTML='<span style="font-size:13px;color:var(--t3)">Aucun événement dans les 3 prochaines semaines.</span>';
+    cnt.textContent="";
+  }else{
+    cnt.textContent=`${items.length} en approche`;
+    items.forEach(e=>{const c=document.createElement("div");c.className="rc";c.innerHTML=`<div class="rc-date">${fmts(e.date)}</div><div class="rc-name">${e.summary}</div>`;c.addEventListener("click",()=>openModal(e,allEvts));root.appendChild(c);});
+  }
+  if(!ongoing.length){
+    activeRoot.innerHTML='<span style="font-size:13px;color:var(--t3)">Aucun événement long en cours.</span>';
+    activeCnt.textContent="";
+    return;
+  }
+  activeCnt.textContent=`${ongoing.length} en cours`;
+  ongoing.forEach(e=>{
+    const c=document.createElement("div");
+    c.className="rc";
+    c.innerHTML=`<div class="rc-date">Se termine le ${fmts(e.endDate)}</div><div class="rc-name">${e.summary}</div>`;
+    c.addEventListener("click",()=>openModal(e,allEvts));
+    activeRoot.appendChild(c);
+  });
 }
 
 /* ══════════════════════════════════════
@@ -701,7 +769,7 @@ function renderTL(opts={}){
   });
   // Filter to active month
   const filtered=curMonth==="all"?allMonthEntries:allMonthEntries.filter(([k])=>k===curMonth);
-  if(!filtered.length){root.innerHTML='<div class="empty"><div class="empty-ico">📭</div><p>Aucun événement pour cette sélection.</p></div>';return;}
+  if(!filtered.length){root.innerHTML='<div class="empty"><div class="empty-ico"><i class="fa-regular fa-envelope-open" aria-hidden="true"></i></div><p>Aucun événement pour cette sélection.</p></div>';return;}
 
   // Quand un mois spécifique est sélectionné : affichage direct, sans logique past/future
   if(curMonth!=="all"){
@@ -726,7 +794,7 @@ function renderTL(opts={}){
     if(!showPast){
       const cnt=pastEntries.reduce((a,[,e])=>a+e.length,0);
       const b=document.createElement("button");b.className="show-past-btn";
-      b.innerHTML=`▲ Afficher les mois passés (${pastEntries.length} mois, ${cnt} événements)`;
+      b.innerHTML=`<i class="fa-solid fa-chevron-up ui-ico" aria-hidden="true"></i>Afficher les mois passés (${pastEntries.length} mois, ${cnt} événements)`;
       b.addEventListener("click",()=>{showPast=true;renderTL();setTimeout(()=>scrollToToday(),120);});
       root.appendChild(b);
     }else{
@@ -738,7 +806,7 @@ function renderTL(opts={}){
   // -- FUTURE --
   const sliced=futureEntries.slice(0,toRenderFuture);
   if(!sliced.length&&isCurYr){
-    root.innerHTML+='<div class="empty"><div class="empty-ico">🎉</div><p>Aucun événement à venir cette année.</p></div>';
+    root.innerHTML+='<div class="empty"><div class="empty-ico"><i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i></div><p>Aucun événement à venir cette année.</p></div>';
   }
   (isCurYr?sliced:filtered.slice(0,toRenderFuture)).forEach(([k,e])=>root.appendChild(buildMoBlock(k,e,today,false)));
 
@@ -891,6 +959,8 @@ function openModal(ev,evts){
   const end=(ev.endDate||ev.date);
   const isRange=end&&end.getTime()>ev.date.getTime();
   const durationDays=Math.max(1,Math.round((end-ev.date)/86400000)+1);
+  const isExamEvent=(ev.categories||[]).some(c=>norm(String(c||""))==="examens");
+  const weekdayDuration=isRange&&isExamEvent?Math.max(1,countWeekdaysInclusive(ev.date,end)):durationDays;
   const dateLabel=isRange?`${fmt(ev.date)} → ${fmt(end)}`:fmt(ev.date);
 
   function chipList(values,zone=false){
@@ -902,7 +972,9 @@ function openModal(ev,evts){
   document.getElementById("m-prev").textContent=prev?fmt(prev.date):"Aucune donnée";
   document.getElementById("m-next").textContent=next?fmt(next.date):"Aucune prévision";
   document.getElementById("m-date").textContent=dateLabel;
-  document.getElementById("m-duration").textContent=`${durationDays} jour${durationDays>1?"s":""}`;
+  document.getElementById("m-duration").textContent=isExamEvent
+    ? `${weekdayDuration} jour${weekdayDuration>1?"s":""} ouvré${weekdayDuration>1?"s":""}`
+    : `${durationDays} jour${durationDays>1?"s":""}`;
   document.getElementById("m-cats").innerHTML=chipList(ev.categories||[]);
   document.getElementById("m-zones").innerHTML=chipList(ev.zones||[],true);
   document.getElementById("m-desc").innerHTML=ev.description?ev.description.replace(/\n/g,"<br>"):"<i style='color:var(--t3)'>Aucune description.</i>";
@@ -951,7 +1023,7 @@ async function init(){
     buildSbCats(cats);buildAdvCats(cats);markAdvAsDirty();
     refreshAll();
   }catch(err){
-    document.getElementById("ev-root").innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div><p>Impossible de charger les données.<br><small style="color:var(--t3)">${err.message}</small></p></div>`;
+    document.getElementById("ev-root").innerHTML=`<div class="empty"><div class="empty-ico"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></div><p>Impossible de charger les données.<br><small style="color:var(--t3)">${err.message}</small></p></div>`;
   }finally{
     hideAppLoader();
   }
@@ -970,7 +1042,7 @@ init();
   var STEPS = [
     {
       sel:     '#tp-simple .sp',
-      icon:    '⚡',
+      icon:    '<i class="fa-solid fa-bolt" aria-hidden="true"></i>',
       title:   'Synchronisez votre agenda',
       desc:    'Choisissez votre appli (iPhone, Google, Outlook), copiez le lien et cliquez "S\'abonner". Le calendrier se mettra à jour tout seul, pour toujours.',
       onEnter: function() {
@@ -981,7 +1053,7 @@ init();
     },
     {
       sel:     '#zone .zone-sec',
-      icon:    '📍',
+      icon:    '<i class="fa-solid fa-location-dot" aria-hidden="true"></i>',
       title:   'Trouvez votre zone scolaire',
       desc:    'Tapez votre ville pour savoir si vous êtes Zone A, B ou C. Indispensable pour synchroniser les bonnes vacances scolaires.',
       placement: 'above',
@@ -991,7 +1063,7 @@ init();
     },
     {
       sel:     '#tp-advanced .adv',
-      icon:    '⚙️',
+      icon:    '<i class="fa-solid fa-sliders" aria-hidden="true"></i>',
       title:   'Personnalisez votre abonnement',
       desc:    'Profil, zones multiples, catégories à la carte, événements personnels — tout se configure ici dans l\'onglet Avancé.',
       onEnter: function() {
@@ -1002,7 +1074,7 @@ init();
     },
     {
       sel:     '#explorer .sidebar',
-      icon:    '🏷️',
+      icon:    '<i class="fa-solid fa-tags" aria-hidden="true"></i>',
       title:   'Filtrez par catégorie',
       desc:    'Activez ou désactivez les catégories pour n\'afficher que les événements qui vous intéressent. Les changements sont immédiats.',
       onEnter: function() {
@@ -1013,9 +1085,9 @@ init();
     },
     {
       sel:     '#explorer .radar',
-      icon:    '📡',
+      icon:    '<i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>',
       title:   'Les prochains événements',
-      desc:    'Le radar affiche les événements des 30 prochains jours. Cliquez sur une carte pour voir la fiche détaillée avec occurrences passées et futures.',
+      desc:    'Le radar sépare les événements qui commencent dans les 30 prochains jours et ceux déjà en cours. Cliquez sur une carte pour voir la fiche détaillée avec occurrences passées et futures.',
       isLast:  true,
       onEnter: function() {
         document.querySelector('#explorer').scrollIntoView({behavior:'smooth',block:'start'});
@@ -1052,10 +1124,10 @@ init();
   function fillCard(s) {
     var st = STEPS[s];
     document.getElementById('tuto-step-label').textContent = 'Étape ' + (s+1) + ' / ' + STEPS.length;
-    document.getElementById('tuto-icon').textContent  = st.icon;
+    document.getElementById('tuto-icon').innerHTML  = st.icon;
     document.getElementById('tuto-title').textContent = st.title;
     document.getElementById('tuto-desc').textContent  = st.desc;
-    document.getElementById('tuto-next-btn').textContent = st.isLast ? 'Terminer 🎉' : 'Suivant →';
+    document.getElementById('tuto-next-btn').innerHTML = st.isLast ? 'Terminer <i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i>' : 'Suivant <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>';
     document.getElementById('tuto-prev-btn').disabled      = (s === 0);
     document.getElementById('tuto-prev-btn').style.opacity = s === 0 ? '0.3' : '1';
     syncDots(s);

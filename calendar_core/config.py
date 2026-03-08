@@ -22,16 +22,34 @@ ZONE_FILES = {
 }
 
 NOISE_PROFILES = {
-    "essentiel": {"Jours fériés", "Vacances scolaires", "Ponts / Congés"},
+    "essentiel": {
+        "Jours fériés",
+        "Vacances scolaires",
+        "Ponts / Congés",
+        "Changement d'heure",
+    },
     "culturel": {
         "Jours fériés",
         "Vacances scolaires",
         "Christianisme",
         "Culture",
+        "Cinéma",
+        "Théâtre",
         "Saisons",
         "Société",
         "Astronomie",
+        "Mémoire",
+        "Fêtes",
+        "Éducation",
     },
-    "commercial": {"Événements spéciaux", "Jours fériés", "Ponts / Congés", "Commercial"},
+    "commercial": {
+        "Événements spéciaux",
+        "Jours fériés",
+        "Ponts / Congés",
+        "Commercial",
+        "Gastronomie",
+        "Fêtes",
+        "Sport",
+    },
     "complet": None,
 }
