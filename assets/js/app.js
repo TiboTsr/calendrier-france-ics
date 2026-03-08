@@ -809,6 +809,24 @@ function buildMoBlock(k,evts,today,isPast){
     list.appendChild(marker);
   }
 
+  function buildDateBadge(ev,def){
+    const end=(ev.endDate||ev.date);
+    const isRange=end&&end.getTime()>ev.date.getTime();
+
+    if(!isRange){
+      return `<div class="ev-d" style="border-color:${isPast?"var(--b)":def.b};background:${isPast?"var(--bg2)":def.d}">
+        <span class="ev-day" style="color:${isPast?"var(--t3)":def.c}">${ev.date.getDate()}</span>
+        <span class="ev-wd">${fmtwd(ev.date)}</span>
+      </div>`;
+    }
+
+    return `<div class="ev-d ev-d-range" style="border-color:${isPast?"var(--b)":def.b};background:${isPast?"var(--bg2)":def.d}">
+      <div class="ev-range-line"><span class="ev-range-day" style="color:${isPast?"var(--t3)":def.c}">${ev.date.getDate()}</span><span class="ev-range-wd">${fmtwd(ev.date)}</span></div>
+      <div class="ev-range-sep">-</div>
+      <div class="ev-range-line"><span class="ev-range-day" style="color:${isPast?"var(--t3)":def.c}">${end.getDate()}</span><span class="ev-range-wd">${fmtwd(end)}</span></div>
+    </div>`;
+  }
+
   if(isCurrentMonthBlock){
     if(hasPast&&hasUpcoming){
       // marqueur entre dernier événement passé et prochain
@@ -821,10 +839,7 @@ function buildMoBlock(k,evts,today,isPast){
         if(pastEv&&!isToday)row.classList.add("past-ev");
         const cat=(ev.categories||[])[0]||"Divers";const def=cd(cat);
         row.innerHTML=`
-          <div class="ev-d" style="border-color:${isPast?"var(--b)":def.b};background:${isPast?"var(--bg2)":def.d}">
-            <span class="ev-day" style="color:${isPast?"var(--t3)":def.c}">${ev.date.getDate()}</span>
-            <span class="ev-wd">${fmtwd(ev.date)}</span>
-          </div>
+          ${buildDateBadge(ev,def)}
           <div class="ev-b">
             <div class="ev-title">${ev.summary}</div>
             <div class="ev-tags"><span class="ev-tag" style="background:${def.d};color:${def.c};border:1px solid ${def.b}">${cat}</span>${ev.zones&&ev.zones.length?`<span class="ev-tag" style="background:var(--bg3);color:var(--t3)">${ev.zones.join(", ")}</span>`:""}</div>
@@ -848,10 +863,7 @@ function buildMoBlock(k,evts,today,isPast){
     if(pastEv&&!isToday)row.classList.add("past-ev");
     const cat=(ev.categories||[])[0]||"Divers";const def=cd(cat);
     row.innerHTML=`
-      <div class="ev-d" style="border-color:${isPast?"var(--b)":def.b};background:${isPast?"var(--bg2)":def.d}">
-        <span class="ev-day" style="color:${isPast?"var(--t3)":def.c}">${ev.date.getDate()}</span>
-        <span class="ev-wd">${fmtwd(ev.date)}</span>
-      </div>
+      ${buildDateBadge(ev,def)}
       <div class="ev-b">
         <div class="ev-title">${ev.summary}</div>
         <div class="ev-tags"><span class="ev-tag" style="background:${def.d};color:${def.c};border:1px solid ${def.b}">${cat}</span>${ev.zones&&ev.zones.length?`<span class="ev-tag" style="background:var(--bg3);color:var(--t3)">${ev.zones.join(", ")}</span>`:""}</div>
@@ -876,9 +888,23 @@ function openModal(ev,evts){
   const currentTs=ev.date.getTime();
   const prev=[...same].reverse().find(e=>e.date.getTime()<currentTs);
   const next=same.find(e=>e.date.getTime()>currentTs);
+  const end=(ev.endDate||ev.date);
+  const isRange=end&&end.getTime()>ev.date.getTime();
+  const durationDays=Math.max(1,Math.round((end-ev.date)/86400000)+1);
+  const dateLabel=isRange?`${fmt(ev.date)} → ${fmt(end)}`:fmt(ev.date);
+
+  function chipList(values,zone=false){
+    if(!values||!values.length)return `<span style="color:var(--t3)">Aucune</span>`;
+    return values.map(v=>`<span class="m-chip${zone?" z":""}">${_escHtml(v)}</span>`).join("");
+  }
+
   document.getElementById("m-ttl").textContent=ev.summary;
   document.getElementById("m-prev").textContent=prev?fmt(prev.date):"Aucune donnée";
   document.getElementById("m-next").textContent=next?fmt(next.date):"Aucune prévision";
+  document.getElementById("m-date").textContent=dateLabel;
+  document.getElementById("m-duration").textContent=`${durationDays} jour${durationDays>1?"s":""}`;
+  document.getElementById("m-cats").innerHTML=chipList(ev.categories||[]);
+  document.getElementById("m-zones").innerHTML=chipList(ev.zones||[],true);
   document.getElementById("m-desc").innerHTML=ev.description?ev.description.replace(/\n/g,"<br>"):"<i style='color:var(--t3)'>Aucune description.</i>";
   document.getElementById("ev-modal").classList.add("on");
 }
