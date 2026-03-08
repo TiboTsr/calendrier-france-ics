@@ -31,6 +31,7 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python scripts/health_check.py --notify webhook
+        continue-on-error: true
 
       - name: Generate ICS
         run: python calendrier.py
