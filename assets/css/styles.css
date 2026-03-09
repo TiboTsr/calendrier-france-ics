@@ -144,7 +144,6 @@ section{padding:80px 0}
 .bp:hover{opacity:.87}
 .bs{display:flex;align-items:center;justify-content:center;gap:7px;padding:12px 16px;border-radius:var(--r);font-size:14px;font-weight:600;background:var(--bg4);color:var(--t2);border:1px solid var(--b);transition:.15s}
 .bs:hover{border-color:var(--bh);color:var(--t1)}
-/* Zone cards */
 .zone-alt{text-align:center;margin-top:16px;font-size:13px;color:var(--t3)}
 .zcards{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:12px}
 .zcard{display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 18px;border-radius:var(--r);border:1px solid var(--b);background:var(--bg1);cursor:pointer;transition:.15s;min-width:140px}
@@ -178,14 +177,12 @@ section{padding:80px 0}
 .zmb.sb{border-color:var(--vio);background:var(--viod);color:var(--vio)}
 .zmb.sc{border-color:var(--amb);background:var(--ambd);color:var(--amb)}
 .zmb.sall{border-color:var(--ba);background:var(--bg3);color:var(--t1)}
-/* Cat toggles in advanced — clear on/off */
 .cat-grid{display:flex;flex-wrap:wrap;gap:7px}
 .ctog{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:999px;border:2px solid var(--b);background:var(--bg3);font-size:13px;font-weight:500;color:var(--t3);cursor:pointer;transition:all .18s;position:relative}
 .ctog input{display:none}
 .cdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;opacity:.4;transition:.18s}
 .ctog.active{font-weight:600}
 .ctog.active .cdot{opacity:1}
-/* Personal events */
 .pe-section{margin-top:20px;padding:18px;border-radius:var(--r);background:var(--bg2);border:1px solid var(--b)}
 .pe-section h4{font-family:var(--ffd);font-size:14px;font-weight:700;margin-bottom:4px}
 .pe-section p{font-size:12px;color:var(--t2);margin-bottom:14px;line-height:1.5}
@@ -205,7 +202,6 @@ section{padding:80px 0}
 .pe-del{padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;border:1px solid rgba(255,90,90,.3);color:var(--red);transition:.15s}
 .pe-del:hover{background:var(--redd)}
 .pe-empty{font-size:12px;color:var(--t3);padding:8px 0}
-/* Gen output */
 .gen-out {
   padding: 20px;
   border-radius: var(--r);
@@ -586,7 +582,6 @@ section{padding:80px 0}
 .szp.sb{border-color:var(--vio);background:var(--viod);color:var(--vio)}
 .szp.sc{border-color:var(--amb);background:var(--ambd);color:var(--amb)}
 .szp.sall{border-color:var(--ba);background:var(--bg3);color:var(--t1)}
-/* SIDEBAR CATEGORY FILTERS — very clear on/off */
 .sb-cats{display:flex;flex-direction:column;gap:4px}
 .scat{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;cursor:pointer;transition:all .18s;user-select:none;border:1.5px solid transparent;background:transparent}
 .scat input{display:none}
@@ -643,7 +638,6 @@ section{padding:80px 0}
 .rc-name{font-size:13px;font-weight:500;line-height:1.35}
 
 /* ═══════ TIMELINE — utilise le scroll de la PAGE ═══════ */
-/* tl-wrap hérite du scroll natif de la page (pas de max-height / overflow forcé) */
 
 .today-line{display:flex;align-items:center;gap:10px;margin:6px 0 14px;font-size:10px;font-weight:700;letter-spacing:.7px;color:var(--acc);text-transform:uppercase}
 .today-line::before,.today-line::after{content:'';flex:1;height:1px;background:var(--accb)}
@@ -672,9 +666,8 @@ section{padding:80px 0}
 .ev-title{font-size:14px;font-weight:600;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ev-tags{display:flex;gap:5px;flex-wrap:wrap}
 .ev-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.3px}
-.ev-arr{color:var(--t3);font-size:13px;flex-shrink:0;transition:.15s}
+.ev-arr{color:var(--t3);font-size:35px;flex-shrink:0;transition:.15s}
 .ev-row:hover .ev-arr{transform:translateX(3px);color:var(--t2)}
-/* Scroll sentinel — en bas de la liste pour infinite scroll */
 .tl-sentinel{height:40px;flex-shrink:0}
 .empty{text-align:center;padding:52px 20px;color:var(--t3)}
 .empty-ico{font-size:34px;margin-bottom:10px}

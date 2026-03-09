@@ -1285,6 +1285,7 @@ def build_vacation_events() -> list[CalendarEvent]:
         population = (fields.get("population") or "").strip().lower()
         if "enseignant" in population:
             continue
+        end = end - timedelta(days=1)
 
         description = canonical_vacation_description(fields.get("description", "Vacances"))
         normalized_zones = normalize_zones(fields.get("zones", []))
@@ -1292,13 +1293,13 @@ def build_vacation_events() -> list[CalendarEvent]:
         if not record_zones:
             continue
 
-        if start.year in YEARS or (end - timedelta(days=1)).year in YEARS:
+        if start.year in YEARS or end.year in YEARS:
             key = (description, start, end)
             vacation_periods.setdefault(key, set()).update(record_zones)
 
     events: list[CalendarEvent] = []
     for (description, start, end), zones in sorted(vacation_periods.items(), key=lambda item: (item[0][1], item[0][0])):
-        duration = (end - start).days
+        duration = (end - start).days + 1
 
         if set(zones) == set(ZONES):
             events.append(CalendarEvent(
