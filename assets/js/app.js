@@ -1,4 +1,16 @@
-﻿/*
+﻿function showToast(message) {
+  const container = document.getElementById("toast-container");
+  if (!container) return;
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${message}`;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.classList.add("fade-out");
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
+}
+/*
 CONFIG & CONSTANTS
  */
 const MONTHS=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
@@ -1003,6 +1015,8 @@ function refreshAll(opts={}){
 ══════════════════════════════════════ */
 async function init(){
   try{
+    const evRoot = document.getElementById("ev-root");
+    if(evRoot) evRoot.innerHTML = '<div class="ev-loader"><div class="app-loader-spin" style="margin:20px auto"></div><div style="text-align:center;color:var(--t3);font-size:13px;margin-top:8px">Chargement des événements...</div></div>';
     const res=await fetch("/calendrier.json",{cache:"no-store"});
     if(!res.ok)throw new Error("HTTP "+res.status);
     const data=await res.json();
@@ -1023,7 +1037,8 @@ async function init(){
     buildSbCats(cats);buildAdvCats(cats);markAdvAsDirty();
     refreshAll();
   }catch(err){
-    document.getElementById("ev-root").innerHTML=`<div class="empty"><div class="empty-ico"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></div><p>Impossible de charger les données.<br><small style="color:var(--t3)">${err.message}</small></p></div>`;
+    const evRoot = document.getElementById("ev-root");
+    if(evRoot) evRoot.innerHTML = `<div class="empty"><div class="empty-ico"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></div><p>Impossible de charger les données.<br><small style="color:var(--t3)">${err.message}</small></p></div>`;
   }finally{
     hideAppLoader();
   }
@@ -1298,3 +1313,146 @@ init();
 
 })();
 
+/* ═══════════════════════════════════════════════════
+   Mobile UX — select mois + FAB aujourd'hui + radar scroll indicator
+   ═══════════════════════════════════════════════════ */
+(function () {
+
+  /* ── 1. Select mois natif (mobile uniquement) ── */
+  function initMoSelect() {
+    if (window.innerWidth > 760) return;
+    var moScroll = document.querySelector('.mo-scroll');
+    var exTb = document.querySelector('.ex-tb');
+    if (!moScroll || !exTb) return;
+
+    var buttons = Array.from(moScroll.querySelectorAll('.mb'));
+    if (!buttons.length) return;
+
+    var sel = document.createElement('select');
+    sel.className = 'mo-select-mobile';
+
+    var moNames = ['Janvier','Février','Mars','Avril','Mai','Juin',
+                   'Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+    buttons.forEach(function (btn) {
+      var mo = btn.dataset.mo || btn.dataset.month;
+      if (!mo) {
+        var txt = btn.textContent.trim().toLowerCase();
+        var idx = ['janv','févr','mars','avr','mai','juin',
+                   'juil','août','sept','oct','nov','déc'].findIndex(function(a){ return txt.startsWith(a); });
+        if (idx !== -1) mo = String(idx + 1);
+      }
+      if (!mo) return;
+      var opt = document.createElement('option');
+      opt.value = mo;
+      opt.textContent = moNames[parseInt(mo) - 1] || btn.textContent.trim();
+      if (btn.classList.contains('mb-on') || btn.classList.contains('active') || btn.getAttribute('aria-selected') === 'true') {
+        opt.selected = true;
+      }
+      sel.appendChild(opt);
+    });
+
+    sel.addEventListener('change', function () {
+      var val = sel.value;
+      buttons.forEach(function (btn) {
+        var mo = btn.dataset.mo || btn.dataset.month;
+        if (!mo) {
+          var txt = btn.textContent.trim().toLowerCase();
+          var idx = ['janv','févr','mars','avr','mai','juin',
+                     'juil','août','sept','oct','nov','déc'].findIndex(function(a){ return txt.startsWith(a); });
+          if (idx !== -1) mo = String(idx + 1);
+        }
+        if (mo === val) btn.click();
+      });
+    });
+
+    var obs = new MutationObserver(function () {
+      buttons.forEach(function (btn) {
+        if (btn.classList.contains('mb-on') || btn.classList.contains('active') || btn.getAttribute('aria-selected') === 'true') {
+          var mo = btn.dataset.mo || btn.dataset.month;
+          if (!mo) {
+            var txt = btn.textContent.trim().toLowerCase();
+            var idx = ['janv','févr','mars','avr','mai','juin',
+                       'juil','août','sept','oct','nov','déc'].findIndex(function(a){ return txt.startsWith(a); });
+            if (idx !== -1) mo = String(idx + 1);
+          }
+          if (mo) sel.value = mo;
+        }
+      });
+    });
+    buttons.forEach(function (btn) {
+      obs.observe(btn, { attributes: true, attributeFilter: ['class','aria-selected'] });
+    });
+
+    exTb.appendChild(sel);
+  }
+
+  /* ── 2. FAB "Aujourd'hui" (mobile uniquement) ── */
+  function initTodayFab() {
+    if (window.innerWidth > 760) return;
+    if (document.querySelector('.today-fab')) return; /* déjà injecté */
+
+    /* Trouve le bouton today existant */
+    var todayBtn = document.querySelector('.today-btn');
+
+    var fab = document.createElement('button');
+    fab.className = 'today-fab';
+    fab.setAttribute('aria-label', "Aller à aujourd'hui");
+    fab.textContent = "Aujourd'hui";
+
+    fab.addEventListener('click', function () {
+      if (todayBtn) {
+        todayBtn.click();
+      } else {
+        /* Fallback : scroll jusqu'à l'élément marqué "today" */
+        var todayEl = document.querySelector('.ev-today, [data-today], .mo-today');
+        if (todayEl) todayEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+
+    document.body.appendChild(fab);
+    fab.style.display = 'flex';
+  }
+
+  /* ── 3. Scroll indicator radar ── */
+  function initRadarIndicators() {
+    document.querySelectorAll('.radar').forEach(function (radar) {
+      var sc = radar.querySelector('.radar-sc');
+      if (!sc) return;
+      function update() {
+        var atEnd = sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 8;
+        radar.classList.toggle('scroll-end', atEnd);
+      }
+      sc.addEventListener('scroll', update, { passive: true });
+      update();
+    });
+  }
+
+  /* ── Init ── */
+  function init() {
+    initMoSelect();
+    initTodayFab();
+    initRadarIndicators();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  window.addEventListener('resize', function () {
+    var isMobile = window.innerWidth <= 760;
+    var sel = document.querySelector('.mo-select-mobile');
+    var fab = document.querySelector('.today-fab');
+    if (!isMobile) {
+      if (sel) sel.remove();
+      if (fab) fab.style.display = 'none';
+      var moScroll = document.querySelector('.mo-scroll');
+      if (moScroll) moScroll.style.display = '';
+    } else {
+      if (fab) fab.style.display = 'flex';
+    }
+  });
+
+})();
