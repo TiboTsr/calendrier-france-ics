@@ -199,7 +199,24 @@ def simple_moon_phases(year: int) -> list[tuple[date, str]]:
                 hour, minute = 0, 0
 
             dt_utc = datetime(item_year, month, day, hour, minute, tzinfo=timezone.utc)
-            dt_paris = dt_utc.astimezone(ZoneInfo("Europe/Paris"))
+            try:
+                dt_paris = dt_utc.astimezone(ZoneInfo("Europe/Paris"))
+            except Exception:
+                from calendar import monthrange
+                def is_summer_time(dt):
+                    last_march_sunday = max(
+                        [d for d in range(31, 24, -1)
+                         if datetime(dt.year, 3, d).weekday() == 6])
+                    last_oct_sunday = max(
+                        [d for d in range(31, 24, -1)
+                         if datetime(dt.year, 10, d).weekday() == 6])
+                    dt_march = datetime(dt.year, 3, last_march_sunday)
+                    dt_oct = datetime(dt.year, 10, last_oct_sunday)
+                    return dt >= dt_march and dt < dt_oct
+                if is_summer_time(dt_utc):
+                    dt_paris = dt_utc + timedelta(hours=2)
+                else:
+                    dt_paris = dt_utc + timedelta(hours=1)
             phases.append((dt_paris.date(), phase_label))
 
         if phases:
