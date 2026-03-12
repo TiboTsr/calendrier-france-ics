@@ -715,9 +715,9 @@ def build_base_events() -> list[CalendarEvent]:
             ),
             CalendarEvent(
                 "Fête des Mères",
-                nth_weekday(year, 5, 6, 4) if nth_weekday(year, 5, 6, 4) != pentecote else nth_weekday(year, 6, 6, 1),
+                last_weekday(year, 5, 6) if last_weekday(year, 5, 6) != pentecote else nth_weekday(year, 6, 6, 1),
                 categories=["Fêtes", "Culture"],
-                description="Officialisée en France par la loi de 1926. Elle tombe le dernier dimanche de mai, sauf si ce jour coïncide avec la Pentecôte — dans ce cas elle est reportée au premier dimanche de juin.",
+                description="Célébrée le dernier dimanche de mai, sauf si c'est la Pentecôte.",
             ),
             CalendarEvent(
                 "Fête des Pères", nth_weekday(year, 6, 6, 3),
@@ -728,6 +728,12 @@ def build_base_events() -> list[CalendarEvent]:
                 "Fête des Grands-Mères", nth_weekday(year, 3, 6, 1),
                 categories=["Fêtes", "Culture"],
                 description="Créée en 1987 par la marque de café Grand'Mère pour valoriser les aïeules. Célébrée le premier dimanche de mars, elle est devenue une tradition familiale bien ancrée malgré ses origines purement commerciales.",
+            ),
+            CalendarEvent(
+                "Fête des Grands-Pères", 
+                nth_weekday(year, 10, 6, 1),
+                categories=["Fêtes", "Culture"],
+                description="Créée en 2008, elle a lieu chaque premier dimanche d'octobre.",
             ),
             CalendarEvent(
                 "Halloween", date(year, 10, 31),
