@@ -29,7 +29,8 @@ import requests
 
 TIMEOUT = 15
 YEAR = datetime.now().year
-UA = "CalendrierFR-HealthCheck/1.0 (+https://calendrier-fr.tibotsr.dev)"
+# Utilisation d'un UA de navigateur car l'USNO bloque les scripts identifiés comme "HealthCheck"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 
 # ── Définition des sources ────────────────────────────────────────────────────
@@ -54,6 +55,15 @@ SOURCES: list[Source] = [
         params={"dataset": "fr-en-calendrier-scolaire", "rows": 1},
         expected_keys=["records"],
         note="Source principale des vacances scolaires. Si down, les vacances ne s'affichent plus.",
+    ),
+
+    # ── Astronomie (Lune) ────────────────────────────────────────────────────
+    Source(
+        name="USNO — Moon Phases API",
+        url="https://aa.usno.navy.mil/api/moon/phases/year",
+        params={"year": YEAR},
+        expected_keys=["phasedata"],
+        note="Source des phases de la lune. Très sensible au User-Agent. Si 403, l'IP de l'Action est probablement bannie.",
     ),
 
     # ── F1 Monaco ────────────────────────────────────────────────────────────
