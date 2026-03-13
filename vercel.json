@@ -14,10 +14,6 @@
     {
       "src": "/api/(.*)",
       "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/calendrier.ics.js"
     }
   ],
   "headers": [

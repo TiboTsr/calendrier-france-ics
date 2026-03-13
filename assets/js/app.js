@@ -789,7 +789,7 @@ function renderTL(opts={}){
       const isPast=new Date(curYear,k+1,0)<today;
       root.appendChild(buildMoBlock(k,e,today,isPast));
     });
-    if(opts.autoScrollToday&&isCurYr){setTimeout(()=>scrollToToday(),80);}
+    if(opts.autoScrollToday&&isCurYr){scrollToToday();}
     return;
   }
 
@@ -844,6 +844,8 @@ function renderTL(opts={}){
       window._tlObserver.observe(sentinel);
     }
   }
+  // initMoSelect doit être appelé ici, après que les boutons .mb sont dans le DOM
+  if(typeof initMoSelect==="function")initMoSelect();
 }
 
 /* scrollToToday — utilise window.scrollTo pour scroller la PAGE */
@@ -862,12 +864,17 @@ function getStickyOffset(){
 }
 
 function scrollToToday(){
-  const marker=document.getElementById("today-marker");
-  if(!marker)return;
-  const rect=marker.getBoundingClientRect();
-  const stickyOffset=getStickyOffset();
-  const targetY=window.scrollY+rect.top-stickyOffset;
-  window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"});
+  // Double rAF : garantit que le DOM est peint avant de mesurer (fiable sur mobile lent)
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      const marker=document.getElementById("today-marker");
+      if(!marker)return;
+      const rect=marker.getBoundingClientRect();
+      const stickyOffset=getStickyOffset();
+      const targetY=window.scrollY+rect.top-stickyOffset;
+      window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"});
+    });
+  });
 }
 
 function buildMoBlock(k,evts,today,isPast){
@@ -880,8 +887,16 @@ function buildMoBlock(k,evts,today,isPast){
   const splitIndex=evts.findIndex(ev=>(ev.endDate||ev.date)>=today);
   const hasPast=evts.some(ev=>(ev.endDate||ev.date)<today);
   const hasUpcoming=splitIndex!==-1;
+  // Flag : le marqueur #today-marker ne doit être injecté qu'une seule fois
+  // pour éviter les id dupliqués quand un événement tombe exactement sur today.
+  let todayMarkerPlaced=false;
 
   function appendTodayMarker(){
+    if(todayMarkerPlaced)return;
+    // Supprimer un éventuel marqueur résiduel d'un rendu précédent
+    const existing=document.getElementById("today-marker");
+    if(existing)existing.remove();
+    todayMarkerPlaced=true;
     const marker=document.createElement("div");
     marker.id="today-marker";
     const todayStr=new Intl.DateTimeFormat("fr-FR",{weekday:"long",day:"2-digit",month:"long"}).format(today);
@@ -921,7 +936,7 @@ function buildMoBlock(k,evts,today,isPast){
         row.innerHTML=`
           ${buildDateBadge(ev,def)}
           <div class="ev-b">
-            <div class="ev-title">${ev.summary}</div>
+            <div class="ev-title">${_escHtml(ev.summary)}</div>
             <div class="ev-tags"><span class="ev-tag" style="background:${def.d};color:${def.c};border:1px solid ${def.b}">${cat}</span>${ev.zones&&ev.zones.length?`<span class="ev-tag" style="background:var(--bg3);color:var(--t3)">${ev.zones.join(", ")}</span>`:""}</div>
           </div>
           <span class="ev-arr">›</span>`;
@@ -945,7 +960,7 @@ function buildMoBlock(k,evts,today,isPast){
     row.innerHTML=`
       ${buildDateBadge(ev,def)}
       <div class="ev-b">
-        <div class="ev-title">${ev.summary}</div>
+        <div class="ev-title">${_escHtml(ev.summary)}</div>
         <div class="ev-tags"><span class="ev-tag" style="background:${def.d};color:${def.c};border:1px solid ${def.b}">${cat}</span>${ev.zones&&ev.zones.length?`<span class="ev-tag" style="background:var(--bg3);color:var(--t3)">${ev.zones.join(", ")}</span>`:""}</div>
       </div>
       <span class="ev-arr">›</span>`;
@@ -1430,7 +1445,7 @@ init();
 
   /* ── Init ── */
   function init() {
-    initMoSelect();
+    // initMoSelect() est appelé depuis renderTL() une fois les boutons .mb générés
     initTodayFab();
     initRadarIndicators();
   }

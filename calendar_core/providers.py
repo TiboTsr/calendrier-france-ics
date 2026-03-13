@@ -1291,7 +1291,8 @@ def build_vacation_events() -> list[CalendarEvent]:
         population = (fields.get("population") or "").strip().lower()
         if "enseignant" in population:
             continue
-        end = end - timedelta(days=1)
+        # end est la date inclusive telle que renvoyée par l'API.
+        # serialize_calendar ajoute +1 (RFC 5545 DTEND exclusif) — ne pas modifier ici.
 
         description = canonical_vacation_description(fields.get("description", "Vacances"))
         normalized_zones = normalize_zones(fields.get("zones", []))

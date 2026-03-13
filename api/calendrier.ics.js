@@ -35,7 +35,7 @@ function addOneDay(dateStr) {
   return `${yy}-${mm}-${dd}`;
 }
 
-function makeUid(event) {
+async function makeUid(event) {
   const key = [
     event.summary || "",
     event.start || "",
@@ -43,12 +43,24 @@ function makeUid(event) {
     (event.categories || []).join("|"),
     (event.zones || []).join("|"),
   ].join("::");
-  let hash = 2166136261;
-  for (let i = 0; i < key.length; i += 1) {
-    hash ^= key.charCodeAt(i);
-    hash = Math.imul(hash, 16777619);
+  // SHA-256 via Web Crypto API — évite les collisions du FNV-1a 32 bits
+  // sur de larges catalogues d'événements.
+  try {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(key);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.slice(0, 8).map(b => b.toString(16).padStart(2, "0")).join("");
+    return `${hashHex}@calendrier-fr.tibotsr.dev`;
+  } catch {
+    // Fallback FNV-1a 32 bits si crypto.subtle indisponible (env non-HTTPS)
+    let hash = 2166136261;
+    for (let i = 0; i < key.length; i += 1) {
+      hash ^= key.charCodeAt(i);
+      hash = Math.imul(hash, 16777619);
+    }
+    return `${(hash >>> 0).toString(16)}@calendrier-fr.tibotsr.dev`;
   }
-  return `${(hash >>> 0).toString(16)}@calendrier-fr.tibotsr.dev`;
 }
 
 function normalizeList(raw) {
@@ -372,7 +384,7 @@ module.exports = async function handler(req, res) {
 
       const eventLines = [
         "BEGIN:VEVENT",
-        `UID:${makeUid(event)}`,
+        `UID:${await makeUid(event)}`,
         `DTSTAMP:${dtstamp}`,
         `DTSTART;VALUE=DATE:${start}`,
         `DTEND;VALUE=DATE:${toIcsDate(endExclusive)}`,
@@ -394,7 +406,7 @@ module.exports = async function handler(req, res) {
 
       const eventLines = [
         "BEGIN:VEVENT",
-        `UID:${makeUid({ summary: event.title, start: event.date, end: event.date, categories: ["Personnel"], zones: [] })}`,
+        `UID:${await makeUid({ summary: event.title, start: event.date, end: event.date, categories: ["Personnel"], zones: [] })}`,
         `DTSTAMP:${dtstamp}`,
         `DTSTART;VALUE=DATE:${start}`,
         `DTEND;VALUE=DATE:${endExclusive}`,
@@ -436,7 +448,7 @@ module.exports = async function handler(req, res) {
       const displayName = formatDisplayFirstName(feast.rawName);
       const eventLines = [
         "BEGIN:VEVENT",
-        `UID:${makeUid({ summary: `Fête de ${displayName}`, start: baseDate, end: baseDate, categories: ["Fêtes prénom"], zones: [] })}`,
+        `UID:${await makeUid({ summary: `Fête de ${displayName}`, start: baseDate, end: baseDate, categories: ["Fêtes prénom"], zones: [] })}`,
         `DTSTAMP:${dtstamp}`,
         `DTSTART;VALUE=DATE:${start}`,
         `DTEND;VALUE=DATE:${endExclusive}`,

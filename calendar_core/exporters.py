@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import csv
 from io import StringIO
 from xml.sax.saxutils import escape
@@ -46,7 +46,10 @@ def serialize_calendar(events: list[CalendarEvent], cal_name: str, domain: str, 
             ]
         )
         if event.end:
-            lines.append(f"DTEND;VALUE=DATE:{event.end.strftime('%Y%m%d')}")
+            # RFC 5545 : DTEND est exclusif pour les événements all-day.
+            # On ajoute toujours +1 jour ici — providers.py ne doit PAS soustraire de son côté.
+            dtend_exclusive = event.end + timedelta(days=1)
+            lines.append(f"DTEND;VALUE=DATE:{dtend_exclusive.strftime('%Y%m%d')}")
         lines.append("END:VEVENT")
 
     lines.append("END:VCALENDAR")
