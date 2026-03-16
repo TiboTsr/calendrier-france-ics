@@ -160,6 +160,7 @@ function hideAppLoader() {
   setTimeout(() => {
     loader.classList.add('done');
     document.body.classList.remove('app-loading');
+    document.getElementById('app-loader').classList.add('done');
     setTimeout(() => loader.remove(), 260);
   }, wait);
 }

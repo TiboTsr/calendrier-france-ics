@@ -354,21 +354,14 @@ def _fetch_sports_dates(year: int) -> dict[str, tuple[date, date | None]]:
     sourced: dict[str, tuple[date, date | None]] = {}
 
     def fetch_monaco():
-        try:
-            response = requests.get(f"https://api.jolpi.ca/ergast/f1/{year}.json", timeout=15)
-            response.raise_for_status()
-            races = response.json().get("MRData", {}).get("RaceTable", {}).get("Races", [])
-            for race in races:
-                race_name = str(race.get("raceName", "")).lower()
-                locality = str(race.get("Circuit", {}).get("Location", {}).get("locality", "")).lower()
-                country = str(race.get("Circuit", {}).get("Location", {}).get("country", "")).lower()
-                if "monaco" in race_name or "monaco" in locality or "monaco" in country:
-                    race_date = parse_api_date_to_fr_date(race.get("date"))
-                    if race_date:
-                        return "monaco", (race_date, None)
-        except (requests.RequestException, ValueError, TypeError):
-            pass
-        return None
+            try:
+                txt = _wiki_extract(f"{year}_Monaco_Grand_Prix", lang="en", intro=True)
+                rng = _parse_en_single_date(txt)
+                if rng:
+                    return "monaco", (rng, None)
+            except Exception:
+                pass
+            return None
 
     def fetch_roland():
         try:

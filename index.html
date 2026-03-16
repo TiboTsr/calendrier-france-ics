@@ -1,6 +1,7 @@
 ﻿<!doctype html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="dark" class="no-js">
   <head>
+    <script>document.documentElement.classList.remove('no-js');</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendrier France — Jours fériés, vacances & plus</title>
@@ -26,7 +27,7 @@
     <link rel="icon" type="image/svg+xml" href="./img/icon.svg" />
     <link rel="shortcut icon" href="./img/icon.svg" />
     <link rel="apple-touch-icon" href="./img/icon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
@@ -61,9 +62,39 @@
       ]
     }
     </script>
+    <script defer src="./assets/js/utils.js"></script>
+    <script defer src="./assets/js/state.js"></script>
+    <script defer src="./assets/js/theme.js"></script>
+    <script defer src="./assets/js/zone.js"></script>
+    <script defer src="./assets/js/sync.js"></script>
+    <script defer src="./assets/js/explorer.js"></script>
+    <script defer src="./assets/js/tutorial.js"></script>
+    <script defer src="./assets/js/mobile.js"></script>
+    <script defer src="./assets/js/calendar-grid.js"></script>
+    <script defer src="./assets/js/app.js"></script>
   </head>
 
   <body class="app-loading">
+    <noscript>
+      <style>html { background: #232330 !important; } body { background: #232330 !important; }</style>
+      <div style="max-width: 500px; margin: 60px auto; background: #232330; color: #fff; border-radius: 18px; box-shadow: 0 2px 16px #0003; padding: 40px 30px; text-align: center; font-size: 18px;">
+        <div style="font-size: 2.2em; margin-bottom: 18px;">⚠️</div>
+        <b>Ce site nécessite JavaScript pour fonctionner.</b><br>
+        <span style="font-size: 15px; color: #ccc; display: block; margin: 18px 0 0;">(recherche de zone, génération du calendrier, etc.)</span>
+        <hr style="margin: 28px 0 18px; border: none; border-top: 1px solid #444;">
+        <div style="font-size: 16px; margin-bottom: 10px;">Comment activer JavaScript&nbsp;?</div>
+        <ul style="text-align: left; font-size: 15px; color: #eee; margin: 0 0 0 0; padding: 0 0 0 18px; line-height: 1.7;">
+          <li><b>Chrome&nbsp;:</b> Paramètres → Confidentialité et sécurité → Paramètres du site → JavaScript → Les sites peuvent utiliser JavaScript</li>
+          <li><b>Firefox&nbsp;:</b> Tapez <code>about:config</code> dans la barre d'adresse, cherchez <code>javascript.enabled</code> et passez à <b>true</b></li>
+          <li><b>Edge&nbsp;:</b> Paramètres → Cookies et autorisations de site → JavaScript → Autoriser</li>
+          <li><b>Safari&nbsp;:</b> Préférences → Sécurité → Cocher «&nbsp;Activer JavaScript&nbsp;»</li>
+        </ul>
+        <div style="margin-top: 22px; font-size: 14px; color: #aaa;">Après activation, rechargez la page.</div>
+      </div>
+    </noscript>
+    <script>
+      document.documentElement.classList.remove('no-js');
+    </script>
 
     <!-- LOADER -->
     <div id="app-loader" role="status" aria-live="polite" aria-label="Chargement">
@@ -707,16 +738,6 @@
     <script>
       window.CALENDAR_API_BASE = "api.calendrier-fr.tibotsr.dev";
     </script>
-    <script src="./assets/js/utils.js"></script>
-    <script src="./assets/js/state.js"></script>
-    <script src="./assets/js/theme.js"></script>
-    <script src="./assets/js/zone.js"></script>
-    <script src="./assets/js/sync.js"></script>
-    <script src="./assets/js/explorer.js"></script>
-    <script src="./assets/js/tutorial.js"></script>
-    <script src="./assets/js/mobile.js"></script>
-    <script src="./assets/js/calendar-grid.js"></script>
-    <script src="./assets/js/app.js"></script>
     <script>
       (function () {
         var hero = document.getElementById('r-countdown-hero');

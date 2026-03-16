@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 function escapeIcsText(value) {
   return String(value ?? "")
     .replace(/\\/g, "\\\\")
@@ -43,17 +45,11 @@ async function makeUid(event) {
     (event.categories || []).join("|"),
     (event.zones || []).join("|"),
   ].join("::");
-  // SHA-256 via Web Crypto API — évite les collisions du FNV-1a 32 bits
-  // sur de larges catalogues d'événements.
+
   try {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(key);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.slice(0, 8).map(b => b.toString(16).padStart(2, "0")).join("");
-    return `${hashHex}@calendrier-fr.tibotsr.dev`;
+    const hashHex = crypto.createHash('sha256').update(key).digest('hex');
+    return `${hashHex.slice(0, 16)}@calendrier-fr.tibotsr.dev`;
   } catch {
-    // Fallback FNV-1a 32 bits si crypto.subtle indisponible (env non-HTTPS)
     let hash = 2166136261;
     for (let i = 0; i < key.length; i += 1) {
       hash ^= key.charCodeAt(i);

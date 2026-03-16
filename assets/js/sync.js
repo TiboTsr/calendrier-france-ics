@@ -316,8 +316,10 @@ function buildAdvUrl() {
   _advBuildTimer = setTimeout(() => {
     const p = new URLSearchParams({ zone: zonesArr.join(','), alarm, cats: cats.join(',') });
     if (personal.length) p.set('pe', JSON.stringify(personal));
-    const wc = `webcal://${DYNAMIC_API_BASE}/api/calendrier.ics?${p}`;
-    const wcGoogle = `webcal://${GOOGLE_FEED_BASE}/api/calendrier.ics?${p}`;
+    const API_HOST = typeof window.CALENDAR_API_BASE !== 'undefined' ? window.CALENDAR_API_BASE : window.location.host;
+
+    const wc = `webcal://${API_HOST}/api/calendrier.ics?${p}`;
+    const wcGoogle = `webcal://${API_HOST}/api/calendrier.ics?${p}`;
 
     window._advWcUrl = wc;
 
