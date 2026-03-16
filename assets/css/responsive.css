@@ -1,0 +1,369 @@
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE — Calendrier France
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Fix global overflow — PRIORITÉ ABSOLUE ─────────────────── */
+/* overflow-x sur body casse position:sticky — on l'applique UNIQUEMENT sur html */
+html { overflow-x: hidden; }
+/* body doit rester overflow:visible pour que sticky fonctionne */
+*, *::before, *::after { box-sizing: border-box; }
+.hero-feats-row { overflow: hidden; }
+
+
+/* ══════════════════════════════════════
+   TABLETTE  760–900px
+══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .exp-layout { grid-template-columns: 200px 1fr; }
+}
+
+/* ══════════════════════════════════════
+   MOBILE  < 760px
+══════════════════════════════════════ */
+@media (max-width: 760px) {
+
+  /* ── Topbar ── */
+  .topbar-in { padding: 0 14px; gap: 8px; }
+  .theme-label { display: none; }
+  .sync-age { display: none; }
+  .sync-pill { font-size: 11px; padding: 4px 9px; }
+
+  /* ── Page ── */
+  .page { padding: 0 14px; }
+  section { padding: 48px 0; }
+
+  /* ── Hero ── */
+  .hero { padding: 56px 14px 20px; min-height: unset; }
+  .hero-sub { font-size: 15px; }
+  .scroll-hint { display: none; }
+  .hero-cta-row {
+    flex-direction: column; align-items: stretch;
+    max-width: 340px; margin-left: auto; margin-right: auto;
+  }
+  .btn-hero { text-align: center; }
+
+  /* ── Zone finder ── */
+  .zone-sec { padding: 18px 14px; }
+  .zone-search-row { flex-direction: column; }
+  .zone-big-input, .zone-big-btn { width: 100%; }
+
+  /* ── Panneau simple ── */
+  .sp-h { padding: 18px 16px 12px; }
+  .app-grid { padding: 0 16px 12px; gap: 7px; }
+  .url-box { margin: 0 16px 12px; }
+  .app-steps { margin: 0 16px 14px; }
+  .sp-cta { padding: 14px 16px; grid-template-columns: 1fr; gap: 8px; }
+
+  /* ── Panneau avancé ── */
+  .adv { padding: 18px 14px; }
+  .adv-opts { grid-template-columns: 1fr; }
+  .pcards { grid-template-columns: 1fr 1fr; }
+  .gen-links-and-qr { grid-template-columns: 1fr; }
+  .gen-acts { flex-direction: column; }
+  .pe-form { flex-direction: column; }
+  .pe-input, .pe-date, .pe-sel, .pe-add { width: 100%; min-width: 0; }
+  .url-copy-btn {
+    opacity: 1 !important; pointer-events: auto !important;
+    position: static; display: block; width: 100%;
+    margin-top: 8px; border-radius: 8px;
+    padding: 9px; text-align: center; font-size: 12px;
+  }
+  .url-anim-wrap { display: flex; flex-direction: column; }
+
+  /* ═══════════════════════════════════════════════════
+     EXPLORATEUR — refonte mobile complète
+  ═══════════════════════════════════════════════════ */
+
+  /* Layout vertical */
+  .exp-layout { grid-template-columns: 1fr; gap: 0; }
+
+  /* ── SIDEBAR : sticky conservé, padding réduit ── */
+  .sidebar {
+    padding: 14px;
+  }
+
+  /* Recherche */
+  .sb-s { margin-bottom: 10px; }
+
+  /* Zone pills : wrap */
+  .szpills { flex-wrap: wrap; gap: 6px; }
+  .szp { font-size: 12px; padding: 5px 12px; }
+
+  /* Titre section catégories */
+  .sb-t { margin-bottom: 8px; font-size: 11px; }
+  .cats-hint { display: none; }
+
+  /* Catégories : chips pill, wrap naturel */
+  .sb-cats {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 5px;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+  .scat {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .scat .sc-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .scat .sc-cnt { display: none; }
+  .scat .sc-name { max-width: 110px; overflow: hidden; text-overflow: ellipsis; }
+
+  /* ── RADAR (prochains / en cours) ── */
+  .radar { padding: 14px; border-radius: 0; }
+
+  /* Titre radar */
+  .radar-title { font-size: 13px; margin-bottom: 10px; }
+
+  /* Cards radar : scroll horizontal — chaque card a une largeur fixe */
+  .radar-sc {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .radar-sc::-webkit-scrollbar { display: none; }
+
+  .rc {
+    flex-shrink: 0;
+    min-width: 140px;
+    max-width: 160px;
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+  .rc-date { font-size: 11px; }
+  .rc-name { font-size: 12px; line-height: 1.3; white-space: normal; }
+
+  /* ── TOOLBAR : compact mobile, sticky + border-radius conservés ── */
+  .ex-tb {
+    padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .ys { font-size: 14px; padding: 4px 8px; }
+  .yb { width: 28px; height: 28px; font-size: 13px; }
+  .today-btn { display: none; }
+
+  /* Boutons mois → cachés sur mobile, remplacés par le <select> injecté par JS */
+  .mo-scroll { display: none; }
+
+  /* Select mois natif injecté par JS */
+  .mo-select-mobile {
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--s2, #1e1e1e);
+    color: var(--fg, #fff);
+    border: 1px solid var(--b, #333);
+    border-radius: 8px;
+    padding: 6px 28px 6px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    flex: 1;
+    min-width: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+  }
+  .mo-select-mobile:focus { outline: none; border-color: var(--ac, #4f8ef7); }
+
+  /* ── TIMELINE : événements ── */
+  #ev-root { padding: 0 14px; }
+  .mo-block { margin-bottom: 20px; }
+  .mo-h { font-size: 14px; gap: 7px; }
+
+  .ev-row {
+    padding: 10px 11px;
+    gap: 9px;
+    border-radius: 10px;
+  }
+
+  /* Badge date ponctuel */
+  .ev-d { width: 38px; height: 42px; border-radius: 8px; flex-shrink: 0; }
+  .ev-day { font-size: 17px; }
+  .ev-wd { font-size: 8px; }
+
+  /* Badge date range */
+  .ev-d.ev-d-range { min-width: 74px; height: 44px; padding: 4px 7px; }
+  .ev-range-day { font-size: 13px; }
+  .ev-range-wd { font-size: 8px; }
+
+  /* Titre événement : wrap autorisé sur mobile */
+  .ev-title {
+    font-size: 13px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    line-height: 1.3;
+  }
+
+  /* Tags : 1 seul visible */
+  .ev-tags { flex-wrap: nowrap; overflow: hidden; gap: 4px; }
+  .ev-tag { font-size: 9px; padding: 2px 6px; flex-shrink: 0; }
+  .ev-tags .ev-tag:nth-child(n+3) { display: none; }
+
+  .ev-arr { font-size: 26px; flex-shrink: 0; }
+
+  /* ── MODAL → bottom sheet ── */
+  .mbg { padding: 0; align-items: flex-end; }
+  .ms {
+    width: 100%;
+    border-radius: var(--rxl) var(--rxl) 0 0;
+    padding: 0 18px 32px;
+    max-height: 92svh;
+  }
+  .ms::before {
+    content: '';
+    display: block;
+    width: 40px; height: 4px;
+    border-radius: 999px;
+    background: var(--b);
+    margin: 10px auto 16px;
+  }
+  .m-title { font-size: 16px; line-height: 1.3; }
+  .m-meta-main { grid-template-columns: 1fr 1fr; gap: 7px; }
+  .m-meta-main .mbox.acc { grid-column: 1 / -1; order: -1; }
+  .m-meta-more { grid-template-columns: 1fr 1fr 1fr; gap: 7px; }
+  .ml { font-size: 9px; }
+  .mv { font-size: 12px; }
+
+  /* Features */
+  .feats { grid-template-columns: 1fr 1fr; gap: 9px; }
+  .fcard { padding: 16px 13px; }
+  .fcard h3 { font-size: 13px; }
+  .fcard p { font-size: 12px; }
+
+  /* Tuto */
+  #tuto-card {
+    width: calc(100vw - 24px) !important;
+    left: 12px !important;
+    bottom: 16px; top: auto !important;
+  }
+  #tuto-spot { display: none !important; }
+}
+
+/* ══════════════════════════════════════
+   PETIT MOBILE  < 480px
+══════════════════════════════════════ */
+@media (max-width: 480px) {
+  .page { padding: 0 12px; }
+  #ev-root { padding: 0 12px; }
+  .ev-arr { display: none; } /* récupère de la place */
+  .ev-row { padding: 9px 10px; gap: 8px; }
+  .url-box code { font-size: 10px; }
+  .m-meta-more { grid-template-columns: 1fr 1fr; }
+  #adv-url-animated { font-size: 10px; padding: 9px 10px; word-break: break-all; }
+  .gen-out { padding: 14px 12px; }
+  .tuto-welcome-card { padding: 24px 16px 20px; }
+  .tuto-welcome-card h2 { font-size: 18px; }
+}
+
+/* ══════════════════════════════════════
+   TRÈS PETIT  < 380px
+══════════════════════════════════════ */
+@media (max-width: 380px) {
+  .brand { font-size: 13px; }
+  .sync-pill { display: none; }
+  .pcards { grid-template-columns: 1fr; }
+  .feats { grid-template-columns: 1fr; }
+  .m-meta-main { grid-template-columns: 1fr; }
+  .m-meta-main .mbox.acc { grid-column: auto; }
+  .m-meta-more { grid-template-columns: 1fr 1fr; }
+  .scat { font-size: 11px; padding: 5px 7px; }
+}
+
+/* ══════════════════════════════════════
+   TOUCH — désactive hover transforms
+══════════════════════════════════════ */
+@media (hover: none) {
+  .ev-row:hover { transform: none; }
+  .fcard:hover { transform: none; }
+  .url-copy-btn { opacity: 1; pointer-events: auto; }
+}
+
+/* ══════════════════════════════════════
+   INDICATEURS DE SCROLL HORIZONTAL
+   Fade + chevron sur le bord droit
+   pour : radar-sc, mo-scroll
+══════════════════════════════════════ */
+
+/* Scroll indicator : radar uniquement */
+.radar { position: relative; }
+
+.radar::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 56px; height: 100%;
+  background: linear-gradient(to right, transparent, var(--bg, #0f0f0f) 85%);
+  pointer-events: none;
+  border-radius: 0 var(--rl, 12px) var(--rl, 12px) 0;
+  z-index: 2;
+  transition: opacity 0.25s ease;
+}
+
+.radar::before {
+  content: '›';
+  position: absolute;
+  right: 10px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px; line-height: 1;
+  color: var(--fg, #fff);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.25s ease;
+}
+
+.radar.scroll-end::after,
+.radar.scroll-end::before { opacity: 0; }
+
+@media (min-width: 761px) {
+  .radar::after, .radar::before { display: none; }
+}
+
+/* ── FAB "Aujourd'hui" — fixe en bas à droite ── */
+.today-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 18px;
+  z-index: 900;
+  display: none; /* affiché seulement sur mobile via JS */
+  align-items: center;
+  gap: 6px;
+  padding: 11px 16px;
+  border-radius: 999px;
+  background: var(--ac, #4f8ef7);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+  transition: transform 0.15s ease, opacity 0.2s ease;
+  white-space: nowrap;
+}
+.today-fab:active { transform: scale(0.95); }
+/* Icône calendrier devant le texte */
+.today-fab::before {
+  content: '📅';
+  font-size: 15px;
+  line-height: 1;
+}
+/* Caché sur desktop */
+@media (min-width: 761px) {
+  .today-fab { display: none !important; }
+}

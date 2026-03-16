@@ -4,101 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendrier France — Jours fériés, vacances & plus</title>
-    <meta
-      name="description"
-      content="Calendrier France complet : jours fériés, vacances scolaires zones A/B/C, saisons et changements d'heure. Abonnement ICS gratuit compatible Google, Apple et Outlook."
-    />
-    <meta
-      name="keywords"
-      content="calendrier france, jours fériés, vacances scolaires, zone a, zone b, zone c, ics, google calendar, outlook, apple calendar"
-    />
+    <meta name="description" content="Calendrier France complet : jours fériés, vacances scolaires zones A/B/C, saisons et changements d'heure. Abonnement ICS gratuit compatible Google, Apple et Outlook." />
+    <meta name="keywords" content="calendrier france, jours fériés, vacances scolaires, zone a, zone b, zone c, ics, google calendar, outlook, apple calendar" />
     <meta name="author" content="Calendrier France" />
-    <meta
-      name="robots"
-      content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
-    />
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
     <link rel="canonical" href="https://calendrier-fr.tibotsr.dev/" />
 
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Calendrier France" />
-    <meta
-      property="og:title"
-      content="Calendrier France — Jours fériés, vacances & plus"
-    />
-    <meta
-      property="og:description"
-      content="Synchronisez automatiquement jours fériés, vacances scolaires A/B/C et changements d'heure avec un lien ICS gratuit."
-    />
+    <meta property="og:title" content="Calendrier France — Jours fériés, vacances & plus" />
+    <meta property="og:description" content="Synchronisez automatiquement jours fériés, vacances scolaires A/B/C et changements d'heure avec un lien ICS gratuit." />
     <meta property="og:url" content="https://calendrier-fr.tibotsr.dev/" />
-    <meta
-      property="og:image"
-      content="https://calendrier-fr.tibotsr.dev/og-image.svg"
-    />
+    <meta property="og:image" content="https://calendrier-fr.tibotsr.dev/og-image.svg" />
     <meta property="og:image:alt" content="Aperçu Calendrier France" />
-
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Calendrier France — Jours fériés, vacances & plus"
-    />
-    <meta
-      name="twitter:description"
-      content="Flux ICS gratuit pour suivre les événements clés en France sur Google, Apple et Outlook."
-    />
-    <meta
-      name="twitter:image"
-      content="https://calendrier-fr.tibotsr.dev/og-image.svg"
-    />
+    <meta name="twitter:title" content="Calendrier France — Jours fériés, vacances & plus" />
+    <meta name="twitter:description" content="Flux ICS gratuit pour suivre les événements clés en France sur Google, Apple et Outlook." />
+    <meta name="twitter:image" content="https://calendrier-fr.tibotsr.dev/og-image.svg" />
 
     <link rel="icon" type="image/svg+xml" href="./img/icon.svg" />
     <link rel="shortcut icon" href="./img/icon.svg" />
     <link rel="apple-touch-icon" href="./img/icon.svg" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/responsive.css" />
+
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Calendrier France",
-        "url": "https://calendrier-fr.tibotsr.dev/",
-        "inLanguage": "fr-FR",
-        "description": "Calendrier France complet avec jours fériés, vacances scolaires zones A/B/C et export ICS.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://calendrier-fr.tibotsr.dev/#zone",
-          "query-input": "required name=ville"
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Calendrier France",
+          "url": "https://calendrier-fr.tibotsr.dev/",
+          "inLanguage": "fr-FR",
+          "description": "Calendrier France complet avec jours fériés, vacances scolaires zones A/B/C et export ICS."
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Calendrier France",
+          "url": "https://calendrier-fr.tibotsr.dev/",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+          "featureList": [
+            "Jours fériés France",
+            "Vacances scolaires zones A B C",
+            "Export ICS Google Apple Outlook",
+            "Changements d'heure",
+            "Saisons"
+          ]
         }
-      }
+      ]
+    }
     </script>
   </head>
+
   <body class="app-loading">
-    <div
-      id="app-loader"
-      role="status"
-      aria-live="polite"
-      aria-label="Chargement"
-    >
+
+    <!-- LOADER -->
+    <div id="app-loader" role="status" aria-live="polite" aria-label="Chargement">
       <div class="app-loader-spin"></div>
-      <div class="app-loader-txt">Chargement des données...</div>
+      <div class="app-loader-txt">Chargement des données…</div>
     </div>
 
+    <!-- ══════════════════════════════
+         TOPBAR
+    ══════════════════════════════ -->
     <nav class="topbar">
       <div class="topbar-in">
         <div class="brand">
           <div class="flag" role="img" aria-label="Drapeau France">
-            <span class="fb"></span><span class="fw"></span
-            ><span class="fr_" style="background: #ed2939"></span>
+            <span class="fb"></span><span class="fw"></span><span class="fr_"></span>
           </div>
           Calendrier France
         </div>
@@ -106,196 +86,121 @@
           <div class="sync-pill" id="sync-pill">
             Synchronisé <span class="sync-age" id="sync-age"></span>
           </div>
-          <span id="a11y-label" class="theme-label" aria-live="polite"
-            >Accessibilité</span
-          >
-          <button
-            id="a11y-btn"
-            class="tbtn"
-            aria-label="Activer le mode accessibilité"
-            title="Activer le mode accessibilité"
-          >
+          <button class="tbtn" onclick="window._startTutoIfNeeded&&window._startTutoIfNeeded()" title="Aide / Tutoriel" aria-label="Aide">
+            <i class="fa-regular fa-circle-question"></i>
+          </button>
+          <span id="a11y-label" class="theme-label" aria-live="polite">Accessibilité</span>
+          <button id="a11y-btn" class="tbtn" aria-label="Activer le mode accessibilité" title="Activer le mode accessibilité">
             <i class="fa-solid fa-universal-access"></i>
           </button>
-          <span id="theme-label" class="theme-label" aria-live="polite"
-            >Thème sombre</span
-          >
-          <button
-            id="theme-btn"
-            class="tbtn"
-            aria-label="Passer en thème clair"
-            title="Passer en thème clair"
-          >
+          <span id="theme-label" class="theme-label" aria-live="polite">Thème sombre</span>
+          <button id="theme-btn" class="tbtn" aria-label="Passer en thème clair" title="Passer en thème clair">
             <i class="fa-solid fa-sun"></i>
           </button>
         </div>
       </div>
     </nav>
 
+    <!-- ══════════════════════════════
+         HERO
+    ══════════════════════════════ -->
     <section class="hero" id="hero">
-      <div
-        class="page"
-        style="display: flex; flex-direction: column; align-items: center"
-      >
-        <!--<div class="hero-eyebrow">
-          Flux ICS gratuit · Open source · Données officielles
-        </div>-->
-        <h1>Votre agenda<br /><em>enfin complet.</em></h1>
+      <div class="hero-inner page">
+        <div class="hero-eyebrow">
+          <i class="fa-solid fa-gift" aria-hidden="true"></i> Gratuit · Sans compte · Open source
+        </div>
+        <h1>Votre Google Calendar<br /><em>ne connaît pas les vacances scolaires.</em><br />Le nôtre, si.</h1>
         <p class="hero-sub">
-          Synchronisez automatiquement jours fériés, vacances scolaires A/B/C et
-          changements d'heure — directement dans votre agenda, sans aucune appli
-          à installer.
+          Jours fériés, vacances zones A/B/C, changements d'heure, saisons — synchronisés automatiquement dans votre agenda, pour toujours, sans rien installer.
         </p>
+
+        <div id="r-countdown-hero" class="hero-countdown" aria-live="polite" style="display:none"></div>
+
         <div class="hero-cta-row">
-          <a href="#sync" class="btn-hero btn-hero-p"
-            ><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>Synchroniser mon agenda</a
-          >
-          <a href="#explorer" class="btn-hero btn-hero-s"
-            ><i class="fa-regular fa-calendar ui-ico" aria-hidden="true"></i>Parcourir les dates</a
-          >
+          <a href="#sync" class="btn-hero btn-hero-p">
+            <i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>Synchroniser mon agenda
+          </a>
+          <a href="#explorer" class="btn-hero btn-hero-s">
+            <i class="fa-regular fa-calendar ui-ico" aria-hidden="true"></i>Parcourir les dates
+          </a>
         </div>
-        <div class="scroll-hint">
-          <span>Défiler pour continuer</span>
-          <svg
-            fill="none"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 5v14M5 12l7 7 7-7"></path>
-          </svg>
-        </div>
-        <div
-          class="hero-feats"
-          role="group"
-          aria-label="Fonctionnalités principales"
-        >
-          <div class="hero-feats-row top" aria-hidden="true">
-            <div class="hero-feats-track">
-              <span class="hf-pill"><i class="fa-solid fa-circle-check ui-ico" aria-hidden="true"></i>Jours fériés</span>
-              <span class="hf-pill"><i class="fa-solid fa-school ui-ico" aria-hidden="true"></i>Vacances Zones A / B / C</span>
-              <span class="hf-pill"><i class="fa-regular fa-clock ui-ico" aria-hidden="true"></i>Changements d'heure</span>
-              <span class="hf-pill"><i class="fa-solid fa-seedling ui-ico" aria-hidden="true"></i>Saisons & Astronomie</span>
-              <span class="hf-pill"><i class="fa-solid fa-rotate ui-ico" aria-hidden="true"></i>Mise à jour auto</span>
-              <span class="hf-pill"><i class="fa-solid fa-mobile-screen-button ui-ico" aria-hidden="true"></i>Apple · Google · Outlook</span>
-              <span class="hf-pill"><i class="fa-solid fa-location-dot ui-ico" aria-hidden="true"></i>Recherche de zone par ville</span>
-              <span class="hf-pill"><i class="fa-solid fa-puzzle-piece ui-ico" aria-hidden="true"></i>Liens ICS séparés</span>
-              <span class="hf-pill"><i class="fa-solid fa-link ui-ico" aria-hidden="true"></i>Compatible WebCal</span>
-              <span class="hf-pill"><i class="fa-solid fa-gift ui-ico" aria-hidden="true"></i>Gratuit, sans compte</span>
-              <span class="hf-pill"><i class="fa-solid fa-circle-check ui-ico" aria-hidden="true"></i>Jours fériés</span>
-              <span class="hf-pill"><i class="fa-solid fa-school ui-ico" aria-hidden="true"></i>Vacances Zones A / B / C</span>
-              <span class="hf-pill"><i class="fa-regular fa-clock ui-ico" aria-hidden="true"></i>Changements d'heure</span>
-              <span class="hf-pill"><i class="fa-solid fa-seedling ui-ico" aria-hidden="true"></i>Saisons & Astronomie</span>
-              <span class="hf-pill"><i class="fa-solid fa-rotate ui-ico" aria-hidden="true"></i>Mise à jour auto</span>
-              <span class="hf-pill"><i class="fa-solid fa-mobile-screen-button ui-ico" aria-hidden="true"></i>Apple · Google · Outlook</span>
-              <span class="hf-pill"><i class="fa-solid fa-location-dot ui-ico" aria-hidden="true"></i>Recherche de zone par ville</span>
-              <span class="hf-pill"><i class="fa-solid fa-puzzle-piece ui-ico" aria-hidden="true"></i>Liens ICS séparés</span>
-              <span class="hf-pill"><i class="fa-solid fa-link ui-ico" aria-hidden="true"></i>Compatible WebCal</span>
-              <span class="hf-pill"><i class="fa-solid fa-gift ui-ico" aria-hidden="true"></i>Gratuit, sans compte</span>
-            </div>
+
+        <!-- Pills marquee générées par JS -->
+        <div class="hero-feats" aria-hidden="true">
+          <div class="hero-feats-row top">
+            <div class="hero-feats-track" id="marquee-top"></div>
           </div>
-          <div class="hero-feats-row bottom" aria-hidden="true">
-            <div class="hero-feats-track">
-              <span class="hf-pill"><i class="fa-regular fa-bell ui-ico" aria-hidden="true"></i>Rappels des temps forts</span>
-              <span class="hf-pill"><i class="fa-solid fa-book ui-ico" aria-hidden="true"></i>Calendrier scolaire France</span>
-              <span class="hf-pill"><i class="fa-regular fa-moon ui-ico" aria-hidden="true"></i>Passage heure été / hiver</span>
-              <span class="hf-pill"><i class="fa-solid fa-star ui-ico" aria-hidden="true"></i>Équinoxes & solstices</span>
-              <span class="hf-pill"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>Mises à jour automatiques</span>
-              <span class="hf-pill"><i class="fa-solid fa-calendar-days ui-ico" aria-hidden="true"></i>Google · Outlook · Apple</span>
-              <span class="hf-pill"><i class="fa-solid fa-code-branch ui-ico" aria-hidden="true"></i>Projet open source</span>
-              <span class="hf-pill"><i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Abonnement en un clic</span>
-              <span class="hf-pill"><i class="fa-solid fa-globe ui-ico" aria-hidden="true"></i>URL ICS universelle</span>
-              <span class="hf-pill"><i class="fa-solid fa-bullseye ui-ico" aria-hidden="true"></i>Données officielles FR</span>
-              <span class="hf-pill"><i class="fa-regular fa-bell ui-ico" aria-hidden="true"></i>Rappels des temps forts</span>
-              <span class="hf-pill"><i class="fa-solid fa-book ui-ico" aria-hidden="true"></i>Calendrier scolaire France</span>
-              <span class="hf-pill"><i class="fa-regular fa-moon ui-ico" aria-hidden="true"></i>Passage heure été / hiver</span>
-              <span class="hf-pill"><i class="fa-solid fa-star ui-ico" aria-hidden="true"></i>Équinoxes & solstices</span>
-              <span class="hf-pill"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>Mises à jour automatiques</span>
-              <span class="hf-pill"><i class="fa-solid fa-calendar-days ui-ico" aria-hidden="true"></i>Google · Outlook · Apple</span>
-              <span class="hf-pill"><i class="fa-solid fa-code-branch ui-ico" aria-hidden="true"></i>Projet open source</span>
-              <span class="hf-pill"><i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Abonnement en un clic</span>
-              <span class="hf-pill"><i class="fa-solid fa-globe ui-ico" aria-hidden="true"></i>URL ICS universelle</span>
-              <span class="hf-pill"><i class="fa-solid fa-bullseye ui-ico" aria-hidden="true"></i>Données officielles FR</span>
-            </div>
+          <div class="hero-feats-row bottom">
+            <div class="hero-feats-track" id="marquee-bottom"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         COMMENT ÇA MARCHE
+    ══════════════════════════════ -->
+    <section id="how-it-works">
+      <div class="page">
+        <div class="sh">
+          <div class="sh-eye">Comment ça marche</div>
+          <h2>3 étapes, une fois pour toutes</h2>
+          <p>Pas d'appli à installer, pas de compte à créer. Juste un lien.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <div class="step-ico"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+            <h3>Trouvez votre zone</h3>
+            <p>Tapez votre ville pour savoir si vous êtes Zone A, B ou C — les vacances scolaires varient selon votre académie.</p>
+            <a href="#zone" class="step-link">Trouver ma zone <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <div class="step-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+            <h3>Abonnez-vous en un clic</h3>
+            <p>Choisissez votre appli — iPhone, Google Calendar, Outlook — et cliquez sur "S'abonner". C'est tout.</p>
+            <a href="#sync" class="step-link">S'abonner maintenant <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <div class="step-ico"><i class="fa-solid fa-rotate" aria-hidden="true"></i></div>
+            <h3>Mises à jour automatiques</h3>
+            <p>Le calendrier se synchronise tout seul à chaque modification. Vous n'avez plus rien à faire.</p>
           </div>
         </div>
       </div>
     </section>
 
     <div class="page">
-      <section id="zone" style="padding-top: 80px; padding-bottom: 0">
-        <div class="sh">
-          <div class="sh-eye">Quelle est ma zone ?</div>
-          <h2>Trouvez votre zone scolaire</h2>
-          <p>
-            Les vacances scolaires varient selon la zone de votre académie.
-            Entrez votre ville pour la trouver.
-          </p>
-        </div>
-        <div class="zone-sec">
-          <div class="zone-search-row">
-            <input
-              class="zone-big-input"
-              id="zf-in"
-              type="text"
-              placeholder="Ex : Bordeaux, Saint-Nazaire, Cergy, Montpellier…"
-              autocomplete="off"
-            />
-            <button class="zone-big-btn" id="zf-btn">Trouver ma zone</button>
-          </div>
-          <div class="zone-result-big" id="zf-res"></div>
-          <div class="zone-chips-title" style="margin-top: 18px">
-            Villes fréquentes :
-          </div>
-          <div class="zone-chips-grid" id="zf-chips"></div>
-        </div>
-      </section>
 
+      <!-- ══════════════════════════════
+           SYNC
+      ══════════════════════════════ -->
       <section id="sync">
         <div class="sh">
           <div class="sh-eye">Synchronisation</div>
           <h2>Ajoutez le calendrier à votre agenda</h2>
-          <p>Mode Simple pour la plupart · Mode Avancé pour personnaliser</p>
+          <p>Simple = tout en un clic · Avancé = choisir ses zones et catégories</p>
         </div>
+
         <div class="tabs-row">
           <div class="tabs" role="tablist">
-            <button
-              class="tbtn2 on"
-              id="tab-simple"
-              data-t="simple"
-              role="tab"
-              aria-controls="tp-simple"
-              aria-selected="true"
-            >
+            <button class="tbtn2 on" id="tab-simple" data-t="simple" role="tab" aria-controls="tp-simple" aria-selected="true">
               <i class="fa-regular fa-star ui-ico" aria-hidden="true"></i>Simple
             </button>
-            <button
-              class="tbtn2"
-              id="tab-advanced"
-              data-t="advanced"
-              role="tab"
-              aria-controls="tp-advanced"
-              aria-selected="false"
-            >
+            <button class="tbtn2" id="tab-advanced" data-t="advanced" role="tab" aria-controls="tp-advanced" aria-selected="false">
               <i class="fa-solid fa-sliders ui-ico" aria-hidden="true"></i>Avancé <span class="tdot"></span>
             </button>
           </div>
         </div>
 
-        <div
-          class="tpanel on"
-          id="tp-simple"
-          role="tabpanel"
-          aria-labelledby="tab-simple"
-        >
+        <!-- Panneau Simple -->
+        <div class="tpanel on" id="tp-simple" role="tabpanel" aria-labelledby="tab-simple">
           <div class="sp">
             <div class="sp-h">
               <h2>Sur quel appareil / appli ?</h2>
-              <p>
-                Sélectionnez votre application pour voir les instructions
-                exactes.
-              </p>
+              <p>Le calendrier s'ajoutera automatiquement à votre appli et se mettra à jour tout seul — sans rien installer.</p>
             </div>
             <div class="app-grid">
               <button class="abtn on" data-app="apple">
@@ -308,108 +213,102 @@
                 <span class="aico"><i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i></span>Outlook
               </button>
             </div>
-            <div class="url-box">
-              <code id="simple-url"></code
-              ><button class="cpbtn" id="cp-simple">Copier</button>
-            </div>
+
+            <details class="url-details">
+              <summary><i class="fa-solid fa-link" aria-hidden="true"></i>Voir le lien d'abonnement</summary>
+              <div class="url-box">
+                <code id="simple-url"></code>
+                <button class="cpbtn" id="cp-simple">Copier</button>
+              </div>
+            </details>
+
             <div class="app-steps" id="app-steps"></div>
+
             <div class="sp-cta">
-              <a id="sub-btn" href="#" class="bp"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner maintenant</a>
-              <a href="/calendrier.ics" class="bs" download
-                ><i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Télécharger .ICS</a
-              >
+              <a id="sub-btn" href="#" class="bp">
+                <i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner maintenant
+              </a>
+              <a href="/calendrier.ics" class="bs" download>
+                <i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Télécharger .ICS
+              </a>
+            </div>
+
+            <!-- Encart "Quelle est ma zone ?" -->
+            <div class="zone-nudge">
+              <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+              <span>Vous ne savez pas quelle zone choisir ?</span>
+              <a href="#zone" class="zone-nudge-link">Trouvez votre zone en 5 secondes <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
           </div>
+
+          <!-- Téléchargement par zone -->
           <div class="zone-alt">
-            <div style="margin-bottom: 12px">
-              Ou télécharger uniquement les vacances de votre zone :
-            </div>
+            <div class="zone-alt-title">Ou télécharger uniquement les vacances de votre zone :</div>
             <div class="zcards">
               <div class="zcard za" onclick="toggleZoneHint('A', this)">
-                <span class="zcl">Zone A</span
-                ><span class="zcc">Lyon, Bordeaux<br />Grenoble, Nantes…</span>
+                <span class="zcl">Zone A</span>
+                <span class="zcc">Lyon, Bordeaux<br />Grenoble, Nantes…</span>
               </div>
               <div class="zcard zb" onclick="toggleZoneHint('B', this)">
-                <span class="zcl">Zone B</span
-                ><span class="zcc"
-                  >Paris, Versailles<br />Lille, Strasbourg…</span
-                >
+                <span class="zcl">Zone B</span>
+                <span class="zcc">Paris, Versailles<br />Lille, Strasbourg…</span>
               </div>
               <div class="zcard zc" onclick="toggleZoneHint('C', this)">
-                <span class="zcl">Zone C</span
-                ><span class="zcc">Aix-Marseille<br />Montpellier, Nice…</span>
+                <span class="zcl">Zone C</span>
+                <span class="zcc">Aix-Marseille<br />Montpellier, Nice…</span>
               </div>
             </div>
             <div class="zhint" id="zhint"></div>
           </div>
         </div>
 
-        <div
-          class="tpanel"
-          id="tp-advanced"
-          role="tabpanel"
-          aria-labelledby="tab-advanced"
-        >
+        <!-- Panneau Avancé -->
+        <div class="tpanel" id="tp-advanced" role="tabpanel" aria-labelledby="tab-advanced">
           <div class="adv">
             <span class="adv-lbl">Profil rapide</span>
             <div class="pcards" id="pcards">
               <div class="pc on" data-p="complet">
                 <div class="pc-name">Complet</div>
-                <div class="pc-desc">
-                  Tout inclus : fériés, vacances, saisons, horloges, fêtes…
-                </div>
+                <div class="pc-desc">Tout inclus : fériés, vacances, saisons, horloges, fêtes…</div>
               </div>
               <div class="pc" data-p="essentiel">
                 <div class="pc-name">Essentiel</div>
-                <div class="pc-desc">
-                  Jours fériés + vacances scolaires. Léger, sans bruit.
-                </div>
+                <div class="pc-desc">Jours fériés + vacances scolaires. Léger, sans bruit.</div>
               </div>
               <div class="pc" data-p="familial">
                 <div class="pc-name">Familial</div>
-                <div class="pc-desc">
-                  Fériés, vacances, fêtes enfants, saisons et culture.
-                </div>
+                <div class="pc-desc">Fériés, vacances, fêtes enfants, saisons et culture.</div>
               </div>
               <div class="pc" data-p="pro">
                 <div class="pc-name">Pro</div>
-                <div class="pc-desc">
-                  Fériés, ponts, événements commerciaux. Idéal pros.
-                </div>
+                <div class="pc-desc">Fériés, ponts, événements commerciaux. Idéal pros.</div>
               </div>
             </div>
-            <span class="adv-lbl" style="margin-top: 20px"
-              >Zone(s) scolaire(s) — sélection multiple possible</span
-            >
+
+            <span class="adv-lbl">Zone(s) scolaire(s) — sélection multiple possible</span>
             <div class="zmulti" id="zmulti">
               <button class="zmb sall" data-z="all">Toutes</button>
               <button class="zmb" data-z="A">Zone A</button>
               <button class="zmb" data-z="B">Zone B</button>
               <button class="zmb" data-z="C">Zone C</button>
+              <button class="zmb" data-z="AM" title="Alsace-Moselle — départements 57, 67, 68 (Vendredi Saint + 26 décembre)">Alsace-Moselle</button>
             </div>
-            <p style="font-size: 12px; color: var(--t3); margin-top: 7px">
-              Combinez plusieurs zones si vous avez des enfants dans deux
-              académies différentes.
-            </p>
-            <span class="adv-lbl" style="margin-top: 20px"
-              >Catégories à inclure —
-              <span
-                style="
-                  font-weight: 400;
-                  text-transform: none;
-                  letter-spacing: 0;
-                  color: var(--t3);
-                "
-                >cliquer pour activer / désactiver</span
-              ></span
-            >
+            <p class="adv-zone-note">Combinez plusieurs zones si vous avez des enfants dans deux académies différentes.</p>
+
+            <!-- Encart "Quelle est ma zone ?" -->
+            <div class="zone-nudge zone-nudge--compact">
+              <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+              <span>Vous ne savez pas quelle zone choisir ?</span>
+              <a href="#zone" class="zone-nudge-link">Trouvez votre zone <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+
+            <span class="adv-lbl">Catégories à inclure — <span class="adv-lbl-note">cliquer pour activer / désactiver</span></span>
             <div class="cat-grid" id="adv-cats"></div>
-            <span class="adv-lbl" style="margin-top: 20px">Options</span>
+
+            <span class="adv-lbl">Options</span>
             <div class="adv-opts">
               <div>
-                <label class="fld-l" for="adv-alarm"
-                  >Rappels automatiques</label
-                >
+                <label class="fld-l" for="adv-alarm">Rappels automatiques</label>
                 <select class="fld-s" id="adv-alarm">
                   <option value="none">Désactivés (recommandé)</option>
                   <option value="1h">1h avant l'événement</option>
@@ -418,19 +317,13 @@
                 </select>
               </div>
             </div>
+
+            <!-- Événements personnels -->
             <div class="pe-section">
               <h3><i class="fa-solid fa-plus ui-ico" aria-hidden="true"></i>Événements personnels</h3>
-              <p>
-                Ajoutez vos propres dates pour les intégrer dans le fichier ICS
-                généré (anniversaires, RDV récurrents…).
-              </p>
+              <p>Ajoutez vos propres dates pour les intégrer dans le fichier ICS généré (anniversaires, RDV récurrents…).</p>
               <div class="pe-form">
-                <input
-                  class="pe-input"
-                  id="pe-title"
-                  type="text"
-                  placeholder="Titre de l'événement"
-                />
+                <input class="pe-input" id="pe-title" type="text" placeholder="Titre de l'événement" />
                 <input class="pe-date" id="pe-date" type="date" />
                 <select class="pe-sel" id="pe-rec">
                   <option value="none">Une seule fois</option>
@@ -443,28 +336,43 @@
               <div class="pe-list" id="pe-list">
                 <div class="pe-empty">Aucun événement personnel.</div>
               </div>
-
             </div>
+
+            <!-- Génération URL -->
             <div class="gen-out">
-              <div class="url-anim-label"><i class="fa-solid fa-link ui-ico" aria-hidden="true"></i>URL générée</div>
+              <div class="url-anim-label">
+                <i class="fa-solid fa-link ui-ico" aria-hidden="true"></i>URL générée
+              </div>
               <div id="adv-url-recap" class="url-recap" aria-live="polite"></div>
               <div class="url-anim-wrap">
                 <div id="adv-url-animated"></div>
-                <span id="adv-url-badge" class="url-built-badge" style="display:none"><i class="fa-solid fa-check" aria-hidden="true"></i> Prêt</span>
-                <button id="adv-url-copy" class="url-copy-btn" style="opacity:0;pointer-events:none"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copier</button>
+                <span id="adv-url-badge" class="url-built-badge" style="display:none">
+                  <i class="fa-solid fa-check" aria-hidden="true"></i> Prêt
+                </span>
+                <button id="adv-url-copy" class="url-copy-btn" style="opacity:0;pointer-events:none">
+                  <i class="fa-regular fa-copy" aria-hidden="true"></i> Copier
+                </button>
               </div>
-              <button id="adv-generate" class="bp adv-generate-btn"><i class="fa-solid fa-sliders ui-ico" aria-hidden="true"></i>Générer mon calendrier</button>
+              <div id="adv-pe-url-warn" class="adv-pe-warn" style="display:none">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <span>Attention : l'URL générée est longue. Certains agendas peuvent ne pas supporter toutes les options avancées.</span>
+              </div>
+              <button id="adv-generate" class="bp adv-generate-btn">
+                <i class="fa-solid fa-sliders ui-ico" aria-hidden="true"></i>Générer mon calendrier
+              </button>
+              <button onclick="copyShareUrl()" class="bs adv-share-btn">
+                <i class="fa-solid fa-share-nodes ui-ico" aria-hidden="true"></i>Partager ma config
+              </button>
+
               <div class="gen-links-and-qr">
                 <div class="gen-acts">
                   <a id="adv-sub" href="#" class="bp"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner</a>
-                  <a id="adv-ggl" href="#" target="_blank" class="bs"
-                    ><i class="fa-brands fa-google ui-ico" aria-hidden="true"></i>Google Cal.</a
-                  >
+                  <a id="adv-ggl" href="#" target="_blank" class="bs"><i class="fa-brands fa-google ui-ico" aria-hidden="true"></i>Google Cal.</a>
                   <a id="adv-out" href="#" target="_blank" class="bs"><i class="fa-brands fa-microsoft ui-ico" aria-hidden="true"></i>Outlook</a>
                 </div>
                 <div class="qr-panel" id="adv-qr-panel" aria-live="polite">
                   <div class="qr-head">Import mobile rapide</div>
-                  <div class="qr-help">Scanne pour ouvrir directement le lien d'abonnement sur ton téléphone.</div>
+                  <div class="qr-help">Scanne pour ouvrir directement le lien sur ton téléphone.</div>
                   <div class="qr-placeholder">
                     <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
                     <span>Le QR apparaîtra après génération du lien.</span>
@@ -480,76 +388,51 @@
         </div>
       </section>
 
-      <section>
+      <!-- ══════════════════════════════
+           ZONE FINDER
+      ══════════════════════════════ -->
+      <section id="zone">
         <div class="sh">
-          <div class="sh-eye">Pourquoi ce flux ?</div>
-          <h2>Tout ce dont vous avez besoin</h2>
+          <div class="sh-eye">Quelle est ma zone ?</div>
+          <h2>Trouvez votre zone scolaire</h2>
+          <p>Les vacances scolaires varient selon votre académie. Entrez votre ville pour la trouver.</p>
         </div>
-        <div class="feats">
-          <article class="fcard">
-            <span class="fc-ico"><i class="fa-solid fa-rotate" aria-hidden="true"></i></span>
-            <h3>Mise à jour continue</h3>
-            <p>
-              Le fichier se régénère chaque jour. Les nouvelles années
-              s'ajoutent sans action de votre part.
-            </p>
-          </article>
-          <article class="fcard">
-            <span class="fc-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
-            <h3>Zones A, B et C</h3>
-            <p>
-              Vacances extraites des données officielles du Ministère de
-              l'Éducation Nationale.
-            </p>
-          </article>
-          <article class="fcard">
-            <span class="fc-ico"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
-            <h3>Compatible partout</h3>
-            <p>
-              Format .ICS standard : iPhone, Android, Google Calendar et Outlook
-              — nativement.
-            </p>
-          </article>
-          <article class="fcard">
-            <span class="fc-ico"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
-            <h3>Open source</h3>
-            <p>
-              Code sur GitHub. Aucune donnée collectée, aucun compte requis.
-            </p>
-          </article>
+        <div class="zone-sec">
+          <div class="zone-search-row">
+            <input class="zone-big-input" id="zf-in" type="text" placeholder="Ex : Bordeaux, Saint-Nazaire, Cergy, Montpellier…" autocomplete="off" />
+            <button class="zone-big-btn" id="zf-btn">Trouver ma zone</button>
+          </div>
+          <div class="zone-result-big" id="zf-res"></div>
+          <div class="zone-chips-title">Villes fréquentes :</div>
+          <div class="zone-chips-grid" id="zf-chips"></div>
         </div>
       </section>
 
+      <!-- ══════════════════════════════
+           EXPLORATEUR
+      ══════════════════════════════ -->
       <section id="explorer">
         <div class="sh">
           <div class="sh-eye">Explorateur</div>
           <h2>Parcourez les dates</h2>
-          <p>
-            Naviguez dans le contenu du calendrier — en partant d'aujourd'hui,
-            avec défilement continu.
-          </p>
+          <p>Naviguez dans le contenu du calendrier — en partant d'aujourd'hui, avec défilement continu.</p>
         </div>
         <div class="exp-layout">
           <aside class="sidebar">
             <div class="sb-s">
               <div class="srch-w">
-                <span class="srch-i"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span
-                ><input
-                  class="srch"
-                  id="srch"
-                  type="search"
-                  placeholder="Rechercher…"
-                  aria-label="Rechercher"
-                />
+                <span class="srch-i"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+                <input class="srch" id="srch" type="search" placeholder="Rechercher…" aria-label="Rechercher" />
               </div>
             </div>
             <div class="sb-s">
               <div class="sb-t">Zone</div>
               <div class="szpills">
-                <button class="szp sall" data-z="all">Toutes</button
-                ><button class="szp" data-z="A">A</button
-                ><button class="szp" data-z="B">B</button
-                ><button class="szp" data-z="C">C</button>
+                <button class="szp sall" data-z="all">Toutes</button>
+                <button class="szp" data-z="A">A</button>
+                <button class="szp" data-z="B">B</button>
+                <button class="szp" data-z="C">C</button>
+                <button class="szp" data-z="AM" title="Alsace-Moselle (depts 57, 67, 68)">AM</button>
               </div>
             </div>
             <div class="sb-s">
@@ -561,38 +444,38 @@
               <div class="sb-cats" id="sb-cats"></div>
             </div>
           </aside>
+
           <div class="exp-main">
             <div class="radar">
+              <div id="r-countdown" aria-live="polite" style="display:none;margin-bottom:10px"></div>
               <div class="radar-top">
                 <h3><i class="fa-solid fa-satellite-dish ui-ico" aria-hidden="true"></i>Prochains événements</h3>
                 <span class="radar-cnt" id="r-cnt"></span>
               </div>
               <div class="radar-sc" id="r-root">
-                <span style="font-size: 13px; color: var(--t3)"
-                  >Chargement…</span
-                >
+                <span class="radar-empty">Chargement…</span>
               </div>
               <div class="radar-subtop">
                 <h4><i class="fa-solid fa-circle ui-ico" aria-hidden="true"></i>Événements en cours</h4>
                 <span class="radar-cnt" id="r-active-cnt"></span>
               </div>
               <div class="radar-sc" id="r-active">
-                <span style="font-size: 13px; color: var(--t3)"
-                  >Chargement…</span
-                >
+                <span class="radar-empty">Chargement…</span>
               </div>
             </div>
+
             <div class="ex-tb">
               <div class="ex-top">
                 <div class="yr-nav">
-                  <button class="yb" id="yr-p">‹</button
-                  ><select class="ys" id="yr-s"></select
-                  ><button class="yb" id="yr-n">›</button>
+                  <button class="yb" id="yr-p" aria-label="Année précédente">‹</button>
+                  <select class="ys" id="yr-s" aria-label="Sélectionner une année"></select>
+                  <button class="yb" id="yr-n" aria-label="Année suivante">›</button>
                 </div>
                 <button class="today-btn" id="btn-today">Aujourd'hui</button>
               </div>
-              <div class="mo-scroll" id="mo-nav"></div>
+              <div class="mo-scroll" id="mo-nav" role="tablist" aria-label="Navigation par mois"></div>
             </div>
+
             <div class="tl-wrap" id="tl-wrap">
               <div id="ev-root"></div>
               <div class="tl-sentinel" id="tl-sentinel"></div>
@@ -600,67 +483,175 @@
           </div>
         </div>
       </section>
-    </div>
 
+      <!-- ══════════════════════════════
+           FAQ
+      ══════════════════════════════ -->
+      <section id="faq">
+        <div class="sh">
+          <div class="sh-eye">FAQ</div>
+          <h2>Questions fréquentes</h2>
+          <p>Tout ce qu'il faut savoir avant de s'abonner.</p>
+        </div>
+        <div class="faq-grid">
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-gift faq-ico" aria-hidden="true"></i>
+              C'est vraiment gratuit ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              Oui, totalement gratuit et sans compte requis. Le projet est open source, hébergé sur GitHub. Aucune donnée n'est collectée, aucune publicité n'est affichée.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-rotate faq-ico" aria-hidden="true"></i>
+              Le calendrier se met-il à jour automatiquement ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              Oui. Quand vous vous abonnez via un lien ICS (webcal://), votre appli agenda vérifie régulièrement les mises à jour. Vous n'avez rien à faire — si les dates officielles changent, votre agenda se met à jour tout seul.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-mobile-screen-button faq-ico" aria-hidden="true"></i>
+              Compatible avec quelles applis ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              Toutes les applis qui supportent le format iCalendar (RFC 5545) : Apple Calendar (iPhone, iPad, Mac), Google Calendar, Outlook (desktop et web), Thunderbird, Fantastical, et la plupart des agendas Android.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-shield-halved faq-ico" aria-hidden="true"></i>
+              Mes données sont-elles collectées ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              Non. Aucune donnée personnelle n'est collectée. Le serveur reçoit des requêtes HTTP anonymes pour servir les fichiers ICS. Vos événements personnels ajoutés dans l'onglet Avancé restent dans votre navigateur (localStorage) et ne transitent jamais par nos serveurs.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-graduation-cap faq-ico" aria-hidden="true"></i>
+              Quelle différence entre les zones A, B et C ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              Les académies françaises sont réparties en trois zones pour éviter que tout le monde parte en vacances en même temps.<br /><br />
+              Zone A : Lyon, Bordeaux, Grenoble… — Zone B : Paris, Lille, Strasbourg… — Zone C : Marseille, Montpellier, Nice…<br /><br />
+              Utilisez le <a href="#zone">finder de zone</a> pour trouver la vôtre en tapant votre ville.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-sliders faq-ico" aria-hidden="true"></i>
+              Quelle différence entre Simple et Avancé ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              <strong>Simple</strong> : un seul lien, tout le calendrier (toutes zones, toutes catégories). Idéal pour commencer en 10 secondes.<br /><br />
+              <strong>Avancé</strong> : vous choisissez vos zones, vos catégories, vos rappels, et vous pouvez même ajouter vos propres événements récurrents. Le lien est généré sur mesure.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-map-location-dot faq-ico" aria-hidden="true"></i>
+              Et pour l'Alsace-Moselle ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              Les départements 57 (Moselle), 67 (Bas-Rhin) et 68 (Haut-Rhin) bénéficient de jours fériés supplémentaires : le Vendredi Saint et le 26 décembre (Saint-Étienne). Dans l'onglet Avancé, sélectionnez "Alsace-Moselle" pour les inclure.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-bug faq-ico" aria-hidden="true"></i>
+              Une date est incorrecte, comment signaler ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              Les données proviennent du <a href="https://data.education.gouv.fr" target="_blank" rel="noopener">Ministère de l'Éducation Nationale</a>. Si vous constatez une erreur, <a href="https://github.com/TiboTsr/calendrier-france-ics/issues" target="_blank" rel="noopener">ouvrez une issue sur GitHub</a> — les corrections sont déployées rapidement.
+            </div>
+          </details>
+
+        </div>
+      </section>
+
+    </div><!-- /.page -->
+
+    <!-- ══════════════════════════════
+         FOOTER
+    ══════════════════════════════ -->
     <footer>
       <div class="page">
-        <p>
-          Projet open source par
-          <a
-            href="https://github.com/TiboTsr/calendrier-france-ics"
-            target="_blank"
-            >TiboTsr</a
-          >
-          · Données Ministère de l'Éducation Nationale · Format iCalendar RFC
-          5545
+        <div class="footer-links">
+          <a href="/calendrier.ics" download class="footer-link footer-link--accent">
+            <i class="fa-solid fa-download" aria-hidden="true"></i>Télécharger .ICS
+          </a>
+          <a href="webcal://calendrier-fr.tibotsr.dev/api/calendrier.ics" class="footer-link footer-link--accent">
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i>S'abonner (webcal)
+          </a>
+          <a href="https://github.com/TiboTsr/calendrier-france-ics/issues" target="_blank" rel="noopener" class="footer-link">
+            <i class="fa-solid fa-bug" aria-hidden="true"></i>Signaler une erreur
+          </a>
+          <a href="https://github.com/TiboTsr/calendrier-france-ics" target="_blank" rel="noopener" class="footer-link">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>Code source
+          </a>
+        </div>
+        <p class="footer-meta">
+          Données officielles : <a href="https://data.education.gouv.fr" target="_blank" rel="noopener">Ministère de l'Éducation Nationale</a>
+          · Format iCalendar RFC 5545 · Mise à jour quotidienne automatique
+        </p>
+        <p class="footer-credit">
+          Projet open source par <a href="https://github.com/TiboTsr/calendrier-france-ics" target="_blank" rel="noopener">TiboTsr</a>
+          — Aucune donnée collectée, aucun compte requis
         </p>
       </div>
     </footer>
 
-    <div id="tuto-welcome">
+    <!-- TOAST -->
+    <div id="toast-container" role="status" aria-live="polite"></div>
+
+    <!-- ══════════════════════════════
+         TUTORIEL
+    ══════════════════════════════ -->
+    <div id="tuto-welcome" role="dialog" aria-modal="true" aria-labelledby="tuto-welcome-title">
       <div class="tuto-welcome-card">
         <span class="tuto-welcome-emoji"><i class="fa-regular fa-calendar" aria-hidden="true"></i></span>
-        <h2>Bienvenue sur Calendrier France&nbsp;!</h2>
-        <p>
-          C'est votre première visite. Voulez-vous un
-          <strong>petit tour rapide</strong> pour découvrir les fonctionnalités
-          principales&nbsp;? Ça ne prend que 30 secondes.
-        </p>
+        <h2 id="tuto-welcome-title">Bienvenue sur Calendrier France&nbsp;!</h2>
+        <p>C'est votre première visite. Voulez-vous un <strong>petit tour rapide</strong> pour découvrir les fonctionnalités principales&nbsp;? Ça ne prend que 30 secondes.</p>
         <div class="tuto-welcome-btns">
-          <button class="tuto-start-btn" id="tuto-start">
-            Oui, montrez-moi <i class="fa-regular fa-star" aria-hidden="true"></i>
-          </button>
-          <button class="tuto-skip-all" id="tuto-skip-all">
-            Non merci, je découvre seul
-          </button>
+          <button class="tuto-start-btn" id="tuto-start">Oui, montrez-moi <i class="fa-regular fa-star" aria-hidden="true"></i></button>
+          <button class="tuto-skip-all" id="tuto-skip-all">Non merci, je découvre seul</button>
         </div>
       </div>
     </div>
 
-    <div id="tuto-overlay">
-      <div id="tuto-spot"></div>
+    <div id="tuto-overlay" role="dialog" aria-modal="true" aria-labelledby="tuto-title">
+      <div id="tuto-spot" aria-hidden="true"></div>
       <div id="tuto-card">
-        <div id="tuto-arrow"></div>
-        <div
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-          "
-        >
-          <div class="tuto-step-badge">
-            <span id="tuto-step-label">Étape 1 / 5</span>
-          </div>
+        <div id="tuto-arrow" aria-hidden="true"></div>
+        <div class="tuto-card-head">
+          <div class="tuto-step-badge"><span id="tuto-step-label">Étape 1 / 5</span></div>
           <div class="tuto-step-dots" id="tuto-dots"></div>
         </div>
-        <span id="tuto-icon"><i class="fa-regular fa-calendar" aria-hidden="true"></i></span>
+        <span id="tuto-icon" aria-hidden="true"><i class="fa-regular fa-calendar"></i></span>
         <div id="tuto-title">Titre</div>
         <div id="tuto-desc">Description</div>
         <div class="tuto-actions">
-          <button class="tuto-skip" id="tuto-skip-btn">
-            Passer le tutoriel
-          </button>
+          <button class="tuto-skip" id="tuto-skip-btn">Passer le tutoriel</button>
           <div class="tuto-btns">
             <button class="tuto-prev" id="tuto-prev-btn">←</button>
             <button class="tuto-next" id="tuto-next-btn">Suivant →</button>
@@ -669,11 +660,16 @@
       </div>
     </div>
 
-    <div class="mbg" id="ev-modal" role="dialog" aria-modal="true">
+    <!-- ══════════════════════════════
+         MODAL ÉVÉNEMENT
+    ══════════════════════════════ -->
+    <div class="mbg" id="ev-modal" role="dialog" aria-modal="true" aria-labelledby="m-ttl">
       <div class="ms">
         <div class="mt">
           <h2 class="m-title" id="m-ttl">Événement</h2>
-          <button class="mcl" id="m-cl"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+          <button class="mcl" id="m-cl" aria-label="Fermer">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
         </div>
         <div class="m-meta m-meta-main">
           <div class="mbox prev">
@@ -681,7 +677,7 @@
             <div class="mv" id="m-prev">—</div>
           </div>
           <div class="mbox acc">
-            <div class="ml">Aujourd'hui</div>
+            <div class="ml">Cette occurrence</div>
             <div class="mv" id="m-date">—</div>
           </div>
           <div class="mbox next">
@@ -711,6 +707,64 @@
     <script>
       window.CALENDAR_API_BASE = "api.calendrier-fr.tibotsr.dev";
     </script>
+    <script src="./assets/js/utils.js"></script>
+    <script src="./assets/js/state.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/zone.js"></script>
+    <script src="./assets/js/sync.js"></script>
+    <script src="./assets/js/explorer.js"></script>
+    <script src="./assets/js/tutorial.js"></script>
+    <script src="./assets/js/mobile.js"></script>
+    <script src="./assets/js/calendar-grid.js"></script>
     <script src="./assets/js/app.js"></script>
+    <script>
+      (function () {
+        var hero = document.getElementById('r-countdown-hero');
+        var radar = document.getElementById('r-countdown');
+        if (!hero || !radar) return;
+        new MutationObserver(function () {
+          var visible = radar.style.display !== 'none' && radar.innerHTML;
+          hero.innerHTML = visible ? radar.innerHTML : '';
+          hero.style.display = visible ? 'block' : 'none';
+        }).observe(radar, { childList: true, attributes: true, attributeFilter: ['style'] });
+      })();
+
+      (function () {
+        var TOP = [
+          ['fa-circle-check',         'Jours fériés'],
+          ['fa-school',               'Vacances Zones A / B / C'],
+          ['fa-regular fa-clock',     'Changements d\'heure'],
+          ['fa-seedling',             'Saisons & Astronomie'],
+          ['fa-rotate',               'Mise à jour auto'],
+          ['fa-mobile-screen-button', 'Apple · Google · Outlook'],
+          ['fa-location-dot',         'Recherche de zone par ville'],
+          ['fa-puzzle-piece',         'Liens ICS séparés'],
+          ['fa-link',                 'Compatible WebCal'],
+          ['fa-gift',                 'Gratuit, sans compte'],
+        ];
+        var BOT = [
+          ['fa-regular fa-bell',      'Rappels des temps forts'],
+          ['fa-book',                 'Calendrier scolaire France'],
+          ['fa-regular fa-moon',      'Passage heure été / hiver'],
+          ['fa-star',                 'Équinoxes & solstices'],
+          ['fa-bolt',                 'Mises à jour automatiques'],
+          ['fa-calendar-days',        'Google · Outlook · Apple'],
+          ['fa-code-branch',          'Projet open source'],
+          ['fa-download',             'Abonnement en un clic'],
+          ['fa-globe',                'URL ICS universelle'],
+          ['fa-bullseye',             'Données officielles FR'],
+        ];
+        function build(arr) {
+          return [...arr, ...arr].map(function (p) {
+            var cls = p[0].startsWith('fa-regular') ? p[0] : 'fa-solid ' + p[0];
+            return '<span class="hf-pill"><i class="' + cls + ' ui-ico" aria-hidden="true"></i>' + p[1] + '</span>';
+          }).join('');
+        }
+        var t = document.getElementById('marquee-top');
+        var b = document.getElementById('marquee-bottom');
+        if (t) t.innerHTML = build(TOP);
+        if (b) b.innerHTML = build(BOT);
+      })();
+    </script>
   </body>
 </html>

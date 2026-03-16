@@ -14,6 +14,7 @@ Variables d'environnement :
     SMTP_PASSWORD     mot de passe SMTP (optionnel)
     WEBHOOK_URL       URL pour les alertes webhook (Slack, Discord, ntfy.sh...)
     CALENDRIER_ENV    "prod" pour réduire les logs en console
+    CI                défini automatiquement par GitHub Actions (et la plupart des CI)
 """
 
 import argparse
@@ -32,6 +33,9 @@ YEAR = datetime.now().year
 # Utilisation d'un UA de navigateur car l'USNO bloque les scripts identifiés comme "HealthCheck"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
+# Détection CI : GitHub Actions, GitLab CI, CircleCI, etc. définissent tous CI=true
+IS_CI = os.environ.get("CI", "").lower() in ("true", "1", "yes")
+
 
 # ── Définition des sources ────────────────────────────────────────────────────
 
@@ -44,6 +48,7 @@ class Source:
     expected_keys: list[str] = field(default_factory=list)  # clés JSON attendues
     expected_status: int = 200
     note: str = ""  # info affichée en cas d'échec pour guider le debug
+    skip_ci: bool = False  # si True, ignoré quand IS_CI est vrai (IPs bloquées par la source)
 
 
 SOURCES: list[Source] = [
@@ -63,7 +68,13 @@ SOURCES: list[Source] = [
         url="https://aa.usno.navy.mil/api/moon/phases/year",
         params={"year": YEAR},
         expected_keys=["phasedata"],
-        note="Source des phases de la lune. Très sensible au User-Agent. Si 403, l'IP de l'Action est probablement bannie.",
+        note=(
+            "Source des phases de la lune. L'USNO bloque systématiquement les IPs AWS/Azure "
+            "utilisées par les runners CI/CD. Ce check est ignoré en environnement CI "
+            "(variable CI=true) pour éviter les fausses alertes — le fallback mathématique "
+            "de utils.py prend le relais si l'API est inaccessible en production."
+        ),
+        skip_ci=True,
     ),
 
     # ── F1 Monaco ────────────────────────────────────────────────────────────
@@ -185,11 +196,16 @@ class CheckResult:
     status_code: int | None = None
     error: str | None = None
     latency_ms: int | None = None
+    skipped: bool = False
 
 
 # ── Logique de vérification ───────────────────────────────────────────────────
 
 def check_source(source: Source) -> CheckResult:
+    # Skip CI : certaines APIs (USNO) bloquent les IPs AWS/Azure des runners
+    if source.skip_ci and IS_CI:
+        return CheckResult(source=source, ok=True, skipped=True)
+
     headers = {"User-Agent": UA}
     try:
         t0 = datetime.now()
@@ -256,15 +272,18 @@ def run_checks() -> list[CheckResult]:
 
 def format_report(results: list[CheckResult], verbose: bool = True) -> str:
     now = datetime.now().strftime("%d/%m/%Y %H:%M")
-    ok_count = sum(1 for r in results if r.ok)
-    ko_count = len(results) - ok_count
+    skipped = [r for r in results if r.skipped]
+    active = [r for r in results if not r.skipped]
+    ok_count = sum(1 for r in active if r.ok)
+    ko_count = len(active) - ok_count
     user_id = "476420730989445130"
     header = f"<@{user_id}>\n**🩺 Health Check CalendrierFR** — `{now}`"
-    summary = f"**Sources testées**: `{len(results)}` | **OK**: `{ok_count}` | **KO**: `{ko_count}`"
+    ci_note = f" *(CI détecté — {len(skipped)} source(s) ignorée(s))*" if IS_CI and skipped else ""
+    summary = f"**Sources testées**: `{len(active)}`{ci_note} | **OK**: `{ok_count}` | **KO**: `{ko_count}`"
     report = f"{header}\n{summary}"
     if ko_count:
         report += "\n\n__**Erreurs détectées :**__\n"
-        for r in results:
+        for r in active:
             if not r.ok:
                 report += (f"\n> ❌ **{r.source.name}**\n"
                            f"> • **Erreur**: `{r.error}`\n"
@@ -274,9 +293,12 @@ def format_report(results: list[CheckResult], verbose: bool = True) -> str:
     if verbose:
         report += "\n\n__**Détail des sources :**__\n"
         for r in results:
-            status = "✓" if r.ok else "✗"
-            latency = f"{r.latency_ms} ms" if r.latency_ms else "—"
-            report += f"{status} {r.source.name} [{latency}]\n"
+            if r.skipped:
+                report += f"⏭ {r.source.name} [ignoré en CI]\n"
+            else:
+                status = "✓" if r.ok else "✗"
+                latency = f"{r.latency_ms} ms" if r.latency_ms else "—"
+                report += f"{status} {r.source.name} [{latency}]\n"
     return report
 
 
@@ -316,7 +338,7 @@ def send_webhook_alert(report: str) -> None:
     if is_discord:
         payload = {"content": report[:1900]}
     else:
-        payload = {"text": report} 
+        payload = {"text": report}
 
     response = requests.post(url, json=payload, timeout=10)
     response.raise_for_status()
@@ -342,18 +364,22 @@ def main() -> None:
     args = parser.parse_args()
 
     results = run_checks()
-    has_errors = any(not r.ok for r in results)
+    # N'alerter que sur les sources actives (non skippées)
+    has_errors = any(not r.ok and not r.skipped for r in results)
 
     if args.json:
         output = {
             "timestamp": datetime.now().isoformat(),
+            "ci": IS_CI,
             "total": len(results),
-            "ok": sum(1 for r in results if r.ok),
-            "ko": sum(1 for r in results if not r.ok),
+            "skipped": sum(1 for r in results if r.skipped),
+            "ok": sum(1 for r in results if r.ok and not r.skipped),
+            "ko": sum(1 for r in results if not r.ok and not r.skipped),
             "sources": [
                 {
                     "name": r.source.name,
                     "ok": r.ok,
+                    "skipped": r.skipped,
                     "status_code": r.status_code,
                     "error": r.error,
                     "latency_ms": r.latency_ms,

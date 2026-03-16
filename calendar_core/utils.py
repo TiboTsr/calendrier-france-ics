@@ -173,7 +173,6 @@ def simple_moon_phases(year: int) -> list[tuple[date, str]]:
         "Last Quarter": "Dernier Quartier",
     }
 
-    # Utilisation de Headers pour éviter d'être bloqué par l'API au déploiement
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
@@ -204,49 +203,68 @@ def simple_moon_phases(year: int) -> list[tuple[date, str]]:
             except (ValueError, TypeError):
                 hour, minute = 0, 0
 
-            # Conversion UTC -> Paris précise (C'est ici que se joue le passage du 10 au 11 mars)
             dt_utc = datetime(item_year, month, day, hour, minute, tzinfo=timezone.utc)
             dt_paris = dt_utc.astimezone(ZoneInfo("Europe/Paris"))
-            
+
             phases.append((dt_paris.date(), phase_label))
 
         if phases:
             return sorted(list(set(phases)), key=lambda x: x[0])
 
     except (requests.RequestException, ValueError, TypeError, Exception):
-        # Si l'API échoue, on passe au calcul mathématique de secours ci-dessous
         pass
 
     # --- CALCUL DE SECOURS (Si l'API est inaccessible) ---
     # Référence précise : Nouvelle Lune du 6 janvier 2000 à 18:14 UTC
     epoch_dt = datetime(2000, 1, 6, 18, 14, tzinfo=timezone.utc)
-    lunation = 29.530588853 
-    fallback_phases = []
-    targets = [(0.0, "Nouvelle Lune"), (0.25, "Premier Quartier"), 
-               (0.5, "Pleine Lune"), (0.75, "Dernier Quartier")]
+    lunation = 29.530588853
+    targets = [
+        (0.0,  "Nouvelle Lune"),
+        (0.25, "Premier Quartier"),
+        (0.5,  "Pleine Lune"),
+        (0.75, "Dernier Quartier"),
+    ]
 
     tz_paris = ZoneInfo("Europe/Paris")
     current_day = datetime(year, 1, 1, 12, 0, tzinfo=tz_paris)
-    
+
+    # seen_phases : évite les doublons quand une phase se trouve exactement
+    # à la frontière entre deux jours (phase_now ≈ phase_prev ≈ target).
+    # On garde au plus une occurrence par nom de phase dans une fenêtre de 2 jours.
+    seen_phases: dict[str, date] = {}
+    fallback_phases: list[tuple[date, str]] = []
+
     while current_day.year == year:
-        diff = current_day.astimezone(timezone.utc) - epoch_dt
+        diff      = current_day.astimezone(timezone.utc) - epoch_dt
         phase_now = (diff.total_seconds() / (86400 * lunation)) % 1.0
-        
-        diff_prev = (current_day - timedelta(days=1)).astimezone(timezone.utc) - epoch_dt
+
+        diff_prev  = (current_day - timedelta(days=1)).astimezone(timezone.utc) - epoch_dt
         phase_prev = (diff_prev.total_seconds() / (86400 * lunation)) % 1.0
+
+        today_date = current_day.date()
 
         for target_val, target_name in targets:
             crossed = False
             if target_val == 0.0:
-                if phase_now < phase_prev: crossed = True
-            elif phase_prev < target_val <= phase_now:
-                crossed = True
-            
-            if crossed:
-                fallback_phases.append((current_day.date(), target_name))
-        
+                # Passage par 0 : phase_now < phase_prev (wrap-around)
+                crossed = phase_now < phase_prev
+            else:
+                crossed = phase_prev < target_val <= phase_now
+
+            if not crossed:
+                continue
+
+            # Dédoublonnage : si cette phase a déjà été enregistrée
+            # dans les 2 derniers jours, on l'ignore (frontière de minuit).
+            last_seen = seen_phases.get(target_name)
+            if last_seen is not None and (today_date - last_seen).days <= 1:
+                continue
+
+            seen_phases[target_name] = today_date
+            fallback_phases.append((today_date, target_name))
+
         current_day += timedelta(days=1)
-        
+
     return sorted(fallback_phases, key=lambda x: x[0])
 
 
@@ -273,4 +291,3 @@ def deduplicate_events(events: list[CalendarEvent]) -> list[CalendarEvent]:
             current.description = event.description
 
     return sorted(merged.values(), key=lambda item: (item.start, item.summary, item.end or item.start))
-

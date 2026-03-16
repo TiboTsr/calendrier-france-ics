@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+from dateutil import parser
 
 from .config import (
 	CALENDAR_CSV_FILE,
@@ -16,6 +17,7 @@ from .config import (
 from .exporters import serialize_calendar, serialize_csv, serialize_rss
 from .models import CalendarEvent
 from .providers import build_base_events, build_vacation_events
+from .elections import get_elections
 from .utils import deduplicate_events
 
 
@@ -44,13 +46,14 @@ def event_is_exportable(event: CalendarEvent, today, strict_future_only: bool) -
 	return effective_end >= today
 
 
-def save_calendar_json(events: list[CalendarEvent]) -> None:
+def save_calendar_json(events: list[CalendarEvent], upcoming: list[dict]) -> None:
 	sorted_events = sorted(events, key=lambda event: (event.start, event.summary))
 	payload = {
 		"generatedAt": datetime.now(timezone.utc).isoformat(),
 		"totalEvents": len(sorted_events),
 		"profiles": list(NOISE_PROFILES.keys()),
 		"events": [event.to_json() for event in sorted_events],
+		"upcoming": upcoming,
 	}
 	CALENDAR_JSON_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -66,6 +69,32 @@ def save_weekly_meta(current_uids: set[str], previous_uids: set[str]) -> None:
 	EVENTS_META_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def dict_to_cal_event(ev: dict) -> CalendarEvent:
+	from datetime import date
+	# Convert ISO string to date
+	def parse_date(d):
+		if isinstance(d, date):
+			return d
+		if isinstance(d, str):
+			try:
+				return date.fromisoformat(d)
+			except Exception:
+				return None
+		return None
+	summary = ev.get("summary") or "Élection"
+	start = parse_date(ev.get("start"))
+	if not start:
+		start = date.today()
+	return CalendarEvent(
+		summary=summary,
+		start=start,
+		end=parse_date(ev.get("end")),
+		categories=ev.get("categories", []),
+		zones=set(ev.get("zones", [])) if ev.get("zones") else None,
+		description=ev.get("description", ""),
+	)
+
+
 def generate_all() -> None:
 	previous_uids = parse_uids_from_ics(MAIN_ICS_FILE)
 	today = datetime.now(timezone.utc).date()
@@ -73,7 +102,12 @@ def generate_all() -> None:
 	events = build_base_events()
 	events.extend(build_vacation_events())
 	events = deduplicate_events(events)
-	base_events = [event for event in events if "Lunaire" not in event.categories]
+	upcoming = []
+	election_data = get_elections()
+	# Convert confirmed elections to CalendarEvent
+	events.extend([dict_to_cal_event(ev) for ev in election_data["confirmed"]])
+	upcoming.extend(election_data["approximate"])
+	base_events = [event for event in events if hasattr(event, "categories") and "Lunaire" not in event.categories]
 	ics_base_events = [event for event in base_events if event_is_exportable(event, today, STRICT_FUTURE_ONLY)]
 
 	global_ics, global_uids = serialize_calendar(ics_base_events, "Calendrier Complet France", DOMAIN)
@@ -104,7 +138,7 @@ def generate_all() -> None:
 		encoding="utf-8",
 	)
 
-	save_calendar_json(events)
+	save_calendar_json(events, upcoming)
 	save_weekly_meta(global_uids, previous_uids)
 
 	print(f"{MAIN_ICS_FILE} généré avec succès !")

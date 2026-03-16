@@ -1,3 +1,4 @@
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, timedelta
 import re
 
@@ -62,7 +63,47 @@ def _norm_token(value: str) -> str:
     )
 
 
+# Cache Wikipedia : évite de refaire les mêmes appels entre runs quotidiens
+# TTL de 7 jours — les dates sportives ne changent pas plus vite que ça
+import json
+import hashlib
+import tempfile
+from pathlib import Path
+
+_WIKI_CACHE_TTL_SECONDS = 7 * 24 * 3600  # 7 jours
+_WIKI_CACHE_DIR = Path(tempfile.gettempdir()) / "calendrier_fr_wiki_cache"
+
+def _wiki_cache_path(title: str, lang: str, intro: bool) -> Path:
+    key = hashlib.md5(f"{lang}:{title}:{intro}".encode()).hexdigest()
+    return _WIKI_CACHE_DIR / f"{key}.json"
+
+def _wiki_cache_get(title: str, lang: str, intro: bool) -> str | None:
+    try:
+        p = _wiki_cache_path(title, lang, intro)
+        if not p.exists():
+            return None
+        import time
+        if time.time() - p.stat().st_mtime > _WIKI_CACHE_TTL_SECONDS:
+            p.unlink(missing_ok=True)
+            return None
+        return json.loads(p.read_text(encoding="utf-8")).get("extract", "")
+    except Exception:
+        return None
+
+def _wiki_cache_set(title: str, lang: str, intro: bool, extract: str) -> None:
+    try:
+        _WIKI_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        p = _wiki_cache_path(title, lang, intro)
+        p.write_text(json.dumps({"extract": extract}), encoding="utf-8")
+    except Exception:
+        pass
+
 def _wiki_extract(title: str, lang: str = "en", intro: bool = True) -> str:
+    # Vérifier le cache d'abord
+    cached = _wiki_cache_get(title, lang, intro)
+    if cached is not None:
+        return cached
+
     params = {
         "action": "query", "format": "json",
         "prop": "extracts", "explaintext": 1, "titles": title,
@@ -81,7 +122,9 @@ def _wiki_extract(title: str, lang: str = "en", intro: bool = True) -> str:
     if not pages:
         return ""
     page = next(iter(pages.values()))
-    return str(page.get("extract") or "")
+    extract = str(page.get("extract") or "")
+    _wiki_cache_set(title, lang, intro, extract)
+    return extract
 
 
 def _parse_en_date_range(text: str) -> tuple[date, date] | None:
@@ -221,129 +264,194 @@ def _parse_en_begin_end_range(text: str) -> tuple[date, date] | None:
 
 
 def _fetch_football_periods(year: int) -> dict[str, tuple[date, date]]:
+    """Récupère les périodes football/compétitions en parallèle."""
     periods: dict[str, tuple[date, date]] = {}
+    season_next = str((year + 1) % 100).zfill(2)
+    fetchers = []
 
     if year % 4 == 2:
-        try:
-            txt = _wiki_extract(f"{year}_FIFA_World_Cup", lang="en", intro=True)
-            rng = _parse_en_from_to_month_day_range(txt) or _parse_en_date_range(txt)
-            if rng:
-                periods["worldcup"] = rng
-        except (requests.RequestException, ValueError, TypeError):
-            pass
+        def fetch_worldcup():
+            try:
+                txt = _wiki_extract(f"{year}_FIFA_World_Cup", lang="en", intro=True)
+                rng = _parse_en_from_to_month_day_range(txt) or _parse_en_date_range(txt)
+                if rng:
+                    return "worldcup", rng
+            except (requests.RequestException, ValueError, TypeError):
+                pass
+            return None
+        fetchers.append(fetch_worldcup)
 
     if year % 4 == 0:
-        try:
-            txt = _wiki_extract(f"UEFA_Euro_{year}", lang="en", intro=True)
-            rng = _parse_en_from_to_month_day_range(txt) or _parse_en_date_range(txt)
-            if rng:
-                periods["euro"] = rng
-        except (requests.RequestException, ValueError, TypeError):
-            pass
+        def fetch_euro():
+            try:
+                txt = _wiki_extract(f"UEFA_Euro_{year}", lang="en", intro=True)
+                rng = _parse_en_from_to_month_day_range(txt) or _parse_en_date_range(txt)
+                if rng:
+                    return "euro", rng
+            except (requests.RequestException, ValueError, TypeError):
+                pass
+            return None
+        fetchers.append(fetch_euro)
 
     if year % 2 == 1 and year >= 2013:
+        def fetch_afcon():
+            try:
+                txt = _wiki_extract(f"{year}_Africa_Cup_of_Nations", lang="en", intro=True)
+                rng = _parse_en_from_to_month_day_range(txt) or _parse_en_date_range(txt)
+                if rng:
+                    return "afcon", rng
+            except (requests.RequestException, ValueError, TypeError):
+                pass
+            return None
+        fetchers.append(fetch_afcon)
+
+    def fetch_ligue1():
         try:
-            txt = _wiki_extract(f"{year}_Africa_Cup_of_Nations", lang="en", intro=True)
-            rng = _parse_en_from_to_month_day_range(txt) or _parse_en_date_range(txt)
+            txt = _wiki_extract(f"{year}–{season_next}_Ligue_1", lang="en", intro=True)
+            rng = _parse_en_begin_end_range(txt)
             if rng:
-                periods["afcon"] = rng
+                return "ligue1", rng
         except (requests.RequestException, ValueError, TypeError):
             pass
+        return None
 
-    season_next = str((year + 1) % 100).zfill(2)
+    def fetch_ucl():
+        try:
+            txt = _wiki_extract(f"{year}–{season_next}_UEFA_Champions_League", lang="en", intro=True)
+            rng = _parse_en_begin_end_range(txt)
+            if rng:
+                return "ucl", rng
+        except (requests.RequestException, ValueError, TypeError):
+            pass
+        return None
 
-    try:
-        txt = _wiki_extract(f"{year}–{season_next}_Ligue_1", lang="en", intro=True)
-        rng = _parse_en_begin_end_range(txt)
-        if rng:
-            periods["ligue1"] = rng
-    except (requests.RequestException, ValueError, TypeError):
-        pass
+    fetchers.extend([fetch_ligue1, fetch_ucl])
 
-    try:
-        txt = _wiki_extract(f"{year}–{season_next}_UEFA_Champions_League", lang="en", intro=True)
-        rng = _parse_en_begin_end_range(txt)
-        if rng:
-            periods["ucl"] = rng
-    except (requests.RequestException, ValueError, TypeError):
-        pass
+    if not fetchers:
+        return periods
+
+    with ThreadPoolExecutor(max_workers=len(fetchers)) as executor:
+        futures = {executor.submit(fn): fn.__name__ for fn in fetchers}
+        for future in as_completed(futures):
+            try:
+                result = future.result()
+                if result:
+                    key, value = result
+                    periods[key] = value
+            except Exception:
+                pass
 
     return periods
 
 
 def _fetch_sports_dates(year: int) -> dict[str, tuple[date, date | None]]:
+    """Récupère les dates sportives en parallèle (ThreadPoolExecutor).
+
+    Les 7+ appels réseau séquentiels pouvaient bloquer jusqu'à ~2 min ;
+    avec le pool ils s'exécutent simultanément et terminent en ~15s max
+    (le timeout du plus lent).
+    """
     sourced: dict[str, tuple[date, date | None]] = {}
 
-    try:
-        response = requests.get(f"https://api.jolpi.ca/ergast/f1/{year}.json", timeout=15)
-        response.raise_for_status()
-        races = response.json().get("MRData", {}).get("RaceTable", {}).get("Races", [])
-        for race in races:
-            race_name = str(race.get("raceName", "")).lower()
-            locality = str(race.get("Circuit", {}).get("Location", {}).get("locality", "")).lower()
-            country = str(race.get("Circuit", {}).get("Location", {}).get("country", "")).lower()
-            if "monaco" in race_name or "monaco" in locality or "monaco" in country:
-                race_date = parse_api_date_to_fr_date(race.get("date"))
-                if race_date:
-                    sourced["monaco"] = (race_date, None)
-                break
-    except (requests.RequestException, ValueError, TypeError):
-        pass
+    def fetch_monaco():
+        try:
+            response = requests.get(f"https://api.jolpi.ca/ergast/f1/{year}.json", timeout=15)
+            response.raise_for_status()
+            races = response.json().get("MRData", {}).get("RaceTable", {}).get("Races", [])
+            for race in races:
+                race_name = str(race.get("raceName", "")).lower()
+                locality = str(race.get("Circuit", {}).get("Location", {}).get("locality", "")).lower()
+                country = str(race.get("Circuit", {}).get("Location", {}).get("country", "")).lower()
+                if "monaco" in race_name or "monaco" in locality or "monaco" in country:
+                    race_date = parse_api_date_to_fr_date(race.get("date"))
+                    if race_date:
+                        return "monaco", (race_date, None)
+        except (requests.RequestException, ValueError, TypeError):
+            pass
+        return None
 
-    try:
-        txt = _wiki_extract(f"{year}_French_Open", lang="en", intro=True)
-        rng = _parse_en_date_range(txt)
-        if rng:
-            sourced["roland"] = rng
-    except (requests.RequestException, ValueError, TypeError):
-        pass
+    def fetch_roland():
+        try:
+            txt = _wiki_extract(f"{year}_French_Open", lang="en", intro=True)
+            rng = _parse_en_date_range(txt)
+            if rng:
+                return "roland", rng
+        except (requests.RequestException, ValueError, TypeError):
+            pass
+        return None
 
-    try:
-        txt = _wiki_extract(f"{year}_24_Hours_of_Le_Mans", lang="en", intro=True)
-        rng = _parse_en_date_range(txt)
-        if rng:
-            sourced["lemans"] = rng
-    except (requests.RequestException, ValueError, TypeError):
-        pass
+    def fetch_lemans():
+        try:
+            txt = _wiki_extract(f"{year}_24_Hours_of_Le_Mans", lang="en", intro=True)
+            rng = _parse_en_date_range(txt)
+            if rng:
+                return "lemans", rng
+        except (requests.RequestException, ValueError, TypeError):
+            pass
+        return None
 
-    try:
-        txt = _wiki_extract(f"{year}_Tour_de_France", lang="en", intro=True)
-        rng = _parse_en_date_range(txt)
-        if rng:
-            sourced["tour"] = rng
-    except (requests.RequestException, ValueError, TypeError):
-        pass
+    def fetch_tour():
+        try:
+            txt = _wiki_extract(f"{year}_Tour_de_France", lang="en", intro=True)
+            rng = _parse_en_date_range(txt)
+            if rng:
+                return "tour", rng
+        except (requests.RequestException, ValueError, TypeError):
+            pass
+        return None
 
-    try:
-        txt = _wiki_extract(f"Tournoi_des_Six_Nations_{year}", lang="fr", intro=True)
-        rng = _parse_fr_du_au_range(txt)
-        if rng:
-            sourced["six"] = rng
-    except (requests.RequestException, ValueError, TypeError):
-        pass
+    def fetch_six():
+        try:
+            txt = _wiki_extract(f"Tournoi_des_Six_Nations_{year}", lang="fr", intro=True)
+            rng = _parse_fr_du_au_range(txt)
+            if rng:
+                return "six", rng
+        except (requests.RequestException, ValueError, TypeError):
+            pass
+        return None
 
-    try:
-        txt = _wiki_extract(f"Championnat_de_France_de_rugby_à_XV_{year-1}-{year}", lang="fr", intro=True)
-        match = re.search(r"se termine le\s+([^\.,]+)\s+lors de la finale", txt, flags=re.IGNORECASE)
-        if match:
-            top14_date = _parse_fr_single_date(match.group(1))
-            if top14_date:
-                sourced["top14"] = (top14_date, None)
-    except (requests.RequestException, ValueError, TypeError):
-        pass
+    def fetch_top14():
+        try:
+            txt = _wiki_extract(f"Championnat_de_France_de_rugby_à_XV_{year-1}-{year}", lang="fr", intro=True)
+            match = re.search(r"se termine le\s+([^\.,]+)\s+lors de la finale", txt, flags=re.IGNORECASE)
+            if match:
+                top14_date = _parse_fr_single_date(match.group(1))
+                if top14_date:
+                    return "top14", (top14_date, None)
+        except (requests.RequestException, ValueError, TypeError):
+            pass
+        return None
 
-    try:
-        txt = _wiki_extract(f"Coupe_de_France_de_football_{year-1}-{year}", lang="fr", intro=False)
-        match = re.search(
-            r"finale[^\n]{0,120}?(?:a lieu|se joue|se déroule|est programmée)\s+le\s+([^\.,\n]+)",
-            txt, flags=re.IGNORECASE,
-        )
-        if match:
-            final_date = _parse_fr_single_date(match.group(1))
-            if final_date:
-                sourced["coupe"] = (final_date, None)
-    except (requests.RequestException, ValueError, TypeError):
-        pass
+    def fetch_coupe():
+        try:
+            txt = _wiki_extract(f"Coupe_de_France_de_football_{year-1}-{year}", lang="fr", intro=False)
+            match = re.search(
+                r"finale[^\n]{0,120}?(?:a lieu|se joue|se déroule|est programmée)\s+le\s+([^\.,\n]+)",
+                txt, flags=re.IGNORECASE,
+            )
+            if match:
+                final_date = _parse_fr_single_date(match.group(1))
+                if final_date:
+                    return "coupe", (final_date, None)
+        except (requests.RequestException, ValueError, TypeError):
+            pass
+        return None
+
+    fetchers = [
+        fetch_monaco, fetch_roland, fetch_lemans, fetch_tour,
+        fetch_six, fetch_top14, fetch_coupe,
+    ]
+
+    with ThreadPoolExecutor(max_workers=7) as executor:
+        futures = {executor.submit(fn): fn.__name__ for fn in fetchers}
+        for future in as_completed(futures):
+            try:
+                result = future.result()
+                if result:
+                    key, value = result
+                    sourced[key] = value
+            except Exception:
+                pass
 
     return sourced
 
@@ -602,6 +710,63 @@ def build_base_events() -> list[CalendarEvent]:
                 categories=["Jours fériés"],
                 description="Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.",
             ))
+
+        # ── PONTS AUTOMATIQUES ─────────────────────────────────────────────
+        # Détecte les fériés tombant un mardi ou un jeudi et génère un événement
+        # "Pont possible" pour le lundi ou vendredi correspondant.
+        # Un pont "confirmé" = le jour adjacent n'est pas lui-même un férié.
+        ferie_dates: set[date] = set(fr_holidays.keys())
+        for ferie_date, ferie_name in fr_holidays.items():
+            weekday = ferie_date.weekday()
+            bridge_date: date | None = None
+            if weekday == 1:  # mardi → pont lundi
+                bridge_date = ferie_date - timedelta(days=1)
+            elif weekday == 3:  # jeudi → pont vendredi
+                bridge_date = ferie_date + timedelta(days=1)
+
+            if bridge_date and bridge_date not in ferie_dates:
+                localized_name = localize_holiday_name(ferie_name)
+                events.append(CalendarEvent(
+                    summary=f"Pont possible — {localized_name}",
+                    start=bridge_date,
+                    categories=["Ponts / Congés"],
+                    description=(
+                        f"{localized_name} tombe un {'mardi' if weekday == 1 else 'jeudi'} le "
+                        f"{ferie_date.strftime('%d/%m/%Y')}. "
+                        f"Le {'lundi' if weekday == 1 else 'vendredi'} {bridge_date.strftime('%d/%m/%Y')} "
+                        f"est un pont potentiel — vérifiez auprès de votre employeur."
+                    ),
+                ))
+
+        # ── JOURS FÉRIÉS ALSACE-MOSELLE (depts 57, 67, 68) ─────────────────
+        # Régime concordataire hérité de la période allemande — 2 fériés supplémentaires.
+        # La lib `holidays` les supporte via subdivision="GES" mais on les ajoute manuellement
+        # pour les afficher avec une zone spécifique dans le JSON.
+        am_holidays = [
+            CalendarEvent(
+                "Vendredi Saint",
+                easter_date(year) - timedelta(days=2),
+                categories=["Jours fériés", "Christianisme"],
+                description=(
+                    "Commémore la crucifixion du Christ. Jour férié uniquement en Alsace-Moselle "
+                    "(départements 57, 67, 68) en vertu du régime concordataire, hérité de l'époque "
+                    "où la région était sous administration allemande (1871–1918)."
+                ),
+                zones={"AM"},
+            ),
+            CalendarEvent(
+                "Saint-Étienne",
+                date(year, 12, 26),
+                categories=["Jours fériés", "Christianisme"],
+                description=(
+                    "Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57, 67, 68). "
+                    "Fête de saint Étienne, premier martyr chrétien. Ce jour est férié dans toute "
+                    "l'Allemagne voisine ainsi qu'en Suisse et en Autriche."
+                ),
+                zones={"AM"},
+            ),
+        ]
+        events.extend(am_holidays)
 
         # ── CHRISTIANISME ───────────────────────────────────────────────────
         easter = easter_date(year)
@@ -1194,16 +1359,25 @@ def build_base_events() -> list[CalendarEvent]:
                 description=f"L'année {year} comporte une semaine 53 dans le calendrier ISO — phénomène qui arrive quand le 1er janvier tombe un jeudi.",
             ))
 
-        day_cursor = date(year, 1, 1)
-        while day_cursor.year == year:
+        def _find_palindromes_for_year(y: int) -> list[tuple[int, int]]:
+            results = []
+            for m in range(1, 13):
+                import calendar as _cal
+                max_day = _cal.monthrange(y, m)[1]
+                for d in range(1, max_day + 1):
+                    stamp = f"{d:02d}{m:02d}{y:04d}"
+                    if stamp == stamp[::-1]:
+                        results.append((d, m))
+            return results
+
+        for d, m in _find_palindromes_for_year(year):
+            day_cursor = date(year, m, d)
             stamp = day_cursor.strftime("%d%m%Y")
-            if stamp == stamp[::-1]:
-                events.append(CalendarEvent(
-                    "Date palindrome", day_cursor,
-                    categories=["Dates spéciales"],
-                    description=f"La date du {day_cursor.strftime('%d/%m/%Y')} se lit de la même façon dans les deux sens au format JJMMAAAA ({stamp}).",
-                ))
-            day_cursor += timedelta(days=1)
+            events.append(CalendarEvent(
+                "Date palindrome", day_cursor,
+                categories=["Dates spéciales"],
+                description=f"La date du {day_cursor.strftime('%d/%m/%Y')} se lit de la même façon dans les deux sens au format JJMMAAAA ({stamp}).",
+            ))
 
         # ── CHANGEMENTS D'HEURE ─────────────────────────────────────────────
         events.extend([
@@ -1291,8 +1465,10 @@ def build_vacation_events() -> list[CalendarEvent]:
         population = (fields.get("population") or "").strip().lower()
         if "enseignant" in population:
             continue
-        # end est la date inclusive telle que renvoyée par l'API.
-        # serialize_calendar ajoute +1 (RFC 5545 DTEND exclusif) — ne pas modifier ici.
+        # L'API renvoie end en date EXCLUSIVE (lendemain du dernier jour de vacances).
+        # On soustrait 1 pour stocker la date inclusive dans le JSON et l'afficher correctement.
+        # exporters.py ajoute +1 pour le RFC 5545 ICS — les deux coexistent.
+        end = end - timedelta(days=1)
 
         description = canonical_vacation_description(fields.get("description", "Vacances"))
         normalized_zones = normalize_zones(fields.get("zones", []))
