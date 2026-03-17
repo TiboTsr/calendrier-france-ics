@@ -174,9 +174,9 @@ function toggleZoneHint(zone, el) {
   }
   _openZone = zone; el.classList.add('open');
   const cities = {
-    A: 'Lyon, Bordeaux, Grenoble, Clermont-Ferrand, Limoges, Nantes, Rennes, Caen, Angers, Poitiers, Le Mans, Tours, Orléans',
-    B: 'Paris, Versailles, Lille, Amiens, Nancy, Metz, Reims, Strasbourg, Besançon, Dijon, Rouen, Le Havre',
-    C: 'Aix-Marseille, Nice, Montpellier, Toulouse, Toulon, Nîmes, Perpignan, Avignon, Bayonne, Pau',
+    A: 'Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitier',
+    B: 'Aix-Marseille, Amiens, Lille, Nancy-Metz, Nantes, Nice, Normandie, Orléans-Tours, Reims, Rennes, Strasbourg',
+    C: 'Créteil, Montpellier, Paris, Toulouse, Versailles',
   };
   const webcalUrl = `webcal://calendrier-fr.tibotsr.dev/zone-${zone.toLowerCase()}.ics`;
   hint.innerHTML = `

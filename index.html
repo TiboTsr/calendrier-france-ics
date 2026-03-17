@@ -137,12 +137,12 @@
     ══════════════════════════════ -->
     <section class="hero" id="hero">
       <div class="hero-inner page">
-        <div class="hero-eyebrow">
+        <!--<div class="hero-eyebrow">
           <i class="fa-solid fa-gift" aria-hidden="true"></i> Gratuit · Sans compte · Open source
-        </div>
-        <h1>Votre Google Calendar<br /><em>ne connaît pas les vacances scolaires.</em><br />Le nôtre, si.</h1>
+        </div>-->
+        <h1>Votre calendrier<br /><em>ne connaît pas les dates importantes.</em><br />Le nôtre, si.</h1>
         <p class="hero-sub">
-          Jours fériés, vacances zones A/B/C, changements d'heure, saisons — synchronisés automatiquement dans votre agenda, pour toujours, sans rien installer.
+          Jours fériés, vacances scolaires, changements d'heure, saisons, dates spéciales — synchronisés automatiquement dans votre agenda, pour toujours, sans rien installer et tout ça gratuitement.
         </p>
 
         <div id="r-countdown-hero" class="hero-countdown" aria-live="polite" style="display:none"></div>
@@ -156,7 +156,6 @@
           </a>
         </div>
 
-        <!-- Pills marquee générées par JS -->
         <div class="hero-feats" aria-hidden="true">
           <div class="hero-feats-row top">
             <div class="hero-feats-track" id="marquee-top"></div>
@@ -174,7 +173,7 @@
     <section id="how-it-works">
       <div class="page">
         <div class="sh">
-          <div class="sh-eye">Comment ça marche</div>
+          <div class="sh-eye">1. Comment ça marche</div>
           <h2>3 étapes, une fois pour toutes</h2>
           <p>Pas d'appli à installer, pas de compte à créer. Juste un lien.</p>
         </div>
@@ -210,7 +209,7 @@
       ══════════════════════════════ -->
       <section id="sync">
         <div class="sh">
-          <div class="sh-eye">Synchronisation</div>
+          <div class="sh-eye">2. Synchronisation</div>
           <h2>Ajoutez le calendrier à votre agenda</h2>
           <p>Simple = tout en un clic · Avancé = choisir ses zones et catégories</p>
         </div>
@@ -278,15 +277,15 @@
             <div class="zcards">
               <div class="zcard za" onclick="toggleZoneHint('A', this)">
                 <span class="zcl">Zone A</span>
-                <span class="zcc">Lyon, Bordeaux<br />Grenoble, Nantes…</span>
+                <span class="zcc">Bordeaux, Dijon<br />Clermont-Ferrand, Lyon…</span>
               </div>
               <div class="zcard zb" onclick="toggleZoneHint('B', this)">
                 <span class="zcl">Zone B</span>
-                <span class="zcc">Paris, Versailles<br />Lille, Strasbourg…</span>
+                <span class="zcc">Aix-Marseille, Lille<br />Nantes, Nice...</span>
               </div>
               <div class="zcard zc" onclick="toggleZoneHint('C', this)">
                 <span class="zcl">Zone C</span>
-                <span class="zcc">Aix-Marseille<br />Montpellier, Nice…</span>
+                <span class="zcc">Paris, Créteil<br />Montpellier, Toulouse...</span>
               </div>
             </div>
             <div class="zhint" id="zhint"></div>
@@ -424,7 +423,7 @@
       ══════════════════════════════ -->
       <section id="zone">
         <div class="sh">
-          <div class="sh-eye">Quelle est ma zone ?</div>
+          <div class="sh-eye">3. Quelle est ma zone ?</div>
           <h2>Trouvez votre zone scolaire</h2>
           <p>Les vacances scolaires varient selon votre académie. Entrez votre ville pour la trouver.</p>
         </div>
@@ -444,7 +443,7 @@
       ══════════════════════════════ -->
       <section id="explorer">
         <div class="sh">
-          <div class="sh-eye">Explorateur</div>
+          <div class="sh-eye">4. Explorateur</div>
           <h2>Parcourez les dates</h2>
           <p>Naviguez dans le contenu du calendrier — en partant d'aujourd'hui, avec défilement continu.</p>
         </div>
@@ -520,7 +519,7 @@
       ══════════════════════════════ -->
       <section id="faq">
         <div class="sh">
-          <div class="sh-eye">FAQ</div>
+          <div class="sh-eye">5. FAQ</div>
           <h2>Questions fréquentes</h2>
           <p>Tout ce qu'il faut savoir avant de s'abonner.</p>
         </div>
@@ -578,8 +577,8 @@
             </summary>
             <div class="faq-a">
               Les académies françaises sont réparties en trois zones pour éviter que tout le monde parte en vacances en même temps.<br /><br />
-              Zone A : Lyon, Bordeaux, Grenoble… — Zone B : Paris, Lille, Strasbourg… — Zone C : Marseille, Montpellier, Nice…<br /><br />
-              Utilisez le <a href="#zone">finder de zone</a> pour trouver la vôtre en tapant votre ville.
+              Zone A : Lyon, Bordeaux, Grenoble… — Zone B : Nantes, Lille, Strasbourg… — Zone C : Paris, Montpellier, Toulouse...<br /><br />
+              Utilisez la <a href="#zone">recherche de zone</a> pour trouver la vôtre en tapant votre ville.
             </div>
           </details>
 

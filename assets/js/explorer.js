@@ -1,9 +1,29 @@
 /**
  * explorer.js — Sidebar, radar, timeline et modal événement
- * Dépend de : utils.js, state.js
+ * MODIF : buildSbCats avec couleurs par catégorie (actif = couleur pleine, inactif = grisé)
+ *         + bouton "Voir plus" remplace l'infinite scroll
  */
 
 const CHUNK = 3;
+
+/* ── Helpers couleur catégorie ──────────────────────── */
+function _applyCatStyle(el, cat, active) {
+  const def = cd(cat);
+  if (active) {
+    el.style.borderColor = def.b;
+    el.style.background  = def.d;
+    el.style.color       = def.c;
+    el.style.opacity     = '1';
+  } else {
+    el.style.borderColor = 'var(--b)';
+    el.style.background  = 'var(--bg2)';
+    el.style.color       = 'var(--t3)';
+    el.style.opacity     = '0.45';
+  }
+  // Toujours colorer le dot avec la couleur de la catégorie
+  const dot = el.querySelector('.sc-dot');
+  if (dot) dot.style.background = def.c;
+}
 
 /* ── Sidebar — catégories ───────────────────────────── */
 function getSelCats() {
@@ -16,10 +36,14 @@ function buildSbCats(cats) {
   const g = document.getElementById('sb-cats'); g.innerHTML = '';
   cats.forEach(cat => {
     const def = cd(cat);
-    const el  = document.createElement('div'); el.className = 'scat active'; el.dataset.cat = cat;
+    const el  = document.createElement('div');
+    el.className = 'scat active'; el.dataset.cat = cat;
     el.innerHTML = `<input type="checkbox" checked style="display:none"><span class="sc-dot" style="background:${def.c}"></span><span class="sc-name">${cat}</span><span class="sc-cnt">${counts.get(cat) || 0}</span>`;
+    _applyCatStyle(el, cat, true);
     el.addEventListener('click', () => {
       el.classList.toggle('active');
+      const isActive = el.classList.contains('active');
+      _applyCatStyle(el, cat, isActive);
       try { localStorage.setItem(KEYS.favs, JSON.stringify(getSelCats())); } catch {}
       STATE.renderedMonths = 0; refreshAll();
     });
@@ -30,13 +54,20 @@ function buildSbCats(cats) {
     const saved = JSON.parse(localStorage.getItem(KEYS.favs));
     if (Array.isArray(saved)) {
       const set = new Set(saved);
-      g.querySelectorAll('.scat').forEach(el => el.classList.toggle('active', set.has(el.dataset.cat)));
+      g.querySelectorAll('.scat').forEach(el => {
+        const active = set.has(el.dataset.cat);
+        el.classList.toggle('active', active);
+        _applyCatStyle(el, el.dataset.cat, active);
+      });
     }
   } catch {}
 }
 
 document.getElementById('sb-rst').addEventListener('click', () => {
-  document.querySelectorAll('#sb-cats .scat').forEach(el => el.classList.add('active'));
+  document.querySelectorAll('#sb-cats .scat').forEach(el => {
+    el.classList.add('active');
+    _applyCatStyle(el, el.dataset.cat, true);
+  });
   localStorage.removeItem(KEYS.favs);
   STATE.renderedMonths = 0; refreshAll();
 });
@@ -94,15 +125,15 @@ function renderRadar(evts) {
   const ongoing  = evts.filter(e => e.endDate && e.date < today && e.endDate >= today)
     .sort((a, b) => a.endDate - b.endDate).slice(0, 8);
 
-  // Countdown — prochain jour férié national uniquement
   const countdownEl = document.getElementById('r-countdown');
   const heroEl      = document.getElementById('r-countdown-hero');
-  const next = evts.find(e => (e.categories || []).includes('Jours fériés') && e.date >= today);
+  const next = evts.find(e => e.date >= today);
   if (next && countdownEl) {
     const diff  = Math.round((next.date - today) / 86400000);
     const label = diff === 0 ? "Aujourd'hui !" : diff === 1 ? 'Demain !' : `Dans ${diff} jour${diff > 1 ? 's' : ''}`;
-    const def   = cd('Jours fériés');
-    const html  = `<span class="r-countdown-pill" style="background:${def.d};border-color:${def.b};color:${def.c}"><i class="fa-solid fa-gift"></i><strong>${label}</strong><span style="opacity:.8">— ${escHtml(next.summary)}</span></span>`;
+    const cat   = (next.categories && next.categories[0]) || 'Événement';
+    const def   = cd(cat);
+    const html  = `<span class="r-countdown-pill" style="background:${def.d};border-color:${def.b};color:${def.c}"><a href="#explorer"><i class="fa-solid fa-calendar-days"></i><strong> ${label}</strong></a><span style="opacity:.8">— ${escHtml(next.summary)}</span></span>`;
     countdownEl.innerHTML = html; countdownEl.style.display = 'block';
     if (heroEl) { heroEl.innerHTML = html; heroEl.style.display = 'block'; }
   } else {
@@ -123,7 +154,6 @@ function renderRadar(evts) {
     });
   }
 
-  // Upcoming — élections et événements approximatifs
   const upcomingEvts = getFilteredUpcoming();
   const upcomingRoot = document.getElementById('r-upcoming');
   const upcomingCnt  = document.getElementById('r-upcoming-cnt');
@@ -206,22 +236,20 @@ function renderTL(opts = {}) {
   const moNav = document.getElementById('mo-nav');
   root.innerHTML = ''; moNav.innerHTML = '';
 
+  if (window._tlObserver) { window._tlObserver.disconnect(); window._tlObserver = null; }
+
   const today  = new Date(); today.setHours(0,0,0,0);
   const thisYr = new Date().getFullYear();
   const yEvts  = STATE.allEvts.filter(e => e.date.getFullYear() === STATE.curYear);
-
-  // Merge upcoming dans le bon mois — placés en fin de liste du mois
   const yUpcoming = getFilteredUpcoming().filter(e => e.date.getFullYear() === STATE.curYear);
 
   const grp = new Map();
   yEvts.forEach(e => { const k = e.date.getMonth(); if (!grp.has(k)) grp.set(k, []); grp.get(k).push(e); });
-  // Injecter les upcoming dans leur mois (sans les mélanger avec les events triés par date)
   yUpcoming.forEach(e => { const k = e.date.getMonth(); if (!grp.has(k)) grp.set(k, []); grp.get(k).push(e); });
 
   const allEntries = [...grp.entries()].sort((a, b) => a[0] - b[0]);
   const isCurYr    = STATE.curYear === thisYr;
 
-  // Nav mois
   const aBtn = document.createElement('button');
   aBtn.className = 'mb' + (STATE.curMonth === 'all' ? ' on' : ''); aBtn.textContent = 'Tout';
   aBtn.addEventListener('click', () => { STATE.curMonth = 'all'; STATE.renderedMonths = 0; renderTL(); });
@@ -236,6 +264,7 @@ function renderTL(opts = {}) {
   const filtered = STATE.curMonth === 'all' ? allEntries : allEntries.filter(([k]) => k === STATE.curMonth);
   if (!filtered.length) {
     root.innerHTML = '<div class="empty"><div class="empty-ico"><i class="fa-regular fa-envelope-open"></i></div><p>Aucun événement pour cette sélection.</p></div>';
+    if (typeof initMoSelect === 'function') initMoSelect();
     return;
   }
 
@@ -250,6 +279,7 @@ function renderTL(opts = {}) {
   const futureEntries = isCurYr ? filtered.filter(([k]) => !pastEntries.some(([pk]) => pk === k)) : filtered;
   const totalFuture   = futureEntries.length;
   const toRender      = Math.min(totalFuture, Math.max(CHUNK, STATE.renderedMonths || CHUNK));
+  const remaining     = totalFuture - toRender;
 
   if (isCurYr && pastEntries.length) {
     if (!STATE.showPast) {
@@ -272,14 +302,30 @@ function renderTL(opts = {}) {
 
   if (opts.autoScrollToday && isCurYr) setTimeout(scrollToToday, 80);
 
-  // Infinite scroll
-  if (window._tlObserver) window._tlObserver.disconnect();
-  if (toRender < totalFuture) {
-    const sentinel = document.getElementById('tl-sentinel');
-    window._tlObserver = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) { STATE.renderedMonths = toRender + CHUNK; renderTL(); }
-    }, { root: null, rootMargin: '200px' });
-    window._tlObserver.observe(sentinel);
+  if (remaining > 0) {
+    const nextSlice      = (isCurYr ? futureEntries : filtered).slice(toRender, toRender + CHUNK);
+    const nextMonthNames = nextSlice.map(([k]) => MONTHS[k]).join(', ');
+    const moreCount      = Math.min(remaining, CHUNK);
+    const btn = document.createElement('button');
+    btn.className = 'load-more-btn';
+    btn.innerHTML = `
+      <i class="fa-solid fa-chevron-down ui-ico"></i>
+      Voir ${moreCount} mois de plus
+      <span class="load-more-hint">${nextMonthNames}</span>
+      <span class="load-more-rest">${remaining} mois restants</span>`;
+    btn.addEventListener('click', () => {
+      STATE.renderedMonths = toRender + CHUNK;
+      renderTL();
+      setTimeout(() => {
+        const blocks = document.querySelectorAll('.mo-block');
+        const newBlock = blocks[toRender + (STATE.showPast ? pastEntries.length : 0)];
+        if (newBlock) {
+          const offset = getStickyOffset() + 12;
+          window.scrollTo({ top: window.scrollY + newBlock.getBoundingClientRect().top - offset, behavior: 'smooth' });
+        }
+      }, 80);
+    });
+    root.appendChild(btn);
   }
 
   if (typeof initMoSelect === 'function') initMoSelect();
@@ -305,15 +351,10 @@ function buildDateBadge(ev, def, isPast) {
   const bc = isPast ? 'var(--b)' : def.b;
   const bg = isPast ? 'var(--bg2)' : def.d;
   const fc = isPast ? 'var(--t3)' : def.c;
-
-  // Événement approximatif — affiche ?? à la place du jour
   if (ev.approximate) {
     return `<div class="ev-d ev-d--approx" style="border-color:${def.b};background:${def.d};border-style:dashed">
-      <span class="ev-day ev-day--approx" style="color:${def.c}">??</span>
-      <span class="ev-wd">—</span>
-    </div>`;
+      <span class="ev-day ev-day--approx" style="color:${def.c}">??</span><span class="ev-wd">—</span></div>`;
   }
-
   if (!isRange) {
     return `<div class="ev-d" style="border-color:${bc};background:${bg}"><span class="ev-day" style="color:${fc}">${ev.date.getDate()}</span><span class="ev-wd">${fmtwd(ev.date)}</span></div>`;
   }
@@ -334,9 +375,7 @@ function buildEvRow(ev, isPast, today) {
   const cat  = (ev.categories || [])[0] || 'Divers';
   const def  = cd(cat);
   const zones = ev.zones?.length ? `<span class="ev-tag" style="background:var(--bg3);color:var(--t3)">${escHtml(ev.zones.join(', '))}</span>` : '';
-  const approxBadge = ev.approximate
-    ? `<span class="ev-tag ev-tag--approx"><i class="fa-solid fa-circle-question"></i> Date non confirmée</span>`
-    : '';
+  const approxBadge = ev.approximate ? `<span class="ev-tag ev-tag--approx"><i class="fa-solid fa-circle-question"></i> Date non confirmée</span>` : '';
   row.innerHTML = `
     ${buildDateBadge(ev, def, isPast && !isToday)}
     <div class="ev-b">
@@ -353,23 +392,18 @@ function buildEvRow(ev, isPast, today) {
 
 function buildMoBlock(k, evts, today, isPast) {
   const block = document.createElement('div'); block.className = 'mo-block anim';
-
-  // Séparer events normaux et approximatifs
-  const regularEvts   = evts.filter(e => !e.approximate);
-  const approxEvts    = evts.filter(e => e.approximate);
-
-  const totalCount = regularEvts.length + approxEvts.length;
+  const regularEvts = evts.filter(e => !e.approximate);
+  const approxEvts  = evts.filter(e => e.approximate);
+  const totalCount  = regularEvts.length + approxEvts.length;
   const h = document.createElement('div'); h.className = 'mo-h' + (isPast ? ' past' : '');
   h.innerHTML = `${MONTHS[k]} ${STATE.curYear} <span class="mo-cnt">${totalCount}</span>`;
   block.appendChild(h);
-
   const list       = document.createElement('div'); list.className = 'ev-list';
   const isCurBlock = (STATE.curYear === today.getFullYear() && k === today.getMonth());
   const splitIdx   = regularEvts.findIndex(ev => (ev.endDate || ev.date) >= today);
   const hasPast    = regularEvts.some(ev => (ev.endDate || ev.date) < today);
   const hasFuture  = splitIdx !== -1;
   let markerPlaced = false;
-
   function placeTodayMarker() {
     if (markerPlaced) return; markerPlaced = true;
     document.getElementById('today-marker')?.remove();
@@ -378,8 +412,6 @@ function buildMoBlock(k, evts, today, isPast) {
     m.innerHTML = `<div class="today-line">Aujourd'hui · ${label}</div>`;
     list.appendChild(m);
   }
-
-  // Rendu des événements normaux
   if (isCurBlock && hasPast && hasFuture) {
     regularEvts.forEach((ev, i) => { if (i === splitIdx) placeTodayMarker(); list.appendChild(buildEvRow(ev, false, today)); });
   } else {
@@ -387,18 +419,14 @@ function buildMoBlock(k, evts, today, isPast) {
     regularEvts.forEach(ev => list.appendChild(buildEvRow(ev, isPast, today)));
     if (isCurBlock && hasPast && !hasFuture) placeTodayMarker();
   }
-
-  // Événements approximatifs — toujours en fin de mois, avec séparateur si le mois a des events normaux
   if (approxEvts.length) {
     if (regularEvts.length) {
-      const sep = document.createElement('div');
-      sep.className = 'approx-sep';
+      const sep = document.createElement('div'); sep.className = 'approx-sep';
       sep.innerHTML = '<i class="fa-solid fa-circle-question"></i> Dates à confirmer';
       list.appendChild(sep);
     }
     approxEvts.forEach(ev => list.appendChild(buildEvRow(ev, false, today)));
   }
-
   block.appendChild(list); return block;
 }
 
@@ -406,25 +434,20 @@ function buildMoBlock(k, evts, today, isPast) {
 let _modalPrev = null, _modalNext = null, _modalEvts = null;
 
 function openModal(ev, evts) {
-  const same    = evts.filter(e => e.summary === ev.summary).sort((a, b) => a.date - b.date);
-  const ts      = ev.date.getTime();
-  _modalPrev    = [...same].reverse().find(e => e.date.getTime() < ts) || null;
-  _modalNext    = same.find(e => e.date.getTime() > ts) || null;
-  _modalEvts    = evts;
-
-  const end       = ev.endDate || ev.date;
-  const isRange   = end && end.getTime() > ev.date.getTime();
-  const durDays   = Math.max(1, Math.round((end - ev.date) / 86400000) + 1);
-  const isExam    = (ev.categories || []).some(c => norm(String(c)) === 'examens');
-  const durLabel  = isExam
-    ? `${Math.max(1, countWeekdays(ev.date, end))} jours ouvrés`
-    : `${durDays} jour${durDays > 1 ? 's' : ''}`;
-
+  const same = evts.filter(e => e.summary === ev.summary).sort((a, b) => a.date - b.date);
+  const ts   = ev.date.getTime();
+  _modalPrev = [...same].reverse().find(e => e.date.getTime() < ts) || null;
+  _modalNext = same.find(e => e.date.getTime() > ts) || null;
+  _modalEvts = evts;
+  const end     = ev.endDate || ev.date;
+  const isRange = end && end.getTime() > ev.date.getTime();
+  const durDays = Math.max(1, Math.round((end - ev.date) / 86400000) + 1);
+  const isExam  = (ev.categories || []).some(c => norm(String(c)) === 'examens');
+  const durLabel = isExam ? `${Math.max(1, countWeekdays(ev.date, end))} jours ouvrés` : `${durDays} jour${durDays > 1 ? 's' : ''}`;
   function chips(values, zone = false) {
     if (!values?.length) return `<span style="color:var(--t3)">Aucune</span>`;
     return values.map(v => `<span class="m-chip${zone ? ' z' : ''}">${escHtml(v)}</span>`).join('');
   }
-
   document.getElementById('m-ttl').textContent      = ev.summary;
   document.getElementById('m-prev').textContent     = _modalPrev ? fmt(_modalPrev.date) : 'Aucune donnée';
   document.getElementById('m-next').textContent     = _modalNext ? fmt(_modalNext.date) : 'Aucune prévision';
@@ -432,15 +455,9 @@ function openModal(ev, evts) {
   document.getElementById('m-duration').textContent = durLabel;
   document.getElementById('m-cats').innerHTML       = chips(ev.categories || []);
   document.getElementById('m-zones').innerHTML      = chips(ev.zones || [], true);
-  document.getElementById('m-desc').innerHTML       = ev.description
-    ? ev.description.replace(/\n/g, '<br>')
-    : "<i style='color:var(--t3)'>Aucune description.</i>";
-
-  const prev = document.getElementById('m-prev');
-  const next = document.getElementById('m-next');
-  prev.style.cursor = _modalPrev ? 'pointer' : 'default';
-  next.style.cursor = _modalNext ? 'pointer' : 'default';
-
+  document.getElementById('m-desc').innerHTML       = ev.description ? ev.description.replace(/\n/g, '<br>') : "<i style='color:var(--t3)'>Aucune description.</i>";
+  document.getElementById('m-prev').style.cursor = _modalPrev ? 'pointer' : 'default';
+  document.getElementById('m-next').style.cursor = _modalNext ? 'pointer' : 'default';
   document.getElementById('ev-modal').classList.add('on');
 }
 
@@ -459,10 +476,8 @@ document.addEventListener('keydown', e => {
 function refreshAll(opts = {}) {
   const savedY = window.scrollY;
   STATE.allEvts = getFiltered();
-
   const key = [STATE.curYear, STATE.curMonth, STATE.expZone, getSelCats().sort().join(','), document.getElementById('srch').value.trim()].join('|');
-  renderRadar(STATE.allEvts);  // upcoming est lu directement depuis STATE dans renderRadar
-
+  renderRadar(STATE.allEvts);
   if (!opts.forceRender && !opts.autoScrollToday && key === STATE.lastRefreshKey) {
     requestAnimationFrame(() => window.scrollTo({ top: savedY, behavior: 'instant' }));
     return;

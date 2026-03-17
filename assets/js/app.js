@@ -24,7 +24,7 @@ async function init() {
       _endDate: e.end   ? new Date(+e.end.slice(0,4),   +e.end.slice(5,7) - 1,   +e.end.slice(8,10))   : null,
     }));
 
-    // Événements approximatifs (upcoming) — affichés uniquement sur le site
+    // Événements approximatifs (upcoming)
     STATE.upcomingEvts = (data.upcoming || []).map(e => ({
       ...e,
       _date:    e.start ? new Date(+e.start.slice(0,4), +e.start.slice(5,7) - 1, +e.start.slice(8,10)) : null,
