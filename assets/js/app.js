@@ -1,8 +1,137 @@
-﻿/**
- * app.js — Point d'entrée principal
+/**
+ * app.js - Point d'entree principal
  * Charge le JSON, initialise les modules, lance le premier rendu.
- * Dépend de tous les autres modules.
+ * Depend de tous les autres modules.
  */
+
+const CALENDAR_VERSION_POLL_MS = 2 * 60 * 1000;
+let _loadedCalendarVersion = null;
+let _calendarVersionPollTimer = null;
+let _calendarUpdatePromptOpen = false;
+let _dismissedCalendarVersion = null;
+let _pendingCalendarVersion = null;
+let _pendingCalendarVersionLabel = null;
+
+function getCalendarVersion(payload) {
+  return payload?.contentVersion || payload?.eventsHash || payload?.generatedAt || payload?.generated || payload?.lastUpdated || payload?.updatedAt || payload?.generated_at || null;
+}
+
+function getCalendarGeneratedAt(payload) {
+  return payload?.generatedAt || payload?.generated || payload?.lastUpdated || payload?.updatedAt || payload?.generated_at || null;
+}
+
+function formatCalendarVersionLabel(value) {
+  if (!value) return '';
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return new Intl.DateTimeFormat('fr-FR', {
+    day: '2-digit',
+    month: 'long',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(parsed);
+}
+
+function updateCalendarPromptText(version) {
+  const el = document.getElementById('calendar-update-text');
+  if (!el) return;
+  const label = formatCalendarVersionLabel(version);
+  el.textContent = label
+    ? `Une nouvelle version du calendrier a été publiée le ${label}. Rechargez pour voir les dernières dates et mises à jour.`
+    : "Une nouvelle version du calendrier est disponible pendant que vous consultez la page. Rechargez pour voir les dernières dates et mises à jour.";
+}
+
+function openCalendarUpdatePrompt() {
+  const modal = document.getElementById('calendar-update-modal');
+  if (!modal || _calendarUpdatePromptOpen) return;
+  updateCalendarPromptText(_pendingCalendarVersionLabel || _pendingCalendarVersion);
+  _calendarUpdatePromptOpen = true;
+  modal.classList.add('on');
+}
+
+function closeCalendarUpdatePrompt() {
+  const modal = document.getElementById('calendar-update-modal');
+  if (!modal) return;
+  _calendarUpdatePromptOpen = false;
+  modal.classList.remove('on');
+}
+
+async function fetchCalendarData() {
+  const res = await fetch('/calendrier.json', { cache: 'no-store' });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+function applyCalendarData(data, { preserveYear = true } = {}) {
+  _loadedCalendarVersion = getCalendarVersion(data);
+  _pendingCalendarVersion = null;
+  _pendingCalendarVersionLabel = null;
+  _dismissedCalendarVersion = null;
+
+  STATE.srcEvts = (data.events || []).map((e) => ({
+    ...e,
+    _date: e.start ? new Date(+e.start.slice(0, 4), +e.start.slice(5, 7) - 1, +e.start.slice(8, 10)) : null,
+    _endDate: e.end ? new Date(+e.end.slice(0, 4), +e.end.slice(5, 7) - 1, +e.end.slice(8, 10)) : null,
+  }));
+
+  STATE.upcomingEvts = (data.upcoming || []).map((e) => ({
+    ...e,
+    _date: e.start ? new Date(+e.start.slice(0, 4), +e.start.slice(5, 7) - 1, +e.start.slice(8, 10)) : null,
+    _endDate: e.end ? new Date(+e.end.slice(0, 4), +e.end.slice(5, 7) - 1, +e.end.slice(8, 10)) : null,
+    approximate: true,
+  }));
+
+  setSyncAge(getCalendarGeneratedAt(data));
+
+  const years = [...new Set(STATE.srcEvts.map((e) => e._date?.getFullYear()).filter(Boolean))];
+  const thisYr = new Date().getFullYear();
+  const currentYear = STATE.curYear;
+  try {
+    const saved = Number(localStorage.getItem(KEYS.year));
+    STATE.curYear = preserveYear && currentYear && years.includes(currentYear) ? currentYear
+      : (saved && years.includes(saved)) ? saved
+      : (years.includes(thisYr) ? thisYr : ([...years].sort().reverse()[0] || thisYr));
+  } catch {
+    STATE.curYear = preserveYear && currentYear && years.includes(currentYear) ? currentYear : thisYr;
+  }
+
+  buildYrNav(years);
+  document.getElementById('yr-s').value = String(STATE.curYear);
+
+  const cats = [...new Set(STATE.srcEvts.flatMap((e) => e.categories || []))].sort();
+  buildSbCats(cats);
+  buildAdvCats(cats);
+  markAdvDirty();
+}
+
+async function refreshCalendarDataInPlace() {
+  const previousScroll = window.scrollY;
+  const data = await fetchCalendarData();
+  applyCalendarData(data);
+  refreshAll({ forceRender: true });
+  requestAnimationFrame(() => window.scrollTo({ top: previousScroll, behavior: 'instant' }));
+  showToast('Calendrier mis à jour.');
+}
+
+async function checkForCalendarUpdate() {
+  if (!_loadedCalendarVersion || document.hidden) return;
+  try {
+    const res = await fetch('/events-meta.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const meta = await res.json();
+    const nextVersion = getCalendarVersion(meta);
+    if (nextVersion && nextVersion !== _loadedCalendarVersion && nextVersion !== _dismissedCalendarVersion) {
+      _pendingCalendarVersion = nextVersion;
+      _pendingCalendarVersionLabel = getCalendarGeneratedAt(meta);
+      openCalendarUpdatePrompt();
+    }
+  } catch {}
+}
+
+function startCalendarVersionPolling() {
+  if (_calendarVersionPollTimer) clearInterval(_calendarVersionPollTimer);
+  _calendarVersionPollTimer = window.setInterval(checkForCalendarUpdate, CALENDAR_VERSION_POLL_MS);
+}
 
 async function init() {
   try {
@@ -13,47 +142,10 @@ async function init() {
         <div style="text-align:center;color:var(--t3);font-size:13px;margin-top:8px">Chargement des événements…</div>
       </div>`;
 
-    const res = await fetch('/calendrier.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-
-    // Pré-parser les dates une seule fois
-    STATE.srcEvts = (data.events || []).map(e => ({
-      ...e,
-      _date:    e.start ? new Date(+e.start.slice(0,4), +e.start.slice(5,7) - 1, +e.start.slice(8,10)) : null,
-      _endDate: e.end   ? new Date(+e.end.slice(0,4),   +e.end.slice(5,7) - 1,   +e.end.slice(8,10))   : null,
-    }));
-
-    // Événements approximatifs (upcoming)
-    STATE.upcomingEvts = (data.upcoming || []).map(e => ({
-      ...e,
-      _date:    e.start ? new Date(+e.start.slice(0,4), +e.start.slice(5,7) - 1, +e.start.slice(8,10)) : null,
-      _endDate: e.end   ? new Date(+e.end.slice(0,4),   +e.end.slice(5,7) - 1,   +e.end.slice(8,10))   : null,
-      approximate: true,
-    }));
-
-    // Sync date topbar
-    setSyncAge(data.generatedAt || data.generated || data.lastUpdated || data.updatedAt || data.generated_at || null);
-
-    // Années disponibles
-    const years   = [...new Set(STATE.srcEvts.map(e => e._date?.getFullYear()).filter(Boolean))];
-    const thisYr  = new Date().getFullYear();
-    try {
-      const saved = Number(localStorage.getItem(KEYS.year));
-      STATE.curYear = (saved && years.includes(saved)) ? saved
-        : (years.includes(thisYr) ? thisYr : ([...years].sort().reverse()[0] || thisYr));
-    } catch { STATE.curYear = thisYr; }
-
-    buildYrNav(years);
-    document.getElementById('yr-s').value = String(STATE.curYear);
-
-    // Catégories
-    const cats = [...new Set(STATE.srcEvts.flatMap(e => e.categories || []))].sort();
-    buildSbCats(cats);
-    buildAdvCats(cats);
-    markAdvDirty();
-
+    const data = await fetchCalendarData();
+    applyCalendarData(data, { preserveYear: false });
     refreshAll();
+    startCalendarVersionPolling();
   } catch (err) {
     const evRoot = document.getElementById('ev-root');
     if (evRoot) evRoot.innerHTML = `
@@ -65,5 +157,35 @@ async function init() {
     hideAppLoader();
   }
 }
+
+document.getElementById('calendar-update-refresh')?.addEventListener('click', async () => {
+  closeCalendarUpdatePrompt();
+  try {
+    await refreshCalendarDataInPlace();
+  } catch {
+    window.location.reload();
+  }
+});
+
+document.getElementById('calendar-update-dismiss')?.addEventListener('click', () => {
+  _dismissedCalendarVersion = _pendingCalendarVersion;
+  closeCalendarUpdatePrompt();
+});
+
+document.getElementById('calendar-update-close')?.addEventListener('click', () => {
+  _dismissedCalendarVersion = _pendingCalendarVersion;
+  closeCalendarUpdatePrompt();
+});
+
+document.getElementById('calendar-update-modal')?.addEventListener('click', (e) => {
+  if (e.target === document.getElementById('calendar-update-modal')) {
+    _dismissedCalendarVersion = _pendingCalendarVersion;
+    closeCalendarUpdatePrompt();
+  }
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) checkForCalendarUpdate();
+});
 
 init();

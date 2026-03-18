@@ -44,10 +44,16 @@ ELECTION_PAGES = [
     },
 ]
 
+KNOWN_ELECTION_ROUNDS = {
+    "municipales-2026": [
+        (date(2026, 3, 15), "Élections municipales — 1er tour", True),
+        (date(2026, 3, 22), "Élections municipales — 2e tour", True),
+    ],
+}
+
 # Pattern template MediaWiki : {{date|15|mars|2026}}
 TEMPLATE_PATTERN = r"\{\{date\|(\d{1,2})\|(\w+)\|(\d{4})[^}]*\}\}"
 
-# Pattern mois/année approximatif : "avril 2027", "premier semestre 2027"
 MONTH_YEAR_PATTERN = r"(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\s+(\d{4})"
 SEMESTER_PATTERN   = r"(premier|second|1er|2e|2ème)\s+semestre\s+(\d{4})"
 
@@ -217,7 +223,10 @@ def extract_dates_from_content(content: str, election_type: str, uid_prefix: str
                 (tours[1], f"{election_type} — 2e tour",  f"{uid_prefix}-t2"),
             ]
         else:
-            items = [(tours[0], election_type, f"{uid_prefix}-t{i+1}")]
+            label = election_type
+            if not precise and "présidentielle" in election_type.lower():
+                label = f"{election_type} — 1er tour (estimé)"
+            items = [(tours[0], label, f"{uid_prefix}-t{i+1}")]
 
         for d, label, uid in items:
             event = {
@@ -268,6 +277,21 @@ def get_elections() -> dict[str, list]:
     result = {"confirmed": [], "approximate": []}
 
     for page in ELECTION_PAGES:
+        override_rounds = KNOWN_ELECTION_ROUNDS.get(page["uid_prefix"])
+        if override_rounds:
+            for idx, (round_date, label, confirmed_flag) in enumerate(override_rounds, start=1):
+                event = {
+                    "uid": f"{page['uid_prefix']}-t{idx}@calendrier-france",
+                    "summary": label,
+                    "start": round_date.isoformat(),
+                    "end": round_date.isoformat(),
+                    "categories": ["Élections", "Société"],
+                    "zones": [],
+                    "description": _build_description(label, round_date, confirmed_flag, ""),
+                }
+                result["confirmed" if confirmed_flag else "approximate"].append(event)
+            continue
+
         logger.info(f"Scraping Wikipedia : {page['title']}")
         content = fetch_wikipedia_content(page["title"])
         if not content:

@@ -187,12 +187,18 @@
   document.getElementById('tuto-prev-btn')?.addEventListener('click', () => { if (step > 0) showStep(step - 1); });
 
   // Exposé pour le bouton "?" de la topbar
+  function showWelcome() {
+    welcome.style.display = 'flex';
+    setTimeout(() => welcome.classList.add('visible'), 50);
+  }
+
   window._startTutoIfNeeded = function () {
-    try {
-      if (!localStorage.getItem(KEYS.tuto)) {
-        welcome.style.display = 'flex';
-        setTimeout(() => welcome.classList.add('visible'), 50);
-      }
-    } catch {}
+    showWelcome();
   };
+
+  try {
+    if (!localStorage.getItem(KEYS.tuto)) {
+      showWelcome();
+    }
+  } catch {}
 })();

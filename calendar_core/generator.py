@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+import hashlib
 import json
 from pathlib import Path
 from dateutil import parser
@@ -46,27 +47,48 @@ def event_is_exportable(event: CalendarEvent, today, strict_future_only: bool) -
 	return effective_end >= today
 
 
-def save_calendar_json(events: list[CalendarEvent], upcoming: list[dict]) -> None:
+def save_calendar_json(events: list[CalendarEvent], upcoming: list[dict]) -> str:
 	sorted_events = sorted(events, key=lambda event: (event.start, event.summary))
+	content_version = build_content_version(sorted_events, upcoming)
 	payload = {
 		"generatedAt": datetime.now(timezone.utc).isoformat(),
+		"contentVersion": content_version,
 		"totalEvents": len(sorted_events),
 		"profiles": list(NOISE_PROFILES.keys()),
 		"events": [event.to_json() for event in sorted_events],
 		"upcoming": upcoming,
 	}
 	CALENDAR_JSON_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+	return content_version
 
 
-def save_weekly_meta(current_uids: set[str], previous_uids: set[str]) -> None:
+def save_weekly_meta(current_uids: set[str], previous_uids: set[str], content_version: str) -> None:
 	new_uids = sorted(current_uids - previous_uids)
 	payload = {
 		"generatedAt": datetime.now(timezone.utc).isoformat(),
+		"contentVersion": content_version,
 		"newEventsThisWeek": len(new_uids),
 		"newEventUids": new_uids[:50],
 		"totalEvents": len(current_uids),
 	}
 	EVENTS_META_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def build_content_version(events: list[CalendarEvent], upcoming: list[dict]) -> str:
+	sorted_upcoming = sorted(
+		upcoming,
+		key=lambda item: (
+			item.get("start") or "",
+			item.get("summary") or item.get("title") or "",
+			item.get("slug") or "",
+		),
+	)
+	canonical_payload = {
+		"events": [event.to_json() for event in events],
+		"upcoming": sorted_upcoming,
+	}
+	serialized = json.dumps(canonical_payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+	return hashlib.sha256(serialized.encode("utf-8")).hexdigest()[:16]
 
 
 def dict_to_cal_event(ev: dict) -> CalendarEvent:
@@ -138,8 +160,8 @@ def generate_all() -> None:
 		encoding="utf-8",
 	)
 
-	save_calendar_json(events, upcoming)
-	save_weekly_meta(global_uids, previous_uids)
+	content_version = save_calendar_json(events, upcoming)
+	save_weekly_meta(global_uids, previous_uids, content_version)
 
 	print(f"{MAIN_ICS_FILE} généré avec succès !")
 	for zone, path in ZONE_FILES.items():

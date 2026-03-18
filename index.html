@@ -111,15 +111,12 @@
           <div class="flag" role="img" aria-label="Drapeau France">
             <span class="fb"></span><span class="fw"></span><span class="fr_"></span>
           </div>
-          Calendrier France
+          <div class="brand-text">Calendrier</div>
         </div>
         <div class="topbar-r">
           <div class="sync-pill" id="sync-pill">
             Synchronisé <span class="sync-age" id="sync-age"></span>
           </div>
-          <button class="tbtn" onclick="window._startTutoIfNeeded&&window._startTutoIfNeeded()" title="Aide / Tutoriel" aria-label="Aide">
-            <i class="fa-regular fa-circle-question"></i>
-          </button>
           <span id="a11y-label" class="theme-label" aria-live="polite">Accessibilité</span>
           <button id="a11y-btn" class="tbtn" aria-label="Activer le mode accessibilité" title="Activer le mode accessibilité">
             <i class="fa-solid fa-universal-access"></i>
@@ -210,8 +207,19 @@
       <section id="sync">
         <div class="sh">
           <div class="sh-eye">2. Synchronisation</div>
-          <h2>Ajoutez le calendrier à votre agenda</h2>
-          <p>Simple = tout en un clic · Avancé = choisir ses zones et catégories</p>
+          <h2>Choisissez comment ajouter le calendrier</h2>
+          <p>Le mode Simple convient à la plupart des personnes. Le mode Avancé sert à créer un lien d'abonnement personnalisé.</p>
+        </div>
+
+        <div class="sync-guide">
+          <div class="sync-guide-card sync-guide-card--primary">
+            <div class="sync-guide-title"><i class="fa-regular fa-star ui-ico" aria-hidden="true"></i>Simple</div>
+            <div class="sync-guide-text">Le plus rapide : vous choisissez votre appli, puis vous vous abonnez au calendrier complet.</div>
+          </div>
+          <div class="sync-guide-card">
+            <div class="sync-guide-title"><i class="fa-solid fa-sliders ui-ico" aria-hidden="true"></i>Avancé</div>
+            <div class="sync-guide-text">Pour filtrer par zones, catégories, rappels ou ajouter des événements personnels avant de générer votre lien.</div>
+          </div>
         </div>
 
         <div class="tabs-row">
@@ -229,8 +237,8 @@
         <div class="tpanel on" id="tp-simple" role="tabpanel" aria-labelledby="tab-simple">
           <div class="sp">
             <div class="sp-h">
-              <h2>Sur quel appareil / appli ?</h2>
-              <p>Le calendrier s'ajoutera automatiquement à votre appli et se mettra à jour tout seul — sans rien installer.</p>
+              <h2>1. Choisissez votre appareil ou votre appli</h2>
+              <p>On vous indique ensuite la bonne action : ouvrir l'abonnement directement, copier le lien ou télécharger le fichier ICS.</p>
             </div>
             <div class="app-grid">
               <button class="abtn on" data-app="apple">
@@ -245,7 +253,7 @@
             </div>
 
             <details class="url-details">
-              <summary><i class="fa-solid fa-link" aria-hidden="true"></i>Voir le lien d'abonnement</summary>
+              <summary><i class="fa-solid fa-link" aria-hidden="true"></i>Voir ou copier le lien d'abonnement</summary>
               <div class="url-box">
                 <code id="simple-url"></code>
                 <button class="cpbtn" id="cp-simple">Copier</button>
@@ -256,10 +264,10 @@
 
             <div class="sp-cta">
               <a id="sub-btn" href="#" class="bp">
-                <i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner maintenant
+                <i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>2. Ouvrir l'abonnement
               </a>
               <a href="/calendrier.ics" class="bs" download>
-                <i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Télécharger .ICS
+                <i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Télécharger le fichier .ICS
               </a>
             </div>
 
@@ -295,125 +303,169 @@
         <!-- Panneau Avancé -->
         <div class="tpanel" id="tp-advanced" role="tabpanel" aria-labelledby="tab-advanced">
           <div class="adv">
-            <span class="adv-lbl">Profil rapide</span>
-            <div class="pcards" id="pcards">
-              <div class="pc on" data-p="complet">
-                <div class="pc-name">Complet</div>
-                <div class="pc-desc">Tout inclus : fériés, vacances, saisons, horloges, fêtes…</div>
-              </div>
-              <div class="pc" data-p="essentiel">
-                <div class="pc-name">Essentiel</div>
-                <div class="pc-desc">Jours fériés + vacances scolaires. Léger, sans bruit.</div>
-              </div>
-              <div class="pc" data-p="familial">
-                <div class="pc-name">Familial</div>
-                <div class="pc-desc">Fériés, vacances, fêtes enfants, saisons et culture.</div>
-              </div>
-              <div class="pc" data-p="pro">
-                <div class="pc-name">Pro</div>
-                <div class="pc-desc">Fériés, ponts, événements commerciaux. Idéal pros.</div>
-              </div>
+            <div class="adv-intro">
+              <div class="adv-intro-title">Mode guidé en 5 étapes</div>
+              <div class="adv-intro-text">Suivez les étapes dans l’ordre. Commencez par un profil, affinez vos zones et catégories, puis générez votre lien à la fin.</div>
             </div>
 
-            <span class="adv-lbl">Zone(s) scolaire(s) — sélection multiple possible</span>
-            <div class="zmulti" id="zmulti">
-              <button class="zmb sall" data-z="all">Toutes</button>
-              <button class="zmb" data-z="A">Zone A</button>
-              <button class="zmb" data-z="B">Zone B</button>
-              <button class="zmb" data-z="C">Zone C</button>
-              <button class="zmb" data-z="AM" title="Alsace-Moselle — départements 57, 67, 68 (Vendredi Saint + 26 décembre)">Alsace-Moselle</button>
-            </div>
-            <p class="adv-zone-note">Combinez plusieurs zones si vous avez des enfants dans deux académies différentes.</p>
-
-            <!-- Encart "Quelle est ma zone ?" -->
-            <div class="zone-nudge zone-nudge--compact">
-              <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
-              <span>Vous ne savez pas quelle zone choisir ?</span>
-              <a href="#zone" class="zone-nudge-link">Trouvez votre zone <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-
-            <span class="adv-lbl">Catégories à inclure — <span class="adv-lbl-note">cliquer pour activer / désactiver</span></span>
-            <div class="cat-grid" id="adv-cats"></div>
-
-            <span class="adv-lbl">Options</span>
-            <div class="adv-opts">
-              <div>
-                <label class="fld-l" for="adv-alarm">Rappels automatiques</label>
-                <select class="fld-s" id="adv-alarm">
-                  <option value="none">Désactivés (recommandé)</option>
-                  <option value="1h">1h avant l'événement</option>
-                  <option value="1d">La veille à la même heure</option>
-                  <option value="9am">Le jour même à 9h</option>
-                </select>
+            <section class="adv-step">
+              <div class="adv-step-head">
+                <div class="adv-step-num">1</div>
+                <div>
+                  <span class="adv-lbl">Choisissez un profil de départ</span>
+                  <p class="adv-step-help">Le profil préremplit les catégories pour éviter de partir de zéro.</p>
+                </div>
               </div>
-            </div>
+              <div class="pcards" id="pcards">
+                <div class="pc on" data-p="complet">
+                  <div class="pc-name">Complet</div>
+                  <div class="pc-desc">Tout inclus : fériés, vacances, saisons, horloges, fêtes…</div>
+                </div>
+                <div class="pc" data-p="essentiel">
+                  <div class="pc-name">Essentiel</div>
+                  <div class="pc-desc">Jours fériés + vacances scolaires. Léger, sans bruit.</div>
+                </div>
+                <div class="pc" data-p="familial">
+                  <div class="pc-name">Familial</div>
+                  <div class="pc-desc">Fériés, vacances, fêtes enfants, saisons et culture.</div>
+                </div>
+                <div class="pc" data-p="pro">
+                  <div class="pc-name">Pro</div>
+                  <div class="pc-desc">Fériés, ponts, événements commerciaux. Idéal pros.</div>
+                </div>
+              </div>
+            </section>
 
-            <!-- Événements personnels -->
-            <div class="pe-section">
-              <h3><i class="fa-solid fa-plus ui-ico" aria-hidden="true"></i>Événements personnels</h3>
-              <p>Ajoutez vos propres dates pour les intégrer dans le fichier ICS généré (anniversaires, RDV récurrents…).</p>
-              <div class="pe-form">
-                <input class="pe-input" id="pe-title" type="text" placeholder="Titre de l'événement" />
-                <input class="pe-date" id="pe-date" type="date" />
-                <select class="pe-sel" id="pe-rec">
-                  <option value="none">Une seule fois</option>
-                  <option value="yearly">Chaque année</option>
-                  <option value="monthly">Chaque mois</option>
-                  <option value="weekly">Chaque semaine</option>
-                </select>
-                <button class="pe-add" id="pe-add-btn">Ajouter</button>
+            <section class="adv-step">
+              <div class="adv-step-head">
+                <div class="adv-step-num">2</div>
+                <div>
+                  <span class="adv-lbl">Sélectionnez les zones scolaires</span>
+                  <p class="adv-step-help">Choisissez une ou plusieurs zones selon votre foyer. Vous pouvez laisser “Toutes” si vous voulez un calendrier large.</p>
+                </div>
               </div>
-              <div class="pe-list" id="pe-list">
-                <div class="pe-empty">Aucun événement personnel.</div>
+              <div class="zmulti" id="zmulti">
+                <button class="zmb sall" data-z="all">Toutes</button>
+                <button class="zmb" data-z="A">Zone A</button>
+                <button class="zmb" data-z="B">Zone B</button>
+                <button class="zmb" data-z="C">Zone C</button>
+                <button class="zmb" data-z="AM" title="Alsace-Moselle — départements 57, 67, 68 (Vendredi Saint + 26 décembre)">Alsace-Moselle</button>
               </div>
-            </div>
+              <p class="adv-zone-note">Combinez plusieurs zones si vous avez des enfants dans deux académies différentes.</p>
 
-            <!-- Génération URL -->
-            <div class="gen-out">
-              <div class="url-anim-label">
-                <i class="fa-solid fa-link ui-ico" aria-hidden="true"></i>URL générée
+              <div class="zone-nudge zone-nudge--compact">
+                <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+                <span>Vous ne savez pas quelle zone choisir ?</span>
+                <a href="#zone" class="zone-nudge-link">Trouvez votre zone <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
               </div>
-              <div id="adv-url-recap" class="url-recap" aria-live="polite"></div>
-              <div class="url-anim-wrap">
-                <div id="adv-url-animated"></div>
-                <span id="adv-url-badge" class="url-built-badge" style="display:none">
-                  <i class="fa-solid fa-check" aria-hidden="true"></i> Prêt
-                </span>
-                <button id="adv-url-copy" class="url-copy-btn" style="opacity:0;pointer-events:none">
-                  <i class="fa-regular fa-copy" aria-hidden="true"></i> Copier
+            </section>
+
+            <section class="adv-step">
+              <div class="adv-step-head">
+                <div class="adv-step-num">3</div>
+                <div>
+                  <span class="adv-lbl">Choisissez les catégories à inclure</span>
+                  <p class="adv-step-help">Cliquez pour activer ou désactiver. Le profil choisi à l’étape 1 sert seulement de point de départ.</p>
+                </div>
+              </div>
+              <div class="cat-grid" id="adv-cats"></div>
+            </section>
+
+            <section class="adv-step">
+              <div class="adv-step-head">
+                <div class="adv-step-num">4</div>
+                <div>
+                  <span class="adv-lbl">Réglez les options</span>
+                  <p class="adv-step-help">Ajoutez d’abord les rappels si vous en voulez, puis vos événements personnels si besoin.</p>
+                </div>
+              </div>
+              <div class="adv-opts">
+                <div>
+                  <label class="fld-l" for="adv-alarm">Rappels automatiques</label>
+                  <select class="fld-s" id="adv-alarm">
+                    <option value="none">Désactivés (recommandé)</option>
+                    <option value="1h">1h avant l'événement</option>
+                    <option value="1d">La veille à la même heure</option>
+                    <option value="9am">Le jour même à 9h</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="pe-section">
+                <h3><i class="fa-solid fa-plus ui-ico" aria-hidden="true"></i>Événements personnels</h3>
+                <p>Ajoutez vos propres dates pour les intégrer dans le fichier ICS généré (anniversaires, RDV récurrents…). Ces événements restent stockés dans votre navigateur, mais le lien d'abonnement généré les inclut aussi dans l'URL pour que votre agenda puisse les récupérer.</p>
+                <div class="pe-form">
+                  <input class="pe-input" id="pe-title" type="text" placeholder="Titre de l'événement" />
+                  <input class="pe-date" id="pe-date" type="date" />
+                  <select class="pe-sel" id="pe-rec">
+                    <option value="none">Une seule fois</option>
+                    <option value="yearly">Chaque année</option>
+                    <option value="monthly">Chaque mois</option>
+                    <option value="weekly">Chaque semaine</option>
+                  </select>
+                  <button class="pe-add" id="pe-add-btn">Ajouter</button>
+                </div>
+                <div class="pe-list" id="pe-list">
+                  <div class="pe-empty">Aucun événement personnel.</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="adv-step adv-step--final">
+              <div class="adv-step-head">
+                <div class="adv-step-num">5</div>
+                <div>
+                  <span class="adv-lbl">Générez votre lien d'abonnement</span>
+                  <p class="adv-step-help">Quand tout vous convient, créez le lien puis ouvrez-le dans votre agenda.</p>
+                </div>
+              </div>
+
+              <div class="gen-out">
+                <div class="url-anim-label">
+                  <i class="fa-solid fa-link ui-ico" aria-hidden="true"></i>Étape finale
+                </div>
+                <div id="adv-url-recap" class="url-recap" aria-live="polite"></div>
+                <div class="url-anim-wrap">
+                  <div id="adv-url-animated"></div>
+                  <span id="adv-url-badge" class="url-built-badge" style="display:none">
+                    <i class="fa-solid fa-check" aria-hidden="true"></i> Prêt
+                  </span>
+                  <button id="adv-url-copy" class="url-copy-btn" style="opacity:0;pointer-events:none">
+                    <i class="fa-regular fa-copy" aria-hidden="true"></i> Copier
+                  </button>
+                </div>
+                <div id="adv-pe-url-warn" class="adv-pe-warn" style="display:none">
+                  <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                  <span>Attention : l'URL générée est longue. Certains agendas peuvent ne pas supporter toutes les options avancées.</span>
+                </div>
+                <button id="adv-generate" class="bp adv-generate-btn">
+                  <i class="fa-solid fa-sliders ui-ico" aria-hidden="true"></i>Générer mon lien d'abonnement
                 </button>
-              </div>
-              <div id="adv-pe-url-warn" class="adv-pe-warn" style="display:none">
-                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-                <span>Attention : l'URL générée est longue. Certains agendas peuvent ne pas supporter toutes les options avancées.</span>
-              </div>
-              <button id="adv-generate" class="bp adv-generate-btn">
-                <i class="fa-solid fa-sliders ui-ico" aria-hidden="true"></i>Générer mon calendrier
-              </button>
-              <button onclick="copyShareUrl()" class="bs adv-share-btn">
-                <i class="fa-solid fa-share-nodes ui-ico" aria-hidden="true"></i>Partager ma config
-              </button>
+                <button onclick="copyShareUrl()" class="bs adv-share-btn">
+                  <i class="fa-solid fa-share-nodes ui-ico" aria-hidden="true"></i>Partager ma config
+                </button>
 
-              <div class="gen-links-and-qr">
-                <div class="gen-acts">
-                  <a id="adv-sub" href="#" class="bp"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner</a>
-                  <a id="adv-ggl" href="#" target="_blank" class="bs"><i class="fa-brands fa-google ui-ico" aria-hidden="true"></i>Google Cal.</a>
-                  <a id="adv-out" href="#" target="_blank" class="bs"><i class="fa-brands fa-microsoft ui-ico" aria-hidden="true"></i>Outlook</a>
-                </div>
-                <div class="qr-panel" id="adv-qr-panel" aria-live="polite">
-                  <div class="qr-head">Import mobile rapide</div>
-                  <div class="qr-help">Scanne pour ouvrir directement le lien sur ton téléphone.</div>
-                  <div class="qr-placeholder">
-                    <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
-                    <span>Le QR apparaîtra après génération du lien.</span>
+                <div class="gen-links-and-qr">
+                  <div class="gen-acts">
+                    <a id="adv-sub" href="#" class="bp"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>Ouvrir l'abonnement</a>
+                    <a id="adv-ggl" href="#" target="_blank" class="bs"><i class="fa-brands fa-google ui-ico" aria-hidden="true"></i>Ouvrir dans Google</a>
+                    <a id="adv-out" href="#" target="_blank" class="bs"><i class="fa-brands fa-microsoft ui-ico" aria-hidden="true"></i>Ouvrir dans Outlook</a>
                   </div>
-                  <a class="qr-item qr-item-main" id="qr-link-main" href="#" target="_blank" rel="noopener noreferrer">
-                    <img id="qr-img-main" alt="QR import calendrier" />
-                    <span><i class="fa-solid fa-qrcode ui-ico" aria-hidden="true"></i>Scanner sur iPhone / Android</span>
-                  </a>
+                  <div class="qr-panel" id="adv-qr-panel" aria-live="polite">
+                    <div class="qr-head">Ou envoyer le lien sur mobile</div>
+                    <div class="qr-help">Scanne ce QR code pour ouvrir directement le lien d'abonnement sur ton téléphone.</div>
+                    <div class="qr-placeholder">
+                      <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
+                      <span>Le QR apparaîtra après génération du lien.</span>
+                    </div>
+                    <a class="qr-item qr-item-main" id="qr-link-main" href="#" target="_blank" rel="noopener noreferrer">
+                      <img id="qr-img-main" alt="QR import calendrier" />
+                      <span><i class="fa-solid fa-qrcode ui-ico" aria-hidden="true"></i>Scanner sur iPhone / Android</span>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </section>
@@ -565,7 +617,7 @@
               <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
             </summary>
             <div class="faq-a">
-              Non. Aucune donnée personnelle n'est collectée. Le serveur reçoit des requêtes HTTP anonymes pour servir les fichiers ICS. Vos événements personnels ajoutés dans l'onglet Avancé restent dans votre navigateur (localStorage) et ne transitent jamais par nos serveurs.
+              Non. Aucune donnée personnelle n'est collectée pour créer un compte ou vous suivre. Le serveur reçoit seulement les requêtes HTTP nécessaires pour servir les fichiers ICS. Vos événements personnels ajoutés dans l'onglet Avancé sont stockés dans votre navigateur, mais si vous générez un lien d'abonnement avancé ils transitent aussi dans l'URL envoyée au serveur et peuvent donc apparaître dans les journaux techniques habituels.
             </div>
           </details>
 
@@ -731,6 +783,25 @@
         </div>
         <div class="mdl">Description</div>
         <div class="md" id="m-desc">—</div>
+      </div>
+    </div>
+
+    <div class="mbg" id="calendar-update-modal" role="dialog" aria-modal="true" aria-labelledby="calendar-update-title">
+      <div class="ms ms--update">
+        <div class="mt">
+          <h2 class="m-title" id="calendar-update-title">Nouvelle version disponible</h2>
+          <button class="mcl" id="calendar-update-close" aria-label="Fermer">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="md" id="calendar-update-text">
+          Une nouvelle version du calendrier est disponible pendant que vous consultez la page.
+          Rechargez pour voir les dernières dates et mises à jour.
+        </div>
+        <div class="calendar-update-actions">
+          <button class="bs" id="calendar-update-dismiss" type="button">Plus tard</button>
+          <button class="bp" id="calendar-update-refresh" type="button">Actualiser</button>
+        </div>
       </div>
     </div>
 

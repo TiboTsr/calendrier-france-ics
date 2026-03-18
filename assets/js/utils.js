@@ -32,23 +32,41 @@ const KEYS = {
 
 /* ── Catalogue de catégories ────────────────────────── */
 const CATS = [
-  { n: 'Jours fériés',        c: '#ff5a5a', d: 'rgba(255,90,90,.12)',   b: 'rgba(255,90,90,.3)'   },
-  { n: 'Vacances scolaires',  c: '#f5a020', d: 'rgba(245,160,32,.12)',  b: 'rgba(245,160,32,.3)'  },
-  { n: "Changement d'heure",  c: '#3ecf8e', d: 'rgba(62,207,142,.12)',  b: 'rgba(62,207,142,.3)'  },
-  { n: 'Saisons',             c: '#22d3ee', d: 'rgba(34,211,238,.12)',  b: 'rgba(34,211,238,.3)'  },
-  { n: 'Ponts / Congés',      c: '#fb923c', d: 'rgba(251,146,60,.12)',  b: 'rgba(251,146,60,.3)'  },
-  { n: 'Événements spéciaux', c: '#a78bfa', d: 'rgba(167,139,250,.12)', b: 'rgba(167,139,250,.3)' },
-  { n: 'Commercial',          c: '#f472b6', d: 'rgba(244,114,182,.12)', b: 'rgba(244,114,182,.3)' },
-  { n: 'Christianisme',       c: '#e2c074', d: 'rgba(226,192,116,.12)', b: 'rgba(226,192,116,.3)' },
-  { n: 'Culture',             c: '#6b8cff', d: 'rgba(107,140,255,.12)', b: 'rgba(107,140,255,.3)' },
+  { n: 'Agriculture',         c: '#84cc16', d: 'rgba(132,204,22,.12)',  b: 'rgba(132,204,22,.3)'  },
   { n: 'Astronomie',          c: '#60a5fa', d: 'rgba(96,165,250,.12)',  b: 'rgba(96,165,250,.3)'  },
+  { n: "Changement d'heure",  c: '#3ecf8e', d: 'rgba(62,207,142,.12)',  b: 'rgba(62,207,142,.3)'  },
+  { n: 'Christianisme',       c: '#e2c074', d: 'rgba(226,192,116,.12)', b: 'rgba(226,192,116,.3)' },
+  { n: 'Cinéma',              c: '#f97316', d: 'rgba(249,115,22,.12)',  b: 'rgba(249,115,22,.3)'  },
+  { n: 'Commerce',            c: '#4f7cff', d: 'rgba(79,124,255,.12)',  b: 'rgba(79,124,255,.3)'  },
+  { n: 'Commercial',          c: '#ec4899', d: 'rgba(236,72,153,.12)',  b: 'rgba(236,72,153,.3)'  },
+  { n: 'Culture',             c: '#6b8cff', d: 'rgba(107,140,255,.12)', b: 'rgba(107,140,255,.3)' },
+  { n: 'Dates spéciales',     c: '#a78bfa', d: 'rgba(167,139,250,.12)', b: 'rgba(167,139,250,.3)' },
+  { n: 'Environnement',       c: '#10b981', d: 'rgba(16,185,129,.12)',  b: 'rgba(16,185,129,.3)'  },
+  { n: 'Examens',             c: '#14b8a6', d: 'rgba(20,184,166,.12)',  b: 'rgba(20,184,166,.3)'  },
+  { n: 'Fêtes',               c: '#8b5cf6', d: 'rgba(139,92,246,.12)',  b: 'rgba(139,92,246,.3)'  },
+  { n: 'Gastronomie',         c: '#f59e0b', d: 'rgba(245,158,11,.12)',  b: 'rgba(245,158,11,.3)'  },
+  { n: 'Jours fériés',        c: '#ff5a5a', d: 'rgba(255,90,90,.12)',   b: 'rgba(255,90,90,.3)'   },
+  { n: 'Lunaire',             c: '#4f46e5', d: 'rgba(79,70,229,.12)',   b: 'rgba(79,70,229,.3)'   },
+  { n: 'Mémoire',             c: '#64748b', d: 'rgba(100,116,139,.12)', b: 'rgba(100,116,139,.3)' },
+  { n: 'Ponts / Congés',      c: '#fb923c', d: 'rgba(251,146,60,.12)',  b: 'rgba(251,146,60,.3)'  },
+  { n: 'Saisons',             c: '#22d3ee', d: 'rgba(34,211,238,.12)',  b: 'rgba(34,211,238,.3)'  },
+  { n: 'Santé',               c: '#ef4444', d: 'rgba(239,68,68,.12)',   b: 'rgba(239,68,68,.3)'   },
   { n: 'Société',             c: '#94a3b8', d: 'rgba(148,163,184,.12)', b: 'rgba(148,163,184,.3)' },
-  { n: 'Élections',          c: '#f43f5e', d: 'rgba(244,63,94,.12)',   b: 'rgba(244,63,94,.3)'   },
+  { n: 'Sport',               c: '#06b6d4', d: 'rgba(6,182,212,.12)',   b: 'rgba(6,182,212,.3)'   },
+  { n: 'Théâtre',             c: '#d946ef', d: 'rgba(217,70,239,.12)',  b: 'rgba(217,70,239,.3)'  },
+  { n: 'Vacances scolaires',  c: '#f5a020', d: 'rgba(245,160,32,.12)',  b: 'rgba(245,160,32,.3)'  },
+  { n: 'Éducation',           c: '#0ea5e9', d: 'rgba(14,165,233,.12)',  b: 'rgba(14,165,233,.3)'  },
+  { n: 'Élections',           c: '#f43f5e', d: 'rgba(244,63,94,.12)',   b: 'rgba(244,63,94,.3)'   },
+  { n: 'Événements spéciaux', c: '#a78bfa', d: 'rgba(167,139,250,.12)', b: 'rgba(167,139,250,.3)' },
 ];
 
 /** Retourne la définition couleur d'une catégorie (fallback bleu). */
 function cd(name) {
-  return CATS.find(c => c.n === name) || { c: '#6b8cff', d: 'rgba(107,140,255,.12)', b: 'rgba(107,140,255,.3)' };
+  const aliases = {
+    'Événements spéciaux': 'Dates spéciales',
+  };
+  const normalized = aliases[name] || name;
+  return CATS.find(c => c.n === normalized) || { c: '#6b8cff', d: 'rgba(107,140,255,.12)', b: 'rgba(107,140,255,.3)' };
 }
 window.cd = cd; // exposé pour calendar-grid.js
 
@@ -56,8 +74,8 @@ window.cd = cd; // exposé pour calendar-grid.js
 const PROFILES = {
   complet:  null, // null = tout
   essentiel: ['Jours fériés', 'Vacances scolaires', 'Ponts / Congés'],
-  familial:  ['Jours fériés', 'Vacances scolaires', 'Saisons', 'Événements spéciaux', 'Christianisme', 'Culture'],
-  pro:       ['Jours fériés', 'Ponts / Congés', 'Commercial', 'Événements spéciaux'],
+  familial:  ['Jours fériés', 'Vacances scolaires', 'Fêtes', 'Saisons', 'Culture'],
+  pro:       ['Jours fériés', 'Ponts / Congés', 'Commercial', 'Commerce'],
 };
 
 /* ── Infos app picker ───────────────────────────────── */

@@ -16,6 +16,19 @@ def escape_ics_text(value: str) -> str:
     )
 
 
+def fold_ics_line(line: str, max_len: int = 75) -> str:
+    if len(line) <= max_len:
+        return line
+
+    chunks: list[str] = []
+    start = 0
+    while start < len(line):
+        prefix = "" if start == 0 else " "
+        chunks.append(prefix + line[start:start + max_len])
+        start += max_len
+    return "\r\n".join(chunks)
+
+
 def serialize_calendar(events: list[CalendarEvent], cal_name: str, domain: str, timezone_name: str = "Europe/Paris") -> tuple[str, set[str]]:
     dtstamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     lines = [
@@ -53,7 +66,8 @@ def serialize_calendar(events: list[CalendarEvent], cal_name: str, domain: str, 
         lines.append("END:VEVENT")
 
     lines.append("END:VCALENDAR")
-    return "\n".join(lines) + "\n", uids
+    folded = [fold_ics_line(line) for line in lines]
+    return "\r\n".join(folded) + "\r\n", uids
 
 
 def serialize_csv(events: list[CalendarEvent]) -> str:

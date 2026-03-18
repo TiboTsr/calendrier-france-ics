@@ -1,5 +1,5 @@
 /**
- * api/event-page.js — Pages dédiées par événement pour le SEO
+ * api/event-page.js - Pages dediees par evenement pour le SEO
  *
  * Routes : /ferie/[slug]
  * Exemples :
@@ -7,8 +7,8 @@
  *   /ferie/vacances-printemps-zone-a-2026
  *   /ferie/fete-nationale-2026
  *
- * Génère un HTML statique avec :
- *   - Titre/description SEO optimisés
+ * Genere un HTML statique avec :
+ *   - Titre/description SEO optimises
  *   - Schema.org Event (JSON-LD)
  *   - Lien d'abonnement ICS direct
  *   - Lien retour vers la page principale
@@ -26,12 +26,32 @@ function slugify(str) {
 }
 
 function parseSlug(slug) {
-  // Extraire l'année en fin de slug : mot-mot-mot-2026
   const yearMatch = slug.match(/-(\d{4})$/);
   if (!yearMatch) return null;
-  const year = parseInt(yearMatch[1]);
+  const year = parseInt(yearMatch[1], 10);
   const namePart = slug.slice(0, -(yearMatch[0].length));
   return { namePart, year };
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function escapeAttr(value) {
+  return escapeHtml(value);
+}
+
+function formatTextWithBreaks(value) {
+  return escapeHtml(value).replace(/\n/g, "<br/>");
+}
+
+function safeJsonForScript(value) {
+  return JSON.stringify(value, null, 2).replace(/<\//g, "<\\/");
 }
 
 function formatDateFR(dateStr) {
@@ -39,12 +59,11 @@ function formatDateFR(dateStr) {
   const [y, m, d] = dateStr.split("-").map(Number);
   const dt = new Date(y, m - 1, d);
   return new Intl.DateTimeFormat("fr-FR", {
-    weekday: "long", day: "numeric", month: "long", year: "numeric",
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
   }).format(dt);
-}
-
-function formatDateISO(dateStr) {
-  return dateStr || "";
 }
 
 function getDurationDays(start, end) {
@@ -58,20 +77,20 @@ function buildEventSchema(event, siteUrl) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": event.summary,
-    "description": event.description || "",
-    "startDate": event.start,
-    "url": `${siteUrl}/ferie/${slugify(event.summary)}-${event.start.slice(0, 4)}`,
-    "organizer": {
+    name: event.summary,
+    description: event.description || "",
+    startDate: event.start,
+    url: `${siteUrl}/ferie/${slugify(event.summary)}-${event.start.slice(0, 4)}`,
+    organizer: {
       "@type": "Organization",
-      "name": "Calendrier France",
-      "url": siteUrl,
+      name: "Calendrier France",
+      url: siteUrl,
     },
-    "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "location": {
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    location: {
       "@type": "Country",
-      "name": "France",
+      name: "France",
     },
   };
   if (event.end && event.end !== event.start) {
@@ -80,34 +99,41 @@ function buildEventSchema(event, siteUrl) {
   if (event.categories?.length) {
     schema.keywords = event.categories.join(", ");
   }
-  return JSON.stringify(schema, null, 2);
+  return safeJsonForScript(schema);
 }
 
 function buildHtml(event, siteUrl, icsUrl) {
   const startFR = formatDateFR(event.start);
   const endFR = event.end && event.end !== event.start ? formatDateFR(event.end) : null;
   const duration = getDurationDays(event.start, event.end);
-  const cats = (event.categories || []).join(" · ");
-  const zones = (event.zones || []).length ? `Zone${event.zones.length > 1 ? "s" : ""} : ${event.zones.join(", ")}` : "";
+  const title = escapeHtml(event.summary);
+  const cats = escapeHtml((event.categories || []).join(" · "));
+  const zones = (event.zones || []).length
+    ? escapeHtml(`Zone${event.zones.length > 1 ? "s" : ""} : ${event.zones.join(", ")}`)
+    : "";
   const schema = buildEventSchema(event, siteUrl);
   const canonicalUrl = `${siteUrl}/ferie/${slugify(event.summary)}-${event.start.slice(0, 4)}`;
   const desc = event.description
     ? event.description.slice(0, 200) + (event.description.length > 200 ? "…" : "")
     : `${event.summary} — ${startFR}`;
+  const safeDesc = escapeAttr(desc);
+  const safeCanonicalUrl = escapeAttr(canonicalUrl);
+  const safeSiteUrl = escapeAttr(siteUrl);
+  const safeIcsUrl = escapeAttr(icsUrl);
 
   return `<!doctype html>
 <html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>${event.summary} ${event.start.slice(0, 4)} — Calendrier France</title>
-  <meta name="description" content="${desc.replace(/"/g, "&quot;")}"/>
+  <title>${title} ${event.start.slice(0, 4)} — Calendrier France</title>
+  <meta name="description" content="${safeDesc}"/>
   <meta name="robots" content="index,follow"/>
-  <link rel="canonical" href="${canonicalUrl}"/>
+  <link rel="canonical" href="${safeCanonicalUrl}"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="${event.summary} ${event.start.slice(0, 4)}"/>
-  <meta property="og:description" content="${desc.replace(/"/g, "&quot;")}"/>
-  <meta property="og:url" content="${canonicalUrl}"/>
+  <meta property="og:title" content="${title} ${event.start.slice(0, 4)}"/>
+  <meta property="og:description" content="${safeDesc}"/>
+  <meta property="og:url" content="${safeCanonicalUrl}"/>
   <meta property="og:site_name" content="Calendrier France"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -153,21 +179,21 @@ function buildHtml(event, siteUrl, icsUrl) {
       </div>
       Calendrier France
     </div>
-    <a href="${siteUrl}/#explorer" class="back">← Retour au calendrier</a>
+    <a href="${safeSiteUrl}/#explorer" class="back">← Retour au calendrier</a>
   </nav>
 
   <main class="page">
     <div class="eyebrow">${cats}</div>
-    <h1>${event.summary}</h1>
+    <h1>${title}</h1>
 
     <div class="meta-grid">
       <div class="mbox acc">
         <div class="ml">Date</div>
-        <div class="mv">${startFR}</div>
+        <div class="mv">${escapeHtml(startFR)}</div>
       </div>
       ${endFR ? `<div class="mbox">
         <div class="ml">Fin</div>
-        <div class="mv">${endFR}</div>
+        <div class="mv">${escapeHtml(endFR)}</div>
       </div>` : ""}
       <div class="mbox">
         <div class="ml">Durée</div>
@@ -179,14 +205,14 @@ function buildHtml(event, siteUrl, icsUrl) {
       </div>` : ""}
     </div>
 
-    ${event.description ? `<div class="desc-block">${event.description.replace(/\n/g, "<br/>")}</div>` : ""}
+    ${event.description ? `<div class="desc-block">${formatTextWithBreaks(event.description)}</div>` : ""}
 
     <div class="cta-row">
-      <a href="${icsUrl}" class="bp">
+      <a href="${safeIcsUrl}" class="bp">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         S'abonner au calendrier complet
       </a>
-      <a href="${siteUrl}/#explorer" class="bs">
+      <a href="${safeSiteUrl}/#explorer" class="bs">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Voir tous les événements
       </a>
@@ -195,7 +221,7 @@ function buildHtml(event, siteUrl, icsUrl) {
 
   <footer>
     <p>
-      <a href="${siteUrl}/">Calendrier France</a> ·
+      <a href="${safeSiteUrl}/">Calendrier France</a> ·
       Données officielles ·
       <a href="https://github.com/TiboTsr/calendrier-france-ics">Open source</a>
     </p>
@@ -221,37 +247,34 @@ module.exports = async function handler(req, res) {
     if (!parsed) {
       res.statusCode = 404;
       res.setHeader("Content-Type", "text/plain");
-      res.end("Page introuvable — format attendu : /ferie/nom-evenement-2026");
+      res.end("Page introuvable - format attendu : /ferie/nom-evenement-2026");
       return;
     }
 
-    // Charger calendrier.json
     const sourceUrl = process.env.CALENDAR_JSON_URL || "https://calendrier-fr.tibotsr.dev/calendrier.json";
     const upstream = await fetch(sourceUrl, { cache: "no-store" });
     if (!upstream.ok) {
       res.statusCode = 502;
-      res.end("Impossible de charger les données");
+      res.end("Impossible de charger les donnees");
       return;
     }
     const data = await upstream.json();
     const events = Array.isArray(data.events) ? data.events : [];
 
-    // Trouver l'événement correspondant au slug
     const { namePart, year } = parsed;
-    const match = events.find(e => {
+    const match = events.find((e) => {
       if (!e.start || !e.start.startsWith(String(year))) return false;
       return slugify(e.summary) === namePart || slugify(e.summary).startsWith(namePart);
     });
 
     if (!match) {
-      // Page 404 propre avec suggestion de retour
       res.statusCode = 404;
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.end(`<!doctype html><html lang="fr"><head><meta charset="UTF-8"/><title>Événement introuvable — Calendrier France</title></head>
 <body style="font-family:sans-serif;padding:40px;text-align:center;background:#07070d;color:#ededf4">
   <h1>Événement introuvable</h1>
-  <p style="color:#8080a0;margin:16px 0">L'événement « ${slug} » n'existe pas ou n'est plus disponible.</p>
-  <a href="${siteUrl}/" style="color:#6b8cff;font-weight:600">← Retour au calendrier</a>
+  <p style="color:#8080a0;margin:16px 0">L'événement « ${escapeHtml(slug)} » n'existe pas ou n'est plus disponible.</p>
+  <a href="${escapeAttr(siteUrl)}/" style="color:#6b8cff;font-weight:600">← Retour au calendrier</a>
 </body></html>`);
       return;
     }

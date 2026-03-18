@@ -67,6 +67,13 @@ function _ensureFiltersBtn() {
   updateFiltersBtn();
 }
 
+function _teardownMobileExplorerUi() {
+  document.getElementById('filters-open-btn')?.remove();
+  document.getElementById('filters-reset-btn')?.remove();
+  document.getElementById('mo-select-mobile')?.remove();
+  closeFiltersSheet();
+}
+
 function _resetAllFilters() {
   const srch = document.getElementById('srch');
   if (srch) { srch.value = ''; srch.dispatchEvent(new Event('input', { bubbles: true })); }
@@ -418,8 +425,7 @@ window.addEventListener('resize', () => {
     const fab = document.querySelector('.today-fab');
     const moScroll = document.querySelector('.mo-scroll');
     if (!m) {
-      document.getElementById('mo-select-mobile')?.remove();
-      closeFiltersSheet();
+      _teardownMobileExplorerUi();
       if (fab) fab.style.display = 'none';
       if (moScroll) moScroll.style.display = '';
     } else {

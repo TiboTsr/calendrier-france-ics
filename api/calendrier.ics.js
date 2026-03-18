@@ -1,4 +1,13 @@
-const crypto = require('crypto');
+const crypto = require("crypto");
+
+const UPSTREAM_CACHE_TTL_MS = 5 * 60 * 1000;
+
+let upstreamCalendarCache = {
+  expiresAt: 0,
+  payload: null,
+  etag: null,
+  lastModified: null,
+};
 
 function escapeIcsText(value) {
   return String(value ?? "")
@@ -47,7 +56,7 @@ async function makeUid(event) {
   ].join("::");
 
   try {
-    const hashHex = crypto.createHash('sha256').update(key).digest('hex');
+    const hashHex = crypto.createHash("sha256").update(key).digest("hex");
     return `${hashHex.slice(0, 16)}@calendrier-fr.tibotsr.dev`;
   } catch {
     let hash = 2166136261;
@@ -72,7 +81,7 @@ function normalizeCategoryLabel(label) {
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[’']/g, "")
+    .replace(/[â€™']/g, "")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 }
@@ -158,155 +167,50 @@ function parsePersonalEvents(raw) {
   }
 }
 
-function normalizeFirstName(value) {
-  return String(value || "")
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z' -]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
-}
+async function loadCalendarPayload(sourceUrl) {
+  const now = Date.now();
+  if (upstreamCalendarCache.payload && upstreamCalendarCache.expiresAt > now) {
+    return upstreamCalendarCache.payload;
+  }
 
-function formatDisplayFirstName(value) {
-  return String(value || "")
-    .trim()
-    .toLowerCase()
-    .split(" ")
-    .map((part) =>
-      part
-        .split("-")
-        .map((chunk) => (chunk ? chunk[0].toUpperCase() + chunk.slice(1) : ""))
-        .join("-")
-    )
-    .join(" ")
-    .trim();
-}
+  const headers = {};
+  if (upstreamCalendarCache.etag) {
+    headers["If-None-Match"] = upstreamCalendarCache.etag;
+  }
+  if (upstreamCalendarCache.lastModified) {
+    headers["If-Modified-Since"] = upstreamCalendarCache.lastModified;
+  }
 
-function parseFirstNames(raw) {
-  if (!raw) return [];
   try {
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    const names = parsed
-      .map((name) => String(name || "").trim())
-      .filter(Boolean)
-      .slice(0, 30);
-
-    const seen = new Set();
-    return names.filter((name) => {
-      const key = normalizeFirstName(name);
-      if (!key || seen.has(key)) return false;
-      seen.add(key);
-      return true;
+    const upstream = await fetch(sourceUrl, {
+      cache: "no-store",
+      headers,
     });
-  } catch {
-    const names = String(raw)
-      .split(",")
-      .map((name) => String(name || "").trim())
-      .filter(Boolean)
-      .slice(0, 30);
-    const seen = new Set();
-    return names.filter((name) => {
-      const key = normalizeFirstName(name);
-      if (!key || seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
+
+    if (upstream.status === 304 && upstreamCalendarCache.payload) {
+      upstreamCalendarCache.expiresAt = now + UPSTREAM_CACHE_TTL_MS;
+      return upstreamCalendarCache.payload;
+    }
+
+    if (!upstream.ok) {
+      throw new Error("Impossible de charger calendrier.json en amont.");
+    }
+
+    const payload = await upstream.json();
+    upstreamCalendarCache = {
+      payload,
+      expiresAt: now + UPSTREAM_CACHE_TTL_MS,
+      etag: upstream.headers.get("etag"),
+      lastModified: upstream.headers.get("last-modified"),
+    };
+    return payload;
+  } catch (error) {
+    if (upstreamCalendarCache.payload) {
+      upstreamCalendarCache.expiresAt = now + Math.min(60 * 1000, UPSTREAM_CACHE_TTL_MS);
+      return upstreamCalendarCache.payload;
+    }
+    throw error;
   }
-}
-
-function buildFirstNameLookupCandidates(name) {
-  const key = normalizeFirstName(name);
-  const aliasMap = {
-    thibaut: "tibo",
-    thibaud: "tibo",
-    mat: "mathieu",
-    max: "maxime",
-    alex: "alexandre",
-  };
-
-  const candidates = [];
-  const push = (value) => {
-    const cleaned = String(value || "").trim();
-    if (!cleaned) return;
-    if (!candidates.some((existing) => existing.toLowerCase() === cleaned.toLowerCase())) {
-      candidates.push(cleaned);
-    }
-  };
-
-  push(name);
-  push(key);
-  if (aliasMap[key]) push(aliasMap[key]);
-
-  return candidates;
-}
-
-function fallbackFirstNameMonthDay(name) {
-  const key = normalizeFirstName(name);
-  const fallback = {
-    aurelie: { month: 7, day: 15 },
-    aurelien: { month: 6, day: 16 },
-    tibo: { month: 7, day: 8 },
-    thibaut: { month: 7, day: 8 },
-    thibaud: { month: 7, day: 8 },
-  };
-  return fallback[key] || null;
-}
-
-function extractMonthDayFromNamedayPayload(payload) {
-  if (payload?.success && Array.isArray(payload?.data)) {
-    for (const entry of payload.data) {
-      if (!entry || typeof entry !== "object") continue;
-      const country = String(entry.country || "").toLowerCase();
-      if (country !== "fr") continue;
-
-      const numericKeys = Object.keys(entry)
-        .filter((key) => /^\d+$/.test(key))
-        .sort((a, b) => Number(a) - Number(b));
-
-      for (const key of numericKeys) {
-        const item = entry[key];
-        const month = Number(item?.month);
-        const day = Number(item?.day);
-        if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
-          return { month, day };
-        }
-      }
-    }
-    return null;
-  }
-
-  const candidates = [payload?.data, payload?.nameday, payload];
-
-  for (const candidate of candidates) {
-    if (!candidate) continue;
-
-    const month = Number(candidate.month);
-    const day = Number(candidate.day);
-    if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
-      return { month, day };
-    }
-
-    const dateRaw = candidate.date || candidate.full_date || candidate.nameday_date;
-    if (typeof dateRaw === "string") {
-      const match = dateRaw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-      if (match) {
-        const parsedMonth = Number(match[2]);
-        const parsedDay = Number(match[3]);
-        if (parsedMonth >= 1 && parsedMonth <= 12 && parsedDay >= 1 && parsedDay <= 31) {
-          return { month: parsedMonth, day: parsedDay };
-        }
-      }
-    }
-  }
-
-  return null;
-}
-
-async function fetchNamedayDate(name, year) {
-  return null;
 }
 
 function setCorsHeaders(res) {
@@ -318,7 +222,6 @@ function setCorsHeaders(res) {
 module.exports = async function handler(req, res) {
   setCorsHeaders(res);
 
-  // Preflight OPTIONS
   if (req.method === "OPTIONS") {
     res.statusCode = 204;
     res.end();
@@ -331,21 +234,21 @@ module.exports = async function handler(req, res) {
     const selectedCats = normalizeList(url.searchParams.get("cats"));
     const alarm = (url.searchParams.get("alarm") || "none").trim();
     const personalEvents = parsePersonalEvents(url.searchParams.get("pe"));
-    const firstNames = [];
 
     const sourceUrl =
       process.env.CALENDAR_JSON_URL ||
       "https://calendrier-fr.tibotsr.dev/calendrier.json";
 
-    const upstream = await fetch(sourceUrl, { cache: "no-store" });
-    if (!upstream.ok) {
+    let payload;
+    try {
+      payload = await loadCalendarPayload(sourceUrl);
+    } catch (error) {
       res.statusCode = 502;
       res.setHeader("Content-Type", "text/plain; charset=utf-8");
-      res.end("Impossible de charger calendrier.json en amont.");
+      res.end(error.message);
       return;
     }
 
-    const payload = await upstream.json();
     const events = Array.isArray(payload.events) ? payload.events : [];
     const filtered = filterEvents(events, selectedZones, selectedCats).sort((a, b) => {
       const da = String(a.start || "");
@@ -391,7 +294,6 @@ module.exports = async function handler(req, res) {
       if (categoryLine) eventLines.push(categoryLine);
       eventLines.push(...alarmBlock(alarm));
       eventLines.push("END:VEVENT");
-
       lines.push(...eventLines);
     }
 
@@ -414,45 +316,6 @@ module.exports = async function handler(req, res) {
       if (event.rec === "yearly") eventLines.push("RRULE:FREQ=YEARLY");
       if (event.rec === "monthly") eventLines.push("RRULE:FREQ=MONTHLY");
       if (event.rec === "weekly") eventLines.push("RRULE:FREQ=WEEKLY");
-
-      eventLines.push(...alarmBlock(alarm));
-      eventLines.push("END:VEVENT");
-      lines.push(...eventLines);
-    }
-
-    const currentYear = new Date().getUTCFullYear();
-    const feastResults = await Promise.all(
-      firstNames.map(async (rawName) => {
-        try {
-          const monthDay = await fetchNamedayDate(rawName, currentYear);
-          if (!monthDay) return null;
-          return { rawName, ...monthDay };
-        } catch {
-          return null;
-        }
-      })
-    );
-
-    for (const feast of feastResults.filter(Boolean)) {
-      const mm = String(feast.month).padStart(2, "0");
-      const dd = String(feast.day).padStart(2, "0");
-      const baseDate = `${currentYear}-${mm}-${dd}`;
-      const start = toIcsDate(baseDate);
-      const endExclusive = toIcsDate(addOneDay(baseDate));
-      if (!start || !endExclusive) continue;
-
-      const displayName = formatDisplayFirstName(feast.rawName);
-      const eventLines = [
-        "BEGIN:VEVENT",
-        `UID:${await makeUid({ summary: `Fête de ${displayName}`, start: baseDate, end: baseDate, categories: ["Fêtes prénom"], zones: [] })}`,
-        `DTSTAMP:${dtstamp}`,
-        `DTSTART;VALUE=DATE:${start}`,
-        `DTEND;VALUE=DATE:${endExclusive}`,
-        `SUMMARY:${escapeIcsText(`Fête de ${displayName}`)}`,
-        `DESCRIPTION:${escapeIcsText(`Rappel annuel de la fête du prénom ${displayName} (date issue d'une API externe).`)}`,
-        "CATEGORIES:Fêtes prénom",
-        "RRULE:FREQ=YEARLY",
-      ];
 
       eventLines.push(...alarmBlock(alarm));
       eventLines.push("END:VEVENT");

@@ -6,6 +6,11 @@
 
 const CHUNK = 3;
 
+function formatEventDescriptionHtml(value) {
+  if (!value) return "<i style='color:var(--t3)'>Aucune description.</i>";
+  return escHtml(value).replace(/\n/g, '<br>');
+}
+
 /* ── Helpers couleur catégorie ──────────────────────── */
 function _applyCatStyle(el, cat, active) {
   const def = cd(cat);
@@ -152,30 +157,6 @@ function renderRadar(evts) {
       c.addEventListener('click', () => openModal(e, STATE.allEvts));
       root.appendChild(c);
     });
-  }
-
-  const upcomingEvts = getFilteredUpcoming();
-  const upcomingRoot = document.getElementById('r-upcoming');
-  const upcomingCnt  = document.getElementById('r-upcoming-cnt');
-  if (upcomingRoot) {
-    upcomingRoot.innerHTML = '';
-    if (!upcomingEvts.length) {
-      upcomingRoot.innerHTML = '<span class="radar-empty">Aucune échéance à venir.</span>';
-      if (upcomingCnt) upcomingCnt.textContent = '';
-    } else {
-      if (upcomingCnt) upcomingCnt.textContent = `${upcomingEvts.length} échéance${upcomingEvts.length > 1 ? 's' : ''}`;
-      upcomingEvts.forEach(e => {
-        const def = cd((e.categories || [])[0] || 'Élections');
-        const c = document.createElement('div');
-        c.className = 'rc rc--approximate';
-        c.innerHTML = `
-          <div class="rc-date" style="color:${def.c}">${fmts(e.date)}</div>
-          <div class="rc-name">${escHtml(e.summary)}</div>
-          <div class="rc-approx-badge">Date non confirmée</div>`;
-        c.addEventListener('click', () => openModal(e, [...STATE.allEvts, ...upcomingEvts]));
-        upcomingRoot.appendChild(c);
-      });
-    }
   }
 
   if (!ongoing.length) {
@@ -374,6 +355,13 @@ function buildEvRow(ev, isPast, today) {
   if (pastEv && !isToday && !ev.approximate) row.classList.add('past-ev');
   const cat  = (ev.categories || [])[0] || 'Divers';
   const def  = cd(cat);
+  const catTags = (ev.categories || []).map((name, idx) => {
+    const catDef = cd(name);
+    const bg = idx === 0 ? catDef.d : 'var(--bg3)';
+    const color = idx === 0 ? catDef.c : 'var(--t2)';
+    const border = idx === 0 ? catDef.b : 'var(--b)';
+    return `<span class="ev-tag${idx > 0 ? ' ev-tag--subtle' : ''}" style="background:${bg};color:${color};border:1px solid ${border}">${escHtml(name)}</span>`;
+  }).join('');
   const zones = ev.zones?.length ? `<span class="ev-tag" style="background:var(--bg3);color:var(--t3)">${escHtml(ev.zones.join(', '))}</span>` : '';
   const approxBadge = ev.approximate ? `<span class="ev-tag ev-tag--approx"><i class="fa-solid fa-circle-question"></i> Date non confirmée</span>` : '';
   row.innerHTML = `
@@ -381,7 +369,7 @@ function buildEvRow(ev, isPast, today) {
     <div class="ev-b">
       <div class="ev-title">${escHtml(ev.summary)}</div>
       <div class="ev-tags">
-        <span class="ev-tag" style="background:${def.d};color:${def.c};border:1px solid ${def.b}">${escHtml(cat)}</span>
+        ${catTags}
         ${zones}${approxBadge}
       </div>
     </div>
@@ -419,14 +407,7 @@ function buildMoBlock(k, evts, today, isPast) {
     regularEvts.forEach(ev => list.appendChild(buildEvRow(ev, isPast, today)));
     if (isCurBlock && hasPast && !hasFuture) placeTodayMarker();
   }
-  if (approxEvts.length) {
-    if (regularEvts.length) {
-      const sep = document.createElement('div'); sep.className = 'approx-sep';
-      sep.innerHTML = '<i class="fa-solid fa-circle-question"></i> Dates à confirmer';
-      list.appendChild(sep);
-    }
-    approxEvts.forEach(ev => list.appendChild(buildEvRow(ev, false, today)));
-  }
+  if (approxEvts.length) approxEvts.forEach(ev => list.appendChild(buildEvRow(ev, false, today)));
   block.appendChild(list); return block;
 }
 
@@ -455,7 +436,7 @@ function openModal(ev, evts) {
   document.getElementById('m-duration').textContent = durLabel;
   document.getElementById('m-cats').innerHTML       = chips(ev.categories || []);
   document.getElementById('m-zones').innerHTML      = chips(ev.zones || [], true);
-  document.getElementById('m-desc').innerHTML       = ev.description ? ev.description.replace(/\n/g, '<br>') : "<i style='color:var(--t3)'>Aucune description.</i>";
+  document.getElementById('m-desc').innerHTML       = formatEventDescriptionHtml(ev.description);
   document.getElementById('m-prev').style.cursor = _modalPrev ? 'pointer' : 'default';
   document.getElementById('m-next').style.cursor = _modalNext ? 'pointer' : 'default';
   document.getElementById('ev-modal').classList.add('on');
