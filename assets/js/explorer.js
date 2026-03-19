@@ -467,3 +467,30 @@ function refreshAll(opts = {}) {
   renderTL(opts);
   if (!opts.autoScrollToday) requestAnimationFrame(() => window.scrollTo({ top: savedY, behavior: 'instant' }));
 }
+
+let currentView = 'list';
+
+document.getElementById('btn-view-list')?.addEventListener('click', () => {
+  currentView = 'list';
+  document.getElementById('btn-view-list').classList.add('active');
+  document.getElementById('btn-view-grid').classList.remove('active');
+  document.getElementById('ev-root').style.display = 'block';
+  document.getElementById('grid-root').style.display = 'none';
+});
+
+document.getElementById('btn-view-grid')?.addEventListener('click', () => {
+  currentView = 'grid';
+  document.getElementById('btn-view-grid').classList.add('active');
+  document.getElementById('btn-view-list').classList.remove('active');
+  document.getElementById('ev-root').style.display = 'none';
+  document.getElementById('grid-root').style.display = 'flex';
+  if (window.renderCalendarGrid) window.renderCalendarGrid();
+});
+
+const originalRefreshAll = refreshAll;
+window.refreshAll = function(opts) {
+  originalRefreshAll(opts);
+  if (currentView === 'grid' && window.renderCalendarGrid) {
+    window.renderCalendarGrid();
+  }
+};

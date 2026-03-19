@@ -580,7 +580,12 @@
             </div>
 
             <div class="tl-wrap" id="tl-wrap">
+              <div class="view-toggle" style="display: flex; gap: 4px; margin-bottom: 15px;">
+                <button id="btn-view-list" class="tbtn active" title="Vue Liste"><i class="fa-solid fa-list"></i></button>
+                <button id="btn-view-grid" class="tbtn" title="Vue Grille (Mois)"><i class="fa-solid fa-calendar-days"></i></button>
+              </div>
               <div id="ev-root"></div>
+              <div id="grid-root" style="display: none;"></div>
               <div class="tl-sentinel" id="tl-sentinel"></div>
             </div>
           </div>

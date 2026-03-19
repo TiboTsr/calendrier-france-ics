@@ -1373,3 +1373,100 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   0%   { opacity: .4; transform: translateX(-4px); }
   100% { opacity: 1;  transform: translateX(0); }
 }
+
+/* ── Vue Grille ────────────────────────────────────── */
+.view-toggle .tbtn.active {
+  background: var(--bg3);
+  color: var(--t1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#grid-root {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.grid-month {
+  background: var(--bg2);
+  border: 1px solid var(--b);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.grid-mhead {
+  text-align: center;
+  font-weight: 700;
+  padding: 12px;
+  background: var(--bg3);
+  font-size: 16px;
+  text-transform: capitalize;
+  border-bottom: 1px solid var(--b);
+}
+
+.grid-days-head {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--t3);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--b);
+}
+
+.grid-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: var(--b);
+}
+
+.g-day {
+  background: var(--bg1);
+  min-height: 80px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.g-day.empty { background: var(--bg2); }
+
+.g-num {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--t2);
+  margin-bottom: 2px;
+  align-self: flex-end;
+}
+
+/* Bulle pour le jour d'aujourd'hui */
+.g-day.today .g-num {
+  color: #fff;
+  background: var(--acc);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Étiquettes des événements */
+.g-ev {
+  font-size: 10px;
+  padding: 3px 4px;
+  border-radius: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .g-day { min-height: 60px; }
+  .g-ev { font-size: 9px; padding: 2px; }
+}
