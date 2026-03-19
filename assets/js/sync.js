@@ -237,11 +237,10 @@ function _alarmLabel(v) {
 
 function _currentAdvSelection() {
   const zonesArr = _advZones.has('all') ? ['all'] : [..._advZones];
-  // Nouveaux paramètres
   const alarmFeries = document.getElementById('adv-alarm-feries')?.value || 'none';
   const alarmVacances = document.getElementById('adv-alarm-vacances')?.value || 'none';
-  const emojis = document.getElementById('adv-emojis')?.checked ? 1 : 0;
-  const cats     = getSelAdvCats();
+  const emojis = document.getElementById('adv-emojis')?.checked ? '1' : '0';
+  const cats = getSelAdvCats();
   return { zonesArr, alarmFeries, alarmVacances, emojis, cats };
 }
 
@@ -311,24 +310,23 @@ function buildAdvUrl() {
   const container = document.getElementById('adv-url-animated');
   clearTimeout(_advBuildTimer);
 
-  if (cats.length === 0) {
-    markAdvDirty(); return;
-  }
+  if (cats.length === 0) { markAdvDirty(); return; }
   setAdvActionsEnabled(false); setQrState(false);
 
   _advBuildTimer = setTimeout(() => {
-    const p = new URLSearchParams({
-      zone: zonesArr.join(','),
+    // --- NOUVEAUX PARAMÈTRES DANS L'URL ---
+    const p = new URLSearchParams({ 
+      zone: zonesArr.join(','), 
+      cats: cats.join(','),
       alarm_feries: alarmFeries,
       alarm_vacances: alarmVacances,
-      emojis,
-      cats: cats.join(',')
+      emojis: emojis
     });
     if (personal.length) p.set('pe', JSON.stringify(personal));
     const API_HOST = typeof window.CALENDAR_API_BASE !== 'undefined' ? window.CALENDAR_API_BASE : window.location.host;
 
     const wc = `webcal://${API_HOST}/api/calendrier.ics?${p}`;
-    const wcGoogle = `webcal://${API_HOST}/api/calendrier.ics?${p}`;
+    const wcGoogle = `https://${API_HOST}/api/calendrier.ics?${p}`; // Modification ici (https pour Google)
 
     window._advWcUrl = wc;
 
@@ -341,12 +339,11 @@ function buildAdvUrl() {
     setAdvActionsEnabled(true);
     setQrState(true);
 
-    // Avertissement URL longue
     const warn = document.getElementById('adv-pe-url-warn');
-    if (warn) warn.style.display = wc.length > PE_URL_WARN_CHARS ? 'flex' : 'none';
+    if (warn) warn.style.display = wc.length > 2000 ? 'flex' : 'none';
 
     const recap = document.getElementById('adv-url-recap');
-    if (recap) recap.innerHTML = _buildRecapHtml('fa-solid fa-circle-check', 'Lien prêt', zonesArr, cats, alarm, personal);
+    if (recap) recap.innerHTML = _buildRecapHtml('fa-solid fa-circle-check', 'Lien prêt', zonesArr, cats, alarmFeries, personal); // On passe alarmFeries pour le recap
   }, 220);
 }
 
@@ -394,3 +391,7 @@ function copyShareUrl() {
     if (cats)  window._hashCats = new Set(cats.split(','));
   } catch {}
 })();
+
+document.getElementById('adv-alarm-feries')?.addEventListener('change', markAdvDirty);
+document.getElementById('adv-alarm-vacances')?.addEventListener('change', markAdvDirty);
+document.getElementById('adv-emojis')?.addEventListener('change', markAdvDirty);
