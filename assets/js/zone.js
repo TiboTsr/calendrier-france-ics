@@ -18,15 +18,23 @@ const _zoneCache = new Map();
 async function loadZoneDepartments() {
   if (_zoneDeptPromise) return _zoneDeptPromise;
   _zoneDeptPromise = (async () => {
-    const resp = await fetch('/zone-departments.json', { cache: 'force-cache' });
-    if (!resp.ok) throw new Error('Impossible de charger la table des zones');
-    const data = await resp.json();
+    const CACHE_KEY = 'zone_dept_cache_v1';
+    let data;
+    try {
+      const cached = localStorage.getItem(CACHE_KEY);
+      if (cached) data = JSON.parse(cached);
+    } catch(e) {}
+    if (!data) {
+      const resp = await fetch('/zone-departments.json', { cache: 'force-cache' });
+      if (!resp.ok) throw new Error('Impossible de charger la table');
+      data = await resp.json();
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch(e) {}
+    }
     ZONE_DEPT = {
       A: new Set((data?.A || []).map(v => String(v).toUpperCase())),
       B: new Set((data?.B || []).map(v => String(v).toUpperCase())),
       C: new Set((data?.C || []).map(v => String(v).toUpperCase())),
-      // CORRECTION 1 : On charge la zone Alsace-Moselle
-      AM: new Set((data?.AM || []).map(v => String(v).toUpperCase())), 
+      AM: new Set((data?.AM || []).map(v => String(v).toUpperCase())),
     };
     return ZONE_DEPT;
   })();
@@ -210,3 +218,73 @@ function toggleZoneHint(zone, el) {
     </div>`;
   hint.classList.add('on');
 }
+
+/* ── Géolocalisation ────────────────────────────────── */
+document.getElementById('zf-geo-btn')?.addEventListener('click', () => {
+  const btn = document.getElementById('zf-geo-btn');
+  const input = document.getElementById('zf-in');
+  const res = document.getElementById('zf-res');
+
+  if (!navigator.geolocation) return showGeoError("Géolocalisation non supportée par votre navigateur.");
+
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Me géolocaliser'; // Icône de chargement
+
+  navigator.geolocation.getCurrentPosition(async (pos) => {
+    try {
+      const { latitude, longitude } = pos.coords;
+      const apiUrl = `https://geo.api.gouv.fr/communes?lat=${latitude}&lon=${longitude}&fields=nom,departement,code,population&limit=1`;
+      const resp = await fetch(apiUrl);
+      const rows = await resp.json();
+
+      if (rows && rows.length > 0) {
+        const deptMap = await loadZoneDepartments();
+        const entry = mapCommuneToEntry(rows[0], deptMap);
+        if (entry) {
+          input.value = entry.cityName;
+          res.classList.add('on');
+          renderZoneSingle(res, entry);
+        }
+      } else {
+        showGeoError("Aucune commune trouvée à cette position.");
+      }
+    } catch (err) {
+      showGeoError("Erreur réseau lors de la géolocalisation.");
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Me géolocaliser';
+    }
+  }, () => {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Me géolocaliser';
+    showGeoError("Veuillez autoriser l'accès à votre position.");
+  // Popup HTML stylée pour les erreurs de géolocalisation
+  function showGeoError(msg) {
+    let popup = document.getElementById('geo-error-popup');
+    if (!popup) {
+      popup = document.createElement('div');
+      popup.id = 'geo-error-popup';
+      popup.style.position = 'fixed';
+      popup.style.left = '50%';
+      popup.style.top = '20%';
+      popup.style.transform = 'translate(-50%, 0)';
+      popup.style.background = 'var(--bg2, #232330)';
+      popup.style.color = 'var(--t1, #fff)';
+      popup.style.padding = '24px 32px';
+      popup.style.borderRadius = '16px';
+      popup.style.boxShadow = '0 4px 24px #0005';
+      popup.style.fontSize = '18px';
+      popup.style.zIndex = '9999';
+      popup.style.textAlign = 'center';
+      popup.innerHTML = `<div style="font-size:2em;margin-bottom:12px"><i class="fa-solid fa-location-crosshairs"></i></div><div id="geo-error-msg"></div><button id="geo-error-close" style="margin-top:18px;padding:8px 18px;border-radius:8px;background:var(--bg1,#444);color:var(--t1,#fff);border:none;font-size:16px;cursor:pointer">Fermer</button>`;
+      document.body.appendChild(popup);
+      popup.querySelector('#geo-error-close').onclick = () => popup.remove();
+    }
+    popup.querySelector('#geo-error-msg').textContent = msg;
+    popup.style.display = 'block';
+  }
+  });
+});
+
+/* ── Exposer pour les onclick HTML ── */
+window.toggleZoneHint = toggleZoneHint;

@@ -237,9 +237,12 @@ function _alarmLabel(v) {
 
 function _currentAdvSelection() {
   const zonesArr = _advZones.has('all') ? ['all'] : [..._advZones];
-  const alarm    = document.getElementById('adv-alarm')?.value || 'none';
+  // Nouveaux paramètres
+  const alarmFeries = document.getElementById('adv-alarm-feries')?.value || 'none';
+  const alarmVacances = document.getElementById('adv-alarm-vacances')?.value || 'none';
+  const emojis = document.getElementById('adv-emojis')?.checked ? 1 : 0;
   const cats     = getSelAdvCats();
-  return { zonesArr, alarm, cats };
+  return { zonesArr, alarmFeries, alarmVacances, emojis, cats };
 }
 
 function _buildRecapHtml(icon, title, zonesArr, cats, alarm, personal) {
@@ -303,7 +306,7 @@ function markAdvDirty() {
 }
 
 function buildAdvUrl() {
-  const { zonesArr, alarm, cats } = _currentAdvSelection();
+  const { zonesArr, alarmFeries, alarmVacances, emojis, cats } = _currentAdvSelection();
   const personal = getPEForUrl();
   const container = document.getElementById('adv-url-animated');
   clearTimeout(_advBuildTimer);
@@ -314,7 +317,13 @@ function buildAdvUrl() {
   setAdvActionsEnabled(false); setQrState(false);
 
   _advBuildTimer = setTimeout(() => {
-    const p = new URLSearchParams({ zone: zonesArr.join(','), alarm, cats: cats.join(',') });
+    const p = new URLSearchParams({
+      zone: zonesArr.join(','),
+      alarm_feries: alarmFeries,
+      alarm_vacances: alarmVacances,
+      emojis,
+      cats: cats.join(',')
+    });
     if (personal.length) p.set('pe', JSON.stringify(personal));
     const API_HOST = typeof window.CALENDAR_API_BASE !== 'undefined' ? window.CALENDAR_API_BASE : window.location.host;
 
@@ -385,3 +394,8 @@ function copyShareUrl() {
     if (cats)  window._hashCats = new Set(cats.split(','));
   } catch {}
 })();
+
+/* ── Exposer pour app.js et les onclick HTML ── */
+window.markAdvDirty = markAdvDirty;
+window.copyShareUrl = copyShareUrl;
+window.buildAdvCats = buildAdvCats;

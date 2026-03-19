@@ -336,4 +336,7 @@
 
   window.calendarGrid = { render, toggle, isVisible: () => _visible };
 
+  
 })();
+
+

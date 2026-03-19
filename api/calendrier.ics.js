@@ -232,7 +232,9 @@ module.exports = async function handler(req, res) {
     const url = new URL(req.url, `https://${req.headers.host}`);
     const selectedZones = normalizeList(url.searchParams.get("zone"));
     const selectedCats = normalizeList(url.searchParams.get("cats"));
-    const alarm = (url.searchParams.get("alarm") || "none").trim();
+    const emojis = url.searchParams.get("emojis") === "1";
+    const alarmFeries = (url.searchParams.get("alarm_feries") || "none").trim();
+    const alarmVacances = (url.searchParams.get("alarm_vacances") || "none").trim();
     const personalEvents = parsePersonalEvents(url.searchParams.get("pe"));
 
     const sourceUrl =
@@ -248,6 +250,8 @@ module.exports = async function handler(req, res) {
       res.end(error.message);
       return;
     }
+    // TODO: Utiliser emojis, alarmFeries, alarmVacances dans la génération ICS
+
 
     const events = Array.isArray(payload.events) ? payload.events : [];
     const filtered = filterEvents(events, selectedZones, selectedCats).sort((a, b) => {

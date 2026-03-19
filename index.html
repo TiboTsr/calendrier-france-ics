@@ -30,8 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="stylesheet" href="./assets/css/responsive.css" />
+
 
     <script type="application/ld+json">
     {
@@ -62,18 +61,15 @@
       ]
     }
     </script>
-    <script defer src="./assets/js/utils.js"></script>
-    <script defer src="./assets/js/state.js"></script>
-    <script defer src="./assets/js/theme.js"></script>
-    <script defer src="./assets/js/zone.js"></script>
-    <script defer src="./assets/js/sync.js"></script>
-    <script defer src="./assets/js/explorer.js"></script>
-    <script defer src="./assets/js/tutorial.js"></script>
-    <script defer src="./assets/js/mobile.js"></script>
-    <script defer src="./assets/js/calendar-grid.js"></script>
-    <script defer src="./assets/js/app.js"></script>
-  </head>
-
+    <script type="module" src="./assets/js/app.js"></script> 
+    <link rel="manifest" href="/manifest.json">
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+      }
+    </script>
+    </head>
+    
   <body class="app-loading">
     <noscript>
       <style>html { background: #232330 !important; } body { background: #232330 !important; }</style>
@@ -381,13 +377,25 @@
               </div>
               <div class="adv-opts">
                 <div>
-                  <label class="fld-l" for="adv-alarm">Rappels automatiques</label>
-                  <select class="fld-s" id="adv-alarm">
-                    <option value="none">Désactivés (recommandé)</option>
-                    <option value="1h">1h avant l'événement</option>
-                    <option value="1d">La veille à la même heure</option>
-                    <option value="9am">Le jour même à 9h</option>
+                  <label class="fld-l" for="adv-alarm-feries">Rappels Fériés</label>
+                  <select class="fld-s" id="adv-alarm-feries">
+                    <option value="none">Désactivés</option>
+                    <option value="1d">La veille</option>
                   </select>
+                </div>
+                <div>
+                  <label class="fld-l" for="adv-alarm-vacances">Rappels Vacances</label>
+                  <select class="fld-s" id="adv-alarm-vacances">
+                    <option value="none">Désactivés</option>
+                    <option value="1w">1 semaine avant</option>
+                    <option value="1d">La veille</option>
+                  </select>
+                </div>
+                <div style="grid-column: 1 / -1; margin-top: 5px;">
+                  <label style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; cursor:pointer;">
+                    <input type="checkbox" id="adv-emojis" checked style="accent-color: var(--acc); width: 16px; height: 16px;">
+                    Ajouter des emojis (🏖️, 🎄) aux événements
+                  </label>
                 </div>
               </div>
 
@@ -483,6 +491,9 @@
           <div class="zone-search-row">
             <input class="zone-big-input" id="zf-in" type="text" placeholder="Ex : Bordeaux, Saint-Nazaire, Cergy, Montpellier…" autocomplete="off" />
             <button class="zone-big-btn" id="zf-btn">Trouver ma zone</button>
+            <button class="zone-big-btn" id="zf-geo-btn" title="Me géolocaliser" aria-label="Me géolocaliser" style="padding: 12px 18px; background: var(--bg2); color: var(--t1); border: 1px solid var(--b);">
+              <i class="fa-solid fa-location-crosshairs"></i> Me géolocaliser
+            </button>
           </div>
           <div class="zone-result-big" id="zf-res"></div>
           <div class="zone-chips-title">Villes fréquentes :</div>

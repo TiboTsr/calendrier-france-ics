@@ -183,3 +183,20 @@ function hideAppLoader() {
   }, wait);
 }
 window.addEventListener('load', () => setTimeout(hideAppLoader, 1200), { once: true });
+
+
+window.APP_INFO = APP_INFO;
+window.KEYS = KEYS;
+window.CATS = CATS;
+window.PROFILES = PROFILES;
+window.MONTHS = MONTHS;
+window.escHtml = escHtml;
+window.showToast = showToast;
+window.norm = norm;
+window.pd = pd;
+window.fmt = fmt;
+window.fmts = fmts;
+window.fmtwd = fmtwd;
+window.countWeekdays = countWeekdays;
+window.DYNAMIC_API_BASE = DYNAMIC_API_BASE;
+window.hideAppLoader = hideAppLoader;

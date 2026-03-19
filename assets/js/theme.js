@@ -1,3 +1,10 @@
+// Écoute les changements de l'OS en temps réel
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  // On ne change auto que si l'utilisateur n'a pas forcé le thème manuellement
+  if (!localStorage.getItem(KEYS.theme)) {
+    applyTheme(e.matches ? 'dark' : 'light', false);
+  }
+});
 /**
  * theme.js — Gestion du thème (dark/light) et du mode accessibilité
  * Dépend de : utils.js (KEYS)
@@ -72,3 +79,8 @@ function setSyncAge(dt) {
   el.textContent = `· ${abs}`;
   if (pill) pill.title = `Dernière synchronisation : ${abs}`;
 }
+
+/* ── Exposer pour app.js ── */
+window.setSyncAge = setSyncAge;
+window.applyTheme = applyTheme;
+window.applyA11y = applyA11y;

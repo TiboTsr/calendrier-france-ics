@@ -1,8 +1,21 @@
-/**
+﻿/**
  * app.js - Point d'entree principal
  * Charge le JSON, initialise les modules, lance le premier rendu.
  * Depend de tous les autres modules.
  */
+import '../css/styles.css';
+import '../css/responsive.css';
+
+import './utils.js';
+import './state.js';
+import './theme.js';
+import './zone.js';
+import './sync.js';
+import './explorer.js';
+import './tutorial.js';
+import './mobile.js';
+import './calendar-grid.js';
+
 
 const CALENDAR_VERSION_POLL_MS = 2 * 60 * 1000;
 let _loadedCalendarVersion = null;
