@@ -79,8 +79,3 @@ function setSyncAge(dt) {
   el.textContent = `· ${abs}`;
   if (pill) pill.title = `Dernière synchronisation : ${abs}`;
 }
-
-/* ── Exposer pour app.js ── */
-window.setSyncAge = setSyncAge;
-window.applyTheme = applyTheme;
-window.applyA11y = applyA11y;

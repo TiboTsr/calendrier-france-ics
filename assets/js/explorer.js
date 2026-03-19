@@ -467,7 +467,3 @@ function refreshAll(opts = {}) {
   renderTL(opts);
   if (!opts.autoScrollToday) requestAnimationFrame(() => window.scrollTo({ top: savedY, behavior: 'instant' }));
 }
-
-window.buildYrNav = buildYrNav;
-window.buildSbCats = buildSbCats;
-window.refreshAll = refreshAll;

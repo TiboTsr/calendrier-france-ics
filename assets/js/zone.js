@@ -285,6 +285,3 @@ document.getElementById('zf-geo-btn')?.addEventListener('click', () => {
   }
   });
 });
-
-/* ── Exposer pour les onclick HTML ── */
-window.toggleZoneHint = toggleZoneHint;

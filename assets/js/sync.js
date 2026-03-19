@@ -394,8 +394,3 @@ function copyShareUrl() {
     if (cats)  window._hashCats = new Set(cats.split(','));
   } catch {}
 })();
-
-/* ── Exposer pour app.js et les onclick HTML ── */
-window.markAdvDirty = markAdvDirty;
-window.copyShareUrl = copyShareUrl;
-window.buildAdvCats = buildAdvCats;

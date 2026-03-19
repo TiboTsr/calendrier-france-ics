@@ -28,5 +28,3 @@ const STATE = {
   // Clé de dernier rendu (pour le diff léger)
   lastRefreshKey: '',
 };
-
-window.STATE = STATE;
