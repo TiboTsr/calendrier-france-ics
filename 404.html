@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr" data-theme="dark" class="no-js">
+  <head>
+    <script>document.documentElement.classList.remove('no-js');</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page introuvable — Calendrier France</title>
+    <meta name="description" content="Oups, la page que vous cherchez n'existe pas ou a été déplacée." />
+    <meta name="robots" content="noindex, follow" />
+
+    <link rel="icon" type="image/svg+xml" href="./img/icon.svg" />
+    <link rel="shortcut icon" href="./img/icon.svg" />
+    <link rel="apple-touch-icon" href="./img/icon.svg" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+
+    <script defer src="./assets/js/utils.js"></script>
+    <script defer src="./assets/js/theme.js"></script>
+  </head>
+
+  <body>
+    <nav class="topbar">
+      <div class="topbar-in">
+        <a href="/" class="brand">
+          <div class="flag" role="img" aria-label="Drapeau France">
+            <span class="fb"></span><span class="fw"></span><span class="fr_"></span>
+          </div>
+          <div class="brand-text">Calendrier</div>
+        </a>
+        <div class="topbar-r">
+          <span id="a11y-label" class="theme-label" aria-live="polite">Accessibilité</span>
+          <button id="a11y-btn" class="tbtn" aria-label="Activer le mode accessibilité" title="Activer le mode accessibilité">
+            <i class="fa-solid fa-universal-access"></i>
+          </button>
+          <span id="theme-label" class="theme-label" aria-live="polite">Thème sombre</span>
+          <button id="theme-btn" class="tbtn" aria-label="Passer en thème clair" title="Passer en thème clair">
+            <i class="fa-solid fa-sun"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero" style="min-height: calc(100vh - 200px);">
+      <div class="hero-inner page">
+        <div class="hero-eyebrow">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true" style="color: var(--amb)"></i> Erreur 404
+        </div>
+        
+        <h1>Oups !<br /><em>Page introuvable</em></h1>
+        
+        <p class="hero-sub">
+          Il semblerait que le lien soit cassé ou que la page ait été déplacée.<br>
+          Pas de panique, vos dates importantes n'ont pas disparu.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="/" class="btn-hero btn-hero-p">
+            <i class="fa-solid fa-arrow-left ui-ico" aria-hidden="true" style="color: currentColor;"></i>Retourner à l'accueil
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="page">
+        <div class="footer-links">
+          <a href="/" class="footer-link footer-link--accent">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>Accueil
+          </a>
+          <a href="https://github.com/TiboTsr/calendrier-france-ics/issues" target="_blank" rel="noopener" class="footer-link">
+            <i class="fa-solid fa-bug" aria-hidden="true"></i>Signaler une erreur
+          </a>
+          <a href="https://github.com/TiboTsr/calendrier-france-ics" target="_blank" rel="noopener" class="footer-link">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>Code source
+          </a>
+        </div>
+        <p class="footer-meta">
+          Données officielles : <a href="https://data.education.gouv.fr" target="_blank" rel="noopener">Ministère de l'Éducation Nationale</a>
+        </p>
+        <p class="footer-credit">
+          Projet open source par <a href="https://github.com/TiboTsr/calendrier-france-ics" target="_blank" rel="noopener">TiboTsr</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

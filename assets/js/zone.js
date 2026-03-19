@@ -5,12 +5,12 @@
 
 const SAMPLE_CITIES = [
   'Paris','Lyon','Marseille','Toulouse','Nice','Bordeaux','Strasbourg',
-  'Nantes','Montpellier','Lille','Rennes','Grenoble','Le Mans','Caen',
-  'Nancy','Dijon','Besançon','Le Havre','Rouen','Toulon','Perpignan',
-  'Aix','Cergy','Créteil','Bayonne','Angers',
+  'Nantes','Montpellier','Lille','Rennes','Le Mans','Caen',
+  'Dijon','Le Havre','Rouen','Perpignan',
+  'Aix','Créteil','Bayonne','Angers',
 ];
 
-let ZONE_DEPT = { A: new Set(), B: new Set(), C: new Set() };
+let ZONE_DEPT = { A: new Set(), B: new Set(), C: new Set(), AM: new Set() };
 let _zoneDeptPromise = null;
 const _zoneCache = new Map();
 
@@ -25,6 +25,8 @@ async function loadZoneDepartments() {
       A: new Set((data?.A || []).map(v => String(v).toUpperCase())),
       B: new Set((data?.B || []).map(v => String(v).toUpperCase())),
       C: new Set((data?.C || []).map(v => String(v).toUpperCase())),
+      // CORRECTION 1 : On charge la zone Alsace-Moselle
+      AM: new Set((data?.AM || []).map(v => String(v).toUpperCase())), 
     };
     return ZONE_DEPT;
   })();
@@ -36,6 +38,8 @@ function zoneFromDept(code, deptMap) {
   if (deptMap.A.has(k)) return 'A';
   if (deptMap.B.has(k)) return 'B';
   if (deptMap.C.has(k)) return 'C';
+  // CORRECTION 2 : Si c'est l'Alsace-Moselle (ex: Strasbourg dans le 67), c'est la Zone B scolaire !
+  if (deptMap.AM && deptMap.AM.has(k)) return 'B'; 
   return null;
 }
 
@@ -52,17 +56,32 @@ function mapCommuneToEntry(city, deptMap) {
   };
 }
 
-/* ── Recherche API communes ─────────────────────────── */
-async function findZoneEntries(rawValue) {
+/* ── Recherche API communes (avec Auto-Retry) ─────────────────────────── */
+async function findZoneEntries(rawValue, retries = 2) {
   const q = rawValue.trim();
   if (!q) return [];
   const key = norm(q);
   if (_zoneCache.has(key)) return _zoneCache.get(key);
 
   const deptMap = await loadZoneDepartments();
-  const url = `https://geo.api.gouv.fr/communes?nom=${encodeURIComponent(q)}&fields=nom,departement,code,population&boost=population&limit=10`;
-  const resp = await fetch(url);
-  if (!resp.ok) throw new Error('Service de géolocalisation indisponible');
+  const apiUrl = `https://geo.api.gouv.fr/communes?nom=${encodeURIComponent(q)}&fields=nom,departement,code,population&boost=population&limit=10`;
+
+  let resp;
+  // Boucle de réessai (si l'API a un raté, on retente silencieusement)
+  for (let i = 0; i <= retries; i++) {
+    try {
+      resp = await fetch(apiUrl);
+      if (resp.ok) break; // Succès ! On sort de la boucle
+    } catch (err) {
+      if (i === retries) throw err; // Échec définitif
+    }
+    // Si ça a échoué mais qu'il reste des essais, on attend 300ms avant de retenter
+    if (i < retries) {
+      await new Promise(r => setTimeout(r, 300));
+    }
+  }
+
+  if (!resp || !resp.ok) throw new Error('Service de géolocalisation indisponible');
 
   const rows = await resp.json();
   const mapped = (Array.isArray(rows) ? rows : [])
@@ -72,10 +91,10 @@ async function findZoneEntries(rawValue) {
   const rawNorm = norm(q);
   const exact  = mapped.filter(e => norm(e.cityName) === rawNorm);
   const starts = mapped.filter(e => norm(e.cityName).startsWith(rawNorm));
+  
   const selected = (exact.length ? exact : starts.length ? starts : mapped)
     .sort((a, b) => b.population - a.population);
 
-  // Dédupe
   const seen = new Set();
   const result = selected.filter(e => {
     const k = `${norm(e.cityName)}|${String(e.departmentCode).toUpperCase()}`;
