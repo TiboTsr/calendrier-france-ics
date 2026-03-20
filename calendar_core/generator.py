@@ -18,6 +18,7 @@ from .config import (
 from .exporters import serialize_calendar, serialize_csv, serialize_rss
 from .models import CalendarEvent
 from .providers import build_base_events, build_vacation_events
+from .providers import fetch_static_sports
 from .elections import get_elections
 from .utils import deduplicate_events
 
@@ -122,6 +123,7 @@ def generate_all() -> None:
 	today = datetime.now(timezone.utc).date()
 
 	events = build_base_events()
+	events.extend(fetch_static_sports())
 	events.extend(build_vacation_events())
 	events = deduplicate_events(events)
 	upcoming = []
@@ -140,8 +142,9 @@ def generate_all() -> None:
 			event
 			for event in events
 			if event_in_zone(event, zone) and event_is_exportable(event, today, STRICT_FUTURE_ONLY)
+			and ("Vacances scolaires" in event.categories or "Examens" in event.categories)
 		]
-		zone_ics, _ = serialize_calendar(zone_events, f"Calendrier France - Zone {zone}", DOMAIN)
+		zone_ics, _ = serialize_calendar(zone_events, f"Vacances Scolaires, jours fériés & Examens - Zone {zone}", DOMAIN)
 		path.write_text(zone_ics, encoding="utf-8")
 
 	for profile in NOISE_PROFILES.keys():
@@ -150,6 +153,7 @@ def generate_all() -> None:
 			for event in events
 			if event_matches_profile(event, profile) and event_is_exportable(event, today, STRICT_FUTURE_ONLY)
 		]
+		
 		profile_file = Path(f"calendrier-{profile}.ics")
 		profile_ics, _ = serialize_calendar(profile_events, f"Calendrier France - Profil {profile}", DOMAIN)
 		profile_file.write_text(profile_ics, encoding="utf-8")

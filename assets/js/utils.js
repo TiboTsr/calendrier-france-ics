@@ -58,6 +58,13 @@ const CATS = [
   { n: 'Éducation',           c: '#0ea5e9', d: 'rgba(14,165,233,.12)',  b: 'rgba(14,165,233,.3)'  },
   { n: 'Élections',           c: '#f43f5e', d: 'rgba(244,63,94,.12)',   b: 'rgba(244,63,94,.3)'   },
   { n: 'Événements spéciaux', c: '#a78bfa', d: 'rgba(167,139,250,.12)', b: 'rgba(167,139,250,.3)' },
+  { n: 'Ligue 1',         c: '#1e3a8a', d: 'rgba(30,58,138,.12)',  b: 'rgba(30,58,138,.3)'  }, // Bleu foncé
+  { n: 'Ligue 2',         c: '#2563eb', d: 'rgba(37,99,235,.12)',  b: 'rgba(37,99,235,.3)'  }, // Bleu
+  { n: 'Top 14 (Rugby)',  c: '#a16207', d: 'rgba(161,98,7,.12)',   b: 'rgba(161,98,7,.3)'   }, // Or
+  { n: 'Formule 1',       c: '#ef4444', d: 'rgba(239,68,68,.12)',  b: 'rgba(239,68,68,.3)'  }, // Rouge
+  { n: 'Tennis',          c: '#ea580c', d: 'rgba(234,88,12,.12)',  b: 'rgba(234,88,12,.3)'  }, // Orange terre-battue
+  { n: 'Cyclisme',        c: '#fde047', d: 'rgba(253,224,71,.12)', b: 'rgba(253,224,71,.3)' }, // Jaune
+  { n: 'Auto/Moto',       c: '#6366f1', d: 'rgba(99,102,241,.12)', b: 'rgba(99,102,241,.3)' }, // Violet
 ];
 
 /** Retourne la définition couleur d'une catégorie (fallback bleu). */

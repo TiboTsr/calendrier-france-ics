@@ -313,7 +313,13 @@ function buildAdvUrl() {
   if (cats.length === 0) { markAdvDirty(); return; }
   setAdvActionsEnabled(false); setQrState(false);
 
-  _advBuildTimer = setTimeout(() => {
+  _advBuildTimer = setTimeout(async () => {
+    const container = document.getElementById('adv-url-animated');
+    if (container) {
+      container.classList.remove('built');
+      container.classList.add('building');
+      container.innerHTML = '<span class="url-seg url-seg-plain" style="opacity:1;transform:none;animation:none"><i class="fa-solid fa-spinner fa-spin ui-ico"></i> Génération du lien…</span>';
+    }
     // --- NOUVEAUX PARAMÈTRES DANS L'URL ---
     const p = new URLSearchParams({ 
       zone: zonesArr.join(','), 
@@ -325,8 +331,26 @@ function buildAdvUrl() {
     if (personal.length) p.set('pe', JSON.stringify(personal));
     const API_HOST = typeof window.CALENDAR_API_BASE !== 'undefined' ? window.CALENDAR_API_BASE : window.location.host;
 
-    const wc = `webcal://${API_HOST}/api/calendrier.ics?${p}`;
-    const wcGoogle = `https://${API_HOST}/api/calendrier.ics?${p}`; // Modification ici (https pour Google)
+    const longUrl = `https://${API_HOST}/api/calendrier.ics?${p}`;
+    let shortId = null;
+    try {
+      const resp = await fetch(`/api/shorten`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fullUrl: longUrl })
+      });
+      const data = await resp.json();
+      if (data.shortId) shortId = data.shortId;
+    } catch (e) { shortId = null; }
+
+    let wc, wcGoogle;
+    if (shortId) {
+      wc = `webcal://${API_HOST}/api/calendrier.ics?id=${shortId}`;
+      wcGoogle = `https://${API_HOST}/api/calendrier.ics?id=${shortId}`;
+    } else {
+      wc = `webcal://${API_HOST}/api/calendrier.ics?${p}`;
+      wcGoogle = longUrl;
+    }
 
     window._advWcUrl = wc;
 
@@ -343,7 +367,7 @@ function buildAdvUrl() {
     if (warn) warn.style.display = wc.length > 2000 ? 'flex' : 'none';
 
     const recap = document.getElementById('adv-url-recap');
-    if (recap) recap.innerHTML = _buildRecapHtml('fa-solid fa-circle-check', 'Lien prêt', zonesArr, cats, alarmFeries, personal); // On passe alarmFeries pour le recap
+    if (recap) recap.innerHTML = _buildRecapHtml('fa-solid fa-circle-check', 'Lien prêt', zonesArr, cats, alarmFeries, personal);
   }, 220);
 }
 
@@ -371,7 +395,6 @@ function copyShareUrl() {
     .catch(() => prompt('Copiez ce lien :', url));
 }
 
-/* Restaurer config depuis hash au chargement */
 (function restoreFromHash() {
   try {
     if (!location.hash || location.hash.length < 2) return;

@@ -1,3 +1,7 @@
+import json
+from pathlib import Path
+from datetime import datetime
+
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, timedelta
 import re
@@ -48,6 +52,31 @@ FR_MONTHS = {
     "septembre": 9, "octobre": 10, "novembre": 11, "decembre": 12,
 }
 
+def fetch_static_sports():
+    """Lit les événements sportifs depuis le fichier JSON local."""
+    events = []
+    data_path = Path(__file__).parent / "data" / "sports.json"
+    if not data_path.exists():
+        return []
+    with open(data_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+        for item in data.get("events", []):
+            try:
+                start_dt = datetime.strptime(item["start"], "%Y-%m-%d").date()
+                end_dt = item.get("end")
+                if end_dt:
+                    end_dt = datetime.strptime(end_dt, "%Y-%m-%d").date()
+                events.append(CalendarEvent(
+                    summary=item["summary"],
+                    start=start_dt,
+                    end=end_dt,
+                    categories=item["categories"],
+                    description=item.get("description", ""),
+                    zones={"all"}
+                ))
+            except Exception as e:
+                print(f"Erreur format date dans sports.json: {e}")
+    return events
 
 def _norm_token(value: str) -> str:
     return (
@@ -342,111 +371,6 @@ def _fetch_football_periods(year: int) -> dict[str, tuple[date, date]]:
                 pass
 
     return periods
-
-
-def _fetch_sports_dates(year: int) -> dict[str, tuple[date, date | None]]:
-    """Récupère les dates sportives en parallèle (ThreadPoolExecutor).
-
-    Les 7+ appels réseau séquentiels pouvaient bloquer jusqu'à ~2 min ;
-    avec le pool ils s'exécutent simultanément et terminent en ~15s max
-    (le timeout du plus lent).
-    """
-    sourced: dict[str, tuple[date, date | None]] = {}
-
-    def fetch_monaco():
-            try:
-                txt = _wiki_extract(f"{year}_Monaco_Grand_Prix", lang="en", intro=True)
-                rng = _parse_en_single_date(txt)
-                if rng:
-                    return "monaco", (rng, None)
-            except Exception:
-                pass
-            return None
-
-    def fetch_roland():
-        try:
-            txt = _wiki_extract(f"{year}_French_Open", lang="en", intro=True)
-            rng = _parse_en_date_range(txt)
-            if rng:
-                return "roland", rng
-        except (requests.RequestException, ValueError, TypeError):
-            pass
-        return None
-
-    def fetch_lemans():
-        try:
-            txt = _wiki_extract(f"{year}_24_Hours_of_Le_Mans", lang="en", intro=True)
-            rng = _parse_en_date_range(txt)
-            if rng:
-                return "lemans", rng
-        except (requests.RequestException, ValueError, TypeError):
-            pass
-        return None
-
-    def fetch_tour():
-        try:
-            txt = _wiki_extract(f"{year}_Tour_de_France", lang="en", intro=True)
-            rng = _parse_en_date_range(txt)
-            if rng:
-                return "tour", rng
-        except (requests.RequestException, ValueError, TypeError):
-            pass
-        return None
-
-    def fetch_six():
-        try:
-            txt = _wiki_extract(f"Tournoi_des_Six_Nations_{year}", lang="fr", intro=True)
-            rng = _parse_fr_du_au_range(txt)
-            if rng:
-                return "six", rng
-        except (requests.RequestException, ValueError, TypeError):
-            pass
-        return None
-
-    def fetch_top14():
-        try:
-            txt = _wiki_extract(f"Championnat_de_France_de_rugby_à_XV_{year-1}-{year}", lang="fr", intro=True)
-            match = re.search(r"se termine le\s+([^\.,]+)\s+lors de la finale", txt, flags=re.IGNORECASE)
-            if match:
-                top14_date = _parse_fr_single_date(match.group(1))
-                if top14_date:
-                    return "top14", (top14_date, None)
-        except (requests.RequestException, ValueError, TypeError):
-            pass
-        return None
-
-    def fetch_coupe():
-        try:
-            txt = _wiki_extract(f"Coupe_de_France_de_football_{year-1}-{year}", lang="fr", intro=False)
-            match = re.search(
-                r"finale[^\n]{0,120}?(?:a lieu|se joue|se déroule|est programmée)\s+le\s+([^\.,\n]+)",
-                txt, flags=re.IGNORECASE,
-            )
-            if match:
-                final_date = _parse_fr_single_date(match.group(1))
-                if final_date:
-                    return "coupe", (final_date, None)
-        except (requests.RequestException, ValueError, TypeError):
-            pass
-        return None
-
-    fetchers = [
-        fetch_monaco, fetch_roland, fetch_lemans, fetch_tour,
-        fetch_six, fetch_top14, fetch_coupe,
-    ]
-
-    with ThreadPoolExecutor(max_workers=7) as executor:
-        futures = {executor.submit(fn): fn.__name__ for fn in fetchers}
-        for future in as_completed(futures):
-            try:
-                result = future.result()
-                if result:
-                    key, value = result
-                    sourced[key] = value
-            except Exception:
-                pass
-
-    return sourced
 
 
 def _fetch_exam_dates(year: int) -> list[dict]:
@@ -1101,128 +1025,6 @@ def build_base_events() -> list[CalendarEvent]:
             ),
         ])
 
-        # ── SPORT ───────────────────────────────────────────────────────────
-        roland_start = last_sunday(year, 5)
-        roland_end = roland_start + timedelta(days=14)
-        monaco_gp = last_sunday(year, 5)
-        le_mans_start = nth_weekday(year, 6, 5, 2)
-        le_mans_end = le_mans_start + timedelta(days=1)
-        tour_start = nth_weekday(year, 7, 5, 1)
-        tour_end = tour_start + timedelta(days=22)
-        coupe_france_final = last_weekday(year, 5, 5)
-        six_nations_start = nth_weekday(year, 2, 5, 1)
-        six_nations_end = six_nations_start + timedelta(weeks=6)
-        top14_final = last_weekday(year, 6, 5)
-
-        sourced_sports = _fetch_sports_dates(year)
-
-        if "roland" in sourced_sports:
-            roland_start, roland_end = sourced_sports["roland"]
-        if "monaco" in sourced_sports:
-            monaco_gp, _ = sourced_sports["monaco"]
-        if "lemans" in sourced_sports:
-            le_mans_start, le_mans_end = sourced_sports["lemans"]
-        if "tour" in sourced_sports:
-            tour_start, tour_end = sourced_sports["tour"]
-        if "coupe" in sourced_sports:
-            coupe_france_final, _ = sourced_sports["coupe"]
-        if "six" in sourced_sports:
-            six_nations_start, six_nations_end = sourced_sports["six"]
-        if "top14" in sourced_sports:
-            top14_final, _ = sourced_sports["top14"]
-
-        football_periods = _fetch_football_periods(year)
-
-        ligue1_start = date(year, 8, 10)
-        ligue1_end = date(year + 1, 5, 25)
-        ucl_start = date(year, 9, 10)
-        ucl_end = date(year + 1, 5, 31)
-
-        if "ligue1" in football_periods:
-            ligue1_start, ligue1_end = football_periods["ligue1"]
-        if "ucl" in football_periods:
-            ucl_start, ucl_end = football_periods["ucl"]
-
-        events.extend([
-            CalendarEvent(
-                "Roland-Garros — Début du tournoi", roland_start,
-                end=roland_end,
-                categories=["Sport"],
-                description="Seul Grand Chelem sur terre battue, disputé fin mai à Paris. Le tournoi dure environ deux semaines. Il porte le nom d'un aviateur de la Première Guerre mondiale, pas d'un joueur de tennis.",
-            ),
-            CalendarEvent(
-                "Grand Prix de Monaco (Formule 1)", monaco_gp,
-                categories=["Sport"],
-                description="Disputé dans les rues de Monaco depuis 1929. Son circuit étroit et lent en fait paradoxalement la plus difficile des courses F1 à remporter — dépasser y est presque impossible.",
-            ),
-            CalendarEvent(
-                "24 Heures du Mans — Départ", le_mans_start,
-                end=le_mans_end,
-                categories=["Sport"],
-                description="Course d'endurance mythique créée en 1923 sur le circuit de la Sarthe. Voitures et pilotes se relaient pendant 24 heures consécutives, de jour comme de nuit.",
-            ),
-            CalendarEvent(
-                "Tour de France — Grand Départ", tour_start,
-                end=tour_end,
-                categories=["Sport"],
-                description="La course cycliste la plus célèbre au monde, créée en 1903. Trois semaines, 21 étapes, environ 3 500 km. Le maillot jaune tire son nom de la couleur du papier journal L'Auto, organisateur historique.",
-            ),
-            CalendarEvent(
-                "Finale de la Coupe de France de Football", coupe_france_final,
-                categories=["Sport"],
-                description="Ouverte à tous les clubs, des amateurs de district jusqu'aux pros. Fondée en 1917, sa finale se joue au Stade de France — n'importe quel club peut théoriquement la remporter.",
-            ),
-            CalendarEvent(
-                "Tournoi des Six Nations — Période", six_nations_start,
-                end=six_nations_end,
-                categories=["Sport"],
-                description="Le plus vieux tournoi international de rugby à XV, né en 1883. Il réunit chaque année de février à mars l'Angleterre, la France, l'Irlande, l'Écosse, le Pays de Galles et l'Italie.",
-            ),
-            CalendarEvent(
-                "Finale du Top 14 de Rugby", top14_final,
-                categories=["Sport"],
-                description="La finale du championnat professionnel de rugby français se joue au Stade de France en juin. Toulouse est le club le plus titré avec plus de 20 boucliers de Brennus.",
-            ),
-            CalendarEvent(
-                f"Ligue 1 — Saison {year}-{year+1}", ligue1_start,
-                end=ligue1_end,
-                categories=["Sport"],
-                description=f"La saison {year}-{year+1} de Ligue 1 regroupe 20 clubs pour 380 matchs d'août à mai.",
-            ),
-            CalendarEvent(
-                f"Ligue des Champions UEFA — Saison {year}-{year+1}", ucl_start,
-                end=ucl_end,
-                categories=["Sport"],
-                description=f"La saison {year}-{year+1} de la Ligue des Champions UEFA, de septembre à fin mai.",
-            ),
-        ])
-
-        if "worldcup" in football_periods:
-            world_start, world_end = football_periods["worldcup"]
-            events.append(CalendarEvent(
-                f"Coupe du monde de football {year}", world_start,
-                end=world_end,
-                categories=["Sport"],
-                description="Compétition internationale masculine organisée par la FIFA tous les quatre ans.",
-            ))
-
-        if "euro" in football_periods:
-            euro_start, euro_end = football_periods["euro"]
-            events.append(CalendarEvent(
-                f"UEFA Euro {year}", euro_start,
-                end=euro_end,
-                categories=["Sport"],
-                description="Championnat d'Europe des nations de football, organisé tous les quatre ans par l'UEFA.",
-            ))
-
-        if "afcon" in football_periods:
-            afcon_start, afcon_end = football_periods["afcon"]
-            events.append(CalendarEvent(
-                f"Coupe d'Afrique des Nations {year}", afcon_start,
-                end=afcon_end,
-                categories=["Sport"],
-                description="Compétition continentale des sélections africaines, organisée tous les deux ans par la CAF.",
-            ))
 
         # ── EXAMENS NATIONAUX ───────────────────────────────────────────────
         for exam in _fetch_exam_dates(year):
