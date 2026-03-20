@@ -1,8 +1,10 @@
 const crypto = require("crypto");
+const { kv } = require('@vercel/kv');
 
 const UPSTREAM_CACHE_TTL_MS = 5 * 60 * 1000;
 
 let upstreamCalendarCache = { expiresAt: 0, payload: null, etag: null, lastModified: null };
+
 
 /* ── Dictionnaire des Emojis ── */
 function getEmojiForEvent(event) {
@@ -173,7 +175,18 @@ module.exports = async function handler(req, res) {
   if (req.method === "OPTIONS") { res.statusCode = 204; res.end(); return; }
 
   const url = new URL(req.url, `https://${req.headers.host}`);
-  const hasParams = url.searchParams.has("zone") || url.searchParams.has("cats") || url.searchParams.has("pe") || url.searchParams.has("alarm_feries") || url.searchParams.has("alarm_vacances") || url.searchParams.has("emojis");
+  const shortId = url.searchParams.get('id');
+  let finalParams = url.searchParams;
+
+  if (shortId) {
+    const longUrlStr = await kv.get(`link:${shortId}`);
+    if (longUrlStr) {
+      const tempUrl = new URL(longUrlStr);
+      finalParams = tempUrl.searchParams;
+    }
+  }
+
+  const hasParams = finalParams.has("zone") || finalParams.has("cats") || finalParams.has("pe") || finalParams.has("alarm_feries") || finalParams.has("alarm_vacances") || finalParams.has("emojis");
   if (!hasParams) {
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/html; charset=utf-8");
@@ -182,12 +195,12 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const selectedZones = normalizeList(url.searchParams.get("zone"));
-    const selectedCats = normalizeList(url.searchParams.get("cats"));
-    const personalEvents = parsePersonalEvents(url.searchParams.get("pe"));
-    const alarmFeries = (url.searchParams.get("alarm_feries") || "none").trim();
-    const alarmVacances = (url.searchParams.get("alarm_vacances") || "none").trim();
-    const useEmojis = url.searchParams.get("emojis") === "1";
+    const selectedZones = normalizeList(finalParams.get("zone"));
+    const selectedCats = normalizeList(finalParams.get("cats"));
+    const personalEvents = parsePersonalEvents(finalParams.get("pe"));
+    const alarmFeries = (finalParams.get("alarm_feries") || "none").trim();
+    const alarmVacances = (finalParams.get("alarm_vacances") || "none").trim();
+    const useEmojis = finalParams.get("emojis") === "1";
 
     const sourceUrl = process.env.CALENDAR_JSON_URL || "https://calendrier-fr.tibotsr.dev/calendrier.json";
 
