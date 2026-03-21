@@ -31,6 +31,8 @@ const KEYS = {
 };
 
 /* ── Catalogue de catégories ────────────────────────── */
+// SPORT : toutes les compétitions sportives sont regroupées sous une seule
+// catégorie "Sport" — pas de sous-catégories Ligue 1, Rugby, Tennis, etc.
 const CATS = [
   { n: 'Agriculture',         c: '#84cc16', d: 'rgba(132,204,22,.12)',  b: 'rgba(132,204,22,.3)'  },
   { n: 'Astronomie',          c: '#60a5fa', d: 'rgba(96,165,250,.12)',  b: 'rgba(96,165,250,.3)'  },
@@ -45,6 +47,8 @@ const CATS = [
   { n: 'Examens',             c: '#14b8a6', d: 'rgba(20,184,166,.12)',  b: 'rgba(20,184,166,.3)'  },
   { n: 'Fêtes',               c: '#8b5cf6', d: 'rgba(139,92,246,.12)',  b: 'rgba(139,92,246,.3)'  },
   { n: 'Gastronomie',         c: '#f59e0b', d: 'rgba(245,158,11,.12)',  b: 'rgba(245,158,11,.3)'  },
+  { n: 'JO',                  c: '#0369a1', d: 'rgba(3,105,161,.12)',   b: 'rgba(3,105,161,.3)'   },
+  { n: 'Jeux Paralympiques',  c: '#7c3aed', d: 'rgba(124,58,237,.12)',  b: 'rgba(124,58,237,.3)'  },
   { n: 'Jours fériés',        c: '#ff5a5a', d: 'rgba(255,90,90,.12)',   b: 'rgba(255,90,90,.3)'   },
   { n: 'Lunaire',             c: '#4f46e5', d: 'rgba(79,70,229,.12)',   b: 'rgba(79,70,229,.3)'   },
   { n: 'Mémoire',             c: '#64748b', d: 'rgba(100,116,139,.12)', b: 'rgba(100,116,139,.3)' },
@@ -52,34 +56,45 @@ const CATS = [
   { n: 'Saisons',             c: '#22d3ee', d: 'rgba(34,211,238,.12)',  b: 'rgba(34,211,238,.3)'  },
   { n: 'Santé',               c: '#ef4444', d: 'rgba(239,68,68,.12)',   b: 'rgba(239,68,68,.3)'   },
   { n: 'Société',             c: '#94a3b8', d: 'rgba(148,163,184,.12)', b: 'rgba(148,163,184,.3)' },
+  // Sport : catégorie unique regroupant toutes les compétitions (football, rugby,
+  // tennis, cyclisme, F1, handball, athlétisme, auto/moto…)
   { n: 'Sport',               c: '#06b6d4', d: 'rgba(6,182,212,.12)',   b: 'rgba(6,182,212,.3)'   },
   { n: 'Théâtre',             c: '#d946ef', d: 'rgba(217,70,239,.12)',  b: 'rgba(217,70,239,.3)'  },
   { n: 'Vacances scolaires',  c: '#f5a020', d: 'rgba(245,160,32,.12)',  b: 'rgba(245,160,32,.3)'  },
   { n: 'Éducation',           c: '#0ea5e9', d: 'rgba(14,165,233,.12)',  b: 'rgba(14,165,233,.3)'  },
   { n: 'Élections',           c: '#f43f5e', d: 'rgba(244,63,94,.12)',   b: 'rgba(244,63,94,.3)'   },
   { n: 'Événements spéciaux', c: '#a78bfa', d: 'rgba(167,139,250,.12)', b: 'rgba(167,139,250,.3)' },
-  { n: 'Ligue 1',         c: '#1e3a8a', d: 'rgba(30,58,138,.12)',  b: 'rgba(30,58,138,.3)'  }, // Bleu foncé
-  { n: 'Ligue 2',         c: '#2563eb', d: 'rgba(37,99,235,.12)',  b: 'rgba(37,99,235,.3)'  }, // Bleu
-  { n: 'Top 14 (Rugby)',  c: '#a16207', d: 'rgba(161,98,7,.12)',   b: 'rgba(161,98,7,.3)'   }, // Or
-  { n: 'Formule 1',       c: '#ef4444', d: 'rgba(239,68,68,.12)',  b: 'rgba(239,68,68,.3)'  }, // Rouge
-  { n: 'Tennis',          c: '#ea580c', d: 'rgba(234,88,12,.12)',  b: 'rgba(234,88,12,.3)'  }, // Orange terre-battue
-  { n: 'Cyclisme',        c: '#fde047', d: 'rgba(253,224,71,.12)', b: 'rgba(253,224,71,.3)' }, // Jaune
-  { n: 'Auto/Moto',       c: '#6366f1', d: 'rgba(99,102,241,.12)', b: 'rgba(99,102,241,.3)' }, // Violet
 ];
 
 /** Retourne la définition couleur d'une catégorie (fallback bleu). */
 function cd(name) {
   const aliases = {
+    // Toutes les anciennes sous-catégories sport → Sport
+    'Ligue 1':        'Sport',
+    'Ligue 2':        'Sport',
+    'Top 14 (Rugby)': 'Sport',
+    'Formule 1':      'Sport',
+    'Tennis':         'Sport',
+    'Cyclisme':       'Sport',
+    'Auto/Moto':      'Sport',
+    'Football':       'Sport',
+    'Rugby':          'Sport',
+    'Handball':       'Sport',
+    'Athlétisme':     'Sport',
+    'Ligue des Champions': 'Sport',
+    'Europa League':  'Sport',
+    'Coupe de France': 'Sport',
+    // Alias existant
     'Événements spéciaux': 'Dates spéciales',
   };
   const normalized = aliases[name] || name;
   return CATS.find(c => c.n === normalized) || { c: '#6b8cff', d: 'rgba(107,140,255,.12)', b: 'rgba(107,140,255,.3)' };
 }
-window.cd = cd; // exposé pour calendar-grid.js
+window.cd = cd;
 
 /* ── Profils avancés ────────────────────────────────── */
 const PROFILES = {
-  complet:  null, // null = tout
+  complet:   null, // null = tout
   essentiel: ['Jours fériés', 'Vacances scolaires', 'Ponts / Congés'],
   familial:  ['Jours fériés', 'Vacances scolaires', 'Fêtes', 'Saisons', 'Culture'],
   pro:       ['Jours fériés', 'Ponts / Congés', 'Commercial', 'Commerce'],
@@ -107,37 +122,38 @@ const APP_INFO = {
     steps: `<span class="sn">1</span> Cliquez <strong>S'abonner maintenant</strong> ci-dessous — Outlook s'ouvre automatiquement &nbsp;·&nbsp;
             <em style="opacity:.65">ou</em> : Calendrier → Ajouter un calendrier → S'abonner par Internet → collez`,
   },
+  other: {
+    url:   () => DYNAMIC_ICS_WEBCAL,
+    sub:   () => DYNAMIC_ICS_WEBCAL,
+    steps: `<span class="sn">1</span> Copiez le lien ci-dessus &nbsp;·&nbsp;
+            <span class="sn">2</span> Dans votre agenda, cherchez <strong>Ajouter un calendrier par URL</strong> ou <strong>S'abonner à un calendrier</strong> &nbsp;·&nbsp;
+            <span class="sn">3</span> Collez le lien et confirmez — le calendrier se synchronise automatiquement`,
+  },
 };
 
 /* ── Helpers date ───────────────────────────────────── */
-/** Parse "YYYY-MM-DD" → Date locale (sans timezone) */
 function pd(s) {
   if (!s) return null;
   const [y, m, d] = s.split('-').map(Number);
   return new Date(y, m - 1, d);
 }
 
-/** Formate une date en français long */
 function fmt(d) {
   return new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }).format(d);
 }
 
-/** Formate une date en français court */
 function fmts(d) {
   return new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'short' }).format(d);
 }
 
-/** Jour de la semaine abrégé */
 function fmtwd(d) {
   return new Intl.DateTimeFormat('fr-FR', { weekday: 'short' }).format(d).replace('.', '');
 }
 
-/** Normalise une chaîne pour la recherche (minuscules, sans accents) */
 function norm(s) {
   return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
-/** Échappe le HTML pour éviter les injections */
 function escHtml(s) {
   return String(s)
     .replace(/&/g, '&amp;')
@@ -145,7 +161,6 @@ function escHtml(s) {
     .replace(/>/g, '&gt;');
 }
 
-/** Compte les jours ouvrés entre deux dates incluses */
 function countWeekdays(start, end) {
   if (!start || !end) return 0;
   const from = new Date(start.getFullYear(), start.getMonth(), start.getDate());
@@ -185,7 +200,6 @@ function hideAppLoader() {
   setTimeout(() => {
     loader.classList.add('done');
     document.body.classList.remove('app-loading');
-    document.getElementById('app-loader').classList.add('done');
     setTimeout(() => loader.remove(), 260);
   }, wait);
 }

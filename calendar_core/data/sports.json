@@ -5,9 +5,7 @@
             "start": "2019-08-09",
             "end": "2020-04-28",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue 1"
+                "Sport"
             ],
             "description": "Saison arrêtée par le Covid-19 avant son terme. Le PSG est déclaré champion."
         },
@@ -16,8 +14,7 @@
             "start": "2020-02-01",
             "end": "2020-10-31",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
             "description": "Édition perturbée par le Covid-19, terminée en octobre. L'Angleterre remporte le titre."
         },
@@ -26,8 +23,7 @@
             "start": "2020-09-27",
             "end": "2020-10-11",
             "categories": [
-                "Sport",
-                "Tennis"
+                "Sport"
             ],
             "description": "Reporté à l'automne en raison du Covid-19. Victoire de Nadal et Swiatek."
         },
@@ -36,8 +32,7 @@
             "start": "2020-08-29",
             "end": "2020-09-20",
             "categories": [
-                "Sport",
-                "Cyclisme"
+                "Sport"
             ],
             "description": "Édition décalée en raison du Covid-19. Victoire de Tadej Pogacar (Slovénie)."
         },
@@ -46,8 +41,7 @@
             "start": "2020-09-19",
             "end": "2020-09-20",
             "categories": [
-                "Sport",
-                "Auto/Moto"
+                "Sport"
             ],
             "description": "Course à huis clos en raison du Covid-19. Victoire Toyota (Conway, Kobayashi, López)."
         },
@@ -56,9 +50,7 @@
             "start": "2020-08-21",
             "end": "2021-05-23",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue 1"
+                "Sport"
             ],
             "description": "LOSC Lille remporte le titre pour la 4e fois de son histoire."
         },
@@ -67,8 +59,7 @@
             "start": "2021-02-06",
             "end": "2021-03-20",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
             "description": "Le Pays de Galles remporte le Grand Chelem."
         },
@@ -77,8 +68,7 @@
             "start": "2021-01-13",
             "end": "2021-01-31",
             "categories": [
-                "Sport",
-                "Handball"
+                "Sport"
             ],
             "description": "Organisé en Égypte. Le Danemark remporte son 2e titre consécutif face à la France en finale."
         },
@@ -87,18 +77,16 @@
             "start": "2021-06-11",
             "end": "2021-07-11",
             "categories": [
-                "Sport",
-                "Football"
+                "Sport"
             ],
-            "description": "Euro reporté d'un an en raison du Covid-19, organisé dans plusieurs villes européennes. L'Italie remporte le titre face à l'Angleterre aux t.a.b."
+            "description": "Euro reporté d'un an. L'Italie remporte le titre face à l'Angleterre aux t.a.b."
         },
         {
             "summary": "Roland-Garros 2021",
             "start": "2021-05-24",
             "end": "2021-06-13",
             "categories": [
-                "Sport",
-                "Tennis"
+                "Sport"
             ],
             "description": "Victoire de Novak Djokovic et Barbora Krejcikova."
         },
@@ -107,8 +95,7 @@
             "start": "2021-06-26",
             "end": "2021-07-18",
             "categories": [
-                "Sport",
-                "Cyclisme"
+                "Sport"
             ],
             "description": "Victoire de Tadej Pogacar pour la 2e année consécutive."
         },
@@ -117,8 +104,7 @@
             "start": "2021-08-21",
             "end": "2021-08-22",
             "categories": [
-                "Sport",
-                "Auto/Moto"
+                "Sport"
             ],
             "description": "Victoire Toyota (Buemi, Hartley, Hirakawa)."
         },
@@ -130,7 +116,7 @@
                 "Sport",
                 "JO"
             ],
-            "description": "Jeux reportés d'un an en raison du Covid-19. La France termine 8e au tableau des médailles (10 or)."
+            "description": "Jeux reportés d'un an. La France termine 8e au tableau des médailles (10 or)."
         },
         {
             "summary": "Jeux Paralympiques de Tokyo 2020",
@@ -140,26 +126,23 @@
                 "Sport",
                 "Jeux Paralympiques"
             ],
-            "description": "XVIes Jeux Paralympiques d'été à Tokyo, Japon. La Grande-Bretagne et les États-Unis dominent le tableau."
+            "description": "XVIes Jeux Paralympiques d'été à Tokyo, Japon."
         },
         {
             "summary": "Championnats du monde de handball féminin 2021",
             "start": "2021-12-01",
             "end": "2021-12-19",
             "categories": [
-                "Sport",
-                "Handball"
+                "Sport"
             ],
-            "description": "Organisés en Espagne. La France remporte son 2e titre mondial en battant la Norvège en finale (31-20)."
+            "description": "Organisés en Espagne. La France remporte son 2e titre mondial face à la Norvège en finale (31-20)."
         },
         {
             "summary": "Ligue 1 2021-2022",
             "start": "2021-08-06",
             "end": "2022-05-21",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue 1"
+                "Sport"
             ],
             "description": "Le PSG remporte le titre. Kylian Mbappé est à la fois meilleur buteur et meilleur passeur."
         },
@@ -171,7 +154,7 @@
                 "Sport",
                 "JO"
             ],
-            "description": "XXIVes Jeux Olympiques d'hiver à Pékin, Chine. La Norvège domine le tableau des médailles."
+            "description": "XXIVes Jeux Olympiques d'hiver à Pékin. La Norvège domine le tableau des médailles."
         },
         {
             "summary": "Jeux Paralympiques d'hiver de Pékin 2022",
@@ -181,15 +164,14 @@
                 "Sport",
                 "Jeux Paralympiques"
             ],
-            "description": "XIIIes Jeux Paralympiques d'hiver à Pékin, Chine. La Chine domine le tableau des médailles."
+            "description": "XIIIes Jeux Paralympiques d'hiver à Pékin."
         },
         {
             "summary": "Tournoi des Six Nations 2022",
             "start": "2022-02-05",
             "end": "2022-03-19",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
             "description": "La France réalise le Grand Chelem pour la première fois depuis 2010."
         },
@@ -198,8 +180,7 @@
             "start": "2022-05-22",
             "end": "2022-06-05",
             "categories": [
-                "Sport",
-                "Tennis"
+                "Sport"
             ],
             "description": "Victoire de Rafael Nadal (14e titre à Roland-Garros) et Iga Swiatek."
         },
@@ -208,8 +189,7 @@
             "start": "2022-07-01",
             "end": "2022-07-24",
             "categories": [
-                "Sport",
-                "Cyclisme"
+                "Sport"
             ],
             "description": "Victoire de Jonas Vingegaard (Danemark) devant Tadej Pogacar."
         },
@@ -218,18 +198,16 @@
             "start": "2022-07-15",
             "end": "2022-07-24",
             "categories": [
-                "Sport",
-                "Athlétisme"
+                "Sport"
             ],
-            "description": "18e édition à Eugene, États-Unis (Hayward Field). Les États-Unis dominent avec 13 titres."
+            "description": "18e édition à Eugene, États-Unis. Les États-Unis dominent avec 13 titres."
         },
         {
             "summary": "24 Heures du Mans 2022",
             "start": "2022-06-11",
             "end": "2022-06-12",
             "categories": [
-                "Sport",
-                "Auto/Moto"
+                "Sport"
             ],
             "description": "Victoire Toyota (Buemi, Hartley, Hirakawa)."
         },
@@ -238,8 +216,7 @@
             "start": "2022-10-08",
             "end": "2022-11-12",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
             "description": "La Nouvelle-Zélande remporte le titre en Nouvelle-Zélande."
         },
@@ -248,8 +225,7 @@
             "start": "2022-11-20",
             "end": "2022-12-18",
             "categories": [
-                "Sport",
-                "Football"
+                "Sport"
             ],
             "description": "Organisée au Qatar. L'Argentine remporte le titre face à la France en finale (3-3, 4-2 aux t.a.b.)."
         },
@@ -258,19 +234,16 @@
             "start": "2022-08-05",
             "end": "2023-06-03",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue 1"
+                "Sport"
             ],
-            "description": "Le PSG remporte le titre. Passage de 20 à 18 clubs pour la saison suivante (4 relégations)."
+            "description": "Le PSG remporte le titre. Passage de 20 à 18 clubs pour la saison suivante."
         },
         {
             "summary": "Championnat du monde de handball masculin 2023",
             "start": "2023-01-11",
             "end": "2023-01-29",
             "categories": [
-                "Sport",
-                "Handball"
+                "Sport"
             ],
             "description": "Organisé en Suède et en Pologne. Le Danemark remporte son 3e titre consécutif face à la France en finale."
         },
@@ -279,8 +252,7 @@
             "start": "2023-02-04",
             "end": "2023-03-18",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
             "description": "L'Irlande réalise le Grand Chelem."
         },
@@ -289,8 +261,7 @@
             "start": "2023-05-28",
             "end": "2023-06-11",
             "categories": [
-                "Sport",
-                "Tennis"
+                "Sport"
             ],
             "description": "Victoire de Novak Djokovic et Iga Swiatek."
         },
@@ -299,9 +270,7 @@
             "start": "2023-06-10",
             "end": "2023-06-10",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue des Champions"
+                "Sport"
             ],
             "description": "À Istanbul. Manchester City remporte son premier titre en battant l'Inter Milan (1-0)."
         },
@@ -310,18 +279,16 @@
             "start": "2023-06-10",
             "end": "2023-06-11",
             "categories": [
-                "Sport",
-                "Auto/Moto"
+                "Sport"
             ],
-            "description": "Victoire Ferrari (Pier Guidi, Calado, Giovinazzi) – première victoire Ferrari au Mans depuis 1965."
+            "description": "Victoire Ferrari — première victoire Ferrari au Mans depuis 1965."
         },
         {
             "summary": "Tour de France 2023",
             "start": "2023-07-01",
             "end": "2023-07-23",
             "categories": [
-                "Sport",
-                "Cyclisme"
+                "Sport"
             ],
             "description": "Victoire de Jonas Vingegaard pour la 2e fois consécutive."
         },
@@ -330,18 +297,16 @@
             "start": "2023-08-19",
             "end": "2023-08-27",
             "categories": [
-                "Sport",
-                "Athlétisme"
+                "Sport"
             ],
-            "description": "19e édition à Budapest, Hongrie (Centre national d'athlétisme). 49 épreuves, 202 nations."
+            "description": "19e édition à Budapest, Hongrie."
         },
         {
             "summary": "Coupe du monde de rugby à XV 2023",
             "start": "2023-09-08",
             "end": "2023-10-28",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
             "description": "Organisée en France. L'Afrique du Sud remporte son 4e titre mondial face à la Nouvelle-Zélande."
         },
@@ -350,8 +315,7 @@
             "start": "2023-11-30",
             "end": "2023-12-17",
             "categories": [
-                "Sport",
-                "Handball"
+                "Sport"
             ],
             "description": "Organisé au Danemark, en Norvège et en Suède. La Norvège remporte le titre."
         },
@@ -360,9 +324,7 @@
             "start": "2023-08-12",
             "end": "2024-05-18",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue 1"
+                "Sport"
             ],
             "description": "Première saison à 18 clubs (34 journées). Le PSG remporte le titre."
         },
@@ -371,8 +333,7 @@
             "start": "2024-02-02",
             "end": "2024-03-16",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
             "description": "L'Irlande remporte le titre."
         },
@@ -381,8 +342,7 @@
             "start": "2024-05-26",
             "end": "2024-06-09",
             "categories": [
-                "Sport",
-                "Tennis"
+                "Sport"
             ],
             "description": "Victoire de Carlos Alcaraz et Iga Swiatek."
         },
@@ -391,9 +351,7 @@
             "start": "2024-05-25",
             "end": "2024-05-25",
             "categories": [
-                "Sport",
-                "Football",
-                "Coupe de France"
+                "Sport"
             ],
             "description": "Au Stade Pierre-Mauroy de Lille. Le PSG bat l'OL (2-1) et remporte son 15e titre."
         },
@@ -402,8 +360,7 @@
             "start": "2024-06-14",
             "end": "2024-07-14",
             "categories": [
-                "Sport",
-                "Football"
+                "Sport"
             ],
             "description": "Organisé en Allemagne. L'Espagne remporte son 4e titre européen face à l'Angleterre (2-1)."
         },
@@ -412,9 +369,7 @@
             "start": "2024-06-01",
             "end": "2024-06-01",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue des Champions"
+                "Sport"
             ],
             "description": "À Wembley, Londres. Le Real Madrid bat le Borussia Dortmund (2-0)."
         },
@@ -423,8 +378,7 @@
             "start": "2024-06-15",
             "end": "2024-06-16",
             "categories": [
-                "Sport",
-                "Auto/Moto"
+                "Sport"
             ],
             "description": "Victoire Ferrari (Pier Guidi, Calado, Nielsen)."
         },
@@ -433,8 +387,7 @@
             "start": "2024-06-29",
             "end": "2024-07-21",
             "categories": [
-                "Sport",
-                "Cyclisme"
+                "Sport"
             ],
             "description": "Victoire de Tadej Pogacar (3e titre)."
         },
@@ -446,7 +399,7 @@
                 "Sport",
                 "JO"
             ],
-            "description": "XXXIIIes Jeux Olympiques d'été à Paris. La France termine 5e au tableau des médailles (16 or, 26 argent, 22 bronze)."
+            "description": "XXXIIIes Jeux Olympiques d'été à Paris. La France termine 5e au tableau des médailles."
         },
         {
             "summary": "Jeux Paralympiques de Paris 2024",
@@ -456,16 +409,14 @@
                 "Sport",
                 "Jeux Paralympiques"
             ],
-            "description": "XVIIes Jeux Paralympiques d'été à Paris. Cérémonie d'ouverture place de la Concorde. La France remporte 75 médailles dont 19 en or."
+            "description": "XVIIes Jeux Paralympiques d'été à Paris. La France remporte 75 médailles dont 19 en or."
         },
         {
             "summary": "Ligue 1 2024-2025",
             "start": "2024-08-16",
             "end": "2025-05-17",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue 1"
+                "Sport"
             ],
             "description": "Le PSG est sacré champion le 5 avril 2025, à 6 journées de la fin."
         },
@@ -474,8 +425,7 @@
             "start": "2025-01-14",
             "end": "2025-02-02",
             "categories": [
-                "Sport",
-                "Handball"
+                "Sport"
             ],
             "description": "Organisé au Danemark, en Norvège et en Croatie. 32 équipes participantes."
         },
@@ -484,8 +434,7 @@
             "start": "2025-01-31",
             "end": "2025-03-15",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
             "description": "Le tournoi mythique opposant les meilleures nations européennes."
         },
@@ -494,8 +443,7 @@
             "start": "2025-05-25",
             "end": "2025-06-08",
             "categories": [
-                "Sport",
-                "Tennis"
+                "Sport"
             ],
             "description": "Grand Chelem sur terre battue à Paris."
         },
@@ -504,8 +452,7 @@
             "start": "2025-05-23",
             "end": "2025-05-25",
             "categories": [
-                "Sport",
-                "Formule 1"
+                "Sport"
             ],
             "description": "Course mythique du calendrier de Formule 1 dans les rues de Monaco."
         },
@@ -514,9 +461,7 @@
             "start": "2025-05-24",
             "end": "2025-05-24",
             "categories": [
-                "Sport",
-                "Football",
-                "Coupe de France"
+                "Sport"
             ],
             "description": "Au Stade de France. Le PSG remporte son 16e titre, battant le Stade de Reims."
         },
@@ -525,9 +470,7 @@
             "start": "2025-05-31",
             "end": "2025-05-31",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue des Champions"
+                "Sport"
             ],
             "description": "À la Fußball Arena München de Munich. Le PSG remporte son premier titre en écrasant l'Inter Milan (5-0)."
         },
@@ -536,8 +479,7 @@
             "start": "2025-06-14",
             "end": "2025-06-15",
             "categories": [
-                "Sport",
-                "Auto/Moto"
+                "Sport"
             ],
             "description": "Course d'endurance mythique sur le circuit de la Sarthe."
         },
@@ -546,8 +488,7 @@
             "start": "2025-07-05",
             "end": "2025-07-27",
             "categories": [
-                "Sport",
-                "Cyclisme"
+                "Sport"
             ],
             "description": "La plus grande course cycliste au monde."
         },
@@ -556,18 +497,16 @@
             "start": "2025-09-13",
             "end": "2025-09-21",
             "categories": [
-                "Sport",
-                "Athlétisme"
+                "Sport"
             ],
-            "description": "20e édition au Stade national de Tokyo, Japon. Plus de 2 000 athlètes de 200 pays."
+            "description": "20e édition au Stade national de Tokyo, Japon."
         },
         {
             "summary": "Coupe du monde féminine de rugby 2025",
             "start": "2025-08-22",
             "end": "2025-09-27",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
             "description": "10e édition, organisée en Angleterre."
         },
@@ -576,9 +515,7 @@
             "start": "2025-08-15",
             "end": "2026-05-16",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue 1"
+                "Sport"
             ],
             "description": "88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's."
         },
@@ -590,15 +527,14 @@
                 "Sport",
                 "JO"
             ],
-            "description": "XXVes Jeux Olympiques d'hiver à Milan et Cortina d'Ampezzo, Italie. Cérémonie d'ouverture au stade San Siro."
+            "description": "XXVes Jeux Olympiques d'hiver à Milan et Cortina d'Ampezzo, Italie."
         },
         {
             "summary": "Tournoi des Six Nations 2026",
             "start": "2026-02-05",
             "end": "2026-03-14",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
             "description": "La France conserve son titre grâce à une pénalité dans le temps additionnel lors du Crunch face à l'Angleterre."
         },
@@ -607,8 +543,7 @@
             "start": "2026-05-24",
             "end": "2026-06-07",
             "categories": [
-                "Sport",
-                "Tennis"
+                "Sport"
             ],
             "description": "Grand Chelem sur terre battue à Paris."
         },
@@ -617,9 +552,7 @@
             "start": "2026-05-20",
             "end": "2026-05-20",
             "categories": [
-                "Sport",
-                "Football",
-                "Europa League"
+                "Sport"
             ],
             "description": "Au Beşiktaş Park d'Istanbul, Turquie."
         },
@@ -628,9 +561,7 @@
             "start": "2026-05-30",
             "end": "2026-05-30",
             "categories": [
-                "Sport",
-                "Football",
-                "Ligue des Champions"
+                "Sport"
             ],
             "description": "À la Puskás Aréna de Budapest, Hongrie. 71e édition de la compétition."
         },
@@ -639,18 +570,16 @@
             "start": "2026-06-11",
             "end": "2026-07-19",
             "categories": [
-                "Sport",
-                "Football"
+                "Sport"
             ],
-            "description": "Première édition à 48 équipes, organisée aux États-Unis, au Canada et au Mexique. Match d'ouverture au stade Azteca de Mexico, finale au MetLife Stadium de New York."
+            "description": "Première édition à 48 équipes, organisée aux États-Unis, au Canada et au Mexique."
         },
         {
             "summary": "24 Heures du Mans 2026",
             "start": "2026-06-13",
             "end": "2026-06-14",
             "categories": [
-                "Sport",
-                "Auto/Moto"
+                "Sport"
             ],
             "description": "94e édition sur le circuit de la Sarthe."
         },
@@ -659,30 +588,27 @@
             "start": "2026-07-04",
             "end": "2026-07-26",
             "categories": [
-                "Sport",
-                "Cyclisme"
+                "Sport"
             ],
-            "description": "113e édition. Grand départ à Barcelone, arrivée à Paris. Double ascension de l'Alpe d'Huez."
+            "description": "113e édition. Grand départ à Barcelone, arrivée à Paris."
         },
         {
             "summary": "Coupe du monde de rugby à XV 2027",
             "start": "2027-10-01",
             "end": "2027-11-13",
             "categories": [
-                "Sport",
-                "Rugby"
+                "Sport"
             ],
-            "description": "Organisée en Australie. Première édition à 24 équipes avec huitièmes de finale. La France est dans la poule avec le Japon, les États-Unis et les Samoa. Finale à Sydney."
+            "description": "Organisée en Australie. Première édition à 24 équipes avec huitièmes de finale."
         },
         {
             "summary": "UEFA Euro 2028",
             "start": "2028-06-09",
             "end": "2028-07-09",
             "categories": [
-                "Sport",
-                "Football"
+                "Sport"
             ],
-            "description": "Organisé en Angleterre, Écosse, Pays de Galles et Irlande. Match d'ouverture au National Stadium of Wales à Cardiff."
+            "description": "Organisé en Angleterre, Écosse, Pays de Galles et Irlande."
         },
         {
             "summary": "Jeux Olympiques de Los Angeles 2028",
@@ -692,7 +618,7 @@
                 "Sport",
                 "JO"
             ],
-            "description": "XXXIVes Jeux Olympiques d'été à Los Angeles, États-Unis. Cérémonie d'ouverture au SoFi Stadium et au Memorial Coliseum."
+            "description": "XXXIVes Jeux Olympiques d'été à Los Angeles, États-Unis."
         },
         {
             "summary": "Jeux Paralympiques de Los Angeles 2028",

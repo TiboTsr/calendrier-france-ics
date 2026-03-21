@@ -608,8 +608,14 @@ def build_base_events() -> list[CalendarEvent]:
             ),
         }
 
+        # Renommages supplémentaires après localisation
+        SUMMARY_OVERRIDES: dict[str, str] = {
+            "Fête de la Victoire": "Fête de la Victoire 1945",
+        }
+
         for holiday_date, holiday_name in fr_holidays.items():
             localized = localize_holiday_name(holiday_name)
+            localized = SUMMARY_OVERRIDES.get(localized, localized)
             description = SPECIFIC_DESCRIPTIONS.get(
                 holiday_date,
                 "Jour férié légal en France — chômé et payé depuis la loi du 13 juillet 1906.",
