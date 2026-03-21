@@ -1,10 +1,29 @@
 /**
  * explorer.js — Sidebar, radar, timeline et modal événement
- * MODIF : buildSbCats avec couleurs par catégorie (actif = couleur pleine, inactif = grisé)
- *         + bouton "Voir plus" remplace l'infinite scroll
  */
 
 const CHUNK = 3;
+
+// Wrapper sécurisé localStorage — évite les SecurityError en navigation privée Safari
+const LS = {
+  get(key, fallback = null) {
+    try { const v = localStorage.getItem(key); return v !== null ? v : fallback; }
+    catch { return fallback; }
+  },
+  set(key, value) {
+    try { localStorage.setItem(key, value); } catch {}
+  },
+  remove(key) {
+    try { localStorage.removeItem(key); } catch {}
+  },
+  getJson(key, fallback = null) {
+    try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+    catch { return fallback; }
+  },
+  setJson(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+  },
+};
 
 function formatEventDescriptionHtml(value) {
   if (!value) return "<i style='color:var(--t3)'>Aucune description.</i>";
@@ -25,7 +44,6 @@ function _applyCatStyle(el, cat, active) {
     el.style.color       = 'var(--t3)';
     el.style.opacity     = '0.45';
   }
-  // Toujours colorer le dot avec la couleur de la catégorie
   const dot = el.querySelector('.sc-dot');
   if (dot) dot.style.background = def.c;
 }
@@ -43,29 +61,27 @@ function buildSbCats(cats) {
     const def = cd(cat);
     const el  = document.createElement('div');
     el.className = 'scat active'; el.dataset.cat = cat;
-    el.innerHTML = `<input type="checkbox" checked style="display:none"><span class="sc-dot" style="background:${def.c}"></span><span class="sc-name">${cat}</span><span class="sc-cnt">${counts.get(cat) || 0}</span>`;
+    el.innerHTML = `<input type="checkbox" checked style="display:none"><span class="sc-dot" style="background:${def.c}"></span><span class="sc-name">${escHtml(cat)}</span><span class="sc-cnt">${counts.get(cat) || 0}</span>`;
     _applyCatStyle(el, cat, true);
     el.addEventListener('click', () => {
       el.classList.toggle('active');
       const isActive = el.classList.contains('active');
       _applyCatStyle(el, cat, isActive);
-      try { localStorage.setItem(KEYS.favs, JSON.stringify(getSelCats())); } catch {}
+      LS.setJson(KEYS.favs, getSelCats());
       STATE.renderedMonths = 0; refreshAll();
     });
     g.appendChild(el);
   });
   // Restaurer sélection sauvegardée
-  try {
-    const saved = JSON.parse(localStorage.getItem(KEYS.favs));
-    if (Array.isArray(saved)) {
-      const set = new Set(saved);
-      g.querySelectorAll('.scat').forEach(el => {
-        const active = set.has(el.dataset.cat);
-        el.classList.toggle('active', active);
-        _applyCatStyle(el, el.dataset.cat, active);
-      });
-    }
-  } catch {}
+  const saved = LS.getJson(KEYS.favs);
+  if (Array.isArray(saved)) {
+    const set = new Set(saved);
+    g.querySelectorAll('.scat').forEach(el => {
+      const active = set.has(el.dataset.cat);
+      el.classList.toggle('active', active);
+      _applyCatStyle(el, el.dataset.cat, active);
+    });
+  }
 }
 
 document.getElementById('sb-rst').addEventListener('click', () => {
@@ -73,7 +89,7 @@ document.getElementById('sb-rst').addEventListener('click', () => {
     el.classList.add('active');
     _applyCatStyle(el, el.dataset.cat, true);
   });
-  localStorage.removeItem(KEYS.favs);
+  LS.remove(KEYS.favs);
   STATE.renderedMonths = 0; refreshAll();
 });
 
@@ -117,8 +133,8 @@ function getFilteredUpcoming() {
 
 /* ── Radar ──────────────────────────────────────────── */
 function renderRadar(evts) {
-  const root      = document.getElementById('r-root');
-  const cnt       = document.getElementById('r-cnt');
+  const root       = document.getElementById('r-root');
+  const cnt        = document.getElementById('r-cnt');
   const activeRoot = document.getElementById('r-active');
   const activeCnt  = document.getElementById('r-active-cnt');
   root.innerHTML = ''; activeRoot.innerHTML = '';
@@ -138,7 +154,7 @@ function renderRadar(evts) {
     const label = diff === 0 ? "Aujourd'hui !" : diff === 1 ? 'Demain !' : `Dans ${diff} jour${diff > 1 ? 's' : ''}`;
     const cat   = (next.categories && next.categories[0]) || 'Événement';
     const def   = cd(cat);
-    const html  = `<span class="r-countdown-pill" style="background:${def.d};border-color:${def.b};color:${def.c}"><a href="#explorer"><i class="fa-solid fa-calendar-days"></i><strong> ${label}</strong></a><span style="opacity:.8">— ${escHtml(next.summary)}</span></span>`;
+    const html  = `<span class="r-countdown-pill" style="background:${def.d};border-color:${def.b};color:${def.c}"><a href="#explorer"><i class="fa-solid fa-calendar-days"></i><strong> ${escHtml(label)}</strong></a><span style="opacity:.8">— ${escHtml(next.summary)}</span></span>`;
     countdownEl.innerHTML = html; countdownEl.style.display = 'block';
     if (heroEl) { heroEl.innerHTML = html; heroEl.style.display = 'block'; }
   } else {
@@ -153,7 +169,7 @@ function renderRadar(evts) {
     cnt.textContent = `${upcoming.length} en approche`;
     upcoming.forEach(e => {
       const c = document.createElement('div'); c.className = 'rc';
-      c.innerHTML = `<div class="rc-date">${fmts(e.date)}</div><div class="rc-name">${escHtml(e.summary)}</div>`;
+      c.innerHTML = `<div class="rc-date">${escHtml(fmts(e.date))}</div><div class="rc-name">${escHtml(e.summary)}</div>`;
       c.addEventListener('click', () => openModal(e, STATE.allEvts));
       root.appendChild(c);
     });
@@ -166,7 +182,7 @@ function renderRadar(evts) {
     activeCnt.textContent = `${ongoing.length} en cours`;
     ongoing.forEach(e => {
       const c = document.createElement('div'); c.className = 'rc';
-      c.innerHTML = `<div class="rc-date">Se termine le ${fmts(e.endDate)}</div><div class="rc-name">${escHtml(e.summary)}</div>`;
+      c.innerHTML = `<div class="rc-date">Se termine le ${escHtml(fmts(e.endDate))}</div><div class="rc-name">${escHtml(e.summary)}</div>`;
       c.addEventListener('click', () => openModal(e, STATE.allEvts));
       activeRoot.appendChild(c);
     });
@@ -184,7 +200,7 @@ function buildYrNav(years) {
 
 document.getElementById('yr-s').addEventListener('change', function () {
   STATE.curYear = Number(this.value); STATE.curMonth = 'all'; STATE.renderedMonths = 0; STATE.lastRefreshKey = '';
-  try { localStorage.setItem(KEYS.year, String(STATE.curYear)); } catch {}
+  LS.set(KEYS.year, String(STATE.curYear));
   renderTL();
 });
 
@@ -198,7 +214,7 @@ function shiftYear(d) {
   if (n !== STATE.curYear) {
     STATE.curYear = n; STATE.curMonth = 'all'; STATE.renderedMonths = 0; STATE.lastRefreshKey = '';
     document.getElementById('yr-s').value = String(STATE.curYear);
-    try { localStorage.setItem(KEYS.year, String(STATE.curYear)); } catch {}
+    LS.set(KEYS.year, String(STATE.curYear));
     renderTL();
   }
 }
@@ -207,7 +223,7 @@ document.getElementById('btn-today').addEventListener('click', () => {
   STATE.curYear = new Date().getFullYear(); STATE.curMonth = 'all';
   STATE.showPast = false; STATE.renderedMonths = 0;
   document.getElementById('yr-s').value = String(STATE.curYear);
-  try { localStorage.setItem(KEYS.year, String(STATE.curYear)); } catch {}
+  LS.set(KEYS.year, String(STATE.curYear));
   refreshAll({ autoScrollToday: true });
 });
 
@@ -292,13 +308,13 @@ function renderTL(opts = {}) {
     btn.innerHTML = `
       <i class="fa-solid fa-chevron-down ui-ico"></i>
       Voir ${moreCount} mois de plus
-      <span class="load-more-hint">${nextMonthNames}</span>
+      <span class="load-more-hint">${escHtml(nextMonthNames)}</span>
       <span class="load-more-rest">${remaining} mois restants</span>`;
     btn.addEventListener('click', () => {
       STATE.renderedMonths = toRender + CHUNK;
       renderTL();
       setTimeout(() => {
-        const blocks = document.querySelectorAll('.mo-block');
+        const blocks   = document.querySelectorAll('.mo-block');
         const newBlock = blocks[toRender + (STATE.showPast ? pastEntries.length : 0)];
         if (newBlock) {
           const offset = getStickyOffset() + 12;
@@ -337,12 +353,12 @@ function buildDateBadge(ev, def, isPast) {
       <span class="ev-day ev-day--approx" style="color:${def.c}">??</span><span class="ev-wd">—</span></div>`;
   }
   if (!isRange) {
-    return `<div class="ev-d" style="border-color:${bc};background:${bg}"><span class="ev-day" style="color:${fc}">${ev.date.getDate()}</span><span class="ev-wd">${fmtwd(ev.date)}</span></div>`;
+    return `<div class="ev-d" style="border-color:${bc};background:${bg}"><span class="ev-day" style="color:${fc}">${ev.date.getDate()}</span><span class="ev-wd">${escHtml(fmtwd(ev.date))}</span></div>`;
   }
   return `<div class="ev-d ev-d-range" style="border-color:${bc};background:${bg}">
-    <div class="ev-range-line"><span class="ev-range-day" style="color:${fc}">${ev.date.getDate()}</span><span class="ev-range-wd">${fmtwd(ev.date)}</span></div>
+    <div class="ev-range-line"><span class="ev-range-day" style="color:${fc}">${ev.date.getDate()}</span><span class="ev-range-wd">${escHtml(fmtwd(ev.date))}</span></div>
     <div class="ev-range-sep">-</div>
-    <div class="ev-range-line"><span class="ev-range-day" style="color:${fc}">${end.getDate()}</span><span class="ev-range-wd">${fmtwd(end)}</span></div>
+    <div class="ev-range-line"><span class="ev-range-day" style="color:${fc}">${end.getDate()}</span><span class="ev-range-wd">${escHtml(fmtwd(end))}</span></div>
   </div>`;
 }
 
@@ -357,21 +373,18 @@ function buildEvRow(ev, isPast, today) {
   const def  = cd(cat);
   const catTags = (ev.categories || []).map((name, idx) => {
     const catDef = cd(name);
-    const bg = idx === 0 ? catDef.d : 'var(--bg3)';
-    const color = idx === 0 ? catDef.c : 'var(--t2)';
+    const bg     = idx === 0 ? catDef.d : 'var(--bg3)';
+    const color  = idx === 0 ? catDef.c : 'var(--t2)';
     const border = idx === 0 ? catDef.b : 'var(--b)';
     return `<span class="ev-tag${idx > 0 ? ' ev-tag--subtle' : ''}" style="background:${bg};color:${color};border:1px solid ${border}">${escHtml(name)}</span>`;
   }).join('');
-  const zones = ev.zones?.length ? `<span class="ev-tag" style="background:var(--bg3);color:var(--t3)">${escHtml(ev.zones.join(', '))}</span>` : '';
-  const approxBadge = ev.approximate ? `<span class="ev-tag ev-tag--approx"><i class="fa-solid fa-circle-question"></i> Date non confirmée</span>` : '';
+  const zones        = ev.zones?.length ? `<span class="ev-tag" style="background:var(--bg3);color:var(--t3)">${escHtml(ev.zones.join(', '))}</span>` : '';
+  const approxBadge  = ev.approximate ? `<span class="ev-tag ev-tag--approx"><i class="fa-solid fa-circle-question"></i> Date non confirmée</span>` : '';
   row.innerHTML = `
     ${buildDateBadge(ev, def, isPast && !isToday)}
     <div class="ev-b">
       <div class="ev-title">${escHtml(ev.summary)}</div>
-      <div class="ev-tags">
-        ${catTags}
-        ${zones}${approxBadge}
-      </div>
+      <div class="ev-tags">${catTags}${zones}${approxBadge}</div>
     </div>
     <span class="ev-arr">›</span>`;
   row.addEventListener('click', () => openModal(ev, [...STATE.allEvts, ...getFilteredUpcoming()]));
@@ -379,27 +392,29 @@ function buildEvRow(ev, isPast, today) {
 }
 
 function buildMoBlock(k, evts, today, isPast) {
-  const block = document.createElement('div'); block.className = 'mo-block anim';
+  const block       = document.createElement('div'); block.className = 'mo-block anim';
   const regularEvts = evts.filter(e => !e.approximate);
   const approxEvts  = evts.filter(e => e.approximate);
   const totalCount  = regularEvts.length + approxEvts.length;
   const h = document.createElement('div'); h.className = 'mo-h' + (isPast ? ' past' : '');
-  h.innerHTML = `${MONTHS[k]} ${STATE.curYear} <span class="mo-cnt">${totalCount}</span>`;
+  h.innerHTML = `${escHtml(MONTHS[k])} ${STATE.curYear} <span class="mo-cnt">${totalCount}</span>`;
   block.appendChild(h);
-  const list       = document.createElement('div'); list.className = 'ev-list';
-  const isCurBlock = (STATE.curYear === today.getFullYear() && k === today.getMonth());
-  const splitIdx   = regularEvts.findIndex(ev => (ev.endDate || ev.date) >= today);
-  const hasPast    = regularEvts.some(ev => (ev.endDate || ev.date) < today);
-  const hasFuture  = splitIdx !== -1;
-  let markerPlaced = false;
+  const list        = document.createElement('div'); list.className = 'ev-list';
+  const isCurBlock  = (STATE.curYear === today.getFullYear() && k === today.getMonth());
+  const splitIdx    = regularEvts.findIndex(ev => (ev.endDate || ev.date) >= today);
+  const hasPast     = regularEvts.some(ev => (ev.endDate || ev.date) < today);
+  const hasFuture   = splitIdx !== -1;
+  let markerPlaced  = false;
+
   function placeTodayMarker() {
     if (markerPlaced) return; markerPlaced = true;
     document.getElementById('today-marker')?.remove();
     const m = document.createElement('div'); m.id = 'today-marker';
     const label = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: '2-digit', month: 'long' }).format(today);
-    m.innerHTML = `<div class="today-line">Aujourd'hui · ${label}</div>`;
+    m.innerHTML = `<div class="today-line">Aujourd'hui · ${escHtml(label)}</div>`;
     list.appendChild(m);
   }
+
   if (isCurBlock && hasPast && hasFuture) {
     regularEvts.forEach((ev, i) => { if (i === splitIdx) placeTodayMarker(); list.appendChild(buildEvRow(ev, false, today)); });
   } else {
@@ -425,10 +440,12 @@ function openModal(ev, evts) {
   const durDays = Math.max(1, Math.round((end - ev.date) / 86400000) + 1);
   const isExam  = (ev.categories || []).some(c => norm(String(c)) === 'examens');
   const durLabel = isExam ? `${Math.max(1, countWeekdays(ev.date, end))} jours ouvrés` : `${durDays} jour${durDays > 1 ? 's' : ''}`;
+
   function chips(values, zone = false) {
     if (!values?.length) return `<span style="color:var(--t3)">Aucune</span>`;
     return values.map(v => `<span class="m-chip${zone ? ' z' : ''}">${escHtml(v)}</span>`).join('');
   }
+
   document.getElementById('m-ttl').textContent      = ev.summary;
   document.getElementById('m-prev').textContent     = _modalPrev ? fmt(_modalPrev.date) : 'Aucune donnée';
   document.getElementById('m-next').textContent     = _modalNext ? fmt(_modalNext.date) : 'Aucune prévision';

@@ -1,10 +1,10 @@
 // Écoute les changements de l'OS en temps réel
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-  // On ne change auto que si l'utilisateur n'a pas forcé le thème manuellement
   if (!localStorage.getItem(KEYS.theme)) {
     applyTheme(e.matches ? 'dark' : 'light', false);
   }
 });
+
 /**
  * theme.js — Gestion du thème (dark/light) et du mode accessibilité
  * Dépend de : utils.js (KEYS)
@@ -64,18 +64,35 @@ document.getElementById('a11y-btn')?.addEventListener('click', () => {
 });
 applyA11y(getA11y(), false);
 
-/* ── Sync date (pill topbar) ────────────────────────── */
+/* ── Sync date (pill topbar + footer) ──────────────── */
 function setSyncAge(dt) {
   const el   = document.getElementById('sync-age');
   const pill = document.getElementById('sync-pill');
+
+  // Élément footer ajouté au Sprint 4
+  const footerEl = document.getElementById('footer-sync-date');
+
   if (!el) return;
-  if (!dt) { el.textContent = ''; return; }
+  if (!dt) {
+    el.textContent = '';
+    if (footerEl) footerEl.textContent = '—';
+    return;
+  }
   const d = new Date(dt);
-  if (Number.isNaN(d.getTime())) { el.textContent = ''; return; }
+  if (Number.isNaN(d.getTime())) {
+    el.textContent = '';
+    if (footerEl) footerEl.textContent = '—';
+    return;
+  }
+
   const abs = new Intl.DateTimeFormat('fr-FR', {
     day: '2-digit', month: '2-digit', year: 'numeric',
     hour: '2-digit', minute: '2-digit',
   }).format(d);
+
   el.textContent = `· ${abs}`;
   if (pill) pill.title = `Dernière synchronisation : ${abs}`;
+
+  // Mettre à jour le footer avec la même date
+  if (footerEl) footerEl.textContent = abs;
 }

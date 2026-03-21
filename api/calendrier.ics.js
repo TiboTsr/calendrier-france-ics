@@ -1,16 +1,23 @@
-const crypto = require("crypto");
-const { kv } = require('@vercel/kv');
+const crypto      = require("crypto");
+const { Redis }   = require('@upstash/redis');
+
+// @upstash/redis lit UPSTASH_REDIS_REST_URL et UPSTASH_REDIS_REST_TOKEN automatiquement
+const redis = new Redis({
+  url:   process.env.UPSTASH_REDIS_REST_URL,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN,
+});
 
 const UPSTREAM_CACHE_TTL_MS = 5 * 60 * 1000;
+const PE_MAX_EVENTS     = 50;
+const PE_MAX_TITLE_LEN  = 200;
+const PE_MAX_PAYLOAD_KB = 10;
 
 let upstreamCalendarCache = { expiresAt: 0, payload: null, etag: null, lastModified: null };
-
 
 /* ── Dictionnaire des Emojis ── */
 function getEmojiForEvent(event) {
   const title = (event.summary || "").toLowerCase();
   const cats = Array.isArray(event.categories) ? event.categories : [];
-  
   if (cats.includes("Jours fériés") || cats.includes("Ponts / Congés")) {
     if (title.includes("noël")) return "🎄";
     if (title.includes("nouvel an") || title.includes("premier de l'an")) return "🎉";
@@ -45,20 +52,30 @@ function getEmojiForEvent(event) {
     return "🥂";
   }
   if (cats.includes("Personnel")) return "📌";
-  
   return "📅";
 }
 
+/* ── Échappement ICS ──
+   IMPORTANT : appliquer AVANT foldIcsLine pour ne pas couper les séquences d'échappement.
+*/
 function escapeIcsText(value) {
-  return String(value ?? "").replace(/\\/g, "\\\\").replace(/\r?\n/g, "\\n").replace(/;/g, "\\;").replace(/,/g, "\\,");
+  return String(value ?? "")
+    .replace(/\\/g, "\\\\")
+    .replace(/\r?\n/g, "\\n")
+    .replace(/;/g, "\\;")
+    .replace(/,/g, "\\,");
 }
 
+/* ── Fold RFC 5545 (safe : opère sur des octets après échappement) ── */
 function foldIcsLine(line) {
   const max = 75;
   if (line.length <= max) return line;
   const out = [];
   let i = 0;
-  while (i < line.length) { out.push((i === 0 ? "" : " ") + line.slice(i, i + max)); i += max; }
+  while (i < line.length) {
+    out.push((i === 0 ? "" : " ") + line.slice(i, i + max));
+    i += max;
+  }
   return out.join("\r\n");
 }
 
@@ -116,7 +133,6 @@ function filterEvents(events, selectedZones, selectedCats) {
   const zoneFilter = selectedZones.length > 0 && !selectedZones.includes("all");
   const catFilter = selectedCats.length > 0;
   const selectedCatsNorm = catFilter ? expandSelectedCategoryAliases(selectedCats) : null;
-
   return events.filter((event) => {
     const eventZones = Array.isArray(event.zones) ? event.zones : [];
     const eventCats = Array.isArray(event.categories) ? event.categories : [];
@@ -126,21 +142,64 @@ function filterEvents(events, selectedZones, selectedCats) {
   });
 }
 
+/* ── Parsing des événements personnels (avec limites strictes) ── */
 function parsePersonalEvents(raw) {
   if (!raw) return [];
+
+  // Limite taille payload brut
+  if (Buffer.byteLength(raw, 'utf8') > PE_MAX_PAYLOAD_KB * 1024) {
+    return [];
+  }
+
+  let parsed;
   try {
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed.map((event) => ({
-      title: String(event?.title || "").trim(), date: String(event?.date || "").trim(),
-      rec: ["none", "yearly", "monthly", "weekly"].includes(event?.rec) ? event.rec : "none",
-    })).filter((event) => event.title && /^\d{4}-\d{2}-\d{2}$/.test(event.date));
-  } catch { return []; }
+    parsed = JSON.parse(raw);
+  } catch {
+    return [];
+  }
+
+  if (!Array.isArray(parsed)) return [];
+
+  return parsed
+    .slice(0, PE_MAX_EVENTS) // max 50 événements
+    .map((event) => {
+      if (!event || typeof event !== 'object') return null;
+
+      // Titre : string, plafonné à PE_MAX_TITLE_LEN chars, sanitisé
+      const rawTitle = String(event?.title ?? '').trim();
+      if (!rawTitle) return null;
+      const title = rawTitle.slice(0, PE_MAX_TITLE_LEN);
+
+      // Date : format strict YYYY-MM-DD
+      const date = String(event?.date ?? '').trim();
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
+
+      // Récurrence : valeurs autorisées uniquement
+      const rec = ['none', 'yearly', 'monthly', 'weekly'].includes(event?.rec)
+        ? event.rec
+        : 'none';
+
+      return { title, date, rec };
+    })
+    .filter(Boolean);
 }
 
 async function loadCalendarPayload(sourceUrl) {
   const now = Date.now();
   if (upstreamCalendarCache.payload && upstreamCalendarCache.expiresAt > now) return upstreamCalendarCache.payload;
+
+  // Protection SSRF : vérifier que l'URL pointe vers le domaine attendu
+  const ALLOWED_UPSTREAM_HOSTNAME = 'calendrier-fr.tibotsr.dev';
+  try {
+    const parsed = new URL(sourceUrl);
+    if (parsed.hostname !== ALLOWED_UPSTREAM_HOSTNAME) {
+      throw new Error(`SSRF bloqué : hostname non autorisé (${parsed.hostname})`);
+    }
+  } catch (e) {
+    if (e.message.startsWith('SSRF')) throw e;
+    throw new Error(`URL upstream invalide : ${sourceUrl}`);
+  }
+
   const headers = {};
   if (upstreamCalendarCache.etag) headers["If-None-Match"] = upstreamCalendarCache.etag;
   if (upstreamCalendarCache.lastModified) headers["If-Modified-Since"] = upstreamCalendarCache.lastModified;
@@ -179,9 +238,9 @@ module.exports = async function handler(req, res) {
   let finalParams = url.searchParams;
 
   if (shortId) {
-    const longUrlStr = await kv.get(`link:${shortId}`);
+    const longUrlStr = await redis.get(`link:${shortId}`);
     if (longUrlStr) {
-      const tempUrl = new URL(longUrlStr);
+      const tempUrl = new URL(longUrlStr.replace(/^webcal:\/\//i, 'https://'));
       finalParams = tempUrl.searchParams;
     }
   }
@@ -190,7 +249,7 @@ module.exports = async function handler(req, res) {
   if (!hasParams) {
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.end(`<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>API ICS – Calendrier France</title><style>body{font-family:sans-serif;background:#f8f8fa;color:#222;margin:0;padding:2em;}main{max-width:600px;margin:auto;}h1{color:#c00;}code{background:#eee;padding:2px 6px;border-radius:4px;}</style></head><body><main><h1>Erreur d’utilisation de l’API</h1><p>Cette adresse (<code>/api/calendrier.ics</code>) est réservée à la distribution de fichiers <b>ICS</b> pour les applications de calendrier.</p><p>Pour obtenir un calendrier, veuillez utiliser le site principal ou l’interface prévue à cet effet.</p><p><a href="/">Retour au site principal</a></p></main></body></html>`);
+    res.end(`<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>API ICS – Calendrier France</title><style>body{font-family:sans-serif;background:#f8f8fa;color:#222;margin:0;padding:2em;}main{max-width:600px;margin:auto;}h1{color:#c00;}code{background:#eee;padding:2px 6px;border-radius:4px;}</style></head><body><main><h1>Erreur d'utilisation de l'API</h1><p>Cette adresse (<code>/api/calendrier.ics</code>) est réservée à la distribution de fichiers <b>ICS</b> pour les applications de calendrier.</p><p>Pour obtenir un calendrier, veuillez utiliser le site principal ou l'interface prévue à cet effet.</p><p><a href="/">Retour au site principal</a></p></main></body></html>`);
     return;
   }
 
@@ -198,15 +257,15 @@ module.exports = async function handler(req, res) {
     const selectedZones = normalizeList(finalParams.get("zone"));
     const selectedCats = normalizeList(finalParams.get("cats"));
     const personalEvents = parsePersonalEvents(finalParams.get("pe"));
-    const alarmFeries = (finalParams.get("alarm_feries") || "none").trim();
+    const alarmFeries   = (finalParams.get("alarm_feries")   || "none").trim();
     const alarmVacances = (finalParams.get("alarm_vacances") || "none").trim();
     const useEmojis = finalParams.get("emojis") === "1";
 
     const sourceUrl = process.env.CALENDAR_JSON_URL || "https://calendrier-fr.tibotsr.dev/calendrier.json";
 
     let payload;
-    try { payload = await loadCalendarPayload(sourceUrl); } 
-    catch (error) { res.statusCode = 502; res.setHeader("Content-Type", "text/plain; charset=utf-8"); res.end(error.message); return; }
+    try { payload = await loadCalendarPayload(sourceUrl); }
+    catch (error) { res.statusCode = 502; res.setHeader("Content-Type", "text/plain; charset=utf-8"); res.end("Service temporairement indisponible"); return; }
 
     const events = Array.isArray(payload.events) ? payload.events : [];
     const filtered = filterEvents(events, selectedZones, selectedCats).sort((a, b) => {
@@ -233,19 +292,22 @@ module.exports = async function handler(req, res) {
       const categoryLine = cats.length ? `CATEGORIES:${cats.map(escapeIcsText).join(",")}` : null;
       const descParts = [event.description || "", zones.length ? `Zones: ${zones.join(", ")}` : ""].filter(Boolean).join("\\n\\n");
 
-      // Logique Alarme & Emoji
       let currentAlarm = "none";
       if (cats.includes("Jours fériés") || cats.includes("Ponts / Congés")) currentAlarm = alarmFeries;
       else if (cats.includes("Vacances scolaires")) currentAlarm = alarmVacances;
 
       const title = useEmojis ? `${getEmojiForEvent(event)} ${event.summary}` : event.summary;
 
+      // escapeIcsText est appliqué AVANT foldIcsLine — ordre critique
       const eventLines = [
-        "BEGIN:VEVENT", `UID:${await makeUid(event)}`, `DTSTAMP:${dtstamp}`,
-        `DTSTART;VALUE=DATE:${start}`, `DTEND;VALUE=DATE:${toIcsDate(endExclusive)}`,
-        `SUMMARY:${escapeIcsText(title || "Événement")}`, `DESCRIPTION:${escapeIcsText(descParts)}`,
+        "BEGIN:VEVENT",
+        `UID:${await makeUid(event)}`,
+        `DTSTAMP:${dtstamp}`,
+        `DTSTART;VALUE=DATE:${start}`,
+        `DTEND;VALUE=DATE:${toIcsDate(endExclusive)}`,
+        `SUMMARY:${escapeIcsText(title || "Événement")}`,
+        `DESCRIPTION:${escapeIcsText(descParts)}`,
       ];
-
       if (categoryLine) eventLines.push(categoryLine);
       eventLines.push(...alarmBlock(currentAlarm));
       eventLines.push("END:VEVENT");
@@ -260,15 +322,20 @@ module.exports = async function handler(req, res) {
       const title = useEmojis ? `📌 ${event.title}` : event.title;
 
       const eventLines = [
-        "BEGIN:VEVENT", `UID:${await makeUid({ summary: event.title, start: event.date, end: event.date, categories: ["Personnel"], zones: [] })}`,
-        `DTSTAMP:${dtstamp}`, `DTSTART;VALUE=DATE:${start}`, `DTEND;VALUE=DATE:${endExclusive}`,
-        `SUMMARY:${escapeIcsText(title)}`, "DESCRIPTION:Événement personnel ajouté depuis le mode avancé.", "CATEGORIES:Personnel",
+        "BEGIN:VEVENT",
+        `UID:${await makeUid({ summary: event.title, start: event.date, end: event.date, categories: ["Personnel"], zones: [] })}`,
+        `DTSTAMP:${dtstamp}`,
+        `DTSTART;VALUE=DATE:${start}`,
+        `DTEND;VALUE=DATE:${endExclusive}`,
+        // escapeIcsText appliqué AVANT fold
+        `SUMMARY:${escapeIcsText(title)}`,
+        `DESCRIPTION:${escapeIcsText("Événement personnel ajouté depuis le mode avancé.")}`,
+        "CATEGORIES:Personnel",
       ];
-
-      if (event.rec === "yearly") eventLines.push("RRULE:FREQ=YEARLY");
+      if (event.rec === "yearly")  eventLines.push("RRULE:FREQ=YEARLY");
       if (event.rec === "monthly") eventLines.push("RRULE:FREQ=MONTHLY");
-      if (event.rec === "weekly") eventLines.push("RRULE:FREQ=WEEKLY");
-      eventLines.push(...alarmBlock("1d")); // Par défaut 1j avant pour les persos
+      if (event.rec === "weekly")  eventLines.push("RRULE:FREQ=WEEKLY");
+      eventLines.push(...alarmBlock("1d"));
       eventLines.push("END:VEVENT");
       lines.push(...eventLines);
     }
@@ -278,10 +345,11 @@ module.exports = async function handler(req, res) {
     res.setHeader("Content-Type", "text/calendar; charset=utf-8");
     res.setHeader("Content-Disposition", 'inline; filename="calendrier.ics"');
     res.setHeader("Cache-Control", "public, s-maxage=900, stale-while-revalidate=86400");
+    // foldIcsLine appliqué après escapeIcsText — ordre critique
     res.end(lines.map(foldIcsLine).join("\r\n") + "\r\n");
   } catch (error) {
     res.statusCode = 500;
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
-    res.end(`Erreur API ICS: ${error?.message || "inconnue"}`);
+    res.end("Erreur interne du serveur");
   }
 };

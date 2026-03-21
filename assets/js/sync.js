@@ -102,7 +102,7 @@ function buildAdvCats(cats) {
   CATS.filter(def => !cats.length || cats.includes(def.n)).forEach(def => {
     const l = document.createElement('label');
     l.className = 'ctog active'; l.dataset.name = def.n;
-    l.innerHTML = `<input type="checkbox" value="${def.n}" checked><span class="cdot" style="background:${def.c}"></span>${def.n}`;
+    l.innerHTML = `<input type="checkbox" value="${def.n}" checked><span class="cdot" style="background:${def.c}"></span>${escHtml(def.n)}`;
     applyToggleStyle(l, true, def);
     l.addEventListener('click', () => {
       const inp = l.querySelector('input'); inp.checked = !inp.checked;
@@ -112,7 +112,6 @@ function buildAdvCats(cats) {
     });
     g.appendChild(l);
   });
-  // Restaurer depuis hash URL si présent
   if (window._hashCats) {
     g.querySelectorAll('.ctog').forEach(l => {
       const inp = l.querySelector('input');
@@ -145,7 +144,7 @@ function renderPEList() {
     <div class="pe-item">
       <div class="pe-item-info">
         <div class="pe-item-title">${escHtml(e.title)}</div>
-        <div class="pe-item-meta">${e.date} · ${REC_LABELS[e.rec || 'none']}</div>
+        <div class="pe-item-meta">${escHtml(e.date)} · ${escHtml(REC_LABELS[e.rec || 'none'])}</div>
       </div>
       <button class="pe-del" data-i="${i}"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
     </div>`).join('');
@@ -179,6 +178,9 @@ renderPEList();
 let _urlAnimTimer  = null;
 let _advBuildTimer = null;
 let _lastAnimUrl   = '';
+
+// AbortController pour annuler le fetch /api/shorten en cours si buildAdvUrl() est rappelé
+let _shortenAbortController = null;
 
 function _parseUrlSegments(urlStr) {
   try {
@@ -219,7 +221,7 @@ function animateUrl(webcalUrl) {
 
   container.classList.add('building');
   const segs    = _parseUrlSegments(webcalUrl);
-  const segHtml = segs.map((s, i) => `<span class="url-seg url-seg-${s.type}" style="animation-delay:${i * 55}ms">${escHtml(s.text)}</span>`).join('');
+  const segHtml = segs.map((s, i) => `<span class="url-seg url-seg-${escHtml(s.type)}" style="animation-delay:${i * 55}ms">${escHtml(s.text)}</span>`).join('');
   container.innerHTML = '<span class="url-cursor"></span>' + segHtml;
 
   _urlAnimTimer = setTimeout(() => {
@@ -236,22 +238,22 @@ function _alarmLabel(v) {
 }
 
 function _currentAdvSelection() {
-  const zonesArr = _advZones.has('all') ? ['all'] : [..._advZones];
-  const alarmFeries = document.getElementById('adv-alarm-feries')?.value || 'none';
+  const zonesArr      = _advZones.has('all') ? ['all'] : [..._advZones];
+  const alarmFeries   = document.getElementById('adv-alarm-feries')?.value   || 'none';
   const alarmVacances = document.getElementById('adv-alarm-vacances')?.value || 'none';
-  const emojis = document.getElementById('adv-emojis')?.checked ? '1' : '0';
-  const cats = getSelAdvCats();
+  const emojis        = document.getElementById('adv-emojis')?.checked ? '1' : '0';
+  const cats          = getSelAdvCats();
   return { zonesArr, alarmFeries, alarmVacances, emojis, cats };
 }
 
 function _buildRecapHtml(icon, title, zonesArr, cats, alarm, personal) {
   const zoneLabel = zonesArr.includes('all') ? 'toutes les zones' : `zone${zonesArr.length > 1 ? 's' : ''} ${zonesArr.join(', ')}`;
   return `
-    <div class="recap-line"><i class="${icon} ui-ico" aria-hidden="true"></i>${title}</div>
+    <div class="recap-line"><i class="${escHtml(icon)} ui-ico" aria-hidden="true"></i>${escHtml(title)}</div>
     <div class="recap-chips">
-      <span class="recap-chip">${zoneLabel}</span>
+      <span class="recap-chip">${escHtml(zoneLabel)}</span>
       <span class="recap-chip">${cats.length} catégorie${cats.length > 1 ? 's' : ''}</span>
-      <span class="recap-chip">${_alarmLabel(alarm)}</span>
+      <span class="recap-chip">${escHtml(_alarmLabel(alarm))}</span>
       <span class="recap-chip">${personal.length} événement${personal.length > 1 ? 's' : ''} perso</span>
     </div>`;
 }
@@ -269,7 +271,7 @@ function setQrState(enabled) {
 }
 
 function updateQrCodes(url) {
-  const src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&data=${encodeURIComponent(url)}`;
+  const src  = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&data=${encodeURIComponent(url)}`;
   const link = document.getElementById('qr-link-main');
   const img  = document.getElementById('qr-img-main');
   if (link) link.href = url;
@@ -284,6 +286,13 @@ function markAdvDirty() {
   const copyBtn   = document.getElementById('adv-url-copy');
 
   clearTimeout(_advBuildTimer);
+
+  // Annuler tout fetch /api/shorten en cours
+  if (_shortenAbortController) {
+    _shortenAbortController.abort();
+    _shortenAbortController = null;
+  }
+
   window._advWcUrl = '';
   _lastAnimUrl = '';
   setAdvActionsEnabled(false);
@@ -304,14 +313,22 @@ function markAdvDirty() {
   if (copyBtn) { copyBtn.style.opacity = '0'; copyBtn.style.pointerEvents = 'none'; }
 }
 
-function buildAdvUrl() {
+async function buildAdvUrl() {
   const { zonesArr, alarmFeries, alarmVacances, emojis, cats } = _currentAdvSelection();
   const personal = getPEForUrl();
-  const container = document.getElementById('adv-url-animated');
+
   clearTimeout(_advBuildTimer);
 
+  // Annuler le fetch précédent s'il est encore en cours
+  if (_shortenAbortController) {
+    _shortenAbortController.abort();
+    _shortenAbortController = null;
+  }
+
   if (cats.length === 0) { markAdvDirty(); return; }
-  setAdvActionsEnabled(false); setQrState(false);
+
+  setAdvActionsEnabled(false);
+  setQrState(false);
 
   _advBuildTimer = setTimeout(async () => {
     const container = document.getElementById('adv-url-animated');
@@ -320,35 +337,50 @@ function buildAdvUrl() {
       container.classList.add('building');
       container.innerHTML = '<span class="url-seg url-seg-plain" style="opacity:1;transform:none;animation:none"><i class="fa-solid fa-spinner fa-spin ui-ico"></i> Génération du lien…</span>';
     }
-    // --- NOUVEAUX PARAMÈTRES DANS L'URL ---
-    const p = new URLSearchParams({ 
-      zone: zonesArr.join(','), 
-      cats: cats.join(','),
-      alarm_feries: alarmFeries,
+
+    const p = new URLSearchParams({
+      zone:           zonesArr.join(','),
+      cats:           cats.join(','),
+      alarm_feries:   alarmFeries,
       alarm_vacances: alarmVacances,
-      emojis: emojis
+      emojis,
     });
     if (personal.length) p.set('pe', JSON.stringify(personal));
-    const API_HOST = typeof window.CALENDAR_API_BASE !== 'undefined' ? window.CALENDAR_API_BASE : window.location.host;
 
-    const longUrl = `https://${API_HOST}/api/calendrier.ics?${p}`;
+    const API_HOST  = typeof window.CALENDAR_API_BASE !== 'undefined' ? window.CALENDAR_API_BASE : window.location.host;
+    const longUrl   = `https://${API_HOST}/api/calendrier.ics?${p}`;
+
     let shortId = null;
+
+    // Créer un nouveau AbortController pour ce fetch
+    _shortenAbortController = new AbortController();
+    const { signal } = _shortenAbortController;
+
     try {
-      const resp = await fetch(`/api/shorten`, {
-        method: 'POST',
+      const resp = await fetch('/api/shorten', {
+        method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fullUrl: longUrl })
+        body:    JSON.stringify({ fullUrl: longUrl }),
+        signal,
       });
+      // Si la requête a été annulée, on sort silencieusement
+      if (signal.aborted) return;
       const data = await resp.json();
       if (data.shortId) shortId = data.shortId;
-    } catch (e) { shortId = null; }
+    } catch (e) {
+      // AbortError = l'utilisateur a relancé une génération — ne rien faire
+      if (e.name === 'AbortError') return;
+      shortId = null;
+    } finally {
+      _shortenAbortController = null;
+    }
 
     let wc, wcGoogle;
     if (shortId) {
-      wc = `webcal://${API_HOST}/api/calendrier.ics?id=${shortId}`;
+      wc       = `webcal://${API_HOST}/api/calendrier.ics?id=${shortId}`;
       wcGoogle = `https://${API_HOST}/api/calendrier.ics?id=${shortId}`;
     } else {
-      wc = `webcal://${API_HOST}/api/calendrier.ics?${p}`;
+      wc       = `webcal://${API_HOST}/api/calendrier.ics?${p}`;
       wcGoogle = longUrl;
     }
 
@@ -398,7 +430,7 @@ function copyShareUrl() {
 (function restoreFromHash() {
   try {
     if (!location.hash || location.hash.length < 2) return;
-    const p = new URLSearchParams(location.hash.slice(1));
+    const p    = new URLSearchParams(location.hash.slice(1));
     const zone = p.get('zone'); const cats = p.get('cats');
     const alarm = p.get('alarm'); const tab = p.get('tab');
     if (!zone && !cats) return;

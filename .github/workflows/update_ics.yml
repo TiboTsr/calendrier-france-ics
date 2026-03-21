@@ -39,6 +39,15 @@ jobs:
       - name: Validate ICS syntax
         run: python scripts/validate_ics.py
 
+      - name: Inject build timestamp into Service Worker and Sitemap
+        run: |
+          BUILD_TS=$(date -u +"%Y%m%d%H%M%S")
+          LASTMOD=$(date -u +"%Y-%m-%d")
+          sed -i "s/__BUILD_TIMESTAMP__/${BUILD_TS}/g" sw.js
+          echo "Service Worker cache name : cal-fr-v2-${BUILD_TS}"
+          sed -i "s|<lastmod>[^<]*</lastmod>|<lastmod>${LASTMOD}</lastmod>|g" sitemap.xml
+          echo "Sitemap lastmod mis à jour : ${LASTMOD}"
+
       - name: Prepare publish directory
         run: |
           rm -rf public

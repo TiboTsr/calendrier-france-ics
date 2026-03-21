@@ -6,6 +6,6 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@vercel/kv": "^3.0.0"
+    "@upstash/redis": "^1.37.0"
   }
 }

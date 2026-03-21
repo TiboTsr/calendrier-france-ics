@@ -31,9 +31,9 @@ async function loadZoneDepartments() {
       try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch(e) {}
     }
     ZONE_DEPT = {
-      A: new Set((data?.A || []).map(v => String(v).toUpperCase())),
-      B: new Set((data?.B || []).map(v => String(v).toUpperCase())),
-      C: new Set((data?.C || []).map(v => String(v).toUpperCase())),
+      A:  new Set((data?.A  || []).map(v => String(v).toUpperCase())),
+      B:  new Set((data?.B  || []).map(v => String(v).toUpperCase())),
+      C:  new Set((data?.C  || []).map(v => String(v).toUpperCase())),
       AM: new Set((data?.AM || []).map(v => String(v).toUpperCase())),
     };
     return ZONE_DEPT;
@@ -43,11 +43,10 @@ async function loadZoneDepartments() {
 
 function zoneFromDept(code, deptMap) {
   const k = String(code).toUpperCase();
-  if (deptMap.A.has(k)) return 'A';
-  if (deptMap.B.has(k)) return 'B';
-  if (deptMap.C.has(k)) return 'C';
-  // CORRECTION 2 : Si c'est l'Alsace-Moselle (ex: Strasbourg dans le 67), c'est la Zone B scolaire !
-  if (deptMap.AM && deptMap.AM.has(k)) return 'B'; 
+  if (deptMap.A.has(k))  return 'A';
+  if (deptMap.B.has(k))  return 'B';
+  if (deptMap.C.has(k))  return 'C';
+  if (deptMap.AM && deptMap.AM.has(k)) return 'B';
   return null;
 }
 
@@ -64,7 +63,7 @@ function mapCommuneToEntry(city, deptMap) {
   };
 }
 
-/* ── Recherche API communes (avec Auto-Retry) ─────────────────────────── */
+/* ── Recherche API communes ─────────────────────────── */
 async function findZoneEntries(rawValue, retries = 2) {
   const q = rawValue.trim();
   if (!q) return [];
@@ -75,18 +74,14 @@ async function findZoneEntries(rawValue, retries = 2) {
   const apiUrl = `https://geo.api.gouv.fr/communes?nom=${encodeURIComponent(q)}&fields=nom,departement,code,population&boost=population&limit=10`;
 
   let resp;
-  // Boucle de réessai (si l'API a un raté, on retente silencieusement)
   for (let i = 0; i <= retries; i++) {
     try {
       resp = await fetch(apiUrl);
-      if (resp.ok) break; // Succès ! On sort de la boucle
+      if (resp.ok) break;
     } catch (err) {
-      if (i === retries) throw err; // Échec définitif
+      if (i === retries) throw err;
     }
-    // Si ça a échoué mais qu'il reste des essais, on attend 300ms avant de retenter
-    if (i < retries) {
-      await new Promise(r => setTimeout(r, 300));
-    }
+    if (i < retries) await new Promise(r => setTimeout(r, 300));
   }
 
   if (!resp || !resp.ok) throw new Error('Service de géolocalisation indisponible');
@@ -99,7 +94,7 @@ async function findZoneEntries(rawValue, retries = 2) {
   const rawNorm = norm(q);
   const exact  = mapped.filter(e => norm(e.cityName) === rawNorm);
   const starts = mapped.filter(e => norm(e.cityName).startsWith(rawNorm));
-  
+
   const selected = (exact.length ? exact : starts.length ? starts : mapped)
     .sort((a, b) => b.population - a.population);
 
@@ -120,21 +115,77 @@ function renderZoneSingle(res, entry) {
   const webcalUrl = `webcal://${DYNAMIC_API_BASE}/api/calendrier.ics?zone=${entry.zone}`;
   const googleUrl = `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcalUrl)}`;
   res.innerHTML = `
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-      <span>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
         <strong style="font-size:16px">${escHtml(entry.cityName)}</strong>
-        <span style="color:var(--t3)">(${escHtml(entry.departmentName)} · ${escHtml(entry.departmentCode)})</span>
-        → <span class="zt ${zc}">Zone ${entry.zone}</span>
-      </span>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="${webcalUrl}" class="bp" style="font-size:13px;padding:7px 14px">
-          <i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner Zone ${entry.zone}
+        <span style="color:var(--t3);font-size:13px">(${escHtml(entry.departmentName)} · ${escHtml(entry.departmentCode)})</span>
+        <span class="zt ${zc}">Zone ${escHtml(entry.zone)}</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <a href="${escHtml(webcalUrl)}" class="bp" style="font-size:13px;padding:9px 16px">
+          <i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner à la Zone ${escHtml(entry.zone)}
         </a>
-        <a href="${googleUrl}" target="_blank" class="bs" style="font-size:13px;padding:7px 14px">
-          <i class="fa-brands fa-google ui-ico" aria-hidden="true"></i>Google Cal.
+        <a href="${escHtml(googleUrl)}" target="_blank" rel="noopener" class="bs" style="font-size:13px;padding:9px 14px">
+          <i class="fa-brands fa-google ui-ico" aria-hidden="true"></i>Ajouter dans Google Calendar
         </a>
       </div>
+      <p style="font-size:12px;color:var(--t3);margin:0">
+        <i class="fa-solid fa-circle-info" style="color:var(--acc);margin-right:4px" aria-hidden="true"></i>
+        Ce lien inclut les jours fériés nationaux + les vacances scolaires de la Zone ${escHtml(entry.zone)}.
+      </p>
     </div>`;
+}
+
+/* ── Popup d'erreur géolocalisation (sécurisée) ─────── */
+function showGeoError(msg) {
+  // Réutilise la popup existante ou la crée
+  let popup = document.getElementById('geo-error-popup');
+  if (!popup) {
+    popup = document.createElement('div');
+    popup.id = 'geo-error-popup';
+    popup.setAttribute('role', 'alertdialog');
+    popup.setAttribute('aria-modal', 'true');
+    popup.setAttribute('aria-labelledby', 'geo-error-msg');
+
+    // Structure statique — aucun contenu dynamique injecté via innerHTML
+    popup.style.cssText = [
+      'position:fixed', 'left:50%', 'top:20%',
+      'transform:translate(-50%,0)',
+      'background:var(--bg2,#232330)', 'color:var(--t1,#fff)',
+      'padding:24px 32px', 'border-radius:16px',
+      'box-shadow:0 4px 24px #0005', 'font-size:18px',
+      'z-index:9999', 'text-align:center', 'max-width:90vw',
+    ].join(';');
+
+    const icon = document.createElement('div');
+    icon.style.cssText = 'font-size:2em;margin-bottom:12px';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.textContent = '📍';
+
+    const msgEl = document.createElement('div');
+    msgEl.id = 'geo-error-msg';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.style.cssText = [
+      'margin-top:18px', 'padding:8px 18px',
+      'border-radius:8px', 'background:var(--bg1,#444)',
+      'color:var(--t1,#fff)', 'border:none',
+      'font-size:16px', 'cursor:pointer',
+    ].join(';');
+    // textContent uniquement — pas d'innerHTML
+    closeBtn.textContent = 'Fermer';
+    closeBtn.addEventListener('click', () => popup.remove());
+
+    popup.appendChild(icon);
+    popup.appendChild(msgEl);
+    popup.appendChild(closeBtn);
+    document.body.appendChild(popup);
+  }
+
+  // textContent au lieu de innerHTML — aucune injection HTML possible
+  document.getElementById('geo-error-msg').textContent = msg;
+  popup.style.display = 'block';
+  popup.querySelector('button').focus();
 }
 
 /* ── Lancer la recherche ────────────────────────────── */
@@ -157,7 +208,7 @@ async function runZoneSearch() {
         const zc = entry.zone === 'A' ? 'zt-a' : entry.zone === 'B' ? 'zt-b' : 'zt-c';
         const b = document.createElement('button');
         b.className = 'zpick'; b.type = 'button';
-        b.innerHTML = `<span><span class="zpick-main">${escHtml(entry.cityName)}</span><br><span class="zpick-sub">${escHtml(entry.departmentName)} · ${escHtml(entry.departmentCode)}</span></span><span class="zt ${zc}">Zone ${entry.zone}</span>`;
+        b.innerHTML = `<span><span class="zpick-main">${escHtml(entry.cityName)}</span><br><span class="zpick-sub">${escHtml(entry.departmentName)} · ${escHtml(entry.departmentCode)}</span></span><span class="zt ${zc}">Zone ${escHtml(entry.zone)}</span>`;
         b.addEventListener('click', () => renderZoneSingle(res, entry));
         list.appendChild(b);
       });
@@ -179,7 +230,9 @@ async function runZoneSearch() {
   const chips = document.getElementById('zf-chips');
   SAMPLE_CITIES.forEach(city => {
     const b = document.createElement('button');
-    b.className = 'zchip'; b.textContent = city;
+    b.className = 'zchip';
+    // textContent uniquement — les noms de villes ne sont pas du HTML
+    b.textContent = city;
     b.addEventListener('click', () => {
       document.getElementById('zf-in').value = city;
       runZoneSearch();
@@ -207,81 +260,64 @@ function toggleZoneHint(zone, el) {
   };
   const webcalUrl = `webcal://calendrier-fr.tibotsr.dev/zone-${zone.toLowerCase()}.ics`;
   hint.innerHTML = `
-    <strong>Zone ${zone}</strong> — <span style="color:var(--t3);font-size:12px">${cities[zone]}</span><br>
+    <strong>Zone ${escHtml(zone)}</strong> — <span style="color:var(--t3);font-size:12px">${escHtml(cities[zone])}</span><br>
     <div style="margin-top:10px;font-size:13px;color:var(--t2)">
-      Ce fichier contient les <strong>jours fériés nationaux</strong> + les vacances de la <strong>Zone ${zone}</strong> uniquement.<br>
+      Ce fichier contient les <strong>jours fériés nationaux</strong> + les vacances de la <strong>Zone ${escHtml(zone)}</strong> uniquement.<br>
       <span class="sn">1</span> Téléchargez &nbsp; <span class="sn">2</span> Ouvrez le fichier — votre appli calendrier proposera l'import
     </div>
     <div class="zhint-btns">
-      <a href="/zone-${zone.toLowerCase()}.ics" class="bp"><i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Télécharger Zone ${zone}</a>
-      <a href="${webcalUrl}" class="bs"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner Zone ${zone}</a>
+      <a href="/zone-${escHtml(zone.toLowerCase())}.ics" class="bp"><i class="fa-solid fa-download ui-ico" aria-hidden="true"></i>Télécharger Zone ${escHtml(zone)}</a>
+      <a href="${escHtml(webcalUrl)}" class="bs"><i class="fa-solid fa-bolt ui-ico" aria-hidden="true"></i>S'abonner Zone ${escHtml(zone)}</a>
     </div>`;
   hint.classList.add('on');
 }
 
 /* ── Géolocalisation ────────────────────────────────── */
 document.getElementById('zf-geo-btn')?.addEventListener('click', () => {
-  const btn = document.getElementById('zf-geo-btn');
+  const btn   = document.getElementById('zf-geo-btn');
   const input = document.getElementById('zf-in');
-  const res = document.getElementById('zf-res');
+  const res   = document.getElementById('zf-res');
 
-  if (!navigator.geolocation) return showGeoError("Géolocalisation non supportée par votre navigateur.");
+  if (!navigator.geolocation) {
+    showGeoError('Géolocalisation non supportée par votre navigateur.');
+    return;
+  }
 
   btn.disabled = true;
-  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Me géolocaliser'; // Icône de chargement
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Me géolocaliser';
 
-  navigator.geolocation.getCurrentPosition(async (pos) => {
-    try {
-      const { latitude, longitude } = pos.coords;
-      const apiUrl = `https://geo.api.gouv.fr/communes?lat=${latitude}&lon=${longitude}&fields=nom,departement,code,population&limit=1`;
-      const resp = await fetch(apiUrl);
-      const rows = await resp.json();
+  navigator.geolocation.getCurrentPosition(
+    async (pos) => {
+      try {
+        const { latitude, longitude } = pos.coords;
+        const apiUrl = `https://geo.api.gouv.fr/communes?lat=${latitude}&lon=${longitude}&fields=nom,departement,code,population&limit=1`;
+        const resp = await fetch(apiUrl);
+        const rows = await resp.json();
 
-      if (rows && rows.length > 0) {
-        const deptMap = await loadZoneDepartments();
-        const entry = mapCommuneToEntry(rows[0], deptMap);
-        if (entry) {
-          input.value = entry.cityName;
-          res.classList.add('on');
-          renderZoneSingle(res, entry);
+        if (rows && rows.length > 0) {
+          const deptMap = await loadZoneDepartments();
+          const entry   = mapCommuneToEntry(rows[0], deptMap);
+          if (entry) {
+            input.value = entry.cityName;
+            res.classList.add('on');
+            renderZoneSingle(res, entry);
+          } else {
+            showGeoError('Zone scolaire introuvable pour votre position.');
+          }
+        } else {
+          showGeoError('Aucune commune trouvée à cette position.');
         }
-      } else {
-        showGeoError("Aucune commune trouvée à cette position.");
+      } catch {
+        showGeoError('Erreur réseau lors de la géolocalisation.');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Me géolocaliser';
       }
-    } catch (err) {
-      showGeoError("Erreur réseau lors de la géolocalisation.");
-    } finally {
+    },
+    () => {
       btn.disabled = false;
       btn.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Me géolocaliser';
+      showGeoError("Veuillez autoriser l'accès à votre position.");
     }
-  }, () => {
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Me géolocaliser';
-    showGeoError("Veuillez autoriser l'accès à votre position.");
-  // Popup HTML stylée pour les erreurs de géolocalisation
-  function showGeoError(msg) {
-    let popup = document.getElementById('geo-error-popup');
-    if (!popup) {
-      popup = document.createElement('div');
-      popup.id = 'geo-error-popup';
-      popup.style.position = 'fixed';
-      popup.style.left = '50%';
-      popup.style.top = '20%';
-      popup.style.transform = 'translate(-50%, 0)';
-      popup.style.background = 'var(--bg2, #232330)';
-      popup.style.color = 'var(--t1, #fff)';
-      popup.style.padding = '24px 32px';
-      popup.style.borderRadius = '16px';
-      popup.style.boxShadow = '0 4px 24px #0005';
-      popup.style.fontSize = '18px';
-      popup.style.zIndex = '9999';
-      popup.style.textAlign = 'center';
-      popup.innerHTML = `<div style="font-size:2em;margin-bottom:12px"><i class="fa-solid fa-location-crosshairs"></i></div><div id="geo-error-msg"></div><button id="geo-error-close" style="margin-top:18px;padding:8px 18px;border-radius:8px;background:var(--bg1,#444);color:var(--t1,#fff);border:none;font-size:16px;cursor:pointer">Fermer</button>`;
-      document.body.appendChild(popup);
-      popup.querySelector('#geo-error-close').onclick = () => popup.remove();
-    }
-    popup.querySelector('#geo-error-msg').textContent = msg;
-    popup.style.display = 'block';
-  }
-  });
+  );
 });

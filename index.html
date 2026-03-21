@@ -127,6 +127,9 @@
           <button id="a11y-btn" class="tbtn" aria-label="Activer le mode accessibilité" title="Activer le mode accessibilité">
             <i class="fa-solid fa-universal-access"></i>
           </button>
+          <button id="help-btn" class="tbtn" aria-label="Aide — ouvrir le tutoriel" title="Aide">
+            <i class="fa-solid fa-circle-question"></i>
+          </button>
           <span id="theme-label" class="theme-label" aria-live="polite">Thème sombre</span>
           <button id="theme-btn" class="tbtn" aria-label="Passer en thème clair" title="Passer en thème clair">
             <i class="fa-solid fa-sun"></i>
@@ -214,7 +217,7 @@
         <div class="sh">
           <div class="sh-eye">2. Synchronisation</div>
           <h2>Choisissez comment ajouter le calendrier</h2>
-          <p>Le mode Simple convient à la plupart des personnes. Le mode Avancé sert à créer un lien d'abonnement personnalisé.</p>
+          <p><strong>Simple</strong> = tout le calendrier, abonnement en 10 secondes · <strong>Avancé</strong> = choisir ses zones, catégories, rappels et événements personnels.</p>
         </div>
 
         <div class="sync-guide">
@@ -259,7 +262,7 @@
             </div>
 
             <details class="url-details">
-              <summary><i class="fa-solid fa-link" aria-hidden="true"></i>Voir ou copier le lien d'abonnement</summary>
+              <summary><i class="fa-solid fa-link" aria-hidden="true"></i>Voir le lien d'abonnement <span style="font-size:11px;opacity:.6">(pour utilisateurs avancés)</span></summary>
               <div class="url-box">
                 <code id="simple-url"></code>
                 <button class="cpbtn" id="cp-simple">Copier</button>
@@ -535,7 +538,7 @@
                 <button class="szp" data-z="A">A</button>
                 <button class="szp" data-z="B">B</button>
                 <button class="szp" data-z="C">C</button>
-                <button class="szp" data-z="AM" title="Alsace-Moselle (depts 57, 67, 68)">AM</button>
+                <button class="szp" data-z="AM" title="Alsace-Moselle (depts 57, 67, 68)">Alsace-Moselle</button>
               </div>
             </div>
             <div class="sb-s">
@@ -595,71 +598,87 @@
       <!-- ══════════════════════════════
            FAQ
       ══════════════════════════════ -->
-      <section id="faq">
-        <div class="sh">
-          <div class="sh-eye">5. FAQ</div>
-          <h2>Questions fréquentes</h2>
-          <p>Tout ce qu'il faut savoir avant de s'abonner.</p>
-        </div>
-        <div class="faq-grid">
-
-          <details class="faq-item">
-            <summary class="faq-q">
-              <i class="fa-solid fa-gift faq-ico" aria-hidden="true"></i>
-              C'est vraiment gratuit ?
-              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-a">
-              Oui, totalement gratuit et sans compte requis. Le projet est open source, hébergé sur GitHub. Aucune donnée n'est collectée, aucune publicité n'est affichée.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-q">
-              <i class="fa-solid fa-rotate faq-ico" aria-hidden="true"></i>
-              Le calendrier se met-il à jour automatiquement ?
-              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-a">
-              Oui. Quand vous vous abonnez via un lien ICS (webcal://), votre appli agenda vérifie régulièrement les mises à jour. Vous n'avez rien à faire — si les dates officielles changent, votre agenda se met à jour tout seul.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-q">
-              <i class="fa-solid fa-mobile-screen-button faq-ico" aria-hidden="true"></i>
-              Compatible avec quelles applis ?
-              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-a">
-              Toutes les applis qui supportent le format iCalendar (RFC 5545) : Apple Calendar (iPhone, iPad, Mac), Google Calendar, Outlook (desktop et web), Thunderbird, Fantastical, et la plupart des agendas Android.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-q">
-              <i class="fa-solid fa-shield-halved faq-ico" aria-hidden="true"></i>
-              Mes données sont-elles collectées ?
-              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-a">
-              Non. Aucune donnée personnelle n'est collectée pour créer un compte ou vous suivre. Le serveur reçoit seulement les requêtes HTTP nécessaires pour servir les fichiers ICS. Vos événements personnels ajoutés dans l'onglet Avancé sont stockés dans votre navigateur, mais si vous générez un lien d'abonnement avancé ils transitent aussi dans l'URL envoyée au serveur et peuvent donc apparaître dans les journaux techniques habituels.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-q">
-              <i class="fa-solid fa-graduation-cap faq-ico" aria-hidden="true"></i>
-              Quelle différence entre les zones A, B et C ?
-              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-a">
-              Les académies françaises sont réparties en trois zones pour éviter que tout le monde parte en vacances en même temps.<br /><br />
-              Zone A : Lyon, Bordeaux, Grenoble… — Zone B : Nantes, Lille, Strasbourg… — Zone C : Paris, Montpellier, Toulouse...<br /><br />
-              Utilisez la <a href="#zone">recherche de zone</a> pour trouver la vôtre en tapant votre ville.
-            </div>
-          </details>
-
+    <section id="faq">
+      <div class="sh">
+        <div class="sh-eye">FAQ</div>
+        <h2>Questions fréquentes</h2>
+        <p>Tout ce qu'il faut savoir avant de s'abonner.</p>
+      </div>
+      <div class="faq-grid">
+ 
+        <details class="faq-item">
+          <summary class="faq-q">
+            <i class="fa-solid fa-gift faq-ico" aria-hidden="true"></i>
+            C'est vraiment gratuit ?
+            <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+          </summary>
+          <div class="faq-a">
+            Oui, totalement gratuit et sans compte requis. Le projet est open source, hébergé sur GitHub. Aucune publicité, aucune donnée revendue.
+          </div>
+        </details>
+ 
+        <details class="faq-item">
+          <summary class="faq-q">
+            <i class="fa-solid fa-rotate faq-ico" aria-hidden="true"></i>
+            Le calendrier se met-il à jour automatiquement ?
+            <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+          </summary>
+          <div class="faq-a">
+            Oui. En vous abonnant via un lien ICS, votre appli agenda vérifie régulièrement les mises à jour. Si les dates officielles changent, votre agenda se met à jour tout seul — vous n'avez rien à faire.
+          </div>
+        </details>
+ 
+        <details class="faq-item">
+          <summary class="faq-q">
+            <i class="fa-solid fa-mobile-screen-button faq-ico" aria-hidden="true"></i>
+            Compatible avec quelles applis ?
+            <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+          </summary>
+          <div class="faq-a">
+            Toutes les applis supportant le format iCalendar (RFC 5545) : Apple Calendar (iPhone, iPad, Mac), Google Calendar, Outlook (desktop et web), Thunderbird, Fantastical, et la plupart des agendas Android.
+          </div>
+        </details>
+ 
+        <details class="faq-item">
+          <summary class="faq-q">
+            <i class="fa-solid fa-shield-halved faq-ico" aria-hidden="true"></i>
+            Mes données sont-elles collectées ?
+            <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+          </summary>
+          <div class="faq-a">
+            Non. Aucune donnée personnelle n'est collectée pour créer un compte ou vous suivre. Le serveur reçoit uniquement les requêtes HTTP standards pour servir les fichiers ICS.
+            <br><br>
+            <strong>Note sur le mode Avancé :</strong> si vous ajoutez des événements personnels, leur titre et leur date transitent dans l'URL générée et peuvent apparaître dans les journaux techniques du serveur. N'inscrivez pas d'informations sensibles.
+          </div>
+        </details>
+ 
+        <details class="faq-item">
+          <summary class="faq-q">
+            <i class="fa-solid fa-graduation-cap faq-ico" aria-hidden="true"></i>
+            Quelle différence entre les zones A, B et C ?
+            <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+          </summary>
+          <div class="faq-a">
+            Les académies françaises sont réparties en trois zones pour éviter que tout le monde parte en vacances en même temps.
+            <br><br>
+            Zone A : Lyon, Bordeaux, Grenoble… — Zone B : Nantes, Lille, Strasbourg… — Zone C : Paris, Montpellier, Toulouse…
+            <br><br>
+            Utilisez la <a href="#zone">recherche de zone</a> pour trouver la vôtre en tapant votre ville.
+          </div>
+        </details>
+ 
+        <details class="faq-item">
+          <summary class="faq-q">
+            <i class="fa-solid fa-map-location-dot faq-ico" aria-hidden="true"></i>
+            Et pour l'Alsace-Moselle ?
+            <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+          </summary>
+          <div class="faq-a">
+            Les départements 57 (Moselle), 67 (Bas-Rhin) et 68 (Haut-Rhin) bénéficient de deux jours fériés supplémentaires : le Vendredi Saint et le 26 décembre (Saint-Étienne). Dans l'onglet Avancé, sélectionnez "Alsace-Moselle" pour les inclure.
+          </div>
+        </details>
+ 
+ 
           <details class="faq-item">
             <summary class="faq-q">
               <i class="fa-solid fa-sliders faq-ico" aria-hidden="true"></i>
@@ -667,35 +686,91 @@
               <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
             </summary>
             <div class="faq-a">
-              <strong>Simple</strong> : un seul lien, tout le calendrier (toutes zones, toutes catégories). Idéal pour commencer en 10 secondes.<br /><br />
-              <strong>Avancé</strong> : vous choisissez vos zones, vos catégories, vos rappels, et vous pouvez même ajouter vos propres événements récurrents. Le lien est généré sur mesure.
+              <strong>Simple</strong> : abonnement en 3 étapes guidées — vous choisissez votre appli, votre zone scolaire, et c'est tout. Vous recevez tout le calendrier.<br /><br />
+              <strong>Avancé</strong> : vous construisez un lien sur mesure en 5 étapes — profil, zones, catégories précises, rappels, et vos propres événements récurrents (anniversaires…).
             </div>
           </details>
-
+ 
           <details class="faq-item">
             <summary class="faq-q">
-              <i class="fa-solid fa-map-location-dot faq-ico" aria-hidden="true"></i>
-              Et pour l'Alsace-Moselle ?
+              <i class="fa-solid fa-rotate faq-ico" aria-hidden="true"></i>
+              À quelle fréquence le calendrier est-il mis à jour ?
               <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
             </summary>
             <div class="faq-a">
-              Les départements 57 (Moselle), 67 (Bas-Rhin) et 68 (Haut-Rhin) bénéficient de jours fériés supplémentaires : le Vendredi Saint et le 26 décembre (Saint-Étienne). Dans l'onglet Avancé, sélectionnez "Alsace-Moselle" pour les inclure.
+              Le calendrier est régénéré automatiquement tous les jours à minuit via un workflow GitHub Actions. Les données de vacances scolaires proviennent du Ministère de l'Éducation Nationale et sont vérifiées à chaque mise à jour.<br /><br />
+              Votre agenda se synchronise lui aussi régulièrement — toutes les heures sur iPhone, toutes les 12h sur Google Calendar — sans aucune action de votre part.
             </div>
           </details>
-
+ 
           <details class="faq-item">
             <summary class="faq-q">
-              <i class="fa-solid fa-bug faq-ico" aria-hidden="true"></i>
-              Une date est incorrecte, comment signaler ?
+              <i class="fa-solid fa-circle-question faq-ico" aria-hidden="true"></i>
+              Je ne vois pas les vacances s'afficher dans mon agenda, pourquoi ?
               <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
             </summary>
             <div class="faq-a">
-              Les données proviennent du <a href="https://data.education.gouv.fr" target="_blank" rel="noopener">Ministère de l'Éducation Nationale</a>. Si vous constatez une erreur, <a href="https://github.com/TiboTsr/calendrier-france-ics/issues" target="_blank" rel="noopener">ouvrez une issue sur GitHub</a> — les corrections sont déployées rapidement.
+              Quelques causes fréquentes :<br /><br />
+              <strong>1.</strong> Votre agenda n'a pas encore synchronisé — attendez quelques minutes ou forcez une actualisation manuelle.<br />
+              <strong>2.</strong> Le calendrier abonné est désactivé — vérifiez qu'il est coché/visible dans votre appli.<br />
+              <strong>3.</strong> Vous avez téléchargé le fichier .ICS au lieu de vous abonner — dans ce cas les événements ne se mettent pas à jour automatiquement. Recommencez en cliquant "S'abonner".<br />
+              <strong>4.</strong> Google Calendar peut prendre jusqu'à 24h pour la première synchronisation.
             </div>
           </details>
-
-        </div>
-      </section>
+ 
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-calendar-xmark faq-ico" aria-hidden="true"></i>
+              Comment désactiver ou supprimer le calendrier ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              <strong>iPhone / Mac :</strong> Réglages → Calendrier → Comptes → choisissez le compte → supprimez l'abonnement.<br /><br />
+              <strong>Google Calendar :</strong> Dans les paramètres de Google Calendar, rubrique "Autres agendas", cliquez sur les trois points à côté du calendrier → Désabonner.<br /><br />
+              <strong>Outlook :</strong> Calendrier → clic droit sur le calendrier dans la liste → Supprimer le calendrier.
+            </div>
+          </details>
+ 
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-mobile-screen-button faq-ico" aria-hidden="true"></i>
+              Pourquoi l'abonnement s'ouvre sur une page blanche sur iPhone ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              C'est normal — Safari ouvre le lien <code>webcal://</code> en arrière-plan et propose directement d'ajouter le calendrier via une alerte système. Si l'alerte n'apparaît pas :<br /><br />
+              <strong>1.</strong> Allez dans Réglages → Calendrier → Comptes → Ajouter un compte → Autre → Abonnement calendrier.<br />
+              <strong>2.</strong> Collez l'URL copiée depuis la section "Voir le lien d'abonnement".<br />
+              <strong>3.</strong> Appuyez sur Suivant, puis Enregistrer.
+            </div>
+          </details>
+ 
+          <details class="faq-item">
+            <summary class="faq-q">
+              <i class="fa-solid fa-code-branch faq-ico" aria-hidden="true"></i>
+              Puis-je utiliser ce calendrier dans mon propre projet ?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-a">
+              Oui. Le projet est open source (GitHub). Le fichier <code>calendrier.json</code> est disponible publiquement et peut être intégré dans n'importe quelle application. L'API <code>/api/calendrier.ics</code> supporte des paramètres de filtrage (<code>zone</code>, <code>cats</code>, <code>alarm_feries</code>…).<br /><br />
+              <a href="https://github.com/TiboTsr/calendrier-france-ics" target="_blank" rel="noopener">Voir le dépôt GitHub →</a>
+            </div>
+          </details>
+ 
+ 
+        <details class="faq-item">
+          <summary class="faq-q">
+            <i class="fa-solid fa-bug faq-ico" aria-hidden="true"></i>
+            Une date est incorrecte, comment signaler ?
+            <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+          </summary>
+          <div class="faq-a">
+            Les données proviennent du <a href="https://data.education.gouv.fr" target="_blank" rel="noopener">Ministère de l'Éducation Nationale</a>. Pour signaler une erreur, <a href="https://github.com/TiboTsr/calendrier-france-ics/issues" target="_blank" rel="noopener">ouvrez une issue sur GitHub</a> — les corrections sont déployées rapidement.
+          </div>
+        </details>
+ 
+      </div>
+    </section>
 
     </div><!-- /.page -->
 
@@ -718,13 +793,23 @@
             <i class="fa-brands fa-github" aria-hidden="true"></i>Code source
           </a>
         </div>
-        <p class="footer-meta">
+        <div class="footer-links" style="margin-top:10px;gap:12px;flex-wrap:wrap">
+          <span class="footer-link" style="cursor:default;color:var(--t3);gap:5px">
+            <i class="fa-regular fa-clock" aria-hidden="true"></i>Mise à jour : <span id="footer-sync-date">—</span>
+          </span>
+          <a href="#sync" class="footer-link">
+            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>S'abonner
+          </a>
+          <a href="#zone" class="footer-link">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>Trouver ma zone
+          </a>
+        </div>
+        <p class="footer-meta" style="margin-top:12px">
           Données officielles : <a href="https://data.education.gouv.fr" target="_blank" rel="noopener">Ministère de l'Éducation Nationale</a>
-          · Format iCalendar RFC 5545 · Mise à jour quotidienne automatique
+          · Format iCalendar RFC 5545 · Aucune donnée collectée · Aucun compte requis
         </p>
         <p class="footer-credit">
           Projet open source par <a href="https://github.com/TiboTsr/calendrier-france-ics" target="_blank" rel="noopener">TiboTsr</a>
-          — Aucune donnée collectée, aucun compte requis
         </p>
       </div>
     </footer>

@@ -1,12 +1,6 @@
 """
 elections.py — Récupère les dates des prochaines élections françaises
 via l'API Wikipedia (MediaWiki), distingue confirmé / approximatif.
-
-Résultat :
-  {
-    "confirmed": [ { uid, summary, start, end, description, categories, zones } ],
-    "approximate": [ { uid, summary, year, month_hint, description, categories, zones, approximate: true } ]
-  }
 """
 
 import re
@@ -51,9 +45,7 @@ KNOWN_ELECTION_ROUNDS = {
     ],
 }
 
-# Pattern template MediaWiki : {{date|15|mars|2026}}
-TEMPLATE_PATTERN = r"\{\{date\|(\d{1,2})\|(\w+)\|(\d{4})[^}]*\}\}"
-
+TEMPLATE_PATTERN  = r"\{\{date\|(\d{1,2})\|(\w+)\|(\d{4})[^}]*\}\}"
 MONTH_YEAR_PATTERN = r"(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\s+(\d{4})"
 SEMESTER_PATTERN   = r"(premier|second|1er|2e|2ème)\s+semestre\s+(\d{4})"
 
@@ -74,15 +66,29 @@ APPROXIMATE_SIGNALS = [
 ]
 
 
+def _escape_ics(value: str) -> str:
+    """
+    Échappe les caractères spéciaux ICS dans une chaîne avant insertion
+    dans un champ DESCRIPTION ou SUMMARY.
+    Empêche l'injection de propriétés ICS arbitraires via du contenu externe
+    (ex. extraits Wikipedia vandalisés).
+    """
+    return (
+        str(value or "")
+        .replace("\\", "\\\\")
+        .replace("\r\n", "\\n")
+        .replace("\n", "\\n")
+        .replace("\r", "\\n")
+        .replace(";", "\\;")
+        .replace(",", "\\,")
+    )
+
+
 def fetch_wikipedia_content(title: str) -> Optional[str]:
     params = {
-        "action": "query",
-        "titles": title,
-        "prop": "revisions",
-        "rvprop": "content",
-        "rvslots": "main",
-        "format": "json",
-        "formatversion": "2",
+        "action": "query", "titles": title,
+        "prop": "revisions", "rvprop": "content",
+        "rvslots": "main", "format": "json", "formatversion": "2",
     }
     try:
         r = requests.get(WIKIPEDIA_API, params=params, headers=HEADERS, timeout=15)
@@ -119,17 +125,11 @@ def is_confirmed(context: str, target_date: date) -> bool:
 
 
 def extract_dates_from_content(content: str, election_type: str, uid_prefix: str) -> dict:
-    """
-    Extrait les dates d'un wikicode Wikipedia.
-    - Si des templates {{date|DD|mois|YYYY}} précis existent → événements confirmés ou non
-    - Sinon → fallback mois/année approximatif (jamais de faux positifs texte)
-    """
-    confirmed  = []
+    confirmed   = []
     approximate = []
     found_dates = []
     already_found_dates: set = set()
 
-    # ── 1. Templates {{date|DD|mois|YYYY}} ─────────────────────────────
     template_hits = []
     for m in re.finditer(TEMPLATE_PATTERN, content, re.IGNORECASE):
         day_s, month_s, year_s = m.group(1), m.group(2), m.group(3)
@@ -144,7 +144,6 @@ def extract_dates_from_content(content: str, election_type: str, uid_prefix: str
             end_ctx   = min(len(content), m.end() + 300)
             template_hits.append({"date": d, "pos": m.start(), "context": content[start_ctx:end_ctx]})
 
-    # Regrouper les templates proches du même mois/année comme 2 tours
     used = set()
     for i, h1 in enumerate(template_hits):
         if i in used:
@@ -153,9 +152,9 @@ def extract_dates_from_content(content: str, election_type: str, uid_prefix: str
         for j, h2 in enumerate(template_hits):
             if j <= i or j in used:
                 continue
-            if (h1["date"].year  == h2["date"].year and
-                h1["date"].month == h2["date"].month and
-                abs(h2["pos"] - h1["pos"]) < 300):
+            if (h1["date"].year == h2["date"].year and
+                    h1["date"].month == h2["date"].month and
+                    abs(h2["pos"] - h1["pos"]) < 300):
                 pair = (i, j)
                 break
         if pair:
@@ -173,15 +172,12 @@ def extract_dates_from_content(content: str, election_type: str, uid_prefix: str
                                  "raw": f"template-{d}", "precise": True})
             already_found_dates.add(d)
 
-    # ── 2. Fallback approximatif (uniquement si aucun template précis trouvé) ──
-    # Extrait mois+année depuis les 500 premiers caractères de la page
     if not found_dates:
         intro = content[:800]
-        # Semestre → on prend le milieu (mois 3 ou 9)
         for m in re.finditer(SEMESTER_PATTERN, intro, re.IGNORECASE):
             sem, year_s = m.group(1).lower(), int(m.group(2))
             month = 3 if sem in ("premier", "1er") else 9
-            d = date(year, month, 1) if (year := year_s) else None
+            d = date(year_s, month, 1)
             if d and d >= date.today():
                 ctx = intro[max(0, m.start()-200):min(len(intro), m.end()+200)]
                 found_dates.append({"tours": [d], "context": ctx,
@@ -189,7 +185,6 @@ def extract_dates_from_content(content: str, election_type: str, uid_prefix: str
                 already_found_dates.add(d)
                 break
 
-        # Mois + année explicite
         for m in re.finditer(MONTH_YEAR_PATTERN, intro, re.IGNORECASE):
             month_str, year_s = m.group(1).lower(), int(m.group(2))
             month_num = MONTHS_FR.get(month_str)
@@ -203,7 +198,6 @@ def extract_dates_from_content(content: str, election_type: str, uid_prefix: str
                 already_found_dates.add(d)
                 break
 
-    # ── 3. Dédup + génération des événements ───────────────────────────
     seen = set()
     unique_dates = []
     for fd in found_dates:
@@ -213,8 +207,8 @@ def extract_dates_from_content(content: str, election_type: str, uid_prefix: str
             unique_dates.append(fd)
 
     for i, fd in enumerate(unique_dates):
-        tours   = fd["tours"]
-        precise = fd.get("precise", True)
+        tours          = fd["tours"]
+        precise        = fd.get("precise", True)
         confirmed_flag = precise and is_confirmed(fd["context"], tours[0])
 
         if precise and len(tours) == 2:
@@ -247,29 +241,38 @@ def extract_dates_from_content(content: str, election_type: str, uid_prefix: str
 
 
 def _build_description(label: str, d: date, confirmed: bool, context: str) -> str:
-    # Description personnalisée selon le type d'élection
+    """
+    Construit la description d'un événement électoral.
+    Les extraits Wikipedia sont sanitisés via _escape_ics() avant insertion
+    pour éviter l'injection de propriétés ICS arbitraires.
+    """
     if "présidentielle" in label.lower():
-        base = f"Élection présidentielle française : le président de la République est élu au suffrage universel direct pour un mandat de 5 ans."
+        base = "Élection présidentielle française : le président de la République est élu au suffrage universel direct pour un mandat de 5 ans."
     elif "municipales" in label.lower():
-        base = f"Élections municipales françaises : renouvellement des conseils municipaux dans toutes les communes. Les maires sont élus par les conseillers municipaux."
+        base = "Élections municipales françaises : renouvellement des conseils municipaux dans toutes les communes."
     elif "législatives" in label.lower():
-        base = f"Élections législatives françaises : renouvellement des députés à l'Assemblée nationale pour un mandat de 5 ans."
+        base = "Élections législatives françaises : renouvellement des députés à l'Assemblée nationale pour un mandat de 5 ans."
     elif "régionales" in label.lower():
-        base = f"Élections régionales et départementales françaises : renouvellement des conseils régionaux et départementaux."
+        base = "Élections régionales et départementales françaises : renouvellement des conseils régionaux et départementaux."
     elif "1er tour" in label.lower():
-        base = f"Premier tour de l'élection."
+        base = "Premier tour de l'élection."
     elif "2e tour" in label.lower():
-        base = f"Second tour de l'élection."
+        base = "Second tour de l'élection."
     else:
-        base = f"Élection nationale ou locale."
+        base = "Élection nationale ou locale."
+
     status = "Date confirmée par décret." if confirmed else "Date approximative — non encore fixée par décret officiel."
+
+    # Extraire une phrase pertinente du contexte Wikipedia
     sentences = re.split(r"[.!?]", context)
     relevant  = next((s.strip() for s in sentences
                       if any(kw in s.lower() for kw in ["décret", "fixé", "devrait", "prévu", "constitution"])), "")
-    relevant  = relevant[:200] if relevant else ""
-    desc = f"{base} {status}"
+    # Tronquer à 200 chars max et sanitiser AVANT d'insérer dans le champ ICS
+    relevant = _escape_ics(relevant[:200]) if relevant else ""
+
+    desc = f"{_escape_ics(base)} {_escape_ics(status)}"
     if relevant:
-        desc += f" Source Wikipedia : « {relevant}… »"
+        desc += f" Source Wikipedia : {relevant}"
     return desc
 
 
@@ -281,12 +284,12 @@ def get_elections() -> dict[str, list]:
         if override_rounds:
             for idx, (round_date, label, confirmed_flag) in enumerate(override_rounds, start=1):
                 event = {
-                    "uid": f"{page['uid_prefix']}-t{idx}@calendrier-france",
-                    "summary": label,
-                    "start": round_date.isoformat(),
-                    "end": round_date.isoformat(),
-                    "categories": ["Élections", "Société"],
-                    "zones": [],
+                    "uid":         f"{page['uid_prefix']}-t{idx}@calendrier-france",
+                    "summary":     label,
+                    "start":       round_date.isoformat(),
+                    "end":         round_date.isoformat(),
+                    "categories":  ["Élections", "Société"],
+                    "zones":       [],
                     "description": _build_description(label, round_date, confirmed_flag, ""),
                 }
                 result["confirmed" if confirmed_flag else "approximate"].append(event)

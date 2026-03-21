@@ -1,6 +1,11 @@
 /**
- * tutorial.js — Tutoriel première visite (opt-in via bouton ?)
+ * tutorial.js — Tutoriel opt-in via bouton ? dans la topbar
  * Dépend de : utils.js (KEYS)
+ *
+ * CHANGEMENT UX Sprint 4 :
+ * - Le tutoriel ne s'affiche PLUS automatiquement à la première visite
+ * - Un bouton "?" (#help-btn) dans la topbar permet de l'ouvrir à tout moment
+ * - La popup de bienvenue est supprimée (trop intrusive)
  */
 
 (function () {
@@ -59,17 +64,20 @@
 
   let step    = 0;
   let rafId   = null;
-  const welcome = document.getElementById('tuto-welcome');
   const overlay = document.getElementById('tuto-overlay');
   const spot    = document.getElementById('tuto-spot');
   const card    = document.getElementById('tuto-card');
   const arrow   = document.getElementById('tuto-arrow');
 
+  // La popup de bienvenue (#tuto-welcome) n'est plus utilisée en auto — on la cache
+  const welcome = document.getElementById('tuto-welcome');
+  if (welcome) welcome.style.display = 'none';
+
   function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
 
   /* Dots */
   function buildDots() {
-    const c = document.getElementById('tuto-dots'); c.innerHTML = '';
+    const c = document.getElementById('tuto-dots'); if (!c) return; c.innerHTML = '';
     STEPS.forEach((_, i) => { const d = document.createElement('div'); d.className = 'tuto-dot'; d.id = 'tdot' + i; c.appendChild(d); });
   }
   function syncDots(s) {
@@ -82,15 +90,20 @@
   /* Card content */
   function fillCard(s) {
     const st = STEPS[s];
-    document.getElementById('tuto-step-label').textContent = `Étape ${s + 1} / ${STEPS.length}`;
-    document.getElementById('tuto-icon').innerHTML  = st.icon;
-    document.getElementById('tuto-title').textContent = st.title;
-    document.getElementById('tuto-desc').textContent  = st.desc;
-    document.getElementById('tuto-next-btn').innerHTML = st.isLast
+    const stepLabel = document.getElementById('tuto-step-label');
+    const icon      = document.getElementById('tuto-icon');
+    const title     = document.getElementById('tuto-title');
+    const desc      = document.getElementById('tuto-desc');
+    const nextBtn   = document.getElementById('tuto-next-btn');
+    const prevBtn   = document.getElementById('tuto-prev-btn');
+    if (stepLabel) stepLabel.textContent = `Étape ${s + 1} / ${STEPS.length}`;
+    if (icon)      icon.innerHTML  = st.icon;
+    if (title)     title.textContent = st.title;
+    if (desc)      desc.textContent  = st.desc;
+    if (nextBtn)   nextBtn.innerHTML = st.isLast
       ? 'Terminer <i class="fa-solid fa-champagne-glasses"></i>'
       : 'Suivant <i class="fa-solid fa-arrow-right"></i>';
-    const prev = document.getElementById('tuto-prev-btn');
-    prev.disabled = s === 0; prev.style.opacity = s === 0 ? '.3' : '1';
+    if (prevBtn) { prevBtn.disabled = s === 0; prevBtn.style.opacity = s === 0 ? '.3' : '1'; }
     syncDots(s);
   }
 
@@ -105,7 +118,7 @@
   function positionFrame() {
     const st  = STEPS[step];
     const el  = document.querySelector(st.sel); if (!el) return;
-    const vis = visibleRect(el);             if (!vis) return;
+    const vis = visibleRect(el);               if (!vis) return;
     const vw = window.innerWidth, vh = window.innerHeight;
     const sx = Math.max(0, vis.left - PAD),   sy = Math.max(TOPBAR, vis.top - PAD);
     const sw = Math.min(vw - sx, vis.width + PAD * 2), sh = Math.min(vh - sy, vis.height + PAD * 2);
@@ -122,11 +135,11 @@
     const minSide = TW + GAP + 8, minVert = TH + GAP + 8;
 
     const prefMap = { above: 'bot', below: 'top', left: 'right', right: 'left' };
-    const pref = prefMap[st.placement] || null;
-    const sides = [pref, 'left', 'right', 'top', 'bot'].filter((v, i, a) => v && a.indexOf(v) === i);
-    const space = { left: spR, right: spL, top: spB, bot: spA };
-    const fits  = s => (s === 'left' || s === 'right') ? space[s] >= minSide : space[s] >= minVert;
-    const chosen = sides.find(fits) || sides.slice().sort((a, b) => space[b] - space[a])[0];
+    const pref    = prefMap[st.placement] || null;
+    const sides   = [pref, 'left', 'right', 'top', 'bot'].filter((v, i, a) => v && a.indexOf(v) === i);
+    const space   = { left: spR, right: spL, top: spB, bot: spA };
+    const fits    = s => (s === 'left' || s === 'right') ? space[s] >= minSide : space[s] >= minVert;
+    const chosen  = sides.find(fits) || sides.slice().sort((a, b) => space[b] - space[a])[0];
 
     let tx, ty;
     if (chosen === 'left')  { tx = sx + sw + GAP; ty = clamp(cy - TH / 2, TOPBAR + 8, vh - TH - 8); }
@@ -136,7 +149,6 @@
     tx = clamp(tx, 8, vw - TW - 8); ty = clamp(ty, TOPBAR + 8, vh - TH - 8);
     card.style.top = ty + 'px'; card.style.left = tx + 'px';
 
-    // Flèche
     const AS = 12;
     const midX = cx - tx - AS / 2, midY = cy - ty - AS / 2;
     arrow.style.cssText = `position:absolute;width:${AS}px;height:${AS}px;background:var(--bg1);border:1px solid var(--ba);transform:rotate(45deg)`;
@@ -149,9 +161,10 @@
   function startTracking() {
     cancelAnimationFrame(rafId);
     spot.style.transition = 'none'; card.style.transition = 'none';
-    function loop() { if (!overlay.classList.contains('visible')) return; positionFrame(); rafId = requestAnimationFrame(loop); }
+    function loop() { if (!overlay?.classList.contains('visible')) return; positionFrame(); rafId = requestAnimationFrame(loop); }
     rafId = requestAnimationFrame(loop);
   }
+
   function stopTracking() { cancelAnimationFrame(rafId); }
 
   function showStep(s) {
@@ -162,43 +175,60 @@
 
   function endTuto() {
     stopTracking();
-    overlay.classList.remove('visible');
-    spot.style.display = 'none'; card.style.display = 'none';
-    try { localStorage.setItem(KEYS.tuto, '1'); } catch {}
+    if (overlay) overlay.classList.remove('visible');
+    if (spot)    spot.style.display = 'none';
+    if (card)    card.style.display = 'none';
+    // On ne sauvegarde plus "tuto vu" — il reste accessible à tout moment via le bouton ?
   }
 
   function startTuto() {
-    welcome.classList.remove('visible');
-    setTimeout(() => { welcome.style.display = 'none'; }, 380);
-    buildDots(); overlay.classList.add('visible');
-    card.style.display = 'block'; startTracking(); showStep(0);
+    buildDots();
+    if (overlay) overlay.classList.add('visible');
+    if (card)    card.style.display = 'block';
+    startTracking();
+    showStep(0);
+    // Scroll en haut pour commencer depuis le début
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function dismissWelcome() {
-    welcome.classList.remove('visible');
-    setTimeout(() => { welcome.style.display = 'none'; }, 380);
-    try { localStorage.setItem(KEYS.tuto, '1'); } catch {}
+  /* ── Bouton ? dans la topbar ── */
+  const helpBtn = document.getElementById('help-btn');
+  if (helpBtn) {
+    helpBtn.addEventListener('click', () => {
+      // Si le tuto est déjà ouvert, le fermer
+      if (overlay?.classList.contains('visible')) {
+        endTuto();
+      } else {
+        startTuto();
+      }
+    });
   }
 
-  document.getElementById('tuto-start')?.addEventListener('click', startTuto);
-  document.getElementById('tuto-skip-all')?.addEventListener('click', dismissWelcome);
+  /* ── Boutons internes du tuto ── */
   document.getElementById('tuto-skip-btn')?.addEventListener('click', endTuto);
-  document.getElementById('tuto-next-btn')?.addEventListener('click', () => { step >= STEPS.length - 1 ? endTuto() : showStep(step + 1); });
-  document.getElementById('tuto-prev-btn')?.addEventListener('click', () => { if (step > 0) showStep(step - 1); });
+  document.getElementById('tuto-next-btn')?.addEventListener('click', () => {
+    step >= STEPS.length - 1 ? endTuto() : showStep(step + 1);
+  });
+  document.getElementById('tuto-prev-btn')?.addEventListener('click', () => {
+    if (step > 0) showStep(step - 1);
+  });
 
-  // Exposé pour le bouton "?" de la topbar
-  function showWelcome() {
-    welcome.style.display = 'flex';
-    setTimeout(() => welcome.classList.add('visible'), 50);
-  }
+  // Fermer avec Échap
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay?.classList.contains('visible')) endTuto();
+  });
 
-  window._startTutoIfNeeded = function () {
-    showWelcome();
-  };
+  /* ── API publique ── */
+  // Exposé pour rétrocompatibilité (utilisé dans certains boutons inline)
+  window._startTutoIfNeeded = function () { startTuto(); };
+  window._startTuto         = startTuto;
+  window._endTuto           = endTuto;
 
-  try {
-    if (!localStorage.getItem(KEYS.tuto)) {
-      showWelcome();
-    }
-  } catch {}
+  /* ── Anciens boutons de la popup de bienvenue (conservés pour compatibilité) ── */
+  // #tuto-start et #tuto-skip-all ne sont plus affichés mais peuvent encore exister dans le DOM
+  document.getElementById('tuto-start')?.addEventListener('click', startTuto);
+  document.getElementById('tuto-skip-all')?.addEventListener('click', () => {
+    if (welcome) welcome.style.display = 'none';
+  });
+
 })();
