@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "calendrier-fr-api",
+  "name": "calendrier-fr",
   "routes": [
     {
       "src": "/api/calendrier.ics",
@@ -36,28 +36,23 @@
       ]
     },
     {
+      "source": "/(.*\\.ics)",
+      "headers": [
+        { "key": "Content-Type",  "value": "text/calendar; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
           "value": "default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com fonts.googleapis.com fonts.gstatic.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com fonts.googleapis.com fonts.gstatic.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: api.qrserver.com; connect-src 'self' geo.api.gouv.fr data.education.gouv.fr calendrier-fr.tibotsr.dev api.calendrier-fr.tibotsr.dev; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
         },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
+        { "key": "X-Content-Type-Options",  "value": "nosniff" },
+        { "key": "X-Frame-Options",          "value": "DENY" },
+        { "key": "X-XSS-Protection",         "value": "1; mode=block" },
+        { "key": "Referrer-Policy",           "value": "strict-origin-when-cross-origin" },
         {
           "key": "Permissions-Policy",
           "value": "geolocation=(self), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()"

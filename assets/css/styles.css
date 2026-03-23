@@ -1470,3 +1470,214 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   .g-day { min-height: 60px; }
   .g-ev { font-size: 9px; padding: 2px; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   PATCH UX — Radar, Modal, Timeline, Zones
+   Ajouter à la fin de assets/css/styles.css
+═══════════════════════════════════════════════════════ */
+
+/* ── Radar refonte ──────────────────────────────────── */
+.rc {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  flex-direction: column;
+  cursor: pointer;
+}
+.rc-cat-bar {
+  height: 3px;
+  width: 100%;
+  flex-shrink: 0;
+  opacity: .9;
+}
+.rc-inner {
+  padding: 9px 11px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rc-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.rc-delay {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  border: 1px solid;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.rc-delay--now { animation: pulse-soft 2s ease infinite; }
+@keyframes pulse-soft { 0%, 100% { opacity: 1; } 50% { opacity: .65; } }
+.rc-cat-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+.rc--ongoing { border-width: 1.5px; }
+.rc-ongoing-label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+}
+
+/* ── Timeline — nouveaux badges ─────────────────────── */
+.ev-tag--ongoing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 2px 7px;
+  font-size: 10px;
+  letter-spacing: .3px;
+}
+.ev-ongoing-dot {
+  font-size: 6px;
+  animation: pulse-soft 2s ease infinite;
+}
+.ev-tag--zone {
+  background: var(--bg3) !important;
+  color: var(--t3) !important;
+  border: 1px solid var(--b) !important;
+  font-weight: 500;
+}
+.ev-tags { flex-wrap: wrap; row-gap: 3px; }
+
+#m-cat-bar {
+  height: 4px;
+  width: calc(100% + 48px);
+  margin: -24px -24px 18px;
+  display: block;
+  flex-shrink: 0;
+  border-radius: var(--rxl) var(--rxl) 0 0;
+}
+@media (max-width: 600px) {
+  #m-cat-bar { margin: 0 -18px 14px; }
+}
+
+#m-occ-count {
+  display: none;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--bg3);
+  color: var(--t3);
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid var(--b);
+  margin-left: 8px;
+  vertical-align: middle;
+  gap: 4px;
+}
+#m-occ-count::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--acc);
+  display: block;
+  flex-shrink: 0;
+}
+
+#m-ferie-link {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--acc);
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: var(--r);
+  border: 1px solid var(--accb);
+  background: var(--accd);
+  text-decoration: none;
+  transition: opacity .15s;
+}
+#m-ferie-link:hover { opacity: .8; }
+
+.m-chip {
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mbox.prev, .mbox.next {
+  cursor: pointer;
+  transition: opacity .18s, transform .15s;
+  user-select: none;
+}
+.mbox.prev:hover, .mbox.next:hover { transform: translateY(-1px); }
+.mbox.prev .ml::before { content: '← '; opacity: .6; }
+.mbox.next .ml::after  { content: ' →'; opacity: .6; }
+
+.m-keyboard-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--t3);
+  justify-content: center;
+}
+
+.m-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 7px;
+  border-radius: 5px;
+  background: var(--bg3);
+  border: 1px solid var(--bh);
+  font-family: var(--ffm);
+  font-size: 10px;
+  color: var(--t2);
+}
+
+.zone-result-cta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 12px;
+}
+.zone-result-info {
+  font-size: 12px;
+  color: var(--t3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.szp.sam {
+  border-color: var(--vio);
+  background: var(--viod);
+  color: var(--vio);
+}
+
+@media (max-width: 760px) {
+  .ev-tags .ev-tag:not(.ev-tag--ongoing):not(.ev-tag--zone):not(.ev-tag--approx):nth-child(n+3) {
+    display: none;
+  }
+}

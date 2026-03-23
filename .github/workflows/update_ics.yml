@@ -39,51 +39,30 @@ jobs:
       - name: Validate ICS syntax
         run: python scripts/validate_ics.py
 
-      - name: Inject build timestamp into Service Worker and Sitemap
+      - name: Update Sitemap lastmod
         run: |
-          BUILD_TS=$(date -u +"%Y%m%d%H%M%S")
           LASTMOD=$(date -u +"%Y-%m-%d")
-          sed -i "s/__BUILD_TIMESTAMP__/${BUILD_TS}/g" sw.js
-          echo "Service Worker cache name : cal-fr-v2-${BUILD_TS}"
           sed -i "s|<lastmod>[^<]*</lastmod>|<lastmod>${LASTMOD}</lastmod>|g" sitemap.xml
           echo "Sitemap lastmod mis à jour : ${LASTMOD}"
 
-      - name: Prepare publish directory
+      - name: Commit generated files
         run: |
-          rm -rf public
-          mkdir -p public
-          cp index.html public/
-          if [ -d assets ]; then cp -R assets public/; fi
-          if [ -d img ]; then cp -R img public/; fi
-          cp CNAME public/
-          if [ -f .nojekyll ]; then cp .nojekyll public/; else touch public/.nojekyll; fi
-          if [ -f robots.txt ]; then cp robots.txt public/; fi
-          if [ -f sitemap.xml ]; then cp sitemap.xml public/; fi
-          cp favicon.svg public/
-          cp og-image.svg public/
-          cp calendrier.ics public/
-          cp zone-a.ics public/
-          cp zone-b.ics public/
-          cp zone-c.ics public/
-          cp calendrier-essentiel.ics public/
-          cp calendrier-culturel.ics public/
-          cp calendrier-commercial.ics public/
-          cp calendrier-complet.ics public/
-          cp calendrier.json public/
-          cp calendrier.csv public/
-          cp calendrier.xml public/
-          cp events-meta.json public/
-          cp zone-departments.json public/
-          cp manifest.json public/
-          cp sw.js public/
-
-      - name: Push ICS to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./public
-          cname: calendrier-fr.tibotsr.dev
-          keep_files: true
-          commit_message: "🤖 Update ICS"
-          force_orphan: true
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add \
+            calendrier.ics \
+            zone-a.ics \
+            zone-b.ics \
+            zone-c.ics \
+            calendrier-essentiel.ics \
+            calendrier-culturel.ics \
+            calendrier-commercial.ics \
+            calendrier-complet.ics \
+            calendrier.json \
+            calendrier.csv \
+            calendrier.xml \
+            events-meta.json \
+            zone-departments.json \
+            sitemap.xml
+          git diff --cached --quiet || git commit -m "🤖 Update ICS"
+          git push

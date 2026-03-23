@@ -1,10 +1,14 @@
 /**
  * explorer.js — Sidebar, radar, timeline et modal événement
+ * Refonte UX complète :
+ *  - Modal : label "Cette occurrence", nav visuelle, compteur, lien ferie, couleur catégorie
+ *  - Radar : couleur catégorie sur les cards, badge délai, en cours bien distincts
+ *  - Timeline : badge "En cours" visible, zones lisibles (Alsace-Moselle), tags améliorés
+ *  - Labels : AM → Alsace-Moselle dans toutes les pills
  */
 
 const CHUNK = 3;
 
-// Wrapper sécurisé localStorage — évite les SecurityError en navigation privée Safari
 const LS = {
   get(key, fallback = null) {
     try { const v = localStorage.getItem(key); return v !== null ? v : fallback; }
@@ -28,6 +32,12 @@ const LS = {
 function formatEventDescriptionHtml(value) {
   if (!value) return "<i style='color:var(--t3)'>Aucune description.</i>";
   return escHtml(value).replace(/\n/g, '<br>');
+}
+
+/* ── Zone label lisible ──────────────────────────────── */
+function zoneLabel(z) {
+  if (z === 'AM') return 'Alsace-Moselle';
+  return `Zone ${z}`;
 }
 
 /* ── Helpers couleur catégorie ──────────────────────── */
@@ -72,7 +82,6 @@ function buildSbCats(cats) {
     });
     g.appendChild(el);
   });
-  // Restaurer sélection sauvegardée
   const saved = LS.getJson(KEYS.favs);
   if (Array.isArray(saved)) {
     const set = new Set(saved);
@@ -98,7 +107,11 @@ document.querySelectorAll('.szp').forEach(b => {
     STATE.expZone = b.dataset.z;
     document.querySelectorAll('.szp').forEach(x => {
       x.className = 'szp';
-      if (x.dataset.z === STATE.expZone) x.classList.add(STATE.expZone === 'all' ? 'sall' : 's' + STATE.expZone.toLowerCase());
+      if (x.dataset.z === STATE.expZone) {
+        if (STATE.expZone === 'all') x.classList.add('sall');
+        else if (STATE.expZone === 'AM') x.classList.add('sam');
+        else x.classList.add('s' + STATE.expZone.toLowerCase());
+      }
     });
     STATE.renderedMonths = 0; refreshAll();
   });
@@ -132,6 +145,27 @@ function getFilteredUpcoming() {
 }
 
 /* ── Radar ──────────────────────────────────────────── */
+function _dayDiff(from, to) {
+  const a = new Date(from); a.setHours(0,0,0,0);
+  const b = new Date(to);   b.setHours(0,0,0,0);
+  return Math.round((b - a) / 86400000);
+}
+
+function _delayBadge(diffDays, def) {
+  if (diffDays === 0) return `<span class="rc-delay rc-delay--now" style="background:${def.d};color:${def.c};border-color:${def.b}">Aujourd'hui</span>`;
+  if (diffDays === 1) return `<span class="rc-delay rc-delay--soon" style="background:${def.d};color:${def.c};border-color:${def.b}">Demain</span>`;
+  if (diffDays <= 7)  return `<span class="rc-delay rc-delay--soon" style="background:${def.d};color:${def.c};border-color:${def.b}">Dans ${diffDays}j</span>`;
+  return `<span class="rc-delay" style="background:var(--bg3);color:var(--t3);border-color:var(--b)">Dans ${diffDays}j</span>`;
+}
+
+function _ongoingBadge(end, def) {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const diff = _dayDiff(today, end);
+  if (diff === 0) return `<span class="rc-delay" style="background:var(--ambd);color:var(--amb);border-color:rgba(245,160,32,.3)">Termine ce soir</span>`;
+  if (diff === 1) return `<span class="rc-delay" style="background:${def.d};color:${def.c};border-color:${def.b}">Encore 1j</span>`;
+  return `<span class="rc-delay" style="background:${def.d};color:${def.c};border-color:${def.b}">Encore ${diff}j</span>`;
+}
+
 function renderRadar(evts) {
   const root       = document.getElementById('r-root');
   const cnt        = document.getElementById('r-cnt');
@@ -150,7 +184,7 @@ function renderRadar(evts) {
   const heroEl      = document.getElementById('r-countdown-hero');
   const next = evts.find(e => e.date >= today);
   if (next && countdownEl) {
-    const diff  = Math.round((next.date - today) / 86400000);
+    const diff  = _dayDiff(today, next.date);
     const label = diff === 0 ? "Aujourd'hui !" : diff === 1 ? 'Demain !' : `Dans ${diff} jour${diff > 1 ? 's' : ''}`;
     const cat   = (next.categories && next.categories[0]) || 'Événement';
     const def   = cd(cat);
@@ -162,29 +196,59 @@ function renderRadar(evts) {
     if (heroEl) heroEl.style.display = 'none';
   }
 
+  /* À venir */
   if (!upcoming.length) {
     root.innerHTML = '<span class="radar-empty">Aucun événement dans les 30 prochains jours.</span>';
     cnt.textContent = '';
   } else {
     cnt.textContent = `${upcoming.length} en approche`;
     upcoming.forEach(e => {
-      const c = document.createElement('div'); c.className = 'rc';
-      c.innerHTML = `<div class="rc-date">${escHtml(fmts(e.date))}</div><div class="rc-name">${escHtml(e.summary)}</div>`;
-      c.addEventListener('click', () => openModal(e, STATE.allEvts));
-      root.appendChild(c);
+      const cat   = (e.categories || [])[0] || 'Divers';
+      const def   = cd(cat);
+      const diff  = _dayDiff(today, e.date);
+      const card  = document.createElement('div');
+      card.className = 'rc';
+      card.style.borderColor = def.b;
+      card.innerHTML = `
+        <div class="rc-cat-bar" style="background:${def.c}" title="${escHtml(cat)}"></div>
+        <div class="rc-inner">
+          <div class="rc-top-row">
+            <div class="rc-date">${escHtml(fmts(e.date))}</div>
+            ${_delayBadge(diff, def)}
+          </div>
+          <div class="rc-name">${escHtml(e.summary)}</div>
+          <div class="rc-cat-label" style="color:${def.c};opacity:.75">${escHtml(cat)}</div>
+        </div>`;
+      card.addEventListener('click', () => openModal(e, STATE.allEvts));
+      root.appendChild(card);
     });
   }
 
+  /* En cours */
   if (!ongoing.length) {
     activeRoot.innerHTML = '<span class="radar-empty">Aucun événement long en cours.</span>';
     activeCnt.textContent = '';
   } else {
     activeCnt.textContent = `${ongoing.length} en cours`;
     ongoing.forEach(e => {
-      const c = document.createElement('div'); c.className = 'rc';
-      c.innerHTML = `<div class="rc-date">Se termine le ${escHtml(fmts(e.endDate))}</div><div class="rc-name">${escHtml(e.summary)}</div>`;
-      c.addEventListener('click', () => openModal(e, STATE.allEvts));
-      activeRoot.appendChild(c);
+      const cat   = (e.categories || [])[0] || 'Divers';
+      const def   = cd(cat);
+      const card  = document.createElement('div');
+      card.className = 'rc rc--ongoing';
+      card.style.borderColor  = def.b;
+      card.style.background   = def.d;
+      card.innerHTML = `
+        <div class="rc-cat-bar" style="background:${def.c}" title="${escHtml(cat)}"></div>
+        <div class="rc-inner">
+          <div class="rc-top-row">
+            <div class="rc-ongoing-label"><i class="fa-solid fa-circle-dot" style="font-size:7px;margin-right:4px;color:${def.c}"></i><span style="color:${def.c};font-weight:700;font-size:10px;letter-spacing:.4px;text-transform:uppercase">En cours</span></div>
+            ${_ongoingBadge(e.endDate, def)}
+          </div>
+          <div class="rc-name">${escHtml(e.summary)}</div>
+          <div class="rc-cat-label" style="color:${def.c};opacity:.75">${escHtml(cat)}</div>
+        </div>`;
+      card.addEventListener('click', () => openModal(e, STATE.allEvts));
+      activeRoot.appendChild(card);
     });
   }
 }
@@ -362,29 +426,54 @@ function buildDateBadge(ev, def, isPast) {
   </div>`;
 }
 
+function _isOngoing(ev) {
+  const today = new Date(); today.setHours(0,0,0,0);
+  return ev.endDate && ev.date < today && ev.endDate >= today;
+}
+
 function buildEvRow(ev, isPast, today) {
   const row     = document.createElement('div');
   row.className = 'ev-row' + (ev.approximate ? ' ev-row--approx' : '');
-  const isToday = ev.date.getTime() === today.getTime();
-  const pastEv  = (ev.endDate || ev.date) < today;
-  if (isToday) row.classList.add('today-ev');
+  const isToday   = ev.date.getTime() === today.getTime();
+  const pastEv    = (ev.endDate || ev.date) < today;
+  const isOngoing = _isOngoing(ev);
+  if (isToday)   row.classList.add('today-ev');
   if (pastEv && !isToday && !ev.approximate) row.classList.add('past-ev');
+  if (isOngoing) row.classList.add('ongoing-ev');
+
   const cat  = (ev.categories || [])[0] || 'Divers';
   const def  = cd(cat);
-  const catTags = (ev.categories || []).map((name, idx) => {
+
+  // Max 2 catégories affichées pour ne pas saturer la ligne
+  const visibleCats = (ev.categories || []).slice(0, 2);
+  const catTags = visibleCats.map((name, idx) => {
     const catDef = cd(name);
     const bg     = idx === 0 ? catDef.d : 'var(--bg3)';
     const color  = idx === 0 ? catDef.c : 'var(--t2)';
     const border = idx === 0 ? catDef.b : 'var(--b)';
     return `<span class="ev-tag${idx > 0 ? ' ev-tag--subtle' : ''}" style="background:${bg};color:${color};border:1px solid ${border}">${escHtml(name)}</span>`;
   }).join('');
-  const zones        = ev.zones?.length ? `<span class="ev-tag" style="background:var(--bg3);color:var(--t3)">${escHtml(ev.zones.join(', '))}</span>` : '';
-  const approxBadge  = ev.approximate ? `<span class="ev-tag ev-tag--approx"><i class="fa-solid fa-circle-question"></i> Date non confirmée</span>` : '';
+
+  // Zones avec label lisible (Alsace-Moselle au lieu de AM)
+  const zoneTags = (ev.zones || []).filter(z => z && z !== 'all').length
+    ? (ev.zones || []).filter(z => z && z !== 'all').map(z =>
+        `<span class="ev-tag ev-tag--zone">${escHtml(zoneLabel(z))}</span>`
+      ).join('')
+    : '';
+
+  const approxBadge = ev.approximate
+    ? `<span class="ev-tag ev-tag--approx"><i class="fa-solid fa-circle-question"></i> Non confirmée</span>`
+    : '';
+
+  const ongoingBadge = isOngoing
+    ? `<span class="ev-tag ev-tag--ongoing" style="background:${def.d};color:${def.c};border-color:${def.b}"><i class="fa-solid fa-circle-dot ev-ongoing-dot"></i>En cours</span>`
+    : '';
+
   row.innerHTML = `
     ${buildDateBadge(ev, def, isPast && !isToday)}
     <div class="ev-b">
       <div class="ev-title">${escHtml(ev.summary)}</div>
-      <div class="ev-tags">${catTags}${zones}${approxBadge}</div>
+      <div class="ev-tags">${catTags}${ongoingBadge}${zoneTags}${approxBadge}</div>
     </div>
     <span class="ev-arr">›</span>`;
   row.addEventListener('click', () => openModal(ev, [...STATE.allEvts, ...getFilteredUpcoming()]));
@@ -429,38 +518,120 @@ function buildMoBlock(k, evts, today, isPast) {
 /* ── Modal ──────────────────────────────────────────── */
 let _modalPrev = null, _modalNext = null, _modalEvts = null;
 
+function _slugify(str) {
+  return (str || '').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/['']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 function openModal(ev, evts) {
   const same = evts.filter(e => e.summary === ev.summary).sort((a, b) => a.date - b.date);
   const ts   = ev.date.getTime();
   _modalPrev = [...same].reverse().find(e => e.date.getTime() < ts) || null;
   _modalNext = same.find(e => e.date.getTime() > ts) || null;
   _modalEvts = evts;
+
   const end     = ev.endDate || ev.date;
   const isRange = end && end.getTime() > ev.date.getTime();
   const durDays = Math.max(1, Math.round((end - ev.date) / 86400000) + 1);
   const isExam  = (ev.categories || []).some(c => norm(String(c)) === 'examens');
   const durLabel = isExam ? `${Math.max(1, countWeekdays(ev.date, end))} jours ouvrés` : `${durDays} jour${durDays > 1 ? 's' : ''}`;
 
-  function chips(values, zone = false) {
-    if (!values?.length) return `<span style="color:var(--t3)">Aucune</span>`;
-    return values.map(v => `<span class="m-chip${zone ? ' z' : ''}">${escHtml(v)}</span>`).join('');
+  // Couleur catégorie principale
+  const mainCat = (ev.categories || [])[0] || 'Divers';
+  const def     = cd(mainCat);
+
+  // Barre couleur en haut de la modal
+  const mCatBar = document.getElementById('m-cat-bar');
+  if (mCatBar) {
+    mCatBar.style.background = `linear-gradient(90deg, ${def.c}, ${def.b})`;
+    mCatBar.title = mainCat;
   }
 
-  document.getElementById('m-ttl').textContent      = ev.summary;
-  document.getElementById('m-prev').textContent     = _modalPrev ? fmt(_modalPrev.date) : 'Aucune donnée';
-  document.getElementById('m-next').textContent     = _modalNext ? fmt(_modalNext.date) : 'Aucune prévision';
-  document.getElementById('m-date').textContent     = isRange ? `${fmt(ev.date)} → ${fmt(end)}` : fmt(ev.date);
+  // Occurrences : compteur et navigation
+  const occCount = same.length;
+  const occIdx   = same.findIndex(e => e.date.getTime() === ts) + 1;
+
+  const occEl = document.getElementById('m-occ-count');
+  if (occEl) {
+    if (occCount > 1) {
+      occEl.textContent = `${occIdx} / ${occCount}`;
+      occEl.style.display = 'inline-flex';
+    } else {
+      occEl.style.display = 'none';
+    }
+  }
+
+  // Label "Cette occurrence" (fix du bug "Aujourd'hui")
+  const dateBoxLabel = document.querySelector('#ev-modal .mbox.acc .ml');
+  if (dateBoxLabel) dateBoxLabel.textContent = 'Cette occurrence';
+
+  // Prev / Next avec état visuel amélioré
+  const prevBtn = document.getElementById('m-prev');
+  const nextBtn = document.getElementById('m-next');
+
+  if (prevBtn) {
+    prevBtn.textContent = _modalPrev ? fmt(_modalPrev.date) : '–';
+    prevBtn.style.cursor  = _modalPrev ? 'pointer' : 'default';
+    prevBtn.style.opacity = _modalPrev ? '1' : '.35';
+    const prevBox = prevBtn.closest('.mbox');
+    if (prevBox) prevBox.style.opacity = _modalPrev ? '1' : '.5';
+  }
+  if (nextBtn) {
+    nextBtn.textContent = _modalNext ? fmt(_modalNext.date) : '–';
+    nextBtn.style.cursor  = _modalNext ? 'pointer' : 'default';
+    nextBtn.style.opacity = _modalNext ? '1' : '.35';
+    const nextBox = nextBtn.closest('.mbox');
+    if (nextBox) nextBox.style.opacity = _modalNext ? '1' : '.5';
+  }
+
+  document.getElementById('m-ttl').textContent = ev.summary;
+  document.getElementById('m-date').textContent = isRange ? `${fmt(ev.date)} → ${fmt(end)}` : fmt(ev.date);
   document.getElementById('m-duration').textContent = durLabel;
-  document.getElementById('m-cats').innerHTML       = chips(ev.categories || []);
-  document.getElementById('m-zones').innerHTML      = chips(ev.zones || [], true);
-  document.getElementById('m-desc').innerHTML       = formatEventDescriptionHtml(ev.description);
-  document.getElementById('m-prev').style.cursor = _modalPrev ? 'pointer' : 'default';
-  document.getElementById('m-next').style.cursor = _modalNext ? 'pointer' : 'default';
+
+  // Catégories avec couleur
+  const mCats = document.getElementById('m-cats');
+  if (mCats) {
+    if ((ev.categories || []).length) {
+      mCats.innerHTML = (ev.categories || []).map(v => {
+        const catDef = cd(v);
+        return `<span class="m-chip" style="background:${catDef.d};color:${catDef.c};border-color:${catDef.b}">${escHtml(v)}</span>`;
+      }).join('');
+    } else {
+      mCats.innerHTML = `<span style="color:var(--t3)">Aucune</span>`;
+    }
+  }
+
+  // Zones avec label lisible
+  const mZones = document.getElementById('m-zones');
+  if (mZones) {
+    const zones = (ev.zones || []).filter(z => z && z !== 'all');
+    if (zones.length) {
+      mZones.innerHTML = zones.map(z =>
+        `<span class="m-chip z">${escHtml(zoneLabel(z))}</span>`
+      ).join('');
+    } else {
+      mZones.innerHTML = `<span style="color:var(--t3)">Toutes les zones</span>`;
+    }
+  }
+
+  document.getElementById('m-desc').innerHTML = formatEventDescriptionHtml(ev.description);
+
+  // Lien vers page dédiée /ferie/[slug]
+  const ferieLink = document.getElementById('m-ferie-link');
+  if (ferieLink) {
+    const slug = `${_slugify(ev.summary)}-${ev.date.getFullYear()}`;
+    ferieLink.href = `/ferie/${slug}`;
+    ferieLink.style.display = 'inline-flex';
+  }
+
   document.getElementById('ev-modal').classList.add('on');
 }
 
 document.getElementById('m-cl').addEventListener('click', () => document.getElementById('ev-modal').classList.remove('on'));
-document.getElementById('ev-modal').addEventListener('click', e => { if (e.target === document.getElementById('ev-modal')) document.getElementById('ev-modal').classList.remove('on'); });
+document.getElementById('ev-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('ev-modal')) document.getElementById('ev-modal').classList.remove('on');
+});
 document.getElementById('m-prev')?.addEventListener('click', () => { if (_modalPrev) openModal(_modalPrev, _modalEvts); });
 document.getElementById('m-next')?.addEventListener('click', () => { if (_modalNext) openModal(_modalNext, _modalEvts); });
 document.addEventListener('keydown', e => {
