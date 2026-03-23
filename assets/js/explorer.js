@@ -1,7 +1,7 @@
 /**
  * explorer.js — Sidebar, radar, timeline et modal événement
  * Refonte UX complète :
- *  - Modal : label "Cette occurrence", nav visuelle, compteur, lien ferie, couleur catégorie
+ *  - Modal : label "Cette occurrence", nav visuelle, compteur, lien event, couleur catégorie
  *  - Radar : couleur catégorie sur les cards, badge délai, en cours bien distincts
  *  - Timeline : badge "En cours" visible, zones lisibles (Alsace-Moselle), tags améliorés
  *  - Labels : AM → Alsace-Moselle dans toutes les pills
@@ -617,11 +617,11 @@ function openModal(ev, evts) {
 
   document.getElementById('m-desc').innerHTML = formatEventDescriptionHtml(ev.description);
 
-  // Lien vers page dédiée /ferie/[slug]
-  const ferieLink = document.getElementById('m-ferie-link');
+  // Lien vers page dédiée /event/[slug]
+  const ferieLink = document.getElementById('m-event-link');
   if (ferieLink) {
     const slug = `${_slugify(ev.summary)}-${ev.date.getFullYear()}`;
-    ferieLink.href = `/ferie/${slug}`;
+    ferieLink.href = `/event/${slug}`;
     ferieLink.style.display = 'inline-flex';
   }
 

@@ -162,7 +162,7 @@ function buildEventSchema(event, siteUrl) {
     '@context': 'https://schema.org', '@type': 'Event',
     name: event.summary, description: event.description || '',
     startDate: event.start,
-    url: `${siteUrl}/ferie/${slugify(event.summary)}-${event.start.slice(0, 4)}`,
+    url: `${siteUrl}/event/${slugify(event.summary)}-${event.start.slice(0, 4)}`,
     organizer: { '@type': 'Organization', name: 'Calendrier France', url: siteUrl },
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
@@ -191,14 +191,14 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
   const otherYears = allOccurrences
     .filter(e => e.start !== event.start)
     .sort((a, b) => a.start.localeCompare(b.start));
-  const pastOccurrences   = otherYears.filter(e => e.start < event.start).slice(-3).reverse();
+  const pastOccurrences   = otherYears.filter(e => e.start < event.start).slice(-3);
   const futureOccurrences = otherYears.filter(e => e.start > event.start).slice(0, 3);
 
   // Voisins dans le calendrier global
   const prevEvent = siblings.prev;
   const nextEvent = siblings.next;
 
-  const canonicalUrl = `${siteUrl}/ferie/${slugify(event.summary)}-${year}`;
+  const canonicalUrl = `${siteUrl}/event/${slugify(event.summary)}-${year}`;
   const desc = event.description ? event.description.slice(0, 160) + (event.description.length > 160 ? '…' : '') : `${event.summary} — ${formatDateFR(event.start)}`;
 
   return `<!doctype html>
@@ -510,7 +510,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
       <div class="occ-grid">
         ${pastOccurrences.map(e => {
           const y2 = e.start.slice(0, 4);
-          return `<a href="/ferie/${escapeHtml(slugify(e.summary))}-${y2}" class="occ-pill">
+          return `<a href="/event/${escapeHtml(slugify(e.summary))}-${y2}" class="occ-pill">
             <span class="occ-year">${y2}</span>
             <span class="occ-date">${escapeHtml(formatDateShort(e.start))}</span>
           </a>`;
@@ -522,7 +522,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
         </span>
         ${futureOccurrences.map(e => {
           const y2 = e.start.slice(0, 4);
-          return `<a href="/ferie/${escapeHtml(slugify(e.summary))}-${y2}" class="occ-pill">
+          return `<a href="/event/${escapeHtml(slugify(e.summary))}-${y2}" class="occ-pill">
             <span class="occ-year">${y2}</span>
             <span class="occ-date">${escapeHtml(formatDateShort(e.start))}</span>
           </a>`;
@@ -538,7 +538,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
         ${prevEvent ? (() => {
           const pCat = (prevEvent.categories || [])[0] || 'Divers';
           const pDef = getCatColor(pCat);
-          return `<a href="/ferie/${escapeHtml(slugify(prevEvent.summary))}-${prevEvent.start.slice(0,4)}" class="neighbor">
+          return `<a href="/event/${escapeHtml(slugify(prevEvent.summary))}-${prevEvent.start.slice(0,4)}" class="neighbor">
             <div class="neighbor-dir"><i class="fa-solid fa-arrow-left"></i> Précédent</div>
             <div class="neighbor-name">${escapeHtml(prevEvent.summary)}</div>
             <div class="neighbor-date">${escapeHtml(formatDateShort(prevEvent.start))}</div>
@@ -548,7 +548,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
         ${nextEvent ? (() => {
           const nCat = (nextEvent.categories || [])[0] || 'Divers';
           const nDef = getCatColor(nCat);
-          return `<a href="/ferie/${escapeHtml(slugify(nextEvent.summary))}-${nextEvent.start.slice(0,4)}" class="neighbor" style="text-align:right;align-items:flex-end">
+          return `<a href="/event/${escapeHtml(slugify(nextEvent.summary))}-${nextEvent.start.slice(0,4)}" class="neighbor" style="text-align:right;align-items:flex-end">
             <div class="neighbor-dir" style="flex-direction:row-reverse">Suivant <i class="fa-solid fa-arrow-right"></i></div>
             <div class="neighbor-name">${escapeHtml(nextEvent.summary)}</div>
             <div class="neighbor-date">${escapeHtml(formatDateShort(nextEvent.start))}</div>
@@ -607,7 +607,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
 module.exports = async function handler(req, res) {
   try {
     const url     = new URL(req.url, `https://${req.headers.host}`);
-    const slug    = url.searchParams.get('slug') || url.pathname.split('/ferie/')[1] || '';
+    const slug    = url.searchParams.get('slug') || url.pathname.split('/event/')[1] || '';
     const siteUrl = `https://${req.headers.host}`;
     const icsUrl  = `webcal://${req.headers.host}/api/calendrier.ics`;
 
@@ -616,7 +616,7 @@ module.exports = async function handler(req, res) {
     const parsed = parseSlug(slug);
     if (!parsed) {
       res.statusCode = 404; res.setHeader('Content-Type', 'text/plain');
-      res.end('Format attendu : /ferie/nom-evenement-2026'); return;
+      res.end('Format attendu : /event/nom-evenement-2026'); return;
     }
 
     const sourceUrl = process.env.CALENDAR_JSON_URL || 'https://calendrier-fr.tibotsr.dev/calendrier.json';
