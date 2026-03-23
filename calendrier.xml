@@ -5,34 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 21 Mar 2026 11:29:18 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Mar 2026 07:51:44 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
       <guid>4fd3950c4437b5d309c15a15@calendrier-fr.tibotsr.dev</guid>
       <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
       <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée nationale de lutte contre les discriminations</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-03-21</link>
-      <guid>97f06c0b2a4e3fc159dad500@calendrier-fr.tibotsr.dev</guid>
-      <description>Créée par l'ONU en 1966 en mémoire du massacre de Sharpeville.</description>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée mondiale de l'eau</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-03-22</link>
-      <guid>6d250744e71fb05bec6a67be@calendrier-fr.tibotsr.dev</guid>
-      <description>Proclamée par l'ONU en 1993.</description>
-      <pubDate>Sun, 22 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Élections municipales — 2e tour</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-03-22</link>
-      <guid>0c6c193f17f835890aef38c4@calendrier-fr.tibotsr.dev</guid>
-      <description>Élections municipales françaises : renouvellement des conseils municipaux dans toutes les communes. Date confirmée par décret.</description>
-      <pubDate>Sun, 22 Mar 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Dimanche des Rameaux</title>
@@ -1405,6 +1384,27 @@
       <guid>21f1966f09560e4ed1bd2205@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore la libération du camp d'Auschwitz le 27 janvier 1945.</description>
       <pubDate>Thu, 27 Jan 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Chandeleur</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-02</link>
+      <guid>c79f754d1f9a4c153214ac1d@calendrier-fr.tibotsr.dev</guid>
+      <description>Fête de la Présentation de Jésus au Temple, 40 jours après Noël.</description>
+      <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Journée mondiale des zones humides</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-02</link>
+      <guid>fd5e4ac1b4fc6e28c1475b90@calendrier-fr.tibotsr.dev</guid>
+      <description>Commémore la Convention de Ramsar signée le 2 février 1971.</description>
+      <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Journée mondiale contre le cancer</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-04</link>
+      <guid>4cb74190c3b2793dd086ee19@calendrier-fr.tibotsr.dev</guid>
+      <description>Initiée par l'Union Internationale Contre le Cancer depuis 2000.</description>
+      <pubDate>Fri, 04 Feb 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
