@@ -1,16 +1,4 @@
-calendrier-commercial.ics
-calendrier-complet.ics
-calendrier-culturel.ics
-calendrier-essentiel.ics
-calendrier.ics
-calendrier.json
-events-meta.json
-zone-a.ics
-zone-b.ics
-zone-c.ics
 __pycache__/
-calendrier.csv
-calendrier.xml
 .vercel
 .env*.local
 .env
