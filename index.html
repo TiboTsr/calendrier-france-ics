@@ -945,13 +945,11 @@
     ══════════════════════════════ -->
   <div class="mbg" id="ev-modal" role="dialog" aria-modal="true" aria-labelledby="m-ttl">
     <div class="ms">
-      <!-- Barre couleur catégorie en haut — injectée par JS via #m-cat-bar -->
       <div id="m-cat-bar"></div>
 
       <div class="mt">
         <h2 class="m-title" id="m-ttl">
           Événement
-          <!-- Compteur occurrences ex: "2 / 5" -->
           <span id="m-occ-count" title="Occurrence actuelle / total"></span>
         </h2>
         <button class="mcl" id="m-cl" aria-label="Fermer">
@@ -959,14 +957,12 @@
         </button>
       </div>
 
-      <!-- Navigation occurrences prev / date / next -->
       <div class="m-meta m-meta-main">
         <div class="mbox prev" title="Aller à l'occurrence précédente (←)">
           <div class="ml">Précédente</div>
           <div class="mv" id="m-prev">—</div>
         </div>
         <div class="mbox acc">
-          <!-- Label "Cette occurrence" — plus "Aujourd'hui" -->
           <div class="ml">Cette occurrence</div>
           <div class="mv" id="m-date">—</div>
         </div>
@@ -976,7 +972,6 @@
         </div>
       </div>
 
-      <!-- Métadonnées secondaires -->
       <div class="m-meta m-meta-more">
         <div class="mbox">
           <div class="ml">Durée</div>
@@ -992,17 +987,14 @@
         </div>
       </div>
 
-      <!-- Description -->
       <div class="mdl">Description</div>
       <div class="md" id="m-desc">—</div>
 
-      <!-- Lien page dédiée /ferie/[slug] — affiché par JS -->
-      <a id="m-ferie-link" href="#" target="_blank" rel="noopener">
+      <a id="m-event-link" href="#" target="_blank" rel="noopener">
         <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
         Voir la page dédiée
       </a>
 
-      <!-- Hint navigation clavier -->
       <div class="m-keyboard-hint" aria-hidden="true">
         <span class="m-kbd">←</span>
         <span class="m-kbd">→</span>
