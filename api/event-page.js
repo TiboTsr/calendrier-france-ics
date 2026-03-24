@@ -1,12 +1,9 @@
 /**
  * api/event-page.js — Pages dédiées par événement
- * Refonte complète : page éditoriale riche avec
- *  - Header avec couleur catégorie + compte à rebours
- *  - Grille d'occurrences sur toutes les années
- *  - Événements voisins (avant / après)
- *  - CTA zone-aware pour les vacances scolaires
- *  - Schema.org Event complet
- *  - Design cohérent avec le site principal
+ * Fixes :
+ *  - getDaysUntil : comparaison en heure locale Paris (Europe/Paris) via Intl
+ *  - Slug with date : /event/premier-quartier-2026-01-26 pour éviter l'ambiguïté entre occurrences du même nom
+ *  - Occurrences groupées par année + navigation claire
  */
 
 function slugify(str) {
@@ -14,10 +11,26 @@ function slugify(str) {
     .replace(/['']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
+/**
+ * Slug enrichi avec la date exacte pour les événements récurrents fréquemment.
+ * Format : {name}-{YYYY}-{MM}-{DD}  ex: premier-quartier-2026-01-26
+ */
+function slugifyWithDate(summary, dateStr) {
+  return `${slugify(summary)}-${dateStr}`;
+}
+
 function parseSlug(slug) {
+  // Format enrichi : name-YYYY-MM-DD
+  const dateMatch = slug.match(/-(\d{4})-(\d{2})-(\d{2})$/);
+  if (dateMatch) {
+    const exactDate = `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`;
+    const namePart  = slug.slice(0, -(dateMatch[0].length));
+    return { namePart, year: parseInt(dateMatch[1], 10), exactDate };
+  }
+  // Fallback format legacy : name-YYYY
   const yearMatch = slug.match(/-(\d{4})$/);
   if (!yearMatch) return null;
-  return { namePart: slug.slice(0, -(yearMatch[0].length)), year: parseInt(yearMatch[1], 10) };
+  return { namePart: slug.slice(0, -(yearMatch[0].length)), year: parseInt(yearMatch[1], 10), exactDate: null };
 }
 
 function escapeHtml(value) {
@@ -35,14 +48,14 @@ function formatDateFR(dateStr, opts = {}) {
   return new Intl.DateTimeFormat('fr-FR', {
     weekday: opts.short ? undefined : 'long',
     day: 'numeric', month: 'long', year: 'numeric', ...opts
-  }).format(new Date(y, m - 1, d));
+  }).format(new Date(Date.UTC(y, m - 1, d)));
 }
 
 function formatDateShort(dateStr) {
   if (!dateStr) return '';
   const [y, m, d] = dateStr.split('-').map(Number);
   return new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })
-    .format(new Date(y, m - 1, d));
+    .format(new Date(Date.UTC(y, m - 1, d)));
 }
 
 function getDurationDays(start, end) {
@@ -52,8 +65,8 @@ function getDurationDays(start, end) {
 
 function getDayOfYear(dateStr) {
   const [y, m, d] = dateStr.split('-').map(Number);
-  const date = new Date(y, m - 1, d);
-  const start = new Date(y, 0, 0);
+  const date = new Date(Date.UTC(y, m - 1, d));
+  const start = new Date(Date.UTC(y, 0, 0));
   return Math.floor((date - start) / 86400000);
 }
 
@@ -65,15 +78,22 @@ function getISOWeek(dateStr) {
   return Math.ceil((((date - yearStart) / 86400000) + 1) / 7);
 }
 
+/**
+ * Calcul correct du nombre de jours jusqu'à la date cible.
+ * On compare les dates en heure locale Paris pour éviter le décalage UTC.
+ */
 function getDaysUntil(dateStr) {
-  const [y, m, d] = dateStr.split('-').map(Number);
-  const target = new Date(y, m - 1, d);
-  target.setHours(0, 0, 0, 0);
-  const today = new Date(); today.setHours(0, 0, 0, 0);
+  // Date cible : minuit Paris
+  const [ty, tm, td] = dateStr.split('-').map(Number);
+  const target = new Date(Date.UTC(ty, tm - 1, td)); // Minuit UTC = correct pour une date all-day
+
+  // Aujourd'hui minuit heure Paris
+  const nowParis = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Paris' }));
+  const today = new Date(Date.UTC(nowParis.getFullYear(), nowParis.getMonth(), nowParis.getDate()));
+
   return Math.round((target - today) / 86400000);
 }
 
-// Couleurs catégorie — miroir de utils.js
 const CAT_COLORS = {
   'Jours fériés':        { c: '#ff5a5a', d: 'rgba(255,90,90,.12)',   b: 'rgba(255,90,90,.3)'   },
   'Vacances scolaires':  { c: '#f5a020', d: 'rgba(245,160,32,.12)',  b: 'rgba(245,160,32,.3)'  },
@@ -129,7 +149,13 @@ function getCatEmoji(cats, summary) {
     if (title.includes('hiver')) return '❄️';
   }
   if (c === "Changement d'heure") return '⏰';
-  if (c === 'Astronomie') return '🌙';
+  if (c === 'Astronomie' || c === 'Lunaire') {
+    if (title.includes('nouvelle lune') || title.includes('new moon')) return '🌑';
+    if (title.includes('premier quartier') || title.includes('first quarter')) return '🌓';
+    if (title.includes('pleine lune') || title.includes('full moon')) return '🌕';
+    if (title.includes('dernier quartier') || title.includes('last quarter')) return '🌗';
+    return '🌙';
+  }
   if (c === 'Christianisme') return '⛪';
   if (c === 'Sport') return '🏆';
   if (c === 'Santé') return '❤️';
@@ -162,7 +188,7 @@ function buildEventSchema(event, siteUrl) {
     '@context': 'https://schema.org', '@type': 'Event',
     name: event.summary, description: event.description || '',
     startDate: event.start,
-    url: `${siteUrl}/event/${slugify(event.summary)}-${event.start.slice(0, 4)}`,
+    url: `${siteUrl}/event/${slugifyWithDate(event.summary, event.start)}`,
     organizer: { '@type': 'Organization', name: 'Calendrier France', url: siteUrl },
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
@@ -171,6 +197,73 @@ function buildEventSchema(event, siteUrl) {
   if (event.end && event.end !== event.start) schema.endDate = event.end;
   if (event.categories?.length) schema.keywords = event.categories.join(', ');
   return safeJson(schema);
+}
+
+/**
+ * Groupe les occurrences par année et génère la section HTML
+ */
+function buildOccurrencesByYear(allOccurrences, currentEvent, siteUrl) {
+  if (allOccurrences.length <= 1) return '';
+
+  // Grouper par année
+  const byYear = {};
+  allOccurrences.forEach(e => {
+    const y = e.start.slice(0, 4);
+    if (!byYear[y]) byYear[y] = [];
+    byYear[y].push(e);
+  });
+
+  const years = Object.keys(byYear).sort();
+  const currentYear = currentEvent.start.slice(0, 4);
+
+  // Afficher 3 années avant + année courante + 2 après (max)
+  const currentYearIdx = years.indexOf(currentYear);
+  const showFrom = Math.max(0, currentYearIdx - 2);
+  const showTo   = Math.min(years.length - 1, currentYearIdx + 2);
+  const visibleYears = years.slice(showFrom, showTo + 1);
+
+  let html = '';
+
+  visibleYears.forEach(year => {
+    const occurrences = byYear[year];
+    const isCurYear = year === currentYear;
+
+    html += `<div class="occ-year-group">
+      <div class="occ-year-label${isCurYear ? ' occ-year-label--current' : ''}">${year}</div>
+      <div class="occ-pills-row">`;
+
+    occurrences.forEach(e => {
+      const isCurrent = e.start === currentEvent.start;
+      const slug      = slugifyWithDate(e.summary, e.start);
+      const dateLabel = formatDateShort(e.start);
+
+      if (isCurrent) {
+        html += `<span class="occ-pill current" aria-current="true">
+          <span class="occ-date">${escapeHtml(dateLabel)}</span>
+          <i class="fa-solid fa-circle-dot" style="font-size:7px"></i>
+        </span>`;
+      } else {
+        html += `<a href="/event/${escapeHtml(slug)}" class="occ-pill">
+          <span class="occ-date">${escapeHtml(dateLabel)}</span>
+        </a>`;
+      }
+    });
+
+    html += `</div></div>`;
+  });
+
+  // Afficher un indicateur si on n'affiche pas toutes les années
+  const hiddenBefore = showFrom > 0 ? showFrom : 0;
+  const hiddenAfter  = years.length - 1 - showTo > 0 ? years.length - 1 - showTo : 0;
+
+  if (hiddenBefore > 0 || hiddenAfter > 0) {
+    html += `<p class="occ-overflow-note">`;
+    if (hiddenBefore > 0) html += `${hiddenBefore} année${hiddenBefore > 1 ? 's' : ''} plus ancienne${hiddenBefore > 1 ? 's' : ''} non affichée${hiddenBefore > 1 ? 's' : ''} · `;
+    if (hiddenAfter > 0)  html += `${hiddenAfter} année${hiddenAfter > 1 ? 's' : ''} ultérieure${hiddenAfter > 1 ? 's' : ''} non affichée${hiddenAfter > 1 ? 's' : ''}`;
+    html += `</p>`;
+  }
+
+  return html;
 }
 
 function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
@@ -187,31 +280,26 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
   const isVacances = (event.categories || []).includes('Vacances scolaires');
   const zones      = (event.zones || []).filter(z => z && z !== 'all');
 
-  // Autres occurrences du même événement triées
-  const otherYears = allOccurrences
-    .filter(e => e.start !== event.start)
-    .sort((a, b) => a.start.localeCompare(b.start));
-  const pastOccurrences   = otherYears.filter(e => e.start < event.start).slice(-3);
-  const futureOccurrences = otherYears.filter(e => e.start > event.start).slice(0, 3);
-
-  // Voisins dans le calendrier global
   const prevEvent = siblings.prev;
   const nextEvent = siblings.next;
 
-  const canonicalUrl = `${siteUrl}/event/${slugify(event.summary)}-${year}`;
+  const canonicalUrl = `${siteUrl}/event/${slugifyWithDate(event.summary, event.start)}`;
   const desc = event.description ? event.description.slice(0, 160) + (event.description.length > 160 ? '…' : '') : `${event.summary} — ${formatDateFR(event.start)}`;
+
+  const occurrencesByYearHtml = buildOccurrencesByYear(allOccurrences, event, siteUrl);
+  const hasMultipleOccurrences = allOccurrences.length > 1;
 
   return `<!doctype html>
 <html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>${escapeHtml(event.summary)} ${year} — Calendrier France</title>
+  <title>${escapeHtml(event.summary)} — ${escapeHtml(formatDateFR(event.start))} — Calendrier France</title>
   <meta name="description" content="${escapeHtml(desc)}"/>
   <meta name="robots" content="index,follow"/>
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="${escapeHtml(event.summary)} ${year} — Calendrier France"/>
+  <meta property="og:title" content="${escapeHtml(event.summary)} — ${escapeHtml(formatDateFR(event.start))}"/>
   <meta property="og:description" content="${escapeHtml(desc)}"/>
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}"/>
   <meta property="og:site_name" content="Calendrier France"/>
@@ -327,11 +415,17 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
     .chip.zone { border-color: var(--accb); background: var(--accd); color: var(--acc); }
     .chip i { font-size: 10px; }
 
-    /* ── Occurrences ── */
-    .occ-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    /* ── Occurrences par année ── */
+    .occ-year-group { margin-bottom: 16px; }
+    .occ-year-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--t3); margin-bottom: 8px;
+    }
+    .occ-year-label--current { color: var(--cat-c); }
+    .occ-pills-row { display: flex; flex-wrap: wrap; gap: 6px; }
     .occ-pill {
       display: inline-flex; align-items: center; gap: 6px;
-      padding: 7px 14px; border-radius: var(--r);
+      padding: 6px 12px; border-radius: var(--r);
       font-size: 13px; font-weight: 600;
       border: 1px solid var(--b); background: var(--bg1);
       color: var(--t2); transition: .15s; text-decoration: none;
@@ -340,9 +434,12 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
     .occ-pill.current {
       border-color: var(--cat-b); background: var(--cat-d);
       color: var(--cat-c); font-weight: 800; cursor: default;
+      gap: 8px;
     }
-    .occ-pill .occ-year { font-family: var(--ffm); font-size: 12px; }
-    .occ-pill .occ-date { font-size: 11px; opacity: .7; }
+    .occ-pill .occ-date { font-size: 12px; }
+    .occ-overflow-note {
+      font-size: 11px; color: var(--t3); margin-top: 10px; font-style: italic;
+    }
 
     /* ── Voisins ── */
     .neighbors { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -443,12 +540,11 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
         ${escapeHtml((event.categories || []).join(' · ') || 'Événement')}
       </div>
       <span class="hero-emoji" role="img" aria-label="${escapeHtml(mainCat)}">${emoji}</span>
-      <h1>${escapeHtml(event.summary)}<br/><em>${year}</em></h1>
+      <h1>${escapeHtml(event.summary)}<br/><em>${escapeHtml(formatDateFR(event.start))}</em></h1>
 
       <div class="countdown${cd.past ? ' past' : ''}">
         <i class="fa-${cd.past ? 'regular fa-clock' : 'solid fa-calendar-days'}"></i>
         ${escapeHtml(cd.text)}
-        ${!cd.past && daysUntil > 0 ? `<span style="opacity:.6;font-weight:400">— ${escapeHtml(formatDateFR(event.start))}</span>` : ''}
       </div>
     </div>
   </section>
@@ -503,31 +599,11 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
       </div>
     </section>
 
-    <!-- ── OCCURRENCES ── -->
-    ${allOccurrences.length > 1 ? `
+    <!-- ── OCCURRENCES PAR ANNÉE ── -->
+    ${hasMultipleOccurrences ? `
     <section class="section">
-      <div class="section-title"><i class="fa-solid fa-rotate"></i> Autres années</div>
-      <div class="occ-grid">
-        ${pastOccurrences.map(e => {
-          const y2 = e.start.slice(0, 4);
-          return `<a href="/event/${escapeHtml(slugify(e.summary))}-${y2}" class="occ-pill">
-            <span class="occ-year">${y2}</span>
-            <span class="occ-date">${escapeHtml(formatDateShort(e.start))}</span>
-          </a>`;
-        }).join('')}
-        <span class="occ-pill current">
-          <span class="occ-year">${year}</span>
-          <span class="occ-date">${escapeHtml(formatDateShort(event.start))}</span>
-          <i class="fa-solid fa-circle-dot" style="font-size:8px;margin-left:2px"></i>
-        </span>
-        ${futureOccurrences.map(e => {
-          const y2 = e.start.slice(0, 4);
-          return `<a href="/event/${escapeHtml(slugify(e.summary))}-${y2}" class="occ-pill">
-            <span class="occ-year">${y2}</span>
-            <span class="occ-date">${escapeHtml(formatDateShort(e.start))}</span>
-          </a>`;
-        }).join('')}
-      </div>
+      <div class="section-title"><i class="fa-solid fa-rotate"></i> Autres occurrences (${allOccurrences.length} au total)</div>
+      ${occurrencesByYearHtml}
     </section>` : ''}
 
     <!-- ── ÉVÉNEMENTS VOISINS ── -->
@@ -538,7 +614,8 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
         ${prevEvent ? (() => {
           const pCat = (prevEvent.categories || [])[0] || 'Divers';
           const pDef = getCatColor(pCat);
-          return `<a href="/event/${escapeHtml(slugify(prevEvent.summary))}-${prevEvent.start.slice(0,4)}" class="neighbor">
+          const pSlug = slugifyWithDate(prevEvent.summary, prevEvent.start);
+          return `<a href="/event/${escapeHtml(pSlug)}" class="neighbor">
             <div class="neighbor-dir"><i class="fa-solid fa-arrow-left"></i> Précédent</div>
             <div class="neighbor-name">${escapeHtml(prevEvent.summary)}</div>
             <div class="neighbor-date">${escapeHtml(formatDateShort(prevEvent.start))}</div>
@@ -548,7 +625,8 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
         ${nextEvent ? (() => {
           const nCat = (nextEvent.categories || [])[0] || 'Divers';
           const nDef = getCatColor(nCat);
-          return `<a href="/event/${escapeHtml(slugify(nextEvent.summary))}-${nextEvent.start.slice(0,4)}" class="neighbor" style="text-align:right;align-items:flex-end">
+          const nSlug = slugifyWithDate(nextEvent.summary, nextEvent.start);
+          return `<a href="/event/${escapeHtml(nSlug)}" class="neighbor" style="text-align:right;align-items:flex-end">
             <div class="neighbor-dir" style="flex-direction:row-reverse">Suivant <i class="fa-solid fa-arrow-right"></i></div>
             <div class="neighbor-name">${escapeHtml(nextEvent.summary)}</div>
             <div class="neighbor-date">${escapeHtml(formatDateShort(nextEvent.start))}</div>
@@ -616,7 +694,7 @@ module.exports = async function handler(req, res) {
     const parsed = parseSlug(slug);
     if (!parsed) {
       res.statusCode = 404; res.setHeader('Content-Type', 'text/plain');
-      res.end('Format attendu : /event/nom-evenement-2026'); return;
+      res.end('Format attendu : /event/nom-evenement-2026-01-26 ou /event/nom-evenement-2026'); return;
     }
 
     const sourceUrl = process.env.CALENDAR_JSON_URL || 'https://calendrier-fr.tibotsr.dev/calendrier.json';
@@ -626,13 +704,25 @@ module.exports = async function handler(req, res) {
     const data   = await upstream.json();
     const events = Array.isArray(data.events) ? data.events : [];
 
-    const { namePart, year } = parsed;
+    const { namePart, year, exactDate } = parsed;
 
-    // Trouver l'événement correspondant au slug + année
-    const match = events.find(e => {
-      if (!e.start || !e.start.startsWith(String(year))) return false;
-      return slugify(e.summary) === namePart || slugify(e.summary).startsWith(namePart);
-    });
+    let match;
+
+    if (exactDate) {
+      // Nouveau format enrichi : on cherche par slug + date exacte
+      match = events.find(e => {
+        if (e.start !== exactDate) return false;
+        return slugify(e.summary) === namePart || slugify(e.summary).startsWith(namePart);
+      });
+    }
+
+    if (!match) {
+      // Fallback legacy : slug + année (prend le premier trouvé)
+      match = events.find(e => {
+        if (!e.start || !e.start.startsWith(String(year))) return false;
+        return slugify(e.summary) === namePart || slugify(e.summary).startsWith(namePart);
+      });
+    }
 
     if (!match) {
       res.statusCode = 404; res.setHeader('Content-Type', 'text/html; charset=utf-8');
@@ -647,11 +737,12 @@ module.exports = async function handler(req, res) {
       return;
     }
 
-    // Toutes les occurrences du même événement (même nom, toutes années)
-    const allOccurrences = events.filter(e => slugify(e.summary) === slugify(match.summary))
+    // Toutes les occurrences du même événement (même nom exact)
+    const allOccurrences = events
+      .filter(e => slugify(e.summary) === slugify(match.summary))
       .sort((a, b) => a.start.localeCompare(b.start));
 
-    // Événements voisins dans le calendrier global (trié par date)
+    // Événements voisins dans le calendrier global (triés par date)
     const sorted  = [...events].sort((a, b) => a.start.localeCompare(b.start));
     const idx     = sorted.findIndex(e => e.start === match.start && e.summary === match.summary);
     const siblings = {

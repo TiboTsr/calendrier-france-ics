@@ -620,7 +620,7 @@ function openModal(ev, evts) {
   // Lien vers page dédiée /event/[slug]
   const ferieLink = document.getElementById('m-event-link');
   if (ferieLink) {
-    const slug = `${_slugify(ev.summary)}-${ev.date.getFullYear()}`;
+    const slug = `${_slugify(ev.summary)}-${ev.date.toISOString().slice(0, 10)}`;
     ferieLink.href = `/event/${slug}`;
     ferieLink.style.display = 'inline-flex';
   }
