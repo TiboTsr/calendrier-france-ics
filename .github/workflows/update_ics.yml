@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # nécessaire pour pouvoir checkout data
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -46,28 +48,32 @@ jobs:
 
       - name: Push generated files to data branch
         run: |
+          # Sauvegarder les fichiers générés dans /tmp
+          mkdir -p /tmp/generated
+          cp calendrier.ics             /tmp/generated/ 2>/dev/null || true
+          cp zone-a.ics                 /tmp/generated/ 2>/dev/null || true
+          cp zone-b.ics                 /tmp/generated/ 2>/dev/null || true
+          cp zone-c.ics                 /tmp/generated/ 2>/dev/null || true
+          cp calendrier-essentiel.ics   /tmp/generated/ 2>/dev/null || true
+          cp calendrier-culturel.ics    /tmp/generated/ 2>/dev/null || true
+          cp calendrier-commercial.ics  /tmp/generated/ 2>/dev/null || true
+          cp calendrier-complet.ics     /tmp/generated/ 2>/dev/null || true
+          cp calendrier.json            /tmp/generated/ 2>/dev/null || true
+          cp calendrier.csv             /tmp/generated/ 2>/dev/null || true
+          cp calendrier.xml             /tmp/generated/ 2>/dev/null || true
+          cp events-meta.json           /tmp/generated/ 2>/dev/null || true
+          cp zone-departments.json      /tmp/generated/ 2>/dev/null || true
+          cp sitemap.xml                /tmp/generated/ 2>/dev/null || true
+
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Checkout de la branche data sans perdre les fichiers générés
-          git fetch origin data
+          # Checkout branche data (les fichiers générés sont dans /tmp, pas de conflit)
+          git stash --include-untracked
           git checkout data
 
-          # Copier les fichiers générés
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier.ics       . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/zone-a.ics           . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/zone-b.ics           . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/zone-c.ics           . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier-essentiel.ics  . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier-culturel.ics   . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier-commercial.ics . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier-complet.ics    . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier.json       . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier.csv        . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier.xml        . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/events-meta.json      . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/zone-departments.json . 2>/dev/null || true
-          cp $GITHUB_WORKSPACE/../calendrier-france-ics/sitemap.xml           . 2>/dev/null || true
+          # Copier les fichiers depuis /tmp
+          cp /tmp/generated/* .
 
           git add .
           git diff --cached --quiet || git commit -m "🤖 Update ICS [skip ci]"
