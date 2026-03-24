@@ -7,7 +7,7 @@ X-WR-CALNAME:Vacances Scolaires\, jours fériés & Examens - Zone B
 X-WR-TIMEZONE:Europe/Paris
 BEGIN:VEVENT
 UID:05c9487c44de0d7396b3eab8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Vacances de Printemps - Zone B
 DESCRIPTION:Vacances de Printemps pour la zone scolaire B. Durée : 16 jours
  \, du 11/04/2026 au 26/04/2026. Le découpage en zones A\, B et C a été inst
@@ -18,7 +18,7 @@ DTEND;VALUE=DATE:20260427
 END:VEVENT
 BEGIN:VEVENT
 UID:ea15e1d228d34746c56791bf@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Pont de l'Ascension - Zones A\, B et C
 DESCRIPTION:Pont de l'Ascension pour toutes les zones (A\, B et C). Durée :
   4 jours\, du 14/05/2026 au 17/05/2026.
@@ -28,7 +28,7 @@ DTEND;VALUE=DATE:20260518
 END:VEVENT
 BEGIN:VEVENT
 UID:00a23a80569a0467ee2f7f78@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:BTS — Épreuves écrites
 DESCRIPTION:Le Brevet de Technicien Supérieur (BTS) est un diplôme bac+2 de
   l'enseignement supérieur court. Les épreuves écrites communes se déroulent
@@ -39,7 +39,7 @@ DTEND;VALUE=DATE:20260522
 END:VEVENT
 BEGIN:VEVENT
 UID:c9fe8e96dd3e73a1ffd98e2d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Baccalauréat professionnel — Épreuves écrites
 DESCRIPTION:Le baccalauréat professionnel valide une formation en lycée pro
  fessionnel ou en alternance. Ses épreuves écrites se déroulent de fin mai à
@@ -50,7 +50,7 @@ DTEND;VALUE=DATE:20260606
 END:VEVENT
 BEGIN:VEVENT
 UID:0df6902f78de06dfbaf61434@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:CAP — Épreuves écrites d'enseignement général
 DESCRIPTION:Le Certificat d'Aptitude Professionnelle (CAP) certifie des com
  pétences dans un métier précis. Les épreuves écrites d'enseignement général
@@ -61,7 +61,7 @@ DTEND;VALUE=DATE:20260610
 END:VEVENT
 BEGIN:VEVENT
 UID:8dbcc4f3b42c79165459edac@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Baccalauréat — Épreuve anticipée de français (1re)
 DESCRIPTION:L'épreuve écrite anticipée de français se passe en classe de Pr
  emière\, un an avant le bac. Elle compte dans la note finale du baccalauréa
@@ -72,7 +72,7 @@ DTEND;VALUE=DATE:20260612
 END:VEVENT
 BEGIN:VEVENT
 UID:657e883b43e4b445fd6bc52e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Baccalauréat général et technologique — Philosophie
 DESCRIPTION:L'épreuve de philosophie est l'épreuve d'ouverture du bac\, tra
  ditionnellement le premier jour. Unique en Europe\, cette épreuve de 4 heur
@@ -84,7 +84,7 @@ DTEND;VALUE=DATE:20260616
 END:VEVENT
 BEGIN:VEVENT
 UID:d9a5cd255239e09ad4eff44e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Baccalauréat général et technologique — Épreuves de spécialité
 DESCRIPTION:Épreuves terminales écrites de spécialité du baccalauréat génér
  al et technologique. Créé par Napoléon en 1808\, le baccalauréat est l'un d
@@ -96,7 +96,7 @@ DTEND;VALUE=DATE:20260619
 END:VEVENT
 BEGIN:VEVENT
 UID:9e5e6484fb14772544c2605e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Baccalauréat général et technologique — Grand Oral
 DESCRIPTION:Le Grand Oral évalue la capacité des candidats à présenter et d
  éfendre un projet à l'oral. Introduit par la réforme du bac de 2019\, il re
@@ -107,7 +107,7 @@ DTEND;VALUE=DATE:20260702
 END:VEVENT
 BEGIN:VEVENT
 UID:078127c3429c226f9c2b8914@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Brevet des collèges (DNB) — Épreuves écrites
 DESCRIPTION:Le diplôme national du brevet sanctionne la fin du collège. Il 
  se déroule sur trois jours fin juin. Près de 800 000 élèves le passent chaq
@@ -118,7 +118,7 @@ DTEND;VALUE=DATE:20260701
 END:VEVENT
 BEGIN:VEVENT
 UID:2c891049f493bf7f7be227bc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Vacances d'Été - Zones A\, B et C
 DESCRIPTION:Vacances d'Été pour toutes les zones (A\, B et C). Durée : 59 j
  ours\, du 04/07/2026 au 31/08/2026.
@@ -128,7 +128,7 @@ DTEND;VALUE=DATE:20260901
 END:VEVENT
 BEGIN:VEVENT
 UID:35922e0de9dff394f3af3515@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Vacances de la Toussaint - Zones A\, B et C
 DESCRIPTION:Vacances de la Toussaint pour toutes les zones (A\, B et C). Du
  rée : 16 jours\, du 17/10/2026 au 01/11/2026.
@@ -138,7 +138,7 @@ DTEND;VALUE=DATE:20261102
 END:VEVENT
 BEGIN:VEVENT
 UID:ca0a6edd69d6bffef35ae20c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Vacances de Noël - Zones A\, B et C
 DESCRIPTION:Vacances de Noël pour toutes les zones (A\, B et C). Durée : 16
   jours\, du 19/12/2026 au 03/01/2027.
@@ -148,7 +148,7 @@ DTEND;VALUE=DATE:20270104
 END:VEVENT
 BEGIN:VEVENT
 UID:1eda6a6474847f46977b5d80@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Vacances d'Hiver - Zone B
 DESCRIPTION:Vacances d'Hiver pour la zone scolaire B. Durée : 16 jours\, du
   20/02/2027 au 07/03/2027. Le découpage en zones A\, B et C a été instauré 
@@ -159,7 +159,7 @@ DTEND;VALUE=DATE:20270308
 END:VEVENT
 BEGIN:VEVENT
 UID:3a335d955a66a7446e2e4bee@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Vacances de Printemps - Zone B
 DESCRIPTION:Vacances de Printemps pour la zone scolaire B. Durée : 16 jours
  \, du 17/04/2027 au 02/05/2027. Le découpage en zones A\, B et C a été inst
@@ -170,7 +170,7 @@ DTEND;VALUE=DATE:20270503
 END:VEVENT
 BEGIN:VEVENT
 UID:3151189f97d776e993c21205@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Pont de l'Ascension - Zones A\, B et C
 DESCRIPTION:Pont de l'Ascension pour toutes les zones (A\, B et C). Durée :
   0 jours\, du 07/05/2027 au 06/05/2027.
@@ -180,7 +180,7 @@ DTEND;VALUE=DATE:20270507
 END:VEVENT
 BEGIN:VEVENT
 UID:311d1f546eb17b51ca2218c5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260323T101538Z
+DTSTAMP:20260324T024755Z
 SUMMARY:Vacances d'Été - Zones A\, B et C
 DESCRIPTION:Vacances d'Été pour toutes les zones (A\, B et C). Durée : 0 jo
  urs\, du 03/07/2027 au 02/07/2027.
