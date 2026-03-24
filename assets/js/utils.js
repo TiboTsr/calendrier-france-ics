@@ -31,8 +31,6 @@ const KEYS = {
 };
 
 /* ── Catalogue de catégories ────────────────────────── */
-// SPORT : toutes les compétitions sportives sont regroupées sous une seule
-// catégorie "Sport" — pas de sous-catégories Ligue 1, Rugby, Tennis, etc.
 const CATS = [
   { n: 'Agriculture',         c: '#84cc16', d: 'rgba(132,204,22,.12)',  b: 'rgba(132,204,22,.3)'  },
   { n: 'Astronomie',          c: '#60a5fa', d: 'rgba(96,165,250,.12)',  b: 'rgba(96,165,250,.3)'  },
@@ -56,8 +54,6 @@ const CATS = [
   { n: 'Saisons',             c: '#22d3ee', d: 'rgba(34,211,238,.12)',  b: 'rgba(34,211,238,.3)'  },
   { n: 'Santé',               c: '#ef4444', d: 'rgba(239,68,68,.12)',   b: 'rgba(239,68,68,.3)'   },
   { n: 'Société',             c: '#94a3b8', d: 'rgba(148,163,184,.12)', b: 'rgba(148,163,184,.3)' },
-  // Sport : catégorie unique regroupant toutes les compétitions (football, rugby,
-  // tennis, cyclisme, F1, handball, athlétisme, auto/moto…)
   { n: 'Sport',               c: '#06b6d4', d: 'rgba(6,182,212,.12)',   b: 'rgba(6,182,212,.3)'   },
   { n: 'Théâtre',             c: '#d946ef', d: 'rgba(217,70,239,.12)',  b: 'rgba(217,70,239,.3)'  },
   { n: 'Vacances scolaires',  c: '#f5a020', d: 'rgba(245,160,32,.12)',  b: 'rgba(245,160,32,.3)'  },
@@ -69,22 +65,20 @@ const CATS = [
 /** Retourne la définition couleur d'une catégorie (fallback bleu). */
 function cd(name) {
   const aliases = {
-    // Toutes les anciennes sous-catégories sport → Sport
-    'Ligue 1':        'Sport',
-    'Ligue 2':        'Sport',
-    'Top 14 (Rugby)': 'Sport',
-    'Formule 1':      'Sport',
-    'Tennis':         'Sport',
-    'Cyclisme':       'Sport',
-    'Auto/Moto':      'Sport',
-    'Football':       'Sport',
-    'Rugby':          'Sport',
-    'Handball':       'Sport',
-    'Athlétisme':     'Sport',
+    'Ligue 1':             'Sport',
+    'Ligue 2':             'Sport',
+    'Top 14 (Rugby)':      'Sport',
+    'Formule 1':           'Sport',
+    'Tennis':              'Sport',
+    'Cyclisme':            'Sport',
+    'Auto/Moto':           'Sport',
+    'Football':            'Sport',
+    'Rugby':               'Sport',
+    'Handball':            'Sport',
+    'Athlétisme':          'Sport',
     'Ligue des Champions': 'Sport',
-    'Europa League':  'Sport',
-    'Coupe de France': 'Sport',
-    // Alias existant
+    'Europa League':       'Sport',
+    'Coupe de France':     'Sport',
     'Événements spéciaux': 'Dates spéciales',
   };
   const normalized = aliases[name] || name;
@@ -94,7 +88,7 @@ window.cd = cd;
 
 /* ── Profils avancés ────────────────────────────────── */
 const PROFILES = {
-  complet:   null, // null = tout
+  complet:   null,
   essentiel: ['Jours fériés', 'Vacances scolaires', 'Ponts / Congés'],
   familial:  ['Jours fériés', 'Vacances scolaires', 'Fêtes', 'Saisons', 'Culture'],
   pro:       ['Jours fériés', 'Ponts / Congés', 'Commercial', 'Commerce'],
@@ -135,19 +129,19 @@ const APP_INFO = {
 function pd(s) {
   if (!s) return null;
   const [y, m, d] = s.split('-').map(Number);
-  return new Date(y, m - 1, d);
+  return new Date(Date.UTC(y, m - 1, d));
 }
 
 function fmt(d) {
-  return new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }).format(d);
+  return new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d);
 }
 
 function fmts(d) {
-  return new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'short' }).format(d);
+  return new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'short', timeZone: 'UTC' }).format(d);
 }
 
 function fmtwd(d) {
-  return new Intl.DateTimeFormat('fr-FR', { weekday: 'short' }).format(d).replace('.', '');
+  return new Intl.DateTimeFormat('fr-FR', { weekday: 'short', timeZone: 'UTC' }).format(d).replace('.', '');
 }
 
 function norm(s) {
@@ -163,15 +157,15 @@ function escHtml(s) {
 
 function countWeekdays(start, end) {
   if (!start || !end) return 0;
-  const from = new Date(start.getFullYear(), start.getMonth(), start.getDate());
-  const to   = new Date(end.getFullYear(),   end.getMonth(),   end.getDate());
+  const from = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate()));
+  const to   = new Date(Date.UTC(end.getUTCFullYear(),   end.getUTCMonth(),   end.getUTCDate()));
   if (to < from) return 0;
   let count = 0;
   const cur = new Date(from);
   while (cur <= to) {
-    const wd = cur.getDay();
+    const wd = cur.getUTCDay();
     if (wd !== 0 && wd !== 6) count++;
-    cur.setDate(cur.getDate() + 1);
+    cur.setUTCDate(cur.getUTCDate() + 1);
   }
   return count;
 }

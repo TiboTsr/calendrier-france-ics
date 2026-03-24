@@ -1471,12 +1471,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   .g-ev { font-size: 9px; padding: 2px; }
 }
 
-/* ═══════════════════════════════════════════════════════
-   PATCH UX — Radar, Modal, Timeline, Zones
-   Ajouter à la fin de assets/css/styles.css
-═══════════════════════════════════════════════════════ */
-
-/* ── Radar refonte ──────────────────────────────────── */
 .rc {
   position: relative;
   overflow: hidden;
@@ -1559,6 +1553,7 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
 }
 .ev-tags { flex-wrap: wrap; row-gap: 3px; }
 
+/* ── Modal — refonte ────────────────────────────────── */
 #m-cat-bar {
   height: 4px;
   width: calc(100% + 48px);
@@ -1640,7 +1635,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   color: var(--t3);
   justify-content: center;
 }
-
 .m-kbd {
   display: inline-flex;
   align-items: center;
@@ -1654,6 +1648,7 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   color: var(--t2);
 }
 
+/* ── Zone Finder CTA ─────────────────────────────────── */
 .zone-result-cta {
   display: flex;
   gap: 8px;
@@ -1670,14 +1665,41 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   margin-top: 6px;
 }
 
+/* ── AM pill ─────────────────────────────────────────── */
 .szp.sam {
   border-color: var(--vio);
   background: var(--viod);
   color: var(--vio);
 }
 
+/* ── Tags mobile — ne masquer que les catégories, pas les badges ── */
 @media (max-width: 760px) {
   .ev-tags .ev-tag:not(.ev-tag--ongoing):not(.ev-tag--zone):not(.ev-tag--approx):nth-child(n+3) {
     display: none;
   }
 }
+
+/* ── Hint clavier — masqué sur mobile (pas de clavier physique) ── */
+@media (max-width: 760px) {
+  .m-keyboard-hint { display: none; }
+}
+
+/* ── Lien "Voir la page dédiée" dans la modal ── */
+#m-event-link {
+  display: none; /* affiché par JS */
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 9px 14px;
+  border-radius: var(--r);
+  border: 1px solid var(--accb);
+  background: var(--accd);
+  color: var(--acc);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity .15s, border-color .15s;
+  width: fit-content;
+}
+#m-event-link:hover { opacity: .8; border-color: var(--acc); }
+#m-event-link i { font-size: 11px; flex-shrink: 0; }
