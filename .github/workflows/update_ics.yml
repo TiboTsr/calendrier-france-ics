@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * *'  # tous les jours à minuit
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -43,26 +43,32 @@ jobs:
         run: |
           LASTMOD=$(date -u +"%Y-%m-%d")
           sed -i "s|<lastmod>[^<]*</lastmod>|<lastmod>${LASTMOD}</lastmod>|g" sitemap.xml
-          echo "Sitemap lastmod mis à jour : ${LASTMOD}"
 
-      - name: Commit generated files
+      - name: Push generated files to data branch
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add \
-            calendrier.ics \
-            zone-a.ics \
-            zone-b.ics \
-            zone-c.ics \
-            calendrier-essentiel.ics \
-            calendrier-culturel.ics \
-            calendrier-commercial.ics \
-            calendrier-complet.ics \
-            calendrier.json \
-            calendrier.csv \
-            calendrier.xml \
-            events-meta.json \
-            zone-departments.json \
-            sitemap.xml
-          git diff --cached --quiet || git commit -m "🤖 Update ICS"
-          git push
+
+          # Checkout de la branche data sans perdre les fichiers générés
+          git fetch origin data
+          git checkout data
+
+          # Copier les fichiers générés
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier.ics       . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/zone-a.ics           . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/zone-b.ics           . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/zone-c.ics           . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier-essentiel.ics  . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier-culturel.ics   . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier-commercial.ics . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier-complet.ics    . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier.json       . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier.csv        . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/calendrier.xml        . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/events-meta.json      . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/zone-departments.json . 2>/dev/null || true
+          cp $GITHUB_WORKSPACE/../calendrier-france-ics/sitemap.xml           . 2>/dev/null || true
+
+          git add .
+          git diff --cached --quiet || git commit -m "🤖 Update ICS [skip ci]"
+          git push origin data

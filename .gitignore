@@ -1,7 +1,3 @@
-__pycache__/
-.vercel
-.env*.local
-.env
 calendrier-commercial.ics
 calendrier-complet.ics
 calendrier-culturel.ics
@@ -14,3 +10,7 @@ zone-b.ics
 zone-c.ics
 calendrier.csv
 calendrier.xml
+__pycache__/
+.vercel
+.env*.local
+.env
