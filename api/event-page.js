@@ -386,10 +386,8 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
   const isVacances = (event.categories || []).includes('Vacances scolaires');
   const zones      = (event.zones || []).filter(z => z && z !== 'all');
 
-  // Nouvelles infos générées
   const season = getSeason(event.start);
-  const weekendStatus = getWeekendStatus(event.start);
-  const dayName = getDayName(event.start);
+  const weekendStatus = getWeekendStatus(event.start, event.categories || []);  const dayName = getDayName(event.start);
   const wikiLink = `https://fr.wikipedia.org/wiki/Spécial:Recherche?search=${encodeURIComponent(event.summary)}`;
 
   const prevEvent = siblings.prev;
