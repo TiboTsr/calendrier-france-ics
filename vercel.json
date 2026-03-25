@@ -12,6 +12,9 @@
       "dest": "/api/generated-file.js?name=$1"
     },
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/api/calendrier.ics",
       "dest": "/api/calendrier.ics.js",
       "headers": {
