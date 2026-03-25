@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-03-25T09:44:05.567525+00:00",
-  "contentVersion": "b8c6a055c2738b94",
-  "totalEvents": 4687,
+  "generatedAt": "2026-03-25T10:19:06.132453+00:00",
+  "contentVersion": "81fcb6937f0d2ca3",
+  "totalEvents": 4688,
   "profiles": [
     "essentiel",
     "culturel",
@@ -6191,7 +6191,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2004-01-08",
+      "start": "2004-01-07",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -6213,7 +6213,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2004-01-22",
+      "start": "2004-01-21",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -6246,7 +6246,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2004-01-30",
+      "start": "2004-01-29",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -6322,7 +6322,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2004-02-21",
+      "start": "2004-02-20",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -6420,7 +6420,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2004-03-14",
+      "start": "2004-03-13",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -6452,23 +6452,23 @@
       "zones": []
     },
     {
+      "summary": "Nouvelle Lune",
+      "start": "2004-03-20",
+      "end": null,
+      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée nationale de lutte contre les discriminations",
       "start": "2004-03-21",
       "end": null,
       "description": "Créée par l'ONU en 1966 en mémoire du massacre de Sharpeville.",
       "categories": [
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Nouvelle Lune",
-      "start": "2004-03-21",
-      "end": null,
-      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
       ],
       "zones": []
     },
@@ -6579,6 +6579,17 @@
       "zones": []
     },
     {
+      "summary": "Dernier Quartier",
+      "start": "2004-04-12",
+      "end": null,
+      "description": "Phase lunaire : Dernier Quartier.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Lundi de Pâques",
       "start": "2004-04-12",
       "end": null,
@@ -6590,19 +6601,8 @@
       "zones": []
     },
     {
-      "summary": "Dernier Quartier",
-      "start": "2004-04-13",
-      "end": null,
-      "description": "Phase lunaire : Dernier Quartier.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Nouvelle Lune",
-      "start": "2004-04-20",
+      "start": "2004-04-19",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -6646,7 +6646,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2004-05-05",
+      "start": "2004-05-04",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -6678,7 +6678,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2004-05-12",
+      "start": "2004-05-11",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -6858,9 +6858,20 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2004-06-11",
+      "start": "2004-06-09",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nouvelle Lune",
+      "start": "2004-06-17",
+      "end": null,
+      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
         "Astronomie",
         "Lunaire"
@@ -6875,17 +6886,6 @@
       "categories": [
         "Mémoire",
         "Dates spéciales"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Nouvelle Lune",
-      "start": "2004-06-18",
-      "end": null,
-      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
       ],
       "zones": []
     },
@@ -6967,7 +6967,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2004-07-03",
+      "start": "2004-07-02",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -6989,7 +6989,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2004-07-10",
+      "start": "2004-07-09",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -7033,7 +7033,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2004-07-18",
+      "start": "2004-07-17",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -7055,7 +7055,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2004-08-01",
+      "start": "2004-07-31",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -7078,7 +7078,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2004-08-09",
+      "start": "2004-08-08",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -7132,7 +7132,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2004-08-31",
+      "start": "2004-08-30",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -7165,7 +7165,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2004-09-07",
+      "start": "2004-09-06",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -7176,7 +7176,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2004-09-15",
+      "start": "2004-09-14",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -7193,6 +7193,17 @@
       "categories": [
         "Culture",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Premier Quartier",
+      "start": "2004-09-21",
+      "end": null,
+      "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
       ],
       "zones": []
     },
@@ -7219,19 +7230,8 @@
       "zones": []
     },
     {
-      "summary": "Premier Quartier",
-      "start": "2004-09-22",
-      "end": null,
-      "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pleine Lune",
-      "start": "2004-09-29",
+      "start": "2004-09-28",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -7284,7 +7284,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2004-10-07",
+      "start": "2004-10-06",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -7340,7 +7340,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2004-10-22",
+      "start": "2004-10-20",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -7351,7 +7351,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2004-10-29",
+      "start": "2004-10-28",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -7446,23 +7446,23 @@
       "zones": []
     },
     {
+      "summary": "Nouvelle Lune",
+      "start": "2004-11-12",
+      "end": null,
+      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Pont possible — Armistice 1918",
       "start": "2004-11-12",
       "end": null,
       "description": "Armistice 1918 tombe un jeudi le 11/11/2004. Le vendredi 12/11/2004 est un pont potentiel — vérifiez auprès de votre employeur.",
       "categories": [
         "Ponts / Congés"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Nouvelle Lune",
-      "start": "2004-11-13",
-      "end": null,
-      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
       ],
       "zones": []
     },
@@ -7479,6 +7479,17 @@
       "zones": []
     },
     {
+      "summary": "Premier Quartier",
+      "start": "2004-11-19",
+      "end": null,
+      "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée internationale des droits de l'enfant",
       "start": "2004-11-20",
       "end": null,
@@ -7489,19 +7500,8 @@
       "zones": []
     },
     {
-      "summary": "Premier Quartier",
-      "start": "2004-11-20",
-      "end": null,
-      "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pleine Lune",
-      "start": "2004-11-27",
+      "start": "2004-11-26",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -7588,7 +7588,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2004-12-20",
+      "start": "2004-12-18",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -7632,6 +7632,17 @@
       "zones": []
     },
     {
+      "summary": "Pleine Lune",
+      "start": "2004-12-26",
+      "end": null,
+      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Saint-Étienne",
       "start": "2004-12-26",
       "end": null,
@@ -7643,17 +7654,6 @@
       "zones": [
         "AM"
       ]
-    },
-    {
-      "summary": "Pleine Lune",
-      "start": "2004-12-27",
-      "end": null,
-      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
     },
     {
       "summary": "Année avec 53e semaine ISO",
@@ -38765,20 +38765,9 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2024-06-20",
+      "start": "2024-06-21",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2024-06-20",
-      "end": null,
-      "description": "Le 20 June est le jour le plus long de l'année 2024.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -38793,6 +38782,17 @@
       "categories": [
         "Culture",
         "Fêtes"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2024-06-21",
+      "end": null,
+      "description": "Le 21 June est le jour le plus long de l'année 2024.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -39676,17 +39676,6 @@
       "zones": []
     },
     {
-      "summary": "Pleine Lune",
-      "start": "2025-01-13",
-      "end": null,
-      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Championnat du monde de handball masculin 2025",
       "start": "2025-01-14",
       "end": "2025-02-02",
@@ -39699,8 +39688,19 @@
       ]
     },
     {
+      "summary": "Pleine Lune",
+      "start": "2025-01-15",
+      "end": null,
+      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Dernier Quartier",
-      "start": "2025-01-21",
+      "start": "2025-01-22",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -39788,7 +39788,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2025-02-05",
+      "start": "2025-02-06",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -39811,7 +39811,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2025-02-12",
+      "start": "2025-02-13",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -39924,7 +39924,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2025-03-06",
+      "start": "2025-03-07",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -39945,7 +39945,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2025-03-14",
+      "start": "2025-03-15",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -40051,17 +40051,6 @@
       "zones": []
     },
     {
-      "summary": "Premier Quartier",
-      "start": "2025-04-05",
-      "end": null,
-      "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Vacances de Printemps - Zone B",
       "start": "2025-04-05",
       "end": "2025-04-21",
@@ -40072,6 +40061,17 @@
       "zones": [
         "B"
       ]
+    },
+    {
+      "summary": "Premier Quartier",
+      "start": "2025-04-06",
+      "end": null,
+      "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
+      ],
+      "zones": []
     },
     {
       "summary": "Journée mondiale de la Santé",
@@ -40196,7 +40196,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2025-04-27",
+      "start": "2025-04-28",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -40228,7 +40228,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2025-05-04",
+      "start": "2025-05-05",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -40269,17 +40269,6 @@
       "zones": []
     },
     {
-      "summary": "Pleine Lune",
-      "start": "2025-05-12",
-      "end": null,
-      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "BTS — Épreuves écrites",
       "start": "2025-05-13",
       "end": "2025-05-16",
@@ -40287,6 +40276,17 @@
       "categories": [
         "Éducation",
         "Examens"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Pleine Lune",
+      "start": "2025-05-13",
+      "end": null,
+      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
       ],
       "zones": []
     },
@@ -40469,17 +40469,6 @@
       "zones": []
     },
     {
-      "summary": "Premier Quartier",
-      "start": "2025-06-03",
-      "end": null,
-      "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "CAP — Épreuves écrites d'enseignement général",
       "start": "2025-06-04",
       "end": "2025-06-05",
@@ -40487,6 +40476,17 @@
       "categories": [
         "Éducation",
         "Examens"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Premier Quartier",
+      "start": "2025-06-04",
+      "end": null,
+      "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
       ],
       "zones": []
     },
@@ -40590,7 +40590,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2025-06-18",
+      "start": "2025-06-19",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -40644,17 +40644,6 @@
       "zones": []
     },
     {
-      "summary": "Nouvelle Lune",
-      "start": "2025-06-25",
-      "end": null,
-      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Brevet des collèges (DNB) — Épreuves écrites",
       "start": "2025-06-26",
       "end": "2025-06-27",
@@ -40662,6 +40651,17 @@
       "categories": [
         "Éducation",
         "Examens"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nouvelle Lune",
+      "start": "2025-06-26",
+      "end": null,
+      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
       ],
       "zones": []
     },
@@ -40677,7 +40677,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2025-07-02",
+      "start": "2025-07-03",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -40725,7 +40725,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2025-07-10",
+      "start": "2025-07-11",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -40780,20 +40780,9 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2025-07-24",
+      "start": "2025-07-26",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Premier Quartier",
-      "start": "2025-08-01",
-      "end": null,
-      "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
         "Astronomie",
         "Lunaire"
@@ -40809,6 +40798,17 @@
         "Astronomie",
         "Éducation",
         "Culture"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Premier Quartier",
+      "start": "2025-08-02",
+      "end": null,
+      "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
       ],
       "zones": []
     },
@@ -40858,7 +40858,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2025-08-16",
+      "start": "2025-08-17",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -40881,7 +40881,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2025-08-23",
+      "start": "2025-08-24",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -40925,7 +40925,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2025-09-07",
+      "start": "2025-09-08",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -40948,7 +40948,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2025-09-14",
+      "start": "2025-09-15",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -40965,17 +40965,6 @@
       "categories": [
         "Culture",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Nouvelle Lune",
-      "start": "2025-09-21",
-      "end": null,
-      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
       ],
       "zones": []
     },
@@ -40998,6 +40987,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nouvelle Lune",
+      "start": "2025-09-23",
+      "end": null,
+      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
       ],
       "zones": []
     },
@@ -41077,17 +41077,6 @@
       "zones": []
     },
     {
-      "summary": "Dernier Quartier",
-      "start": "2025-10-13",
-      "end": null,
-      "description": "Phase lunaire : Dernier Quartier.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Semaine du Goût",
       "start": "2025-10-13",
       "end": null,
@@ -41095,6 +41084,17 @@
       "categories": [
         "Gastronomie",
         "Culture"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Dernier Quartier",
+      "start": "2025-10-15",
+      "end": null,
+      "description": "Phase lunaire : Dernier Quartier.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
       ],
       "zones": []
     },
@@ -41126,7 +41126,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2025-10-21",
+      "start": "2025-10-22",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -41189,23 +41189,23 @@
       "zones": []
     },
     {
-      "summary": "Pleine Lune",
-      "start": "2025-11-05",
-      "end": null,
-      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée nationale de l'arbre",
       "start": "2025-11-06",
       "end": null,
       "description": "Célébrée chaque premier jeudi de novembre.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Pleine Lune",
+      "start": "2025-11-06",
+      "end": null,
+      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
       ],
       "zones": []
     },
@@ -41243,7 +41243,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2025-11-12",
+      "start": "2025-11-13",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -41276,7 +41276,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2025-11-20",
+      "start": "2025-11-21",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -41363,7 +41363,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2025-12-11",
+      "start": "2025-12-13",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -41456,7 +41456,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2025-12-27",
+      "start": "2025-12-28",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -46531,6 +46531,17 @@
       "zones": []
     },
     {
+      "summary": "Pleine Lune",
+      "start": "2029-01-01",
+      "end": null,
+      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Épiphanie",
       "start": "2029-01-06",
       "end": null,
@@ -46544,7 +46555,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2029-01-07",
+      "start": "2029-01-08",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -46555,7 +46566,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2029-01-14",
+      "start": "2029-01-15",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -46566,7 +46577,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2029-01-22",
+      "start": "2029-01-23",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -46642,7 +46653,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2029-02-05",
+      "start": "2029-02-06",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -46664,23 +46675,23 @@
       "zones": []
     },
     {
-      "summary": "Nouvelle Lune",
-      "start": "2029-02-13",
-      "end": null,
-      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Début du Carême",
       "start": "2029-02-14",
       "end": null,
       "description": "Le Carême commence le Mercredi des Cendres, 46 jours avant Pâques.",
       "categories": [
         "Christianisme"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nouvelle Lune",
+      "start": "2029-02-14",
+      "end": null,
+      "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
       ],
       "zones": []
     },
@@ -46720,7 +46731,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2029-02-28",
+      "start": "2029-03-01",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -46742,7 +46753,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2029-03-07",
+      "start": "2029-03-08",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -46913,7 +46924,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2029-04-05",
+      "start": "2029-04-07",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -46934,7 +46945,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2029-04-13",
+      "start": "2029-04-14",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -46967,7 +46978,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2029-04-28",
+      "start": "2029-04-29",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -46999,7 +47010,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2029-05-05",
+      "start": "2029-05-06",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -47168,7 +47179,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2029-05-27",
+      "start": "2029-05-28",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -47189,7 +47200,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2029-06-04",
+      "start": "2029-06-05",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -47309,7 +47320,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2029-06-26",
+      "start": "2029-06-27",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -47330,7 +47341,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2029-07-03",
+      "start": "2029-07-04",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -47363,7 +47374,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2029-07-11",
+      "start": "2029-07-12",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -47396,7 +47407,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2029-07-18",
+      "start": "2029-07-19",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -47407,7 +47418,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2029-07-25",
+      "start": "2029-07-26",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -47418,7 +47429,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2029-08-02",
+      "start": "2029-08-03",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -47473,7 +47484,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2029-08-16",
+      "start": "2029-08-17",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -47484,7 +47495,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2029-08-24",
+      "start": "2029-08-25",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -47528,7 +47539,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2029-09-08",
+      "start": "2029-09-09",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -47550,7 +47561,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2029-09-15",
+      "start": "2029-09-16",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -47583,7 +47594,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2029-09-22",
+      "start": "2029-09-23",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -47594,7 +47605,7 @@
     },
     {
       "summary": "Dernier Quartier",
-      "start": "2029-09-30",
+      "start": "2029-10-01",
       "end": null,
       "description": "Phase lunaire : Dernier Quartier.",
       "categories": [
@@ -47647,7 +47658,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2029-10-07",
+      "start": "2029-10-08",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -47680,7 +47691,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2029-10-14",
+      "start": "2029-10-15",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -47703,7 +47714,7 @@
     },
     {
       "summary": "Pleine Lune",
-      "start": "2029-10-22",
+      "start": "2029-10-23",
       "end": null,
       "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
@@ -47787,7 +47798,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2029-11-06",
+      "start": "2029-11-07",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -47820,7 +47831,7 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2029-11-13",
+      "start": "2029-11-14",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
       "categories": [
@@ -47906,7 +47917,7 @@
     },
     {
       "summary": "Nouvelle Lune",
-      "start": "2029-12-05",
+      "start": "2029-12-06",
       "end": null,
       "description": "La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.",
       "categories": [
@@ -47940,20 +47951,9 @@
     },
     {
       "summary": "Premier Quartier",
-      "start": "2029-12-12",
+      "start": "2029-12-14",
       "end": null,
       "description": "La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.",
-      "categories": [
-        "Astronomie",
-        "Lunaire"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Pleine Lune",
-      "start": "2029-12-20",
-      "end": null,
-      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
       "categories": [
         "Astronomie",
         "Lunaire"
@@ -47979,6 +47979,17 @@
       "categories": [
         "Saisons",
         "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Pleine Lune",
+      "start": "2029-12-21",
+      "end": null,
+      "description": "La face de la Lune est entièrement éclairée par le Soleil.",
+      "categories": [
+        "Astronomie",
+        "Lunaire"
       ],
       "zones": []
     },
