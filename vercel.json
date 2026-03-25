@@ -8,6 +8,10 @@
       "status": 301
     },
     {
+      "src": "/((?:calendrier(?:-[^/]+)?\\.ics|zone-[abc]\\.ics|calendrier\\.json|events-meta\\.json|calendrier\\.csv|calendrier\\.xml|sitemap\\.xml))",
+      "dest": "/api/generated-file.js?name=$1"
+    },
+    {
       "src": "/api/calendrier.ics",
       "dest": "/api/calendrier.ics.js",
       "headers": {
@@ -100,6 +104,8 @@
     }
   ],
   "env": {
-    "CALENDAR_JSON_URL": "https://calendrier-fr.tibotsr.dev/calendrier.json"
+    "CALENDAR_JSON_URL": "https://calendrier-fr.tibotsr.dev/calendrier.json",
+    "GENERATED_DATA_REPO": "TiboTsr/calendrier-france-ics",
+    "GENERATED_DATA_BRANCH": "data"
   }
 }

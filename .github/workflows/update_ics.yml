@@ -1,4 +1,4 @@
-name: Update ICS
+﻿name: Update Generated Data
 
 on:
   push:
@@ -15,12 +15,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # nécessaire pour pouvoir checkout data
+          fetch-depth: 0
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -35,22 +35,53 @@ jobs:
         run: python scripts/health_check.py --notify webhook
         continue-on-error: true
 
-      - name: Generate ICS
+      - name: Generate files
         run: python calendrier.py
 
       - name: Validate ICS syntax
         run: python scripts/validate_ics.py
 
-      - name: Update Sitemap lastmod
+      - name: Publish generated files to data branch
         run: |
-          LASTMOD=$(date -u +"%Y-%m-%d")
-          sed -i "s|<lastmod>[^<]*</lastmod>|<lastmod>${LASTMOD}</lastmod>|g" sitemap.xml
+          set -euo pipefail
 
-      - name: Commit and push generated files to main
-        run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git diff --cached --quiet || git commit -m "🤖 Update ICS and data files"
-          git push origin main
 
+          if git ls-remote --exit-code --heads origin data >/dev/null 2>&1; then
+            git worktree add -B data ../generated-data origin/data
+          else
+            git worktree add -b data ../generated-data
+          fi
+
+          mkdir -p ../generated-data
+
+          for file in \
+            calendrier.ics \
+            calendrier-commercial.ics \
+            calendrier-complet.ics \
+            calendrier-culturel.ics \
+            calendrier-essentiel.ics \
+            calendrier.json \
+            events-meta.json \
+            calendrier.csv \
+            calendrier.xml \
+            sitemap.xml \
+            zone-a.ics \
+            zone-b.ics \
+            zone-c.ics
+          do
+            cp "$file" ../generated-data/"$file"
+          done
+
+          LASTMOD=$(date -u +"%Y-%m-%d")
+          sed -i "s|<lastmod>[^<]*</lastmod>|<lastmod>${LASTMOD}</lastmod>|g" ../generated-data/sitemap.xml
+
+          cd ../generated-data
+          git add .
+          git diff --cached --quiet || git commit -m "Update date files 🤖"
+          git push origin HEAD:data
+
+      - name: Cleanup worktree
+        if: always()
+        run: git worktree remove ../generated-data --force || true
