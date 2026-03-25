@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-25T15:58:22.842387+00:00",
-  "contentVersion": "ff8b87c41d101c86",
+  "generatedAt": "2026-03-25T16:18:57.509963+00:00",
+  "contentVersion": "34a4034e616bdd62",
   "totalEvents": 4687,
   "profiles": [
     "essentiel",
@@ -30374,17 +30374,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2019-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2019-09-22",
       "end": null,
@@ -30392,6 +30381,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2019-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -30768,28 +30768,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2019-12-21",
-      "end": null,
-      "description": "Le solstice d'hiver est le jour le plus court de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus court de l'année",
-      "start": "2019-12-21",
-      "end": null,
-      "description": "Le 21 December est le jour le plus court de l'année 2019.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Vacances de Noël - Zones A, B et C",
       "start": "2019-12-21",
       "end": "2020-01-05",
@@ -30802,6 +30780,28 @@
         "B",
         "C"
       ]
+    },
+    {
+      "summary": "Début de l'Hiver — Solstice d'hiver",
+      "start": "2019-12-22",
+      "end": null,
+      "description": "Le solstice d'hiver est le jour le plus court de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus court de l'année",
+      "start": "2019-12-22",
+      "end": null,
+      "description": "Le 22 December est le jour le plus court de l'année 2019.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
     },
     {
       "summary": "Noël",
@@ -37363,6 +37363,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2023-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2023-09-22",
       "end": null,
@@ -37381,17 +37392,6 @@
       "categories": [
         "Astronomie",
         "Lunaire"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2023-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -37781,7 +37781,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2023-12-22",
+      "start": "2023-12-21",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -37792,9 +37792,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2023-12-22",
+      "start": "2023-12-21",
       "end": null,
-      "description": "Le 22 December est le jour le plus court de l'année 2023.",
+      "description": "Le 21 December est le jour le plus court de l'année 2023.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -42844,17 +42844,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2026-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2026-09-22",
       "end": null,
@@ -42862,6 +42851,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2026-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -44471,17 +44471,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2027-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2027-09-22",
       "end": null,
@@ -44500,6 +44489,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2027-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -44885,7 +44885,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2027-12-21",
+      "start": "2027-12-22",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -44896,9 +44896,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2027-12-21",
+      "start": "2027-12-22",
       "end": null,
-      "description": "Le 21 December est le jour le plus court de l'année 2027.",
+      "description": "Le 22 December est le jour le plus court de l'année 2027.",
       "categories": [
         "Saisons",
         "Astronomie"
