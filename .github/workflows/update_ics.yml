@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install holidays requests python-dateutil
+          pip install holidays requests python-dateutil ephem pytz
 
       - name: Health Check CalendrierFR
         env:
