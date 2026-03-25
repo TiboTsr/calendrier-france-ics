@@ -22,9 +22,11 @@ import json
 import os
 import smtplib
 import sys
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import date, datetime
 from email.mime.text import MIMEText
+from pathlib import Path
 
 import requests
 
@@ -38,98 +40,134 @@ IS_CI = os.environ.get("CI", "").lower() in ("true", "1", "yes")
 @dataclass
 class Source:
     name: str
-    url: str
+    url: str | None = None
     method: str = "GET"
     params: dict = field(default_factory=dict)
     expected_keys: list[str] = field(default_factory=list)
     expected_status: int = 200
     note: str = ""
     skip_ci: bool = False
+    local_check: Callable[[], tuple[bool, str | None]] | None = None
+
+
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[1]
+
+
+def _parse_iso_date(value: str) -> date | None:
+    try:
+        return datetime.fromisoformat(value).date()
+    except Exception:
+        return None
+
+
+def _check_sports_json() -> tuple[bool, str | None]:
+    """
+    Le sport est maintenu dans un JSON local (plus de scraping Wikipedia/Ergast).
+    On valide le schema et qu'il contient au moins 1 evenement sur l'annee courante.
+    """
+    sports_path = _repo_root() / "calendar_core" / "data" / "sports.json"
+    if not sports_path.exists():
+        return False, f"Fichier manquant: {sports_path.as_posix()}"
+
+    try:
+        payload = json.loads(sports_path.read_text(encoding="utf-8"))
+    except Exception:
+        return False, "sports.json invalide (JSON non parsable)"
+
+    if not isinstance(payload, dict) or "events" not in payload or not isinstance(payload["events"], list):
+        return False, "sports.json invalide (schema attendu: { events: [...] })"
+
+    year_start = date(YEAR, 1, 1)
+    year_end = date(YEAR, 12, 31)
+    overlaps_year = 0
+    overlaps_year_sport = 0
+
+    for i, item in enumerate(payload["events"]):
+        if not isinstance(item, dict):
+            return False, f"sports.json invalide (event #{i} n'est pas un objet)"
+
+        summary = item.get("summary")
+        start_s = item.get("start")
+        end_s = item.get("end")
+        categories = item.get("categories")
+
+        if not isinstance(summary, str) or not summary.strip():
+            return False, f"sports.json invalide (event #{i} summary manquant)"
+        if not isinstance(start_s, str):
+            return False, f"sports.json invalide (event #{i} start manquant)"
+        if not isinstance(categories, list) or not all(isinstance(c, str) and c.strip() for c in categories):
+            return False, f"sports.json invalide (event #{i} categories manquantes)"
+
+        start_dt = _parse_iso_date(start_s)
+        if not start_dt:
+            return False, f"sports.json invalide (event #{i} start invalide: {start_s})"
+
+        end_dt = None
+        if end_s is not None:
+            if not isinstance(end_s, str):
+                return False, f"sports.json invalide (event #{i} end invalide)"
+            end_dt = _parse_iso_date(end_s)
+            if not end_dt:
+                return False, f"sports.json invalide (event #{i} end invalide: {end_s})"
+            if end_dt < start_dt:
+                return False, f"sports.json invalide (event #{i} end < start)"
+
+        effective_end = end_dt or start_dt
+        if start_dt <= year_end and effective_end >= year_start:
+            overlaps_year += 1
+            if any(c.strip().lower() == "sport" for c in categories):
+                overlaps_year_sport += 1
+
+    if overlaps_year == 0:
+        return False, f"sports.json ne contient aucun evenement pour {YEAR}"
+
+    if overlaps_year_sport == 0:
+        return False, f"sports.json: aucun evenement {YEAR} n'a la categorie 'Sport'"
+
+    return True, None
 
 
 SOURCES: list[Source] = [
     Source(
-        name="data.education.gouv.fr — Calendrier scolaire",
+        name="data.education.gouv.fr - Calendrier scolaire",
         url="https://data.education.gouv.fr/api/records/1.0/search/",
         params={"dataset": "fr-en-calendrier-scolaire", "rows": 1},
         expected_keys=["records"],
-        note="Source principale des vacances scolaires.",
+        note="Source principale des vacances scolaires (provider vacances).",
     ),
     Source(
-        name="USNO — Moon Phases API",
-        url="https://aa.usno.navy.mil/api/moon/phases/year",
-        params={"year": YEAR},
-        expected_keys=["phasedata"],
-        note="Source des phases de la lune. Bloquée en CI — fallback mathématique actif.",
-        skip_ci=True,
+        name="Local - sports.json (source Sport)",
+        local_check=_check_sports_json,
+        note="Les evenements Sport sont maintenus dans calendar_core/data/sports.json.",
     ),
     Source(
-        name="Jolpi Ergast API — Calendrier F1",
-        url=f"https://api.jolpi.ca/ergast/f1/{YEAR}.json",
-        expected_keys=["MRData"],
-        note="Source du Grand Prix de Monaco.",
-    ),
-    Source(
-        name="Wikipedia EN API — Roland-Garros",
-        url="https://en.wikipedia.org/w/api.php",
-        params={"action": "query", "format": "json", "prop": "extracts", "exintro": 1, "explaintext": 1, "titles": f"{YEAR}_French_Open"},
-        expected_keys=["query"],
-        note="Source des dates de Roland-Garros.",
-    ),
-    Source(
-        name="Wikipedia EN API — 24h du Mans",
-        url="https://en.wikipedia.org/w/api.php",
-        params={"action": "query", "format": "json", "prop": "extracts", "exintro": 1, "explaintext": 1, "titles": f"{YEAR}_24_Hours_of_Le_Mans"},
-        expected_keys=["query"],
-        note="Source des dates des 24h du Mans.",
-    ),
-    Source(
-        name="Wikipedia EN API — Tour de France",
-        url="https://en.wikipedia.org/w/api.php",
-        params={"action": "query", "format": "json", "prop": "extracts", "exintro": 1, "explaintext": 1, "titles": f"{YEAR}_Tour_de_France"},
-        expected_keys=["query"],
-        note="Source des dates du Tour de France.",
-    ),
-    Source(
-        name="Wikipedia EN API — Ligue 1",
-        url="https://en.wikipedia.org/w/api.php",
-        params={"action": "query", "format": "json", "prop": "extracts", "exintro": 1, "explaintext": 1, "titles": f"{YEAR}–{str(YEAR + 1)[-2:]}_Ligue_1"},
-        expected_keys=["query"],
-        note="Source des dates de la saison Ligue 1.",
-    ),
-    Source(
-        name="Wikipedia EN API — Ligue des Champions",
-        url="https://en.wikipedia.org/w/api.php",
-        params={"action": "query", "format": "json", "prop": "extracts", "exintro": 1, "explaintext": 1, "titles": f"{YEAR}–{str(YEAR + 1)[-2:]}_UEFA_Champions_League"},
-        expected_keys=["query"],
-        note="Source des dates de la Ligue des Champions.",
-    ),
-    Source(
-        name="Wikipedia FR API — Tournoi des Six Nations",
+        name="fr.wikipedia.org - API (elections)",
         url="https://fr.wikipedia.org/w/api.php",
-        params={"action": "query", "format": "json", "prop": "extracts", "exintro": 1, "explaintext": 1, "titles": f"Tournoi_des_Six_Nations_{YEAR}"},
+        params={
+            "action": "query",
+            "titles": "Élections municipales françaises de 2026",
+            "prop": "revisions",
+            "rvprop": "content",
+            "rvslots": "main",
+            "format": "json",
+            "formatversion": "2",
+        },
         expected_keys=["query"],
-        note="Source des dates du Tournoi des Six Nations.",
+        note="Source des prochaines elections (scraping MediaWiki).",
     ),
     Source(
-        name="Wikipedia FR API — Top 14 finale",
-        url="https://fr.wikipedia.org/w/api.php",
-        params={"action": "query", "format": "json", "prop": "extracts", "exintro": 1, "explaintext": 1, "titles": f"Championnat_de_France_de_rugby_à_XV_{YEAR - 1}-{YEAR}"},
-        expected_keys=["query"],
-        note="Source de la date de la finale du Top 14.",
-    ),
-    Source(
-        name="Wikipedia FR API — Coupe de France",
-        url="https://fr.wikipedia.org/w/api.php",
-        params={"action": "query", "format": "json", "prop": "extracts", "explaintext": 1, "titles": f"Coupe_de_France_de_football_{YEAR - 1}-{YEAR}"},
-        expected_keys=["query"],
-        note="Source de la date de la finale de la Coupe de France.",
-    ),
-    Source(
-        name="education.gouv.fr — BO n°36 (calendrier examens)",
+        name="education.gouv.fr - BO n36 (calendrier examens)",
         url=f"https://www.education.gouv.fr/bo/{YEAR - 1}/Hebdo36/",
         expected_status=200,
-        note=f"Page index du BO n°36. Si 403, ajouter manuellement les dates {YEAR + 1} dans KNOWN_DATES.",
+        note="Source utilisee par le provider Examens (fallback possible si page indisponible).",
+    ),
+    Source(
+        name="geo.api.gouv.fr - Communes (recherche zone par ville)",
+        url="https://geo.api.gouv.fr/communes",
+        params={"nom": "Paris", "fields": "nom,codesPostaux", "format": "json", "geometry": "centre"},
+        expected_status=200,
+        note="Utilise par le front pour determiner la zone via une ville.",
     ),
 ]
 
@@ -150,6 +188,18 @@ def check_source(source: Source) -> CheckResult:
 
     headers = {"User-Agent": UA}
     try:
+        if source.local_check is not None:
+            t0 = datetime.now()
+            ok, err = source.local_check()
+            latency_ms = int((datetime.now() - t0).total_seconds() * 1000)
+            return CheckResult(
+                source=source,
+                ok=ok,
+                status_code=None,
+                error=err,
+                latency_ms=latency_ms,
+            )
+
         t0 = datetime.now()
         response = requests.request(
             source.method, source.url,

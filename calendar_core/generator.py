@@ -12,6 +12,7 @@ from .config import (
 	EVENTS_META_FILE,
 	MAIN_ICS_FILE,
 	NOISE_PROFILES,
+	SITEMAP_FILE,
 	STRICT_FUTURE_ONLY,
 	ZONE_FILES,
 )
@@ -73,6 +74,22 @@ def save_weekly_meta(current_uids: set[str], previous_uids: set[str], content_ve
 		"totalEvents": len(current_uids),
 	}
 	EVENTS_META_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def save_sitemap() -> None:
+	lastmod = datetime.now(timezone.utc).date().isoformat()
+	xml = (
+		'<?xml version="1.0" encoding="UTF-8"?>\n'
+		'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+		'  <url>\n'
+		f'    <loc>https://{DOMAIN}/</loc>\n'
+		f'    <lastmod>{lastmod}</lastmod>\n'
+		'    <changefreq>daily</changefreq>\n'
+		'    <priority>1.0</priority>\n'
+		'  </url>\n'
+		'</urlset>\n'
+	)
+	SITEMAP_FILE.write_text(xml, encoding="utf-8")
 
 
 def build_content_version(events: list[CalendarEvent], upcoming: list[dict]) -> str:
@@ -163,6 +180,7 @@ def generate_all() -> None:
 		serialize_rss(ics_base_events, "Calendrier Complet France - Flux RSS", f"https://{DOMAIN}/"),
 		encoding="utf-8",
 	)
+	save_sitemap()
 
 	content_version = save_calendar_json(events, upcoming)
 	save_weekly_meta(global_uids, previous_uids, content_version)

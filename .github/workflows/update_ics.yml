@@ -69,7 +69,8 @@ jobs:
             sitemap.xml \
             zone-a.ics \
             zone-b.ics \
-            zone-c.ics
+            zone-c.ics \
+            sitemap.xml
           do
             cp "$file" ../generated-data/"$file"
           done
