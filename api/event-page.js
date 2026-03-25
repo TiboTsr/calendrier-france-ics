@@ -63,6 +63,64 @@ function getDurationDays(start, end) {
   return Math.round((new Date(end) - new Date(start)) / 86400000) + 1;
 }
 
+function addDaysISO(dateStr, days) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + days);
+  const yy = dt.getUTCFullYear();
+  const mm = String(dt.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(dt.getUTCDate()).padStart(2, '0');
+  return `${yy}-${mm}-${dd}`;
+}
+
+function toIcsDate(dateStr) {
+  const [y, m, d] = dateStr.split('-');
+  return `${y}${m}${d}`;
+}
+
+function escapeIcsText(value) {
+  return String(value ?? '')
+    .replace(/\\/g, '\\\\')
+    .replace(/\r?\n/g, '\\n')
+    .replace(/;/g, '\\;')
+    .replace(/,/g, '\\,');
+}
+
+function buildSingleEventIcs(event, domain) {
+  const uid = `${slugifyWithDate(event.summary, event.start)}@${domain}`;
+  const dtstamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+
+  const start = event.start;
+  const endInclusive = event.end && event.end !== event.start ? event.end : event.start;
+  // DTEND en VALUE=DATE est exclusif
+  const dtendExclusive = addDaysISO(endInclusive, 1);
+
+  const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Calendrier France//Event Page//FR',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    `UID:${uid}`,
+    `DTSTAMP:${dtstamp}`,
+    `SUMMARY:${escapeIcsText(event.summary || '')}`,
+    `DTSTART;VALUE=DATE:${toIcsDate(start)}`,
+    `DTEND;VALUE=DATE:${toIcsDate(dtendExclusive)}`,
+  ];
+
+  if (event.description) {
+    lines.push(`DESCRIPTION:${escapeIcsText(event.description)}`);
+  }
+  if (Array.isArray(event.categories) && event.categories.length) {
+    const cats = event.categories.map(c => escapeIcsText(c).replace(/,/g, '\\,')).join(',');
+    lines.push(`CATEGORIES:${cats}`);
+  }
+
+  lines.push('END:VEVENT', 'END:VCALENDAR', '');
+  return lines.join('\r\n');
+}
+
 function getDayOfYear(dateStr) {
   const [y, m, d] = dateStr.split('-').map(Number);
   const date = new Date(Date.UTC(y, m - 1, d));
@@ -205,7 +263,6 @@ function buildEventSchema(event, siteUrl) {
 function buildOccurrencesByYear(allOccurrences, currentEvent, siteUrl) {
   if (allOccurrences.length <= 1) return '';
 
-  // Grouper par année
   const byYear = {};
   allOccurrences.forEach(e => {
     const y = e.start.slice(0, 4);
@@ -216,7 +273,6 @@ function buildOccurrencesByYear(allOccurrences, currentEvent, siteUrl) {
   const years = Object.keys(byYear).sort();
   const currentYear = currentEvent.start.slice(0, 4);
 
-  // Afficher 3 années avant + année courante + 2 après (max)
   const currentYearIdx = years.indexOf(currentYear);
   const showFrom = Math.max(0, currentYearIdx - 2);
   const showTo   = Math.min(years.length - 1, currentYearIdx + 2);
@@ -252,7 +308,6 @@ function buildOccurrencesByYear(allOccurrences, currentEvent, siteUrl) {
     html += `</div></div>`;
   });
 
-  // Afficher un indicateur si on n'affiche pas toutes les années
   const hiddenBefore = showFrom > 0 ? showFrom : 0;
   const hiddenAfter  = years.length - 1 - showTo > 0 ? years.length - 1 - showTo : 0;
 
@@ -266,6 +321,44 @@ function buildOccurrencesByYear(allOccurrences, currentEvent, siteUrl) {
   return html;
 }
 
+function getSeason(dateStr) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const md = m * 100 + d;
+  if (md >= 320 && md < 621) return { name: 'Printemps', emoji: '🌸' };
+  if (md >= 621 && md < 922) return { name: 'Été', emoji: '☀️' };
+  if (md >= 922 && md < 1221) return { name: 'Automne', emoji: '🍁' };
+  
+  return { name: 'Hiver', emoji: '❄️' };
+}
+
+function getWeekendStatus(dateStr) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  const wd = dt.getUTCDay();
+  if (wd === 0 || wd === 6) return 'Tombe un week-end 😴';
+  if (wd === 1 || wd === 5) return 'Week-end prolongé ! 🥳';
+  if (wd === 2 || wd === 4) return 'Pont possible ! 🌉';
+  return 'En pleine semaine 💼';
+}
+
+function getDayName(dateStr) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  const str = new Intl.DateTimeFormat('fr-FR', { weekday: 'long' }).format(dt);
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function isLeapYear(year) {
+  return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+
+const ACADEMIES = {
+  'A': 'Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers.',
+  'B': 'Aix-Marseille, Amiens, Lille, Nancy-Metz, Nantes, Nice, Normandie, Orléans-Tours, Reims, Rennes, Strasbourg.',
+  'C': 'Créteil, Montpellier, Paris, Toulouse, Versailles.',
+  'AM': 'Alsace-Moselle (Haut-Rhin, Bas-Rhin, Moselle).'
+};
+
 function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
   const mainCat   = (event.categories || [])[0] || 'Dates spéciales';
   const def       = getCatColor(mainCat);
@@ -276,9 +369,17 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
   const cd        = countdownLabel(daysUntil);
   const isoWeek   = getISOWeek(event.start);
   const dayOfYear = getDayOfYear(event.start);
-  const year      = event.start.slice(0, 4);
+  const year      = Number(event.start.slice(0, 4));
+  const totalDaysInYear = isLeapYear(year) ? 366 : 365;
+  const yearProgress = Math.round((dayOfYear / totalDaysInYear) * 100);
   const isVacances = (event.categories || []).includes('Vacances scolaires');
   const zones      = (event.zones || []).filter(z => z && z !== 'all');
+
+  // Nouvelles infos générées
+  const season = getSeason(event.start);
+  const weekendStatus = getWeekendStatus(event.start);
+  const dayName = getDayName(event.start);
+  const wikiLink = `https://fr.wikipedia.org/wiki/Spécial:Recherche?search=${encodeURIComponent(event.summary)}`;
 
   const prevEvent = siblings.prev;
   const nextEvent = siblings.next;
@@ -288,6 +389,28 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
 
   const occurrencesByYearHtml = buildOccurrencesByYear(allOccurrences, event, siteUrl);
   const hasMultipleOccurrences = allOccurrences.length > 1;
+  const occIndex = allOccurrences.findIndex(o => o.start === event.start && o.summary === event.summary);
+  const prevOcc = occIndex > 0 ? allOccurrences[occIndex - 1] : null;
+  const nextOcc = (occIndex >= 0 && occIndex < allOccurrences.length - 1) ? allOccurrences[occIndex + 1] : null;
+  const eventIcsHref = `${canonicalUrl}?format=ics`;
+
+  const googleDates = (() => {
+    const start = event.start;
+    const endInclusive = event.end && event.end !== event.start ? event.end : event.start;
+    const endExclusive = addDaysISO(endInclusive, 1);
+    return `${toIcsDate(start)}/${toIcsDate(endExclusive)}`;
+  })();
+  const googleHref = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.summary || '')}`
+    + `&dates=${encodeURIComponent(googleDates)}`
+    + `&details=${encodeURIComponent((event.description || '').slice(0, 1500))}`
+    + `&sprop=${encodeURIComponent(siteUrl)}`
+    + `&sprop=name:${encodeURIComponent('Calendrier France')}`;
+  const outlookHref = `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent`
+    + `&subject=${encodeURIComponent(event.summary || '')}`
+    + `&body=${encodeURIComponent((event.description || '').slice(0, 1500))}`
+    + `&startdt=${encodeURIComponent(event.start + 'T00:00:00')}`
+    + `&enddt=${encodeURIComponent((event.end && event.end !== event.start ? event.end : event.start) + 'T23:59:00')}`
+    + `&allday=true`;
 
   return `<!doctype html>
 <html lang="fr" data-theme="dark">
@@ -324,7 +447,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
     a { color: inherit; text-decoration: none; }
     button { font-family: var(--ff); cursor: pointer; border: none; background: none; color: inherit; }
 
-    /* ── Topbar ── */
+    /* ── Topbar, Hero, etc. (Garde tout ton CSS existant ici) ── */
     .topbar { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--b); background: color-mix(in srgb, var(--bg0) 88%, transparent); backdrop-filter: blur(20px); }
     .topbar-in { max-width: 860px; margin: 0 auto; padding: 0 20px; height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .brand { font-family: var(--ffd); font-weight: 800; font-size: 16px; display: flex; align-items: center; gap: 10px; }
@@ -333,225 +456,109 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
     .back { font-size: 13px; font-weight: 600; color: var(--t2); display: flex; align-items: center; gap: 7px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--b); background: var(--bg2); transition: .15s; }
     .back:hover { border-color: var(--cat-c); color: var(--cat-c); }
     .back i { font-size: 11px; }
-
-    /* ── Hero ── */
-    .hero {
-      position: relative; overflow: hidden;
-      padding: 56px 20px 48px;
-      border-bottom: 1px solid var(--b);
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 50% -10%, var(--cat-d), transparent 70%);
-      pointer-events: none;
-    }
+    .hero { position: relative; overflow: hidden; padding: 56px 20px 48px; border-bottom: 1px solid var(--b); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% -10%, var(--cat-d), transparent 70%); pointer-events: none; }
     .hero-in { max-width: 860px; margin: 0 auto; position: relative; }
-
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--cat-c); margin-bottom: 20px;
-      padding: 5px 14px; border-radius: 999px;
-      background: var(--cat-d); border: 1px solid var(--cat-b);
-    }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--cat-c); margin-bottom: 20px; padding: 5px 14px; border-radius: 999px; background: var(--cat-d); border: 1px solid var(--cat-b); }
     .hero-emoji { font-size: 52px; display: block; margin-bottom: 16px; line-height: 1; }
-
-    .hero h1 {
-      font-family: var(--ffd); font-size: clamp(28px, 5vw, 52px);
-      font-weight: 800; letter-spacing: -1px; line-height: 1.08;
-      margin-bottom: 20px;
-    }
+    .hero h1 { font-family: var(--ffd); font-size: clamp(28px, 5vw, 52px); font-weight: 800; letter-spacing: -1px; line-height: 1.08; margin-bottom: 20px; }
     .hero h1 em { font-style: normal; color: var(--cat-c); }
-
-    /* Countdown badge */
-    .countdown {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 20px; border-radius: 999px;
-      font-size: 15px; font-weight: 700; margin-bottom: 28px;
-      border: 1.5px solid var(--cat-b); background: var(--cat-d); color: var(--cat-c);
-    }
+    .countdown { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; margin-bottom: 28px; border: 1.5px solid var(--cat-b); background: var(--cat-d); color: var(--cat-c); }
     .countdown.past { background: var(--bg2); color: var(--t3); border-color: var(--b); }
-    .countdown i { font-size: 13px; }
-
-    /* ── Grid infos ── */
     .page { max-width: 860px; margin: 0 auto; padding: 0 20px; }
     .section { padding: 40px 0; border-bottom: 1px solid var(--b); }
     .section:last-child { border-bottom: none; }
-    .section-title {
-      font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
-      color: var(--t3); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
-    }
+    .section-title { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--t3); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
     .section-title::after { content: ''; flex: 1; height: 1px; background: var(--b); }
-
     .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
-    .info-card {
-      padding: 16px; border-radius: var(--r); border: 1px solid var(--b); background: var(--bg1);
-      display: flex; flex-direction: column; gap: 5px;
-    }
+    .info-card { padding: 16px; border-radius: var(--r); border: 1px solid var(--b); background: var(--bg1); display: flex; flex-direction: column; gap: 5px; }
     .info-card.accent { border-color: var(--cat-b); background: var(--cat-d); }
     .info-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--t3); }
     .info-card.accent .info-label { color: var(--cat-c); opacity: .8; }
     .info-value { font-size: 15px; font-weight: 700; color: var(--t1); line-height: 1.3; }
     .info-card.accent .info-value { color: var(--cat-c); }
     .info-sub { font-size: 12px; color: var(--t3); margin-top: 2px; }
-
-    /* ── Description ── */
-    .desc-block {
-      padding: 20px 22px; border-radius: var(--rl);
-      border: 1px solid var(--b); background: var(--bg1);
-      font-size: 15px; color: var(--t2); line-height: 1.8;
-    }
-
-    /* ── Catégories + zones ── */
+    .desc-block { padding: 20px 22px; border-radius: var(--rl); border: 1px solid var(--b); background: var(--bg1); font-size: 15px; color: var(--t2); line-height: 1.8; }
+    .actions-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .action-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--b); background: var(--bg2); color: var(--t2); font-size: 13px; font-weight: 700; transition: .16s; text-decoration: none; }
+    .action-btn:hover { border-color: var(--bh); transform: translateY(-1px); color: var(--t1); }
+    .action-btn.primary { border-color: var(--cat-b); background: var(--cat-d); color: var(--cat-c); }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 5px 12px; border-radius: 999px;
-      font-size: 12px; font-weight: 600;
-      border: 1px solid var(--b); background: var(--bg2); color: var(--t2);
-    }
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid var(--b); background: var(--bg2); color: var(--t2); }
     .chip.cat { border-color: var(--cat-b); background: var(--cat-d); color: var(--cat-c); }
     .chip.zone { border-color: var(--accb); background: var(--accd); color: var(--acc); }
-    .chip i { font-size: 10px; }
-
-    /* ── Occurrences par année ── */
+    
+    /* Ajout CSS spécifique pour le wiki et les académies */
+    .academy-list { margin-top: 10px; font-size: 12px; color: var(--t2); background: var(--bg0); padding: 10px 12px; border-radius: 8px; border: 1px dashed var(--b); }
+    .academy-list strong { color: var(--acc); }
+    .wiki-btn { margin-top: 12px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--t1); text-decoration: underline; text-underline-offset: 4px; }
+    .wiki-btn:hover { color: var(--cat-c); }
+    
     .occ-year-group { margin-bottom: 16px; }
-    .occ-year-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--t3); margin-bottom: 8px;
-    }
+    .occ-year-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--t3); margin-bottom: 8px; }
     .occ-year-label--current { color: var(--cat-c); }
     .occ-pills-row { display: flex; flex-wrap: wrap; gap: 6px; }
-    .occ-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 12px; border-radius: var(--r);
-      font-size: 13px; font-weight: 600;
-      border: 1px solid var(--b); background: var(--bg1);
-      color: var(--t2); transition: .15s; text-decoration: none;
-    }
+    .occ-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--r); font-size: 13px; font-weight: 600; border: 1px solid var(--b); background: var(--bg1); color: var(--t2); transition: .15s; text-decoration: none; }
     .occ-pill:hover { border-color: var(--cat-b); color: var(--cat-c); }
-    .occ-pill.current {
-      border-color: var(--cat-b); background: var(--cat-d);
-      color: var(--cat-c); font-weight: 800; cursor: default;
-      gap: 8px;
-    }
-    .occ-pill .occ-date { font-size: 12px; }
-    .occ-overflow-note {
-      font-size: 11px; color: var(--t3); margin-top: 10px; font-style: italic;
-    }
-
-    /* ── Voisins ── */
+    .occ-pill.current { border-color: var(--cat-b); background: var(--cat-d); color: var(--cat-c); font-weight: 800; cursor: default; gap: 8px; }
+    .occ-overflow-note { font-size: 11px; color: var(--t3); margin-top: 10px; font-style: italic; }
     .neighbors { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .neighbor {
-      padding: 16px; border-radius: var(--rl); border: 1px solid var(--b);
-      background: var(--bg1); text-decoration: none; transition: .18s;
-      display: flex; flex-direction: column; gap: 6px;
-    }
+    .neighbor { padding: 16px; border-radius: var(--rl); border: 1px solid var(--b); background: var(--bg1); text-decoration: none; transition: .18s; display: flex; flex-direction: column; gap: 6px; }
     .neighbor:hover { border-color: var(--bh); transform: translateY(-2px); }
     .neighbor-dir { font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--t3); display: flex; align-items: center; gap: 5px; }
     .neighbor-name { font-size: 14px; font-weight: 700; color: var(--t1); line-height: 1.3; }
     .neighbor-date { font-size: 12px; color: var(--t3); }
-    .neighbor-cat {
-      display: inline-flex; align-items: center; padding: 2px 8px;
-      border-radius: 999px; font-size: 10px; font-weight: 700;
-      border: 1px solid; margin-top: 2px; width: fit-content;
-    }
-
-    /* ── CTA ── */
     .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn-p {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 13px 22px; border-radius: var(--r);
-      background: var(--cat-c); color: #fff;
-      font-size: 14px; font-weight: 700; transition: opacity .15s;
-      text-decoration: none;
-    }
+    .btn-p { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 22px; border-radius: var(--r); background: var(--cat-c); color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
     .btn-p:hover { opacity: .85; }
-    .btn-s {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 13px 20px; border-radius: var(--r);
-      background: var(--bg2); color: var(--t2);
-      border: 1px solid var(--b); font-size: 14px; font-weight: 600; transition: .15s;
-      text-decoration: none;
-    }
+    .btn-s { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 20px; border-radius: var(--r); background: var(--bg2); color: var(--t2); border: 1px solid var(--b); font-size: 14px; font-weight: 600; text-decoration: none; }
     .btn-s:hover { border-color: var(--bh); color: var(--t1); }
-
-    /* CTA zones vacances */
     .zone-cta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 8px; margin-top: 12px; }
-    .zone-cta {
-      display: flex; align-items: center; gap: 8px;
-      padding: 12px 16px; border-radius: var(--r);
-      border: 1px solid var(--b); background: var(--bg1);
-      text-decoration: none; font-size: 13px; font-weight: 600;
-      color: var(--t2); transition: .15s;
-    }
+    .zone-cta { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: var(--r); border: 1px solid var(--b); background: var(--bg1); text-decoration: none; font-size: 13px; font-weight: 600; color: var(--t2); }
     .zone-cta:hover { border-color: var(--cat-b); color: var(--cat-c); background: var(--cat-d); }
-    .zone-cta i { color: var(--cat-c); font-size: 12px; }
-
-    /* ── Footer ── */
     footer { border-top: 1px solid var(--b); padding: 24px 20px; text-align: center; }
     .footer-links { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 10px; }
     .footer-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--t2); }
     .footer-link:hover { color: var(--t1); }
-    .footer-link.acc { color: var(--cat-c); }
     .footer-meta { font-size: 12px; color: var(--t3); margin-top: 6px; }
-    .footer-meta a { color: var(--t3); text-decoration: underline; text-underline-offset: 2px; }
-
-    /* ── Responsive ── */
-    @media (max-width: 600px) {
-      .hero { padding: 40px 16px 36px; }
-      .page { padding: 0 16px; }
-      .neighbors { grid-template-columns: 1fr; }
-      .info-grid { grid-template-columns: 1fr 1fr; }
-      .hero-emoji { font-size: 40px; }
-    }
-
-    /* ── Animations ── */
+    @media (max-width: 600px) { .hero { padding: 40px 16px 36px; } .page { padding: 0 16px; } .neighbors { grid-template-columns: 1fr; } .info-grid { grid-template-columns: 1fr 1fr; } .hero-emoji { font-size: 40px; } }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
     .hero-emoji, .hero-eyebrow, .hero h1, .countdown { animation: fadeUp .4s ease both; }
-    .hero-eyebrow  { animation-delay: .05s; }
-    .hero h1       { animation-delay: .1s; }
-    .countdown     { animation-delay: .15s; }
+    .hero-eyebrow  { animation-delay: .05s; } .hero h1 { animation-delay: .1s; } .countdown { animation-delay: .15s; }
   </style>
 </head>
 <body>
   <nav class="topbar">
     <div class="topbar-in">
       <div class="brand">
-        <div class="flag">
-          <span style="background:#002395"></span>
-          <span style="background:#ECECEC"></span>
-          <span style="background:#ED2939"></span>
-        </div>
+        <div class="flag"><span style="background:#002395"></span><span style="background:#ECECEC"></span><span style="background:#ED2939"></span></div>
         Calendrier France
       </div>
-      <a href="/#explorer" class="back">
-        <i class="fa-solid fa-arrow-left"></i> Retour au calendrier
-      </a>
+      <a href="/#explorer" class="back"><i class="fa-solid fa-arrow-left"></i> Retour au calendrier</a>
     </div>
   </nav>
 
-  <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-in">
-      <div class="hero-eyebrow">
-        <i class="fa-solid fa-tag"></i>
-        ${escapeHtml((event.categories || []).join(' · ') || 'Événement')}
-      </div>
-      <span class="hero-emoji" role="img" aria-label="${escapeHtml(mainCat)}">${emoji}</span>
+      <div class="hero-eyebrow"><i class="fa-solid fa-tag"></i> ${escapeHtml((event.categories || []).join(' · ') || 'Événement')}</div>
+      <span class="hero-emoji" role="img">${emoji}</span>
       <h1>${escapeHtml(event.summary)}<br/><em>${escapeHtml(formatDateFR(event.start))}</em></h1>
-
-      <div class="countdown${cd.past ? ' past' : ''}">
-        <i class="fa-${cd.past ? 'regular fa-clock' : 'solid fa-calendar-days'}"></i>
-        ${escapeHtml(cd.text)}
-      </div>
+      <div class="countdown${cd.past ? ' past' : ''}"><i class="fa-${cd.past ? 'regular fa-clock' : 'solid fa-calendar-days'}"></i> ${escapeHtml(cd.text)}</div>
     </div>
   </section>
 
   <div class="page">
+    <section class="section">
+      <div class="section-title"><i class="fa-solid fa-calendar-plus"></i> Ajouter à votre agenda</div>
+      <div class="actions-row">
+        <a class="action-btn primary" href="${escapeHtml(eventIcsHref)}"><i class="fa-solid fa-download"></i>Télécharger .ICS</a>
+        <a class="action-btn" target="_blank" rel="noopener" href="${escapeHtml(googleHref)}"><i class="fa-brands fa-google"></i>Google Calendar</a>
+        <a class="action-btn" target="_blank" rel="noopener" href="${escapeHtml(outlookHref)}"><i class="fa-brands fa-microsoft"></i>Outlook</a>
+        <button class="action-btn" id="copy-link" type="button"><i class="fa-solid fa-link"></i>Copier le lien</button>
+      </div>
+      <div class="copy-note" id="copy-note" aria-live="polite"></div>
+    </section>
 
-    <!-- ── INFOS CLÉS ── -->
     <section class="section">
       <div class="section-title"><i class="fa-solid fa-circle-info"></i> Informations</div>
       <div class="info-grid">
@@ -561,33 +568,47 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
           ${isRange ? `<div class="info-sub">au ${escapeHtml(formatDateFR(event.end))}</div>` : ''}
         </div>
         <div class="info-card">
+          <div class="info-label">Jour</div>
+          <div class="info-value">${escapeHtml(dayName)}</div>
+          <div class="info-sub">${weekendStatus}</div>
+        </div>
+        <div class="info-card">
           <div class="info-label">Durée</div>
           <div class="info-value">${duration} jour${duration > 1 ? 's' : ''}</div>
           ${duration > 1 ? `<div class="info-sub">${Math.ceil(duration / 7)} semaine${Math.ceil(duration / 7) > 1 ? 's' : ''}</div>` : ''}
         </div>
         <div class="info-card">
+          <div class="info-label">Saison</div>
+          <div class="info-value">${season.emoji} ${season.name}</div>
+          <div class="info-sub">Hémisphère nord</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">Année</div>
+          <div class="info-value">${yearProgress} % écoulés</div>
+          <div class="info-sub">Jour ${dayOfYear} sur ${totalDaysInYear}</div>
+        </div>
+        <div class="info-card">
           <div class="info-label">Semaine ISO</div>
           <div class="info-value">S${isoWeek.toString().padStart(2, '0')}</div>
-          <div class="info-sub">Jour ${dayOfYear} de l'année</div>
+          <div class="info-sub">Année ${year}</div>
         </div>
-        ${zones.length ? `
-        <div class="info-card">
-          <div class="info-label">Zone${zones.length > 1 ? 's' : ''} scolaire${zones.length > 1 ? 's' : ''}</div>
-          <div class="info-value">${zones.map(z => escapeHtml(zoneLabel(z))).join(', ')}</div>
-        </div>` : ''}
       </div>
     </section>
 
-    <!-- ── DESCRIPTION ── -->
-    ${event.description ? `
+    ${event.description || true ? `
     <section class="section">
       <div class="section-title"><i class="fa-solid fa-book-open"></i> À propos</div>
-      <div class="desc-block">${escapeHtml(event.description).replace(/\n/g, '<br/>')}</div>
+      <div class="desc-block">
+        ${event.description ? escapeHtml(event.description).replace(/\n/g, '<br/>') : 'Cet événement fait partie du calendrier national français.'}
+        <br>
+        <a href="${escapeHtml(wikiLink)}" target="_blank" rel="noopener" class="wiki-btn">
+          <i class="fa-brands fa-wikipedia-w"></i> Lire sur Wikipédia
+        </a>
+      </div>
     </section>` : ''}
 
-    <!-- ── CATÉGORIES & ZONES ── -->
     <section class="section">
-      <div class="section-title"><i class="fa-solid fa-tags"></i> Catégories</div>
+      <div class="section-title"><i class="fa-solid fa-tags"></i> Catégories & Zones</div>
       <div class="chips">
         ${(event.categories || []).map(c => {
           const cd2 = getCatColor(c);
@@ -597,16 +618,20 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
         }).join('')}
         ${zones.map(z => `<span class="chip zone"><i class="fa-solid fa-location-dot"></i>${escapeHtml(zoneLabel(z))}</span>`).join('')}
       </div>
+      
+      ${zones.length ? `
+      <div class="academy-list">
+        ${zones.map(z => ACADEMIES[z] ? `<strong>Zone ${z} :</strong> ${ACADEMIES[z]}<br>` : '').join('')}
+      </div>
+      ` : ''}
     </section>
 
-    <!-- ── OCCURRENCES PAR ANNÉE ── -->
     ${hasMultipleOccurrences ? `
     <section class="section">
       <div class="section-title"><i class="fa-solid fa-rotate"></i> Autres occurrences (${allOccurrences.length} au total)</div>
       ${occurrencesByYearHtml}
     </section>` : ''}
 
-    <!-- ── ÉVÉNEMENTS VOISINS ── -->
     ${(prevEvent || nextEvent) ? `
     <section class="section">
       <div class="section-title"><i class="fa-solid fa-arrows-left-right"></i> Dans le calendrier</div>
@@ -636,7 +661,6 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
       </div>
     </section>` : ''}
 
-    <!-- ── CTA ABONNEMENT ── -->
     <section class="section">
       <div class="section-title"><i class="fa-solid fa-bolt"></i> S'abonner au calendrier</div>
       <div class="cta-row">
@@ -644,22 +668,17 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
           <i class="fa-solid fa-bolt"></i>
           ${isVacances && zones.length ? `S'abonner — ${escapeHtml(zones.map(z => zoneLabel(z)).join(' + '))}` : 'S\'abonner au calendrier complet'}
         </a>
-        <a href="/#explorer" class="btn-s">
-          <i class="fa-regular fa-calendar"></i> Voir tous les événements
-        </a>
+        <a href="/#explorer" class="btn-s"><i class="fa-regular fa-calendar"></i> Voir tous les événements</a>
       </div>
       ${isVacances && zones.length < 3 ? `
       <div style="margin-top:10px;font-size:13px;color:var(--t3)">Ou s'abonner par zone :</div>
       <div class="zone-cta-grid">
         ${['A', 'B', 'C'].map(z => {
           const wc = `webcal://calendrier-fr.tibotsr.dev/api/calendrier.ics?zone=${z}&cats=Vacances+scolaires,Jours+f%C3%A9ri%C3%A9s`;
-          return `<a href="${wc}" class="zone-cta">
-            <i class="fa-solid fa-bolt"></i>Zone ${z}
-          </a>`;
+          return `<a href="${wc}" class="zone-cta"><i class="fa-solid fa-bolt"></i>Zone ${z}</a>`;
         }).join('')}
       </div>` : ''}
     </section>
-
   </div>
 
   <footer>
@@ -678,6 +697,38 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
       </p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('copy-link');
+      var note = document.getElementById('copy-note');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var url = ${safeJson(canonicalUrl)};
+        function done(ok) {
+          if (!note) return;
+          note.textContent = ok ? 'Lien copié.' : 'Impossible de copier automatiquement. Sélectionnez et copiez : ' + url;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function(){ done(true); }, function(){ done(false); });
+          return;
+        }
+        try {
+          var ta = document.createElement('textarea');
+          ta.value = url;
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          var ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+          done(!!ok);
+        } catch (e) {
+          done(false);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>`;
 }
@@ -749,6 +800,20 @@ module.exports = async function handler(req, res) {
       prev: idx > 0 ? sorted[idx - 1] : null,
       next: idx < sorted.length - 1 ? sorted[idx + 1] : null,
     };
+
+    // Export ICS de cet événement : /event/<slug>?format=ics
+    const format = (url.searchParams.get('format') || '').toLowerCase();
+    if (format === 'ics') {
+      const domain = req.headers.host || 'calendrier-fr.tibotsr.dev';
+      const ics = buildSingleEventIcs(match, domain);
+      const filename = `${slugifyWithDate(match.summary, match.start)}.ics`;
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'text/calendar; charset=utf-8');
+      res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+      res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=0');
+      res.end(ics);
+      return;
+    }
 
     const html = buildHtml(match, siblings, allOccurrences, siteUrl, icsUrl);
     res.statusCode = 200;

@@ -1244,7 +1244,7 @@ html.no-js body > :not(noscript) {
   width: min(500px, 100%); background: var(--bg1);
   border: 1px solid var(--ba); border-radius: var(--rxl);
   padding: 24px; box-shadow: var(--shl);
-  max-height: 90vh; overflow-y: auto;
+  max-height: 90vh; overflow: hidden auto;
   position: relative;
   --modal-accent: var(--acc);
   --modal-accent-soft: var(--accd);
@@ -1254,13 +1254,20 @@ html.no-js body > :not(noscript) {
   content: '';
   position: absolute;
   inset: 0 0 auto 0;
-  height: 132px;
+  height: 60px;
+  /* Halo pleine largeur (pas de "spot"), puis fondu vertical vers le bas */
   background:
-    radial-gradient(circle at 18% 0%, color-mix(in srgb, var(--modal-accent) 28%, transparent), transparent 52%),
     linear-gradient(180deg,
-      color-mix(in srgb, var(--modal-accent) 18%, var(--bg2)) 0%,
-      color-mix(in srgb, var(--modal-accent-soft) 98%, transparent) 46%,
+      color-mix(in srgb, var(--modal-accent) 62%, transparent) 0%,
+      color-mix(in srgb, var(--modal-accent) 32%, transparent) 38%,
+      transparent 100%),
+    linear-gradient(90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--modal-accent-soft) 22%, transparent) 18%,
+      color-mix(in srgb, var(--modal-accent-soft) 22%, transparent) 82%,
       transparent 100%);
+  filter: blur(9px);
+  opacity: 1;
   pointer-events: none;
   z-index: 0;
 }
