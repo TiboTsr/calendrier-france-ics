@@ -87,7 +87,7 @@ function closeCalendarUpdatePrompt() {
 }
 
 async function fetchCalendarData() {
-  const bust = Math.floor(Date.now() / 30000); // 30s buckets
+  const bust = Date.now();
   const res = await fetch(`/calendrier.json?v=${bust}`, { cache: 'no-store' });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
@@ -148,7 +148,7 @@ async function refreshCalendarDataInPlace() {
 async function checkForCalendarUpdate() {
   if (!_loadedCalendarVersion || document.hidden) return;
   try {
-    const bust = Math.floor(Date.now() / 30000); // 30s buckets
+    const bust = Date.now();
     const res = await fetch(`/events-meta.json?v=${bust}`, { cache: 'no-store' });
     if (!res.ok) return;
     const meta = await res.json();
