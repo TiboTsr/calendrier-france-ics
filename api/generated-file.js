@@ -4,6 +4,9 @@ const GENERATED_DATA_REPO = process.env.GENERATED_DATA_REPO || 'TiboTsr/calendri
 const GENERATED_DATA_BRANCH = process.env.GENERATED_DATA_BRANCH || 'data';
 const RAW_BASE = 'https://raw.githubusercontent.com/' + GENERATED_DATA_REPO + '/' + GENERATED_DATA_BRANCH;
 const CACHE_SHORT = 'public, s-maxage=300, stale-while-revalidate=3600';
+// Le front affiche l'age de synchro et check les updates via ces 2 fichiers.
+// Si on laisse un SWR long, Vercel peut servir une version "stale" jusqu'a 1h.
+const CACHE_REALTIME_JSON = 'public, s-maxage=30, stale-while-revalidate=0';
 const CACHE_ICS = 'public, s-maxage=3600, stale-while-revalidate=86400';
 
 function isAllowedFile(name) {
@@ -16,6 +19,13 @@ function contentTypeFor(name) {
   if (name.endsWith('.xml')) return 'application/xml; charset=utf-8';
   if (name.endsWith('.csv')) return 'text/csv; charset=utf-8';
   return 'application/octet-stream';
+}
+
+function cacheControlFor(name) {
+  const lower = (name || '').toLowerCase();
+  if (lower === 'calendrier.json' || lower === 'events-meta.json') return CACHE_REALTIME_JSON;
+  if (lower.endsWith('.ics')) return CACHE_ICS;
+  return CACHE_SHORT;
 }
 
 module.exports = async (req, res) => {
@@ -40,7 +50,7 @@ module.exports = async (req, res) => {
   }
 
   res.setHeader('Content-Type', contentTypeFor(name));
-  res.setHeader('Cache-Control', name.endsWith('.ics') ? CACHE_ICS : CACHE_SHORT);
+  res.setHeader('Cache-Control', cacheControlFor(name));
 
   const etag = upstream.headers.get('etag');
   const lastModified = upstream.headers.get('last-modified');
