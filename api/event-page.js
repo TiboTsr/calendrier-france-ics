@@ -331,13 +331,24 @@ function getSeason(dateStr) {
   return { name: 'Hiver', emoji: '❄️' };
 }
 
-function getWeekendStatus(dateStr) {
+function getWeekendStatus(dateStr, categories = []) {
   const [y, m, d] = dateStr.split('-').map(Number);
   const dt = new Date(Date.UTC(y, m - 1, d));
   const wd = dt.getUTCDay();
+
+  const isFerie = categories.includes('Jours fériés') || categories.includes('Ponts / Congés');
+
+  if (isFerie) {
+    if (wd === 0 || wd === 6) return 'Tombe un week-end 😕'; // Dommage pour un férié !
+    if (wd === 1 || wd === 5) return 'Week-end prolongé ! 🥳';
+    if (wd === 2 || wd === 4) return 'Pont possible ! 🌉';
+    if (wd === 3) return 'Coupure en pleine semaine 🌴';
+  }
+
   if (wd === 0 || wd === 6) return 'Tombe un week-end 😴';
-  if (wd === 1 || wd === 5) return 'Week-end prolongé ! 🥳';
-  if (wd === 2 || wd === 4) return 'Pont possible ! 🌉';
+  if (wd === 5) return 'Veille de week-end 🍻';
+  if (wd === 1) return 'Début de semaine ☕';
+  
   return 'En pleine semaine 💼';
 }
 
