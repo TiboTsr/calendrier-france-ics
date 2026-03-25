@@ -32,6 +32,36 @@ function formatCalendarVersionLabel(value) {
   }).format(parsed);
 }
 
+function updateHeroStats(data) {
+  const eventsEl = document.getElementById('hero-stat-events');
+  const catsEl = document.getElementById('hero-stat-cats');
+  const updatedEl = document.getElementById('hero-stat-updated');
+  if (!eventsEl || !catsEl || !updatedEl) return;
+
+  const totalEvents = Number(data?.totalEvents || (data?.events || []).length || 0);
+  const categoriesCount = [...new Set((data?.events || []).flatMap((event) => event.categories || []))].length;
+  const generatedAt = getCalendarGeneratedAt(data);
+  const generatedDate = generatedAt ? new Date(generatedAt) : null;
+  const updatedLabel = generatedDate && !Number.isNaN(generatedDate.getTime())
+    ? formatRelativeSyncAge(generatedDate)
+    : '--';
+
+  eventsEl.textContent = new Intl.NumberFormat('fr-FR').format(totalEvents);
+  catsEl.textContent = new Intl.NumberFormat('fr-FR').format(categoriesCount);
+  updatedEl.textContent = updatedLabel;
+}
+
+function formatRelativeSyncAge(date) {
+  const diffMs = Date.now() - date.getTime();
+  const diffMinutes = Math.max(0, Math.round(diffMs / 60000));
+  if (diffMinutes < 1) return "à l'instant";
+  if (diffMinutes < 60) return `il y a ${diffMinutes} min`;
+  const diffHours = Math.round(diffMinutes / 60);
+  if (diffHours < 24) return `il y a ${diffHours} h`;
+  const diffDays = Math.round(diffHours / 24);
+  return `il y a ${diffDays} j`;
+}
+
 function updateCalendarPromptText(version) {
   const el = document.getElementById('calendar-update-text');
   if (!el) return;
@@ -68,7 +98,7 @@ function applyCalendarData(data, { preserveYear = true } = {}) {
   _pendingCalendarVersionLabel = null;
   _dismissedCalendarVersion = null;
 
-  STATE.srcEvts = (data.events || []).map((e) => ({
+STATE.srcEvts = (data.events || []).map((e) => ({
     ...e,
     _date: e.start ? new Date(+e.start.slice(0, 4), +e.start.slice(5, 7) - 1, +e.start.slice(8, 10)) : null,
     _endDate: e.end ? new Date(+e.end.slice(0, 4), +e.end.slice(5, 7) - 1, +e.end.slice(8, 10)) : null,
@@ -82,6 +112,7 @@ function applyCalendarData(data, { preserveYear = true } = {}) {
   }));
 
   setSyncAge(getCalendarGeneratedAt(data));
+  updateHeroStats(data);
 
   const years = [...new Set(STATE.srcEvts.map((e) => e._date?.getFullYear()).filter(Boolean))];
   const thisYr = new Date().getFullYear();

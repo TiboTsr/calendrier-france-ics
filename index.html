@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr" data-theme="dark" class="no-js">
 
 <head>
@@ -153,9 +153,6 @@
           title="Activer le mode accessibilité">
           <i class="fa-solid fa-universal-access"></i>
         </button>
-        <button id="help-btn" class="tbtn" aria-label="Aide — ouvrir le tutoriel" title="Aide">
-          <i class="fa-solid fa-circle-question"></i>
-        </button>
         <span id="theme-label" class="theme-label" aria-live="polite">Thème sombre</span>
         <button id="theme-btn" class="tbtn" aria-label="Passer en thème clair" title="Passer en thème clair">
           <i class="fa-solid fa-sun"></i>
@@ -179,6 +176,21 @@
       </p>
 
       <div id="r-countdown-hero" class="hero-countdown" aria-live="polite" style="display:none"></div>
+
+      <div class="hero-stats" id="hero-stats" aria-label="Statistiques du calendrier">
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-stat-events">--</div>
+          <div class="hero-stat-label">événements synchronisés</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-stat-cats">--</div>
+          <div class="hero-stat-label">catégories suivies</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-stat-updated">--</div>
+          <div class="hero-stat-label">mise à jour</div>
+        </div>
+      </div>
 
       <div class="hero-cta-row">
         <a href="#sync" class="btn-hero btn-hero-p">
@@ -454,7 +466,7 @@
                   style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; cursor:pointer;">
                   <input type="checkbox" id="adv-emojis" checked
                     style="accent-color: var(--acc); width: 16px; height: 16px;">
-                  Ajouter des emojis (🏖️, 🎄) aux événements
+                  Ajouter des emojis (🏖️, 🎄) aux événements (beta)
                 </label>
               </div>
             </div>
@@ -610,7 +622,6 @@
 
         <div class="exp-main">
           <div class="radar">
-            <div id="r-countdown" aria-live="polite" style="display:none;margin-bottom:10px"></div>
             <div class="radar-top">
               <h3><i class="fa-solid fa-satellite-dish ui-ico" aria-hidden="true"></i>Prochains événements</h3>
               <span class="radar-cnt" id="r-cnt"></span>
@@ -640,11 +651,11 @@
           </div>
 
           <div class="tl-wrap" id="tl-wrap">
-            <div class="view-toggle" style="display: flex; gap: 4px; margin-bottom: 15px;">
+            <!--<div class="view-toggle" style="display: flex; gap: 4px; margin-bottom: 15px;">
               <button id="btn-view-list" class="tbtn active" title="Vue Liste"><i class="fa-solid fa-list"></i></button>
-              <button id="btn-view-grid" class="tbtn" title="Vue Grille (Mois)"><i
+              <button id="btn-view-grid" class="tbtn" title="Vue Grille (Mois)" hidden aria-hidden="true" tabindex="-1"><i
                   class="fa-solid fa-calendar-days"></i></button>
-            </div>
+            </div>-->
             <div id="ev-root"></div>
             <div id="grid-root" style="display: none;"></div>
             <div class="tl-sentinel" id="tl-sentinel"></div>
@@ -995,10 +1006,12 @@
       <div class="mdl">Description</div>
       <div class="md" id="m-desc">—</div>
 
-      <a id="m-event-link" href="#" target="_blank" rel="noopener">
-        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-        Voir la page dédiée
-      </a>
+      <div class="m-actions">
+        <a id="m-event-link" href="#" target="_blank" rel="noopener">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          Voir la page dédiée
+        </a>
+      </div>
 
       <div class="m-keyboard-hint" aria-hidden="true">
         <span class="m-kbd">←</span>
@@ -1032,17 +1045,6 @@
     window.CALENDAR_API_BASE = "api.calendrier-fr.tibotsr.dev";
   </script>
   <script>
-    (function () {
-      var hero = document.getElementById('r-countdown-hero');
-      var radar = document.getElementById('r-countdown');
-      if (!hero || !radar) return;
-      new MutationObserver(function () {
-        var visible = radar.style.display !== 'none' && radar.innerHTML;
-        hero.innerHTML = visible ? radar.innerHTML : '';
-        hero.style.display = visible ? 'block' : 'none';
-      }).observe(radar, { childList: true, attributes: true, attributeFilter: ['style'] });
-    })();
-
     (function () {
       var TOP = [
         ['fa-circle-check', 'Jours fériés'],

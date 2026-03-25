@@ -133,15 +133,15 @@ function pd(s) {
 }
 
 function fmt(d) {
-  return new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d);
+  return new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }).format(d);
 }
 
 function fmts(d) {
-  return new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'short', timeZone: 'UTC' }).format(d);
+  return new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'short' }).format(d);
 }
 
 function fmtwd(d) {
-  return new Intl.DateTimeFormat('fr-FR', { weekday: 'short', timeZone: 'UTC' }).format(d).replace('.', '');
+  return new Intl.DateTimeFormat('fr-FR', { weekday: 'short' }).format(d).replace('.', '');
 }
 
 function norm(s) {

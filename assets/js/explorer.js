@@ -8,6 +8,7 @@
  */
 
 const CHUNK = 3;
+let _explorerAutoFocusedToday = false;
 
 const LS = {
   get(key, fallback = null) {
@@ -146,9 +147,9 @@ function getFilteredUpcoming() {
 
 /* ── Radar ──────────────────────────────────────────── */
 function _dayDiff(from, to) {
-  const a = new Date(from); a.setHours(0,0,0,0);
-  const b = new Date(to);   b.setHours(0,0,0,0);
-  return Math.round((b - a) / 86400000);
+  const d1 = Date.UTC(from.getUTCFullYear(), from.getUTCMonth(), from.getUTCDate());
+  const d2 = Date.UTC(to.getUTCFullYear(), to.getUTCMonth(), to.getUTCDate());
+  return Math.round((d2 - d1) / 86400000);
 }
 
 function _delayBadge(diffDays, def) {
@@ -156,6 +157,59 @@ function _delayBadge(diffDays, def) {
   if (diffDays === 1) return `<span class="rc-delay rc-delay--soon" style="background:${def.d};color:${def.c};border-color:${def.b}">Demain</span>`;
   if (diffDays <= 7)  return `<span class="rc-delay rc-delay--soon" style="background:${def.d};color:${def.c};border-color:${def.b}">Dans ${diffDays}j</span>`;
   return `<span class="rc-delay" style="background:var(--bg3);color:var(--t3);border-color:var(--b)">Dans ${diffDays}j</span>`;
+}
+
+function _initRadarScroller(scroller, counter) {
+  if (!scroller) return;
+
+  if (!scroller.dataset.radarScrollInit) {
+    scroller.dataset.radarScrollInit = '1';
+    scroller.tabIndex = 0;
+    scroller.setAttribute('aria-label', 'Défilement horizontal des cartes');
+
+    let isDragging = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+
+    scroller.addEventListener('wheel', (event) => {
+      const canScroll = scroller.scrollWidth > scroller.clientWidth + 8;
+      if (!canScroll) return;
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      event.preventDefault();
+      scroller.scrollLeft += event.deltaY;
+    }, { passive: false });
+
+    scroller.addEventListener('mousedown', (event) => {
+      if (event.button !== 0) return;
+      isDragging = true;
+      startX = event.clientX;
+      startScrollLeft = scroller.scrollLeft;
+      scroller.classList.add('is-dragging');
+    });
+
+    window.addEventListener('mousemove', (event) => {
+      if (!isDragging) return;
+      event.preventDefault();
+      scroller.scrollLeft = startScrollLeft - (event.clientX - startX);
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+      scroller.classList.remove('is-dragging');
+    });
+  }
+
+  const canScroll = scroller.scrollWidth > scroller.clientWidth + 8;
+  const atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 4;
+  scroller.classList.toggle('radar-can-scroll', canScroll);
+  scroller.classList.toggle('radar-at-end', canScroll && atEnd);
+
+  if (counter) {
+    const base = counter.dataset.baseLabel || counter.textContent.trim();
+    counter.dataset.baseLabel = base;
+    counter.textContent = base;
+    counter.title = canScroll ? 'Glisser ou utiliser la molette pour defiler' : '';
+  }
 }
 
 function _ongoingBadge(end, def) {
@@ -179,20 +233,18 @@ function renderRadar(evts) {
   const upcoming = evts.filter(e => e.date >= today && e.date <= end30).slice(0, 10);
   const ongoing  = evts.filter(e => e.endDate && e.date < today && e.endDate >= today)
     .sort((a, b) => a.endDate - b.endDate).slice(0, 8);
-
-  const countdownEl = document.getElementById('r-countdown');
   const heroEl      = document.getElementById('r-countdown-hero');
   const next = evts.find(e => e.date >= today);
-  if (next && countdownEl) {
+  if (next && heroEl) {
     const diff  = _dayDiff(today, next.date);
     const label = diff === 0 ? "Aujourd'hui !" : diff === 1 ? 'Demain !' : `Dans ${diff} jour${diff > 1 ? 's' : ''}`;
     const cat   = (next.categories && next.categories[0]) || 'Événement';
     const def   = cd(cat);
-    const html  = `<span class="r-countdown-pill" style="background:${def.d};border-color:${def.b};color:${def.c}"><a href="#explorer"><i class="fa-solid fa-calendar-days"></i><strong> ${escHtml(label)}</strong></a><span style="opacity:.8">— ${escHtml(next.summary)}</span></span>`;
-    countdownEl.innerHTML = html; countdownEl.style.display = 'block';
-    if (heroEl) { heroEl.innerHTML = html; heroEl.style.display = 'block'; }
+    const glowClass = diff === 0 ? ' r-countdown-pill--today' : '';
+    const html  = `<span class="r-countdown-pill${glowClass}" style="background:${def.d};border-color:${def.b};color:${def.c}"><a href="#explorer"><i class="fa-solid fa-calendar-days"></i><strong> ${escHtml(label)}</strong></a><span style="opacity:.8">— ${escHtml(next.summary)}</span></span>`;
+    heroEl.innerHTML = html;
+    heroEl.style.display = 'block';
   } else {
-    if (countdownEl) countdownEl.style.display = 'none';
     if (heroEl) heroEl.style.display = 'none';
   }
 
@@ -223,6 +275,7 @@ function renderRadar(evts) {
       root.appendChild(card);
     });
   }
+  _initRadarScroller(root, cnt);
 
   /* En cours */
   if (!ongoing.length) {
@@ -251,6 +304,7 @@ function renderRadar(evts) {
       activeRoot.appendChild(card);
     });
   }
+  _initRadarScroller(activeRoot, activeCnt);
 }
 
 /* ── Year nav ───────────────────────────────────────── */
@@ -406,6 +460,33 @@ function scrollToToday() {
   }));
 }
 
+function initExplorerAutoFocusToday() {
+  const explorer = document.getElementById('explorer');
+  if (!explorer) return;
+
+  const tryAutoFocus = () => {
+    if (_explorerAutoFocusedToday) return;
+    if (STATE.curMonth !== 'all') return;
+    if (STATE.curYear !== new Date().getFullYear()) return;
+    const rect = explorer.getBoundingClientRect();
+    const triggerLine = getStickyOffset() + 24;
+    const hasEnteredSection = rect.top <= triggerLine;
+    const sectionStillVisible = rect.bottom > triggerLine + 120;
+    if (!hasEnteredSection || !sectionStillVisible) return;
+
+    _explorerAutoFocusedToday = true;
+    window.removeEventListener('scroll', onScroll, { passive: true });
+    setTimeout(() => refreshAll({ autoScrollToday: true, forceRender: true }), 60);
+  };
+
+  const onScroll = () => {
+    tryAutoFocus();
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  setTimeout(tryAutoFocus, 0);
+}
+
 function buildDateBadge(ev, def, isPast) {
   const end     = ev.endDate || ev.date;
   const isRange = end && end.getTime() > ev.date.getTime();
@@ -547,6 +628,12 @@ function openModal(ev, evts) {
     mCatBar.style.background = `linear-gradient(90deg, ${def.c}, ${def.b})`;
     mCatBar.title = mainCat;
   }
+  const modalCard = document.querySelector('#ev-modal .ms');
+  if (modalCard) {
+    modalCard.style.setProperty('--modal-accent', def.c);
+    modalCard.style.setProperty('--modal-accent-soft', def.d);
+    modalCard.style.setProperty('--modal-accent-border', def.b);
+  }
 
   // Occurrences : compteur et navigation
   const occCount = same.length;
@@ -625,18 +712,29 @@ function openModal(ev, evts) {
     ferieLink.style.display = 'inline-flex';
   }
 
+  document.body.classList.add('modal-open');
   document.getElementById('ev-modal').classList.add('on');
 }
 
-document.getElementById('m-cl').addEventListener('click', () => document.getElementById('ev-modal').classList.remove('on'));
+document.getElementById('m-cl').addEventListener('click', () => {
+  document.body.classList.remove('modal-open');
+  document.getElementById('ev-modal').classList.remove('on');
+});
 document.getElementById('ev-modal').addEventListener('click', e => {
-  if (e.target === document.getElementById('ev-modal')) document.getElementById('ev-modal').classList.remove('on');
+  if (e.target === document.getElementById('ev-modal')) {
+    document.body.classList.remove('modal-open');
+    document.getElementById('ev-modal').classList.remove('on');
+  }
 });
 document.getElementById('m-prev')?.addEventListener('click', () => { if (_modalPrev) openModal(_modalPrev, _modalEvts); });
 document.getElementById('m-next')?.addEventListener('click', () => { if (_modalNext) openModal(_modalNext, _modalEvts); });
 document.addEventListener('keydown', e => {
   if (!document.getElementById('ev-modal').classList.contains('on')) return;
-  if (e.key === 'Escape') { document.getElementById('ev-modal').classList.remove('on'); return; }
+  if (e.key === 'Escape') {
+    document.body.classList.remove('modal-open');
+    document.getElementById('ev-modal').classList.remove('on');
+    return;
+  }
   if (e.key === 'ArrowLeft'  && _modalPrev) { e.preventDefault(); openModal(_modalPrev, _modalEvts); }
   if (e.key === 'ArrowRight' && _modalNext) { e.preventDefault(); openModal(_modalNext, _modalEvts); }
 });
@@ -667,12 +765,11 @@ document.getElementById('btn-view-list')?.addEventListener('click', () => {
 });
 
 document.getElementById('btn-view-grid')?.addEventListener('click', () => {
-  currentView = 'grid';
-  document.getElementById('btn-view-grid').classList.add('active');
-  document.getElementById('btn-view-list').classList.remove('active');
-  document.getElementById('ev-root').style.display = 'none';
-  document.getElementById('grid-root').style.display = 'flex';
-  if (window.renderCalendarGrid) window.renderCalendarGrid();
+  currentView = 'list';
+  document.getElementById('btn-view-list')?.classList.add('active');
+  document.getElementById('btn-view-grid')?.classList.remove('active');
+  document.getElementById('ev-root').style.display = 'block';
+  document.getElementById('grid-root').style.display = 'none';
 });
 
 const originalRefreshAll = refreshAll;
@@ -682,3 +779,5 @@ window.refreshAll = function(opts) {
     window.renderCalendarGrid();
   }
 };
+
+initExplorerAutoFocusToday();
