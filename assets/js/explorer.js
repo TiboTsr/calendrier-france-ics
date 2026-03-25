@@ -707,8 +707,7 @@ function openModal(ev, evts) {
   // Lien vers page dédiée /event/[slug]
   const ferieLink = document.getElementById('m-event-link');
   if (ferieLink) {
-    const dateStr = ev.start || `${ev.date.getFullYear()}-${String(ev.date.getMonth() + 1).padStart(2, '0')}-${String(ev.date.getDate()).padStart(2, '0')}`;
-    const slug = `${_slugify(ev.summary)}-${dateStr}`;
+    const slug = `${_slugify(ev.summary)}-${ev.start}`;
     ferieLink.href = `/event/${slug}`;
     ferieLink.style.display = 'inline-flex';
   }
