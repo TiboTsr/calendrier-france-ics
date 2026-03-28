@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-03-28T02:50:07.996088+00:00",
-  "contentVersion": "23324e9867b92e4d",
-  "totalEvents": 4687,
+  "generatedAt": "2026-03-28T09:12:11.699331+00:00",
+  "contentVersion": "35e6e5f64d18a95e",
+  "totalEvents": 4690,
   "profiles": [
     "essentiel",
     "culturel",
@@ -10236,6 +10236,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2006-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2006-09-22",
       "end": null,
@@ -10254,17 +10265,6 @@
       "categories": [
         "Astronomie",
         "Lunaire"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2006-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -10628,7 +10628,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2006-12-22",
+      "start": "2006-12-21",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -10639,9 +10639,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2006-12-22",
+      "start": "2006-12-21",
       "end": null,
-      "description": "Le 22 December est le jour le plus court de l'année 2006.",
+      "description": "Le 21 December est le jour le plus court de l'année 2006.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -10981,7 +10981,7 @@
     },
     {
       "summary": "Début du Printemps — Équinoxe de printemps",
-      "start": "2007-03-21",
+      "start": "2007-03-20",
       "end": null,
       "description": "L'équinoxe de printemps marque le début astronomique du printemps.",
       "categories": [
@@ -11756,6 +11756,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2007-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2007-09-22",
       "end": null,
@@ -11763,17 +11774,6 @@
       "categories": [
         "Environnement",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2007-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -12147,7 +12147,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2007-12-22",
+      "start": "2007-12-21",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -12158,9 +12158,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2007-12-22",
+      "start": "2007-12-21",
       "end": null,
-      "description": "Le 22 December est le jour le plus court de l'année 2007.",
+      "description": "Le 21 December est le jour le plus court de l'année 2007.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -16374,17 +16374,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2010-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2010-09-22",
       "end": null,
@@ -16392,6 +16381,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2010-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -17904,17 +17904,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2011-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2011-09-22",
       "end": null,
@@ -17922,6 +17911,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2011-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -18295,7 +18295,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2011-12-21",
+      "start": "2011-12-22",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -18306,9 +18306,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2011-12-21",
+      "start": "2011-12-22",
       "end": null,
-      "description": "Le 21 December est le jour le plus court de l'année 2011.",
+      "description": "Le 22 December est le jour le plus court de l'année 2011.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -19148,9 +19148,20 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2012-06-21",
+      "start": "2012-06-20",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2012-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2012.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -19165,17 +19176,6 @@
       "categories": [
         "Culture",
         "Fêtes"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2012-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2012.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -22492,17 +22492,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2014-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2014-09-22",
       "end": null,
@@ -22510,6 +22499,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2014-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -38765,9 +38765,20 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2024-06-21",
+      "start": "2024-06-20",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2024-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2024.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -38782,17 +38793,6 @@
       "categories": [
         "Culture",
         "Fêtes"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2024-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2024.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -41897,6 +41897,18 @@
       "zones": []
     },
     {
+      "summary": "Match amical Brésil - France",
+      "start": "2026-03-26",
+      "end": "2026-03-26",
+      "description": "Match amical entre le Brésil et la France.",
+      "categories": [
+        "Sport"
+      ],
+      "zones": [
+        "all"
+      ]
+    },
+    {
       "summary": "Dimanche des Rameaux",
       "start": "2026-03-29",
       "end": null,
@@ -41905,6 +41917,18 @@
         "Christianisme"
       ],
       "zones": []
+    },
+    {
+      "summary": "Match amical Colombie - France",
+      "start": "2026-03-29",
+      "end": "2026-03-29",
+      "description": "Match amical entre la Colombie et la France.",
+      "categories": [
+        "Sport"
+      ],
+      "zones": [
+        "all"
+      ]
     },
     {
       "summary": "Passage à l'heure d'été",
@@ -42457,6 +42481,18 @@
       "zones": []
     },
     {
+      "summary": "Match France - Sénégal",
+      "start": "2026-06-16",
+      "end": "2026-06-16",
+      "description": "Premier match de la coupe du monde pour l'équipe de France contre le Sénégal. Nous sommes dans la phase de poules. Les deux premières équipes de chaque groupe se qualifient pour la suite",
+      "categories": [
+        "Sport"
+      ],
+      "zones": [
+        "all"
+      ]
+    },
+    {
       "summary": "Appel du 18 juin 1940 — Anniversaire",
       "start": "2026-06-18",
       "end": null,
@@ -42844,17 +42880,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2026-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2026-09-22",
       "end": null,
@@ -42862,6 +42887,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2026-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },

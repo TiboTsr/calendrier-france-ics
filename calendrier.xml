@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 28 Mar 2026 02:50:07 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2026 09:12:11 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
@@ -18,6 +18,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-03-29</link>
       <guid>e0a574cf0e8ecac892ff690b@calendrier-fr.tibotsr.dev</guid>
       <description>Ouvre la Semaine Sainte en rappelant l'entrée triomphale de Jésus à Jérusalem.</description>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Match amical Colombie - France</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2026-03-29</link>
+      <guid>f7927a04255e2d82bf428539@calendrier-fr.tibotsr.dev</guid>
+      <description>Match amical entre la Colombie et la France.</description>
       <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -294,6 +301,13 @@
       <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Match France - Sénégal</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-16</link>
+      <guid>2a6834370fa316bda2fac46a@calendrier-fr.tibotsr.dev</guid>
+      <description>Premier match de la coupe du monde pour l'équipe de France contre le Sénégal. Nous sommes dans la phase de poules. Les deux premières équipes de chaque groupe se qualifient pour la suite</description>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Appel du 18 juin 1940 — Anniversaire</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-18</link>
       <guid>997078dd6accd4ad97be178b@calendrier-fr.tibotsr.dev</guid>
@@ -448,18 +462,18 @@
       <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Début de l'Automne — Équinoxe d'automne</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
-      <guid>eb2e2ce392c7cb6f45edaf8b@calendrier-fr.tibotsr.dev</guid>
-      <description>L'équinoxe d'automne marque le début de l'automne.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Journée mondiale sans voiture</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
       <guid>00bad90e4cd1ce35f4623a21@calendrier-fr.tibotsr.dev</guid>
       <description>Lancée en France en 1998 par La Rochelle.</description>
       <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Début de l'Automne — Équinoxe d'automne</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-23</link>
+      <guid>3e61f46655e6a9ed06645243@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe d'automne marque le début de l'automne.</description>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Journée mondiale du cacao et du chocolat</title>
@@ -1391,20 +1405,6 @@
       <guid>c79f754d1f9a4c153214ac1d@calendrier-fr.tibotsr.dev</guid>
       <description>Fête de la Présentation de Jésus au Temple, 40 jours après Noël.</description>
       <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée mondiale des zones humides</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-02</link>
-      <guid>fd5e4ac1b4fc6e28c1475b90@calendrier-fr.tibotsr.dev</guid>
-      <description>Commémore la Convention de Ramsar signée le 2 février 1971.</description>
-      <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée mondiale contre le cancer</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-04</link>
-      <guid>4cb74190c3b2793dd086ee19@calendrier-fr.tibotsr.dev</guid>
-      <description>Initiée par l'Union Internationale Contre le Cancer depuis 2000.</description>
-      <pubDate>Fri, 04 Feb 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
