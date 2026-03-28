@@ -629,6 +629,33 @@
                 "Jeux Paralympiques"
             ],
             "description": "XVIIIes Jeux Paralympiques d'été à Los Angeles, États-Unis."
+        },
+        {
+            "summary": "Match amical Brésil - France",
+            "start": "2026-03-26",
+            "end": "2026-03-26",
+            "categories": [
+                "Sport"
+            ],
+            "description": "Match amical entre le Brésil et la France."
+        },
+        {
+            "summary": "Match amical Colombie - France",
+            "start": "2026-03-29",
+            "end": "2026-03-29",
+            "categories": [
+                "Sport"
+            ],
+            "description": "Match amical entre la Colombie et la France."
+        },
+        {
+            "summary": "Match France - Sénégal",
+            "start": "2026-06-16",
+            "end": "2026-06-16",
+            "categories": [
+                "Sport"
+            ],
+            "description": "Premier match de la coupe du monde pour l'équipe de France contre le Sénégal. Nous sommes dans la phase de poules. Les deux premières équipes de chaque groupe se qualifient pour la suite"
         }
     ]
 }

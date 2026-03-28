@@ -145,7 +145,7 @@ html.no-js body > :not(noscript) {
 .topbar {
   position: sticky; top: 0; z-index: 50;
   border-bottom: 1px solid var(--b);
-  background: color-mix(in srgb, var(--bg0) 88%, transparent);
+  background: color-mix(in srgb, var(--bg0) 50%, transparent);
   backdrop-filter: blur(20px);
 }
 .topbar-in {
@@ -1255,7 +1255,6 @@ html.no-js body > :not(noscript) {
   position: absolute;
   inset: 0 0 auto 0;
   height: 60px;
-  /* Halo pleine largeur (pas de "spot"), puis fondu vertical vers le bas */
   background:
     linear-gradient(180deg,
       color-mix(in srgb, var(--modal-accent) 62%, transparent) 0%,
@@ -1270,6 +1269,7 @@ html.no-js body > :not(noscript) {
   opacity: 1;
   pointer-events: none;
   z-index: 0;
+  border-radius: 48px;
 }
 .mt { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 18px; position: relative; z-index: 1; }
 .m-title { font-family: var(--ffd); font-size: 19px; font-weight: 800; line-height: 1.2; }
