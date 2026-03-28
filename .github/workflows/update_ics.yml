@@ -14,6 +14,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
         with:
@@ -40,6 +42,11 @@ jobs:
 
       - name: Validate ICS syntax
         run: python scripts/validate_ics.py
+
+      - name: Inject build timestamp in sw.js
+        run: |
+          BUILD_TS=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          sed -i "s|__BUILD_TIMESTAMP__|$BUILD_TS|g" sw.js
 
       - name: Publish generated files to data branch
         run: |
