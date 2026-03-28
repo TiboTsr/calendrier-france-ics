@@ -1,13 +1,16 @@
 {
-  "generatedAt": "2026-03-28T20:26:32.460378+00:00",
-  "contentVersion": "39b29bb43477be0b",
-  "newEventsThisWeek": 7,
+  "generatedAt": "2026-03-28T21:14:59.227173+00:00",
+  "contentVersion": "029dfa7139e4fa7b",
+  "newEventsThisWeek": 10,
   "newEventUids": [
     "2a6834370fa316bda2fac46a@calendrier-fr.tibotsr.dev",
     "35d10f7616c721c82ee49dd7@calendrier-fr.tibotsr.dev",
+    "405896484caeaa6b37d6dd1c@calendrier-fr.tibotsr.dev",
     "419bce1ab4745a9a12a51f3e@calendrier-fr.tibotsr.dev",
     "4e52949ac0c13e77982b063c@calendrier-fr.tibotsr.dev",
+    "5e7645acaa62c43ea5181ec5@calendrier-fr.tibotsr.dev",
     "6b1be7d8414f576983c493de@calendrier-fr.tibotsr.dev",
+    "c8557eb43055444634d74978@calendrier-fr.tibotsr.dev",
     "f7927a04255e2d82bf428539@calendrier-fr.tibotsr.dev",
     "fc94f0ea05d1d0afa7c8f4b2@calendrier-fr.tibotsr.dev"
   ],
