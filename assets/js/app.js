@@ -95,19 +95,7 @@ async function fetchCalendarData() {
 
 let _lastGeneratedDate = null;
 
-function updateAllSyncAges() {
-  if (!_lastGeneratedDate) return;
-  const rel = formatRelativeSyncAge(_lastGeneratedDate);
-  const el = document.getElementById('sync-age');
-  if (el) el.textContent = rel ? `· ${rel}` : '';
-  const pill = document.getElementById('sync-pill');
-  if (pill) pill.title = `Dernière synchronisation : ${_lastGeneratedDate.toLocaleString('fr-FR')}`;
-  const footerEl = document.getElementById('footer-sync-date');
-  if (footerEl) footerEl.textContent = rel || '—';
-  // Hero
-  const updatedEl = document.getElementById('hero-stat-updated');
-  if (updatedEl) updatedEl.textContent = rel || '--';
-}
+// updateAllSyncAges n'est plus nécessaire : setSyncAge gère topbar/footer (absolu), updateHeroStats gère hero (relatif)
 
 
 function applyCalendarData(data, { preserveYear = true } = {}) {
@@ -133,7 +121,6 @@ STATE.srcEvts = (data.events || []).map((e) => ({
   _lastGeneratedDate = genAt ? new Date(genAt) : null;
   setSyncAge(genAt);
   updateHeroStats(data);
-  updateAllSyncAges();
 
 
   const years = [...new Set(STATE.srcEvts.map((e) => e._date?.getFullYear()).filter(Boolean))];
