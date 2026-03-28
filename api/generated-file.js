@@ -7,7 +7,7 @@ const CACHE_SHORT = 'public, s-maxage=300, stale-while-revalidate=3600';
 // Le front affiche l'age de synchro et check les updates via ces 2 fichiers.
 // Si on laisse un SWR long, Vercel peut servir une version "stale" jusqu'a 1h.
 const CACHE_REALTIME_JSON = 'public, s-maxage=30, stale-while-revalidate=0';
-const CACHE_ICS = 'public, s-maxage=3600, stale-while-revalidate=86400';
+const CACHE_ICS = 'public, max-age=0, s-maxage=31536000, must-revalidate';
 
 function isAllowedFile(name) {
   return /^(calendrier(?:-[a-z]+)?\.ics|zone-[abc]\.ics|calendrier\.json|events-meta\.json|calendrier\.csv|calendrier\.xml|sitemap\.xml)$/i.test(name || '');
