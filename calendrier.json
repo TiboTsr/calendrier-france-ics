@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-27T03:19:18.794426+00:00",
-  "contentVersion": "e5c0b6d6e6ad0dfe",
+  "generatedAt": "2026-03-28T02:50:07.996088+00:00",
+  "contentVersion": "23324e9867b92e4d",
   "totalEvents": 4687,
   "profiles": [
     "essentiel",
@@ -10981,7 +10981,7 @@
     },
     {
       "summary": "Début du Printemps — Équinoxe de printemps",
-      "start": "2007-03-20",
+      "start": "2007-03-21",
       "end": null,
       "description": "L'équinoxe de printemps marque le début astronomique du printemps.",
       "categories": [
@@ -11756,17 +11756,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2007-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2007-09-22",
       "end": null,
@@ -11774,6 +11763,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2007-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -12147,7 +12147,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2007-12-21",
+      "start": "2007-12-22",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -12158,9 +12158,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2007-12-21",
+      "start": "2007-12-22",
       "end": null,
-      "description": "Le 21 December est le jour le plus court de l'année 2007.",
+      "description": "Le 22 December est le jour le plus court de l'année 2007.",
       "categories": [
         "Saisons",
         "Astronomie"
