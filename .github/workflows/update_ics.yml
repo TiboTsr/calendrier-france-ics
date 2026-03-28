@@ -93,3 +93,6 @@ jobs:
       - name: Cleanup worktree
         if: always()
         run: git worktree remove ../generated-data --force || true
+
+      - name: Trigger Vercel Redeploy to clear cache
+        run: curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK }}
