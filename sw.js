@@ -41,34 +41,31 @@ self.addEventListener('activate', event => {
   );
 });
 
-// ── Fetch : stratégie Stale-While-Revalidate ───────────
-// Répond immédiatement depuis le cache, met à jour en arrière-plan.
-// Les fichiers JS/CSS bénéficient ainsi d'un chargement instantané
-// tout en étant actualisés au prochain chargement.
 self.addEventListener('fetch', event => {
-  // Ne gérer que les requêtes GET du même domaine
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
 
-  // Ne pas mettre en cache les appels API (calendrier.json, ICS, shorten)
-  if (url.pathname.startsWith('/api/') || url.pathname.endsWith('.ics') || url.pathname.endsWith('.json')) {
-    return; // Laisser le réseau gérer
+  if (url.pathname.endsWith('.ics') || url.pathname.endsWith('.json')) {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          return response;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
   }
 
   event.respondWith(
     caches.open(CACHE_NAME).then(cache =>
       cache.match(event.request).then(cached => {
         const networkFetch = fetch(event.request).then(response => {
-          // Ne mettre en cache que les réponses valides
           if (response && response.status === 200) {
             cache.put(event.request, response.clone());
           }
           return response;
-        }).catch(() => cached); // Fallback cache si réseau indisponible
-
-        // Répondre depuis le cache immédiatement si disponible,
-        // sinon attendre le réseau
+        }).catch(() => cached);
         return cached || networkFetch;
       })
     )
