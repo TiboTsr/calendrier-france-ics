@@ -93,6 +93,23 @@ async function fetchCalendarData() {
   return res.json();
 }
 
+let _lastGeneratedDate = null;
+
+function updateAllSyncAges() {
+  if (!_lastGeneratedDate) return;
+  const rel = formatRelativeSyncAge(_lastGeneratedDate);
+  const el = document.getElementById('sync-age');
+  if (el) el.textContent = rel ? `· ${rel}` : '';
+  const pill = document.getElementById('sync-pill');
+  if (pill) pill.title = `Dernière synchronisation : ${_lastGeneratedDate.toLocaleString('fr-FR')}`;
+  const footerEl = document.getElementById('footer-sync-date');
+  if (footerEl) footerEl.textContent = rel || '—';
+  // Hero
+  const updatedEl = document.getElementById('hero-stat-updated');
+  if (updatedEl) updatedEl.textContent = rel || '--';
+}
+
+
 function applyCalendarData(data, { preserveYear = true } = {}) {
   _loadedCalendarVersion = getCalendarVersion(data);
   _pendingCalendarVersion = null;
@@ -112,8 +129,12 @@ STATE.srcEvts = (data.events || []).map((e) => ({
     approximate: true,
   }));
 
-  setSyncAge(getCalendarGeneratedAt(data));
+  const genAt = getCalendarGeneratedAt(data);
+  _lastGeneratedDate = genAt ? new Date(genAt) : null;
+  setSyncAge(genAt);
   updateHeroStats(data);
+  updateAllSyncAges();
+
 
   const years = [...new Set(STATE.srcEvts.map((e) => e._date?.getFullYear()).filter(Boolean))];
   const thisYr = new Date().getFullYear();
@@ -179,6 +200,7 @@ async function init() {
     applyCalendarData(data, { preserveYear: false });
     refreshAll();
     startCalendarVersionPolling();
+    setInterval(updateAllSyncAges, 60000); // Mise à jour toutes les minutes
   } catch (err) {
     const evRoot = document.getElementById('ev-root');
     if (evRoot) evRoot.innerHTML = `

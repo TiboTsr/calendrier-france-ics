@@ -43,10 +43,10 @@ jobs:
       - name: Validate ICS syntax
         run: python scripts/validate_ics.py
 
-      - name: Inject build timestamp in sw.js
+      - name: Inject calendrier.ics hash in sw.js
         run: |
-          BUILD_TS=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-          sed -i "s|__BUILD_TIMESTAMP__|$BUILD_TS|g" sw.js
+          ICS_HASH=$(sha256sum calendrier.ics | awk '{print $1}')
+          sed -i "s|__BUILD_TIMESTAMP__|$ICS_HASH|g" sw.js
 
       - name: Publish generated files to data branch
         run: |
