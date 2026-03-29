@@ -110,35 +110,156 @@
 
 <body class="app-loading">
   <noscript>
-    <style>
-      html {
-        background: #232330 !important;
-      }
+  <style>
+    /* 1. On désactive la classe .app-loading qui bloquait l'écran tactile et le scroll */
+    body.app-loading {
+      overflow: visible !important;
+      height: auto !important;
+      touch-action: auto !important;
+    }
 
-      body {
-        background: #232330 !important;
-      }
-    </style>
-    <div
-      style="max-width: 500px; margin: 60px auto; background: #232330; color: #fff; border-radius: 18px; box-shadow: 0 2px 16px #0003; padding: 40px 30px; text-align: center; font-size: 18px;">
-      <div style="font-size: 2.2em; margin-bottom: 18px;">⚠️</div>
-      <b>Ce site nécessite JavaScript pour fonctionner.</b><br>
-      <span style="font-size: 15px; color: #ccc; display: block; margin: 18px 0 0;">(recherche de zone, génération du
-        calendrier, etc.)</span>
-      <hr style="margin: 28px 0 18px; border: none; border-top: 1px solid #444;">
-      <div style="font-size: 16px; margin-bottom: 10px;">Comment activer JavaScript&nbsp;?</div>
-      <ul
-        style="text-align: left; font-size: 15px; color: #eee; margin: 0 0 0 0; padding: 0 0 0 18px; line-height: 1.7;">
-        <li><b>Chrome&nbsp;:</b> Paramètres → Confidentialité et sécurité → Paramètres du site → JavaScript → Les sites
-          peuvent utiliser JavaScript</li>
-        <li><b>Firefox&nbsp;:</b> Tapez <code>about:config</code> dans la barre d'adresse, cherchez
-          <code>javascript.enabled</code> et passez à <b>true</b></li>
-        <li><b>Edge&nbsp;:</b> Paramètres → Cookies et autorisations de site → JavaScript → Autoriser</li>
-        <li><b>Safari&nbsp;:</b> Préférences → Sécurité → Cocher «&nbsp;Activer JavaScript&nbsp;»</li>
-      </ul>
-      <div style="margin-top: 22px; font-size: 14px; color: #aaa;">Après activation, rechargez la page.</div>
+    /* 2. On force la balise <noscript> à devenir scrollable et on annule le 'display: flex' de ton styles.css */
+    noscript {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 999999 !important;
+      background: #07070d !important;
+      display: block !important; 
+      overflow-y: auto !important; /* C'est LA ligne magique pour le défilement */
+      padding: 0 !important;
+    }
+
+    /* 3. L'enveloppe qui va centrer le contenu si l'écran est grand, ou s'étirer s'il est petit */
+    .ns-wrapper {
+      min-height: 100%; /* S'adapte à la taille du noscript */
+      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      font-family: 'DM Sans', system-ui, sans-serif;
+    }
+
+    /* 4. La boîte principale */
+    .ns-container {
+      max-width: 550px;
+      width: 100%;
+      background: #16161e;
+      color: #fff;
+      border-radius: 24px;
+      border: 1px solid #2a2a35;
+      padding: 40px 30px;
+      text-align: left;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      box-sizing: border-box;
+    }
+
+    .ns-header { text-align: center; margin-bottom: 30px; }
+    .ns-icon { font-size: 48px; margin-bottom: 15px; }
+    .ns-title { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; margin: 0 0 10px 0; color: #fff; line-height: 1.2; }
+    .ns-text { color: #a1a1aa; line-height: 1.6; font-size: 16px; margin: 0; }
+
+    /* Accordéons */
+    .ns-methods { margin-bottom: 30px; }
+    .ns-details { 
+      background: #1f1f29; 
+      border-radius: 12px; 
+      margin-bottom: 10px; 
+      border: 1px solid #2a2a35;
+    }
+    .ns-summary { 
+      padding: 16px 20px; 
+      font-weight: 600; 
+      cursor: pointer; 
+      display: flex; 
+      align-items: center; 
+      gap: 10px;
+      list-style: none;
+    }
+    .ns-summary::-webkit-details-marker { display: none; }
+    .ns-summary::before { content: '👉'; font-size: 14px; }
+    .ns-details[open] .ns-summary::before { content: '👇'; }
+    
+    .ns-steps { 
+      padding: 0 20px 20px 45px; 
+      color: #ccc; 
+      font-size: 15px; 
+      line-height: 1.6; 
+      margin: 0;
+    }
+    .ns-steps li { margin-bottom: 8px; }
+    .ns-steps li:last-child { margin-bottom: 0; }
+
+    /* Boutons */
+    .ns-action-row { text-align: center; }
+    .ns-btn { 
+      display: inline-block;
+      background: #fff; 
+      color: #000; 
+      padding: 14px 28px; 
+      border-radius: 12px; 
+      font-weight: 700; 
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .ns-fallback { margin-top: 25px; font-size: 14px; color: #888; }
+    .ns-fallback a { color: #5c7cff; text-decoration: underline; }
+    .ns-fallback a:hover { color: #839dff; }
+  </style>
+
+  <div class="ns-wrapper">
+    <div class="ns-container">
+      <div class="ns-header">
+        <div class="ns-icon">⚙️</div>
+        <h1 class="ns-title">Un petit réglage est requis</h1>
+        <p class="ns-text">
+          Ce site a besoin de JavaScript pour trouver votre zone scolaire et générer votre calendrier. Voici comment l'activer simplement selon votre appareil :
+        </p>
+      </div>
+
+      <div class="ns-methods">
+        <details class="ns-details">
+          <summary class="ns-summary">Sur iPhone ou iPad (Safari)</summary>
+          <ol class="ns-steps">
+            <li>Allez dans l'application <b>Réglages</b> de votre appareil.</li>
+            <li>Descendez et touchez <b>Apps (iOS 18+ seulement)</search></b>.</li>
+            <li>Cherchez l'application <b>Saferi</b></li>
+            <li>Descendez tout en bas de la page et touchez <b>Avancé</b>.</li>
+            <li>Cherchez<b>JavaScript</b> et activez le.</li>
+          </ol>
+        </details>
+
+        <details class="ns-details">
+          <summary class="ns-summary">Sur un téléphone Android (Chrome)</summary>
+          <ol class="ns-steps">
+            <li>Ouvrez votre navigateur <b>Chrome</b>.</li>
+            <li>Touchez les <b>3 petits points</b> en bas à droite.</li>
+            <li>Touchez <b>Paramètres</b> sur le haut de la page, puis descendez jusqu'à <b>Paramètres du site</b>.</li>
+            <li>Touchez <b>JavaScript</b> et cochez "Autoriser".</li>
+          </ol>
+        </details>
+
+        <details class="ns-details">
+          <summary class="ns-summary">Sur un ordinateur</summary>
+          <ul class="ns-steps" style="list-style-type: disc;">
+            <li><b>Sur Chrome ou Edge :</b> Cliquez sur les 3 points (en haut à droite) &rarr; Paramètres &rarr; Confidentialité et sécurité &rarr; Paramètres du site &rarr; JavaScript &rarr; Cochez "Autoriser".</li>
+            <li><b>Sur Safari (Mac) :</b> Cliquez sur "Safari" (en haut à gauche) &rarr; Réglages &rarr; onglet "Sécurité" &rarr; Cochez "Activer JavaScript".</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="ns-action-row">
+        <a href="." class="ns-btn">
+          J'ai activé le réglage, recharger la page
+        </a>
+        <div class="ns-fallback">
+          Vous ne souhaitez pas l'activer ?<br>
+          <a href="/calendrier.ics" download>Téléchargez directement le fichier du calendrier</a> (Zones A, B et C).
+        </div>
+      </div>
     </div>
-  </noscript>
+  </div>
+</noscript>
   <script>
     document.documentElement.classList.remove('no-js');
   </script>
