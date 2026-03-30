@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-03-30T03:26:38.250179+00:00",
-  "contentVersion": "f9837ac3d33a429f",
-  "totalEvents": 4690,
+  "generatedAt": "2026-03-30T06:54:49.714057+00:00",
+  "contentVersion": "b38c92f0e1e7a834",
+  "totalEvents": 4754,
   "profiles": [
     "essentiel",
     "culturel",
@@ -49,6 +49,17 @@
         "Christianisme",
         "Culture",
         "Gastronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2000-01-12",
+      "end": "2000-02-09",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -804,6 +815,17 @@
       "categories": [
         "Culture",
         "Cinéma"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2000-06-28",
+      "end": "2000-07-26",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -1593,6 +1615,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2001-01-10",
+      "end": "2001-02-07",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Dernier Quartier de Lune",
       "start": "2001-01-16",
       "end": null,
@@ -2353,6 +2386,17 @@
       "categories": [
         "Culture",
         "Cinéma"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2001-06-27",
+      "end": "2001-07-25",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -3142,6 +3186,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2002-01-09",
+      "end": "2002-02-06",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Nouvelle Lune",
       "start": "2002-01-13",
       "end": null,
@@ -3897,6 +3952,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2002-06-26",
+      "end": "2002-07-24",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Dernier Quartier de Lune",
       "start": "2002-07-02",
       "end": null,
@@ -4647,6 +4713,17 @@
         "Christianisme",
         "Culture",
         "Gastronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2003-01-08",
+      "end": "2003-02-05",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -5412,6 +5489,17 @@
       "categories": [
         "Culture",
         "Cinéma"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2003-06-25",
+      "end": "2003-07-23",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -6197,6 +6285,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2004-01-14",
+      "end": "2004-02-11",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -6988,6 +7087,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2004-07-07",
+      "end": "2004-08-04",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Dernier Quartier de Lune",
       "start": "2004-07-09",
       "end": null,
@@ -7727,6 +7837,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2005-01-12",
+      "end": "2005-02-09",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -8508,6 +8629,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2005-07-06",
+      "end": "2005-08-03",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Commémoration de la Rafle du Vél d'Hiv",
       "start": "2005-07-10",
       "end": null,
@@ -9236,6 +9368,17 @@
         "Christianisme",
         "Culture",
         "Gastronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2006-01-11",
+      "end": "2006-02-08",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -9985,6 +10128,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2006-06-28",
+      "end": "2006-07-26",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Milieu de l'année",
       "start": "2006-07-02",
       "end": null,
@@ -10236,6 +10390,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2006-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2006-09-22",
       "end": null,
@@ -10254,17 +10419,6 @@
       "categories": [
         "Astronomie",
         "Lunaire"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2006-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -10628,7 +10782,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2006-12-22",
+      "start": "2006-12-21",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -10639,9 +10793,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2006-12-22",
+      "start": "2006-12-21",
       "end": null,
-      "description": "Le 22 December est le jour le plus court de l'année 2006.",
+      "description": "Le 21 December est le jour le plus court de l'année 2006.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -10735,6 +10889,17 @@
         "Christianisme",
         "Culture",
         "Gastronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2007-01-10",
+      "end": "2007-02-07",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -10981,7 +11146,7 @@
     },
     {
       "summary": "Début du Printemps — Équinoxe de printemps",
-      "start": "2007-03-21",
+      "start": "2007-03-20",
       "end": null,
       "description": "L'équinoxe de printemps marque le début astronomique du printemps.",
       "categories": [
@@ -11504,6 +11669,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2007-06-27",
+      "end": "2007-07-25",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Pleine Lune",
       "start": "2007-06-30",
       "end": null,
@@ -11756,6 +11932,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2007-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2007-09-22",
       "end": null,
@@ -11763,17 +11950,6 @@
       "categories": [
         "Environnement",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2007-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -12147,7 +12323,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2007-12-22",
+      "start": "2007-12-21",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -12158,9 +12334,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2007-12-22",
+      "start": "2007-12-21",
       "end": null,
-      "description": "Le 22 December est le jour le plus court de l'année 2007.",
+      "description": "Le 21 December est le jour le plus court de l'année 2007.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -12285,6 +12461,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2008-01-09",
+      "end": "2008-02-06",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -13049,6 +13236,17 @@
       "categories": [
         "Culture",
         "Cinéma"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2008-06-25",
+      "end": "2008-07-23",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -13849,6 +14047,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2009-01-14",
+      "end": "2009-02-11",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Dernier Quartier de Lune",
       "start": "2009-01-18",
       "end": null,
@@ -14568,6 +14777,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2009-06-24",
+      "end": "2009-07-22",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -15378,6 +15598,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2010-01-13",
+      "end": "2010-02-10",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Nouvelle Lune",
       "start": "2010-01-15",
       "end": null,
@@ -16165,6 +16396,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2010-07-07",
+      "end": "2010-08-04",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Commémoration de la Rafle du Vél d'Hiv",
       "start": "2010-07-11",
       "end": null,
@@ -16894,6 +17136,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2011-01-12",
+      "end": "2011-02-09",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -17674,6 +17927,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2011-07-06",
+      "end": "2011-08-03",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Premier Quartier",
       "start": "2011-07-08",
       "end": null,
@@ -18417,6 +18681,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2012-01-11",
+      "end": "2012-02-08",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Dernier Quartier de Lune",
       "start": "2012-01-16",
       "end": null,
@@ -19148,20 +19423,9 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2012-06-20",
+      "start": "2012-06-21",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2012-06-20",
-      "end": null,
-      "description": "Le 20 June est le jour le plus long de l'année 2012.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -19176,6 +19440,17 @@
       "categories": [
         "Culture",
         "Fêtes"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2012-06-21",
+      "end": null,
+      "description": "Le 21 June est le jour le plus long de l'année 2012.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -19198,6 +19473,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2012-06-27",
+      "end": "2012-07-25",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -19976,6 +20262,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2013-01-09",
+      "end": "2013-02-06",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Nouvelle Lune",
       "start": "2013-01-11",
       "end": null,
@@ -20717,6 +21014,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2013-06-26",
+      "end": "2013-07-24",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -21486,6 +21794,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2014-01-08",
+      "end": "2014-02-05",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Pleine Lune",
       "start": "2014-01-16",
       "end": null,
@@ -22236,6 +22555,17 @@
       "categories": [
         "Culture",
         "Cinéma"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2014-06-25",
+      "end": "2014-07-23",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -23036,6 +23366,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2015-01-14",
+      "end": "2015-02-11",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Nouvelle Lune",
       "start": "2015-01-20",
       "end": null,
@@ -23755,6 +24096,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2015-06-24",
+      "end": "2015-07-22",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -24541,6 +24893,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2016-01-13",
+      "end": "2016-02-10",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -25332,6 +25695,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2016-07-06",
+      "end": "2016-08-03",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Commémoration de la Rafle du Vél d'Hiv",
       "start": "2016-07-10",
       "end": null,
@@ -26060,6 +26434,17 @@
         "Christianisme",
         "Culture",
         "Gastronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2017-01-11",
+      "end": "2017-02-08",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -26805,6 +27190,17 @@
       "categories": [
         "Culture",
         "Cinéma"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2017-06-28",
+      "end": "2017-07-26",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -27598,6 +27994,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2018-01-10",
+      "end": "2018-02-07",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -28428,6 +28835,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2018-06-27",
+      "end": "2018-07-25",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Pleine Lune",
       "start": "2018-06-28",
       "end": null,
@@ -29251,6 +29669,17 @@
         "Christianisme",
         "Culture",
         "Gastronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2019-01-09",
+      "end": "2019-02-06",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -30086,6 +30515,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2019-06-26",
+      "end": "2019-07-24",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Milieu de l'année",
       "start": "2019-07-02",
       "end": null,
@@ -30910,6 +31350,17 @@
         "Christianisme",
         "Culture",
         "Gastronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2020-01-08",
+      "end": "2020-02-05",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -31762,6 +32213,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2020-06-24",
+      "end": "2020-07-22",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -32661,6 +33123,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2021-01-13",
+      "end": "2021-02-10",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -33567,6 +34040,17 @@
       ]
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2021-07-07",
+      "end": "2021-08-04",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Nouvelle Lune",
       "start": "2021-07-10",
       "end": null,
@@ -34386,6 +34870,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2022-01-12",
+      "end": "2022-02-09",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -35326,6 +35821,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2022-07-06",
+      "end": "2022-08-03",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Premier Quartier",
       "start": "2022-07-07",
       "end": null,
@@ -36169,6 +36675,17 @@
       "zones": [
         "all"
       ]
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2023-01-11",
+      "end": "2023-02-08",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
     },
     {
       "summary": "Dernier Quartier de Lune",
@@ -37050,6 +37567,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2023-06-28",
+      "end": "2023-07-26",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Tour de France 2023",
       "start": "2023-07-01",
       "end": "2023-07-23",
@@ -37902,6 +38430,17 @@
         "Christianisme",
         "Culture",
         "Gastronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2024-01-10",
+      "end": "2024-02-07",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -38765,9 +39304,20 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2024-06-21",
+      "start": "2024-06-20",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2024-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2024.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -38782,17 +39332,6 @@
       "categories": [
         "Culture",
         "Fêtes"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2024-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2024.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -38815,6 +39354,17 @@
       "categories": [
         "Culture",
         "Cinéma"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2024-06-26",
+      "end": "2024-07-24",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -39672,6 +40222,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2025-01-08",
+      "end": "2025-02-05",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -40655,6 +41216,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2025-06-25",
+      "end": "2025-07-23",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Brevet des collèges (DNB) — Épreuves écrites",
       "start": "2025-06-26",
       "end": "2025-06-27",
@@ -41537,6 +42109,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2026-01-14",
+      "end": "2026-02-11",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -42570,6 +43153,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2026-06-24",
+      "end": "2026-07-22",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Brevet des collèges (DNB) — Épreuves écrites",
       "start": "2026-06-26",
       "end": "2026-06-30",
@@ -42880,6 +43474,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2026-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2026-09-22",
       "end": null,
@@ -42887,17 +43492,6 @@
       "categories": [
         "Environnement",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2026-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -43417,6 +44011,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2027-01-13",
+      "end": "2027-02-10",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -44298,6 +44903,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'été",
+      "start": "2027-07-07",
+      "end": "2027-08-04",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Premier Quartier",
       "start": "2027-07-10",
       "end": null,
@@ -44507,6 +45123,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2027-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2027-09-22",
       "end": null,
@@ -44525,17 +45152,6 @@
       "categories": [
         "Astronomie",
         "Lunaire"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2027-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -44921,7 +45537,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2027-12-22",
+      "start": "2027-12-21",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -44932,9 +45548,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2027-12-22",
+      "start": "2027-12-21",
       "end": null,
-      "description": "Le 22 December est le jour le plus court de l'année 2027.",
+      "description": "Le 21 December est le jour le plus court de l'année 2027.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -45039,6 +45655,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'hiver",
+      "start": "2028-01-12",
+      "end": "2028-02-09",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -45745,20 +46372,9 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2028-06-20",
+      "start": "2028-06-21",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2028-06-20",
-      "end": null,
-      "description": "Le 20 June est le jour le plus long de l'année 2028.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -45773,6 +46389,17 @@
       "categories": [
         "Culture",
         "Fêtes"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2028-06-21",
+      "end": null,
+      "description": "Le 21 June est le jour le plus long de l'année 2028.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -45795,6 +46422,17 @@
       "categories": [
         "Culture",
         "Cinéma"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2028-06-28",
+      "end": "2028-07-26",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -46590,6 +47228,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2029-01-10",
+      "end": "2029-02-07",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Nouvelle Lune",
       "start": "2029-01-14",
       "end": null,
@@ -47351,6 +48000,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2029-06-27",
+      "end": "2029-07-25",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -48149,6 +48809,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2030-01-09",
+      "end": "2030-02-06",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Premier Quartier",
       "start": "2030-01-11",
       "end": null,
@@ -48900,6 +49571,17 @@
       "categories": [
         "Culture",
         "Cinéma"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2030-06-26",
+      "end": "2030-07-24",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },
@@ -49669,6 +50351,17 @@
       "zones": []
     },
     {
+      "summary": "Soldes d'hiver",
+      "start": "2031-01-08",
+      "end": "2031-02-05",
+      "description": "Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Dernier Quartier de Lune",
       "start": "2031-01-16",
       "end": null,
@@ -50429,6 +51122,17 @@
       "categories": [
         "Culture",
         "Cinéma"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Soldes d'été",
+      "start": "2031-06-25",
+      "end": "2031-07-23",
+      "description": "Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.",
+      "categories": [
+        "Commerce",
+        "Société"
       ],
       "zones": []
     },

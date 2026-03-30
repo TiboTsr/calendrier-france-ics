@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Mon, 30 Mar 2026 03:26:38 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2026 06:54:49 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
@@ -329,6 +329,13 @@
       <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Soldes d'été</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-24</link>
+      <guid>b5beb0a7472c30129b627cc7@calendrier-fr.tibotsr.dev</guid>
+      <description>Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.</description>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Brevet des collèges (DNB) — Épreuves écrites</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-26</link>
       <guid>078127c3429c226f9c2b8914@calendrier-fr.tibotsr.dev</guid>
@@ -441,18 +448,18 @@
       <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Début de l'Automne — Équinoxe d'automne</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
+      <guid>eb2e2ce392c7cb6f45edaf8b@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe d'automne marque le début de l'automne.</description>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Journée mondiale sans voiture</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
       <guid>00bad90e4cd1ce35f4623a21@calendrier-fr.tibotsr.dev</guid>
       <description>Lancée en France en 1998 par La Rochelle.</description>
       <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Début de l'Automne — Équinoxe d'automne</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-23</link>
-      <guid>3e61f46655e6a9ed06645243@calendrier-fr.tibotsr.dev</guid>
-      <description>L'équinoxe d'automne marque le début de l'automne.</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Journée mondiale du cacao et du chocolat</title>
@@ -677,6 +684,13 @@
       <guid>4a3dff3802ef9e3bc9a669b4@calendrier-fr.tibotsr.dev</guid>
       <description>Célèbre la visite des Rois Mages à Jésus, 12 jours après Noël.</description>
       <pubDate>Wed, 06 Jan 2027 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Soldes d'hiver</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-01-13</link>
+      <guid>ef98c39142dd05c8dd9f7083@calendrier-fr.tibotsr.dev</guid>
+      <description>Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.</description>
+      <pubDate>Wed, 13 Jan 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Journée internationale de l'Éducation</title>
@@ -1071,6 +1085,13 @@
       <pubDate>Mon, 05 Jul 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Soldes d'été</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-07-07</link>
+      <guid>9ba5f587bec9fb3c3aa07499@calendrier-fr.tibotsr.dev</guid>
+      <description>Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.</description>
+      <pubDate>Wed, 07 Jul 2027 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Commémoration de la Rafle du Vél d'Hiv</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2027-07-11</link>
       <guid>c719cf2d09d16764522665d7@calendrier-fr.tibotsr.dev</guid>
@@ -1134,18 +1155,18 @@
       <pubDate>Sat, 18 Sep 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Début de l'Automne — Équinoxe d'automne</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-22</link>
+      <guid>878729328b3e2f816f21f084@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe d'automne marque le début de l'automne.</description>
+      <pubDate>Wed, 22 Sep 2027 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Journée mondiale sans voiture</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-22</link>
       <guid>de7053144e196edd1addd0c2@calendrier-fr.tibotsr.dev</guid>
       <description>Lancée en France en 1998 par La Rochelle.</description>
       <pubDate>Wed, 22 Sep 2027 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Début de l'Automne — Équinoxe d'automne</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-23</link>
-      <guid>c8557eb43055444634d74978@calendrier-fr.tibotsr.dev</guid>
-      <description>L'équinoxe d'automne marque le début de l'automne.</description>
-      <pubDate>Thu, 23 Sep 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Coupe du monde de rugby à XV 2027</title>
@@ -1310,17 +1331,17 @@
     </item>
     <item>
       <title>Début de l'Hiver — Solstice d'hiver</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-22</link>
-      <guid>5e7645acaa62c43ea5181ec5@calendrier-fr.tibotsr.dev</guid>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-21</link>
+      <guid>36ea1c33db5435fbfacb32ef@calendrier-fr.tibotsr.dev</guid>
       <description>Le solstice d'hiver est le jour le plus court de l'année.</description>
-      <pubDate>Wed, 22 Dec 2027 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 21 Dec 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Jour le plus court de l'année</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-22</link>
-      <guid>405896484caeaa6b37d6dd1c@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 22 December est le jour le plus court de l'année 2027.</description>
-      <pubDate>Wed, 22 Dec 2027 00:00:00 GMT</pubDate>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-21</link>
+      <guid>3169ed493e26d03f157a3f3a@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 21 December est le jour le plus court de l'année 2027.</description>
+      <pubDate>Tue, 21 Dec 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Noël</title>
@@ -1365,6 +1386,13 @@
       <pubDate>Thu, 06 Jan 2028 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Soldes d'hiver</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-01-12</link>
+      <guid>be10283eb6e7fabc93681176@calendrier-fr.tibotsr.dev</guid>
+      <description>Les soldes d'hiver débutent le deuxième mercredi de janvier et durent 4 semaines.</description>
+      <pubDate>Wed, 12 Jan 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Journée internationale de l'Éducation</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-01-24</link>
       <guid>3d3d1999d5fb83ce84c694fc@calendrier-fr.tibotsr.dev</guid>
@@ -1377,34 +1405,6 @@
       <guid>21f1966f09560e4ed1bd2205@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore la libération du camp d'Auschwitz le 27 janvier 1945.</description>
       <pubDate>Thu, 27 Jan 2028 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Chandeleur</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-02</link>
-      <guid>c79f754d1f9a4c153214ac1d@calendrier-fr.tibotsr.dev</guid>
-      <description>Fête de la Présentation de Jésus au Temple, 40 jours après Noël.</description>
-      <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée mondiale des zones humides</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-02</link>
-      <guid>fd5e4ac1b4fc6e28c1475b90@calendrier-fr.tibotsr.dev</guid>
-      <description>Commémore la Convention de Ramsar signée le 2 février 1971.</description>
-      <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée mondiale contre le cancer</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-04</link>
-      <guid>4cb74190c3b2793dd086ee19@calendrier-fr.tibotsr.dev</guid>
-      <description>Initiée par l'Union Internationale Contre le Cancer depuis 2000.</description>
-      <pubDate>Fri, 04 Feb 2028 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Saint-Valentin</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-14</link>
-      <guid>fcfa39064d0c04d899e2372e@calendrier-fr.tibotsr.dev</guid>
-      <description>Fête des amoureux le 14 février.</description>
-      <pubDate>Mon, 14 Feb 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
