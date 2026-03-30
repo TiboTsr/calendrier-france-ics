@@ -5,34 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 29 Mar 2026 09:33:26 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2026 03:26:38 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
       <guid>4fd3950c4437b5d309c15a15@calendrier-fr.tibotsr.dev</guid>
       <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
       <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Dimanche des Rameaux</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-03-29</link>
-      <guid>e0a574cf0e8ecac892ff690b@calendrier-fr.tibotsr.dev</guid>
-      <description>Ouvre la Semaine Sainte en rappelant l'entrée triomphale de Jésus à Jérusalem.</description>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Match amical Colombie - France</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-03-29</link>
-      <guid>f7927a04255e2d82bf428539@calendrier-fr.tibotsr.dev</guid>
-      <description>Match amical entre la Colombie et la France.</description>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Passage à l'heure d'été</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-03-29</link>
-      <guid>e3ecfd93371dd260af3a7e3f@calendrier-fr.tibotsr.dev</guid>
-      <description>Dans la nuit du samedi au dimanche, les montres avancent d'une heure (2h → 3h).</description>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Poisson d'avril</title>
@@ -462,18 +441,18 @@
       <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Début de l'Automne — Équinoxe d'automne</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
-      <guid>eb2e2ce392c7cb6f45edaf8b@calendrier-fr.tibotsr.dev</guid>
-      <description>L'équinoxe d'automne marque le début de l'automne.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Journée mondiale sans voiture</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
       <guid>00bad90e4cd1ce35f4623a21@calendrier-fr.tibotsr.dev</guid>
       <description>Lancée en France en 1998 par La Rochelle.</description>
       <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Début de l'Automne — Équinoxe d'automne</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-23</link>
+      <guid>3e61f46655e6a9ed06645243@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe d'automne marque le début de l'automne.</description>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Journée mondiale du cacao et du chocolat</title>
@@ -1155,18 +1134,18 @@
       <pubDate>Sat, 18 Sep 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Début de l'Automne — Équinoxe d'automne</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-22</link>
-      <guid>878729328b3e2f816f21f084@calendrier-fr.tibotsr.dev</guid>
-      <description>L'équinoxe d'automne marque le début de l'automne.</description>
-      <pubDate>Wed, 22 Sep 2027 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Journée mondiale sans voiture</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-22</link>
       <guid>de7053144e196edd1addd0c2@calendrier-fr.tibotsr.dev</guid>
       <description>Lancée en France en 1998 par La Rochelle.</description>
       <pubDate>Wed, 22 Sep 2027 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Début de l'Automne — Équinoxe d'automne</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-23</link>
+      <guid>c8557eb43055444634d74978@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe d'automne marque le début de l'automne.</description>
+      <pubDate>Thu, 23 Sep 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Coupe du monde de rugby à XV 2027</title>
@@ -1331,17 +1310,17 @@
     </item>
     <item>
       <title>Début de l'Hiver — Solstice d'hiver</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-21</link>
-      <guid>36ea1c33db5435fbfacb32ef@calendrier-fr.tibotsr.dev</guid>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-22</link>
+      <guid>5e7645acaa62c43ea5181ec5@calendrier-fr.tibotsr.dev</guid>
       <description>Le solstice d'hiver est le jour le plus court de l'année.</description>
-      <pubDate>Tue, 21 Dec 2027 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 22 Dec 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Jour le plus court de l'année</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-21</link>
-      <guid>3169ed493e26d03f157a3f3a@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 21 December est le jour le plus court de l'année 2027.</description>
-      <pubDate>Tue, 21 Dec 2027 00:00:00 GMT</pubDate>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-22</link>
+      <guid>405896484caeaa6b37d6dd1c@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 22 December est le jour le plus court de l'année 2027.</description>
+      <pubDate>Wed, 22 Dec 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Noël</title>
@@ -1405,6 +1384,27 @@
       <guid>c79f754d1f9a4c153214ac1d@calendrier-fr.tibotsr.dev</guid>
       <description>Fête de la Présentation de Jésus au Temple, 40 jours après Noël.</description>
       <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Journée mondiale des zones humides</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-02</link>
+      <guid>fd5e4ac1b4fc6e28c1475b90@calendrier-fr.tibotsr.dev</guid>
+      <description>Commémore la Convention de Ramsar signée le 2 février 1971.</description>
+      <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Journée mondiale contre le cancer</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-04</link>
+      <guid>4cb74190c3b2793dd086ee19@calendrier-fr.tibotsr.dev</guid>
+      <description>Initiée par l'Union Internationale Contre le Cancer depuis 2000.</description>
+      <pubDate>Fri, 04 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Saint-Valentin</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-14</link>
+      <guid>fcfa39064d0c04d899e2372e@calendrier-fr.tibotsr.dev</guid>
+      <description>Fête des amoureux le 14 février.</description>
+      <pubDate>Mon, 14 Feb 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
