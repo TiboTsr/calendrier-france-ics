@@ -95,9 +95,6 @@ async function fetchCalendarData() {
 
 let _lastGeneratedDate = null;
 
-// updateAllSyncAges n'est plus nécessaire : setSyncAge gère topbar/footer (absolu), updateHeroStats gère hero (relatif)
-
-
 function applyCalendarData(data, { preserveYear = true } = {}) {
   _loadedCalendarVersion = getCalendarVersion(data);
   _pendingCalendarVersion = null;
@@ -188,6 +185,14 @@ async function init() {
     refreshAll();
     startCalendarVersionPolling();
     setInterval(updateAllSyncAges, 60000); // Mise à jour toutes les minutes
+
+    // Afficher le tutoriel à la première visite
+    try {
+      if (!localStorage.getItem('tuto_seen')) {
+        if (window._startTuto) window._startTuto();
+        localStorage.setItem('tuto_seen', '1');
+      }
+    } catch {}
   } catch (err) {
     const evRoot = document.getElementById('ev-root');
     if (evRoot) evRoot.innerHTML = `

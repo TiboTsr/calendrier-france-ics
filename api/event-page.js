@@ -7,8 +7,13 @@
  */
 
 function slugify(str) {
-  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/['']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 /**
@@ -20,42 +25,54 @@ function slugifyWithDate(summary, dateStr) {
 }
 
 function parseSlug(slug) {
-  // Format enrichi : name-YYYY-MM-DD
   const dateMatch = slug.match(/-(\d{4})-(\d{2})-(\d{2})$/);
   if (dateMatch) {
     const exactDate = `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`;
-    const namePart  = slug.slice(0, -(dateMatch[0].length));
+    const namePart = slug.slice(0, -dateMatch[0].length);
     return { namePart, year: parseInt(dateMatch[1], 10), exactDate };
   }
-  // Fallback format legacy : name-YYYY
   const yearMatch = slug.match(/-(\d{4})$/);
   if (!yearMatch) return null;
-  return { namePart: slug.slice(0, -(yearMatch[0].length)), year: parseInt(yearMatch[1], 10), exactDate: null };
+  return {
+    namePart: slug.slice(0, -yearMatch[0].length),
+    year: parseInt(yearMatch[1], 10),
+    exactDate: null,
+  };
 }
 
 function escapeHtml(value) {
-  return String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function safeJson(value) {
-  return JSON.stringify(value, null, 2).replace(/<\//g, '<\\/');
+  return JSON.stringify(value, null, 2).replace(/<\//g, "<\\/");
 }
 
 function formatDateFR(dateStr, opts = {}) {
-  if (!dateStr) return '';
-  const [y, m, d] = dateStr.split('-').map(Number);
-  return new Intl.DateTimeFormat('fr-FR', {
-    weekday: opts.short ? undefined : 'long',
-    day: 'numeric', month: 'long', year: 'numeric', ...opts
+  if (!dateStr) return "";
+  const [y, m, d] = dateStr.split("-").map(Number);
+  return new Intl.DateTimeFormat("fr-FR", {
+    weekday: opts.short ? undefined : "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    ...opts,
   }).format(new Date(Date.UTC(y, m - 1, d)));
 }
 
 function formatDateShort(dateStr) {
-  if (!dateStr) return '';
-  const [y, m, d] = dateStr.split('-').map(Number);
-  return new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })
-    .format(new Date(Date.UTC(y, m - 1, d)));
+  if (!dateStr) return "";
+  const [y, m, d] = dateStr.split("-").map(Number);
+  return new Intl.DateTimeFormat("fr-FR", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(Date.UTC(y, m - 1, d)));
 }
 
 function getDurationDays(start, end) {
@@ -64,47 +81,50 @@ function getDurationDays(start, end) {
 }
 
 function addDaysISO(dateStr, days) {
-  const [y, m, d] = dateStr.split('-').map(Number);
+  const [y, m, d] = dateStr.split("-").map(Number);
   const dt = new Date(Date.UTC(y, m - 1, d));
   dt.setUTCDate(dt.getUTCDate() + days);
   const yy = dt.getUTCFullYear();
-  const mm = String(dt.getUTCMonth() + 1).padStart(2, '0');
-  const dd = String(dt.getUTCDate()).padStart(2, '0');
+  const mm = String(dt.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(dt.getUTCDate()).padStart(2, "0");
   return `${yy}-${mm}-${dd}`;
 }
 
 function toIcsDate(dateStr) {
-  const [y, m, d] = dateStr.split('-');
+  const [y, m, d] = dateStr.split("-");
   return `${y}${m}${d}`;
 }
 
 function escapeIcsText(value) {
-  return String(value ?? '')
-    .replace(/\\/g, '\\\\')
-    .replace(/\r?\n/g, '\\n')
-    .replace(/;/g, '\\;')
-    .replace(/,/g, '\\,');
+  return String(value ?? "")
+    .replace(/\\/g, "\\\\")
+    .replace(/\r?\n/g, "\\n")
+    .replace(/;/g, "\\;")
+    .replace(/,/g, "\\,");
 }
 
 function buildSingleEventIcs(event, domain) {
   const uid = `${slugifyWithDate(event.summary, event.start)}@${domain}`;
-  const dtstamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+  const dtstamp = new Date()
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .replace(/\.\d{3}Z$/, "Z");
 
   const start = event.start;
-  const endInclusive = event.end && event.end !== event.start ? event.end : event.start;
-  // DTEND en VALUE=DATE est exclusif
+  const endInclusive =
+    event.end && event.end !== event.start ? event.end : event.start;
   const dtendExclusive = addDaysISO(endInclusive, 1);
 
   const lines = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Calendrier France//Event Page//FR',
-    'CALSCALE:GREGORIAN',
-    'METHOD:PUBLISH',
-    'BEGIN:VEVENT',
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Calendrier France//Event Page//FR",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
+    "BEGIN:VEVENT",
     `UID:${uid}`,
     `DTSTAMP:${dtstamp}`,
-    `SUMMARY:${escapeIcsText(event.summary || '')}`,
+    `SUMMARY:${escapeIcsText(event.summary || "")}`,
     `DTSTART;VALUE=DATE:${toIcsDate(start)}`,
     `DTEND;VALUE=DATE:${toIcsDate(dtendExclusive)}`,
   ];
@@ -113,158 +133,251 @@ function buildSingleEventIcs(event, domain) {
     lines.push(`DESCRIPTION:${escapeIcsText(event.description)}`);
   }
   if (Array.isArray(event.categories) && event.categories.length) {
-    const cats = event.categories.map(c => escapeIcsText(c).replace(/,/g, '\\,')).join(',');
+    const cats = event.categories
+      .map((c) => escapeIcsText(c).replace(/,/g, "\\,"))
+      .join(",");
     lines.push(`CATEGORIES:${cats}`);
   }
 
-  lines.push('END:VEVENT', 'END:VCALENDAR', '');
-  return lines.join('\r\n');
+  lines.push("END:VEVENT", "END:VCALENDAR", "");
+  return lines.join("\r\n");
 }
 
 function getDayOfYear(dateStr) {
-  const [y, m, d] = dateStr.split('-').map(Number);
+  const [y, m, d] = dateStr.split("-").map(Number);
   const date = new Date(Date.UTC(y, m - 1, d));
   const start = new Date(Date.UTC(y, 0, 0));
   return Math.floor((date - start) / 86400000);
 }
 
 function getISOWeek(dateStr) {
-  const [y, m, d] = dateStr.split('-').map(Number);
+  const [y, m, d] = dateStr.split("-").map(Number);
   const date = new Date(Date.UTC(y, m - 1, d));
   date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
   const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
-  return Math.ceil((((date - yearStart) / 86400000) + 1) / 7);
+  return Math.ceil(((date - yearStart) / 86400000 + 1) / 7);
 }
 
-/**
- * Calcul correct du nombre de jours jusqu'à la date cible.
- * On compare les dates en heure locale Paris pour éviter le décalage UTC.
- */
 function getDaysUntil(dateStr) {
-  // Date cible : minuit Paris
-  const [ty, tm, td] = dateStr.split('-').map(Number);
-  const target = new Date(Date.UTC(ty, tm - 1, td)); // Minuit UTC = correct pour une date all-day
+  const [ty, tm, td] = dateStr.split("-").map(Number);
+  const target = new Date(Date.UTC(ty, tm - 1, td));
 
-  // Aujourd'hui minuit heure Paris
-  const nowParis = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Paris' }));
-  const today = new Date(Date.UTC(nowParis.getFullYear(), nowParis.getMonth(), nowParis.getDate()));
+  const nowParis = new Date(
+    new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }),
+  );
+  const today = new Date(
+    Date.UTC(nowParis.getFullYear(), nowParis.getMonth(), nowParis.getDate()),
+  );
 
   return Math.round((target - today) / 86400000);
 }
 
 const CAT_COLORS = {
-  'Jours fériés':        { c: '#ff5a5a', d: 'rgba(255,90,90,.12)',   b: 'rgba(255,90,90,.3)'   },
-  'Vacances scolaires':  { c: '#f5a020', d: 'rgba(245,160,32,.12)',  b: 'rgba(245,160,32,.3)'  },
-  'Saisons':             { c: '#22d3ee', d: 'rgba(34,211,238,.12)',  b: 'rgba(34,211,238,.3)'  },
-  'Astronomie':          { c: '#60a5fa', d: 'rgba(96,165,250,.12)',  b: 'rgba(96,165,250,.3)'  },
-  "Changement d'heure":  { c: '#3ecf8e', d: 'rgba(62,207,142,.12)',  b: 'rgba(62,207,142,.3)'  },
-  'Christianisme':       { c: '#e2c074', d: 'rgba(226,192,116,.12)', b: 'rgba(226,192,116,.3)' },
-  'Fêtes':               { c: '#8b5cf6', d: 'rgba(139,92,246,.12)',  b: 'rgba(139,92,246,.3)'  },
-  'Culture':             { c: '#6b8cff', d: 'rgba(107,140,255,.12)', b: 'rgba(107,140,255,.3)' },
-  'Société':             { c: '#94a3b8', d: 'rgba(148,163,184,.12)', b: 'rgba(148,163,184,.3)' },
-  'Mémoire':             { c: '#64748b', d: 'rgba(100,116,139,.12)', b: 'rgba(100,116,139,.3)' },
-  'Sport':               { c: '#06b6d4', d: 'rgba(6,182,212,.12)',   b: 'rgba(6,182,212,.3)'   },
-  'Santé':               { c: '#ef4444', d: 'rgba(239,68,68,.12)',   b: 'rgba(239,68,68,.3)'   },
-  'Éducation':           { c: '#0ea5e9', d: 'rgba(14,165,233,.12)',  b: 'rgba(14,165,233,.3)'  },
-  'Examens':             { c: '#14b8a6', d: 'rgba(20,184,166,.12)',  b: 'rgba(20,184,166,.3)'  },
-  'Élections':           { c: '#f43f5e', d: 'rgba(244,63,94,.12)',   b: 'rgba(244,63,94,.3)'   },
-  'Ponts / Congés':      { c: '#fb923c', d: 'rgba(251,146,60,.12)',  b: 'rgba(251,146,60,.3)'  },
-  'Commerce':            { c: '#4f7cff', d: 'rgba(79,124,255,.12)',  b: 'rgba(79,124,255,.3)'  },
-  'Gastronomie':         { c: '#f59e0b', d: 'rgba(245,158,11,.12)',  b: 'rgba(245,158,11,.3)'  },
-  'Environnement':       { c: '#10b981', d: 'rgba(16,185,129,.12)',  b: 'rgba(16,185,129,.3)'  },
-  'Lunaire':             { c: '#4f46e5', d: 'rgba(79,70,229,.12)',   b: 'rgba(79,70,229,.3)'   },
-  'Dates spéciales':     { c: '#a78bfa', d: 'rgba(167,139,250,.12)', b: 'rgba(167,139,250,.3)' },
-  'JO':                  { c: '#0369a1', d: 'rgba(3,105,161,.12)',   b: 'rgba(3,105,161,.3)'   },
+  "Jours fériés": {
+    c: "#ff5a5a",
+    d: "rgba(255,90,90,.12)",
+    b: "rgba(255,90,90,.3)",
+  },
+  "Vacances scolaires": {
+    c: "#f5a020",
+    d: "rgba(245,160,32,.12)",
+    b: "rgba(245,160,32,.3)",
+  },
+  Saisons: {
+    c: "#22d3ee",
+    d: "rgba(34,211,238,.12)",
+    b: "rgba(34,211,238,.3)",
+  },
+  Astronomie: {
+    c: "#60a5fa",
+    d: "rgba(96,165,250,.12)",
+    b: "rgba(96,165,250,.3)",
+  },
+  "Changement d'heure": {
+    c: "#3ecf8e",
+    d: "rgba(62,207,142,.12)",
+    b: "rgba(62,207,142,.3)",
+  },
+  Christianisme: {
+    c: "#e2c074",
+    d: "rgba(226,192,116,.12)",
+    b: "rgba(226,192,116,.3)",
+  },
+  Fêtes: { c: "#8b5cf6", d: "rgba(139,92,246,.12)", b: "rgba(139,92,246,.3)" },
+  Culture: {
+    c: "#6b8cff",
+    d: "rgba(107,140,255,.12)",
+    b: "rgba(107,140,255,.3)",
+  },
+  Société: {
+    c: "#94a3b8",
+    d: "rgba(148,163,184,.12)",
+    b: "rgba(148,163,184,.3)",
+  },
+  Mémoire: {
+    c: "#64748b",
+    d: "rgba(100,116,139,.12)",
+    b: "rgba(100,116,139,.3)",
+  },
+  Sport: { c: "#06b6d4", d: "rgba(6,182,212,.12)", b: "rgba(6,182,212,.3)" },
+  Santé: { c: "#ef4444", d: "rgba(239,68,68,.12)", b: "rgba(239,68,68,.3)" },
+  Éducation: {
+    c: "#0ea5e9",
+    d: "rgba(14,165,233,.12)",
+    b: "rgba(14,165,233,.3)",
+  },
+  Examens: {
+    c: "#14b8a6",
+    d: "rgba(20,184,166,.12)",
+    b: "rgba(20,184,166,.3)",
+  },
+  Élections: {
+    c: "#f43f5e",
+    d: "rgba(244,63,94,.12)",
+    b: "rgba(244,63,94,.3)",
+  },
+  "Ponts / Congés": {
+    c: "#fb923c",
+    d: "rgba(251,146,60,.12)",
+    b: "rgba(251,146,60,.3)",
+  },
+  Commerce: {
+    c: "#4f7cff",
+    d: "rgba(79,124,255,.12)",
+    b: "rgba(79,124,255,.3)",
+  },
+  Gastronomie: {
+    c: "#f59e0b",
+    d: "rgba(245,158,11,.12)",
+    b: "rgba(245,158,11,.3)",
+  },
+  Environnement: {
+    c: "#10b981",
+    d: "rgba(16,185,129,.12)",
+    b: "rgba(16,185,129,.3)",
+  },
+  Lunaire: { c: "#4f46e5", d: "rgba(79,70,229,.12)", b: "rgba(79,70,229,.3)" },
+  "Dates spéciales": {
+    c: "#a78bfa",
+    d: "rgba(167,139,250,.12)",
+    b: "rgba(167,139,250,.3)",
+  },
+  JO: { c: "#0369a1", d: "rgba(3,105,161,.12)", b: "rgba(3,105,161,.3)" },
 };
 
 function getCatColor(cat) {
-  return CAT_COLORS[cat] || { c: '#6b8cff', d: 'rgba(107,140,255,.12)', b: 'rgba(107,140,255,.3)' };
+  return (
+    CAT_COLORS[cat] || {
+      c: "#6b8cff",
+      d: "rgba(107,140,255,.12)",
+      b: "rgba(107,140,255,.3)",
+    }
+  );
 }
 
 function getCatEmoji(cats, summary) {
-  const title = (summary || '').toLowerCase();
-  const c = (cats || [])[0] || '';
-  if (c === 'Jours fériés') {
-    if (title.includes('noël')) return '🎄';
-    if (title.includes('travail')) return '🛠️';
-    if (title.includes('victoire') || title.includes('armistice')) return '🎖️';
-    if (title.includes('nationale')) return '🎆';
-    if (title.includes('toussaint')) return '🕯️';
-    return '🔴';
+  const title = (summary || "").toLowerCase();
+  const c = (cats || [])[0] || "";
+  if (c === "Jours fériés") {
+    if (title.includes("noël")) return "🎄";
+    if (title.includes("travail")) return "🛠️";
+    if (title.includes("victoire") || title.includes("armistice")) return "🎖️";
+    if (title.includes("nationale")) return "🎆";
+    if (title.includes("toussaint")) return "🕯️";
+    return "🔴";
   }
-  if (c === 'Vacances scolaires') {
-    if (title.includes('été')) return '🏖️';
-    if (title.includes('noël')) return '⛄';
-    if (title.includes('hiver')) return '⛷️';
-    if (title.includes('printemps')) return '🌱';
-    if (title.includes('toussaint')) return '🍂';
-    return '🎒';
+  if (c === "Vacances scolaires") {
+    if (title.includes("été")) return "🏖️";
+    if (title.includes("noël")) return "⛄";
+    if (title.includes("hiver")) return "⛷️";
+    if (title.includes("printemps")) return "🌱";
+    if (title.includes("toussaint")) return "🍂";
+    return "🎒";
   }
-  if (c === 'Saisons') {
-    if (title.includes('printemps')) return '🌸';
-    if (title.includes('été')) return '☀️';
-    if (title.includes('automne')) return '🍁';
-    if (title.includes('hiver')) return '❄️';
+  if (c === "Saisons") {
+    if (title.includes("printemps")) return "🌸";
+    if (title.includes("été")) return "☀️";
+    if (title.includes("automne")) return "🍁";
+    if (title.includes("hiver")) return "❄️";
   }
-  if (c === "Changement d'heure") return '⏰';
-  if (c === 'Astronomie' || c === 'Lunaire') {
-    if (title.includes('nouvelle lune') || title.includes('new moon')) return '🌑';
-    if (title.includes('premier quartier') || title.includes('first quarter')) return '🌓';
-    if (title.includes('pleine lune') || title.includes('full moon')) return '🌕';
-    if (title.includes('dernier quartier') || title.includes('last quarter')) return '🌗';
-    return '🌙';
+  if (c === "Changement d'heure") return "⏰";
+  if (c === "Astronomie" || c === "Lunaire") {
+    if (title.includes("nouvelle lune") || title.includes("new moon"))
+      return "🌑";
+    if (title.includes("premier quartier") || title.includes("first quarter"))
+      return "🌓";
+    if (title.includes("pleine lune") || title.includes("full moon"))
+      return "🌕";
+    if (title.includes("dernier quartier") || title.includes("last quarter"))
+      return "🌗";
+    return "🌙";
   }
-  if (c === 'Christianisme') return '⛪';
-  if (c === 'Sport') return '🏆';
-  if (c === 'Santé') return '❤️';
-  if (c === 'Fêtes') return '🥂';
-  if (c === 'Mémoire') return '🕊️';
-  if (c === 'Élections') return '🗳️';
-  if (c === 'Examens') return '📝';
-  if (c === 'Culture') return '🎭';
-  if (c === 'Environnement') return '🌿';
-  return '📅';
+  if (c === "Christianisme") return "⛪";
+  if (c === "Sport") return "🏆";
+  if (c === "Santé") return "❤️";
+  if (c === "Fêtes") return "🥂";
+  if (c === "Mémoire") return "🕊️";
+  if (c === "Élections") return "🗳️";
+  if (c === "Examens") return "📝";
+  if (c === "Culture") return "🎭";
+  if (c === "Environnement") return "🌿";
+  return "📅";
 }
 
 function countdownLabel(days) {
-  if (days < 0) return { text: `Il y a ${Math.abs(days)} jour${Math.abs(days) > 1 ? 's' : ''}`, past: true };
+  if (days < 0)
+    return {
+      text: `Il y a ${Math.abs(days)} jour${Math.abs(days) > 1 ? "s" : ""}`,
+      past: true,
+    };
   if (days === 0) return { text: "Aujourd'hui !", past: false };
-  if (days === 1) return { text: 'Demain', past: false };
-  if (days < 7)  return { text: `Dans ${days} jours`, past: false };
-  if (days < 30) return { text: `Dans ${Math.round(days/7)} semaine${Math.round(days/7) > 1 ? 's' : ''}`, past: false };
-  if (days < 365) return { text: `Dans ${Math.round(days/30)} mois`, past: false };
-  return { text: `Dans ${Math.round(days/365)} an${Math.round(days/365) > 1 ? 's' : ''}`, past: false };
+  if (days === 1) return { text: "Demain", past: false };
+  if (days < 7) return { text: `Dans ${days} jours`, past: false };
+  if (days < 30)
+    return {
+      text: `Dans ${Math.round(days / 7)} semaine${Math.round(days / 7) > 1 ? "s" : ""}`,
+      past: false,
+    };
+  if (days < 365)
+    return { text: `Dans ${Math.round(days / 30)} mois`, past: false };
+  return {
+    text: `Dans ${Math.round(days / 365)} an${Math.round(days / 365) > 1 ? "s" : ""}`,
+    past: false,
+  };
 }
 
 function zoneLabel(z) {
-  if (z === 'AM') return 'Alsace-Moselle';
+  if (z === "AM") return "Alsace-Moselle";
   return `Zone ${z}`;
 }
 
 function buildEventSchema(event, siteUrl) {
   const schema = {
-    '@context': 'https://schema.org', '@type': 'Event',
-    name: event.summary, description: event.description || '',
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: event.summary,
+    description: event.description || "",
     startDate: event.start,
     url: `${siteUrl}/event/${slugifyWithDate(event.summary, event.start)}`,
-    organizer: { '@type': 'Organization', name: 'Calendrier France', url: siteUrl },
-    eventStatus: 'https://schema.org/EventScheduled',
-    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    location: { '@type': 'Country', name: 'France' },
+    organizer: {
+      "@type": "Organization",
+      name: "Calendrier France",
+      url: siteUrl,
+    },
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    location: { "@type": "Country", name: "France" },
   };
   if (event.end && event.end !== event.start) schema.endDate = event.end;
-  if (event.categories?.length) schema.keywords = event.categories.join(', ');
+  if (event.categories?.length) schema.keywords = event.categories.join(", ");
   return safeJson(schema);
 }
 
-/**
- * Groupe les occurrences par année et génère la section HTML
- */
 function buildOccurrencesByYear(allOccurrences, currentEvent, siteUrl) {
-  if (allOccurrences.length <= 1) return '';
+  if (allOccurrences.length <= 1) return "";
 
   const byYear = {};
-  allOccurrences.forEach(e => {
+  allOccurrences.forEach((e) => {
     const y = e.start.slice(0, 4);
     if (!byYear[y]) byYear[y] = [];
     byYear[y].push(e);
@@ -275,22 +388,22 @@ function buildOccurrencesByYear(allOccurrences, currentEvent, siteUrl) {
 
   const currentYearIdx = years.indexOf(currentYear);
   const showFrom = Math.max(0, currentYearIdx - 2);
-  const showTo   = Math.min(years.length - 1, currentYearIdx + 2);
+  const showTo = Math.min(years.length - 1, currentYearIdx + 2);
   const visibleYears = years.slice(showFrom, showTo + 1);
 
-  let html = '';
+  let html = "";
 
-  visibleYears.forEach(year => {
+  visibleYears.forEach((year) => {
     const occurrences = byYear[year];
     const isCurYear = year === currentYear;
 
     html += `<div class="occ-year-group">
-      <div class="occ-year-label${isCurYear ? ' occ-year-label--current' : ''}">${year}</div>
+      <div class="occ-year-label${isCurYear ? " occ-year-label--current" : ""}">${year}</div>
       <div class="occ-pills-row">`;
 
-    occurrences.forEach(e => {
+    occurrences.forEach((e) => {
       const isCurrent = e.start === currentEvent.start;
-      const slug      = slugifyWithDate(e.summary, e.start);
+      const slug = slugifyWithDate(e.summary, e.start);
       const dateLabel = formatDateShort(e.start);
 
       if (isCurrent) {
@@ -309,12 +422,15 @@ function buildOccurrencesByYear(allOccurrences, currentEvent, siteUrl) {
   });
 
   const hiddenBefore = showFrom > 0 ? showFrom : 0;
-  const hiddenAfter  = years.length - 1 - showTo > 0 ? years.length - 1 - showTo : 0;
+  const hiddenAfter =
+    years.length - 1 - showTo > 0 ? years.length - 1 - showTo : 0;
 
   if (hiddenBefore > 0 || hiddenAfter > 0) {
     html += `<p class="occ-overflow-note">`;
-    if (hiddenBefore > 0) html += `${hiddenBefore} année${hiddenBefore > 1 ? 's' : ''} plus ancienne${hiddenBefore > 1 ? 's' : ''} non affichée${hiddenBefore > 1 ? 's' : ''} · `;
-    if (hiddenAfter > 0)  html += `${hiddenAfter} année${hiddenAfter > 1 ? 's' : ''} ultérieure${hiddenAfter > 1 ? 's' : ''} non affichée${hiddenAfter > 1 ? 's' : ''}`;
+    if (hiddenBefore > 0)
+      html += `${hiddenBefore} année${hiddenBefore > 1 ? "s" : ""} plus ancienne${hiddenBefore > 1 ? "s" : ""} non affichée${hiddenBefore > 1 ? "s" : ""} · `;
+    if (hiddenAfter > 0)
+      html += `${hiddenAfter} année${hiddenAfter > 1 ? "s" : ""} ultérieure${hiddenAfter > 1 ? "s" : ""} non affichée${hiddenAfter > 1 ? "s" : ""}`;
     html += `</p>`;
   }
 
@@ -322,104 +438,122 @@ function buildOccurrencesByYear(allOccurrences, currentEvent, siteUrl) {
 }
 
 function getSeason(dateStr) {
-  const [y, m, d] = dateStr.split('-').map(Number);
+  const [y, m, d] = dateStr.split("-").map(Number);
   const md = m * 100 + d;
-  if (md >= 320 && md < 621) return { name: 'Printemps', emoji: '🌸' };
-  if (md >= 621 && md < 922) return { name: 'Été', emoji: '☀️' };
-  if (md >= 922 && md < 1221) return { name: 'Automne', emoji: '🍁' };
-  
-  return { name: 'Hiver', emoji: '❄️' };
+  if (md >= 320 && md < 621) return { name: "Printemps", emoji: "🌸" };
+  if (md >= 621 && md < 922) return { name: "Été", emoji: "☀️" };
+  if (md >= 922 && md < 1221) return { name: "Automne", emoji: "🍁" };
+
+  return { name: "Hiver", emoji: "❄️" };
 }
 
 function getWeekendStatus(dateStr, categories = []) {
-  const [y, m, d] = dateStr.split('-').map(Number);
+  const [y, m, d] = dateStr.split("-").map(Number);
   const dt = new Date(Date.UTC(y, m - 1, d));
   const wd = dt.getUTCDay();
 
-  const isFerie = categories.includes('Jours fériés') || categories.includes('Ponts / Congés');
+  const isFerie =
+    categories.includes("Jours fériés") ||
+    categories.includes("Ponts / Congés");
 
   if (isFerie) {
-    if (wd === 0 || wd === 6) return 'Tombe un week-end 😕'; // Dommage pour un férié !
-    if (wd === 1 || wd === 5) return 'Week-end prolongé ! 🥳';
-    if (wd === 2 || wd === 4) return 'Pont possible ! 🌉';
-    if (wd === 3) return 'Coupure en pleine semaine 🌴';
+    if (wd === 0 || wd === 6) return "Tombe un week-end 😕"; // Dommage pour un férié !
+    if (wd === 1 || wd === 5) return "Week-end prolongé ! 🥳";
+    if (wd === 2 || wd === 4) return "Pont possible ! 🌉";
+    if (wd === 3) return "Coupure en pleine semaine 🌴";
   }
 
-  if (wd === 0 || wd === 6) return 'Tombe un week-end 😴';
-  if (wd === 5) return 'Veille de week-end 🍻';
-  if (wd === 1) return 'Début de semaine ☕';
-  
-  return 'En pleine semaine 💼';
+  if (wd === 0 || wd === 6) return "Tombe un week-end 😴";
+  if (wd === 5) return "Veille de week-end 🍻";
+  if (wd === 1) return "Début de semaine ☕";
+
+  return "En pleine semaine 💼";
 }
 
 function getDayName(dateStr) {
-  const [y, m, d] = dateStr.split('-').map(Number);
+  const [y, m, d] = dateStr.split("-").map(Number);
   const dt = new Date(Date.UTC(y, m - 1, d));
-  const str = new Intl.DateTimeFormat('fr-FR', { weekday: 'long' }).format(dt);
+  const str = new Intl.DateTimeFormat("fr-FR", { weekday: "long" }).format(dt);
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 function isLeapYear(year) {
-  return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
 
 const ACADEMIES = {
-  'A': 'Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers.',
-  'B': 'Aix-Marseille, Amiens, Lille, Nancy-Metz, Nantes, Nice, Normandie, Orléans-Tours, Reims, Rennes, Strasbourg.',
-  'C': 'Créteil, Montpellier, Paris, Toulouse, Versailles.',
-  'AM': 'Alsace-Moselle (Haut-Rhin, Bas-Rhin, Moselle).'
+  A: "Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers.",
+  B: "Aix-Marseille, Amiens, Lille, Nancy-Metz, Nantes, Nice, Normandie, Orléans-Tours, Reims, Rennes, Strasbourg.",
+  C: "Créteil, Montpellier, Paris, Toulouse, Versailles.",
+  AM: "Alsace-Moselle (Haut-Rhin, Bas-Rhin, Moselle).",
 };
 
 function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
-  const mainCat   = (event.categories || [])[0] || 'Dates spéciales';
-  const def       = getCatColor(mainCat);
-  const emoji     = getCatEmoji(event.categories, event.summary);
-  const duration  = getDurationDays(event.start, event.end);
-  const isRange   = event.end && event.end !== event.start;
+  const mainCat = (event.categories || [])[0] || "Dates spéciales";
+  const def = getCatColor(mainCat);
+  const emoji = getCatEmoji(event.categories, event.summary);
+  const duration = getDurationDays(event.start, event.end);
+  const isRange = event.end && event.end !== event.start;
   const daysUntil = getDaysUntil(event.start);
-  const cd        = countdownLabel(daysUntil);
-  const isoWeek   = getISOWeek(event.start);
+  const cd = countdownLabel(daysUntil);
+  const isoWeek = getISOWeek(event.start);
   const dayOfYear = getDayOfYear(event.start);
-  const year      = Number(event.start.slice(0, 4));
+  const year = Number(event.start.slice(0, 4));
   const totalDaysInYear = isLeapYear(year) ? 366 : 365;
   const yearProgress = Math.round((dayOfYear / totalDaysInYear) * 100);
-  const isVacances = (event.categories || []).includes('Vacances scolaires');
-  const zones      = (event.zones || []).filter(z => z && z !== 'all');
+  const isVacances = (event.categories || []).includes("Vacances scolaires");
+  const zones = (event.zones || []).filter((z) => z && z !== "all");
 
   const season = getSeason(event.start);
-  const weekendStatus = getWeekendStatus(event.start, event.categories || []);  const dayName = getDayName(event.start);
+  const weekendStatus = getWeekendStatus(event.start, event.categories || []);
+  const dayName = getDayName(event.start);
   const wikiLink = `https://fr.wikipedia.org/wiki/Spécial:Recherche?search=${encodeURIComponent(event.summary)}`;
 
   const prevEvent = siblings.prev;
   const nextEvent = siblings.next;
 
   const canonicalUrl = `${siteUrl}/event/${slugifyWithDate(event.summary, event.start)}`;
-  const desc = event.description ? event.description.slice(0, 160) + (event.description.length > 160 ? '…' : '') : `${event.summary} — ${formatDateFR(event.start)}`;
+  const desc = event.description
+    ? event.description.slice(0, 160) +
+    (event.description.length > 160 ? "…" : "")
+    : `${event.summary} — ${formatDateFR(event.start)}`;
 
-  const occurrencesByYearHtml = buildOccurrencesByYear(allOccurrences, event, siteUrl);
+  const occurrencesByYearHtml = buildOccurrencesByYear(
+    allOccurrences,
+    event,
+    siteUrl,
+  );
   const hasMultipleOccurrences = allOccurrences.length > 1;
-  const occIndex = allOccurrences.findIndex(o => o.start === event.start && o.summary === event.summary);
+  const occIndex = allOccurrences.findIndex(
+    (o) => o.start === event.start && o.summary === event.summary,
+  );
   const prevOcc = occIndex > 0 ? allOccurrences[occIndex - 1] : null;
-  const nextOcc = (occIndex >= 0 && occIndex < allOccurrences.length - 1) ? allOccurrences[occIndex + 1] : null;
+  const nextOcc =
+    occIndex >= 0 && occIndex < allOccurrences.length - 1
+      ? allOccurrences[occIndex + 1]
+      : null;
   const eventIcsHref = `${canonicalUrl}?format=ics`;
 
   const googleDates = (() => {
     const start = event.start;
-    const endInclusive = event.end && event.end !== event.start ? event.end : event.start;
+    const endInclusive =
+      event.end && event.end !== event.start ? event.end : event.start;
     const endExclusive = addDaysISO(endInclusive, 1);
     return `${toIcsDate(start)}/${toIcsDate(endExclusive)}`;
   })();
-  const googleHref = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.summary || '')}`
-    + `&dates=${encodeURIComponent(googleDates)}`
-    + `&details=${encodeURIComponent((event.description || '').slice(0, 1500))}`
-    + `&sprop=${encodeURIComponent(siteUrl)}`
-    + `&sprop=name:${encodeURIComponent('Calendrier France')}`;
-  const outlookHref = `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent`
-    + `&subject=${encodeURIComponent(event.summary || '')}`
-    + `&body=${encodeURIComponent((event.description || '').slice(0, 1500))}`
-    + `&startdt=${encodeURIComponent(event.start + 'T00:00:00')}`
-    + `&enddt=${encodeURIComponent((event.end && event.end !== event.start ? event.end : event.start) + 'T23:59:00')}`
-    + `&allday=true`;
+  const googleHref =
+    `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.summary || "")}` +
+    `&dates=${encodeURIComponent(googleDates)}` +
+    `&details=${encodeURIComponent((event.description || "").slice(0, 1500))}` +
+    `&sprop=${encodeURIComponent(siteUrl)}` +
+    `&sprop=name:${encodeURIComponent("Calendrier France")}`;
+  const outlookHref =
+    `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent` +
+    `&subject=${encodeURIComponent(event.summary || "")}` +
+    `&body=${encodeURIComponent((event.description || "").slice(0, 1500))}` +
+    `&startdt=${encodeURIComponent(event.start + "T00:00:00")}` +
+    `&enddt=${encodeURIComponent((event.end && event.end !== event.start ? event.end : event.start) + "T23:59:00")}` +
+    `&allday=true`;
 
   return `<!doctype html>
 <html lang="fr" data-theme="dark">
@@ -549,10 +683,10 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
 
   <section class="hero">
     <div class="hero-in">
-      <div class="hero-eyebrow"><i class="fa-solid fa-tag"></i> ${escapeHtml((event.categories || []).join(' · ') || 'Événement')}</div>
+      <div class="hero-eyebrow"><i class="fa-solid fa-tag"></i> ${escapeHtml((event.categories || []).join(" · ") || "Événement")}</div>
       <span class="hero-emoji" role="img">${emoji}</span>
       <h1>${escapeHtml(event.summary)}<br/><em>${escapeHtml(formatDateFR(event.start))}</em></h1>
-      <div class="countdown${cd.past ? ' past' : ''}"><i class="fa-${cd.past ? 'regular fa-clock' : 'solid fa-calendar-days'}"></i> ${escapeHtml(cd.text)}</div>
+      <div class="countdown${cd.past ? " past" : ""}"><i class="fa-${cd.past ? "regular fa-clock" : "solid fa-calendar-days"}"></i> ${escapeHtml(cd.text)}</div>
     </div>
   </section>
 
@@ -572,9 +706,9 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
       <div class="section-title"><i class="fa-solid fa-circle-info"></i> Informations</div>
       <div class="info-grid">
         <div class="info-card accent">
-          <div class="info-label">${isRange ? 'Du' : 'Date'}</div>
+          <div class="info-label">${isRange ? "Du" : "Date"}</div>
           <div class="info-value">${escapeHtml(formatDateFR(event.start))}</div>
-          ${isRange ? `<div class="info-sub">au ${escapeHtml(formatDateFR(event.end))}</div>` : ''}
+          ${isRange ? `<div class="info-sub">au ${escapeHtml(formatDateFR(event.end))}</div>` : ""}
         </div>
         <div class="info-card">
           <div class="info-label">Jour</div>
@@ -583,8 +717,8 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
         </div>
         <div class="info-card">
           <div class="info-label">Durée</div>
-          <div class="info-value">${duration} jour${duration > 1 ? 's' : ''}</div>
-          ${duration > 1 ? `<div class="info-sub">${Math.ceil(duration / 7)} semaine${Math.ceil(duration / 7) > 1 ? 's' : ''}</div>` : ''}
+          <div class="info-value">${duration} jour${duration > 1 ? "s" : ""}</div>
+          ${duration > 1 ? `<div class="info-sub">${Math.ceil(duration / 7)} semaine${Math.ceil(duration / 7) > 1 ? "s" : ""}</div>` : ""}
         </div>
         <div class="info-card">
           <div class="info-label">Saison</div>
@@ -598,95 +732,126 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
         </div>
         <div class="info-card">
           <div class="info-label">Semaine ISO</div>
-          <div class="info-value">S${isoWeek.toString().padStart(2, '0')}</div>
+          <div class="info-value">S${isoWeek.toString().padStart(2, "0")}</div>
           <div class="info-sub">Année ${year}</div>
         </div>
       </div>
     </section>
 
-    ${event.description || true ? `
+    ${event.description || true
+      ? `
     <section class="section">
       <div class="section-title"><i class="fa-solid fa-book-open"></i> À propos</div>
       <div class="desc-block">
-        ${event.description ? escapeHtml(event.description).replace(/\n/g, '<br/>') : 'Cet événement fait partie du calendrier national français.'}
+        ${event.description ? escapeHtml(event.description).replace(/\n/g, "<br/>") : "Cet événement fait partie du calendrier national français."}
         <br>
         <a href="${escapeHtml(wikiLink)}" target="_blank" rel="noopener" class="wiki-btn">
           <i class="fa-brands fa-wikipedia-w"></i> Lire sur Wikipédia
         </a>
       </div>
-    </section>` : ''}
+    </section>`
+      : ""
+    }
 
     <section class="section">
       <div class="section-title"><i class="fa-solid fa-tags"></i> Catégories & Zones</div>
       <div class="chips">
-        ${(event.categories || []).map(c => {
-          const cd2 = getCatColor(c);
-          return `<span class="chip cat" style="border-color:${cd2.b};background:${cd2.d};color:${cd2.c}">
+        ${(event.categories || [])
+      .map((c) => {
+        const cd2 = getCatColor(c);
+        return `<span class="chip cat" style="border-color:${cd2.b};background:${cd2.d};color:${cd2.c}">
             <i class="fa-solid fa-circle" style="font-size:6px"></i>${escapeHtml(c)}
           </span>`;
-        }).join('')}
-        ${zones.map(z => `<span class="chip zone"><i class="fa-solid fa-location-dot"></i>${escapeHtml(zoneLabel(z))}</span>`).join('')}
+      })
+      .join("")}
+        ${zones.map((z) => `<span class="chip zone"><i class="fa-solid fa-location-dot"></i>${escapeHtml(zoneLabel(z))}</span>`).join("")}
       </div>
       
-      ${zones.length ? `
+      ${zones.length
+      ? `
       <div class="academy-list">
-        ${zones.map(z => ACADEMIES[z] ? `<strong>Zone ${z} :</strong> ${ACADEMIES[z]}<br>` : '').join('')}
+        ${zones.map((z) => (ACADEMIES[z] ? `<strong>Zone ${z} :</strong> ${ACADEMIES[z]}<br>` : "")).join("")}
       </div>
-      ` : ''}
+      `
+      : ""
+    }
     </section>
 
-    ${hasMultipleOccurrences ? `
+    ${hasMultipleOccurrences
+      ? `
     <section class="section">
       <div class="section-title"><i class="fa-solid fa-rotate"></i> Autres occurrences (${allOccurrences.length} au total)</div>
       ${occurrencesByYearHtml}
-    </section>` : ''}
+    </section>`
+      : ""
+    }
 
-    ${(prevEvent || nextEvent) ? `
+    ${prevEvent || nextEvent
+      ? `
     <section class="section">
       <div class="section-title"><i class="fa-solid fa-arrows-left-right"></i> Dans le calendrier</div>
       <div class="neighbors">
-        ${prevEvent ? (() => {
-          const pCat = (prevEvent.categories || [])[0] || 'Divers';
+        ${prevEvent
+        ? (() => {
+          const pCat = (prevEvent.categories || [])[0] || "Divers";
           const pDef = getCatColor(pCat);
-          const pSlug = slugifyWithDate(prevEvent.summary, prevEvent.start);
+          const pSlug = slugifyWithDate(
+            prevEvent.summary,
+            prevEvent.start,
+          );
           return `<a href="/event/${escapeHtml(pSlug)}" class="neighbor">
             <div class="neighbor-dir"><i class="fa-solid fa-arrow-left"></i> Précédent</div>
             <div class="neighbor-name">${escapeHtml(prevEvent.summary)}</div>
             <div class="neighbor-date">${escapeHtml(formatDateShort(prevEvent.start))}</div>
             <span class="neighbor-cat" style="color:${pDef.c};background:${pDef.d};border-color:${pDef.b}">${escapeHtml(pCat)}</span>
           </a>`;
-        })() : `<div></div>`}
-        ${nextEvent ? (() => {
-          const nCat = (nextEvent.categories || [])[0] || 'Divers';
+        })()
+        : `<div></div>`
+      }
+        ${nextEvent
+        ? (() => {
+          const nCat = (nextEvent.categories || [])[0] || "Divers";
           const nDef = getCatColor(nCat);
-          const nSlug = slugifyWithDate(nextEvent.summary, nextEvent.start);
+          const nSlug = slugifyWithDate(
+            nextEvent.summary,
+            nextEvent.start,
+          );
           return `<a href="/event/${escapeHtml(nSlug)}" class="neighbor" style="text-align:right;align-items:flex-end">
             <div class="neighbor-dir" style="flex-direction:row-reverse">Suivant <i class="fa-solid fa-arrow-right"></i></div>
             <div class="neighbor-name">${escapeHtml(nextEvent.summary)}</div>
             <div class="neighbor-date">${escapeHtml(formatDateShort(nextEvent.start))}</div>
             <span class="neighbor-cat" style="color:${nDef.c};background:${nDef.d};border-color:${nDef.b}">${escapeHtml(nCat)}</span>
           </a>`;
-        })() : `<div></div>`}
+        })()
+        : `<div></div>`
+      }
       </div>
-    </section>` : ''}
+    </section>`
+      : ""
+    }
 
     <section class="section">
       <div class="section-title"><i class="fa-solid fa-bolt"></i> S'abonner au calendrier</div>
       <div class="cta-row">
         <a href="${escapeHtml(icsUrl)}" class="btn-p">
           <i class="fa-solid fa-bolt"></i>
-          ${isVacances && zones.length ? `S'abonner — ${escapeHtml(zones.map(z => zoneLabel(z)).join(' + '))}` : 'S\'abonner au calendrier complet'}
+          ${isVacances && zones.length ? `S'abonner — ${escapeHtml(zones.map((z) => zoneLabel(z)).join(" + "))}` : "S'abonner au calendrier complet"}
         </a>
         <a href="/#explorer" class="btn-s"><i class="fa-regular fa-calendar"></i> Voir tous les événements</a>
       </div>
-      ${isVacances && zones.length < 3 ? `
+      ${isVacances && zones.length < 3
+      ? `
       <div style="margin-top:10px;font-size:13px;color:var(--t3)">Ou s'abonner par zone :</div>
       <div class="zone-cta-grid">
-        ${['A', 'B', 'C'].map(z => {
+        ${["A", "B", "C"]
+        .map((z) => {
           const wc = `webcal://calendrier-fr.tibotsr.dev/api/calendrier.ics?zone=${z}&cats=Vacances+scolaires,Jours+f%C3%A9ri%C3%A9s`;
           return `<a href="${wc}" class="zone-cta"><i class="fa-solid fa-bolt"></i>Zone ${z}</a>`;
-        }).join('')}
-      </div>` : ''}
+        })
+        .join("")}
+      </div>`
+      : ""
+    }
     </section>
   </div>
 
@@ -744,24 +909,39 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
 
 module.exports = async function handler(req, res) {
   try {
-    const url     = new URL(req.url, `https://${req.headers.host}`);
-    const slug    = url.searchParams.get('slug') || url.pathname.split('/event/')[1] || '';
+    const url = new URL(req.url, `https://${req.headers.host}`);
+    const slug =
+      url.searchParams.get("slug") || url.pathname.split("/event/")[1] || "";
     const siteUrl = `https://${req.headers.host}`;
-    const icsUrl  = `webcal://${req.headers.host}/api/calendrier.ics`;
+    const icsUrl = `webcal://${req.headers.host}/api/calendrier.ics`;
 
-    if (!slug) { res.statusCode = 400; res.end('Slug manquant'); return; }
+    if (!slug) {
+      res.statusCode = 400;
+      res.end("Slug manquant");
+      return;
+    }
 
     const parsed = parseSlug(slug);
     if (!parsed) {
-      res.statusCode = 404; res.setHeader('Content-Type', 'text/plain');
-      res.end('Format attendu : /event/nom-evenement-2026-01-26 ou /event/nom-evenement-2026'); return;
+      res.statusCode = 404;
+      res.setHeader("Content-Type", "text/plain");
+      res.end(
+        "Format attendu : /event/nom-evenement-2026-01-26 ou /event/nom-evenement-2026",
+      );
+      return;
     }
 
-    const sourceUrl = process.env.CALENDAR_JSON_URL || 'https://calendrier-fr.tibotsr.dev/calendrier.json';
-    const upstream  = await fetch(sourceUrl, { cache: 'no-store' });
-    if (!upstream.ok) { res.statusCode = 502; res.end('Impossible de charger les données'); return; }
+    const sourceUrl =
+      process.env.CALENDAR_JSON_URL ||
+      "https://calendrier-fr.tibotsr.dev/calendrier.json";
+    const upstream = await fetch(sourceUrl, { cache: "no-store" });
+    if (!upstream.ok) {
+      res.statusCode = 502;
+      res.end("Impossible de charger les données");
+      return;
+    }
 
-    const data   = await upstream.json();
+    const data = await upstream.json();
     const events = Array.isArray(data.events) ? data.events : [];
 
     const { namePart, year, exactDate } = parsed;
@@ -769,23 +949,28 @@ module.exports = async function handler(req, res) {
     let match;
 
     if (exactDate) {
-      // Nouveau format enrichi : on cherche par slug + date exacte
-      match = events.find(e => {
+      match = events.find((e) => {
         if (e.start !== exactDate) return false;
-        return slugify(e.summary) === namePart || slugify(e.summary).startsWith(namePart);
+        return (
+          slugify(e.summary) === namePart ||
+          slugify(e.summary).startsWith(namePart)
+        );
       });
     }
 
     if (!match) {
-      // Fallback legacy : slug + année (prend le premier trouvé)
-      match = events.find(e => {
+      match = events.find((e) => {
         if (!e.start || !e.start.startsWith(String(year))) return false;
-        return slugify(e.summary) === namePart || slugify(e.summary).startsWith(namePart);
+        return (
+          slugify(e.summary) === namePart ||
+          slugify(e.summary).startsWith(namePart)
+        );
       });
     }
 
     if (!match) {
-      res.statusCode = 404; res.setHeader('Content-Type', 'text/html; charset=utf-8');
+      res.statusCode = 404;
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.end(`<!doctype html><html lang="fr"><head><meta charset="UTF-8"/><title>Introuvable — Calendrier France</title>
 <style>body{font-family:sans-serif;background:#07070d;color:#ededf4;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:16px;text-align:center;padding:20px}a{color:#6b8cff}</style>
 </head><body>
@@ -797,40 +982,49 @@ module.exports = async function handler(req, res) {
       return;
     }
 
-    // Toutes les occurrences du même événement (même nom exact)
     const allOccurrences = events
-      .filter(e => slugify(e.summary) === slugify(match.summary))
+      .filter((e) => slugify(e.summary) === slugify(match.summary))
       .sort((a, b) => a.start.localeCompare(b.start));
 
-    // Événements voisins dans le calendrier global (triés par date)
-    const sorted  = [...events].sort((a, b) => a.start.localeCompare(b.start));
-    const idx     = sorted.findIndex(e => e.start === match.start && e.summary === match.summary);
+    const sorted = [...events].sort((a, b) => a.start.localeCompare(b.start));
+    const idx = sorted.findIndex(
+      (e) => e.start === match.start && e.summary === match.summary,
+    );
     const siblings = {
       prev: idx > 0 ? sorted[idx - 1] : null,
       next: idx < sorted.length - 1 ? sorted[idx + 1] : null,
     };
 
-    // Export ICS de cet événement : /event/<slug>?format=ics
-    const format = (url.searchParams.get('format') || '').toLowerCase();
-    if (format === 'ics') {
-      const domain = req.headers.host || 'calendrier-fr.tibotsr.dev';
+    const format = (url.searchParams.get("format") || "").toLowerCase();
+    if (format === "ics") {
+      const domain = req.headers.host || "calendrier-fr.tibotsr.dev";
       const ics = buildSingleEventIcs(match, domain);
       const filename = `${slugifyWithDate(match.summary, match.start)}.ics`;
       res.statusCode = 200;
-      res.setHeader('Content-Type', 'text/calendar; charset=utf-8');
-      res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
-      res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=0');
+      res.setHeader("Content-Type", "text/calendar; charset=utf-8");
+      res.setHeader(
+        "Content-Disposition",
+        `attachment; filename="${filename}"`,
+      );
+      res.setHeader(
+        "Cache-Control",
+        "public, s-maxage=300, stale-while-revalidate=0",
+      );
       res.end(ics);
       return;
     }
 
     const html = buildHtml(match, siblings, allOccurrences, siteUrl, icsUrl);
     res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=86400');
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.setHeader(
+      "Cache-Control",
+      "public, s-maxage=3600, stale-while-revalidate=86400",
+    );
     res.end(html);
   } catch (err) {
-    res.statusCode = 500; res.setHeader('Content-Type', 'text/plain');
-    res.end(`Erreur : ${err?.message || 'inconnue'}`);
+    res.statusCode = 500;
+    res.setHeader("Content-Type", "text/plain");
+    res.end(`Erreur : ${err?.message || "inconnue"}`);
   }
 };

@@ -3,7 +3,7 @@
 const GENERATED_DATA_REPO = process.env.GENERATED_DATA_REPO || 'TiboTsr/calendrier-france-ics';
 const GENERATED_DATA_BRANCH = process.env.GENERATED_DATA_BRANCH || 'data';
 const RAW_BASE = 'https://raw.githubusercontent.com/' + GENERATED_DATA_REPO + '/' + GENERATED_DATA_BRANCH;
-const CACHE_SHORT = 'public, s-maxage=60, stale-while-revalidate=3600';
+const CACHE_SHORT = 'public, s-maxage=300, stale-while-revalidate=3600';
 const CACHE_REALTIME_JSON = 'public, s-maxage=30, stale-while-revalidate=0';
 const CACHE_ICS = 'public, max-age=0, s-maxage=31536000, must-revalidate';
 

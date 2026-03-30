@@ -138,7 +138,6 @@ function renderZoneSingle(res, entry) {
 
 /* ── Popup d'erreur géolocalisation (sécurisée) ─────── */
 function showGeoError(msg) {
-  // Réutilise la popup existante ou la crée
   let popup = document.getElementById('geo-error-popup');
   if (!popup) {
     popup = document.createElement('div');
@@ -147,7 +146,6 @@ function showGeoError(msg) {
     popup.setAttribute('aria-modal', 'true');
     popup.setAttribute('aria-labelledby', 'geo-error-msg');
 
-    // Structure statique — aucun contenu dynamique injecté via innerHTML
     popup.style.cssText = [
       'position:fixed', 'left:50%', 'top:20%',
       'transform:translate(-50%,0)',
@@ -172,7 +170,6 @@ function showGeoError(msg) {
       'color:var(--t1,#fff)', 'border:none',
       'font-size:16px', 'cursor:pointer',
     ].join(';');
-    // textContent uniquement — pas d'innerHTML
     closeBtn.textContent = 'Fermer';
     closeBtn.addEventListener('click', () => popup.remove());
 
@@ -182,7 +179,6 @@ function showGeoError(msg) {
     document.body.appendChild(popup);
   }
 
-  // textContent au lieu de innerHTML — aucune injection HTML possible
   document.getElementById('geo-error-msg').textContent = msg;
   popup.style.display = 'block';
   popup.querySelector('button').focus();
@@ -231,7 +227,6 @@ async function runZoneSearch() {
   SAMPLE_CITIES.forEach(city => {
     const b = document.createElement('button');
     b.className = 'zchip';
-    // textContent uniquement — les noms de villes ne sont pas du HTML
     b.textContent = city;
     b.addEventListener('click', () => {
       document.getElementById('zf-in').value = city;

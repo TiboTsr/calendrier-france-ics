@@ -1,0 +1,1 @@
+from .api import fetch_wiki_extract

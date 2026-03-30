@@ -1,7 +1,4 @@
-﻿/* ═══════════════════════════════════════════════════════
-   TOKENS
-═══════════════════════════════════════════════════════ */
-:root {
+﻿:root {
   --ff:  'DM Sans', sans-serif;
   --ffd: 'Syne', sans-serif;
   --ffm: 'DM Mono', monospace;
@@ -61,9 +58,6 @@
   --shl: 0 28px 70px rgba(0,0,0,.14);
 }
 
-/* ═══════════════════════════════════════════════════════
-   BASE
-═══════════════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
@@ -96,9 +90,6 @@ section { padding: 80px 0; }
 .bp .ui-ico, .btn-hero-p .ui-ico { color: currentColor; }
 .bs .ui-ico { color: var(--t2); }
 
-/* ═══════════════════════════════════════════════════════
-   APP LOADER (Anti-clignotement)
-═══════════════════════════════════════════════════════ */
 body.app-loading { overflow: hidden; height: 100vh; touch-action: none; }
 
 body.app-loading > :not(#app-loader):not(nav.topbar):not(noscript) {
@@ -126,9 +117,6 @@ body.app-loading > :not(#app-loader):not(nav.topbar):not(noscript) {
 .app-loader-txt { font-size: 13px; }
 @keyframes appspin { to { transform: rotate(360deg); } }
 
-/* ═══════════════════════════════════════════════════════
-   FALLBACK SI JAVASCRIPT EST DÉSACTIVÉ
-═══════════════════════════════════════════════════════ */
 noscript {
   position: fixed; inset: 0; z-index: 99999;
   background: #232330; color: #fff;
@@ -139,9 +127,6 @@ html.no-js body > :not(noscript) {
   display: none !important;
 }
 
-/* ═══════════════════════════════════════════════════════
-   TOPBAR
-═══════════════════════════════════════════════════════ */
 .topbar {
   position: sticky; top: 0; z-index: 50;
   border-bottom: 1px solid var(--b);
@@ -193,9 +178,6 @@ html.no-js body > :not(noscript) {
 .tbtn:hover { border-color: var(--bh); color: var(--t1); }
 .tbtn.on { border-color: var(--acc); background: var(--accd); color: var(--acc); }
 
-/* ═══════════════════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════════════════ */
 .hero {
   min-height: 100svh;
   display: flex; flex-direction: column;
@@ -329,9 +311,6 @@ html.no-js body > :not(noscript) {
 @keyframes marquee-rtl { 0% { transform: translateX(0); }   100% { transform: translateX(-50%); } }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
 
-/* ═══════════════════════════════════════════════════════
-   SECTION HEADER
-═══════════════════════════════════════════════════════ */
 .sh { text-align: center; margin-bottom: 36px; }
 .sh-eye {
   display: inline-block; font-size: 11px; font-weight: 700;
@@ -345,9 +324,6 @@ html.no-js body > :not(noscript) {
 }
 .sh p { color: var(--t2); margin-top: 8px; font-size: 14px; }
 
-/* ═══════════════════════════════════════════════════════
-   COMMENT ÇA MARCHE
-═══════════════════════════════════════════════════════ */
 #how-it-works { background: var(--bg1); border-top: 1px solid var(--b); border-bottom: 1px solid var(--b); }
 
 .steps-grid {
@@ -384,9 +360,6 @@ html.no-js body > :not(noscript) {
 }
 .step-link:hover { gap: 10px; }
 
-/* ═══════════════════════════════════════════════════════
-   TABS (simple / avancé)
-═══════════════════════════════════════════════════════ */
 .tabs-row { display: flex; justify-content: center; margin-bottom: 28px; }
 .sync-guide {
   display: grid;
@@ -441,9 +414,6 @@ html.no-js body > :not(noscript) {
 .tpanel { display: none; }
 .tpanel.on { display: block; animation: fi .2s ease; }
 
-/* ═══════════════════════════════════════════════════════
-   PANNEAU SIMPLE
-═══════════════════════════════════════════════════════ */
 .sp {
   max-width: 640px; margin: 0 auto;
   background: var(--bg1); border: 1px solid var(--b);
@@ -576,9 +546,6 @@ html.no-js body > :not(noscript) {
 .zhint-btns .bp,
 .zhint-btns .bs { font-size: 12px; padding: 8px 14px; flex: none; }
 
-/* ═══════════════════════════════════════════════════════
-   PANNEAU AVANCÉ
-═══════════════════════════════════════════════════════ */
 .adv {
   max-width: 840px; margin: 0 auto;
   background: var(--bg1); border: 1px solid var(--b);
@@ -821,9 +788,6 @@ html.no-js body > :not(noscript) {
 .qr-item span { font-size: 11px; font-weight: 700; text-align: center; }
 .qr-item span .ui-ico { color: var(--acc); }
 
-/* ═══════════════════════════════════════════════════════
-   ZONE FINDER
-═══════════════════════════════════════════════════════ */
 .zone-sec {
   background: var(--bg1); border: 1px solid var(--b);
   border-radius: var(--rxl); padding: 32px;
@@ -879,9 +843,6 @@ html.no-js body > :not(noscript) {
 }
 .zchip:hover { border-color: var(--bh); color: var(--t1); }
 
-/* ═══════════════════════════════════════════════════════
-   EXPLORATEUR
-═══════════════════════════════════════════════════════ */
 .exp-layout { display: grid; grid-template-columns: 256px 1fr; gap: 18px; align-items: start; }
 
 .sidebar {
@@ -1147,9 +1108,6 @@ html.no-js body > :not(noscript) {
   }
 }
 
-/* ═══════════════════════════════════════════════════════
-   FAQ
-═══════════════════════════════════════════════════════ */
 .faq-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1229,9 +1187,6 @@ html.no-js body > :not(noscript) {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ═══════════════════════════════════════════════════════
-   MODAL
-═══════════════════════════════════════════════════════ */
 .mbg {
   position: fixed; inset: 0;
   background: rgba(0,0,0,.72); backdrop-filter: blur(14px);
@@ -1330,9 +1285,6 @@ html.no-js body > :not(noscript) {
   min-width: 120px;
 }
 
-/* ═══════════════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════════════ */
 footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
 .footer-links {
   display: flex; flex-wrap: wrap; gap: 16px;
@@ -1351,9 +1303,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
 .footer-credit { font-size: 11px; color: var(--t3); }
 .footer-credit a { color: var(--t3); }
 
-/* ═══════════════════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════════════════ */
 #toast-container {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
   z-index: 9999; display: flex; flex-direction: column; gap: 8px; pointer-events: none;
@@ -1366,9 +1315,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
 }
 .toast.fade-out { opacity: 0; transition: opacity .3s; }
 
-/* ═══════════════════════════════════════════════════════
-   TUTORIEL
-═══════════════════════════════════════════════════════ */
 #tuto-welcome {
   position: fixed; inset: 0; z-index: 10000;
   display: flex; align-items: center; justify-content: center; padding: 20px;
@@ -1462,9 +1408,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
 }
 .tuto-next:hover { opacity: .87; }
 
-/* ═══════════════════════════════════════════════════════
-   ACCESSIBILITÉ
-═══════════════════════════════════════════════════════ */
 [data-accessibility="on"] {
   --t1: #ffffff; --t2: #d7d7eb; --t3: #aeb0d2;
   --b: rgba(255,255,255,.18); --bh: rgba(255,255,255,.34); --ba: rgba(255,255,255,.45);
@@ -1503,13 +1446,9 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
 [data-accessibility="on"] .bs,
 [data-accessibility="on"] .url-copy-btn { transition: none !important; }
 
-/* ═══════════════════════════════════════════════════════
-   ANIMATIONS UTILITAIRES
-═══════════════════════════════════════════════════════ */
 @keyframes fi { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
 .anim { animation: fi .25s ease; }
 
-/* URL refresh animation */
 .gen-out.refreshing #adv-url-animated {
   animation: url-refresh .15s ease;
 }
@@ -1518,7 +1457,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   100% { opacity: 1;  transform: translateX(0); }
 }
 
-/* ── Vue Grille ────────────────────────────────────── */
 .view-toggle .tbtn.active {
   background: var(--bg3);
   color: var(--t1);
@@ -1586,7 +1524,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   align-self: flex-end;
 }
 
-/* Bulle pour le jour d'aujourd'hui */
 .g-day.today .g-num {
   color: #fff;
   background: var(--acc);
@@ -1598,7 +1535,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   border-radius: 50%;
 }
 
-/* Étiquettes des événements */
 .g-ev {
   font-size: 10px;
   padding: 3px 4px;
@@ -1674,7 +1610,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   text-transform: uppercase;
 }
 
-/* ── Timeline — nouveaux badges ─────────────────────── */
 .ev-tag--ongoing {
   display: inline-flex;
   align-items: center;
@@ -1698,7 +1633,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
 }
 .ev-tags { flex-wrap: wrap; row-gap: 3px; }
 
-/* ── Modal — refonte ────────────────────────────────── */
 #m-cat-bar {
   display: none;
 }
@@ -1788,7 +1722,6 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   color: var(--t2);
 }
 
-/* ── Zone Finder CTA ─────────────────────────────────── */
 .zone-result-cta {
   display: flex;
   gap: 8px;
@@ -1805,26 +1738,22 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   margin-top: 6px;
 }
 
-/* ── AM pill ─────────────────────────────────────────── */
 .szp.sam {
   border-color: var(--vio);
   background: var(--viod);
   color: var(--vio);
 }
 
-/* ── Tags mobile — ne masquer que les catégories, pas les badges ── */
 @media (max-width: 760px) {
   .ev-tags .ev-tag:not(.ev-tag--ongoing):not(.ev-tag--zone):not(.ev-tag--approx):nth-child(n+3) {
     display: none;
   }
 }
 
-/* ── Hint clavier — masqué sur mobile (pas de clavier physique) ── */
 @media (max-width: 760px) {
   .m-keyboard-hint { display: none; }
 }
 
-/* ── Lien "Voir la page dédiée" dans la modal ── */
 #m-event-link {
   display: none;
   align-items: center;

@@ -18,8 +18,9 @@ from .config import (
 )
 from .exporters import serialize_calendar, serialize_csv, serialize_rss
 from .models import CalendarEvent
-from .providers import build_base_events, build_vacation_events
-from .providers import fetch_static_sports
+from .providers import build_base_events, build_soldes_events
+from .education import build_vacation_events
+from .sports import fetch_static_sports
 from .elections import get_elections
 from .utils import deduplicate_events
 
@@ -140,12 +141,12 @@ def generate_all() -> None:
 	today = datetime.now(timezone.utc).date()
 
 	events = build_base_events()
+	events.extend(build_soldes_events())
 	events.extend(fetch_static_sports())
 	events.extend(build_vacation_events())
 	events = deduplicate_events(events)
 	upcoming = []
 	election_data = get_elections()
-	# Convert confirmed elections to CalendarEvent
 	events.extend([dict_to_cal_event(ev) for ev in election_data["confirmed"]])
 	upcoming.extend(election_data["approximate"])
 	base_events = [event for event in events if hasattr(event, "categories") and "Lunaire" not in event.categories]

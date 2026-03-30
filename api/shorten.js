@@ -1,22 +1,20 @@
 const { Redis } = require('@upstash/redis');
-const crypto    = require('crypto');
+const crypto = require('crypto');
 
-// @upstash/redis lit automatiquement UPSTASH_REDIS_REST_URL et UPSTASH_REDIS_REST_TOKEN
-// Ces variables sont injectées par l'intégration Vercel × Upstash
 const redis = new Redis({
-  url:   process.env.UPSTASH_REDIS_REST_URL,
+  url: process.env.UPSTASH_REDIS_REST_URL,
   token: process.env.UPSTASH_REDIS_REST_TOKEN,
 });
 
-const ALLOWED_HOSTNAME  = 'api.calendrier-fr.tibotsr.dev';
-const ALLOWED_SCHEMES   = ['https:', 'webcal:'];
-const MAX_URL_LENGTH    = 4096;
-const RATE_LIMIT_MAX    = 20;
+const ALLOWED_HOSTNAME = 'api.calendrier-fr.tibotsr.dev';
+const ALLOWED_SCHEMES = ['https:', 'webcal:'];
+const MAX_URL_LENGTH = 4096;
+const RATE_LIMIT_MAX = 20;
 const RATE_LIMIT_WINDOW = 60; // secondes
 
 function validateUrl(raw) {
   if (!raw || typeof raw !== 'string') return { ok: false, reason: 'URL manquante' };
-  if (raw.length > MAX_URL_LENGTH)     return { ok: false, reason: 'URL trop longue' };
+  if (raw.length > MAX_URL_LENGTH) return { ok: false, reason: 'URL trop longue' };
 
   let parsed;
   try {
@@ -26,7 +24,7 @@ function validateUrl(raw) {
   }
 
   const scheme = raw.toLowerCase().startsWith('webcal:') ? 'webcal:' : parsed.protocol;
-  if (!ALLOWED_SCHEMES.includes(scheme))   return { ok: false, reason: `Schéma non autorisé : ${scheme}` };
+  if (!ALLOWED_SCHEMES.includes(scheme)) return { ok: false, reason: `Schéma non autorisé : ${scheme}` };
   if (parsed.hostname !== ALLOWED_HOSTNAME) return { ok: false, reason: `Domaine non autorisé : ${parsed.hostname}` };
   return { ok: true };
 }
@@ -57,12 +55,12 @@ module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST')   return res.status(405).json({ error: 'Méthode non autorisée' });
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Méthode non autorisée' });
 
-  const ip        = getClientIp(req);
+  const ip = getClientIp(req);
   const rateCheck = await checkRateLimit(ip);
 
-  res.setHeader('X-RateLimit-Limit',     String(RATE_LIMIT_MAX));
+  res.setHeader('X-RateLimit-Limit', String(RATE_LIMIT_MAX));
   res.setHeader('X-RateLimit-Remaining', String(rateCheck.remaining));
 
   if (!rateCheck.allowed) {
@@ -76,7 +74,6 @@ module.exports = async function handler(req, res) {
     if (!check.ok) return res.status(400).json({ error: check.reason });
 
     const shortId = crypto.createHash('sha256').update(fullUrl).digest('hex').slice(0, 6);
-    // @upstash/redis : set(key, value, { ex: seconds })
     await redis.set(`link:${shortId}`, fullUrl, { ex: 15552000 });
     res.status(200).json({ shortId });
   } catch {

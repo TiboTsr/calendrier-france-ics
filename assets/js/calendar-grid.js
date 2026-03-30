@@ -4,7 +4,6 @@
  */
 
 const W_DAYS = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
-// On intègre les mois directement ici pour éviter tout bug d'importation
 const MO_NAMES = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
 
 function getIsoDateStr(d) {
@@ -19,8 +18,7 @@ function renderCalendarGrid() {
   if (!year) return;
 
   const evMap = {};
-  
-  // Sécurité ajoutée : on s'assure que e et e._date existent bien
+
   const eventsForYear = (window.STATE.srcEvts || []).filter(e => {
     if (!e || !e._date) return false;
     const sy = e._date.getFullYear();
@@ -31,7 +29,7 @@ function renderCalendarGrid() {
   eventsForYear.forEach(e => {
     const start = new Date(e._date);
     const end = e._endDate ? new Date(e._endDate) : new Date(e._date);
-    
+
     let cur = new Date(start);
     while (cur <= end) {
       const k = getIsoDateStr(cur);
@@ -48,9 +46,9 @@ function renderCalendarGrid() {
     const firstDay = new Date(year, m, 1);
     const lastDay = new Date(year, m + 1, 0);
     const numDays = lastDay.getDate();
-    
+
     let startOffset = firstDay.getDay() - 1;
-    if (startOffset === -1) startOffset = 6; 
+    if (startOffset === -1) startOffset = 6;
 
     let bodyHtml = '';
 
@@ -62,17 +60,16 @@ function renderCalendarGrid() {
       const curDate = new Date(year, m, d);
       const k = getIsoDateStr(curDate);
       const isToday = k === todayStr ? 'today' : '';
-      
+
       let evHtml = '';
       if (evMap[k]) {
         const uniqueEvts = Array.from(new Set(evMap[k].map(e => e.summary)))
           .map(title => evMap[k].find(e => e.summary === title));
 
         uniqueEvts.forEach(e => {
-          // Sécurité ajoutée : vérification propre des catégories
           const cats = Array.isArray(e.categories) ? e.categories : [];
           const catName = cats.length > 0 ? cats[0] : 'Dates spéciales';
-          
+
           const def = window.cd ? window.cd(catName) : { c: '#6b8cff', d: 'rgba(107,140,255,.12)' };
           const titleEscaped = window.escHtml ? window.escHtml(e.summary) : e.summary;
 
