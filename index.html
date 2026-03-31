@@ -96,19 +96,9 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(reg => {
-        reg.addEventListener('updatefound', () => {
-          const newWorker = reg.installing;
-          if (newWorker) {
-            newWorker.addEventListener('statechange', () => {
-              if (newWorker.state === 'installed') {
-                if (navigator.serviceWorker.controller) {
-                  window.dispatchEvent(new Event('calendar-sw-update'));
-                }
-              }
-            });
-          }
-        });
+      navigator.serviceWorker.register('/sw.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.dispatchEvent(new Event('calendar-sw-update'));
       });
     }
   </script>
