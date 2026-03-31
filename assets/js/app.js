@@ -264,4 +264,10 @@ document.addEventListener('visibilitychange', () => {
   if (!document.hidden) checkForCalendarUpdate();
 });
 
+window.addEventListener('calendar-sw-update', () => {
+  _pendingCalendarVersion = 'sw-update';
+  _pendingCalendarVersionLabel = null;
+  openCalendarUpdatePrompt();
+});
+
 init();
