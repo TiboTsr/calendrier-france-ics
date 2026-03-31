@@ -1,6 +1,6 @@
 ﻿:root {
-  --ff:  'DM Sans', sans-serif;
-  --ffd: 'Syne', sans-serif;
+  --ff:  'Inter', sans-serif; /* Neutre et lisible */
+  --ffd: 'Unbounded', sans-serif;
   --ffm: 'DM Mono', monospace;
 
   /* Backgrounds */
@@ -134,7 +134,7 @@ html.no-js body > :not(noscript) {
   backdrop-filter: blur(20px);
 }
 .topbar-in {
-  max-width: 1100px; margin: 0 auto; padding: 0 20px;
+  max-width: 100%; margin: 0 auto; padding: 0 40px;
   height: 54px; display: flex;
   align-items: center; justify-content: space-between; gap: 16px;
 }
@@ -223,7 +223,7 @@ html.no-js body > :not(noscript) {
 .hero h1 {
   font-family: var(--ffd);
   font-size: clamp(36px, 6vw, 68px);
-  font-weight: 800; line-height: 1.06;
+  font-weight: 700; line-height: 1.06;
   letter-spacing: -2px; margin-bottom: 22px;
 }
 .hero h1 em { font-style: normal; color: var(--acc); }

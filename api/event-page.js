@@ -572,6 +572,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
   <link rel="icon" type="image/svg+xml" href="/img/icon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
   <script type="application/ld+json">${buildEventSchema(event, siteUrl)}</script>
   <style>
@@ -581,7 +582,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
       --t1:#ededf4; --t2:#8080a0; --t3:#484860;
       --acc:#6b8cff; --accd:rgba(107,140,255,.10); --accb:rgba(107,140,255,.28);
       --r:11px; --rl:17px; --rxl:23px;
-      --ff:'DM Sans',sans-serif; --ffd:'Syne',sans-serif; --ffm:'DM Mono',monospace;
+      --ff:'DM Sans',sans-serif; --ffd:'Unbounded',sans-serif; --ffm:'DM Mono',monospace;
       --cat-c:${def.c}; --cat-d:${def.d}; --cat-b:${def.b};
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -592,7 +593,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
 
     /* ── Topbar, Hero, etc. (Garde tout ton CSS existant ici) ── */
     .topbar { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--b); background: color-mix(in srgb, var(--bg0) 88%, transparent); backdrop-filter: blur(20px); }
-    .topbar-in { max-width: 860px; margin: 0 auto; padding: 0 20px; height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .topbar-in { max-width: 100%; margin: 0 auto; padding: 0 40px; height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .brand { font-family: var(--ffd); font-weight: 800; font-size: 16px; display: flex; align-items: center; gap: 10px; }
     .flag { width: 26px; height: 18px; border-radius: 3px; overflow: hidden; display: flex; border: 1px solid rgba(0,0,0,.15); flex-shrink: 0; }
     .flag span { flex: 1; display: block; }

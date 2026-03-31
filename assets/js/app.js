@@ -189,7 +189,8 @@ async function init() {
     // Afficher le tutoriel à la première visite
     try {
       if (!localStorage.getItem('tuto_seen')) {
-        if (window._startTuto) window._startTuto();
+        const welcome = document.getElementById('tuto-welcome');
+        if (welcome) welcome.classList.add('visible');
         localStorage.setItem('tuto_seen', '1');
       }
     } catch {}
