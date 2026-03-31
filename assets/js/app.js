@@ -217,11 +217,29 @@ async function init() {
 }
 
 document.getElementById('calendar-update-refresh')?.addEventListener('click', async () => {
-  closeCalendarUpdatePrompt();
+  const btn = document.getElementById('calendar-update-refresh');
+  const originalText = btn.innerHTML;
+  
   try {
-    await refreshCalendarDataInPlace();
-  } catch {
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mise à jour...';
+
+    const bust = Date.now();
+    const res = await fetch(`/calendrier.json?v=${bust}`, { cache: 'no-store' });
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+
+    applyCalendarData(data);
+    refreshAll({ forceRender: true });
+
+    closeCalendarUpdatePrompt();
+    showToast('Le calendrier a été mis à jour avec succès !');
+
+  } catch (err) {
     window.location.reload();
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = originalText;
   }
 });
 
