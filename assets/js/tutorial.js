@@ -1,7 +1,6 @@
 /**
- * tutorial.js — Tutoriel 
+ * tutorial.js — Tutoriel interactif (Version Ultra Clean)
  * Dépend de : utils.js (KEYS)
-
  */
 
 (function () {
@@ -12,62 +11,72 @@
   const STEPS = [
     {
       sel: "#tp-simple .sp",
-      icon: '<i class="fa-solid fa-bolt"></i>',
-      title: "Synchronisez votre agenda",
-      desc: 'Choisissez votre appli (iPhone, Google, Outlook), copiez le lien et cliquez "S\'abonner". Le calendrier se mettra à jour tout seul, pour toujours.',
+      icon: '<i class="fa-solid fa-bolt" style="color: #3ecf8e;"></i>',
+      title: "Synchronisation instantanée",
+      desc: 'Choisissez votre appli (Apple, Google, Outlook), copiez le lien et cliquez sur "S\'abonner". Le calendrier se mettra à jour tout seul.',
       onEnter() {
         document.querySelector('[data-t="simple"]')?.click();
-        document
-          .querySelector("#sync")
-          .scrollIntoView({ behavior: "smooth", block: "center" });
+        document.querySelector("#sync")?.scrollIntoView({ behavior: "smooth", block: "center" });
       },
     },
     {
       sel: "#zone .zone-sec",
-      icon: '<i class="fa-solid fa-location-dot"></i>',
-      title: "Trouvez votre zone scolaire",
-      desc: "Tapez votre ville pour savoir si vous êtes Zone A, B ou C. Indispensable pour les bonnes vacances scolaires.",
+      icon: '<i class="fa-solid fa-location-dot" style="color: #6b8cff;"></i>',
+      title: "Quelle est votre zone ?",
+      desc: "Tapez le nom de votre ville. Le calendrier s'adaptera automatiquement pour afficher vos bonnes dates de vacances scolaires.",
       placement: "above",
       onEnter() {
-        document
-          .querySelector("#zone")
-          .scrollIntoView({ behavior: "smooth", block: "center" });
+        document.querySelector("#zone")?.scrollIntoView({ behavior: "smooth", block: "center" });
       },
     },
     {
       sel: "#tp-advanced .adv",
-      icon: '<i class="fa-solid fa-sliders"></i>',
-      title: "Personnalisez votre abonnement",
-      desc: "Profil, zones multiples, catégories à la carte, événements personnels — tout se configure ici dans l'onglet Avancé.",
+      icon: '<i class="fa-solid fa-sliders" style="color: #a78bfa;"></i>',
+      title: "Du sur-mesure",
+      desc: "Multi-zones, choix des catégories, ajout de vos propres événements... L'onglet Avancé vous permet de créer un calendrier unique.",
       onEnter() {
         document.querySelector('[data-t="advanced"]')?.click();
-        document
-          .querySelector("#sync")
-          .scrollIntoView({ behavior: "smooth", block: "center" });
+        document.querySelector("#sync")?.scrollIntoView({ behavior: "smooth", block: "center" });
       },
     },
     {
       sel: "#explorer .sidebar",
-      icon: '<i class="fa-solid fa-tags"></i>',
-      title: "Filtrez par catégorie",
-      desc: "Activez ou désactivez les catégories pour n'afficher que les événements qui vous intéressent. Les changements sont immédiats.",
+      icon: '<i class="fa-solid fa-filter" style="color: #f5a020;"></i>',
+      title: "Filtrez en un clic",
+      desc: "Désactivez ce qui ne vous intéresse pas (ex: jours fériés, fêtes). Le calendrier s'allège en temps réel.",
       onEnter() {
         document.querySelector('[data-t="simple"]')?.click();
-        document
-          .querySelector("#explorer")
-          .scrollIntoView({ behavior: "smooth", block: "start" });
+        document.querySelector("#explorer")?.scrollIntoView({ behavior: "smooth", block: "start" });
       },
     },
     {
       sel: "#explorer .radar",
-      icon: '<i class="fa-solid fa-satellite-dish"></i>',
-      title: "Les prochains événements",
-      desc: "Le radar sépare les événements à venir et ceux en cours. Cliquez sur une carte pour voir la fiche détaillée avec occurrences passées et futures.",
+      icon: '<i class="fa-solid fa-satellite-dish" style="color: #ff5a5a;"></i>',
+      title: "Le Radar des événements",
+      desc: "Visualisez rapidement ce qui arrive ou ce qui est en cours. Cliquez sur une carte pour voir tout l'historique d'un événement.",
+      onEnter() {
+        document.querySelector("#explorer")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      },
+    },
+    {
+      sel: ".faq-grid > div:first-child, .faq-grid", 
+      icon: '<i class="fa-solid fa-circle-question" style="color: #22d3ee;"></i>',
+      title: "Une question ? La FAQ !",
+      desc: "Un problème de synchronisation ? Retrouvez ici toutes les réponses aux questions les plus posées.",
+      onEnter() {
+        const faqEl = document.querySelector(".faq-grid");
+        faqEl?.scrollIntoView({ behavior: "smooth", block: "center" });
+      },
+    },
+    {
+      sel: "body",
+      placement: "center",
+      icon: '<i class="fa-solid fa-hand-sparkles" style="color: #facc15;"></i>',
+      title: "Bonne visite !",
+      desc: "Votre agenda est prêt. N'hésitez pas à nous contacter pour toute suggestion. Profitez bien de votre nouveau calendrier !",
       isLast: true,
       onEnter() {
-        document
-          .querySelector("#explorer")
-          .scrollIntoView({ behavior: "smooth", block: "start" });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       },
     },
   ];
@@ -79,13 +88,8 @@
   const card = document.getElementById("tuto-card");
   const arrow = document.getElementById("tuto-arrow");
 
-  const welcome = document.getElementById("tuto-welcome");
+  function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
 
-  function clamp(v, lo, hi) {
-    return Math.min(Math.max(v, lo), hi);
-  }
-
-  /* Dots */
   function buildDots() {
     const c = document.getElementById("tuto-dots");
     if (!c) return;
@@ -97,6 +101,7 @@
       c.appendChild(d);
     });
   }
+  
   function syncDots(s) {
     STEPS.forEach((_, i) => {
       const d = document.getElementById("tdot" + i);
@@ -105,7 +110,6 @@
     });
   }
 
-  /* Card content */
   function fillCard(s) {
     const st = STEPS[s];
     const stepLabel = document.getElementById("tuto-step-label");
@@ -114,143 +118,109 @@
     const desc = document.getElementById("tuto-desc");
     const nextBtn = document.getElementById("tuto-next-btn");
     const prevBtn = document.getElementById("tuto-prev-btn");
+    
     if (stepLabel) stepLabel.textContent = `Étape ${s + 1} / ${STEPS.length}`;
     if (icon) icon.innerHTML = st.icon;
     if (title) title.textContent = st.title;
     if (desc) desc.textContent = st.desc;
-    if (nextBtn)
-      nextBtn.innerHTML = st.isLast
-        ? 'Terminer <i class="fa-solid fa-champagne-glasses"></i>'
-        : 'Suivant <i class="fa-solid fa-arrow-right"></i>';
+    
+    if (nextBtn) {
+      nextBtn.innerHTML = st.isLast ? 'Terminer <i class="fa-solid fa-check"></i>' : 'Suivant <i class="fa-solid fa-arrow-right"></i>';
+      nextBtn.style.background = st.isLast ? "var(--acc)" : "";
+      nextBtn.style.color = st.isLast ? "#fff" : "";
+    }
+    
     if (prevBtn) {
       prevBtn.disabled = s === 0;
-      prevBtn.style.opacity = s === 0 ? ".3" : "1";
+      prevBtn.style.opacity = s === 0 ? "0.3" : "1";
     }
+
+    if (overlay) {
+        overlay.style.backdropFilter = st.isLast ? "blur(4px)" : "none";
+        overlay.style.transition = "backdrop-filter 0.4s ease";
+    }
+
     syncDots(s);
   }
 
-  /* Positionnement */
   function visibleRect(el) {
     const r = el.getBoundingClientRect();
-    const x1 = Math.max(r.left, 0),
-      y1 = Math.max(r.top, TOPBAR);
-    const x2 = Math.min(r.right, window.innerWidth),
-      y2 = Math.min(r.bottom, window.innerHeight);
-    return x2 <= x1 || y2 <= y1
-      ? null
-      : {
-          left: x1,
-          top: y1,
-          right: x2,
-          bottom: y2,
-          width: x2 - x1,
-          height: y2 - y1,
-        };
+    const x1 = Math.max(r.left, 0), y1 = Math.max(r.top, TOPBAR);
+    const x2 = Math.min(r.right, window.innerWidth), y2 = Math.min(r.bottom, window.innerHeight);
+    return x2 <= x1 || y2 <= y1 ? null : { left: x1, top: y1, right: x2, bottom: y2, width: x2 - x1, height: y2 - y1 };
   }
 
   function positionFrame() {
     const st = STEPS[step];
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
+    if (st.placement === "center") {
+      if (spot) spot.style.display = "none";
+      if (arrow) arrow.style.display = "none";
+      const TW = Math.min(360, vw - 32);
+      card.style.width = TW + "px";
+      card.style.visibility = "hidden";
+      card.style.top = "-9999px";
+      const TH = card.offsetHeight || 200;
+      card.style.visibility = "";
+      card.style.left = (vw / 2 - TW / 2) + "px";
+      card.style.top = (vh / 2 - TH / 2) + "px";
+      return;
+    }
+
+    if (arrow) arrow.style.display = "block";
     const el = document.querySelector(st.sel);
     if (!el) return;
     const vis = visibleRect(el);
     if (!vis) return;
-    const vw = window.innerWidth,
-      vh = window.innerHeight;
-    const sx = Math.max(0, vis.left - PAD),
-      sy = Math.max(TOPBAR, vis.top - PAD);
-    const sw = Math.min(vw - sx, vis.width + PAD * 2),
-      sh = Math.min(vh - sy, vis.height + PAD * 2);
-    spot.style.cssText = `left:${sx}px;top:${sy}px;width:${sw}px;height:${sh}px;display:block`;
+    const sx = Math.max(0, vis.left - PAD), sy = Math.max(TOPBAR, vis.top - PAD);
+    const sw = Math.min(vw - sx, vis.width + PAD * 2), sh = Math.min(vh - sy, vis.height + PAD * 2);
+    if (spot) {
+      spot.style.display = "block";
+      spot.style.left = `${sx}px`; spot.style.top = `${sy}px`; spot.style.width = `${sw}px`; spot.style.height = `${sh}px`;
+    }
 
-    const TW = Math.min(300, vw - 32);
+    const TW = Math.min(320, vw - 32);
     card.style.width = TW + "px";
     card.style.visibility = "hidden";
     card.style.top = "-9999px";
     const TH = card.offsetHeight || 200;
     card.style.visibility = "";
-    card.style.top = "";
 
-    const cx = sx + sw / 2,
-      cy = sy + sh / 2;
-    const spL = sx,
-      spR = vw - sx - sw,
-      spB = vh - sy - sh,
-      spA = sy - TOPBAR;
-    const minSide = TW + GAP + 8,
-      minVert = TH + GAP + 8;
-
-    const prefMap = {
-      above: "bot",
-      below: "top",
-      left: "right",
-      right: "left",
-    };
+    const cx = sx + sw / 2, cy = sy + sh / 2;
+    const spL = sx, spR = vw - sx - sw, spB = vh - sy - sh, spA = sy - TOPBAR;
+    const minSide = TW + GAP + 8, minVert = TH + GAP + 8;
+    const prefMap = { above: "bot", below: "top", left: "right", right: "left" };
     const pref = prefMap[st.placement] || null;
-    const sides = [pref, "left", "right", "top", "bot"].filter(
-      (v, i, a) => v && a.indexOf(v) === i,
-    );
+    const sides = [pref, "left", "right", "top", "bot"].filter((v, i, a) => v && a.indexOf(v) === i);
     const space = { left: spR, right: spL, top: spB, bot: spA };
-    const fits = (s) =>
-      s === "left" || s === "right" ? space[s] >= minSide : space[s] >= minVert;
-    const chosen =
-      sides.find(fits) || sides.slice().sort((a, b) => space[b] - space[a])[0];
+    const fits = (s) => s === "left" || s === "right" ? space[s] >= minSide : space[s] >= minVert;
+    const chosen = sides.find(fits) || sides.slice().sort((a, b) => space[b] - space[a])[0];
 
     let tx, ty;
-    if (chosen === "left") {
-      tx = sx + sw + GAP;
-      ty = clamp(cy - TH / 2, TOPBAR + 8, vh - TH - 8);
-    }
-    if (chosen === "right") {
-      tx = sx - GAP - TW;
-      ty = clamp(cy - TH / 2, TOPBAR + 8, vh - TH - 8);
-    }
-    if (chosen === "top") {
-      tx = clamp(cx - TW / 2, 16, vw - TW - 16);
-      ty = sy + sh + GAP;
-    }
-    if (chosen === "bot") {
-      tx = clamp(cx - TW / 2, 16, vw - TW - 16);
-      ty = sy - GAP - TH;
-    }
-    tx = clamp(tx, 8, vw - TW - 8);
-    ty = clamp(ty, TOPBAR + 8, vh - TH - 8);
-    card.style.top = ty + "px";
-    card.style.left = tx + "px";
+    if (chosen === "left") { tx = sx + sw + GAP; ty = clamp(cy - TH / 2, TOPBAR + 8, vh - TH - 8); }
+    if (chosen === "right") { tx = sx - GAP - TW; ty = clamp(cy - TH / 2, TOPBAR + 8, vh - TH - 8); }
+    if (chosen === "top") { tx = clamp(cx - TW / 2, 16, vw - TW - 16); ty = sy + sh + GAP; }
+    if (chosen === "bot") { tx = clamp(cx - TW / 2, 16, vw - TW - 16); ty = sy - GAP - TH; }
+    tx = clamp(tx, 8, vw - TW - 8); ty = clamp(ty, TOPBAR + 8, vh - TH - 8);
+    card.style.top = ty + "px"; card.style.left = tx + "px";
 
     const AS = 12;
-    const midX = cx - tx - AS / 2,
-      midY = cy - ty - AS / 2;
-    arrow.style.cssText = `position:absolute;width:${AS}px;height:${AS}px;background:var(--bg1);border:1px solid var(--ba);transform:rotate(45deg)`;
-    if (chosen === "left") {
-      arrow.style.left = -AS / 2 + "px";
-      arrow.style.top = clamp(midY, 16, TH - 30) + "px";
-      arrow.style.borderRight = "none";
-      arrow.style.borderTop = "none";
-    }
-    if (chosen === "right") {
-      arrow.style.right = -AS / 2 + "px";
-      arrow.style.top = clamp(midY, 16, TH - 30) + "px";
-      arrow.style.borderLeft = "none";
-      arrow.style.borderBottom = "none";
-    }
-    if (chosen === "top") {
-      arrow.style.top = -AS / 2 + "px";
-      arrow.style.left = clamp(midX, 16, TW - 30) + "px";
-      arrow.style.borderTop = "none";
-      arrow.style.borderLeft = "none";
-    }
-    if (chosen === "bot") {
-      arrow.style.bottom = -AS / 2 + "px";
-      arrow.style.left = clamp(midX, 16, TW - 30) + "px";
-      arrow.style.borderBottom = "none";
-      arrow.style.borderRight = "none";
+    const midX = cx - tx - AS / 2, midY = cy - ty - AS / 2;
+    if (arrow) {
+      arrow.style.cssText = `position:absolute;width:${AS}px;height:${AS}px;background:var(--bg1);border:1px solid var(--ba);transform:rotate(45deg)`;
+      if (chosen === "left") { arrow.style.left = -AS / 2 + "px"; arrow.style.top = clamp(midY, 16, TH - 30) + "px"; arrow.style.borderRight = "none"; arrow.style.borderTop = "none"; }
+      if (chosen === "right") { arrow.style.right = -AS / 2 + "px"; arrow.style.top = clamp(midY, 16, TH - 30) + "px"; arrow.style.borderLeft = "none"; arrow.style.borderBottom = "none"; }
+      if (chosen === "top") { arrow.style.top = -AS / 2 + "px"; arrow.style.left = clamp(midX, 16, TW - 30) + "px"; arrow.style.borderTop = "none"; arrow.style.borderLeft = "none"; }
+      if (chosen === "bot") { arrow.style.bottom = -AS / 2 + "px"; arrow.style.left = clamp(midX, 16, TW - 30) + "px"; arrow.style.borderBottom = "none"; arrow.style.borderRight = "none"; }
     }
   }
 
   function startTracking() {
     cancelAnimationFrame(rafId);
-    spot.style.transition = "none";
-    card.style.transition = "none";
+    if (spot) spot.style.transition = "all 0.3s ease-out";
+    if (card) card.style.transition = "top 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), left 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s ease, opacity 0.3s ease";
     function loop() {
       if (!overlay?.classList.contains("visible")) return;
       positionFrame();
@@ -259,20 +229,26 @@
     rafId = requestAnimationFrame(loop);
   }
 
-  function stopTracking() {
-    cancelAnimationFrame(rafId);
-  }
+  function stopTracking() { cancelAnimationFrame(rafId); }
 
   function showStep(s) {
     step = s;
     fillCard(s);
     if (STEPS[s].onEnter) STEPS[s].onEnter();
-    setTimeout(positionFrame, 120);
+    if (card) {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(10px) scale(0.98)";
+      setTimeout(() => { card.style.opacity = "1"; card.style.transform = "translateY(0) scale(1)"; }, 50); 
+    }
+    setTimeout(positionFrame, 150);
   }
 
   function endTuto() {
     stopTracking();
-    if (overlay) overlay.classList.remove("visible");
+    if (overlay) {
+        overlay.classList.remove("visible");
+        overlay.style.backdropFilter = "none";
+    }
     if (spot) spot.style.display = "none";
     if (card) card.style.display = "none";
   }
@@ -283,24 +259,15 @@
     if (card) card.style.display = "block";
     startTracking();
     showStep(0);
-    // Scroll en haut pour commencer depuis le début
-    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  /* ── Bouton ? dans la topbar ── */
   const helpBtn = document.getElementById("help-btn");
   if (helpBtn) {
     helpBtn.addEventListener("click", () => {
-      // Si le tuto est déjà ouvert, le fermer
-      if (overlay?.classList.contains("visible")) {
-        endTuto();
-      } else {
-        startTuto();
-      }
+      overlay?.classList.contains("visible") ? endTuto() : startTuto();
     });
   }
 
-  /* ── Boutons internes du tuto ── */
   document.getElementById("tuto-skip-btn")?.addEventListener("click", endTuto);
   document.getElementById("tuto-next-btn")?.addEventListener("click", () => {
     step >= STEPS.length - 1 ? endTuto() : showStep(step + 1);
@@ -309,22 +276,19 @@
     if (step > 0) showStep(step - 1);
   });
 
-  // Fermer avec Échap
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && overlay?.classList.contains("visible")) endTuto();
+    if (!overlay?.classList.contains("visible")) return;
+    if (e.key === "Escape") endTuto();
+    if (e.key === "Enter" && step >= STEPS.length - 1) endTuto();
   });
 
-  /* ── API publique ── */
-  // Exposé pour rétrocompatibilité (utilisé dans certains boutons inline)
-  window._startTutoIfNeeded = function () {
-    startTuto();
-  };
   window._startTuto = startTuto;
   window._endTuto = endTuto;
 
+  const welcome = document.getElementById("tuto-welcome");
   document.getElementById("tuto-start")?.addEventListener("click", () => {
-    if (welcome) welcome.classList.remove("visible"); // On cache l'accueil
-    startTuto(); // Et on lance la visite guidée
+    if (welcome) welcome.classList.remove("visible");
+    startTuto();
   });
   document.getElementById("tuto-skip-all")?.addEventListener("click", () => {
     if (welcome) welcome.classList.remove("visible");

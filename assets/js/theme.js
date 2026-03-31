@@ -1,18 +1,27 @@
-// Écoute les changements de l'OS en temps réel
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-  if (!localStorage.getItem(KEYS.theme)) {
-    applyTheme(e.matches ? 'dark' : 'light', false);
-  }
-});
-
 /**
  * theme.js — Gestion du thème (dark/light) et du mode accessibilité
  * Dépend de : utils.js (KEYS)
  */
 
+// Écoute les changements de l'OS en temps réel
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  let savedTheme = null;
+  try { 
+    savedTheme = localStorage.getItem(KEYS.theme); 
+  } catch (err) {} // Sécurité navigation privée
+
+  if (!savedTheme) {
+    applyTheme(e.matches ? 'dark' : 'light', false);
+  }
+});
+
 /* ── Thème ──────────────────────────────────────────── */
 function getTheme() {
-  const saved = localStorage.getItem(KEYS.theme);
+  let saved = null;
+  try {
+    saved = localStorage.getItem(KEYS.theme);
+  } catch (err) {} // Sécurité navigation privée
+
   return saved || (window.matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
 }
 
@@ -32,12 +41,18 @@ function applyTheme(t, save = true) {
     }
   }
   if (lbl) lbl.textContent = t === 'dark' ? 'Thème sombre' : 'Thème clair';
-  if (save) localStorage.setItem(KEYS.theme, t);
+  
+  if (save) {
+    try {
+      localStorage.setItem(KEYS.theme, t);
+    } catch (err) {} // Sécurité navigation privée
+  }
 }
 
 document.getElementById('theme-btn').addEventListener('click', () => {
   applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
 });
+
 applyTheme(getTheme(), false);
 
 /* ── Accessibilité ──────────────────────────────────── */

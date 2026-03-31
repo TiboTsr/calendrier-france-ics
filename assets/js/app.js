@@ -101,7 +101,7 @@ function applyCalendarData(data, { preserveYear = true } = {}) {
   _pendingCalendarVersionLabel = null;
   _dismissedCalendarVersion = null;
 
-STATE.srcEvts = (data.events || []).map((e) => ({
+  STATE.srcEvts = (data.events || []).map((e) => ({
     ...e,
     _date: e.start ? new Date(+e.start.slice(0, 4), +e.start.slice(5, 7) - 1, +e.start.slice(8, 10)) : null,
     _endDate: e.end ? new Date(+e.end.slice(0, 4), +e.end.slice(5, 7) - 1, +e.end.slice(8, 10)) : null,
@@ -186,14 +186,6 @@ async function init() {
     startCalendarVersionPolling();
     setInterval(updateAllSyncAges, 60000); // Mise à jour toutes les minutes
 
-    // Afficher le tutoriel à la première visite
-    try {
-      if (!localStorage.getItem('tuto_seen')) {
-        const welcome = document.getElementById('tuto-welcome');
-        if (welcome) welcome.classList.add('visible');
-        localStorage.setItem('tuto_seen', '1');
-      }
-    } catch {}
   } catch (err) {
     const evRoot = document.getElementById('ev-root');
     if (evRoot) evRoot.innerHTML = `
@@ -203,6 +195,24 @@ async function init() {
       </div>`;
   } finally {
     hideAppLoader();
+
+    setTimeout(() => {
+      let tutoDejaVu = false;
+      
+      try {
+        tutoDejaVu = localStorage.getItem('tuto_seen') === '1';
+      } catch (err) {}
+
+      if (!tutoDejaVu) {
+        const welcome = document.getElementById('tuto-welcome');
+        if (welcome) {
+          welcome.classList.add('visible');
+        }
+        try {
+          localStorage.setItem('tuto_seen', '1');
+        } catch (err) {}
+      }
+    }, 200);
   }
 }
 
