@@ -1191,7 +1191,7 @@ html.no-js body > :not(noscript) {
   position: fixed; inset: 0;
   background: rgba(0,0,0,.72); backdrop-filter: blur(14px);
   display: none; align-items: flex-end; justify-content: center;
-  padding: 16px; z-index: 200;
+  padding: 16px; z-index: 9999;
 }
 @media (min-width: 600px) { .mbg { align-items: center; } }
 .mbg.on { display: flex; animation: fi .18s ease; }

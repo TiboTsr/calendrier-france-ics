@@ -168,6 +168,7 @@ async function checkForCalendarUpdate() {
 
 function startCalendarVersionPolling() {
   if (_calendarVersionPollTimer) clearInterval(_calendarVersionPollTimer);
+  checkForCalendarUpdate();
   _calendarVersionPollTimer = window.setInterval(checkForCalendarUpdate, CALENDAR_VERSION_POLL_MS);
 }
 
@@ -225,9 +226,17 @@ document.getElementById('calendar-update-refresh')?.addEventListener('click', as
     btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mise à jour...';
 
     const bust = Date.now();
-    const res = await fetch(`/calendrier.json?v=${bust}`, { cache: 'no-store' });
+    const res = await fetch(`/calendrier.json?v=${bust}`, {
+      cache: 'no-store',
+      headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache, no-store, must-revalidate' }
+    });
     if (!res.ok) throw new Error();
     const data = await res.json();
+
+    if ('caches' in window) {
+      const cacheNames = await caches.keys();
+      await Promise.all(cacheNames.map(name => caches.delete(name)));
+    }
 
     applyCalendarData(data);
     refreshAll({ forceRender: true });
@@ -265,6 +274,10 @@ document.addEventListener('visibilitychange', () => {
 });
 
 window.addEventListener('calendar-sw-update', () => {
+  const welcome = document.getElementById('tuto-welcome');
+  if (welcome && welcome.classList.contains('visible')) {
+    return;
+  }
   _pendingCalendarVersion = 'sw-update';
   _pendingCalendarVersionLabel = null;
   openCalendarUpdatePrompt();

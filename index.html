@@ -112,27 +112,24 @@
 <body class="app-loading">
   <noscript>
   <style>
-    /* 1. On désactive la classe .app-loading qui bloquait l'écran tactile et le scroll */
     body.app-loading {
       overflow: visible !important;
       height: auto !important;
       touch-action: auto !important;
     }
 
-    /* 2. On force la balise <noscript> à devenir scrollable et on annule le 'display: flex' de ton styles.css */
     noscript {
       position: fixed !important;
       inset: 0 !important;
       z-index: 999999 !important;
       background: #07070d !important;
       display: block !important; 
-      overflow-y: auto !important; /* C'est LA ligne magique pour le défilement */
+      overflow-y: auto !important;
       padding: 0 !important;
     }
 
-    /* 3. L'enveloppe qui va centrer le contenu si l'écran est grand, ou s'étirer s'il est petit */
     .ns-wrapper {
-      min-height: 100%; /* S'adapte à la taille du noscript */
+      min-height: 100%;
       padding: 40px 20px;
       display: flex;
       align-items: center;
@@ -141,7 +138,6 @@
       font-family: 'DM Sans', system-ui, sans-serif;
     }
 
-    /* 4. La boîte principale */
     .ns-container {
       max-width: 550px;
       width: 100%;
@@ -160,7 +156,6 @@
     .ns-title { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; margin: 0 0 10px 0; color: #fff; line-height: 1.2; }
     .ns-text { color: #a1a1aa; line-height: 1.6; font-size: 16px; margin: 0; }
 
-    /* Accordéons */
     .ns-methods { margin-bottom: 30px; }
     .ns-details { 
       background: #1f1f29; 
@@ -191,7 +186,6 @@
     .ns-steps li { margin-bottom: 8px; }
     .ns-steps li:last-child { margin-bottom: 0; }
 
-    /* Boutons */
     .ns-action-row { text-align: center; }
     .ns-btn { 
       display: inline-block;

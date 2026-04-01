@@ -90,7 +90,13 @@ self.addEventListener('fetch', event => {
   if (url.pathname.endsWith('.json') || url.pathname.endsWith('.ics')) {
     event.respondWith(
       fetch(event.request)
-        .then(response => response)
+        .then(response => {
+          if (response && response.status === 200) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+          }
+          return response;
+        })
         .catch(() => caches.match(event.request))
     );
     return;
