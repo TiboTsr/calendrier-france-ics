@@ -74,7 +74,11 @@ function updateCalendarPromptText(version) {
 
 function openCalendarUpdatePrompt() {
   const modal = document.getElementById('calendar-update-modal');
-  if (!modal || _calendarUpdatePromptOpen) return;
+  if (!modal || _calendarUpdatePromptOpen) {
+    console.debug('[CalendrierFR] Cannot open modal: modal=', !!modal, 'alreadyOpen=', _calendarUpdatePromptOpen);
+    return;
+  }
+  console.log('[CalendrierFR] Opening update prompt for version:', _pendingCalendarVersion);
   updateCalendarPromptText(_pendingCalendarVersionLabel || _pendingCalendarVersion);
   _calendarUpdatePromptOpen = true;
   modal.classList.add('on');
@@ -98,6 +102,7 @@ let _lastGeneratedDate = null;
 
 function applyCalendarData(data, { preserveYear = true } = {}) {
   _loadedCalendarVersion = getCalendarVersion(data);
+  console.log('[CalendrierFR] Loaded calendar version:', _loadedCalendarVersion);
   _pendingCalendarVersion = null;
   _pendingCalendarVersionLabel = null;
   _dismissedCalendarVersion = null;
@@ -155,16 +160,20 @@ async function checkForCalendarUpdate() {
   if (!_loadedCalendarVersion || document.hidden) return;
   try {
     const bust = Date.now();
-    const res = await fetch(`/events-meta.json?v=${bust}`, { cache: 'no-store' });
+    const res = await fetch(`/calendrier.json?v=${bust}`, { cache: 'no-store' });
     if (!res.ok) return;
-    const meta = await res.json();
-    const nextVersion = getCalendarVersion(meta);
+    const data = await res.json();
+    const nextVersion = getCalendarVersion(data);
+    console.debug('[CalendrierFR] Version check:', { loaded: _loadedCalendarVersion, next: nextVersion, dismissed: _dismissedCalendarVersion });
     if (nextVersion && nextVersion !== _loadedCalendarVersion && nextVersion !== _dismissedCalendarVersion) {
+      console.log('[CalendrierFR] New version detected:', nextVersion);
       _pendingCalendarVersion = nextVersion;
-      _pendingCalendarVersionLabel = getCalendarGeneratedAt(meta);
+      _pendingCalendarVersionLabel = getCalendarGeneratedAt(data);
       openCalendarUpdatePrompt();
     }
-  } catch {}
+  } catch (e) {
+    console.debug('[CalendrierFR] Version check error:', e);
+  }
 }
 
 function startCalendarVersionPolling() {
@@ -283,6 +292,10 @@ document.addEventListener('visibilitychange', () => {
   if (!document.hidden) checkForCalendarUpdate();
 });
 
+window.addEventListener('focus', () => {
+  checkForCalendarUpdate();
+});
+
 window.addEventListener('calendar-sw-update', async () => {
   _swUpdatePending = true;
   
@@ -290,16 +303,16 @@ window.addEventListener('calendar-sw-update', async () => {
   
   try {
     const bust = Date.now();
-    const res = await fetch(`/events-meta.json?v=${bust}`, { 
+    const res = await fetch(`/calendrier.json?v=${bust}`, { 
       cache: 'no-store',
       headers: { 'Pragma': 'no-cache' }
     });
     if (res.ok) {
-      const meta = await res.json();
-      const nextVersion = getCalendarVersion(meta);
+      const data = await res.json();
+      const nextVersion = getCalendarVersion(data);
       if (nextVersion && nextVersion !== _loadedCalendarVersion && nextVersion !== _dismissedCalendarVersion) {
         _pendingCalendarVersion = nextVersion;
-        _pendingCalendarVersionLabel = getCalendarGeneratedAt(meta);
+        _pendingCalendarVersionLabel = getCalendarGeneratedAt(data);
         openCalendarUpdatePrompt();
       }
     }
