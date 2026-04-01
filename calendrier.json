@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-01T07:26:16.375690+00:00",
-  "contentVersion": "0f974b1cf98e108c",
+  "generatedAt": "2026-04-01T09:07:35.400369+00:00",
+  "contentVersion": "65edbab843ffed75",
   "totalEvents": 4754,
   "profiles": [
     "essentiel",
@@ -11146,7 +11146,7 @@
     },
     {
       "summary": "Début du Printemps — Équinoxe de printemps",
-      "start": "2007-03-20",
+      "start": "2007-03-21",
       "end": null,
       "description": "L'équinoxe de printemps marque le début astronomique du printemps.",
       "categories": [
@@ -11932,17 +11932,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2007-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2007-09-22",
       "end": null,
@@ -11950,6 +11939,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2007-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -12323,7 +12323,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2007-12-21",
+      "start": "2007-12-22",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -12334,9 +12334,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2007-12-21",
+      "start": "2007-12-22",
       "end": null,
-      "description": "Le 21 December est le jour le plus court de l'année 2007.",
+      "description": "Le 22 December est le jour le plus court de l'année 2007.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -34111,8 +34111,7 @@
       "end": "2021-08-08",
       "description": "Jeux reportés d'un an. La France termine 8e au tableau des médailles (10 or).",
       "categories": [
-        "Sport",
-        "JO"
+        "Sport"
       ],
       "zones": [
         "all"
@@ -34236,8 +34235,7 @@
       "end": "2021-09-05",
       "description": "XVIes Jeux Paralympiques d'été à Tokyo, Japon.",
       "categories": [
-        "Sport",
-        "Jeux Paralympiques"
+        "Sport"
       ],
       "zones": [
         "all"
@@ -34967,8 +34965,7 @@
       "end": "2022-02-20",
       "description": "XXIVes Jeux Olympiques d'hiver à Pékin. La Norvège domine le tableau des médailles.",
       "categories": [
-        "Sport",
-        "JO"
+        "Sport"
       ],
       "zones": [
         "all"
@@ -35137,8 +35134,7 @@
       "end": "2022-03-13",
       "description": "XIIIes Jeux Paralympiques d'hiver à Pékin.",
       "categories": [
-        "Sport",
-        "Jeux Paralympiques"
+        "Sport"
       ],
       "zones": [
         "all"
@@ -39498,8 +39494,7 @@
       "end": "2024-08-11",
       "description": "XXXIIIes Jeux Olympiques d'été à Paris. La France termine 5e au tableau des médailles.",
       "categories": [
-        "Sport",
-        "JO"
+        "Sport"
       ],
       "zones": [
         "all"
@@ -39621,8 +39616,7 @@
       "end": "2024-09-08",
       "description": "XVIIes Jeux Paralympiques d'été à Paris. La France remporte 75 médailles dont 19 en or.",
       "categories": [
-        "Sport",
-        "Jeux Paralympiques"
+        "Sport"
       ],
       "zones": [
         "all"
@@ -42228,8 +42222,7 @@
       "end": "2026-02-22",
       "description": "XXVes Jeux Olympiques d'hiver à Milan et Cortina d'Ampezzo, Italie.",
       "categories": [
-        "Sport",
-        "JO"
+        "Sport"
       ],
       "zones": [
         "all"
@@ -46529,8 +46522,7 @@
       "end": "2028-07-30",
       "description": "XXXIVes Jeux Olympiques d'été à Los Angeles, États-Unis.",
       "categories": [
-        "Sport",
-        "JO"
+        "Sport"
       ],
       "zones": [
         "all"
@@ -46629,8 +46621,7 @@
       "end": "2028-08-27",
       "description": "XVIIIes Jeux Paralympiques d'été à Los Angeles, États-Unis.",
       "categories": [
-        "Sport",
-        "Jeux Paralympiques"
+        "Sport"
       ],
       "zones": [
         "all"
