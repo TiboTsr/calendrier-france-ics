@@ -67,6 +67,7 @@ function updateCalendarPromptText(version) {
   const el = document.getElementById('calendar-update-text');
   if (!el) return;
   const label = formatCalendarVersionLabel(version);
+  console.debug('[CalendrierFR] Updating prompt text:', { version, label });
   el.textContent = label
     ? `Une nouvelle version du calendrier a été publiée le ${label}. Rechargez pour voir les dernières dates et mises à jour.`
     : "Une nouvelle version du calendrier est disponible pendant que vous consultez la page. Rechargez pour voir les dernières dates et mises à jour.";
@@ -74,13 +75,17 @@ function updateCalendarPromptText(version) {
 
 function openCalendarUpdatePrompt() {
   const modal = document.getElementById('calendar-update-modal');
-  if (!modal || _calendarUpdatePromptOpen) {
-    console.debug('[CalendrierFR] Cannot open modal: modal=', !!modal, 'alreadyOpen=', _calendarUpdatePromptOpen);
+  if (!modal) {
+    console.warn('[CalendrierFR] Modal element not found');
     return;
   }
+  if (_calendarUpdatePromptOpen) {
+    console.debug('[CalendrierFR] Update prompt already open, skipping');
+    return;
+  }
+  _calendarUpdatePromptOpen = true;
   console.log('[CalendrierFR] Opening update prompt for version:', _pendingCalendarVersion);
   updateCalendarPromptText(_pendingCalendarVersionLabel || _pendingCalendarVersion);
-  _calendarUpdatePromptOpen = true;
   modal.classList.add('on');
 }
 
@@ -93,7 +98,13 @@ function closeCalendarUpdatePrompt() {
 
 async function fetchCalendarData() {
   const bust = Date.now();
-  const res = await fetch(`/calendrier.json?v=${bust}`, { cache: 'no-store' });
+  const res = await fetch(`/calendrier.json?v=${bust}`, { 
+    cache: 'no-store',
+    headers: {
+      'Pragma': 'no-cache',
+      'Cache-Control': 'no-cache, no-store, must-revalidate'
+    }
+  });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
@@ -102,7 +113,7 @@ let _lastGeneratedDate = null;
 
 function applyCalendarData(data, { preserveYear = true } = {}) {
   _loadedCalendarVersion = getCalendarVersion(data);
-  console.log('[CalendrierFR] Loaded calendar version:', _loadedCalendarVersion);
+  console.log('[CalendrierFR] Loaded calendar version:', _loadedCalendarVersion, '@ ', new Date().toISOString());
   _pendingCalendarVersion = null;
   _pendingCalendarVersionLabel = null;
   _dismissedCalendarVersion = null;
@@ -158,15 +169,25 @@ async function refreshCalendarDataInPlace() {
 
 async function checkForCalendarUpdate() {
   if (!_loadedCalendarVersion || document.hidden) return;
+  if (_pendingCalendarVersion) {
+    console.debug('[CalendrierFR] Update already pending, skipping check');
+    return;
+  }
   try {
     const bust = Date.now();
-    const res = await fetch(`/calendrier.json?v=${bust}`, { cache: 'no-store' });
+    const res = await fetch(`/calendrier.json?v=${bust}`, { 
+      cache: 'no-store',
+      headers: {
+        'Pragma': 'no-cache',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      }
+    });
     if (!res.ok) return;
     const data = await res.json();
     const nextVersion = getCalendarVersion(data);
     console.debug('[CalendrierFR] Version check:', { loaded: _loadedCalendarVersion, next: nextVersion, dismissed: _dismissedCalendarVersion });
     if (nextVersion && nextVersion !== _loadedCalendarVersion && nextVersion !== _dismissedCalendarVersion) {
-      console.log('[CalendrierFR] New version detected:', nextVersion);
+      console.log('[CalendrierFR] New version detected:', nextVersion, '@ ', new Date().toISOString());
       _pendingCalendarVersion = nextVersion;
       _pendingCalendarVersionLabel = getCalendarGeneratedAt(data);
       openCalendarUpdatePrompt();
@@ -305,7 +326,10 @@ window.addEventListener('calendar-sw-update', async () => {
     const bust = Date.now();
     const res = await fetch(`/calendrier.json?v=${bust}`, { 
       cache: 'no-store',
-      headers: { 'Pragma': 'no-cache' }
+      headers: {
+        'Pragma': 'no-cache',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      }
     });
     if (res.ok) {
       const data = await res.json();
