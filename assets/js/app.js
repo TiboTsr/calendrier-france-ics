@@ -172,7 +172,6 @@ function startCalendarVersionPolling() {
   checkForCalendarUpdate();
   _calendarVersionPollTimer = window.setInterval(checkForCalendarUpdate, CALENDAR_VERSION_POLL_MS);
   
-  // Check every 30s for 5 mins during critical post-deployment window
   setTimeout(() => {
     let count = 0;
     const timer = setInterval(() => {
