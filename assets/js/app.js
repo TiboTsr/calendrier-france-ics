@@ -11,6 +11,7 @@ let _calendarUpdatePromptOpen = false;
 let _dismissedCalendarVersion = null;
 let _pendingCalendarVersion = null;
 let _pendingCalendarVersionLabel = null;
+let _swUpdatePending = false;
 
 function getCalendarVersion(payload) {
   return payload?.contentVersion || payload?.eventsHash || payload?.generatedAt || payload?.generated || payload?.lastUpdated || payload?.updatedAt || payload?.generated_at || null;
@@ -170,6 +171,16 @@ function startCalendarVersionPolling() {
   if (_calendarVersionPollTimer) clearInterval(_calendarVersionPollTimer);
   checkForCalendarUpdate();
   _calendarVersionPollTimer = window.setInterval(checkForCalendarUpdate, CALENDAR_VERSION_POLL_MS);
+  
+  // Check every 30s for 5 mins during critical post-deployment window
+  setTimeout(() => {
+    let count = 0;
+    const timer = setInterval(() => {
+      count++;
+      checkForCalendarUpdate();
+      if (count >= 10) clearInterval(timer);
+    }, 30000);
+  }, 10000);
 }
 
 async function init() {
@@ -273,14 +284,29 @@ document.addEventListener('visibilitychange', () => {
   if (!document.hidden) checkForCalendarUpdate();
 });
 
-window.addEventListener('calendar-sw-update', () => {
-  const welcome = document.getElementById('tuto-welcome');
-  if (welcome && welcome.classList.contains('visible')) {
-    return;
+window.addEventListener('calendar-sw-update', async () => {
+  _swUpdatePending = true;
+  
+  await new Promise(resolve => setTimeout(resolve, 1500));
+  
+  try {
+    const bust = Date.now();
+    const res = await fetch(`/events-meta.json?v=${bust}`, { 
+      cache: 'no-store',
+      headers: { 'Pragma': 'no-cache' }
+    });
+    if (res.ok) {
+      const meta = await res.json();
+      const nextVersion = getCalendarVersion(meta);
+      if (nextVersion && nextVersion !== _loadedCalendarVersion && nextVersion !== _dismissedCalendarVersion) {
+        _pendingCalendarVersion = nextVersion;
+        _pendingCalendarVersionLabel = getCalendarGeneratedAt(meta);
+        openCalendarUpdatePrompt();
+      }
+    }
+  } catch (e) {
+    console.debug('SW update check failed:', e);
   }
-  _pendingCalendarVersion = 'sw-update';
-  _pendingCalendarVersionLabel = null;
-  openCalendarUpdatePrompt();
 });
 
 init();

@@ -45,8 +45,11 @@ jobs:
 
       - name: Inject calendrier.ics hash in sw.js
         run: |
+          # Use both hash and timestamp to guarantee cache busting
           ICS_HASH=$(sha256sum calendrier.ics | awk '{print $1}')
-          sed -i "s|__BUILD_TIMESTAMP__|$ICS_HASH|g" sw.js
+          BUILD_TS=$(date +%s%N)_${ICS_HASH:0:8}
+          sed -i "s|__BUILD_TIMESTAMP__|${BUILD_TS}|g" sw.js
+          echo "Updated sw.js with BUILD_TS: ${BUILD_TS}"
 
       - name: Publish generated files to data branch
         run: |
