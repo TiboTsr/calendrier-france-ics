@@ -262,7 +262,6 @@ const CAT_COLORS = {
     d: "rgba(167,139,250,.12)",
     b: "rgba(167,139,250,.3)",
   },
-  JO: { c: "#0369a1", d: "rgba(3,105,161,.12)", b: "rgba(3,105,161,.3)" },
 };
 
 function getCatColor(cat) {

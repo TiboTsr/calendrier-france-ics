@@ -47,10 +47,6 @@ html { overflow-x: clip; }
   .hero h1 { letter-spacing: -1px; }
   .gen-links-and-qr { grid-template-columns: 1fr 190px; }
   .exp-layout { grid-template-columns: 190px 1fr; }
-  .hero-sub-long { display: none; }
-}
-@media (min-width: 901px) {
-  .hero-sub-short { display: none; }
 }
 
 @media (max-width: 760px) {
