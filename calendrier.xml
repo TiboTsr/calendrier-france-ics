@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Wed, 01 Apr 2026 09:07:35 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 02:55:53 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
       <guid>4fd3950c4437b5d309c15a15@calendrier-fr.tibotsr.dev</guid>
       <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
       <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Poisson d'avril</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-04-01</link>
-      <guid>464e62a73cb3b30dcec01c26@calendrier-fr.tibotsr.dev</guid>
-      <description>Journée des farces et des canulars.</description>
-      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Vendredi Saint</title>
@@ -1405,6 +1398,13 @@
       <guid>21f1966f09560e4ed1bd2205@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore la libération du camp d'Auschwitz le 27 janvier 1945.</description>
       <pubDate>Thu, 27 Jan 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Chandeleur</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-02</link>
+      <guid>c79f754d1f9a4c153214ac1d@calendrier-fr.tibotsr.dev</guid>
+      <description>Fête de la Présentation de Jésus au Temple, 40 jours après Noël.</description>
+      <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>

@@ -7,7 +7,7 @@ X-WR-CALNAME:Calendrier France - Profil essentiel
 X-WR-TIMEZONE:Europe/Paris
 BEGIN:VEVENT
 UID:46fee2d224cc3df4d8d72134@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -16,7 +16,7 @@ DTSTART;VALUE=DATE:20260403
 END:VEVENT
 BEGIN:VEVENT
 UID:7a7b44736c7cb43a9b59be63@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances de Printemps - Zone A
 DESCRIPTION:Vacances de Printemps pour la zone scolaire A. Durée : 16 jours
  \, du 04/04/2026 au 19/04/2026. Le découpage en zones A\, B et C a été inst
@@ -27,7 +27,7 @@ DTEND;VALUE=DATE:20260420
 END:VEVENT
 BEGIN:VEVENT
 UID:288a32cc6ed41bfc9de5f3db@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -37,7 +37,7 @@ DTSTART;VALUE=DATE:20260406
 END:VEVENT
 BEGIN:VEVENT
 UID:05c9487c44de0d7396b3eab8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances de Printemps - Zone B
 DESCRIPTION:Vacances de Printemps pour la zone scolaire B. Durée : 16 jours
  \, du 11/04/2026 au 26/04/2026. Le découpage en zones A\, B et C a été inst
@@ -48,7 +48,7 @@ DTEND;VALUE=DATE:20260427
 END:VEVENT
 BEGIN:VEVENT
 UID:ca1a4a186e86cd5446bf28af@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances de Printemps - Zone C
 DESCRIPTION:Vacances de Printemps pour la zone scolaire C. Durée : 16 jours
  \, du 18/04/2026 au 03/05/2026. Le découpage en zones A\, B et C a été inst
@@ -59,7 +59,7 @@ DTEND;VALUE=DATE:20260504
 END:VEVENT
 BEGIN:VEVENT
 UID:17617e8815f0d514d63a5095@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -70,7 +70,7 @@ DTSTART;VALUE=DATE:20260501
 END:VEVENT
 BEGIN:VEVENT
 UID:4ae2769e3d162780b996bc60@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -80,7 +80,7 @@ DTSTART;VALUE=DATE:20260508
 END:VEVENT
 BEGIN:VEVENT
 UID:57170bbe9ab63e13d2d569f4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -90,7 +90,7 @@ DTSTART;VALUE=DATE:20260514
 END:VEVENT
 BEGIN:VEVENT
 UID:ea15e1d228d34746c56791bf@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont de l'Ascension - Zones A\, B et C
 DESCRIPTION:Pont de l'Ascension pour toutes les zones (A\, B et C). Durée :
   4 jours\, du 14/05/2026 au 17/05/2026.
@@ -100,7 +100,7 @@ DTEND;VALUE=DATE:20260518
 END:VEVENT
 BEGIN:VEVENT
 UID:7761444ba2ea0453e2056a31@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 14/05/2026. Le vendredi 15/05/2026 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -109,7 +109,7 @@ DTSTART;VALUE=DATE:20260515
 END:VEVENT
 BEGIN:VEVENT
 UID:641ee9eb4e0f679644ed0830@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -120,7 +120,7 @@ DTSTART;VALUE=DATE:20260525
 END:VEVENT
 BEGIN:VEVENT
 UID:2c891049f493bf7f7be227bc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances d'Été - Zones A\, B et C
 DESCRIPTION:Vacances d'Été pour toutes les zones (A\, B et C). Durée : 59 j
  ours\, du 04/07/2026 au 31/08/2026.
@@ -130,7 +130,7 @@ DTEND;VALUE=DATE:20260901
 END:VEVENT
 BEGIN:VEVENT
 UID:d1dadad3689ec53abfb297d9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Fête nationale
 DESCRIPTION:Fête nationale tombe un mardi le 14/07/2026. Le lundi 13/07/202
  6 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -139,7 +139,7 @@ DTSTART;VALUE=DATE:20260713
 END:VEVENT
 BEGIN:VEVENT
 UID:4de6885772fbd80be7b6fdb7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -147,7 +147,7 @@ DTSTART;VALUE=DATE:20260714
 END:VEVENT
 BEGIN:VEVENT
 UID:31aa86178022d54b2788f451@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -158,7 +158,7 @@ DTSTART;VALUE=DATE:20260714
 END:VEVENT
 BEGIN:VEVENT
 UID:baeafd7eb958fefc57fe989e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -168,7 +168,7 @@ DTSTART;VALUE=DATE:20260815
 END:VEVENT
 BEGIN:VEVENT
 UID:b88502f66517aa35959cd07c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -176,7 +176,7 @@ DTSTART;VALUE=DATE:20260815
 END:VEVENT
 BEGIN:VEVENT
 UID:35922e0de9dff394f3af3515@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances de la Toussaint - Zones A\, B et C
 DESCRIPTION:Vacances de la Toussaint pour toutes les zones (A\, B et C). Du
  rée : 16 jours\, du 17/10/2026 au 01/11/2026.
@@ -186,7 +186,7 @@ DTEND;VALUE=DATE:20261102
 END:VEVENT
 BEGIN:VEVENT
 UID:f3eaa611ba33466017ae9fe1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -195,7 +195,7 @@ DTSTART;VALUE=DATE:20261025
 END:VEVENT
 BEGIN:VEVENT
 UID:32d5f97c38992f22dbc90379@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -206,7 +206,7 @@ DTSTART;VALUE=DATE:20261101
 END:VEVENT
 BEGIN:VEVENT
 UID:812630998bd0913a810f4e97@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -217,7 +217,7 @@ DTSTART;VALUE=DATE:20261111
 END:VEVENT
 BEGIN:VEVENT
 UID:aad929bdea1e4f502d6db53c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -226,7 +226,7 @@ DTSTART;VALUE=DATE:20261111
 END:VEVENT
 BEGIN:VEVENT
 UID:ca0a6edd69d6bffef35ae20c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances de Noël - Zones A\, B et C
 DESCRIPTION:Vacances de Noël pour toutes les zones (A\, B et C). Durée : 16
   jours\, du 19/12/2026 au 03/01/2027.
@@ -236,7 +236,7 @@ DTEND;VALUE=DATE:20270104
 END:VEVENT
 BEGIN:VEVENT
 UID:adb51ac987e73e1380728039@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -247,7 +247,7 @@ DTSTART;VALUE=DATE:20261225
 END:VEVENT
 BEGIN:VEVENT
 UID:8036ba8390df33480fa1e4f1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -256,7 +256,7 @@ DTSTART;VALUE=DATE:20261226
 END:VEVENT
 BEGIN:VEVENT
 UID:6f5a38fae550e9984b4b6183@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Jour de l'an
 DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœ
  ux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une cout
@@ -266,7 +266,7 @@ DTSTART;VALUE=DATE:20270101
 END:VEVENT
 BEGIN:VEVENT
 UID:3b4d0936912f666a57bb14de@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances d'Hiver - Zone C
 DESCRIPTION:Vacances d'Hiver pour la zone scolaire C. Durée : 16 jours\, du
   06/02/2027 au 21/02/2027. Le découpage en zones A\, B et C a été instauré 
@@ -277,7 +277,7 @@ DTEND;VALUE=DATE:20270222
 END:VEVENT
 BEGIN:VEVENT
 UID:52925c2ac3f3ee5fcf8c867a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances d'Hiver - Zone A
 DESCRIPTION:Vacances d'Hiver pour la zone scolaire A. Durée : 16 jours\, du
   13/02/2027 au 28/02/2027. Le découpage en zones A\, B et C a été instauré 
@@ -288,7 +288,7 @@ DTEND;VALUE=DATE:20270301
 END:VEVENT
 BEGIN:VEVENT
 UID:1eda6a6474847f46977b5d80@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances d'Hiver - Zone B
 DESCRIPTION:Vacances d'Hiver pour la zone scolaire B. Durée : 16 jours\, du
   20/02/2027 au 07/03/2027. Le découpage en zones A\, B et C a été instauré 
@@ -299,7 +299,7 @@ DTEND;VALUE=DATE:20270308
 END:VEVENT
 BEGIN:VEVENT
 UID:b3cfa701472144f09259fb41@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -308,7 +308,7 @@ DTSTART;VALUE=DATE:20270326
 END:VEVENT
 BEGIN:VEVENT
 UID:fdf2d5b8bf47e09939490375@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'été
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres avancent d'une
   heure (2h → 3h).
@@ -317,7 +317,7 @@ DTSTART;VALUE=DATE:20270328
 END:VEVENT
 BEGIN:VEVENT
 UID:30a60144d37644d35ce84da9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -327,7 +327,7 @@ DTSTART;VALUE=DATE:20270329
 END:VEVENT
 BEGIN:VEVENT
 UID:b6712384ba83e7d8ac9dd5fb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances de Printemps - Zone C
 DESCRIPTION:Vacances de Printemps pour la zone scolaire C. Durée : 16 jours
  \, du 03/04/2027 au 18/04/2027. Le découpage en zones A\, B et C a été inst
@@ -338,7 +338,7 @@ DTEND;VALUE=DATE:20270419
 END:VEVENT
 BEGIN:VEVENT
 UID:ed11f2ba22ba20ed724a0e73@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances de Printemps - Zone A
 DESCRIPTION:Vacances de Printemps pour la zone scolaire A. Durée : 16 jours
  \, du 10/04/2027 au 25/04/2027. Le découpage en zones A\, B et C a été inst
@@ -349,7 +349,7 @@ DTEND;VALUE=DATE:20270426
 END:VEVENT
 BEGIN:VEVENT
 UID:3a335d955a66a7446e2e4bee@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances de Printemps - Zone B
 DESCRIPTION:Vacances de Printemps pour la zone scolaire B. Durée : 16 jours
  \, du 17/04/2027 au 02/05/2027. Le découpage en zones A\, B et C a été inst
@@ -360,7 +360,7 @@ DTEND;VALUE=DATE:20270503
 END:VEVENT
 BEGIN:VEVENT
 UID:e9362f9cd210f305893d8734@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -371,7 +371,7 @@ DTSTART;VALUE=DATE:20270501
 END:VEVENT
 BEGIN:VEVENT
 UID:14dddc8b694173ef6a28017c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -381,7 +381,7 @@ DTSTART;VALUE=DATE:20270506
 END:VEVENT
 BEGIN:VEVENT
 UID:3151189f97d776e993c21205@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont de l'Ascension - Zones A\, B et C
 DESCRIPTION:Pont de l'Ascension pour toutes les zones (A\, B et C). Durée :
   0 jours\, du 07/05/2027 au 06/05/2027.
@@ -391,7 +391,7 @@ DTEND;VALUE=DATE:20270507
 END:VEVENT
 BEGIN:VEVENT
 UID:3e3f89d02fc61a4b18ba0228@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 06/05/2027. Le vendredi 07/05/2027 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -400,7 +400,7 @@ DTSTART;VALUE=DATE:20270507
 END:VEVENT
 BEGIN:VEVENT
 UID:13c3ad6f857fd5e93024a3d2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -410,7 +410,7 @@ DTSTART;VALUE=DATE:20270508
 END:VEVENT
 BEGIN:VEVENT
 UID:ef35bc70743c1083a24f6f83@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -421,7 +421,7 @@ DTSTART;VALUE=DATE:20270517
 END:VEVENT
 BEGIN:VEVENT
 UID:311d1f546eb17b51ca2218c5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vacances d'Été - Zones A\, B et C
 DESCRIPTION:Vacances d'Été pour toutes les zones (A\, B et C). Durée : 0 jo
  urs\, du 03/07/2027 au 02/07/2027.
@@ -431,7 +431,7 @@ DTEND;VALUE=DATE:20270703
 END:VEVENT
 BEGIN:VEVENT
 UID:eb7fd8d52f710d8c15b3ba3f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -439,7 +439,7 @@ DTSTART;VALUE=DATE:20270714
 END:VEVENT
 BEGIN:VEVENT
 UID:97d447e166db31f6f1648ffd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -450,7 +450,7 @@ DTSTART;VALUE=DATE:20270714
 END:VEVENT
 BEGIN:VEVENT
 UID:4b25dae386cc6460eb1b1f68@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -460,7 +460,7 @@ DTSTART;VALUE=DATE:20270815
 END:VEVENT
 BEGIN:VEVENT
 UID:202d29147d75a5aef75230dc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -468,7 +468,7 @@ DTSTART;VALUE=DATE:20270815
 END:VEVENT
 BEGIN:VEVENT
 UID:b70ec6f97344882638e6bede@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -477,7 +477,7 @@ DTSTART;VALUE=DATE:20271031
 END:VEVENT
 BEGIN:VEVENT
 UID:ff845ce5cf2ad13c81c58c9d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -488,7 +488,7 @@ DTSTART;VALUE=DATE:20271101
 END:VEVENT
 BEGIN:VEVENT
 UID:a9f85eb4c6e8331ebe15a515@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -499,7 +499,7 @@ DTSTART;VALUE=DATE:20271111
 END:VEVENT
 BEGIN:VEVENT
 UID:f3fb0828e965797d1b8bb21c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -508,7 +508,7 @@ DTSTART;VALUE=DATE:20271111
 END:VEVENT
 BEGIN:VEVENT
 UID:3ba44915d95ba790f578812d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Armistice 1918
 DESCRIPTION:Armistice 1918 tombe un jeudi le 11/11/2027. Le vendredi 12/11/
  2027 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -517,7 +517,7 @@ DTSTART;VALUE=DATE:20271112
 END:VEVENT
 BEGIN:VEVENT
 UID:91900ff7a42f580260b62b1c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -528,7 +528,7 @@ DTSTART;VALUE=DATE:20271225
 END:VEVENT
 BEGIN:VEVENT
 UID:fc4d3372f488a211a1851123@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -537,7 +537,7 @@ DTSTART;VALUE=DATE:20271226
 END:VEVENT
 BEGIN:VEVENT
 UID:0ebdffce2d69d7255e21dbf5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Jour de l'an
 DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœ
  ux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une cout
@@ -547,7 +547,7 @@ DTSTART;VALUE=DATE:20280101
 END:VEVENT
 BEGIN:VEVENT
 UID:9cdf8c1d557a63341acebfd3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'été
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres avancent d'une
   heure (2h → 3h).
@@ -556,7 +556,7 @@ DTSTART;VALUE=DATE:20280326
 END:VEVENT
 BEGIN:VEVENT
 UID:ab2a464a5af229851d3aa588@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -565,7 +565,7 @@ DTSTART;VALUE=DATE:20280414
 END:VEVENT
 BEGIN:VEVENT
 UID:f4752e9806e707258b2d3ea4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -575,7 +575,7 @@ DTSTART;VALUE=DATE:20280417
 END:VEVENT
 BEGIN:VEVENT
 UID:49dfdd9f2e4575d0fc960a6a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -586,7 +586,7 @@ DTSTART;VALUE=DATE:20280501
 END:VEVENT
 BEGIN:VEVENT
 UID:6b25c09ed62f4e1921bb9778@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -596,7 +596,7 @@ DTSTART;VALUE=DATE:20280508
 END:VEVENT
 BEGIN:VEVENT
 UID:06e4d9dcc3c68ddcb625dcbd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -606,7 +606,7 @@ DTSTART;VALUE=DATE:20280525
 END:VEVENT
 BEGIN:VEVENT
 UID:6f621ba93e9d2fc9179405ca@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 25/05/2028. Le vendredi 26/05/2028 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -615,7 +615,7 @@ DTSTART;VALUE=DATE:20280526
 END:VEVENT
 BEGIN:VEVENT
 UID:816fa7ae3a9b6028ff1c1fb9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -626,7 +626,7 @@ DTSTART;VALUE=DATE:20280605
 END:VEVENT
 BEGIN:VEVENT
 UID:1ffd69c5ae9ddd70693e2bb2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -634,7 +634,7 @@ DTSTART;VALUE=DATE:20280714
 END:VEVENT
 BEGIN:VEVENT
 UID:4dc657163bbf8ae6a80dfdb7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -645,7 +645,7 @@ DTSTART;VALUE=DATE:20280714
 END:VEVENT
 BEGIN:VEVENT
 UID:e5b280a41bd73470022bfa20@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Assomption
 DESCRIPTION:Assomption tombe un mardi le 15/08/2028. Le lundi 14/08/2028 es
  t un pont potentiel — vérifiez auprès de votre employeur.
@@ -654,7 +654,7 @@ DTSTART;VALUE=DATE:20280814
 END:VEVENT
 BEGIN:VEVENT
 UID:afd828d0e2e6416a49b49f5a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -664,7 +664,7 @@ DTSTART;VALUE=DATE:20280815
 END:VEVENT
 BEGIN:VEVENT
 UID:88c72ae3b6fd3c18fd85937f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -672,7 +672,7 @@ DTSTART;VALUE=DATE:20280815
 END:VEVENT
 BEGIN:VEVENT
 UID:aa57e94d6106fd6089968c17@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -681,7 +681,7 @@ DTSTART;VALUE=DATE:20281029
 END:VEVENT
 BEGIN:VEVENT
 UID:011e73fbfe0a1746d5d327ed@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -692,7 +692,7 @@ DTSTART;VALUE=DATE:20281101
 END:VEVENT
 BEGIN:VEVENT
 UID:e15df3a64efba7be0277ff52@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -703,7 +703,7 @@ DTSTART;VALUE=DATE:20281111
 END:VEVENT
 BEGIN:VEVENT
 UID:6a113b7b475e021adcd5827f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -712,7 +712,7 @@ DTSTART;VALUE=DATE:20281111
 END:VEVENT
 BEGIN:VEVENT
 UID:b857af26284412efcfdbfbcd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -723,7 +723,7 @@ DTSTART;VALUE=DATE:20281225
 END:VEVENT
 BEGIN:VEVENT
 UID:3055ba13e321fcd15b28cbf6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -732,7 +732,7 @@ DTSTART;VALUE=DATE:20281226
 END:VEVENT
 BEGIN:VEVENT
 UID:2454c34bdbf6d4d8f24e1cbc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Jour de l'an
 DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœ
  ux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une cout
@@ -742,7 +742,7 @@ DTSTART;VALUE=DATE:20290101
 END:VEVENT
 BEGIN:VEVENT
 UID:c52eddb5a3ee96304e95d388@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'été
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres avancent d'une
   heure (2h → 3h).
@@ -751,7 +751,7 @@ DTSTART;VALUE=DATE:20290325
 END:VEVENT
 BEGIN:VEVENT
 UID:e6fc6273e4f63a3cb29e05b5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -760,7 +760,7 @@ DTSTART;VALUE=DATE:20290330
 END:VEVENT
 BEGIN:VEVENT
 UID:e4ba015c14f409a880de8775@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -770,7 +770,7 @@ DTSTART;VALUE=DATE:20290402
 END:VEVENT
 BEGIN:VEVENT
 UID:277ad2335c8741c0a90ee192@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Fête du Travail
 DESCRIPTION:Fête du Travail tombe un mardi le 01/05/2029. Le lundi 30/04/20
  29 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -779,7 +779,7 @@ DTSTART;VALUE=DATE:20290430
 END:VEVENT
 BEGIN:VEVENT
 UID:b88bd6f555d3fcddbe55385f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -790,7 +790,7 @@ DTSTART;VALUE=DATE:20290501
 END:VEVENT
 BEGIN:VEVENT
 UID:69534736a0b4be933de5d4eb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Fête de la Victoire
 DESCRIPTION:Fête de la Victoire tombe un mardi le 08/05/2029. Le lundi 07/0
  5/2029 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -799,7 +799,7 @@ DTSTART;VALUE=DATE:20290507
 END:VEVENT
 BEGIN:VEVENT
 UID:e2f5a961ade61eeed8965e0c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -809,7 +809,7 @@ DTSTART;VALUE=DATE:20290508
 END:VEVENT
 BEGIN:VEVENT
 UID:566e29c39532e9fb8c755485@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -819,7 +819,7 @@ DTSTART;VALUE=DATE:20290510
 END:VEVENT
 BEGIN:VEVENT
 UID:dd9b46b2db7ff52134cac681@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 10/05/2029. Le vendredi 11/05/2029 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -828,7 +828,7 @@ DTSTART;VALUE=DATE:20290511
 END:VEVENT
 BEGIN:VEVENT
 UID:90c3e8317f7618294b0a5145@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -839,7 +839,7 @@ DTSTART;VALUE=DATE:20290521
 END:VEVENT
 BEGIN:VEVENT
 UID:2991f32d4fd0625b169bf480@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -847,7 +847,7 @@ DTSTART;VALUE=DATE:20290714
 END:VEVENT
 BEGIN:VEVENT
 UID:aaa4170f91bf6964d55eacdc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -858,7 +858,7 @@ DTSTART;VALUE=DATE:20290714
 END:VEVENT
 BEGIN:VEVENT
 UID:8f48fc8c7bd29f01fb936ca6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -868,7 +868,7 @@ DTSTART;VALUE=DATE:20290815
 END:VEVENT
 BEGIN:VEVENT
 UID:8fcca01f43420530c6d9d505@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -876,7 +876,7 @@ DTSTART;VALUE=DATE:20290815
 END:VEVENT
 BEGIN:VEVENT
 UID:b4ac8992a41104483b972cb2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -885,7 +885,7 @@ DTSTART;VALUE=DATE:20291028
 END:VEVENT
 BEGIN:VEVENT
 UID:060d7f4d2b2ec8d68f0d5fdb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -896,7 +896,7 @@ DTSTART;VALUE=DATE:20291101
 END:VEVENT
 BEGIN:VEVENT
 UID:b5a0baa8413888c02b65151a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Toussaint
 DESCRIPTION:Toussaint tombe un jeudi le 01/11/2029. Le vendredi 02/11/2029 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -905,7 +905,7 @@ DTSTART;VALUE=DATE:20291102
 END:VEVENT
 BEGIN:VEVENT
 UID:719f1e74771f44d85959c352@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -916,7 +916,7 @@ DTSTART;VALUE=DATE:20291111
 END:VEVENT
 BEGIN:VEVENT
 UID:f86b94e9ede539e656382369@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -925,7 +925,7 @@ DTSTART;VALUE=DATE:20291111
 END:VEVENT
 BEGIN:VEVENT
 UID:bcb80945eed258ac5b1e094b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Noël
 DESCRIPTION:Noël tombe un mardi le 25/12/2029. Le lundi 24/12/2029 est un p
  ont potentiel — vérifiez auprès de votre employeur.
@@ -934,7 +934,7 @@ DTSTART;VALUE=DATE:20291224
 END:VEVENT
 BEGIN:VEVENT
 UID:74b25b0d2011f570f7335bba@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -945,7 +945,7 @@ DTSTART;VALUE=DATE:20291225
 END:VEVENT
 BEGIN:VEVENT
 UID:4ddc9507399c3f48c00bf7f7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -954,7 +954,7 @@ DTSTART;VALUE=DATE:20291226
 END:VEVENT
 BEGIN:VEVENT
 UID:ed19f6607f6012dfd20d2d18@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Jour de l'an
 DESCRIPTION:Jour de l'an tombe un mardi le 01/01/2030. Le lundi 31/12/2029 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -963,7 +963,7 @@ DTSTART;VALUE=DATE:20291231
 END:VEVENT
 BEGIN:VEVENT
 UID:85f7ae92f5465a96ab1723a5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Jour de l'an
 DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœ
  ux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une cout
@@ -973,7 +973,7 @@ DTSTART;VALUE=DATE:20300101
 END:VEVENT
 BEGIN:VEVENT
 UID:63b71c4179c766fb1c1e0111@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'été
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres avancent d'une
   heure (2h → 3h).
@@ -982,7 +982,7 @@ DTSTART;VALUE=DATE:20300331
 END:VEVENT
 BEGIN:VEVENT
 UID:2110c666b5020bf9ccf9276c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -991,7 +991,7 @@ DTSTART;VALUE=DATE:20300419
 END:VEVENT
 BEGIN:VEVENT
 UID:b5e593183ee86f3d3be9b0b8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -1001,7 +1001,7 @@ DTSTART;VALUE=DATE:20300422
 END:VEVENT
 BEGIN:VEVENT
 UID:baf3489774d1edf2644fded3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -1012,7 +1012,7 @@ DTSTART;VALUE=DATE:20300501
 END:VEVENT
 BEGIN:VEVENT
 UID:8ca94127eefe57f3a8a79e1d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -1022,7 +1022,7 @@ DTSTART;VALUE=DATE:20300508
 END:VEVENT
 BEGIN:VEVENT
 UID:bd56330120ca07a821042abe@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -1032,7 +1032,7 @@ DTSTART;VALUE=DATE:20300530
 END:VEVENT
 BEGIN:VEVENT
 UID:431baac120bef78e97e2fc45@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 30/05/2030. Le vendredi 31/05/2030 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -1041,7 +1041,7 @@ DTSTART;VALUE=DATE:20300531
 END:VEVENT
 BEGIN:VEVENT
 UID:ba3f55a217cd7337b3e7075a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -1052,7 +1052,7 @@ DTSTART;VALUE=DATE:20300610
 END:VEVENT
 BEGIN:VEVENT
 UID:1f50a2f5ca1a7a7215860d1d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -1060,7 +1060,7 @@ DTSTART;VALUE=DATE:20300714
 END:VEVENT
 BEGIN:VEVENT
 UID:c6e2c8497c56dad39f27d4de@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -1071,7 +1071,7 @@ DTSTART;VALUE=DATE:20300714
 END:VEVENT
 BEGIN:VEVENT
 UID:098b84248c7d82aab59bbeba@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -1081,7 +1081,7 @@ DTSTART;VALUE=DATE:20300815
 END:VEVENT
 BEGIN:VEVENT
 UID:5aaf9facfb07d612e3c8c88f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -1089,7 +1089,7 @@ DTSTART;VALUE=DATE:20300815
 END:VEVENT
 BEGIN:VEVENT
 UID:9080bf036adfa46eea59e2a6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Assomption
 DESCRIPTION:Assomption tombe un jeudi le 15/08/2030. Le vendredi 16/08/2030
   est un pont potentiel — vérifiez auprès de votre employeur.
@@ -1098,7 +1098,7 @@ DTSTART;VALUE=DATE:20300816
 END:VEVENT
 BEGIN:VEVENT
 UID:626200687250cfe39477ff4c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -1107,7 +1107,7 @@ DTSTART;VALUE=DATE:20301027
 END:VEVENT
 BEGIN:VEVENT
 UID:95ca691dda4a2a084453e993@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -1118,7 +1118,7 @@ DTSTART;VALUE=DATE:20301101
 END:VEVENT
 BEGIN:VEVENT
 UID:fb3c694b843f362fd7a4a6ab@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -1129,7 +1129,7 @@ DTSTART;VALUE=DATE:20301111
 END:VEVENT
 BEGIN:VEVENT
 UID:0fbd6d6e24afa1c3c0f97ccb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -1138,7 +1138,7 @@ DTSTART;VALUE=DATE:20301111
 END:VEVENT
 BEGIN:VEVENT
 UID:c8744fc47930debe76e0e078@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -1149,7 +1149,7 @@ DTSTART;VALUE=DATE:20301225
 END:VEVENT
 BEGIN:VEVENT
 UID:7f3c0c52451425c1837fe94e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -1158,7 +1158,7 @@ DTSTART;VALUE=DATE:20301226
 END:VEVENT
 BEGIN:VEVENT
 UID:483c43e345d61facd7a84ff2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Jour de l'an
 DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœ
  ux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une cout
@@ -1168,7 +1168,7 @@ DTSTART;VALUE=DATE:20310101
 END:VEVENT
 BEGIN:VEVENT
 UID:f2b8fecda63a6c6d5728ed5f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'été
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres avancent d'une
   heure (2h → 3h).
@@ -1177,7 +1177,7 @@ DTSTART;VALUE=DATE:20310330
 END:VEVENT
 BEGIN:VEVENT
 UID:0071414bfbc18ead1ca708d9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -1186,7 +1186,7 @@ DTSTART;VALUE=DATE:20310411
 END:VEVENT
 BEGIN:VEVENT
 UID:84c50ef3ebafd3e31f80ee3c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -1196,7 +1196,7 @@ DTSTART;VALUE=DATE:20310414
 END:VEVENT
 BEGIN:VEVENT
 UID:1fe4a42dbada05fa9d17197c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -1207,7 +1207,7 @@ DTSTART;VALUE=DATE:20310501
 END:VEVENT
 BEGIN:VEVENT
 UID:dd821e04c90d4fa3dae5896a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Fête du Travail
 DESCRIPTION:Fête du Travail tombe un jeudi le 01/05/2031. Le vendredi 02/05
  /2031 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -1216,7 +1216,7 @@ DTSTART;VALUE=DATE:20310502
 END:VEVENT
 BEGIN:VEVENT
 UID:90a863d5ac2dbd4141e7ae9d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -1226,7 +1226,7 @@ DTSTART;VALUE=DATE:20310508
 END:VEVENT
 BEGIN:VEVENT
 UID:6ac490faaddd2c97bb4e2bea@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Fête de la Victoire
 DESCRIPTION:Fête de la Victoire tombe un jeudi le 08/05/2031. Le vendredi 0
  9/05/2031 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -1235,7 +1235,7 @@ DTSTART;VALUE=DATE:20310509
 END:VEVENT
 BEGIN:VEVENT
 UID:a6edb6e77ae99a2e357cf1e2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -1245,7 +1245,7 @@ DTSTART;VALUE=DATE:20310522
 END:VEVENT
 BEGIN:VEVENT
 UID:b9ad060cc24dae9ac7536307@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 22/05/2031. Le vendredi 23/05/2031 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -1254,7 +1254,7 @@ DTSTART;VALUE=DATE:20310523
 END:VEVENT
 BEGIN:VEVENT
 UID:5f57acce1f532d9465e4d61c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -1265,7 +1265,7 @@ DTSTART;VALUE=DATE:20310602
 END:VEVENT
 BEGIN:VEVENT
 UID:57a4990c1a25249d679a945a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -1273,7 +1273,7 @@ DTSTART;VALUE=DATE:20310714
 END:VEVENT
 BEGIN:VEVENT
 UID:9fb314f4024fe687c2f1e12f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -1284,7 +1284,7 @@ DTSTART;VALUE=DATE:20310714
 END:VEVENT
 BEGIN:VEVENT
 UID:05de32e960e3dcd3c6a71c08@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -1294,7 +1294,7 @@ DTSTART;VALUE=DATE:20310815
 END:VEVENT
 BEGIN:VEVENT
 UID:fb9f534ed0a88f00d352a3dd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -1302,7 +1302,7 @@ DTSTART;VALUE=DATE:20310815
 END:VEVENT
 BEGIN:VEVENT
 UID:81a657de0964c600abf109da@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -1311,7 +1311,7 @@ DTSTART;VALUE=DATE:20311026
 END:VEVENT
 BEGIN:VEVENT
 UID:27aaf36fd5c439d347765a3d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -1322,7 +1322,7 @@ DTSTART;VALUE=DATE:20311101
 END:VEVENT
 BEGIN:VEVENT
 UID:8762f425198b1624bc01eaad@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Armistice 1918
 DESCRIPTION:Armistice 1918 tombe un mardi le 11/11/2031. Le lundi 10/11/203
  1 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -1331,7 +1331,7 @@ DTSTART;VALUE=DATE:20311110
 END:VEVENT
 BEGIN:VEVENT
 UID:1a2acf70940655da5f988eef@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -1342,7 +1342,7 @@ DTSTART;VALUE=DATE:20311111
 END:VEVENT
 BEGIN:VEVENT
 UID:124cc7ac1e6f58addb7ffd28@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -1351,7 +1351,7 @@ DTSTART;VALUE=DATE:20311111
 END:VEVENT
 BEGIN:VEVENT
 UID:9e17c7ef1f55de017036f37e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -1362,7 +1362,7 @@ DTSTART;VALUE=DATE:20311225
 END:VEVENT
 BEGIN:VEVENT
 UID:a0f7fb462f01916a3f1154eb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Pont possible — Noël
 DESCRIPTION:Noël tombe un jeudi le 25/12/2031. Le vendredi 26/12/2031 est u
  n pont potentiel — vérifiez auprès de votre employeur.
@@ -1371,7 +1371,7 @@ DTSTART;VALUE=DATE:20311226
 END:VEVENT
 BEGIN:VEVENT
 UID:d830ded64a3d5b74adaff80a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260401T090735Z
+DTSTAMP:20260402T025553Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
