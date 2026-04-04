@@ -5,27 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 03 Apr 2026 02:58:12 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 02:48:56 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
       <guid>4fd3950c4437b5d309c15a15@calendrier-fr.tibotsr.dev</guid>
       <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
       <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Vendredi Saint</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-04-03</link>
-      <guid>46fee2d224cc3df4d8d72134@calendrier-fr.tibotsr.dev</guid>
-      <description>Commémore la crucifixion du Christ. Jour férié uniquement en Alsace-Moselle (départements 57, 67, 68) en vertu du régime concordataire.</description>
-      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Vendredi Saint</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-04-03</link>
-      <guid>ed6d4501fed6ee206d801362@calendrier-fr.tibotsr.dev</guid>
-      <description>Commémore la crucifixion du Christ. Non férié en France depuis la loi de 1905 — sauf en Alsace-Moselle.</description>
-      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Vacances de Printemps - Zone A</title>
@@ -1405,6 +1391,20 @@
       <guid>c79f754d1f9a4c153214ac1d@calendrier-fr.tibotsr.dev</guid>
       <description>Fête de la Présentation de Jésus au Temple, 40 jours après Noël.</description>
       <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Journée mondiale des zones humides</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-02</link>
+      <guid>fd5e4ac1b4fc6e28c1475b90@calendrier-fr.tibotsr.dev</guid>
+      <description>Commémore la Convention de Ramsar signée le 2 février 1971.</description>
+      <pubDate>Wed, 02 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Journée mondiale contre le cancer</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-04</link>
+      <guid>4cb74190c3b2793dd086ee19@calendrier-fr.tibotsr.dev</guid>
+      <description>Initiée par l'Union Internationale Contre le Cancer depuis 2000.</description>
+      <pubDate>Fri, 04 Feb 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
