@@ -571,8 +571,8 @@ function buildMoBlock(k, evts, today, isPast) {
   block.appendChild(h);
   const list        = document.createElement('div'); list.className = 'ev-list';
   const isCurBlock  = (STATE.curYear === today.getFullYear() && k === today.getMonth());
-  const splitIdx    = regularEvts.findIndex(ev => (ev.endDate || ev.date) >= today);
-  const hasPast     = regularEvts.some(ev => (ev.endDate || ev.date) < today);
+  const splitIdx    = regularEvts.findIndex(ev => ev.date >= today);
+  const hasPast     = regularEvts.some(ev => ev.date < today);
   const hasFuture   = splitIdx !== -1;
   let markerPlaced  = false;
 

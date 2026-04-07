@@ -103,6 +103,23 @@ self.addEventListener('fetch', event => {
   }
 
 
+  // ⚙️ 2bis. JS / CSS locaux → NETWORK FIRST (evite de garder un ancien front)
+  if (url.pathname.startsWith('/assets/js/') || url.pathname.startsWith('/assets/css/')) {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          if (response && response.status === 200) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+
   // ⚡ 3. ASSETS → STALE WHILE REVALIDATE
   event.respondWith(
     caches.match(event.request).then(cached => {
