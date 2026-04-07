@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-06T03:29:06.564400+00:00",
-  "contentVersion": "c4ba4a87ecd3af4f",
+  "generatedAt": "2026-04-07T03:19:09.952146+00:00",
+  "contentVersion": "a0fbf068a1492f01",
   "totalEvents": 4754,
   "profiles": [
     "essentiel",
@@ -39300,9 +39300,20 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2024-06-21",
+      "start": "2024-06-20",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2024-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2024.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -39317,17 +39328,6 @@
       "categories": [
         "Culture",
         "Fêtes"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2024-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2024.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -43467,17 +43467,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2026-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2026-09-22",
       "end": null,
@@ -43485,6 +43474,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2026-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -46365,9 +46365,20 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2028-06-21",
+      "start": "2028-06-20",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2028-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2028.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -46382,17 +46393,6 @@
       "categories": [
         "Culture",
         "Fêtes"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2028-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2028.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },

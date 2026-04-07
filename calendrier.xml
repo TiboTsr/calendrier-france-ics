@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Mon, 06 Apr 2026 03:29:06 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2026 03:19:09 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
@@ -19,13 +19,6 @@
       <guid>7a7b44736c7cb43a9b59be63@calendrier-fr.tibotsr.dev</guid>
       <description>Vacances de Printemps pour la zone scolaire A. Durée : 16 jours, du 04/04/2026 au 19/04/2026. Le découpage en zones A, B et C a été instauré en 1972.</description>
       <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Lundi de Pâques</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-04-06</link>
-      <guid>288a32cc6ed41bfc9de5f3db@calendrier-fr.tibotsr.dev</guid>
-      <description>Jour férié qui prolonge le dimanche de Pâques. La tradition des œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours, on offrait donc à Pâques ceux accumulés.</description>
-      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Journée mondiale de la Santé</title>
@@ -420,18 +413,18 @@
       <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Début de l'Automne — Équinoxe d'automne</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
-      <guid>eb2e2ce392c7cb6f45edaf8b@calendrier-fr.tibotsr.dev</guid>
-      <description>L'équinoxe d'automne marque le début de l'automne.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Journée mondiale sans voiture</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
       <guid>00bad90e4cd1ce35f4623a21@calendrier-fr.tibotsr.dev</guid>
       <description>Lancée en France en 1998 par La Rochelle.</description>
       <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Début de l'Automne — Équinoxe d'automne</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-23</link>
+      <guid>3e61f46655e6a9ed06645243@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe d'automne marque le début de l'automne.</description>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Journée mondiale du cacao et du chocolat</title>
@@ -1405,6 +1398,13 @@
       <guid>fcfa39064d0c04d899e2372e@calendrier-fr.tibotsr.dev</guid>
       <description>Fête des amoureux le 14 février.</description>
       <pubDate>Mon, 14 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Salon de l'Agriculture — Ouverture</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-26</link>
+      <guid>940b6b6514d9e86bc54c9a9c@calendrier-fr.tibotsr.dev</guid>
+      <description>Le Salon International de l'Agriculture se tient chaque fin février à Paris.</description>
+      <pubDate>Sat, 26 Feb 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
