@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-07T14:55:57.938948+00:00",
-  "contentVersion": "e51d57fbd35880f4",
+  "generatedAt": "2026-04-08T03:21:20.220049+00:00",
+  "contentVersion": "65edbab843ffed75",
   "totalEvents": 4754,
   "profiles": [
     "essentiel",
@@ -13197,20 +13197,9 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2008-06-20",
+      "start": "2008-06-21",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2008-06-20",
-      "end": null,
-      "description": "Le 20 June est le jour le plus long de l'année 2008.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -13225,6 +13214,17 @@
       "categories": [
         "Culture",
         "Fêtes"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2008-06-21",
+      "end": null,
+      "description": "Le 21 June est le jour le plus long de l'année 2008.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },

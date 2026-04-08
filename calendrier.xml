@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Tue, 07 Apr 2026 14:55:57 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2026 03:21:20 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
@@ -19,13 +19,6 @@
       <guid>7a7b44736c7cb43a9b59be63@calendrier-fr.tibotsr.dev</guid>
       <description>Vacances de Printemps pour la zone scolaire A. Durée : 16 jours, du 04/04/2026 au 19/04/2026. Le découpage en zones A, B et C a été instauré en 1972.</description>
       <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée mondiale de la Santé</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-04-07</link>
-      <guid>b402bfe031c24443454c2115@calendrier-fr.tibotsr.dev</guid>
-      <description>Commémore la fondation de l'OMS le 7 avril 1948.</description>
-      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Vacances de Printemps - Zone B</title>
@@ -1405,6 +1398,13 @@
       <guid>940b6b6514d9e86bc54c9a9c@calendrier-fr.tibotsr.dev</guid>
       <description>Le Salon International de l'Agriculture se tient chaque fin février à Paris.</description>
       <pubDate>Sat, 26 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jour supplémentaire (année bissextile)</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-29</link>
+      <guid>ac792ed0a7ca189e038c7637@calendrier-fr.tibotsr.dev</guid>
+      <description>Une année solaire dure 365,2422 jours. 2028 est l'une des années rares à 366 jours.</description>
+      <pubDate>Tue, 29 Feb 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
