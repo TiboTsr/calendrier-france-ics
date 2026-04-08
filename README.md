@@ -59,3 +59,16 @@ Pour que les options avancées (`zone`, `cats`, `alarm`) fonctionnent vraiment, 
 
 - endpoint : `/api/calendrier.ics`
 - implémentation : [api/calendrier.ics.js](api/calendrier.ics.js)
+
+## Propositions publiques de dates
+
+Une page publique permet aux visiteurs de proposer de nouvelles dates :
+
+- page : `/proposer`
+- API : `/api/suggestions`
+- stockage : `calendar_core/data/suggestions.json` (statut initial `pending`)
+
+Variables optionnelles :
+
+- `SUGGESTIONS_MAX_PER_HOUR` (défaut: `12`)
+- `SUGGESTIONS_ALLOWED_ORIGINS` (liste séparée par des virgules)

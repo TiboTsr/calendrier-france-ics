@@ -11,8 +11,12 @@
       "src": "/((?:calendrier(?:-[^/]+)?\\.ics|zone-[abc]\\.ics|calendrier\\.json|events-meta\\.json|calendrier\\.csv|calendrier\\.xml|sitemap\\.xml))",
       "dest": "/api/generated-file.js?name=$1"
     },
+    { "src": "/proposer", "dest": "/proposer.html" },
+    { "src": "/admin/login", "dest": "/admin/login.html" },
     { "src": "/admin", "dest": "/admin/index.html" },
+    { "src": "/api/admin-auth", "dest": "/api/admin-auth.js" },
     { "src": "/api/admin-data", "dest": "/api/admin-data.js" },
+    { "src": "/api/suggestions", "dest": "/api/suggestions.js" },
     {
       "handle": "filesystem"
     },
@@ -44,7 +48,7 @@
         },
         {
           "key": "Access-Control-Allow-Methods",
-          "value": "GET, OPTIONS"
+          "value": "GET, POST, OPTIONS"
         },
         {
           "key": "Access-Control-Allow-Headers",
@@ -115,6 +119,25 @@
           "value": "no-store, no-cache, must-revalidate"
         },
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/admin/login",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate"
+        },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/proposer",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=300, stale-while-revalidate=3600"
+        }
       ]
     }
   ],

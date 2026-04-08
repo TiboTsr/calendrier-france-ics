@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Connexion Admin · Calendrier France</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="/img/icon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg0:#07070d;--bg1:#0e0e16;--bg2:#15151e;--b:rgba(255,255,255,.09);--bh:rgba(255,255,255,.2);
+  --t1:#ededf4;--t2:#8080a0;--acc:#6b8cff;--accd:rgba(107,140,255,.1);--accb:rgba(107,140,255,.3);
+  --red:#ff5a5a;--redd:rgba(255,90,90,.12);--redb:rgba(255,90,90,.32);
+  --ff:'DM Sans',sans-serif;--ffd:'Syne',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff);min-height:100svh;display:grid;place-items:center;background:radial-gradient(1200px 600px at 20% -10%,#1a2238 0%,transparent 55%),radial-gradient(900px 500px at 100% 120%,#2d1c32 0%,transparent 60%),var(--bg0);color:var(--t1);padding:16px}
+.card{width:min(420px,100%);background:color-mix(in srgb,var(--bg1) 88%,transparent);border:1px solid var(--b);border-radius:18px;padding:24px;backdrop-filter:blur(14px)}
+.title{font-family:var(--ffd);font-size:24px;font-weight:800;letter-spacing:-.4px}
+.sub{color:var(--t2);font-size:13px;margin-top:6px;margin-bottom:18px}
+.lbl{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--t2);margin-bottom:6px}
+.input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--b);background:var(--bg2);color:var(--t1);font-size:14px;transition:.15s}
+.input:focus{outline:none;border-color:var(--acc)}
+.btn{width:100%;margin-top:12px;padding:11px;border-radius:10px;border:1px solid var(--accb);background:var(--accd);color:var(--acc);font-weight:700;cursor:pointer;transition:.15s}
+.btn:hover{border-color:var(--bh);filter:brightness(1.08)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.err{display:none;margin-top:10px;padding:9px 10px;border-radius:10px;background:var(--redd);color:var(--red);border:1px solid var(--redb);font-size:13px}
+.err.on{display:block}
+.hint{margin-top:12px;color:var(--t2);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+  <main class="card">
+    <h1 class="title">Espace Admin</h1>
+    <p class="sub">Connexion requise pour modifier les données publiées.</p>
+    <label class="lbl" for="pwd">Mot de passe admin</label>
+    <input class="input" id="pwd" type="password" autocomplete="current-password" placeholder="••••••••"/>
+    <button id="submit" class="btn">Se connecter</button>
+    <div id="err" class="err"></div>
+    <p class="hint">Session sécurisée (cookie HttpOnly, expiration automatique).</p>
+  </main>
+<script>
+async function checkExistingSession(){
+  try{
+    const r = await fetch('/api/admin-auth?action=me', { credentials: 'same-origin' });
+    if(r.ok) window.location.replace('/admin');
+  }catch{}
+}
+
+async function login(){
+  const btn = document.getElementById('submit');
+  const err = document.getElementById('err');
+  const pwd = document.getElementById('pwd').value;
+  err.classList.remove('on');
+  btn.disabled = true;
+  btn.textContent = 'Connexion...';
+  try{
+    const r = await fetch('/api/admin-auth?action=login', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pwd })
+    });
+    const d = await r.json().catch(() => ({}));
+    if(!r.ok) throw new Error(d.error || 'Connexion refusée');
+    window.location.replace('/admin');
+  }catch(e){
+    err.textContent = e.message || 'Erreur de connexion';
+    err.classList.add('on');
+    btn.disabled = false;
+    btn.textContent = 'Se connecter';
+  }
+}
+
+document.getElementById('submit').addEventListener('click', login);
+document.getElementById('pwd').addEventListener('keydown', (e) => { if(e.key === 'Enter') login(); });
+checkExistingSession();
+</script>
+</body>
+</html>

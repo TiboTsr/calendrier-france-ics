@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Proposer une date | Calendrier France</title>
+<meta name="description" content="Proposez un evenement a ajouter au calendrier France."/>
+<link rel="icon" href="/img/icon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg0:#07070d;--bg1:#0e0e16;--bg2:#15151e;--b:rgba(255,255,255,.09);--bh:rgba(255,255,255,.18);
+  --t1:#ededf4;--t2:#9da0bc;--t3:#666b88;
+  --acc:#6b8cff;--accd:rgba(107,140,255,.12);--accb:rgba(107,140,255,.35);
+  --ok:#3ecf8e;--okd:rgba(62,207,142,.12);--okb:rgba(62,207,142,.32);
+  --err:#ff5a5a;--errd:rgba(255,90,90,.12);--errb:rgba(255,90,90,.32);
+  --ff:'DM Sans',sans-serif;--ffd:'Syne',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff);background:radial-gradient(1200px 600px at -10% -20%,#1b2133 0%,transparent 55%),radial-gradient(1000px 600px at 110% 120%,#2a1b30 0%,transparent 60%),var(--bg0);color:var(--t1);min-height:100svh}
+main{max-width:900px;margin:0 auto;padding:22px 14px 42px}
+.hero{padding:18px;border:1px solid var(--b);background:color-mix(in srgb,var(--bg1) 90%,transparent);border-radius:18px;margin-bottom:14px}
+.hero h1{font-family:var(--ffd);font-size:30px;line-height:1.05;letter-spacing:-.5px}
+.hero p{color:var(--t2);margin-top:8px;font-size:14px}
+.card{border:1px solid var(--b);background:color-mix(in srgb,var(--bg1) 92%,transparent);border-radius:18px;padding:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.full{grid-column:1 / -1}
+.lbl{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;display:block}
+.in{width:100%;padding:10px 11px;border-radius:10px;border:1px solid var(--b);background:var(--bg2);color:var(--t1);font-size:14px;transition:.15s}
+.in:focus{outline:none;border-color:var(--acc)}
+.ta{min-height:110px;resize:vertical}
+.note{font-size:12px;color:var(--t2);margin-top:5px}
+.actions{display:flex;gap:10px;align-items:center;justify-content:flex-end;margin-top:14px}
+.btn{border:1px solid var(--accb);background:var(--accd);color:var(--acc);font-weight:700;padding:10px 14px;border-radius:10px;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.msg{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:13px;display:none}
+.msg.ok{display:block;background:var(--okd);border:1px solid var(--okb);color:var(--ok)}
+.msg.err{display:block;background:var(--errd);border:1px solid var(--errb);color:var(--err)}
+.toplink{display:inline-block;margin-bottom:10px;color:var(--t2);text-decoration:none}
+@media (max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:24px}}
+</style>
+</head>
+<body>
+<main>
+  <a class="toplink" href="/">Retour au calendrier</a>
+  <section class="hero">
+    <h1>Proposer une date</h1>
+    <p>Vous pouvez proposer un evenement a ajouter au calendrier. Les propositions sont relues avant publication.</p>
+  </section>
+
+  <section class="card">
+    <form id="suggest-form" novalidate>
+      <div class="grid">
+        <div class="full">
+          <label class="lbl" for="summary">Titre</label>
+          <input id="summary" class="in" type="text" maxlength="140" placeholder="Ex: Journee nationale de ..." required/>
+        </div>
+
+        <div>
+          <label class="lbl" for="start">Date de debut</label>
+          <input id="start" class="in" type="date" required/>
+        </div>
+
+        <div>
+          <label class="lbl" for="end">Date de fin (optionnel)</label>
+          <input id="end" class="in" type="date"/>
+        </div>
+
+        <div class="full">
+          <label class="lbl" for="categories">Categories</label>
+          <input id="categories" class="in" type="text" maxlength="180" placeholder="Ex: Culture, Societe, Sante"/>
+          <p class="note">Separez les categories par des virgules.</p>
+        </div>
+
+        <div class="full">
+          <label class="lbl" for="zones">Zones (optionnel)</label>
+          <input id="zones" class="in" type="text" maxlength="20" placeholder="Ex: A,B,C ou AM"/>
+        </div>
+
+        <div class="full">
+          <label class="lbl" for="description">Description</label>
+          <textarea id="description" class="in ta" maxlength="2000" placeholder="Contexte, details, source officielle..." required></textarea>
+        </div>
+
+        <div>
+          <label class="lbl" for="sourceUrl">Source (URL)</label>
+          <input id="sourceUrl" class="in" type="url" maxlength="280" placeholder="https://..."/>
+        </div>
+
+        <div>
+          <label class="lbl" for="email">Email (optionnel)</label>
+          <input id="email" class="in" type="email" maxlength="120" placeholder="vous@exemple.fr"/>
+        </div>
+
+        <div class="full" style="display:none" aria-hidden="true">
+          <label class="lbl" for="website">Ne pas remplir</label>
+          <input id="website" class="in" type="text" tabindex="-1" autocomplete="off"/>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="submit-btn" class="btn" type="submit">Envoyer la proposition</button>
+      </div>
+      <div id="msg" class="msg"></div>
+    </form>
+  </section>
+</main>
+
+<script>
+const form=document.getElementById('suggest-form');
+const msg=document.getElementById('msg');
+const submitBtn=document.getElementById('submit-btn');
+
+function setMessage(text, kind){
+  msg.textContent=text;
+  msg.className='msg '+(kind||'');
+}
+
+function splitCsv(v){
+  return String(v||'').split(',').map(s=>s.trim()).filter(Boolean);
+}
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  setMessage('', '');
+
+  const payload={
+    summary:document.getElementById('summary').value.trim(),
+    start:document.getElementById('start').value,
+    end:document.getElementById('end').value,
+    categories:splitCsv(document.getElementById('categories').value),
+    zones:splitCsv(document.getElementById('zones').value),
+    description:document.getElementById('description').value.trim(),
+    sourceUrl:document.getElementById('sourceUrl').value.trim(),
+    email:document.getElementById('email').value.trim(),
+    website:document.getElementById('website').value.trim(),
+  };
+
+  if(!payload.summary || !payload.start || !payload.description){
+    setMessage('Merci de remplir le titre, la date de debut et la description.', 'err');
+    return;
+  }
+  if(payload.end && payload.end < payload.start){
+    setMessage('La date de fin doit etre superieure ou egale a la date de debut.', 'err');
+    return;
+  }
+
+  submitBtn.disabled=true;
+  submitBtn.textContent='Envoi...';
+  try{
+    const r=await fetch('/api/suggestions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(d.error||'Erreur serveur');
+    setMessage('Merci, votre proposition a ete enregistree et sera relue.', 'ok');
+    form.reset();
+  }catch(err){
+    setMessage(err.message||'Impossible d\'envoyer la proposition.', 'err');
+  }finally{
+    submitBtn.disabled=false;
+    submitBtn.textContent='Envoyer la proposition';
+  }
+});
+</script>
+</body>
+</html>
