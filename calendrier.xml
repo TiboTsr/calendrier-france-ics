@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 09 Apr 2026 02:56:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2026 06:59:48 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
@@ -63,17 +63,17 @@
       <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Festival de Cannes — Ouverture</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-12</link>
+      <guid>e9bf3d59ab2d44b754d684c2@calendrier-fr.tibotsr.dev</guid>
+      <description>Le Festival International du Film de Cannes, créé en 1946.</description>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Ascension</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-14</link>
       <guid>57170bbe9ab63e13d2d569f4@calendrier-fr.tibotsr.dev</guid>
       <description>Fête chrétienne commémorant la montée du Christ au ciel, 40 jours après Pâques. Toujours un jeudi, ce qui en fait naturellement un pont avec le vendredi.</description>
-      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Festival de Cannes — Ouverture</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-14</link>
-      <guid>74bf247aa2db3e65c28e4d4e@calendrier-fr.tibotsr.dev</guid>
-      <description>Le Festival International du Film de Cannes, créé en 1946.</description>
       <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -904,10 +904,10 @@
     </item>
     <item>
       <title>Festival de Cannes — Ouverture</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-05-14</link>
-      <guid>9020ddc19cb183d51a9267f7@calendrier-fr.tibotsr.dev</guid>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-05-12</link>
+      <guid>e130c481f1cebce59d04969f@calendrier-fr.tibotsr.dev</guid>
       <description>Le Festival International du Film de Cannes, créé en 1946.</description>
-      <pubDate>Fri, 14 May 2027 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 12 May 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Nuit des Musées</title>
