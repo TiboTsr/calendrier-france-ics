@@ -433,7 +433,27 @@ function buildOccurrencesByYear(allOccurrences, currentEvent, siteUrl) {
     html += `</p>`;
   }
 
-  return html;
+return html;
+}
+
+function formatShortId(value) {
+  if (!value) return "—";
+  return value.slice(0, 8);
+}
+
+function badgeList(daysUntil, duration, zones, hasMultipleOccurrences) {
+  const badges = [];
+  if (daysUntil < 0) badges.push({ label: "Passé", tone: "term" });
+  else if (daysUntil <= 3) badges.push({ label: "Imminent", tone: "warn" });
+  else badges.push({ label: "À venir", tone: "info" });
+  if (hasMultipleOccurrences) badges.push({ label: "Récurrent", tone: "info" });
+  if (duration > 1) badges.push({ label: `${duration} jours`, tone: "calc" });
+  if (zones.length)
+    badges.push({
+      label: `Zone ${zones.length === 1 ? zoneLabel(zones[0]) : "multiple"}`,
+      tone: "zone",
+    });
+  return badges;
 }
 
 function getSeason(dateStr) {
@@ -487,7 +507,7 @@ const ACADEMIES = {
   AM: "Alsace-Moselle (Haut-Rhin, Bas-Rhin, Moselle).",
 };
 
-function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
+function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
   const mainCat = (event.categories || [])[0] || "Dates spéciales";
   const def = getCatColor(mainCat);
   const emoji = getCatEmoji(event.categories, event.summary);
@@ -532,6 +552,14 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
       ? allOccurrences[occIndex + 1]
       : null;
   const eventIcsHref = `${canonicalUrl}?format=ics`;
+  const badges = badgeList(daysUntil, duration, zones, hasMultipleOccurrences);
+  const generatedAt = meta?.generatedAt
+    ? new Intl.DateTimeFormat("fr-FR", { day: "2-digit", month: "long", year: "numeric" }).format(
+        new Date(meta.generatedAt)
+      )
+    : "—";
+  const totalEvents = meta?.totalEvents ? new Intl.NumberFormat("fr-FR").format(meta.totalEvents) : "—";
+  const versionHash = formatShortId(meta?.contentVersion);
 
   const googleDates = (() => {
     const start = event.start;
@@ -608,6 +636,22 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
     .hero h1 em { font-style: normal; color: var(--cat-c); }
     .countdown { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; margin-bottom: 28px; border: 1.5px solid var(--cat-b); background: var(--cat-d); color: var(--cat-c); }
     .countdown.past { background: var(--bg2); color: var(--t3); border-color: var(--b); }
+    .countdown i { font-size: 13px; }
+    .event-badges { display:flex;flex-wrap:wrap;gap:6px;margin-top:14px; }
+    .event-badge {
+      padding:4px 12px;border-radius:999px;border:1px solid var(--b);font-size:12px;font-weight:600;
+      background:var(--bg2);color:var(--t2);
+    }
+    .event-badge.term { border-color:var(--redb);color:var(--red); }
+    .event-badge.warn { border-color:var(--ambb);color:var(--amb); }
+    .event-badge.info { border-color:var(--cat-b);color:var(--cat-c); }
+    .event-badge.calc { border-color:var(--grnb);color:var(--grn); }
+    .event-badge.zone { border-color:var(--accb);color:var(--acc); }
+    .event-stats { display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:20px; }
+    .event-stat { padding:14px 16px;border-radius:14px;border:1px solid var(--b);background:var(--bg1);font-size:12px; }
+    .event-stat .stat-label { font-size:10px;font-weight:700;text-transform:uppercase;color:var(--t3);letter-spacing:1px;margin-bottom:4px; }
+    .event-stat .stat-value { font-size:16px;font-weight:700;color:var(--t1); }
+    .event-stat .stat-hint { font-size:11px;color:var(--t2);margin-top:2px; }
     .page { max-width: 860px; margin: 0 auto; padding: 0 20px; }
     .section { padding: 40px 0; border-bottom: 1px solid var(--b); }
     .section:last-child { border-bottom: none; }
@@ -687,6 +731,26 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl) {
       <span class="hero-emoji" role="img">${emoji}</span>
       <h1>${escapeHtml(event.summary)}<br/><em>${escapeHtml(formatDateFR(event.start))}</em></h1>
       <div class="countdown${cd.past ? " past" : ""}"><i class="fa-${cd.past ? "regular fa-clock" : "solid fa-calendar-days"}"></i> ${escapeHtml(cd.text)}</div>
+      <div class="event-badges">
+        ${badges.map((s) => `<span class="event-badge ${s.tone}">${escapeHtml(s.label)}</span>`).join("")}
+      </div>
+      <div class="event-stats">
+        <div class="event-stat">
+          <div class="stat-label">Dernière génération</div>
+          <div class="stat-value">${escapeHtml(generatedAt)}</div>
+          <div class="stat-hint">${escapeHtml(versionHash !== "—" ? `V${versionHash}` : "Version inconnue")}</div>
+        </div>
+        <div class="event-stat">
+          <div class="stat-label">Événements total</div>
+          <div class="stat-value">${escapeHtml(totalEvents)}</div>
+          <div class="stat-hint">JSON principal</div>
+        </div>
+        <div class="event-stat">
+          <div class="stat-label">Occurrences</div>
+          <div class="stat-value">${hasMultipleOccurrences ? `${allOccurrences.length}` : "1"}</div>
+          <div class="stat-hint">${escapeHtml(hasMultipleOccurrences ? "Récurrence détectée" : "Unique")}</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1014,7 +1078,7 @@ module.exports = async function handler(req, res) {
       return;
     }
 
-    const html = buildHtml(match, siblings, allOccurrences, siteUrl, icsUrl);
+    const html = buildHtml(match, siblings, allOccurrences, siteUrl, icsUrl, data);
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/html; charset=utf-8");
     res.setHeader(
