@@ -126,7 +126,7 @@
     }
   ],
   "env": {
-    "CALENDAR_JSON_URL": "https://calendrier-fr.tibotsr.dev/calendrier.json",
+    "CALENDAR_JSON_URL": "https://raw.githubusercontent.com/TiboTsr/calendrier-france-ics/data/calendrier.json",
     "GENERATED_DATA_REPO": "TiboTsr/calendrier-france-ics",
     "GENERATED_DATA_BRANCH": "data"
   }
