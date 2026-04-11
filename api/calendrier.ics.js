@@ -326,22 +326,6 @@ module.exports = async function handler(req, res) {
     }
   }
 
-  const hasParams =
-    finalParams.has("zone") ||
-    finalParams.has("cats") ||
-    finalParams.has("pe") ||
-    finalParams.has("alarm_feries") ||
-    finalParams.has("alarm_vacances") ||
-    finalParams.has("emojis");
-  if (!hasParams) {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.end(
-      `<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>API ICS – Calendrier France</title><style>body{font-family:sans-serif;background:#f8f8fa;color:#222;margin:0;padding:2em;}main{max-width:600px;margin:auto;}h1{color:#c00;}code{background:#eee;padding:2px 6px;border-radius:4px;}</style></head><body><main><h1>Erreur d'utilisation de l'API</h1><p>Cette adresse (<code>/api/calendrier.ics</code>) est réservée à la distribution de fichiers <b>ICS</b> pour les applications de calendrier.</p><p>Pour obtenir un calendrier, veuillez utiliser le site principal ou l'interface prévue à cet effet.</p><p><a href="/">Retour au site principal</a></p></main></body></html>`,
-    );
-    return;
-  }
-
   try {
     const selectedZones = normalizeList(finalParams.get("zone"));
     const selectedCats = normalizeList(finalParams.get("cats"));
