@@ -4,7 +4,15 @@
  */
 
 /* ── Constantes API ─────────────────────────────────── */
-const DYNAMIC_API_BASE = (window.CALENDAR_API_BASE || 'api.calendrier-fr.tibotsr.dev')
+const IS_LOCAL_PREVIEW =
+  ['localhost', '127.0.0.1'].includes(window.location.hostname) ||
+  window.location.hostname.endsWith('.local');
+
+const DEFAULT_PUBLIC_HOST = IS_LOCAL_PREVIEW
+  ? 'calendrier-fr.tibotsr.dev'
+  : window.location.host;
+
+const DYNAMIC_API_BASE = (window.CALENDAR_API_BASE || DEFAULT_PUBLIC_HOST)
   .replace(/^https?:\/\//, '').replace(/\/$/, '');
 
 const GOOGLE_FEED_BASE = (window.CALENDAR_GOOGLE_FEED_BASE || DYNAMIC_API_BASE)

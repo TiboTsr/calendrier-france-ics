@@ -386,7 +386,11 @@ async function buildAdvUrl() {
     });
     if (personal.length) p.set('pe', JSON.stringify(personal));
 
-    const API_HOST  = typeof window.CALENDAR_API_BASE !== 'undefined' ? window.CALENDAR_API_BASE : window.location.host;
+    const API_HOST  = typeof window.CALENDAR_API_BASE !== 'undefined'
+      ? window.CALENDAR_API_BASE
+      : (['localhost', '127.0.0.1'].includes(window.location.hostname) || window.location.hostname.endsWith('.local')
+        ? 'calendrier-fr.tibotsr.dev'
+        : window.location.host);
     const longUrl   = `https://${API_HOST}/api/calendrier.ics?${p}`;
 
     let shortId = null;
