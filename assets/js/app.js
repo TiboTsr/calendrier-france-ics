@@ -63,6 +63,35 @@ function formatRelativeSyncAge(date) {
   return `il y a ${diffDays} j`;
 }
 
+
+function updateAllSyncAges() {
+  try {
+    const updatedEl = document.getElementById('hero-stat-updated');
+    if (updatedEl && window._loadedCalendarVersion) {
+      const generatedDate = new Date(window._loadedCalendarVersion);
+      if (!Number.isNaN(generatedDate.getTime())) {
+        updatedEl.textContent = formatRelativeSyncAge(generatedDate);
+      }
+    }
+    
+    document.querySelectorAll('[data-sync-age]').forEach(el => {
+      try {
+        const dateStr = el.getAttribute('data-sync-age');
+        if (dateStr) {
+          const date = new Date(dateStr);
+          if (!Number.isNaN(date.getTime())) {
+            el.textContent = formatRelativeSyncAge(date);
+          }
+        }
+      } catch (e) {
+        console.warn('[updateAllSyncAges] Erreur pour élément:', e);
+      }
+    });
+  } catch (err) {
+    console.warn('[updateAllSyncAges] Erreur:', err);
+  }
+}
+
 function updateCalendarPromptText(version) {
   const el = document.getElementById('calendar-update-text');
   if (!el) return;

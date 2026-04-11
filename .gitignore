@@ -11,3 +11,23 @@ __pycache__/
 .env
 .github/copilot-instructions.md
 .github/instructions/commit-messages.instructions.md
+
+# ==================== TESTS ====================
+# Tests Playwright - ne pas commiter du tout
+tests/
+playwright-report/
+test-results/
+blob-report/
+.playwright/
+playwright/.cache/
+playwright.config.js
+*.tracezip
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Coverage
+coverage/
+.nyc_output/
+.playwrightignore
