@@ -3,6 +3,19 @@
   "name": "calendrier-fr",
   "routes": [
     {
+      "src": "/$",
+      "has": [
+        {
+          "type": "host",
+          "value": "api.calendrier-fr.tibotsr.dev"
+        }
+      ],
+      "status": 308,
+      "headers": {
+        "Location": "https://calendrier-fr.tibotsr.dev"
+      }
+    },
+    {
       "src": "/ferie/([^/]+)",
       "dest": "/event/$1",
       "status": 301

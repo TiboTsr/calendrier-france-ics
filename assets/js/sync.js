@@ -308,10 +308,13 @@ function setQrState(enabled) {
 }
 
 function updateQrCodes(url) {
-  const src  = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&data=${encodeURIComponent(url)}`;
+  const qrUrl = String(url || '')
+    .replace(/^webcal:\/\//i, 'https://')
+    .replace(/^https:\/\/api\.calendrier-fr\.tibotsr\.dev\//i, 'https://calendrier-fr.tibotsr.dev/');
+  const src  = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&data=${encodeURIComponent(qrUrl)}`;
   const link = document.getElementById('qr-link-main');
   const img  = document.getElementById('qr-img-main');
-  if (link) link.href = url;
+  if (link) link.href = qrUrl;
   if (img)  img.src  = src;
 }
 
