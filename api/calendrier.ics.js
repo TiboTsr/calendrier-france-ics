@@ -1,10 +1,13 @@
 const crypto = require("crypto");
 const { Redis } = require("@upstash/redis");
+const fs = require("fs");
+const path = require("path");
 
-const redis = new Redis({
+const hasRedis = !!(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);
+const redis = hasRedis ? new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL,
   token: process.env.UPSTASH_REDIS_REST_TOKEN,
-});
+}) : null;
 
 const UPSTREAM_CACHE_TTL_MS = 5 * 60 * 1000;
 const PE_MAX_EVENTS = 50;
@@ -255,10 +258,28 @@ async function loadCalendarPayload(sourceUrl) {
   if (upstreamCalendarCache.payload && upstreamCalendarCache.expiresAt > now)
     return upstreamCalendarCache.payload;
 
+  // Essayer d'abord le filesystem en local (développement)
+  try {
+    const localPath = path.join(__dirname, '..', 'calendrier.json');
+    const data = fs.readFileSync(localPath, 'utf-8');
+    const payload = JSON.parse(data);
+    upstreamCalendarCache = {
+      payload,
+      expiresAt: now + UPSTREAM_CACHE_TTL_MS,
+      etag: null,
+      lastModified: null,
+    };
+    return payload;
+  } catch (fsError) {
+    // Fichier local non disponible, continuer vers le chargement en ligne
+  }
+
   const ALLOWED_UPSTREAM_HOSTNAME = "calendrier-fr.tibotsr.dev";
   try {
     const parsed = new URL(sourceUrl);
-    if (parsed.hostname !== ALLOWED_UPSTREAM_HOSTNAME) {
+    const isLocalhost = parsed.hostname === "localhost" || parsed.hostname === "127.0.0.1";
+    const isAllowed = parsed.hostname === ALLOWED_UPSTREAM_HOSTNAME || isLocalhost;
+    if (!isAllowed) {
       throw new Error(
         `SSRF bloqué : hostname non autorisé (${parsed.hostname})`,
       );
@@ -318,7 +339,7 @@ module.exports = async function handler(req, res) {
   const shortId = url.searchParams.get("id");
   let finalParams = url.searchParams;
 
-  if (shortId) {
+  if (shortId && hasRedis && redis) {
     const longUrlStr = await redis.get(`link:${shortId}`);
     if (longUrlStr) {
       const tempUrl = new URL(longUrlStr.replace(/^webcal:\/\//i, "https://"));
