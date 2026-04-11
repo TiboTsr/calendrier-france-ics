@@ -97,29 +97,100 @@ const APP_INFO = {
   apple: {
     url:   () => DYNAMIC_ICS_WEBCAL,
     sub:   () => DYNAMIC_ICS_WEBCAL,
-    steps: `<span class="sn">1</span> Copiez l'URL ci-dessus &nbsp;·&nbsp;
-            <span class="sn">2</span> Sur <strong>iPhone</strong> : Réglages → Calendrier → Comptes → Ajouter un compte → Autre → Abonnement calendrier → collez &nbsp;·&nbsp;
-            <span class="sn">3</span> Sur <strong>Mac</strong> : Calendar → Fichier → Nouvel abonnement calendrier`,
+    steps: `<div class="app-steps-list">
+              <div class="app-step">
+                <div class="app-step-num">1</div>
+                <div class="app-step-content">
+                  <div class="app-step-title">Copiez l'URL</div>
+                  <div class="app-step-desc">Utilisez le bouton "Copier" ci-dessus pour copier le lien d'abonnement</div>
+                </div>
+              </div>
+              <div class="app-step">
+                <div class="app-step-num">2</div>
+                <div class="app-step-content">
+                  <div class="app-step-title">Sur iPhone</div>
+                  <div class="app-step-desc">Réglages → Calendrier → Comptes → Ajouter un compte → Autre → Abonnement calendrier → collez l'URL</div>
+                </div>
+              </div>
+              <div class="app-step">
+                <div class="app-step-num">3</div>
+                <div class="app-step-content">
+                  <div class="app-step-title">Sur Mac</div>
+                  <div class="app-step-desc">Calendar → Fichier → Nouvel abonnement calendrier → collez l'URL et confirmez</div>
+                </div>
+              </div>
+            </div>`,
   },
   google: {
     url:   () => GOOGLE_ICS_WEBCAL,
     sub:   () => `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(GOOGLE_ICS_WEBCAL)}`,
-    steps: `<span class="sn">1</span> Copiez l'URL ci-dessus &nbsp;·&nbsp;
-            <span class="sn">2</span> Google Calendar → <strong>+ Autres agendas → À partir d'une URL</strong> → collez et validez &nbsp;·&nbsp;
-            <em style="opacity:.65">Note : Google peut prendre 12-24h pour la première sync.</em>`,
+    steps: `<div class="app-steps-list">
+              <div class="app-step">
+                <div class="app-step-num">1</div>
+                <div class="app-step-content">
+                  <div class="app-step-title">Copiez l'URL</div>
+                  <div class="app-step-desc">Utilisez le bouton "Copier" ci-dessus pour copier le lien</div>
+                </div>
+              </div>
+              <div class="app-step">
+                <div class="app-step-num">2</div>
+                <div class="app-step-content">
+                  <div class="app-step-title">Ajoutez le calendrier</div>
+                  <div class="app-step-desc">Google Calendar → cliquez sur <strong>+ Autres agendas</strong> → <strong>À partir d'une URL</strong> → collez et validez</div>
+                </div>
+              </div>
+              <div class="app-step app-step-info">
+                <i class="fa-solid fa-circle-info"></i>
+                <div class="app-step-note">Google peut prendre 12-24h pour la première synchronisation</div>
+              </div>
+            </div>`,
   },
   outlook: {
     url:   () => DYNAMIC_ICS_WEBCAL,
     sub:   () => `https://outlook.live.com/calendar/0/deeplink/compose?rru=addsubscription&url=${encodeURIComponent(DYNAMIC_ICS_WEBCAL)}`,
-    steps: `<span class="sn">1</span> Cliquez <strong>S'abonner maintenant</strong> ci-dessous — Outlook s'ouvre automatiquement &nbsp;·&nbsp;
-            <em style="opacity:.65">ou</em> : Calendrier → Ajouter un calendrier → S'abonner par Internet → collez`,
+    steps: `<div class="app-steps-list">
+              <div class="app-step">
+                <div class="app-step-num">1</div>
+                <div class="app-step-content">
+                  <div class="app-step-title">Cliquez sur "S'abonner"</div>
+                  <div class="app-step-desc">Le bouton "Ouvrir l'abonnement" ci-dessous ouvre Outlook automatiquement et propose d'ajouter le calendrier</div>
+                </div>
+              </div>
+              <div class="app-step">
+                <div class="app-step-num">2</div>
+                <div class="app-step-content">
+                  <div class="app-step-title">Ou ajouter manuellement</div>
+                  <div class="app-step-desc">Copiez l'URL → Outlook → Calendrier → Ajouter un calendrier → S'abonner par Internet → collez</div>
+                </div>
+              </div>
+            </div>`,
   },
   other: {
     url:   () => DYNAMIC_ICS_WEBCAL,
     sub:   () => DYNAMIC_ICS_WEBCAL,
-    steps: `<span class="sn">1</span> Copiez le lien ci-dessus &nbsp;·&nbsp;
-            <span class="sn">2</span> Dans votre agenda, cherchez <strong>Ajouter un calendrier par URL</strong> ou <strong>S'abonner à un calendrier</strong> &nbsp;·&nbsp;
-            <span class="sn">3</span> Collez le lien et confirmez — le calendrier se synchronise automatiquement`,
+    steps: `<div class="app-steps-list">
+              <div class="app-step">
+                <div class="app-step-num">1</div>
+                <div class="app-step-content">
+                  <div class="app-step-title">Copiez le lien</div>
+                  <div class="app-step-desc">Utilisez le bouton "Copier" pour copier l'URL</div>
+                </div>
+              </div>
+              <div class="app-step">
+                <div class="app-step-num">2</div>
+                <div class="app-step-content">
+                  <div class="app-step-title">Ouvrez votre agenda</div>
+                  <div class="app-step-desc">Cherchez l'option <strong>Ajouter un calendrier par URL</strong> ou <strong>S'abonner à un calendrier</strong></div>
+                </div>
+              </div>
+              <div class="app-step">
+                <div class="app-step-num">3</div>
+                <div class="app-step-content">
+                  <div class="app-step-title">Collez et confirmez</div>
+                  <div class="app-step-desc">Collez l'URL et validez. Le calendrier se synchronisera automatiquement</div>
+                </div>
+              </div>
+            </div>`,
   },
 };
 

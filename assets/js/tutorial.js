@@ -93,6 +93,16 @@
       },
     },
     {
+      sel: "footer a[href='/proposer']",
+      icon: '<i class="fa-solid fa-bug" style="color: #ef4444;"></i>',
+      title: "Signaler un problème",
+      desc: "Vous avez trouvé une erreur ou une date incorrecte ? Vous voulez nous soumettre des idées ? Utilisez le lien 'Signaler une erreur' pour nous aider à améliorer le calendrier.",
+      placement: "above",
+      onEnter() {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      },
+    },
+    {
       sel: "body",
       placement: "center",
       icon: '<i class="fa-solid fa-hand-sparkles" style="color: #facc15;"></i>',

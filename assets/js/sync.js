@@ -6,6 +6,9 @@
 const CHUNK_SIZE = 3;
 const PE_URL_WARN_CHARS = 2000;
 
+let _advWizardStep = 1;
+let _advZones = new Set(['all']);
+
 /* ── Tabs Simple / Avancé ───────────────────────────── */
 document.querySelectorAll('.tbtn2').forEach(b => {
   b.addEventListener('click', () => {
@@ -13,6 +16,11 @@ document.querySelectorAll('.tbtn2').forEach(b => {
     document.querySelectorAll('.tpanel').forEach(x => x.classList.remove('on'));
     b.classList.add('on'); b.setAttribute('aria-selected', 'true');
     document.getElementById('tp-' + b.dataset.t).classList.add('on');
+    if (b.dataset.t === 'advanced') {
+      console.log('Advanced tab clicked, setting up listeners');
+      setupAdvWizardListeners();
+      renderAdvWizard();
+    }
   });
 });
 
@@ -38,6 +46,17 @@ document.querySelectorAll('.abtn').forEach(b => {
 });
 updateAppPicker();
 
+(function () {
+  const details = document.querySelector('.url-details');
+  if (!details) return;
+  const summary = details.querySelector('summary');
+  if (summary) {
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+    });
+  }
+})();
+
 /* Copie URL simple */
 (function () {
   const btn = document.getElementById('cp-simple');
@@ -57,35 +76,48 @@ document.querySelectorAll('.pc').forEach(c => {
   c.addEventListener('click', () => {
     document.querySelectorAll('.pc').forEach(x => x.classList.remove('on'));
     c.classList.add('on');
-    const allowed = PROFILES[c.dataset.p];
+    const profileKey = c.dataset.p;
+    const allowed = profileKey === 'none' ? [] : PROFILES[profileKey];
     document.querySelectorAll('#adv-cats .ctog').forEach(t => {
-      const active = allowed === null || allowed.includes(t.dataset.name);
+      const active = allowed === null || (allowed && allowed.includes(t.dataset.name));
       t.querySelector('input').checked = active;
       t.classList.toggle('active', active);
       const def = cd(t.dataset.name);
       applyToggleStyle(t, active, def);
     });
+    renderAdvWizard();
     markAdvDirty();
   });
 });
 
 /* ── Zone multi (Avancé) ────────────────────────────── */
-let _advZones = new Set(['all']);
-
 document.querySelectorAll('.zmb').forEach(b => {
   b.addEventListener('click', () => {
     const z = b.dataset.z;
-    if (z === 'all') { _advZones = new Set(['all']); }
-    else {
+    // "Toutes" et "Aucune" sont des options exclusives
+    if (z === 'all' || z === 'none') {
+      _advZones = new Set([z]);
+    } else {
+      // Enlever les options exclusives quand on choisit une zone spécifique
       _advZones.delete('all');
+      _advZones.delete('none');
+      // Ajouter/enlever la zone spécifique
       _advZones.has(z) ? _advZones.delete(z) : _advZones.add(z);
+      // Si aucune zone n'est sélectionnée, revenir à "Toutes" par défaut
       if (_advZones.size === 0) _advZones.add('all');
     }
+    // Mettre à jour les styles des boutons
     document.querySelectorAll('.zmb').forEach(x => {
       x.className = 'zmb';
-      if (_advZones.has(x.dataset.z)) x.classList.add(x.dataset.z === 'all' ? 'sall' : 's' + x.dataset.z.toLowerCase());
+      if (_advZones.has(x.dataset.z)) {
+        const btnZ = x.dataset.z;
+        if (btnZ === 'all') x.classList.add('sall');
+        else if (btnZ === 'none') x.classList.add('snone');
+        else x.classList.add('s' + btnZ.toLowerCase());
+      }
     });
     markAdvDirty();
+    renderAdvWizard();
   });
 });
 
@@ -162,7 +194,12 @@ function getPEForUrl() {
 }
 
 loadPE();
-document.getElementById('pe-add-btn').addEventListener('click', () => {
+document.getElementById('pe-date')?.addEventListener('click', function () {
+  if (typeof this.showPicker === 'function') {
+    this.showPicker();
+  }
+});
+document.getElementById('pe-add-btn')?.addEventListener('click', () => {
   const title = document.getElementById('pe-title').value.trim();
   const date  = document.getElementById('pe-date').value;
   const rec   = document.getElementById('pe-rec').value;
@@ -179,7 +216,6 @@ let _urlAnimTimer  = null;
 let _advBuildTimer = null;
 let _lastAnimUrl   = '';
 
-// AbortController pour annuler le fetch /api/shorten en cours si buildAdvUrl() est rappelé
 let _shortenAbortController = null;
 
 function _parseUrlSegments(urlStr) {
@@ -233,7 +269,7 @@ function animateUrl(webcalUrl) {
 }
 
 function _alarmLabel(v) {
-  const map = { '1h': 'rappel 1h avant', '1d': 'rappel la veille', '9am': 'rappel à 9h' };
+  const map = { '1h': 'rappel 1h avant', '1d': 'rappel la veille', '1w': 'rappel 1 semaine avant', '9am': 'rappel le jour même à 9h' };
   return map[v] || 'sans rappel';
 }
 
@@ -241,9 +277,10 @@ function _currentAdvSelection() {
   const zonesArr      = _advZones.has('all') ? ['all'] : [..._advZones];
   const alarmFeries   = document.getElementById('adv-alarm-feries')?.value   || 'none';
   const alarmVacances = document.getElementById('adv-alarm-vacances')?.value || 'none';
+  const alarmGlobal   = document.getElementById('adv-alarm-global')?.value   || '9am';
   const emojis        = document.getElementById('adv-emojis')?.checked ? '1' : '0';
   const cats          = getSelAdvCats();
-  return { zonesArr, alarmFeries, alarmVacances, emojis, cats };
+  return { zonesArr, alarm: alarmGlobal, alarmGlobal, alarmFeries, alarmVacances, emojis, cats };
 }
 
 function _buildRecapHtml(icon, title, zonesArr, cats, alarm, personal) {
@@ -311,10 +348,11 @@ function markAdvDirty() {
   }
   if (badge)   badge.style.display = 'none';
   if (copyBtn) { copyBtn.style.opacity = '0'; copyBtn.style.pointerEvents = 'none'; }
+  renderAdvWizard();
 }
 
 async function buildAdvUrl() {
-  const { zonesArr, alarmFeries, alarmVacances, emojis, cats } = _currentAdvSelection();
+  const { zonesArr, alarmGlobal, alarmFeries, alarmVacances, emojis, cats } = _currentAdvSelection();
   const personal = getPEForUrl();
 
   clearTimeout(_advBuildTimer);
@@ -341,6 +379,7 @@ async function buildAdvUrl() {
     const p = new URLSearchParams({
       zone:           zonesArr.join(','),
       cats:           cats.join(','),
+      alarm_global:   alarmGlobal,
       alarm_feries:   alarmFeries,
       alarm_vacances: alarmVacances,
       emojis,
@@ -400,6 +439,7 @@ async function buildAdvUrl() {
 
     const recap = document.getElementById('adv-url-recap');
     if (recap) recap.innerHTML = _buildRecapHtml('fa-solid fa-circle-check', 'Lien prêt', zonesArr, cats, alarmFeries, personal);
+    renderAdvWizard();
   }, 220);
 }
 
@@ -439,14 +479,157 @@ function copyShareUrl() {
       _advZones = new Set(zone.split(','));
       document.querySelectorAll('.zmb').forEach(x => {
         x.className = 'zmb';
-        if (_advZones.has(x.dataset.z)) x.classList.add(x.dataset.z === 'all' ? 'sall' : 's' + x.dataset.z.toLowerCase());
+        if (_advZones.has(x.dataset.z)) {
+          const btnZ = x.dataset.z;
+          if (btnZ === 'all') x.classList.add('sall');
+          else if (btnZ === 'none') x.classList.add('snone');
+          else x.classList.add('s' + btnZ.toLowerCase());
+        }
       });
     }
-    if (alarm) { const sel = document.getElementById('adv-alarm'); if (sel) sel.value = alarm; }
+    if (alarm) {
+      const sel = document.getElementById('adv-alarm-global') || document.getElementById('adv-alarm');
+      if (sel) sel.value = alarm;
+    }
     if (cats)  window._hashCats = new Set(cats.split(','));
+    renderAdvWizard();
   } catch {}
 })();
 
 document.getElementById('adv-alarm-feries')?.addEventListener('change', markAdvDirty);
 document.getElementById('adv-alarm-vacances')?.addEventListener('change', markAdvDirty);
+document.getElementById('adv-alarm-global')?.addEventListener('change', markAdvDirty);
 document.getElementById('adv-emojis')?.addEventListener('change', markAdvDirty);
+
+/* ── Wizard avancé (1 étape visible + progression) ─── */
+function getAdvWizardSteps() {
+  return [...document.querySelectorAll('#tp-advanced .adv-step')];
+}
+
+function isAdvStepComplete(stepNumber) {
+  if (stepNumber === 1) return !!document.querySelector('#pcards .pc.on');
+  if (stepNumber === 2) return _advZones.size > 0;
+  if (stepNumber === 3) return document.querySelectorAll('#adv-cats .ctog.active').length > 0;
+  if (stepNumber === 4) return true;
+  if (stepNumber === 5) return true;
+  return false;
+}
+
+function getAdvStepHint(stepNumber) {
+  if (stepNumber === 1) return 'Cette étape est facultative : choisissez un profil si vous voulez un pré-réglage, sinon passez directement à la suite.';
+  if (stepNumber === 2) return 'Sélectionnez une zone (ou “Toutes” / “Aucune”), puis continuez.';
+  if (stepNumber === 3) return 'Activez au moins une catégorie pour continuer.';
+  if (stepNumber === 4) return 'Réglez vos options puis passez à la génération du lien.';
+  return window._advWcUrl
+    ? 'Lien généré. Vous pouvez copier, ouvrir ou partager la configuration.'
+    : 'Cliquez sur “Générer mon lien d’abonnement” pour finaliser.';
+}
+function getAdvStepErrorMsg(stepNumber) {
+  if (stepNumber === 1) return '⚠️ Vous devez choisir au moins un profil.';
+  if (stepNumber === 2) return '⚠️ Vous devez sélectionner au moins une zone.';
+  if (stepNumber === 3) return '⚠️ Vous devez activer au moins une catégorie.';
+  return '';
+}
+function renderAdvWizard() {
+  const panel = document.getElementById('tp-advanced');
+  if (!panel) return;
+
+  const steps = getAdvWizardSteps();
+  if (!steps.length) return;
+
+  const total = steps.length;
+  _advWizardStep = Math.max(1, Math.min(_advWizardStep, total));
+
+  steps.forEach((step, idx) => {
+    const current = idx + 1 === _advWizardStep;
+    step.classList.toggle('adv-step-active', current);
+    step.classList.toggle('adv-step-hidden', !current);
+    step.style.display = current ? 'block' : 'none';
+  });
+
+  const pct = Math.round((_advWizardStep / total) * 100);
+  const pctEl = document.getElementById('adv-progress-pct');
+  const fillEl = document.getElementById('adv-progress-fill');
+  const hintEl = document.getElementById('adv-step-hint');
+  const prevEl = document.getElementById('adv-prev');
+  const nextEl = document.getElementById('adv-next');
+  const canGoNext = _advWizardStep < total;
+
+  if (pctEl) pctEl.textContent = `Étape ${_advWizardStep}/${total} · ${pct}%`;
+  if (fillEl) fillEl.style.width = `${pct}%`;
+  if (hintEl) hintEl.textContent = getAdvStepHint(_advWizardStep);
+
+  if (prevEl) prevEl.disabled = _advWizardStep <= 1;
+  if (nextEl) {
+    nextEl.disabled = !canGoNext;
+    nextEl.innerHTML = _advWizardStep >= total
+      ? 'Terminé <i class="fa-solid fa-check ui-ico" aria-hidden="true"></i>'
+      : 'Passer à l’étape suivante <i class="fa-solid fa-arrow-right ui-ico" aria-hidden="true"></i>';
+  }  
+  console.log('renderAdvWizard complete - prev:', !!prevEl, 'next:', !!nextEl, 'steps:', steps.length);}
+
+function advWizardPrev() {
+  _advWizardStep = Math.max(1, _advWizardStep - 1);
+  renderAdvWizard();
+}
+
+function advWizardNext() {
+  const total = getAdvWizardSteps().length;
+  
+  if (!isAdvStepComplete(_advWizardStep)) {
+    const hintEl = document.getElementById('adv-step-hint');
+    if (hintEl) {
+      hintEl.classList.add('error');
+      setTimeout(() => hintEl.classList.remove('error'), 2000);
+    }
+    showToast('❌ Veuillez compléter cette étape avant de continuer.');
+    return;
+  }
+  
+  if (_advWizardStep < total) {
+    _advWizardStep += 1;
+    renderAdvWizard();
+  }
+}
+
+function setupAdvWizardListeners() {
+  console.log('setupAdvWizardListeners called - listeners are set up at document level');
+
+}
+
+document.addEventListener('click', (e) => {
+  const nextBtn = e.target.closest('#adv-next');
+  if (nextBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    advWizardNext();
+    return;
+  }
+  const prevBtn = e.target.closest('#adv-prev');
+  if (prevBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    advWizardPrev();
+  }
+});
+
+window.advWizardNext = advWizardNext;
+window.advWizardPrev = advWizardPrev;
+window.renderAdvWizard = renderAdvWizard;
+window.setupAdvWizardListeners = setupAdvWizardListeners;
+
+// Initial setup
+setupAdvWizardListeners();
+document.addEventListener('DOMContentLoaded', () => {
+  setupAdvWizardListeners();
+  renderAdvWizard();
+});
+
+// Render une 2e fois peu après pour s'assurer que le DOM est prêt
+setTimeout(() => {
+  if (document.getElementById('tp-advanced')) {
+    renderAdvWizard();
+  }
+}, 100);
+
+console.log('sync.js loaded - wizard functions available');

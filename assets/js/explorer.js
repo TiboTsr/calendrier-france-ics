@@ -231,7 +231,7 @@ function renderRadar(evts) {
   const end30 = new Date(today); end30.setDate(end30.getDate() + 30);
 
   const upcoming = evts.filter(e => e.date >= today && e.date <= end30).slice(0, 10);
-  const ongoing  = evts.filter(e => e.endDate && e.date < today && e.endDate >= today)
+  const ongoing  = evts.filter(e => e.endDate && e.date <= today && e.endDate >= today)
     .sort((a, b) => a.endDate - b.endDate).slice(0, 8);
   const heroEl      = document.getElementById('r-countdown-hero');
   const next = evts.find(e => e.date >= today);
@@ -509,7 +509,7 @@ function buildDateBadge(ev, def, isPast) {
 
 function _isOngoing(ev) {
   const today = new Date(); today.setHours(0,0,0,0);
-  return ev.endDate && ev.date < today && ev.endDate >= today;
+  return ev.endDate && ev.date <= today && ev.endDate >= today;
 }
 
 function buildEvRow(ev, isPast, today) {

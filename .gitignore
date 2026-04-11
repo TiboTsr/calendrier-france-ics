@@ -9,3 +9,4 @@ __pycache__/
 .vercel
 .env*.local
 .env
+.github/copilot-instructions.md

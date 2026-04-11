@@ -146,7 +146,7 @@ function expandSelectedCategoryAliases(selectedCats) {
   return expanded;
 }
 
-function alarmBlock(alarm) {
+function alarmBlock(alarm, startDate) {
   if (!alarm || alarm === "none") return [];
   if (alarm === "1h")
     return [
@@ -173,13 +173,21 @@ function alarmBlock(alarm) {
       "END:VALARM",
     ];
   if (alarm === "9am")
-    return [
-      "BEGIN:VALARM",
-      "ACTION:DISPLAY",
-      "DESCRIPTION:Rappel",
-      "TRIGGER;VALUE=DURATION:-PT9H",
-      "END:VALARM",
-    ];
+    return startDate
+      ? [
+          "BEGIN:VALARM",
+          "ACTION:DISPLAY",
+          "DESCRIPTION:Rappel",
+          `TRIGGER;VALUE=DATE-TIME:${startDate}T090000`,
+          "END:VALARM",
+        ]
+      : [
+          "BEGIN:VALARM",
+          "ACTION:DISPLAY",
+          "DESCRIPTION:Rappel",
+          "TRIGGER;VALUE=DURATION:-PT9H",
+          "END:VALARM",
+        ];
   return [];
 }
 
@@ -338,6 +346,7 @@ module.exports = async function handler(req, res) {
     const selectedZones = normalizeList(finalParams.get("zone"));
     const selectedCats = normalizeList(finalParams.get("cats"));
     const personalEvents = parsePersonalEvents(finalParams.get("pe"));
+    const alarmGlobal = (finalParams.get("alarm_global") || "9am").trim();
     const alarmFeries = (finalParams.get("alarm_feries") || "none").trim();
     const alarmVacances = (finalParams.get("alarm_vacances") || "none").trim();
     const useEmojis = finalParams.get("emojis") === "1";
@@ -408,6 +417,8 @@ module.exports = async function handler(req, res) {
         currentAlarm = alarmFeries;
       else if (cats.includes("Vacances scolaires"))
         currentAlarm = alarmVacances;
+      else
+        currentAlarm = alarmGlobal;
 
       const title = useEmojis
         ? `${getEmojiForEvent(event)} ${event.summary}`
@@ -423,7 +434,7 @@ module.exports = async function handler(req, res) {
         `DESCRIPTION:${escapeIcsText(descParts)}`,
       ];
       if (categoryLine) eventLines.push(categoryLine);
-      eventLines.push(...alarmBlock(currentAlarm));
+      eventLines.push(...alarmBlock(currentAlarm, start));
       eventLines.push("END:VEVENT");
       lines.push(...eventLines);
     }
@@ -448,7 +459,7 @@ module.exports = async function handler(req, res) {
       if (event.rec === "yearly") eventLines.push("RRULE:FREQ=YEARLY");
       if (event.rec === "monthly") eventLines.push("RRULE:FREQ=MONTHLY");
       if (event.rec === "weekly") eventLines.push("RRULE:FREQ=WEEKLY");
-      eventLines.push(...alarmBlock("1d"));
+      eventLines.push(...alarmBlock(alarmGlobal, start));
       eventLines.push("END:VEVENT");
       lines.push(...eventLines);
     }

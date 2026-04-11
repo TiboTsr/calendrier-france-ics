@@ -77,7 +77,7 @@
   <script defer src="./assets/js/state.js"></script>
   <script defer src="./assets/js/theme.js"></script>
   <script defer src="./assets/js/zone.js"></script>
-  <script defer src="./assets/js/sync.js"></script>
+  <script defer src="./assets/js/sync.js?v=20260411-9"></script>
   <script defer src="./assets/js/explorer.js"></script>
   <script defer src="./assets/js/tutorial.js"></script>
   <script defer src="./assets/js/mobile.js"></script>
@@ -441,9 +441,8 @@
             </button>
           </div>
 
-          <details class="url-details">
-            <summary><i class="fa-solid fa-link" aria-hidden="true"></i>Voir le lien d'abonnement <span
-                style="font-size:11px;opacity:.6">(pour utilisateurs avancés)</span></summary>
+          <details class="url-details" open>
+            <summary><i class="fa-solid fa-link" aria-hidden="true"></i>Votre lien d'abonnement</summary>
             <div class="url-box">
               <code id="simple-url"></code>
               <button class="cpbtn" id="cp-simple">Copier</button>
@@ -500,7 +499,23 @@
               catégories, puis générez votre lien à la fin.</div>
           </div>
 
-          <section class="adv-step">
+          <div class="adv-wizard-meta">
+            <div id="adv-progress-pct" class="adv-progress-pct">Étape 1/5 · 20%</div>
+            <div class="adv-progress-track" aria-hidden="true">
+              <div id="adv-progress-fill" class="adv-progress-fill" style="width:20%"></div>
+            </div>
+            <div id="adv-step-hint" class="adv-step-hint">Étape 1 terminée. Passez à l’étape suivante.</div>
+            <div class="adv-wizard-nav">
+              <button id="adv-prev" class="bs" type="button" disabled>
+                <i class="fa-solid fa-arrow-left ui-ico" aria-hidden="true"></i>Étape précédente
+              </button>
+              <button id="adv-next" class="bp" type="button">
+                Passer à l’étape suivante <i class="fa-solid fa-arrow-right ui-ico" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <section class="adv-step" style="display:block">
             <div class="adv-step-head">
               <div class="adv-step-num">1</div>
               <div>
@@ -509,7 +524,11 @@
               </div>
             </div>
             <div class="pcards" id="pcards">
-              <div class="pc on" data-p="complet">
+              <div class="pc" data-p="none">
+                <div class="pc-name">Aucun profil</div>
+                <div class="pc-desc">Commencez de zéro. Choisissez tout dans les catégories.</div>
+              </div>
+              <div class="pc" data-p="complet">
                 <div class="pc-name">Complet</div>
                 <div class="pc-desc">Tout inclus : fériés, vacances, saisons, horloges, fêtes…</div>
               </div>
@@ -528,7 +547,7 @@
             </div>
           </section>
 
-          <section class="adv-step">
+          <section class="adv-step" style="display:none">
             <div class="adv-step-head">
               <div class="adv-step-num">2</div>
               <div>
@@ -539,11 +558,11 @@
             </div>
             <div class="zmulti" id="zmulti">
               <button class="zmb sall" data-z="all">Toutes</button>
+              <button class="zmb" data-z="none">Aucune</button>
               <button class="zmb" data-z="A">Zone A</button>
               <button class="zmb" data-z="B">Zone B</button>
               <button class="zmb" data-z="C">Zone C</button>
-              <button class="zmb" data-z="AM"
-                title="Alsace-Moselle — départements 57, 67, 68 (Vendredi Saint + 26 décembre)">Alsace-Moselle</button>
+              <button class="zmb" data-z="AM">Alsace-Moselle</button>
             </div>
             <p class="adv-zone-note">Combinez plusieurs zones si vous avez des enfants dans deux académies différentes.
             </p>
@@ -556,7 +575,7 @@
             </div>
           </section>
 
-          <section class="adv-step">
+          <section class="adv-step" style="display:none">
             <div class="adv-step-head">
               <div class="adv-step-num">3</div>
               <div>
@@ -568,7 +587,7 @@
             <div class="cat-grid" id="adv-cats"></div>
           </section>
 
-          <section class="adv-step">
+          <section class="adv-step" style="display:none">
             <div class="adv-step-head">
               <div class="adv-step-num">4</div>
               <div>
@@ -577,29 +596,52 @@
                   si besoin.</p>
               </div>
             </div>
-            <div class="adv-opts">
-              <div>
-                <label class="fld-l" for="adv-alarm-feries">Rappels Fériés</label>
-                <select class="fld-s" id="adv-alarm-feries">
-                  <option value="none">Désactivés</option>
-                  <option value="1d">La veille</option>
-                </select>
+            <div class="adv-opts-sections">
+              <!-- Section Rappels -->
+              <div class="adv-opts-group">
+                <h4 class="adv-opts-title"><i class="fa-solid fa-bell" aria-hidden="true"></i>Rappels</h4>
+                <div class="adv-opts">
+                  <div>
+                    <label class="fld-l" for="adv-alarm-feries">Rappels Fériés</label>
+                    <select class="fld-s" id="adv-alarm-feries">
+                      <option value="none">Désactivés</option>
+                      <option value="9am">Le jour même à 9h</option>
+                      <option value="1d">La veille</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="fld-l" for="adv-alarm-vacances">Rappels Vacances</label>
+                    <select class="fld-s" id="adv-alarm-vacances">
+                      <option value="none">Désactivés</option>
+                      <option value="1w">1 semaine avant</option>
+                      <option value="9am">Le jour même à 9h</option>
+                      <option value="1d">La veille</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="fld-l" for="adv-alarm-global">Rappels autres événements</label>
+                    <select class="fld-s" id="adv-alarm-global">
+                      <option value="none">Désactivés</option>
+                      <option value="9am" selected>Le jour même à 9h</option>
+                      <option value="1d">La veille</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-              <div>
-                <label class="fld-l" for="adv-alarm-vacances">Rappels Vacances</label>
-                <select class="fld-s" id="adv-alarm-vacances">
-                  <option value="none">Désactivés</option>
-                  <option value="1w">1 semaine avant</option>
-                  <option value="1d">La veille</option>
-                </select>
-              </div>
-              <div style="grid-column: 1 / -1; margin-top: 5px;">
-                <label
-                  style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; cursor:pointer;">
-                  <input type="checkbox" id="adv-emojis" checked
-                    style="accent-color: var(--acc); width: 16px; height: 16px;">
-                  Ajouter des emojis (🏖️, 🎄) aux événements (beta)
-                </label>
+              
+              <!-- Section Personnalisation -->
+              <div class="adv-opts-group">
+                <h4 class="adv-opts-title"><i class="fa-solid fa-palette" aria-hidden="true"></i>Personnalisation</h4>
+                <div class="adv-opts">
+                  <div style="grid-column: 1 / -1;">
+                    <label
+                      style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; cursor:pointer;">
+                      <input type="checkbox" id="adv-emojis" checked
+                        style="accent-color: var(--acc); width: 16px; height: 16px;">
+                      Ajouter des emojis (🏖️, 🎄) aux événements (beta)
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -609,23 +651,32 @@
                 récurrents…). Ces événements restent stockés dans votre navigateur, mais le lien d'abonnement généré les
                 inclut aussi dans l'URL pour que votre agenda puisse les récupérer.</p>
               <div class="pe-form">
-                <input class="pe-input" id="pe-title" type="text" placeholder="Titre de l'événement" />
-                <input class="pe-date" id="pe-date" type="date" />
-                <select class="pe-sel" id="pe-rec">
-                  <option value="none">Une seule fois</option>
-                  <option value="yearly">Chaque année</option>
-                  <option value="monthly">Chaque mois</option>
-                  <option value="weekly">Chaque semaine</option>
-                </select>
+                <div class="pe-field">
+                  <label class="fld-l" for="pe-title">Titre de l'événement</label>
+                  <input class="pe-input" id="pe-title" type="text" placeholder="Titre de l'événement" />
+                </div>
+                <div class="pe-field">
+                  <label class="fld-l" for="pe-date">Date</label>
+                  <input class="pe-date" id="pe-date" type="date" />
+                </div>
+                <div class="pe-field pe-field--rec">
+                  <label class="fld-l" for="pe-rec">Récurrence</label>
+                  <select class="pe-sel" id="pe-rec">
+                    <option value="none">Une seule fois</option>
+                    <option value="yearly">Chaque année</option>
+                    <option value="monthly">Chaque mois</option>
+                    <option value="weekly">Chaque semaine</option>
+                  </select>
+                </div>
                 <button class="pe-add" id="pe-add-btn">Ajouter</button>
               </div>
               <div class="pe-list" id="pe-list">
-                <div class="pe-empty">Aucun événement personnel.</div>
+                <div class="pe-empty">Aucun événement personnel ajouté.</div>
               </div>
             </div>
           </section>
 
-          <section class="adv-step adv-step--final">
+          <section class="adv-step adv-step--final" style="display:none">
             <div class="adv-step-head">
               <div class="adv-step-num">5</div>
               <div>
