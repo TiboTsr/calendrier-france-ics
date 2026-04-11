@@ -1,0 +1,173 @@
+﻿{
+    "events":  [
+                   {
+                       "summary":  "BaccalaurÃ©at gÃ©nÃ©ral et technologique â€” Ã‰preuves de spÃ©cialitÃ©",
+                       "start":  "2025-03-18",
+                       "end":  "2025-03-20",
+                       "description":  "Ã‰preuves terminales Ã©crites de spÃ©cialitÃ© du baccalaurÃ©at gÃ©nÃ©ral et technologique.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "BTS â€” Ã‰preuves Ã©crites",
+                       "start":  "2025-05-13",
+                       "end":  "2025-05-16",
+                       "description":  "Le Brevet de Technicien SupÃ©rieur (BTS) est un diplÃ´me bac+2 de l\u0027enseignement supÃ©rieur court.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "CAP â€” Ã‰preuves Ã©crites d\u0027enseignement gÃ©nÃ©ral",
+                       "start":  "2025-06-04",
+                       "end":  "2025-06-05",
+                       "description":  "Le Certificat d\u0027Aptitude Professionnelle (CAP) certifie des compÃ©tences dans un mÃ©tier prÃ©cis.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "BaccalaurÃ©at gÃ©nÃ©ral et technologique â€” Philosophie et Grand Oral",
+                       "start":  "2025-06-16",
+                       "end":  "2025-06-27",
+                       "description":  "L\u0027Ã©preuve de philosophie ouvre le bac terminal, suivie du Grand Oral introduit par la rÃ©forme 2019.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "Brevet des collÃ¨ges (DNB) â€” Ã‰preuves Ã©crites",
+                       "start":  "2025-06-26",
+                       "end":  "2025-06-27",
+                       "description":  "Le diplÃ´me national du brevet sanctionne la fin du collÃ¨ge.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "BTS â€” Ã‰preuves Ã©crites",
+                       "start":  "2026-05-18",
+                       "end":  "2026-05-21",
+                       "description":  "Le Brevet de Technicien SupÃ©rieur (BTS) est un diplÃ´me bac+2 de l\u0027enseignement supÃ©rieur court. Les Ã©preuves Ã©crites communes se dÃ©roulent en mai sur quatre jours.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "BaccalaurÃ©at professionnel â€” Ã‰preuves Ã©crites",
+                       "start":  "2026-05-20",
+                       "end":  "2026-06-05",
+                       "description":  "Le baccalaurÃ©at professionnel valide une formation en lycÃ©e professionnel ou en alternance. Ses Ã©preuves Ã©crites se dÃ©roulent de fin mai Ã  dÃ©but juin.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "CAP â€” Ã‰preuves Ã©crites d\u0027enseignement gÃ©nÃ©ral",
+                       "start":  "2026-06-08",
+                       "end":  "2026-06-09",
+                       "description":  "Le Certificat d\u0027Aptitude Professionnelle (CAP) certifie des compÃ©tences dans un mÃ©tier prÃ©cis. Les Ã©preuves Ã©crites d\u0027enseignement gÃ©nÃ©ral se dÃ©roulent sur deux jours en juin.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "BaccalaurÃ©at â€” Ã‰preuve anticipÃ©e de franÃ§ais (1re)",
+                       "start":  "2026-06-11",
+                       "end":  "2026-06-11",
+                       "description":  "L\u0027Ã©preuve Ã©crite anticipÃ©e de franÃ§ais se passe en classe de PremiÃ¨re, un an avant le bac. Elle compte dans la note finale du baccalaurÃ©at gÃ©nÃ©ral et technologique.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "BaccalaurÃ©at gÃ©nÃ©ral et technologique â€” Philosophie",
+                       "start":  "2026-06-15",
+                       "end":  "2026-06-15",
+                       "description":  "L\u0027Ã©preuve de philosophie est l\u0027Ã©preuve d\u0027ouverture du bac, traditionnellement le premier jour. Unique en Europe, cette Ã©preuve de 4 heures fait de la France le seul pays oÃ¹ la philo est une matiÃ¨re obligatoire pour tous les lycÃ©ens jusqu\u0027au baccalaurÃ©at.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "BaccalaurÃ©at gÃ©nÃ©ral et technologique â€” Ã‰preuves de spÃ©cialitÃ©",
+                       "start":  "2026-06-16",
+                       "end":  "2026-06-18",
+                       "description":  "Ã‰preuves terminales Ã©crites de spÃ©cialitÃ© du baccalaurÃ©at gÃ©nÃ©ral et technologique. CrÃ©Ã© par NapolÃ©on en 1808, le baccalaurÃ©at est l\u0027un des plus anciens examens nationaux. Environ 500 000 candidats passent ces Ã©preuves chaque annÃ©e.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "BaccalaurÃ©at gÃ©nÃ©ral et technologique â€” Grand Oral",
+                       "start":  "2026-06-22",
+                       "end":  "2026-07-01",
+                       "description":  "Le Grand Oral Ã©value la capacitÃ© des candidats Ã  prÃ©senter et dÃ©fendre un projet Ã  l\u0027oral. Introduit par la rÃ©forme du bac de 2019, il remplace l\u0027ancien oral de TPE.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   },
+                   {
+                       "summary":  "Brevet des collÃ¨ges (DNB) â€” Ã‰preuves Ã©crites",
+                       "start":  "2026-06-26",
+                       "end":  "2026-06-30",
+                       "description":  "Le diplÃ´me national du brevet sanctionne la fin du collÃ¨ge. Il se dÃ©roule sur trois jours fin juin. PrÃ¨s de 800 000 Ã©lÃ¨ves le passent chaque annÃ©e en France.",
+                       "categories":  [
+                                          "Ã‰ducation",
+                                          "Examens"
+                                      ],
+                       "zones":  [
+
+                                 ]
+                   }
+               ]
+}

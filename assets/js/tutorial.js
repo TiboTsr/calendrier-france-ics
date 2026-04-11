@@ -59,6 +59,30 @@
       },
     },
     {
+      sel: '.ev-row',
+      icon: '<i class="fa-solid fa-arrow-right" style="color: #60a5fa;"></i>',
+      title: "Voir la page dédiée",
+      desc: "Cliquez sur un événement pour ouvrir le popup avec les infos rapides, puis cliquez sur 'Voir la page dédiée' pour accéder à la page complète avec tous les détails : conditions du week-end, saison, durée exacte, récurrences, et bien plus.",
+      onEnter() {
+        document.querySelector("#explorer")?.scrollIntoView({ behavior: "smooth", block: "center" });
+        
+        setTimeout(() => {
+          // Chercher le premier .mo-block qui n'est pas passé
+          const futureBlocks = Array.from(document.querySelectorAll('.mo-block')).filter(block => {
+            return !block.classList.contains('past');
+          });
+          
+          if (futureBlocks.length > 0) {
+            const firstEvent = futureBlocks[0].querySelector('.ev-row');
+            if (firstEvent) {
+              firstEvent.scrollIntoView({ behavior: "smooth", block: "center" });
+              setTimeout(() => firstEvent.click(), 1500);
+            }
+          }
+        }, 300);
+      },
+    },
+    {
       sel: ".faq-grid > div:first-child, .faq-grid", 
       icon: '<i class="fa-solid fa-circle-question" style="color: #22d3ee;"></i>',
       title: "Une question ? La FAQ !",

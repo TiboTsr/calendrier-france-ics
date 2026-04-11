@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="fr" data-theme="dark" class="no-js">
+
+<head>
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposer une correction — Calendrier France</title>
+  <meta name="description"
+    content="Signalez un bug, proposez une date manquante ou une correction pour le calendrier français." />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="icon" type="image/svg+xml" href="./img/icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="stylesheet" href="./assets/css/responsive.css" />
+  <style>
+    html {
+      height: 100%;
+    }
+    body {
+      background: linear-gradient(135deg, 
+        rgba(15,15,22,1) 0%,
+        rgba(20,30,60,.95) 25%,
+        rgba(25,45,100,.9) 50%,
+        rgba(20,30,60,.95) 75%,
+        rgba(15,15,22,1) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 10%;
+      right: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle at 30% 30%, rgba(107,140,255,.25) 0%, rgba(107,140,255,.08) 35%, transparent 70%);
+      border-radius: 999px;
+      animation: blob1 25s ease-in-out infinite;
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: 5%;
+      left: -3%;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle at 30% 30%, rgba(34,211,238,.2) 0%, rgba(34,211,238,.06) 40%, transparent 75%);
+      border-radius: 999px;
+      animation: blob2 30s ease-in-out infinite;
+      filter: blur(45px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes blob1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-30px, 30px) scale(1.05); }
+      66% { transform: translate(20px, -40px) scale(0.95); }
+    }
+    @keyframes blob2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(40px, -20px) scale(1.1); }
+      66% { transform: translate(-30px, 30px) scale(0.9); }
+    }
+    .proposer-hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px 80px;
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+      z-index: 1;
+    }
+    .proposer-hero::before {
+      content: '';
+      position: absolute;
+      top: 5%;
+      right: 10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle at 30% 30%, rgba(107,140,255,.15) 0%, rgba(107,140,255,.04) 40%, transparent 70%);
+      border-radius: 50%;
+      animation: float1 20s ease-in-out infinite;
+      filter: blur(30px);
+    }
+    .proposer-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at 30% 30%, rgba(34,211,238,.12) 0%, rgba(34,211,238,.02) 45%, transparent 75%);
+      border-radius: 50%;
+      animation: float2 25s ease-in-out infinite;
+      filter: blur(35px);
+    }
+    @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, -20px); } }
+    @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-15px, 25px); } }
+    .proposer-hero h1 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(36px, 8vw, 56px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 12px;
+      color: var(--t1);
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, var(--t1), rgba(255,255,255,.7));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideDown .8s ease-out;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: none; }
+    }
+    .proposer-hero p {
+      font-size: 15px;
+      color: var(--t2);
+      max-width: 650px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+      animation: slideDown .8s ease-out .1s both;
+    }
+    .proposer-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+      position: relative;
+      z-index: 2;
+    }
+    .proposer-form {
+      background: rgba(15,15,22,.5);
+      border: 1px solid rgba(107,140,255,.2);
+      border-radius: 20px;
+      padding: 48px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+      animation: slideUp .6s ease-out .2s both;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: none; }
+    }
+    .form-group {
+      margin-bottom: 28px;
+      animation: slideUp .6s ease-out both;
+    }
+    .form-group:nth-child(1) { animation-delay: .25s; }
+    .form-group:nth-child(2) { animation-delay: .3s; }
+    .form-group:nth-child(3) { animation-delay: .35s; }
+    .form-group:nth-child(4) { animation-delay: .4s; }
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+    .form-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--t2);
+      margin-bottom: 10px;
+      transition: color .3s;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid rgba(107,140,255,.15);
+      background: rgba(28, 28, 39, .7);
+      color: var(--t1);
+      font-family: var(--ff);
+      font-size: 14px;
+      transition: all .3s cubic-bezier(.34,.1,.64,.35);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--t3);
+    }
+    .form-group input:hover,
+    .form-group select:hover,
+    .form-group textarea:hover {
+      border-color: rgba(107,140,255,.25);
+      background: rgba(28, 28, 39, .9);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--acc);
+      background: rgba(28, 28, 39, 1);
+      box-shadow: 0 0 0 3px rgba(107,140,255,.15), 0 8px 24px rgba(107,140,255,.1);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+      font-family: var(--ff);
+    }
+    .form-group small {
+      font-size: 11px;
+      color: var(--t3);
+      margin-top: 6px;
+      display: block;
+      transition: color .3s;
+    }
+    .form-group input:focus + small,
+    .form-group select:focus + small,
+    .form-group textarea:focus + small {
+      color: var(--t2);
+    }
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+      animation: slideUp .6s ease-out .45s both;
+    }
+    .btn-submit {
+      flex: 1;
+      padding: 16px 32px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--acc) 0%, rgba(107,140,255,.8) 100%);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      transition: all .3s cubic-bezier(.34,.1,.64,.35);
+      box-shadow: 0 8px 24px rgba(107,140,255,.25), 0 0 0 0 rgba(107,140,255,.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,.1);
+      transition: left .4s;
+    }
+    .btn-submit:hover::before {
+      left: 100%;
+    }
+    .btn-submit:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(107,140,255,.35), 0 0 0 0 rgba(107,140,255,.5);
+    }
+    .btn-submit:active {
+      transform: translateY(-2px);
+    }
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-cancel {
+      padding: 16px 28px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.05);
+      color: var(--t2);
+      border: 1.5px solid rgba(107,140,255,.15);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .3s cubic-bezier(.34,.1,.64,.35);
+    }
+    .btn-cancel:hover {
+      border-color: var(--acc);
+      color: var(--t1);
+      background: rgba(107,140,255,.05);
+    }
+    .form-message {
+      margin-top: 20px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      display: none;
+      animation: slideUp .4s ease-out;
+      border-left: 4px solid transparent;
+    }
+    .form-message.success {
+      background: rgba(16,185,129,.12);
+      color: #10b981;
+      border-color: #10b981;
+      border: 1px solid rgba(16,185,129,.3);
+      border-left: 4px solid #10b981;
+      display: block;
+    }
+    .form-message.error {
+      background: rgba(255,90,90,.12);
+      color: #ff5a5a;
+      border: 1px solid rgba(255,90,90,.3);
+      border-left: 4px solid #ff5a5a;
+      display: block;
+    }
+    .proposer-info {
+      margin-top: 48px;
+      padding: 28px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(107,140,255,.08) 0%, rgba(34,211,238,.04) 100%);
+      border: 1px solid rgba(107,140,255,.2);
+      font-size: 13px;
+      color: var(--t2);
+      line-height: 1.8;
+      animation: slideUp .6s ease-out .5s both;
+      backdrop-filter: blur(8px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    .proposer-info strong {
+      color: var(--t1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .proposer-info p {
+      margin: 0;
+      line-height: 1.8;
+    }
+    @media (max-width: 768px) {
+      .proposer-hero {
+        padding: 80px 20px 60px;
+      }
+      .proposer-form {
+        padding: 32px 24px;
+        border-radius: 16px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-actions {
+        flex-direction: column;
+      }
+      .btn-submit,
+      .btn-cancel {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="topbar" role="navigation" aria-label="Navigation principale">
+    <div class="topbar-in">
+      <div class="brand">
+        <div class="flag" role="img" aria-label="Drapeau français"><span style="background:#002395"></span><span style="background:#ECECEC"></span><span style="background:#ED2939"></span></div>
+        Calendrier France
+      </div>
+      <a href="/" class="back" title="Retourner à l'accueil"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> <span>Retour</span></a>
+    </div>
+  </nav>
+
+  <section class="proposer-hero">
+    <h1>Proposer une correction</h1>
+    <h4>Signalez un bug, proposez une date manquante ou partagez vos idées pour améliorer le calendrier.</h4>
+  </section>
+
+  <div class="proposer-container">
+    <form class="proposer-form" id="proposer-form">
+      <div class="form-group">
+        <label for="type">📋 Type de signalement *</label>
+        <select id="type" name="type" required aria-required="true">
+          <option value="">— Choisir une catégorie —</option>
+          <option value="bug">🐛 Bug technique</option>
+          <option value="correction">✏️ Correction de date</option>
+          <option value="ajout">➕ Ajouter un événement</option>
+          <option value="suggestion">💡 Suggestion d'amélioration</option>
+          <option value="autre">❓ Autre</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="title">🎯 Titre *</label>
+        <input type="text" id="title" name="title" placeholder="Ex: Vacances erronées pour la Zone B" required aria-required="true" maxlength="150" />
+        <small>Soyez précis et concis</small>
+      </div>
+
+      <div class="form-group">
+        <label for="description">📝 Description *</label>
+        <textarea id="description" name="description" placeholder="Décrivez en détail le problème, la correction nécessaire ou votre idée. Si c'est un bug, incluez votre navigateur et les étapes pour le reproduire..." required aria-required="true"></textarea>
+        <small>Plus vous êtes détaillé, mieux je peux aider</small>
+      </div>
+
+      <div class="form-group">
+        <label for="email">📧 Email (optionnel)</label>
+        <input type="email" id="email" name="email" placeholder="votre.email@example.com" />
+        <small>Pour que je puisse vous contacter si j'ai besoin de précisions</small>
+      </div>
+
+      <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-submit" id="btn-submit">
+          <i class="fa-solid fa-paper-plane" style="margin-right: 8px; font-size: 13px;"></i> Envoyer ma suggestion
+        </button>
+      </div>
+    </form>
+
+    <div class="proposer-info">
+      <strong><i class="fa-solid fa-circle-info" style="color: var(--acc);"></i> Comment ça marche ?</strong>
+      <p>Vos signalements sont précieux ! Chaque message est stocké en toute sécurité et je les lis tous régulièrement. Pour les bugs téchniques, décrivez votre navigateur et les étapes exactes pour reproduire le problème. Pour les corrections de dates, donnez-moi la date exacte et pourquoi elle est incorrecte. Et oui, les suggestions d'amélioration sont aussi les bienvenues ! Votre feedback m'aide à rendre le calendrier meilleur pour tout le monde. 🙌</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById('proposer-form');
+      const msgEl = document.getElementById('form-message');
+      const submitBtn = document.getElementById('btn-submit');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const payload = {
+          type: formData.get('type'),
+          title: formData.get('title'),
+          description: formData.get('description'),
+          email: formData.get('email'),
+          timestamp: new Date().toISOString(),
+          url: window.location.href,
+        };
+
+        submitBtn.disabled = true;
+        msgEl.textContent = 'Envoi en cours...';
+        msgEl.className = '';
+
+        try {
+          const response = await fetch('/api/suggestions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          if (response.ok) {
+            msgEl.textContent = '✅ Merci ! Votre signalement a été reçu. Redirection en cours...';
+            msgEl.className = 'form-message success';
+            form.reset();
+            setTimeout(() => window.location.href = '/', 2000);
+          } else {
+            throw new Error('Erreur serveur');
+          }
+        } catch (err) {
+          msgEl.textContent = '❌ Erreur : impossible d\'envoyer le signalement. Réessayez plus tard.';
+          msgEl.className = 'form-message error';
+          submitBtn.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

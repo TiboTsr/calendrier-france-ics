@@ -8,10 +8,17 @@
       "status": 301
     },
     {
-      "src": "/((?:calendrier(?:-[^/]+)?\\.ics|zone-[abc]\\.ics|calendrier\\.json|events-meta\\.json|calendrier\\.csv|calendrier\\.xml|sitemap\\.xml))",
-      "dest": "/api/generated-file.js?name=$1"
+      "src": "/proposer",
+      "dest": "/proposer.html"
     },
-    { "src": "/admin", "dest": "/admin/index.html" },
+    {
+      "src": "/admin/login",
+      "dest": "/admin/login.html"
+    },
+    {
+      "src": "/admin",
+      "dest": "/admin/index.html"
+    },
     { "src": "/api/admin-data", "dest": "/api/admin-data.js" },
     {
       "handle": "filesystem"
@@ -44,7 +51,7 @@
         },
         {
           "key": "Access-Control-Allow-Methods",
-          "value": "GET, OPTIONS"
+          "value": "GET, POST, PATCH, OPTIONS"
         },
         {
           "key": "Access-Control-Allow-Headers",

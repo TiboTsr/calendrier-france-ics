@@ -450,7 +450,7 @@ function badgeList(daysUntil, duration, zones, hasMultipleOccurrences) {
   if (duration > 1) badges.push({ label: `${duration} jours`, tone: "calc" });
   if (zones.length)
     badges.push({
-      label: `Zone ${zones.length === 1 ? zoneLabel(zones[0]) : "multiple"}`,
+      label: zones.length === 1 ? zoneLabel(zones[0]) : "Zones multiples",
       tone: "zone",
     });
   return badges;
@@ -617,184 +617,217 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
     body { font-family: var(--ff); background: var(--bg0); color: var(--t1); line-height: 1.6; font-size: 15px; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     button { font-family: var(--ff); cursor: pointer; border: none; background: none; color: inherit; }
+    *:focus-visible { outline: 2px solid var(--cat-c); outline-offset: 4px; border-radius: 2px; }
 
-    /* ── Topbar, Hero, etc. (Garde tout ton CSS existant ici) ── */
+    /* ── Topbar ── */
     .topbar { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--b); background: color-mix(in srgb, var(--bg0) 88%, transparent); backdrop-filter: blur(20px); }
     .topbar-in { max-width: 100%; margin: 0 auto; padding: 0 40px; height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .brand { font-family: var(--ffd); font-weight: 800; font-size: 16px; display: flex; align-items: center; gap: 10px; }
     .flag { width: 26px; height: 18px; border-radius: 3px; overflow: hidden; display: flex; border: 1px solid rgba(0,0,0,.15); flex-shrink: 0; }
     .flag span { flex: 1; display: block; }
-    .back { font-size: 13px; font-weight: 600; color: var(--t2); display: flex; align-items: center; gap: 7px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--b); background: var(--bg2); transition: .15s; }
-    .back:hover { border-color: var(--cat-c); color: var(--cat-c); }
+    .back { font-size: 13px; font-weight: 600; color: var(--t2); display: flex; align-items: center; gap: 7px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--b); background: var(--bg2); transition: .2s cubic-bezier(.34,.1,.64,.35); }
+    .back:hover { border-color: var(--cat-c); color: var(--cat-c); background: var(--bg3); transform: translateX(-3px); }
     .back i { font-size: 11px; }
-    .hero { position: relative; overflow: hidden; padding: 56px 20px 48px; border-bottom: 1px solid var(--b); }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% -10%, var(--cat-d), transparent 70%); pointer-events: none; }
-    .hero-in { max-width: 860px; margin: 0 auto; position: relative; }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--cat-c); margin-bottom: 20px; padding: 5px 14px; border-radius: 999px; background: var(--cat-d); border: 1px solid var(--cat-b); }
-    .hero-emoji { font-size: 52px; display: block; margin-bottom: 16px; line-height: 1; }
-    .hero h1 { font-family: var(--ffd); font-size: clamp(28px, 5vw, 52px); font-weight: 800; letter-spacing: -1px; line-height: 1.08; margin-bottom: 20px; }
-    .hero h1 em { font-style: normal; color: var(--cat-c); }
-    .countdown { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; font-size: 15px; font-weight: 700; margin-bottom: 28px; border: 1.5px solid var(--cat-b); background: var(--cat-d); color: var(--cat-c); }
-    .countdown.past { background: var(--bg2); color: var(--t3); border-color: var(--b); }
-    .countdown i { font-size: 13px; }
-    .event-badges { display:flex;flex-wrap:wrap;gap:6px;margin-top:14px; }
+
+    /* ── Hero Section ── */
+    .hero { position: relative; overflow: hidden; padding: 72px 20px 60px; border-bottom: 1px solid var(--b); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 120% at 50% -20%, var(--cat-d), transparent 65%); pointer-events: none; z-index: 0; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 75% 125%, rgba(107,140,255,.04), transparent 45%); pointer-events: none; z-index: 0; }
+    .hero-in { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--cat-c); margin-bottom: 24px; padding: 8px 16px; border-radius: 999px; background: var(--cat-d); border: 1px solid var(--cat-b); animation: fadeUp .4s ease .05s backwards; }
+    .hero-emoji { font-size: 68px; display: block; margin-bottom: 20px; line-height: 1; animation: fadeUp .5s ease .1s backwards; animation-timing-function: cubic-bezier(.34,.1,.64,.35); }
+    .hero h1 { font-family: var(--ffd); font-size: clamp(32px, 6vw, 56px); font-weight: 800; letter-spacing: -1.2px; line-height: 1.06; margin-bottom: 24px; animation: fadeUp .5s ease .15s backwards; }
+    .hero h1 em { font-style: normal; color: var(--cat-c); background: linear-gradient(135deg, var(--cat-c), rgba(107,140,255,.8)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .countdown { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 999px; font-size: 15px; font-weight: 700; margin-bottom: 28px; border: 1.5px solid var(--cat-b); background: var(--cat-d); color: var(--cat-c); animation: fadeUp .5s ease .2s backwards; box-shadow: 0 4px 12px rgba(0,0,0,.2); transition: .3s cubic-bezier(.34,.1,.64,.35); }
+    .countdown:hover { box-shadow: 0 8px 24px rgba(0,0,0,.3); transform: translateY(-2px); }
+    .countdown.past { background: var(--bg2); color: var(--t3); border-color: var(--b); box-shadow: none; }
+    .countdown i { font-size: 14px; }
+    .event-badges { display:flex;flex-wrap:wrap;gap:8px;margin-top:16px; }
     .event-badge {
-      padding:4px 12px;border-radius:999px;border:1px solid var(--b);font-size:12px;font-weight:600;
-      background:var(--bg2);color:var(--t2);
+      padding:6px 14px;border-radius:999px;border:1px solid;font-size:12px;font-weight:600;
+      background:var(--bg2);color:var(--t2);border-color:var(--b);
+      transition: .25s cubic-bezier(.34,.1,.64,.35);
+      animation: fadeUp .4s ease forwards;
     }
-    .event-badge.term { border-color:var(--redb);color:var(--red); }
-    .event-badge.warn { border-color:var(--ambb);color:var(--amb); }
-    .event-badge.info { border-color:var(--cat-b);color:var(--cat-c); }
-    .event-badge.calc { border-color:var(--grnb);color:var(--grn); }
-    .event-badge.zone { border-color:var(--accb);color:var(--acc); }
-    .event-stats { display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:20px; }
-    .event-stat { padding:14px 16px;border-radius:14px;border:1px solid var(--b);background:var(--bg1);font-size:12px; }
-    .event-stat .stat-label { font-size:10px;font-weight:700;text-transform:uppercase;color:var(--t3);letter-spacing:1px;margin-bottom:4px; }
-    .event-stat .stat-value { font-size:16px;font-weight:700;color:var(--t1); }
-    .event-stat .stat-hint { font-size:11px;color:var(--t2);margin-top:2px; }
+    .event-badge:nth-child(1) { animation-delay: .25s; }
+    .event-badge:nth-child(2) { animation-delay: .3s; }
+    .event-badge:nth-child(3) { animation-delay: .35s; }
+    .event-badge.term { border-color:#ff5a5a;color:#ff5a5a;background:rgba(255,90,90,.08); }
+    .event-badge.warn { border-color:#f5a020;color:#f5a020;background:rgba(245,160,32,.08); }
+    .event-badge.info { border-color:var(--cat-b);color:var(--cat-c);background:var(--cat-d); }
+    .event-badge.calc { border-color:#3ecf8e;color:#3ecf8e;background:rgba(62,207,142,.08); }
+    .event-badge.zone { border-color:var(--accb);color:var(--acc);background:var(--accd); }
+    .event-badge:hover { transform: translateY(-2px); }
+    
+    .event-stats { display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:24px; }
+    .event-stat { padding:16px 18px;border-radius:14px;border:1px solid var(--b);background:rgba(15,15,22,.5);font-size:12px;backdrop-filter:blur(10px);transition:.3s cubic-bezier(.34,.1,.64,.35); animation: fadeUp .4s ease forwards; }
+    .event-stat:nth-child(1) { animation-delay: .4s; }
+    .event-stat:nth-child(2) { animation-delay: .45s; }
+    .event-stat:nth-child(3) { animation-delay: .5s; }
+    .event-stat:hover { border-color:var(--cat-b); background:rgba(15,15,22,.8); transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,.3); }
+    .event-stat .stat-label { font-size:10px;font-weight:700;text-transform:uppercase;color:var(--t3);letter-spacing:1px;margin-bottom:6px; }
+    .event-stat .stat-value { font-size:18px;font-weight:800;color:var(--cat-c); }
+    .event-stat .stat-hint { font-size:11px;color:var(--t2);margin-top:4px; }
+    
     .page { max-width: 860px; margin: 0 auto; padding: 0 20px; }
-    .section { padding: 40px 0; border-bottom: 1px solid var(--b); }
+    .section { padding: 48px 0; border-bottom: 1px solid var(--b); }
     .section:last-child { border-bottom: none; }
-    .section-title { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--t3); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .section-title { font-size: 10px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: var(--t3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .section-title::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: var(--cat-c); }
     .section-title::after { content: ''; flex: 1; height: 1px; background: var(--b); }
-    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
-    .info-card { padding: 16px; border-radius: var(--r); border: 1px solid var(--b); background: var(--bg1); display: flex; flex-direction: column; gap: 5px; }
-    .info-card.accent { border-color: var(--cat-b); background: var(--cat-d); }
-    .info-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--t3); }
-    .info-card.accent .info-label { color: var(--cat-c); opacity: .8; }
-    .info-value { font-size: 15px; font-weight: 700; color: var(--t1); line-height: 1.3; }
-    .info-card.accent .info-value { color: var(--cat-c); }
-    .info-sub { font-size: 12px; color: var(--t3); margin-top: 2px; }
-    .desc-block { padding: 20px 22px; border-radius: var(--rl); border: 1px solid var(--b); background: var(--bg1); font-size: 15px; color: var(--t2); line-height: 1.8; }
+    
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(162px, 1fr)); gap: 12px; }
+    .info-card { padding: 18px 20px; border-radius: 14px; border: 1px solid var(--b); background: rgba(15,15,22,.6); display: flex; flex-direction: column; gap: 7px; transition: .3s cubic-bezier(.34,.1,.64,.35); backdrop-filter: blur(8px); animation: fadeUp .4s ease forwards; }
+    .info-card:nth-child(1) { animation-delay: .15s; }
+    .info-card:nth-child(2) { animation-delay: .18s; }
+    .info-card:nth-child(3) { animation-delay: .21s; }
+    .info-card:nth-child(4) { animation-delay: .24s; }
+    .info-card:nth-child(5) { animation-delay: .27s; }
+    .info-card:nth-child(6) { animation-delay: .3s; }
+    .info-card:hover { border-color: var(--cat-b); background: rgba(15,15,22,.85); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+    .info-card.accent { border-color: var(--cat-b); background: linear-gradient(135deg, var(--cat-d), rgba(107,140,255,.04)); }
+    .info-card.accent:hover { background: linear-gradient(135deg, var(--cat-d), rgba(107,140,255,.08)); }
+    .info-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: var(--t3); }
+    .info-card.accent .info-label { color: var(--cat-c); opacity: .9; }
+    .info-value { font-size: 16px; font-weight: 800; color: var(--t1); line-height: 1.2; }
+    .info-card.accent .info-value { color: var(--cat-c); font-size: 17px; }
+    .info-sub { font-size: 12px; color: var(--t3); margin-top: 3px; }
+    
+    .desc-block { padding: 24px; border-radius: 14px; border: 1px solid var(--b); background: rgba(15,15,22,.6); font-size: 15px; color: var(--t2); line-height: 1.8; backdrop-filter: blur(8px); }
+    .desc-block a { color: var(--cat-c); text-decoration: underline; text-underline-offset: 4px; transition: .2s; }
+    .desc-block a:hover { opacity: .8; }
+    
     .actions-row { display: flex; flex-wrap: wrap; gap: 10px; }
-    .action-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--b); background: var(--bg2); color: var(--t2); font-size: 13px; font-weight: 700; transition: .16s; text-decoration: none; }
-    .action-btn:hover { border-color: var(--bh); transform: translateY(-1px); color: var(--t1); }
-    .action-btn.primary { border-color: var(--cat-b); background: var(--cat-d); color: var(--cat-c); }
+    .action-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; border-radius: 12px; border: 1px solid var(--b); background: var(--bg2); color: var(--t2); font-size: 13px; font-weight: 700; transition: .25s cubic-bezier(.34,.1,.64,.35); text-decoration: none; }
+    .action-btn:hover { border-color: var(--bh); transform: translateY(-2px) scale(1.02); color: var(--t1); }
+    .action-btn.primary { border-color: var(--cat-b); background: var(--cat-d); color: var(--cat-c); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+    .action-btn.primary:hover { box-shadow: 0 8px 20px rgba(0,0,0,.3); }
+    
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid var(--b); background: var(--bg2); color: var(--t2); }
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid var(--b); background: var(--bg2); color: var(--t2); transition: .25s cubic-bezier(.34,.1,.64,.35); }
+    .chip:hover { transform: translateY(-2px); }
     .chip.cat { border-color: var(--cat-b); background: var(--cat-d); color: var(--cat-c); }
     .chip.zone { border-color: var(--accb); background: var(--accd); color: var(--acc); }
     
-    /* Ajout CSS spécifique pour le wiki et les académies */
-    .academy-list { margin-top: 10px; font-size: 12px; color: var(--t2); background: var(--bg0); padding: 10px 12px; border-radius: 8px; border: 1px dashed var(--b); }
-    .academy-list strong { color: var(--acc); }
-    .wiki-btn { margin-top: 12px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--t1); text-decoration: underline; text-underline-offset: 4px; }
-    .wiki-btn:hover { color: var(--cat-c); }
+    .academy-list { margin-top: 12px; font-size: 12px; color: var(--t2); background: rgba(15,15,22,.4); padding: 14px 16px; border-radius: 10px; border: 1px solid var(--b); line-height: 1.7; }
+    .academy-list strong { color: var(--acc); font-weight: 700; }
+    .wiki-btn { margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--cat-c); text-decoration: none; transition: .2s; }
+    .wiki-btn:hover { opacity: .8; }
     
-    .occ-year-group { margin-bottom: 16px; }
-    .occ-year-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--t3); margin-bottom: 8px; }
-    .occ-year-label--current { color: var(--cat-c); }
-    .occ-pills-row { display: flex; flex-wrap: wrap; gap: 6px; }
-    .occ-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--r); font-size: 13px; font-weight: 600; border: 1px solid var(--b); background: var(--bg1); color: var(--t2); transition: .15s; text-decoration: none; }
-    .occ-pill:hover { border-color: var(--cat-b); color: var(--cat-c); }
+    .occ-year-group { margin-bottom: 20px; }
+    .occ-year-label { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--t3); margin-bottom: 10px; opacity: .7; }
+    .occ-year-label--current { color: var(--cat-c); opacity: 1; }
+    .occ-pills-row { display: flex; flex-wrap: wrap; gap: 7px; }
+    .occ-pill { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; border: 1px solid var(--b); background: rgba(15,15,22,.6); color: var(--t2); transition: .25s cubic-bezier(.34,.1,.64,.35); text-decoration: none; }
+    .occ-pill:hover { border-color: var(--cat-b); color: var(--cat-c); background: var(--cat-d); transform: translateY(-2px); }
     .occ-pill.current { border-color: var(--cat-b); background: var(--cat-d); color: var(--cat-c); font-weight: 800; cursor: default; gap: 8px; }
-    .occ-overflow-note { font-size: 11px; color: var(--t3); margin-top: 10px; font-style: italic; }
-    .neighbors { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .neighbor { padding: 16px; border-radius: var(--rl); border: 1px solid var(--b); background: var(--bg1); text-decoration: none; transition: .18s; display: flex; flex-direction: column; gap: 6px; }
-    .neighbor:hover { border-color: var(--bh); transform: translateY(-2px); }
+    .occ-overflow-note { font-size: 11px; color: var(--t3); margin-top: 12px; font-style: italic; }
+    
+    .neighbors { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .neighbor { padding: 20px; border-radius: 14px; border: 1px solid var(--b); background: rgba(15,15,22,.6); text-decoration: none; transition: .3s cubic-bezier(.34,.1,.64,.35); display: flex; flex-direction: column; gap: 8px; backdrop-filter: blur(8px); }
+    .neighbor:hover { border-color: var(--cat-b); background: rgba(15,15,22,.85); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.3); }
     .neighbor-dir { font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--t3); display: flex; align-items: center; gap: 5px; }
-    .neighbor-name { font-size: 14px; font-weight: 700; color: var(--t1); line-height: 1.3; }
+    .neighbor-name { font-size: 15px; font-weight: 800; color: var(--t1); line-height: 1.3; }
     .neighbor-date { font-size: 12px; color: var(--t3); }
-    .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn-p { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 22px; border-radius: var(--r); background: var(--cat-c); color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
-    .btn-p:hover { opacity: .85; }
-    .btn-s { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 20px; border-radius: var(--r); background: var(--bg2); color: var(--t2); border: 1px solid var(--b); font-size: 14px; font-weight: 600; text-decoration: none; }
-    .btn-s:hover { border-color: var(--bh); color: var(--t1); }
-    .zone-cta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 8px; margin-top: 12px; }
-    .zone-cta { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: var(--r); border: 1px solid var(--b); background: var(--bg1); text-decoration: none; font-size: 13px; font-weight: 600; color: var(--t2); }
-    .zone-cta:hover { border-color: var(--cat-b); color: var(--cat-c); background: var(--cat-d); }
-    footer { border-top: 1px solid var(--b); padding: 24px 20px; text-align: center; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 10px; }
-    .footer-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--t2); }
-    .footer-link:hover { color: var(--t1); }
-    .footer-meta { font-size: 12px; color: var(--t3); margin-top: 6px; }
-    @media (max-width: 600px) { .hero { padding: 40px 16px 36px; } .page { padding: 0 16px; } .neighbors { grid-template-columns: 1fr; } .info-grid { grid-template-columns: 1fr 1fr; } .hero-emoji { font-size: 40px; } }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-    .hero-emoji, .hero-eyebrow, .hero h1, .countdown { animation: fadeUp .4s ease both; }
-    .hero-eyebrow  { animation-delay: .05s; } .hero h1 { animation-delay: .1s; } .countdown { animation-delay: .15s; }
+    .neighbor-cat { display: inline-block; padding: 4px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; margin-top: 4px; }
+    
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-p { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; background: linear-gradient(135deg, var(--cat-c), rgba(107,140,255,.8)); color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,.25); transition: .3s cubic-bezier(.34,.1,.64,.35); }
+    .btn-p:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.4); }
+    .btn-s { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 26px; border-radius: 12px; background: rgba(15,15,22,.6); color: var(--t2); border: 1px solid var(--b); font-size: 14px; font-weight: 700; text-decoration: none; transition: .3s cubic-bezier(.34,.1,.64,.35); backdrop-filter: blur(8px); }
+    .btn-s:hover { border-color: var(--cat-b); color: var(--cat-c); background: var(--cat-d); transform: translateY(-2px); }
+    
+    .zone-cta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-top: 14px; }
+    .zone-cta { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--b); background: rgba(15,15,22,.6); text-decoration: none; font-size: 13px; font-weight: 700; color: var(--t2); transition: .25s cubic-bezier(.34,.1,.64,.35); }
+    .zone-cta:hover { border-color: var(--cat-b); color: var(--cat-c); background: var(--cat-d); transform: translateY(-2px); }
+    
+    footer { border-top: 1px solid var(--b); padding: 32px 20px; text-align: center; background: rgba(15,15,22,.3); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 12px; }
+    .footer-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--t2); transition: .2s; }
+    .footer-link:hover { color: var(--cat-c); transform: translateX(2px); }
+    .footer-meta { font-size: 12px; color: var(--t3); margin-top: 8px; }
+    .footer-meta a { color: var(--t2); transition: .2s; }
+    .footer-meta a:hover { color: var(--cat-c); }
+    
+    .copy-note { font-size: 13px; color: var(--grn); margin-top: 8px; opacity: 0; transition: opacity .3s; }
+    .copy-note:not(:empty) { opacity: 1; }
+    
+    @media (max-width: 768px) {
+      .hero { padding: 60px 16px 48px; }
+      .page { padding: 0 16px; }
+      .neighbors { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .hero-emoji { font-size: 52px; }
+      .hero h1 { font-size: clamp(28px, 5vw, 40px); }
+      .section { padding: 36px 0; }
+      .cta-row { flex-direction: column; gap: 10px; }
+      .btn-p, .btn-s { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .event-stats { grid-template-columns: 1fr; }
+      .hero-emoji { font-size: 44px; }
+      .hero h1 { font-size: 24px; margin-bottom: 16px; }
+      .hero-eyebrow { margin-bottom: 16px; }
+    }
+    
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
   </style>
 </head>
 <body>
-  <nav class="topbar">
+  <nav class="topbar" role="navigation" aria-label="Navigation principale">
     <div class="topbar-in">
       <div class="brand">
-        <div class="flag"><span style="background:#002395"></span><span style="background:#ECECEC"></span><span style="background:#ED2939"></span></div>
+        <div class="flag" role="img" aria-label="Drapeau français"><span style="background:#002395"></span><span style="background:#ECECEC"></span><span style="background:#ED2939"></span></div>
         Calendrier France
       </div>
-      <a href="/#explorer" class="back"><i class="fa-solid fa-arrow-left"></i> Retour au calendrier</a>
+      <a href="/#explorer" class="back" title="Retourner à la page d'accueil du calendrier"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> <span>Retour au calendrier</span></a>
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" role="banner">
     <div class="hero-in">
-      <div class="hero-eyebrow"><i class="fa-solid fa-tag"></i> ${escapeHtml((event.categories || []).join(" · ") || "Événement")}</div>
-      <span class="hero-emoji" role="img">${emoji}</span>
+      <div class="hero-eyebrow" aria-label="Catégories"><i class="fa-solid fa-tag" aria-hidden="true"></i> ${escapeHtml((event.categories || []).join(" · ") || "Événement")}</div>
+      <span class="hero-emoji" role="img" aria-label="${emoji} ${escapeHtml(event.summary)}">${emoji}</span>
       <h1>${escapeHtml(event.summary)}<br/><em>${escapeHtml(formatDateFR(event.start))}</em></h1>
-      <div class="countdown${cd.past ? " past" : ""}"><i class="fa-${cd.past ? "regular fa-clock" : "solid fa-calendar-days"}"></i> ${escapeHtml(cd.text)}</div>
-      <div class="event-badges">
-        ${badges.map((s) => `<span class="event-badge ${s.tone}">${escapeHtml(s.label)}</span>`).join("")}
-      </div>
-      <div class="event-stats">
-        <div class="event-stat">
-          <div class="stat-label">Dernière génération</div>
-          <div class="stat-value">${escapeHtml(generatedAt)}</div>
-          <div class="stat-hint">${escapeHtml(versionHash !== "—" ? `V${versionHash}` : "Version inconnue")}</div>
-        </div>
-        <div class="event-stat">
-          <div class="stat-label">Événements total</div>
-          <div class="stat-value">${escapeHtml(totalEvents)}</div>
-          <div class="stat-hint">JSON principal</div>
-        </div>
-        <div class="event-stat">
-          <div class="stat-label">Occurrences</div>
-          <div class="stat-value">${hasMultipleOccurrences ? `${allOccurrences.length}` : "1"}</div>
-          <div class="stat-hint">${escapeHtml(hasMultipleOccurrences ? "Récurrence détectée" : "Unique")}</div>
-        </div>
+      <div class="countdown${cd.past ? " past" : ""}" role="status" aria-live="polite"><i class="fa-${cd.past ? "regular fa-clock" : "solid fa-calendar-days"}" aria-hidden="true"></i> <span>${escapeHtml(cd.text)}</span></div>
+      <div class="event-badges" role="list">
+        ${badges.map((s) => `<span class="event-badge ${s.tone}" role="listitem" title="${escapeHtml(s.label)}">${escapeHtml(s.label)}</span>`).join("")}
       </div>
     </div>
   </section>
 
   <div class="page">
     <section class="section">
-      <div class="section-title"><i class="fa-solid fa-calendar-plus"></i> Ajouter à votre agenda</div>
-      <div class="actions-row">
-        <a class="action-btn primary" href="${escapeHtml(eventIcsHref)}"><i class="fa-solid fa-download"></i>Télécharger .ICS</a>
-        <a class="action-btn" target="_blank" rel="noopener" href="${escapeHtml(googleHref)}"><i class="fa-brands fa-google"></i>Google Calendar</a>
-        <a class="action-btn" target="_blank" rel="noopener" href="${escapeHtml(outlookHref)}"><i class="fa-brands fa-microsoft"></i>Outlook</a>
-        <button class="action-btn" id="copy-link" type="button"><i class="fa-solid fa-link"></i>Copier le lien</button>
-      </div>
-      <div class="copy-note" id="copy-note" aria-live="polite"></div>
-    </section>
-
-    <section class="section">
-      <div class="section-title"><i class="fa-solid fa-circle-info"></i> Informations</div>
-      <div class="info-grid">
-        <div class="info-card accent">
-          <div class="info-label">${isRange ? "Du" : "Date"}</div>
+      <div class="section-title"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> <span>Informations</span></div>
+      <div class="info-grid" role="list">
+        <div class="info-card accent" role="listitem">
+          <div class="info-label">${isRange ? "Période" : "Date"}</div>
           <div class="info-value">${escapeHtml(formatDateFR(event.start))}</div>
           ${isRange ? `<div class="info-sub">au ${escapeHtml(formatDateFR(event.end))}</div>` : ""}
         </div>
-        <div class="info-card">
+        <div class="info-card" role="listitem">
           <div class="info-label">Jour</div>
           <div class="info-value">${escapeHtml(dayName)}</div>
           <div class="info-sub">${weekendStatus}</div>
         </div>
-        <div class="info-card">
+        <div class="info-card" role="listitem">
           <div class="info-label">Durée</div>
           <div class="info-value">${duration} jour${duration > 1 ? "s" : ""}</div>
           ${duration > 1 ? `<div class="info-sub">${Math.ceil(duration / 7)} semaine${Math.ceil(duration / 7) > 1 ? "s" : ""}</div>` : ""}
         </div>
-        <div class="info-card">
+        <div class="info-card" role="listitem">
           <div class="info-label">Saison</div>
           <div class="info-value">${season.emoji} ${season.name}</div>
           <div class="info-sub">Hémisphère nord</div>
         </div>
-        <div class="info-card">
-          <div class="info-label">Année</div>
-          <div class="info-value">${yearProgress} % écoulés</div>
+        <div class="info-card" role="listitem">
+          <div class="info-label">Progression annuelle</div>
+          <div class="info-value">${yearProgress} %</div>
           <div class="info-sub">Jour ${dayOfYear} sur ${totalDaysInYear}</div>
         </div>
-        <div class="info-card">
+        <div class="info-card" role="listitem">
           <div class="info-label">Semaine ISO</div>
           <div class="info-value">S${isoWeek.toString().padStart(2, "0")}</div>
           <div class="info-sub">Année ${year}</div>
@@ -802,39 +835,54 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
       </div>
     </section>
 
-    ${event.description || true
-      ? `
     <section class="section">
-      <div class="section-title"><i class="fa-solid fa-book-open"></i> À propos</div>
+      <div class="section-title"><i class="fa-solid fa-calendar-plus" aria-hidden="true"></i> <span>Ajouter à votre agenda</span></div>
+      <div class="actions-row">
+        <a class="action-btn primary" href="${escapeHtml(eventIcsHref)}" download title="Télécharger le fichier .ICS pour importer dans votre calendrier">
+          <i class="fa-solid fa-download" aria-hidden="true"></i><span>Télécharger .ICS</span>
+        </a>
+        <a class="action-btn" target="_blank" rel="noopener noreferrer" href="${escapeHtml(googleHref)}" title="Ajouter cet événement à Google Calendar">
+          <i class="fa-brands fa-google" aria-hidden="true"></i><span>Google Calendar</span>
+        </a>
+        <a class="action-btn" target="_blank" rel="noopener noreferrer" href="${escapeHtml(outlookHref)}" title="Ajouter cet événement à Microsoft Outlook">
+          <i class="fa-brands fa-microsoft" aria-hidden="true"></i><span>Outlook</span>
+        </a>
+        <button class="action-btn" id="copy-link" type="button" title="Copier le lien de cet événement dans le presse-papiers">
+          <i class="fa-solid fa-link" aria-hidden="true"></i><span>Copier le lien</span>
+        </button>
+      </div>
+      <div class="copy-note" id="copy-note" aria-live="polite" role="status"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><i class="fa-solid fa-book-open" aria-hidden="true"></i> <span>À propos</span></div>
       <div class="desc-block">
         ${event.description ? escapeHtml(event.description).replace(/\n/g, "<br/>") : "Cet événement fait partie du calendrier national français."}
         <br>
-        <a href="${escapeHtml(wikiLink)}" target="_blank" rel="noopener" class="wiki-btn">
-          <i class="fa-brands fa-wikipedia-w"></i> Lire sur Wikipédia
+        <a href="${escapeHtml(wikiLink)}" target="_blank" rel="noopener noreferrer" class="wiki-btn" title="Lire plus d'informations sur Wikipedia">
+          <i class="fa-brands fa-wikipedia-w" aria-hidden="true"></i> <span>Lire sur Wikipédia</span>
         </a>
       </div>
-    </section>`
-      : ""
-    }
+    </section>
 
     <section class="section">
-      <div class="section-title"><i class="fa-solid fa-tags"></i> Catégories & Zones</div>
-      <div class="chips">
+      <div class="section-title"><i class="fa-solid fa-tags" aria-hidden="true"></i> <span>Catégories & Zones</span></div>
+      <div class="chips" role="list">
         ${(event.categories || [])
       .map((c) => {
         const cd2 = getCatColor(c);
-        return `<span class="chip cat" style="border-color:${cd2.b};background:${cd2.d};color:${cd2.c}">
-            <i class="fa-solid fa-circle" style="font-size:6px"></i>${escapeHtml(c)}
+        return `<span class="chip cat" role="listitem" style="border-color:${cd2.b};background:${cd2.d};color:${cd2.c}" title="Catégorie: ${escapeHtml(c)}">
+            <i class="fa-solid fa-circle" style="font-size:6px" aria-hidden="true"></i>${escapeHtml(c)}
           </span>`;
       })
       .join("")}
-        ${zones.map((z) => `<span class="chip zone"><i class="fa-solid fa-location-dot"></i>${escapeHtml(zoneLabel(z))}</span>`).join("")}
+        ${zones.map((z) => `<span class="chip zone" role="listitem" title="Zone scolaire: ${escapeHtml(zoneLabel(z))}"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>${escapeHtml(zoneLabel(z))}</span>`).join("")}
       </div>
       
       ${zones.length
       ? `
-      <div class="academy-list">
-        ${zones.map((z) => (ACADEMIES[z] ? `<strong>Zone ${z} :</strong> ${ACADEMIES[z]}<br>` : "")).join("")}
+      <div class="academy-list" role="region" aria-label="Académies concernées">
+        ${zones.map((z) => (ACADEMIES[z] ? `<div><strong>Zone ${z} :</strong> ${ACADEMIES[z]}</div>` : "")).join("")}
       </div>
       `
       : ""
@@ -844,7 +892,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
     ${hasMultipleOccurrences
       ? `
     <section class="section">
-      <div class="section-title"><i class="fa-solid fa-rotate"></i> Autres occurrences (${allOccurrences.length} au total)</div>
+      <div class="section-title"><i class="fa-solid fa-rotate" aria-hidden="true"></i> <span>Autres occurrences (${allOccurrences.length} au total)</span></div>
       ${occurrencesByYearHtml}
     </section>`
       : ""
@@ -853,7 +901,7 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
     ${prevEvent || nextEvent
       ? `
     <section class="section">
-      <div class="section-title"><i class="fa-solid fa-arrows-left-right"></i> Dans le calendrier</div>
+      <div class="section-title"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i> <span>Dans le calendrier</span></div>
       <div class="neighbors">
         ${prevEvent
         ? (() => {
@@ -863,8 +911,8 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
             prevEvent.summary,
             prevEvent.start,
           );
-          return `<a href="/event/${escapeHtml(pSlug)}" class="neighbor">
-            <div class="neighbor-dir"><i class="fa-solid fa-arrow-left"></i> Précédent</div>
+          return `<a href="/event/${escapeHtml(pSlug)}" class="neighbor" title="Événement précédent: ${escapeHtml(prevEvent.summary)}">
+            <div class="neighbor-dir"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> <span>Précédent</span></div>
             <div class="neighbor-name">${escapeHtml(prevEvent.summary)}</div>
             <div class="neighbor-date">${escapeHtml(formatDateShort(prevEvent.start))}</div>
             <span class="neighbor-cat" style="color:${pDef.c};background:${pDef.d};border-color:${pDef.b}">${escapeHtml(pCat)}</span>
@@ -880,8 +928,8 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
             nextEvent.summary,
             nextEvent.start,
           );
-          return `<a href="/event/${escapeHtml(nSlug)}" class="neighbor" style="text-align:right;align-items:flex-end">
-            <div class="neighbor-dir" style="flex-direction:row-reverse">Suivant <i class="fa-solid fa-arrow-right"></i></div>
+          return `<a href="/event/${escapeHtml(nSlug)}" class="neighbor" style="text-align:right;align-items:flex-end" title="Événement suivant: ${escapeHtml(nextEvent.summary)}">
+            <div class="neighbor-dir" style="flex-direction:row-reverse"><span>Suivant</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
             <div class="neighbor-name">${escapeHtml(nextEvent.summary)}</div>
             <div class="neighbor-date">${escapeHtml(formatDateShort(nextEvent.start))}</div>
             <span class="neighbor-cat" style="color:${nDef.c};background:${nDef.d};border-color:${nDef.b}">${escapeHtml(nCat)}</span>
@@ -895,22 +943,22 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
     }
 
     <section class="section">
-      <div class="section-title"><i class="fa-solid fa-bolt"></i> S'abonner au calendrier</div>
+      <div class="section-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> <span>S'abonner au calendrier</span></div>
       <div class="cta-row">
-        <a href="${escapeHtml(icsUrl)}" class="btn-p">
-          <i class="fa-solid fa-bolt"></i>
-          ${isVacances && zones.length ? `S'abonner — ${escapeHtml(zones.map((z) => zoneLabel(z)).join(" + "))}` : "S'abonner au calendrier complet"}
+        <a href="${escapeHtml(icsUrl)}" class="btn-p" title="S'abonner via le flux de calendrier ${isVacances && zones.length ? `pour ${escapeHtml(zones.map((z) => zoneLabel(z)).join(" + "))}` : "complet"}">
+          <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+          <span>${isVacances && zones.length ? `S'abonner — ${escapeHtml(zones.map((z) => zoneLabel(z)).join(" + "))}` : "S'abonner au calendrier complet"}</span>
         </a>
-        <a href="/#explorer" class="btn-s"><i class="fa-regular fa-calendar"></i> Voir tous les événements</a>
+        <a href="/#explorer" class="btn-s" title="Retourner à la page d'exploration du calendrier"><i class="fa-regular fa-calendar" aria-hidden="true"></i> <span>Voir tous les événements</span></a>
       </div>
       ${isVacances && zones.length < 3
       ? `
-      <div style="margin-top:10px;font-size:13px;color:var(--t3)">Ou s'abonner par zone :</div>
+      <div style="margin-top:14px;font-size:13px;color:var(--t3)"><strong>Ou s'abonner par zone :</strong></div>
       <div class="zone-cta-grid">
         ${["A", "B", "C"]
         .map((z) => {
           const wc = `webcal://calendrier-fr.tibotsr.dev/api/calendrier.ics?zone=${z}&cats=Vacances+scolaires,Jours+f%C3%A9ri%C3%A9s`;
-          return `<a href="${wc}" class="zone-cta"><i class="fa-solid fa-bolt"></i>Zone ${z}</a>`;
+          return `<a href="${wc}" class="zone-cta" title="S'abonner au calendrier sur la Zone ${z}"><i class="fa-solid fa-bolt" aria-hidden="true"></i><span>Zone ${z}</span></a>`;
         })
         .join("")}
       </div>`
@@ -919,19 +967,19 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
     </section>
   </div>
 
-  <footer>
+  <footer role="contentinfo" aria-label="Pied de page">
     <div class="page">
       <div class="footer-links">
-        <a href="/" class="footer-link acc"><i class="fa-solid fa-house"></i>Accueil</a>
-        <a href="/#sync" class="footer-link"><i class="fa-solid fa-bolt"></i>S'abonner</a>
-        <a href="/#zone" class="footer-link"><i class="fa-solid fa-location-dot"></i>Trouver ma zone</a>
-        <a href="https://github.com/TiboTsr/calendrier-france-ics/issues" target="_blank" rel="noopener" class="footer-link">
-          <i class="fa-solid fa-bug"></i>Signaler une erreur
+        <a href="/" class="footer-link" title="Retourner à l'accueil"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Accueil</span></a>
+        <a href="/#sync" class="footer-link" title="S'abonner au calendrier"><i class="fa-solid fa-bolt" aria-hidden="true"></i><span>S'abonner</span></a>
+        <a href="/#zone" class="footer-link" title="Trouver votre zone scolaire"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Trouver ma zone</span></a>
+        <a href="https://github.com/TiboTsr/calendrier-france-ics/issues" target="_blank" rel="noopener noreferrer" class="footer-link" title="Signaler une erreur ou suggérer une amélioration">
+          <i class="fa-solid fa-bug" aria-hidden="true"></i><span>Signaler une erreur</span>
         </a>
       </div>
       <p class="footer-meta">
-        Données officielles : <a href="https://data.education.gouv.fr" target="_blank" rel="noopener">Ministère de l'Éducation Nationale</a>
-        · <a href="https://github.com/TiboTsr/calendrier-france-ics" target="_blank" rel="noopener">Open source</a>
+        Données officielles : <a href="https://data.education.gouv.fr" target="_blank" rel="noopener noreferrer">Ministère de l'Éducation Nationale</a>
+        · <a href="https://github.com/TiboTsr/calendrier-france-ics" target="_blank" rel="noopener noreferrer">Projet Open source</a>
       </p>
     </div>
   </footer>

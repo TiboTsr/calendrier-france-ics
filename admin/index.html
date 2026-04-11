@@ -1,13 +1,14 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Admin · Calendrier France</title>
 <meta name="robots" content="noindex,nofollow"/>
-<link rel="icon" href="/img/icon.svg"/>
+<link rel="icon" href="/img/icon-32.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 <style>
 :root{
@@ -17,12 +18,7 @@
   --acc:#6b8cff;--accd:rgba(107,140,255,.10);--accb:rgba(107,140,255,.28);
   --red:#ff5a5a;--redd:rgba(255,90,90,.11);--redb:rgba(255,90,90,.30);
   --grn:#3ecf8e;--grnd:rgba(62,207,142,.11);--grnb:rgba(62,207,142,.28);
-  --amb:#f5a020;--ambd:rgba(245,160,32,.11);--ambb:rgba(245,160,32,.28);
-  --vio:#a78bfa;--viod:rgba(167,139,250,.11);--viob:rgba(167,139,250,.28);
-  --cya:#22d3ee;--cyad:rgba(34,211,238,.10);--cyab:rgba(34,211,238,.28);
-  --r:10px;--rl:16px;--rxl:22px;
-  --ff:'DM Sans',sans-serif;--ffd:'Syne',sans-serif;--ffm:'DM Mono',monospace;
-  --sh:0 2px 8px rgba(0,0,0,.45),0 8px 32px rgba(0,0,0,.3);
+  --r:10px;--rl:16px;--ff:'Inter',sans-serif;--ffd:'Unbounded',sans-serif;--ffm:'DM Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{overflow-x:hidden}
@@ -30,709 +26,156 @@ body{font-family:var(--ff);background:var(--bg0);color:var(--t1);font-size:14px;
 a{color:inherit;text-decoration:none}
 button{font-family:var(--ff);cursor:pointer;border:none;background:none;color:inherit}
 input,select,textarea{font-family:var(--ff);font-size:14px;color:var(--t1)}
-select option{background:var(--bg2)}
-*:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
-.shell{display:grid;grid-template-columns:256px 1fr;min-height:100svh}
-.sidebar{background:var(--bg1);border-right:1px solid var(--b);position:sticky;top:0;height:100svh;overflow-y:auto;display:flex;flex-direction:column}
-.sidebar::-webkit-scrollbar{width:3px}
-.sidebar::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:99px}
-.sb-brand{padding:18px 18px 14px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--b)}
-.flag{width:22px;height:15px;border-radius:2px;overflow:hidden;display:flex;border:1px solid rgba(0,0,0,.2)}
-.flag span{flex:1;display:block}
-.sb-brand-name{font-family:var(--ffd);font-size:14px;font-weight:800;letter-spacing:-.2px}
-.sb-badge{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;background:var(--ambd);color:var(--amb);border:1px solid var(--ambb);padding:2px 7px;border-radius:999px;margin-left:auto}
-.sb-section{padding:10px 10px 4px}
-.sb-lbl{font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--t3);padding:0 8px;display:block;margin-bottom:3px}
-.nav-btn{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--r);font-size:13px;font-weight:500;color:var(--t2);width:100%;text-align:left;transition:.13s;border:1px solid transparent}
-.nav-btn:hover{background:var(--bg2);color:var(--t1)}
-.nav-btn.on{background:var(--accd);color:var(--acc);border-color:var(--accb);font-weight:600}
-.nav-btn i{width:14px;text-align:center;font-size:12px;flex-shrink:0}
-.nav-cnt{margin-left:auto;font-size:10px;font-weight:700;padding:1px 6px;border-radius:999px;background:var(--bg3);color:var(--t3)}
-.nav-btn.on .nav-cnt{background:rgba(107,140,255,.2);color:var(--acc)}
-.sb-footer{margin-top:auto;padding:12px;border-top:1px solid var(--b);display:flex;flex-direction:column;gap:7px}
-.publish-btn{width:100%;padding:10px;border-radius:var(--r);background:var(--acc);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:.15s}
-.publish-btn:hover{opacity:.88}
-.publish-btn:disabled{opacity:.35;cursor:not-allowed}
-.sb-hint{font-size:10px;color:var(--t3);text-align:center}
-.main{min-width:0;display:flex;flex-direction:column}
-.topbar{position:sticky;top:0;z-index:40;height:52px;display:flex;align-items:center;gap:10px;padding:0 24px;border-bottom:1px solid var(--b);background:color-mix(in srgb,var(--bg0) 92%,transparent);backdrop-filter:blur(20px)}
-.tb-title{font-family:var(--ffd);font-size:15px;font-weight:700}
-.tb-sub{font-size:11px;color:var(--t3);margin-left:2px}
-.tb-r{margin-left:auto;display:flex;align-items:center;gap:8px}
-.status{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600}
-.status::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0}
-.s-ok{background:var(--grnd);color:var(--grn);border:1px solid var(--grnb)}
-.s-dirty{background:var(--ambd);color:var(--amb);border:1px solid var(--ambb)}
-.s-saving{background:var(--accd);color:var(--acc);border:1px solid var(--accb)}
-.s-err{background:var(--redd);color:var(--red);border:1px solid var(--redb)}
-.content{padding:24px;flex:1}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:var(--r);font-size:13px;font-weight:600;transition:.13s;border:none;cursor:pointer;font-family:var(--ff)}
-.bp{background:var(--acc);color:#fff}.bp:hover{opacity:.87}
-.bs{background:var(--bg2);color:var(--t2);border:1px solid var(--b)}.bs:hover{border-color:var(--bh);color:var(--t1)}
-.bd{background:var(--redd);color:var(--red);border:1px solid var(--redb)}.bd:hover{opacity:.8}
-.bg{background:var(--grnd);color:var(--grn);border:1px solid var(--grnb)}.bg:hover{opacity:.8}
-.bsm{padding:5px 10px;font-size:12px}
-.bico{width:28px;height:28px;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:8px}
-.sh{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px;flex-wrap:wrap}
-.sh h1{font-family:var(--ffd);font-size:20px;font-weight:800;letter-spacing:-.4px}
-.sh p{font-size:12px;color:var(--t2);margin-top:3px}
-.sh-r{display:flex;gap:7px;align-items:center;flex-shrink:0}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:9px;margin-bottom:18px}
-.sc{background:var(--bg1);border:1px solid var(--b);border-radius:var(--rl);padding:13px 15px}
-.sc-v{font-family:var(--ffd);font-size:22px;font-weight:800;line-height:1}
-.sc-l{font-size:11px;color:var(--t2);margin-top:4px}
-.sc.hi{border-color:var(--accb);background:var(--accd)}
-.sc.hi .sc-v{color:var(--acc)}
-.tb{display:flex;gap:7px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
-.sw{position:relative;flex:1;min-width:150px}
-.sw i{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t3);font-size:11px;pointer-events:none}
-.si{width:100%;padding:7px 10px 7px 28px;border-radius:var(--r);border:1px solid var(--b);background:var(--bg2);color:var(--t1);font-size:13px;transition:.15s}
-.si:focus{outline:none;border-color:var(--acc);background:var(--bg1)}
-.si::placeholder{color:var(--t3)}
-.fsel{padding:7px 10px;border-radius:var(--r);border:1px solid var(--b);background:var(--bg2);color:var(--t1);font-size:13px;cursor:pointer}
-.fsel:focus{outline:none;border-color:var(--acc)}
-.tw{border:1px solid var(--b);border-radius:var(--rl);overflow:hidden}
-.thead{display:grid;padding:0 12px;background:var(--bg2);border-bottom:1px solid var(--b)}
-.trow{display:grid;padding:0 12px;border-bottom:1px solid var(--b);transition:.12s;align-items:center}
-.trow:last-child{border-bottom:none}
-.trow:hover{background:color-mix(in srgb,var(--bg2) 55%,transparent)}
-.th{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;color:var(--t3);padding:9px 5px}
-.td{padding:9px 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}
-.tdb{font-weight:600}
-.tdm{font-family:var(--ffm);font-size:11.5px;color:var(--t2)}
-.tda{display:flex;gap:4px;justify-content:flex-end;overflow:visible;white-space:normal}
-.gc{grid-template-columns:1fr 100px 100px 200px 68px}
-.chip{display:inline-flex;align-items:center;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;border:1px solid;white-space:nowrap;margin:1px}
-.cS{background:rgba(6,182,212,.12);color:#06b6d4;border-color:rgba(6,182,212,.28)}
-.cJ{background:rgba(3,105,161,.12);color:#0ea5e9;border-color:rgba(3,105,161,.28)}
-.cV{background:rgba(245,160,32,.12);color:var(--amb);border-color:var(--ambb)}
-.cF{background:rgba(255,90,90,.12);color:var(--red);border-color:var(--redb)}
-.cE{background:rgba(244,63,94,.12);color:#f43f5e;border-color:rgba(244,63,94,.28)}
-.cX{background:rgba(20,184,166,.12);color:#14b8a6;border-color:rgba(20,184,166,.28)}
-.cC{background:rgba(139,92,246,.12);color:var(--vio);border-color:var(--viob)}
-.cH{background:rgba(239,68,68,.12);color:#ef4444;border-color:rgba(239,68,68,.28)}
-.cM{background:rgba(148,163,184,.12);color:#94a3b8;border-color:rgba(148,163,184,.28)}
-.cN{background:rgba(16,185,129,.12);color:#10b981;border-color:rgba(16,185,129,.28)}
-.cA{background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.28)}
-.cK{background:rgba(34,211,238,.12);color:var(--cya);border-color:var(--cyab)}
-.cD{background:var(--accd);color:var(--acc);border-color:var(--accb)}
-.sbadge{display:inline-flex;align-items:center;padding:1px 6px;border-radius:5px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;border:1px solid;margin-left:5px}
-.ytag{display:inline-block;padding:1px 5px;border-radius:5px;font-size:9px;font-weight:700;background:var(--bg3);color:var(--t3);margin-left:4px;vertical-align:middle}
-.ytag.cy{background:var(--accd);color:var(--acc)}
-.ytag.ny{background:var(--grnd);color:var(--grn)}
-.empty{text-align:center;padding:56px 20px;color:var(--t3)}
-.empty-ico{font-size:36px;display:block;margin-bottom:10px}
-.mbg{position:fixed;inset:0;background:rgba(0,0,0,.76);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:16px;z-index:200}
-.mbg.on{display:flex;animation:fi .18s ease}
-.modal{width:min(680px,100%);background:var(--bg1);border:1px solid var(--ba);border-radius:var(--rxl);padding:24px;box-shadow:var(--sh);max-height:93svh;overflow-y:auto;position:relative}
-.modal::-webkit-scrollbar{width:4px}
-.modal::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:99px}
-.modal::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--acc),var(--vio));border-radius:var(--rxl) var(--rxl) 0 0}
-.mhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.mtitle{font-family:var(--ffd);font-size:16px;font-weight:800}
-.mclose{width:28px;height:28px;border-radius:8px;border:1px solid var(--b);background:var(--bg2);color:var(--t2);display:grid;place-items:center;cursor:pointer;transition:.13s}
-.mclose:hover{background:var(--redd);border-color:var(--redb);color:var(--red)}
-.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.fg .full{grid-column:1/-1}
-.fgrp{display:flex;flex-direction:column;gap:4px}
-.flbl{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--t3)}
-.flbl.req::after{content:' *';color:var(--red);font-size:9px}
-.fi,.fs,.fta{padding:8px 10px;border-radius:var(--r);border:1px solid var(--b);background:var(--bg2);color:var(--t1);font-size:13px;width:100%;transition:.15s}
-.fi:focus,.fs:focus,.fta:focus{outline:none;border-color:var(--acc);background:var(--bg1)}
-.fi::placeholder,.fta::placeholder{color:var(--t3)}
-.fi.err,.fs.err{border-color:var(--red)!important}
-.fta{resize:vertical;min-height:72px;font-family:var(--ff)}
-.fhint{font-size:11px;color:var(--t3)}
-.ferr{font-size:11px;color:var(--red);display:none}
-.ferr.on{display:block}
-/* groups label in cat grid */
-.cat-group-label{width:100%;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);margin-top:10px;margin-bottom:3px;display:block}
-.cat-group-label:first-child{margin-top:0}
-.ctwrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:3px}
-.ctog{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;border:1.5px solid var(--b);background:var(--bg3);color:var(--t3);font-size:12px;font-weight:600;cursor:pointer;transition:.13s;user-select:none}
-.ctog:hover{border-color:var(--bh);color:var(--t1)}
-.ctog.on{background:var(--accd);color:var(--acc);border-color:var(--accb)}
-.auto-banner{display:none;align-items:center;gap:8px;padding:9px 12px;border-radius:var(--r);border:1px solid var(--grnb);background:var(--grnd);font-size:12px;color:var(--grn);margin-top:10px;font-weight:600}
-.auto-banner.on{display:flex}
-.facts{display:flex;justify-content:flex-end;gap:7px;margin-top:18px;padding-top:15px;border-top:1px solid var(--b)}
-.cbg{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);z-index:300;display:none;align-items:center;justify-content:center}
-.cbg.on{display:flex;animation:fi .15s ease}
-.cbox{background:var(--bg1);border:1px solid var(--ba);border-radius:var(--rl);padding:22px 26px;text-align:center;max-width:320px;width:100%;box-shadow:var(--sh)}
-.cico{font-size:28px;margin-bottom:8px}
-.ctitle{font-family:var(--ffd);font-size:14px;font-weight:800;margin-bottom:6px}
-.cmsg{font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:18px}
-.cacts{display:flex;gap:8px;justify-content:center}
-.cfile{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--bg2);border-radius:8px;border:1px solid var(--b);margin-bottom:6px;font-size:12px}
-.cfile i{color:var(--acc);font-size:11px}
-.cfile code{color:var(--t2);flex:1}
-.cfile-tag{font-size:9px;font-weight:800;text-transform:uppercase;padding:2px 7px;border-radius:999px;background:var(--ambd);color:var(--amb);border:1px solid var(--ambb)}
-.commit-result{background:var(--grnd);border:1px solid var(--grnb);border-radius:var(--r);padding:13px 15px;margin-top:12px;font-size:12px}
-.commit-result a{color:var(--grn);text-decoration:underline}
-.alert{display:flex;gap:9px;align-items:flex-start;padding:11px 14px;border-radius:var(--r);border:1px solid;margin-bottom:14px;font-size:12px;line-height:1.6}
-.alert-warn{background:var(--ambd);border-color:var(--ambb)}
-.alert-warn i{color:var(--amb);flex-shrink:0;margin-top:1px}
-.alert-info{background:var(--accd);border-color:var(--accb)}
-.alert-info i{color:var(--acc);flex-shrink:0;margin-top:1px}
-#tz{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:5px;align-items:center;pointer-events:none}
-.toast{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid;white-space:nowrap;animation:toastIn .2s ease;pointer-events:none}
-.tok{background:var(--grnd);color:var(--grn);border-color:var(--grnb)}
-.terr{background:var(--redd);color:var(--red);border-color:var(--redb)}
-.tinfo{background:var(--accd);color:var(--acc);border-color:var(--accb)}
-.tout{animation:toastOut .2s ease forwards}
-#loader{position:fixed;inset:0;background:var(--bg0);z-index:9000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:opacity .3s,visibility .3s}
-#loader.gone{opacity:0;visibility:hidden}
-.ring{width:30px;height:30px;border:3px solid var(--b);border-top-color:var(--acc);border-radius:50%;animation:spin .75s linear infinite}
-.pv-row{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--b);transition:.11s}
-.pv-row:last-child{border-bottom:none}
-.pv-row:hover{background:var(--bg2)}
-.pv-date{font-family:var(--ffm);font-size:11px;color:var(--acc);width:90px;flex-shrink:0}
-.pv-title{font-size:13px;font-weight:500;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pv-cats{display:flex;gap:3px;flex-shrink:0;flex-wrap:wrap;max-width:200px}
-.pv-src{width:65px;flex-shrink:0;text-align:right;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
-@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@keyframes toastOut{to{opacity:0;transform:translateY(-5px)}}
-.ar{animation:fi .16s ease}
-@media(max-width:860px){.shell{grid-template-columns:1fr}.sidebar{display:none}.gc{grid-template-columns:1fr 85px 85px 60px}.content{padding:14px}}
+*:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;border-bottom:1px solid var(--b);padding-bottom:20px}
+.header h1{font-family:var(--ffd);font-size:32px;font-weight:800}
+.btn-logout{background:var(--redd);color:var(--red);border:1px solid var(--redb);padding:8px 16px;border-radius:var(--r);transition:.2s}
+.btn-logout:hover{background:var(--red);color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:40px}
+.card{background:var(--bg2);border:1px solid var(--b);border-radius:var(--rl);padding:20px}
+.card h3{font-family:var(--ffd);margin-bottom:15px;color:var(--acc)}
+.stat-value{font-family:var(--ffm);font-size:28px;font-weight:700;color:var(--acc)}
+.stat-label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--t3);margin-top:5px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-weight:500;margin-bottom:5px;color:var(--t1)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px;background:var(--bg3);border:1px solid var(--b);border-radius:var(--r);color:var(--t1);font-family:var(--ff)}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--acc);background:var(--bg4)}
+.btn{background:var(--accd);color:var(--acc);border:1px solid var(--accb);padding:10px 20px;border-radius:var(--r);cursor:pointer;transition:.2s;font-weight:600}
+.btn:hover{background:var(--acc);color:var(--bg0)}
+.btn-small{padding:6px 12px;font-size:12px}
+.section{margin-bottom:40px}
+.section h2{font-family:var(--ffd);font-size:20px;margin-bottom:20px;color:var(--acc)}
+table{width:100%;border-collapse:collapse}
+table th{background:var(--bg3);padding:12px;text-align:left;font-weight:600;border-bottom:1px solid var(--b)}
+table td{padding:12px;border-bottom:1px solid var(--b)}
+table tr:hover{background:var(--bg3)}
+.pending-item{background:var(--bg3);border-left:4px solid var(--acc);padding:15px;margin-bottom:10px;border-radius:var(--r);display:flex;justify-content:space-between;align-items:center}
+.pending-item-info{flex:1}
+.pending-item-date{font-size:12px;color:var(--t3)}
+.pending-item-emoji{font-size:24px;margin-right:10px}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--grn);color:white;padding:15px 20px;border-radius:var(--r);z-index:9999;animation:slideIn .3s}
+@keyframes slideIn{from{transform:translateX(400px);opacity:0}to{transform:translateX(0);opacity:1}}
+.loader-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg0);display:flex;justify-content:center;align-items:center;z-index:10000}
+.loader-spinner{width:60px;height:60px;border:4px solid var(--b);border-top:4px solid var(--acc);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
+<div id="loader" class="loader-overlay">
+  <div class="loader-spinner"></div>
+</div>
+<div class="container">
+  <div class="header">
+    <h1>📋 Admin Calendrier</h1>
+    <button class="btn-logout" onclick="logout()">Déconnexion</button>
+  </div>
 
-<div id="loader"><div class="ring"></div><div style="font-size:12px;color:var(--t2)">Chargement des données…</div></div>
-
-<div class="shell">
-<aside class="sidebar">
-  <div class="sb-brand">
-    <div class="flag"><span style="background:#002395"></span><span style="background:#ECECEC"></span><span style="background:#ED2939"></span></div>
-    <span class="sb-brand-name">Calendrier FR</span>
-    <span class="sb-badge">ADMIN</span>
-  </div>
-  <div class="sb-section">
-    <span class="sb-lbl">Bloc-notes</span>
-    <button class="nav-btn on" data-p="all" onclick="nav('all')"><i class="fa-solid fa-calendar-days"></i> Tous les événements<span class="nav-cnt" id="nb-all">0</span></button>
-    <button class="nav-btn" data-p="preview" onclick="nav('preview')"><i class="fa-regular fa-eye"></i> Prévisualisation</button>
-  </div>
-  <div class="sb-section" style="margin-top:6px">
-    <span class="sb-lbl">Par fichier destination</span>
-    <button class="nav-btn" data-p="sports" onclick="nav('sports')"><i class="fa-solid fa-trophy"></i> Sports &amp; JO<span class="nav-cnt" id="nb-sports">0</span></button>
-    <button class="nav-btn" data-p="exams" onclick="nav('exams')"><i class="fa-solid fa-graduation-cap"></i> Examens<span class="nav-cnt" id="nb-exams">0</span></button>
-    <button class="nav-btn" data-p="specials" onclick="nav('specials')"><i class="fa-solid fa-sparkles"></i> Spéciaux &amp; Divers<span class="nav-cnt" id="nb-specials">0</span></button>
-    <button class="nav-btn" data-p="elections" onclick="nav('elections')"><i class="fa-solid fa-person-booth"></i> Élections<span class="nav-cnt" id="nb-elections">0</span></button>
-  </div>
-  <div class="sb-footer">
-    <button class="publish-btn" id="pub-btn" onclick="openCommit()" disabled><i class="fa-solid fa-code-branch"></i> Publier sur GitHub</button>
-    <div class="sb-hint" id="sb-hint">Aucune modification en attente</div>
-  </div>
-</aside>
-
-<div class="main">
-  <header class="topbar">
-    <span class="tb-title" id="tb-title">Tous les événements</span>
-    <span class="tb-sub" id="tb-sub">Bloc-notes universel</span>
-    <div class="tb-r">
-      <span class="status s-ok" id="status">Synchronisé</span>
-      <a href="/" target="_blank" class="btn bs bsm"><i class="fa-solid fa-external-link"></i> Site</a>
+  <div class="grid">
+    <div class="card">
+      <h3>📊 Événements</h3>
+      <div class="stat-value" id="stat-events">-</div>
+      <div class="stat-label">total dans le calendrier</div>
     </div>
-  </header>
+    <div class="card">
+      <h3>⏳ Provisoires</h3>
+      <div class="stat-value" id="stat-pending">-</div>
+      <div class="stat-label">en attente</div>
+    </div>
+    <div class="card">
+      <h3>💬 Suggestions</h3>
+      <div class="stat-value" id="stat-suggestions">-</div>
+      <div class="stat-label">à modérer</div>
+    </div>
+  </div>
 
-  <div class="content">
-
-    <!-- ALL -->
-    <div id="p-all">
-      <div class="sh">
-        <div><h1>Bloc-notes universel</h1><p>Tous les événements statiques. La destination JSON est détectée automatiquement selon les catégories choisies.</p></div>
-        <div class="sh-r">
-          <button class="btn bs bsm" onclick="reloadAll()"><i class="fa-solid fa-rotate"></i> Recharger</button>
-          <button class="btn bp" onclick="openAdd(null)"><i class="fa-solid fa-plus"></i> Ajouter</button>
+  <div class="section">
+    <h2>➕ Ajouter un événement provisoire</h2>
+    <div class="card">
+      <form onsubmit="addPendingEvent(event)">
+        <div class="form-group">
+          <label>Titre</label>
+          <input type="text" id="form-title" placeholder="ex: Festival de Cinéma" required/>
         </div>
-      </div>
-      <div id="stats-all" class="stats"></div>
-      <div class="tb">
-        <div class="sw"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="si" id="sq-all" placeholder="Titre, description, catégorie…" oninput="renderTable('all')"/></div>
-        <select class="fsel" id="fy-all" onchange="renderTable('all')"><option value="">Toutes les années</option></select>
-        <select class="fsel" id="fcat-all" onchange="renderTable('all')"><option value="">Toutes les catégories</option></select>
-        <select class="fsel" id="fsrc-all" onchange="renderTable('all')">
-          <option value="">Toutes les sources</option>
-          <option value="sports">Sports</option><option value="exams">Examens</option>
-          <option value="specials">Spéciaux</option><option value="elections">Élections</option>
-        </select>
-      </div>
-      <div class="tw">
-        <div class="thead gc"><div class="th">Titre</div><div class="th">Début</div><div class="th">Fin</div><div class="th">Catégories</div><div class="th"></div></div>
-        <div id="tbody-all"></div>
-      </div>
-    </div>
-
-    <!-- SPORTS -->
-    <div id="p-sports" style="display:none">
-      <div class="sh"><div><h1>Sports &amp; JO</h1><p><code>calendar_core/data/sports.json</code></p></div><div class="sh-r"><button class="btn bp" onclick="openAdd('sports')"><i class="fa-solid fa-plus"></i> Ajouter</button></div></div>
-      <div id="stats-sports" class="stats"></div>
-      <div class="tb"><div class="sw"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="si" id="sq-sports" placeholder="Rechercher…" oninput="renderTable('sports')"/></div><select class="fsel" id="fy-sports" onchange="renderTable('sports')"><option value="">Toutes les années</option></select></div>
-      <div class="tw"><div class="thead gc"><div class="th">Titre</div><div class="th">Début</div><div class="th">Fin</div><div class="th">Catégories</div><div class="th"></div></div><div id="tbody-sports"></div></div>
-    </div>
-
-    <!-- EXAMS -->
-    <div id="p-exams" style="display:none">
-      <div class="sh"><div><h1>Examens nationaux</h1><p><code>calendar_core/data/exams.json</code></p></div><div class="sh-r"><button class="btn bp" onclick="openAdd('exams')"><i class="fa-solid fa-plus"></i> Ajouter</button></div></div>
-      <div class="alert alert-warn"><i class="fa-solid fa-triangle-exclamation"></i><span>Ces entrées <strong>remplacent</strong> le scraping du Bulletin Officiel. Vérifier les dates sur education.gouv.fr.</span></div>
-      <div id="stats-exams" class="stats"></div>
-      <div class="tb"><div class="sw"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="si" id="sq-exams" placeholder="Rechercher…" oninput="renderTable('exams')"/></div><select class="fsel" id="fy-exams" onchange="renderTable('exams')"><option value="">Toutes les années</option></select></div>
-      <div class="tw"><div class="thead gc"><div class="th">Titre</div><div class="th">Début</div><div class="th">Fin</div><div class="th">Catégories</div><div class="th"></div></div><div id="tbody-exams"></div></div>
-    </div>
-
-    <!-- SPECIALS -->
-    <div id="p-specials" style="display:none">
-      <div class="sh"><div><h1>Spéciaux &amp; Divers</h1><p><code>calendar_core/data/specials.json</code> — tout ce qui ne rentre pas ailleurs</p></div><div class="sh-r"><button class="btn bp" onclick="openAdd('specials')"><i class="fa-solid fa-plus"></i> Ajouter</button></div></div>
-      <div id="stats-specials" class="stats"></div>
-      <div class="tb"><div class="sw"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="si" id="sq-specials" placeholder="Rechercher…" oninput="renderTable('specials')"/></div><select class="fsel" id="fy-specials" onchange="renderTable('specials')"><option value="">Toutes les années</option></select></div>
-      <div class="tw"><div class="thead gc"><div class="th">Titre</div><div class="th">Début</div><div class="th">Fin</div><div class="th">Catégories</div><div class="th"></div></div><div id="tbody-specials"></div></div>
-    </div>
-
-    <!-- ELECTIONS -->
-    <div id="p-elections" style="display:none">
-      <div class="sh"><div><h1>Élections manuelles</h1><p><code>calendar_core/data/elections_override.json</code></p></div><div class="sh-r"><button class="btn bp" onclick="openAdd('elections')"><i class="fa-solid fa-plus"></i> Ajouter</button></div></div>
-      <div class="alert alert-info"><i class="fa-solid fa-circle-info"></i><span>Ces entrées <strong>remplacent</strong> la détection Wikipedia. Le champ <em>confirmed</em> détermine si la date est officielle.</span></div>
-      <div class="tw"><div class="thead" style="grid-template-columns:1fr 105px 90px 68px"><div class="th">Titre</div><div class="th">Date</div><div class="th">Statut</div><div class="th"></div></div><div id="tbody-elections"></div></div>
-    </div>
-
-    <!-- PREVIEW -->
-    <div id="p-preview" style="display:none">
-      <div class="sh">
-        <div><h1>Prévisualisation</h1><p>Tous les événements consolidés, triés par date</p></div>
-        <div class="sh-r">
-          <select class="fsel" id="pvy" onchange="renderPreview()"><option value="">Toutes les années</option></select>
-          <select class="fsel" id="pvs" onchange="renderPreview()"><option value="">Toutes les sources</option><option value="sports">Sports</option><option value="exams">Examens</option><option value="specials">Spéciaux</option><option value="elections">Élections</option></select>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="form-date" required/>
         </div>
-      </div>
-      <div class="tw">
-        <div class="thead" style="grid-template-columns:90px 1fr 200px 70px"><div class="th">Date</div><div class="th">Titre</div><div class="th">Catégories</div><div class="th">Source</div></div>
-        <div id="tbody-pv" style="max-height:62vh;overflow-y:auto"></div>
-      </div>
+        <div class="form-group">
+          <label>Catégories (séparées par virgule)</label>
+          <input type="text" id="form-categories" placeholder="ex: Culture, Cinéma"/>
+        </div>
+        <div class="form-group">
+          <label>Emoji</label>
+          <input type="text" id="form-emoji" placeholder="🎬" maxlength="2" style="font-size:24px;text-align:center"/>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="form-description" placeholder="Détails de l' événement..."></textarea>
+        </div>
+        <button type="submit" class="btn">Ajouter</button>
+      </form>
     </div>
+  </div>
 
+  <div class="section">
+    <h2>⏳ Événements en attente</h2>
+    <div id="pending-list"></div>
+  </div>
+
+  <div class="section">
+    <h2>📝 Pense-bête</h2>
+    <div class="card">
+      <form onsubmit="addTodo(event)">
+        <div class="form-group">
+          <label>Nouvelle note</label>
+          <input type="text" id="todo-input" placeholder="Ajouter X au code, modifier Y..."/>
+        </div>
+        <button type="submit" class="btn">Ajouter</button>
+      </form>
+    </div>
+    <div id="todo-list" style="margin-top:20px"></div>
+  </div>
+
+  <div class="section">
+    <h2>💬 Suggestions (modération)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Événement</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="suggestions-table">
+        <tr><td colspan="4" style="text-align:center;color:var(--t3)">Chargement...</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
-</div>
 
-<!-- MODAL ADD/EDIT -->
-<div class="mbg" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <div class="mhead"><div class="mtitle" id="modal-title">Ajouter</div><button class="mclose" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button></div>
-    <div id="modal-body"></div>
-  </div>
-</div>
-
-<!-- CONFIRM -->
-<div class="cbg" id="confirm" onclick="if(event.target===this)closeConfirm()">
-  <div class="cbox"><div class="cico">🗑️</div><div class="ctitle">Supprimer ?</div><div class="cmsg" id="cmsg"></div><div class="cacts"><button class="btn bs" onclick="closeConfirm()">Annuler</button><button class="btn bd" id="cok"><i class="fa-solid fa-trash"></i> Supprimer</button></div></div>
-</div>
-
-<!-- COMMIT MODAL -->
-<div class="mbg" id="commit-modal" onclick="if(event.target===this)closeCommit()">
-  <div class="modal" style="max-width:460px">
-    <div class="mhead"><div class="mtitle"><i class="fa-solid fa-code-branch" style="color:var(--grn);margin-right:8px"></i>Publier sur GitHub</div><button class="mclose" onclick="closeCommit()"><i class="fa-solid fa-xmark"></i></button></div>
-    <p style="font-size:12px;color:var(--t2);margin-bottom:14px;line-height:1.7">Un commit sera créé sur <code style="color:var(--acc)">main</code> pour chaque fichier modifié. Le CI GitHub Actions se déclenchera automatiquement (~2 min).</p>
-    <div class="fgrp" style="margin-bottom:12px"><label class="flbl">Message de commit</label><input type="text" class="fi" id="cmsg-input" maxlength="120"/></div>
-    <div id="commit-files"></div>
-    <div id="commit-result" style="display:none" class="commit-result"></div>
-    <div class="facts"><button class="btn bs" onclick="closeCommit()">Annuler</button><button class="btn bg" id="do-commit" onclick="doCommit()"><i class="fa-solid fa-code-commit"></i> Committer</button></div>
-  </div>
-</div>
-
-<div id="tz"></div>
+<div id="toast"></div>
 
 <script>
-/* ══ CATALOGUE CATÉGORIES ══ */
-const ALL_CATS = [
-  {n:'Sport',g:'Sport',c:'#06b6d4'},{n:'JO',g:'Sport',c:'#0ea5e9'},{n:'Jeux Paralympiques',g:'Sport',c:'#a78bfa'},
-  {n:'Football',g:'Sport',c:'#06b6d4'},{n:'Tennis',g:'Sport',c:'#06b6d4'},{n:'Cyclisme',g:'Sport',c:'#06b6d4'},
-  {n:'Rugby',g:'Sport',c:'#06b6d4'},{n:'Handball',g:'Sport',c:'#06b6d4'},{n:'Athlétisme',g:'Sport',c:'#06b6d4'},
-  {n:'Formule 1',g:'Sport',c:'#06b6d4'},{n:'Natation',g:'Sport',c:'#06b6d4'},{n:'Ski',g:'Sport',c:'#06b6d4'},
-  {n:'Éducation',g:'Éducation',c:'#14b8a6'},{n:'Examens',g:'Éducation',c:'#14b8a6'},
-  {n:'Élections',g:'Politique',c:'#f43f5e'},{n:'Société',g:'Politique',c:'#94a3b8'},
-  {n:'Culture',g:'Culture',c:'#a78bfa'},{n:'Fêtes',g:'Culture',c:'#8b5cf6'},{n:'Christianisme',g:'Culture',c:'#e2c074'},
-  {n:'Gastronomie',g:'Culture',c:'#f59e0b'},{n:'Cinéma',g:'Culture',c:'#f97316'},{n:'Théâtre',g:'Culture',c:'#d946ef'},
-  {n:'Saisons',g:'Nature',c:'#22d3ee'},{n:'Astronomie',g:'Nature',c:'#60a5fa'},{n:'Lunaire',g:'Nature',c:'#4f46e5'},
-  {n:'Environnement',g:'Nature',c:'#10b981'},{n:"Changement d'heure",g:'Nature',c:'#3ecf8e'},
-  {n:'Santé',g:'Santé',c:'#ef4444'},
-  {n:'Vacances scolaires',g:'Scolaire',c:'#f5a020'},{n:'Jours fériés',g:'Scolaire',c:'#ff5a5a'},{n:'Ponts / Congés',g:'Scolaire',c:'#fb923c'},
-  {n:'Mémoire',g:'Mémoire',c:'#64748b'},
-  {n:'Commerce',g:'Autres',c:'#4f7cff'},{n:'Commercial',g:'Autres',c:'#ec4899'},
-  {n:'Agriculture',g:'Autres',c:'#84cc16'},{n:'Dates spéciales',g:'Autres',c:'#a78bfa'},
-];
-const GROUPS = [...new Set(ALL_CATS.map(c=>c.g))];
-
-/* routage auto */
-const ROUTES = [
-  {cats:['Sport','JO','Jeux Paralympiques','Football','Tennis','Cyclisme','Rugby','Handball','Athlétisme','Formule 1','Natation','Ski'],dest:'sports'},
-  {cats:['Éducation','Examens'],dest:'exams'},
-  {cats:['Élections'],dest:'elections'},
-];
-function autoRoute(cats){ for(const r of ROUTES){if(cats.some(c=>r.cats.includes(c)))return r.dest;} return 'specials'; }
-
-/* ══ STATE ══ */
-const CY=new Date().getFullYear(), NY=CY+1;
-const store={sports:[],exams:[],specials:[],elections:[]};
-const shas={sports:null,exams:null,specials:null,elections:null};
-const dirty=new Set();
-let curP='all', editS=null;
-
-const DMETA={
-  sports:   {label:'Sports',   path:'calendar_core/data/sports.json',             color:'#06b6d4'},
-  exams:    {label:'Examens',  path:'calendar_core/data/exams.json',              color:'#14b8a6'},
-  specials: {label:'Spéciaux', path:'calendar_core/data/specials.json',           color:'#a78bfa'},
-  elections:{label:'Élections',path:'calendar_core/data/elections_override.json', color:'#f43f5e'},
-};
-
-/* ══ INIT ══ */
-async function init(){
-  await Promise.allSettled(Object.keys(store).map(loadSrc));
-  buildAllFilters(); updateBadges(); renderTable('all');
-  document.getElementById('loader').classList.add('gone');
-}
-async function loadSrc(s){
-  try{
-    const r=await fetch(`/api/admin-data?source=${s}`);
-    if(!r.ok)return;
-    const d=await r.json();
-    const p=JSON.parse(d.content);
-    store[s]=Array.isArray(p?.events)?p.events:Array.isArray(p)?p:[];
-    shas[s]=d.sha;
-  }catch{store[s]=[];}
-}
-async function reloadAll(){
-  toast('Rechargement…','info');
-  await Promise.allSettled(Object.keys(store).map(loadSrc));
-  buildAllFilters(); updateBadges(); renderTable(curP);
-  toast('Rechargé','ok');
-}
-
-/* ══ NAV ══ */
-const PMETA={
-  all:      {title:'Tous les événements',sub:'Bloc-notes universel'},
-  preview:  {title:'Prévisualisation',   sub:'Vue consolidée triée par date'},
-  sports:   {title:'Sports & JO',        sub:'calendar_core/data/sports.json'},
-  exams:    {title:'Examens nationaux',  sub:'calendar_core/data/exams.json'},
-  specials: {title:'Spéciaux & Divers',  sub:'calendar_core/data/specials.json'},
-  elections:{title:'Élections manuelles',sub:'calendar_core/data/elections_override.json'},
-};
-function nav(p){
-  curP=p;
-  document.querySelectorAll('[id^="p-"]').forEach(el=>el.style.display='none');
-  document.getElementById('p-'+p).style.display='';
-  document.querySelectorAll('.nav-btn[data-p]').forEach(b=>b.classList.toggle('on',b.dataset.p===p));
-  const m=PMETA[p]||{};
-  document.getElementById('tb-title').textContent=m.title||p;
-  document.getElementById('tb-sub').textContent=m.sub||'';
-  if(p==='preview'){buildPvYears();renderPreview();}
-  else if(p==='elections')renderElections();
-  else{renderTable(p);}
-}
-
-/* ══ FILTERS ══ */
-function buildAllFilters(){['all','sports','exams','specials'].forEach(buildYF);buildCatF();}
-function buildYF(s){
-  const sel=document.getElementById('fy-'+s);if(!sel)return;
-  const items=s==='all'?Object.values(store).flat():store[s]||[];
-  const years=[...new Set(items.map(e=>(e.start||'').slice(0,4)).filter(Boolean))].sort((a,b)=>b-a);
-  const cur=sel.value; sel.innerHTML='<option value="">Toutes les années</option>';
-  years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;sel.appendChild(o);});
-  if(years.includes(cur))sel.value=cur;
-}
-function buildCatF(){
-  const sel=document.getElementById('fcat-all');if(!sel)return;
-  const cats=[...new Set(Object.values(store).flat().flatMap(e=>e.categories||[]))].sort();
-  sel.innerHTML='<option value="">Toutes les catégories</option>';
-  cats.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o);});
-}
-function buildPvYears(){
-  const sel=document.getElementById('pvy');if(!sel)return;
-  const years=[...new Set(Object.values(store).flat().map(e=>(e.start||'').slice(0,4)).filter(Boolean))].sort((a,b)=>b-a);
-  sel.innerHTML='<option value="">Toutes les années</option>';
-  years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;sel.appendChild(o);});
-}
-
-/* ══ BADGES & STATS ══ */
-function updateBadges(){
-  document.getElementById('nb-all').textContent=Object.values(store).reduce((s,a)=>s+a.length,0);
-  Object.keys(store).forEach(s=>{const el=document.getElementById('nb-'+s);if(el)el.textContent=store[s].length;});
-}
-function renderStats(s){
-  const el=document.getElementById('stats-'+s);if(!el)return;
-  const items=s==='all'?Object.values(store).flat():store[s]||[];
-  const ty=items.filter(e=>(e.start||'').startsWith(String(CY))).length;
-  const ny=items.filter(e=>(e.start||'').startsWith(String(NY))).length;
-  const nc=new Set(items.flatMap(e=>e.categories||[])).size;
-  el.innerHTML=`<div class="sc hi"><div class="sc-v">${items.length}</div><div class="sc-l">Total</div></div><div class="sc"><div class="sc-v">${ty}</div><div class="sc-l">En ${CY}</div></div><div class="sc"><div class="sc-v">${ny}</div><div class="sc-l">En ${NY}</div></div><div class="sc"><div class="sc-v">${nc}</div><div class="sc-l">Catégories</div></div>`;
-}
-
-/* ══ RENDER TABLE ══ */
-function getItems(s){
-  if(s==='all')return Object.entries(store).flatMap(([k,arr])=>arr.map(e=>({...e,_src:k})));
-  return(store[s]||[]).map(e=>({...e,_src:s}));
-}
-function renderTable(s){
-  renderStats(s==='all'?'all':s);
-  const q=norm((document.getElementById('sq-'+s)||{}).value||'');
-  const yr=(document.getElementById('fy-'+s)||{}).value||'';
-  const cat=(document.getElementById('fcat-'+s)||{}).value||'';
-  const fsrc=(document.getElementById('fsrc-'+s)||{}).value||'';
-  let items=getItems(s).filter(e=>{
-    const t=norm(e.summary||''),cs=(e.categories||[]).join(' ').toLowerCase();
-    return(!yr||(e.start||'').startsWith(yr))&&(!cat||(e.categories||[]).includes(cat))&&(!q||t.includes(q)||cs.includes(q)||norm(e.description||'').includes(q))&&(!fsrc||e._src===fsrc);
-  }).sort((a,b)=>(a.start||'').localeCompare(b.start||''));
-  const el=document.getElementById('tbody-'+s);if(!el)return;
-  if(!items.length){el.innerHTML=`<div class="empty"><span class="empty-ico">📅</span><p>Aucun événement${q?` pour "${q}"`:''}.</p></div>`;return;}
-  const showSrc=s==='all';
-  el.innerHTML=items.map(e=>{
-    const rs=e._src;
-    const ri=store[rs].indexOf(e);
-    const chips=(e.categories||[]).slice(0,4).map(c=>chipHtml(c)).join('');
-    const y2=(e.start||'').slice(0,4);
-    const sb=showSrc?`<span class="sbadge" style="color:${DMETA[rs]?.color};background:${DMETA[rs]?.color}18;border-color:${DMETA[rs]?.color}44">${DMETA[rs]?.label||rs}</span>`:'';
-    return`<div class="trow gc ar">
-      <div class="td tdb" title="${esc(e.summary)}">${esc(e.summary)}${sb}<span class="ytag ${yrClass(y2)}">${y2}</span></div>
-      <div class="td tdm">${e.start||'—'}</div>
-      <div class="td tdm">${e.end||'—'}</div>
-      <div class="td" style="overflow:visible;white-space:normal">${chips||'<span style="color:var(--t3)">—</span>'}</div>
-      <div class="td tda">
-        <button class="btn bs bsm bico" title="Éditer" onclick="openEdit('${rs}',${ri})"><i class="fa-solid fa-pen"></i></button>
-        <button class="btn bd bsm bico" title="Supprimer" onclick="askDelete('${rs}',${ri},'${esc(e.summary).replace(/'/g,"\\'")}')"><i class="fa-solid fa-trash"></i></button>
-      </div>
-    </div>`;
-  }).join('');
-}
-function renderElections(){
-  const el=document.getElementById('tbody-elections');if(!el)return;
-  if(!store.elections.length){el.innerHTML=`<div class="empty"><span class="empty-ico">🗳️</span><p>Aucune élection.</p></div>`;return;}
-  el.innerHTML=store.elections.map((e,i)=>{
-    const conf=e.confirmed!==false;
-    return`<div class="trow ar" style="grid-template-columns:1fr 105px 90px 68px">
-      <div class="td tdb">${esc(e.summary)}</div>
-      <div class="td tdm">${e.start||'—'}</div>
-      <div class="td"><span class="chip ${conf?'cD':'cE'}">${conf?'Confirmé':'Estimé'}</span></div>
-      <div class="td tda">
-        <button class="btn bs bsm bico" onclick="openEdit('elections',${i})"><i class="fa-solid fa-pen"></i></button>
-        <button class="btn bd bsm bico" onclick="askDelete('elections',${i},'${esc(e.summary).replace(/'/g,"\\'")}')"><i class="fa-solid fa-trash"></i></button>
-      </div>
-    </div>`;
-  }).join('');
-}
-function renderPreview(){
-  const yr=(document.getElementById('pvy')||{}).value||'';
-  const src=(document.getElementById('pvs')||{}).value||'';
-  const sources=src?[src]:Object.keys(store);
-  let all=sources.flatMap(s=>store[s].map(e=>({...e,_src:s})));
-  if(yr)all=all.filter(e=>(e.start||'').startsWith(yr));
-  all.sort((a,b)=>(a.start||'').localeCompare(b.start||''));
-  const el=document.getElementById('tbody-pv');if(!el)return;
-  if(!all.length){el.innerHTML=`<div class="empty"><span class="empty-ico">📅</span><p>Aucun événement.</p></div>`;return;}
-  el.innerHTML=all.slice(0,300).map(e=>`
-    <div class="pv-row">
-      <div class="pv-date">${e.start||'—'}</div>
-      <div class="pv-title" title="${esc(e.summary)}">${esc(e.summary)}</div>
-      <div class="pv-cats">${(e.categories||[]).slice(0,4).map(c=>chipHtml(c)).join('')}</div>
-      <div class="pv-src" style="color:${DMETA[e._src]?.color||'var(--acc)'}">${DMETA[e._src]?.label||e._src}</div>
-    </div>`).join('');
-  if(all.length>300)el.innerHTML+=`<div style="padding:10px 14px;font-size:11px;color:var(--t3);text-align:center">+${all.length-300} événements (affinez)</div>`;
-}
-
-/* ══ MODAL ══ */
-function openAdd(forceDest){
-  editS={source:forceDest||null,idx:-1,forceDest:!!forceDest};
-  document.getElementById('modal-title').textContent='Ajouter un événement';
-  document.getElementById('modal-body').innerHTML=buildForm(forceDest||null,null);
-  initCatToggles([],forceDest);
-  document.getElementById('modal').classList.add('on');
-}
-function openEdit(src,idx){
-  editS={source:src,idx,forceDest:true};
-  const item=store[src][idx];
-  document.getElementById('modal-title').textContent='Modifier l\'événement';
-  document.getElementById('modal-body').innerHTML=buildForm(src,item);
-  initCatToggles(item.categories||[],src);
-  document.getElementById('modal').classList.add('on');
-}
-function closeModal(){document.getElementById('modal').classList.remove('on');editS=null;}
-
-function buildForm(dest,item){
-  const v=item||{},isElec=dest==='elections';
-  const dOpts=Object.entries(DMETA).map(([k,m])=>`<option value="${k}"${dest===k?' selected':''}>${m.label}</option>`).join('');
-  return`<div class="fg">
-    <div class="fgrp full">
-      <label class="flbl req">Titre</label>
-      <input type="text" class="fi" id="f-sum" value="${esc(v.summary||'')}" placeholder="Ex : Roland-Garros 2027, Élections municipales, Conférence ONU…" autocomplete="off"/>
-      <span class="ferr" id="e-sum">Titre requis.</span>
-    </div>
-    <div class="fgrp">
-      <label class="flbl req">Date de début</label>
-      <input type="date" class="fi" id="f-start" value="${v.start||''}"/>
-      <span class="ferr" id="e-start">Date requise.</span>
-    </div>
-    <div class="fgrp">
-      <label class="flbl">Date de fin</label>
-      <input type="date" class="fi" id="f-end" value="${v.end||''}"/>
-      <span class="fhint">Laisser vide si 1 seul jour.</span>
-      <span class="ferr" id="e-end">La fin doit être ≥ début.</span>
-    </div>
-    <div class="fgrp full">
-      <label class="flbl">Description</label>
-      <textarea class="fta" id="f-desc" rows="3" placeholder="Contexte, source officielle, notes personnelles…">${esc(v.description||'')}</textarea>
-    </div>
-    <div class="fgrp full">
-      <label class="flbl">Catégories <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--t2)">— déterminent la destination automatiquement</span></label>
-      <div class="ctwrap" id="ctgrid"></div>
-    </div>
-    ${isElec?`<div class="fgrp"><label class="flbl">Statut</label><select class="fs" id="f-conf"><option value="true"${v.confirmed!==false?' selected':''}>Confirmé (décret officiel)</option><option value="false"${v.confirmed===false?' selected':''}>Estimé / Approximatif</option></select></div>`:''}
-    ${!editS?.forceDest?`
-    <div class="fgrp full" style="margin-top:4px">
-      <label class="flbl">Destination <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--t2)">— peut être surchargée manuellement</span></label>
-      <select class="fs" id="f-dest">${dOpts}</select>
-    </div>
-    <div class="auto-banner" id="auto-banner"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="auto-msg">Sélectionne des catégories pour détecter automatiquement.</span></div>
-    `:''}
-  </div>
-  <div class="facts">
-    <button class="btn bs" onclick="closeModal()">Annuler</button>
-    <button class="btn bp" onclick="saveItem()"><i class="fa-solid fa-floppy-disk"></i> Enregistrer</button>
-  </div>`;
-}
-
-function initCatToggles(selected,dest){
-  const grid=document.getElementById('ctgrid');if(!grid)return;
-  let html='';
-  GROUPS.forEach(g=>{
-    const cats=ALL_CATS.filter(c=>c.g===g);
-    html+=`<span class="cat-group-label">${g}</span>`;
-    html+=cats.map(c=>`<span class="ctog${selected.includes(c.n)?' on':''}" data-cat="${esc(c.n)}" style="--cc:${c.c}" onclick="toggleCat(this)">${esc(c.n)}</span>`).join('');
-  });
-  grid.innerHTML=html;
-  if(!editS?.forceDest)watchCats();
-}
-function toggleCat(el){el.classList.toggle('on');if(!editS?.forceDest)watchCats();}
-function watchCats(){
-  const cats=getSelCats(),detected=autoRoute(cats);
-  const ds=document.getElementById('f-dest');if(ds)ds.value=detected;
-  const b=document.getElementById('auto-banner'),m=document.getElementById('auto-msg');
-  if(b&&m){b.classList.toggle('on',cats.length>0);if(cats.length>0)m.textContent=`Destination → ${DMETA[detected]?.label} (${DMETA[detected]?.path.split('/').pop()})`;}
-}
-function getSelCats(){return[...document.querySelectorAll('.ctog.on')].map(t=>t.dataset.cat);}
-
-/* ══ SAVE ══ */
-function saveItem(){
-  const sum=(document.getElementById('f-sum')||{}).value?.trim()||'';
-  const start=(document.getElementById('f-start')||{}).value||'';
-  const end=(document.getElementById('f-end')||{}).value||'';
-  const desc=(document.getElementById('f-desc')||{}).value?.trim()||'';
-  const cats=getSelCats();
-  let ok=true;
-  const err=(id,msg,show)=>{const e=document.getElementById(id),i=document.getElementById(id.replace('e-','f-'));if(e){e.textContent=msg;e.classList.toggle('on',show);}if(i)i.classList.toggle('err',show);if(show)ok=false;};
-  err('e-sum','Titre requis.',!sum);
-  err('e-start','Date requise.',!start);
-  err('e-end','Fin ≥ début.',!!(end&&end<start));
-  if(!ok)return;
-  let dest=editS.source;
-  if(!editS.forceDest||!dest)dest=(document.getElementById('f-dest')||{}).value||autoRoute(cats);
-  const isElec=dest==='elections';
-  const confirmed=isElec?((document.getElementById('f-conf')||{}).value==='true'):undefined;
-  const item={summary:sum,start,categories:cats,description:desc};
-  if(end)item.end=end;
-  if(isElec)item.confirmed=confirmed;
-  if(editS.idx===-1){store[dest].push(item);}
-  else{store[dest][editS.idx]=item;}
-  store[dest].sort((a,b)=>(a.start||'').localeCompare(b.start||''));
-  markDirty(dest);buildYF(dest);buildYF('all');buildCatF();updateBadges();
-  closeModal();renderTable(curP==='all'||curP===dest?curP:'all');
-  toast(editS.idx===-1?'Événement ajouté ✓':'Événement modifié ✓','ok');
-}
-
-/* ══ DELETE ══ */
-function askDelete(src,idx,label){
-  document.getElementById('cmsg').textContent=`"${label}" sera supprimé de ${DMETA[src]?.label||src}.`;
-  document.getElementById('cok').onclick=()=>{
-    store[src].splice(idx,1);
-    markDirty(src);buildYF(src);buildYF('all');buildCatF();updateBadges();
-    renderTable(curP);closeConfirm();toast('Supprimé','ok');
-  };
-  document.getElementById('confirm').classList.add('on');
-}
-function closeConfirm(){document.getElementById('confirm').classList.remove('on');}
-
-/* ══ DIRTY ══ */
-function markDirty(src){
-  dirty.add(src);
-  const p=document.getElementById('status');
-  p.className='status s-dirty';p.textContent=`${dirty.size} fichier${dirty.size>1?'s':''} modifié${dirty.size>1?'s':''}`;
-  document.getElementById('pub-btn').disabled=false;
-  document.getElementById('sb-hint').textContent=`${dirty.size} fichier${dirty.size>1?'s':''} à publier`;
-}
-function markClean(){
-  dirty.clear();
-  const p=document.getElementById('status');
-  p.className='status s-ok';p.textContent='Synchronisé';
-  document.getElementById('pub-btn').disabled=true;
-  document.getElementById('sb-hint').textContent='Aucune modification en attente';
-}
-
-/* ══ COMMIT ══ */
-function openCommit(){
-  if(!dirty.size)return;
-  const targets=[...dirty];
-  document.getElementById('cmsg-input').value=targets.length===1
-    ?`[admin] ${DMETA[targets[0]]?.path.split('/').pop()} — mise à jour 🤖`
-    :`[admin] Mise à jour données statiques (${targets.map(s=>DMETA[s]?.label).join(', ')}) 🤖`;
-  document.getElementById('commit-files').innerHTML=targets.map(s=>`<div class="cfile"><i class="fa-solid fa-file-code"></i><code>${DMETA[s]?.path}</code><span class="cfile-tag">MODIFIÉ</span></div>`).join('');
-  document.getElementById('commit-result').style.display='none';
-  const btn=document.getElementById('do-commit');btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-code-commit"></i> Committer';
-  document.getElementById('commit-modal').classList.add('on');
-}
-function closeCommit(){document.getElementById('commit-modal').classList.remove('on');}
-async function doCommit(){
-  const msg=document.getElementById('cmsg-input').value.trim()||'[admin] Mise à jour 🤖';
-  const btn=document.getElementById('do-commit');
-  btn.disabled=true;btn.innerHTML='<i class="fa-solid fa-circle-notch" style="animation:spin .75s linear infinite"></i> Publication…';
-  const p=document.getElementById('status');p.className='status s-saving';p.textContent='Publication…';
-  const targets=[...dirty];let lastUrl=null,errs=[];
-  for(const src of targets){
-    const content=JSON.stringify({events:store[src]},null,2);
-    try{
-      const r=await fetch('/api/admin-data',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({source:src,content,sha:shas[src],commitMessage:`${msg} [${src}]`})});
-      const d=await r.json();
-      if(!r.ok)throw new Error(d.error||`HTTP ${r.status}`);
-      shas[src]=d.sha;lastUrl=d.commitUrl;
-    }catch(e){errs.push(`${src}: ${e.message}`);}
-  }
-  if(!errs.length){
-    markClean();
-    const res=document.getElementById('commit-result');res.style.display='';
-    res.innerHTML=`<div style="display:flex;align-items:center;gap:7px;margin-bottom:6px"><i class="fa-solid fa-circle-check" style="color:var(--grn)"></i><strong style="color:var(--grn)">${targets.length} fichier${targets.length>1?'s':''} commité${targets.length>1?'s':''}.</strong></div><div style="color:var(--t2);margin-bottom:6px">Le CI régénère le calendrier automatiquement (~2 min).</div>${lastUrl?`<a href="${lastUrl}" target="_blank" rel="noopener"><i class="fa-solid fa-external-link" style="margin-right:4px"></i>Voir le commit</a>`:''}`;
-    btn.innerHTML='<i class="fa-solid fa-circle-check"></i> Publié !';toast('Publié sur GitHub ✓','ok');
-  }else{
-    p.className='status s-err';p.textContent='Erreur';
-    toast('Erreur : '+errs.join(', '),'err');
-    btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-rotate"></i> Réessayer';
-  }
-}
-
-/* ══ UTILS ══ */
-function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
-function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-function yrClass(y){return y==CY?'cy':y==NY?'ny':'';}
-function chipHtml(c){
-  const k=c.replace(/[\s\/\-']/g,'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  const cls=k.startsWith('vacanc')?'cV':k.startsWith('jours')||k.startsWith('ferier')?'cF':k.startsWith('jo')||k.startsWith('jeux')?'cJ':k.startsWith('sport')||['football','tennis','cycl','rugby','hand','athl','formule','natation','ski'].some(x=>k.includes(x))?'cS':k.startsWith('elect')?'cE':k.startsWith('examen')||k.startsWith('educat')?'cX':k.startsWith('cult')||k.startsWith('fetes')||k.startsWith('cinema')||k.startsWith('theat')?'cC':k.startsWith('sante')?'cH':k.startsWith('soci')||k.startsWith('memo')?'cM':k.startsWith('envir')?'cN':k.startsWith('astro')||k.startsWith('lunaire')?'cA':k.startsWith('saison')||k.startsWith('changement')?'cK':'cD';
-  return`<span class="chip ${cls}">${esc(c)}</span>`;
-}
-function toast(msg,type='ok'){
-  const z=document.getElementById('tz');const d=document.createElement('div');
-  d.className=`toast t${type==='ok'?'ok':type==='err'?'err':'info'}`;
-  d.innerHTML=`<i class="fa-solid fa-${type==='ok'?'circle-check':type==='err'?'triangle-exclamation':'circle-info'}"></i> ${esc(msg)}`;
-  z.appendChild(d);setTimeout(()=>{d.classList.add('tout');setTimeout(()=>d.remove(),220);},3200);
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeConfirm();closeCommit();}});
-init();
+const state = {pending:[],todos:JSON.parse(localStorage.getItem("admin-todos")||"[]"),suggestions:[]};
+function showLoader(){const loader=document.getElementById("loader");loader.style.display="flex"}
+function hideLoader(){const loader=document.getElementById("loader");loader.style.display="none"}
+async function ensureAdminSession(){try{const r=await fetch("/api/admin-auth?action=me",{credentials:"same-origin"});return r.ok}catch{return false}}
+async function bootAdmin(){showLoader();const ok=await ensureAdminSession();if(!ok){window.location.href="/admin/login";return}loadData();setInterval(loadData,30000)}
+async function loadData(){showLoader();try{const[pendRes,suggRes]=await Promise.all([fetch("/api/pending-events",{credentials:"same-origin"}),fetch("/api/suggestions",{credentials:"same-origin"})]);state.pending=(await pendRes.json()).events||[];state.suggestions=await suggRes.json()||[];updateUI();hideLoader()}catch(e){console.error("Load error:",e);toast("Erreur lors du chargement","error");hideLoader()}}
+async function addPendingEvent(e){e.preventDefault();const event={summary:document.getElementById("form-title").value,start:document.getElementById("form-date").value,categories:document.getElementById("form-categories").value.split(",").map(c=>c.trim()).filter(Boolean),emoji:document.getElementById("form-emoji").value||"📌",description:document.getElementById("form-description").value};try{const res=await fetch("/api/pending-events",{method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:JSON.stringify(event)});if(!res.ok)throw new Error("Failed to create");toast("Événement ajouté ✓","success");e.target.reset();loadData()}catch(err){toast("Erreur: "+err.message,"error")}}
+async function deletePending(id){if(!confirm("Supprimer cet événement provisoire?"))return;try{const res=await fetch("/api/pending-events",{method:"DELETE",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:JSON.stringify({id})});if(!res.ok)throw new Error("Failed to delete");toast("Supprimé ✓","success");loadData()}catch(err){toast("Erreur: "+err.message,"error")}}
+async function acceptSuggestion(id){try{const res=await fetch("/api/suggestions",{method:"PATCH",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:JSON.stringify({id,status:"accepted"})});if(!res.ok)throw new Error("Failed to accept");toast("Acceptée ✓","success");loadData()}catch(err){toast("Erreur: "+err.message,"error")}}
+async function rejectSuggestion(id){try{const res=await fetch("/api/suggestions",{method:"PATCH",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:JSON.stringify({id,status:"rejected"})});if(!res.ok)throw new Error("Failed to reject");toast("Rejetée ✓","success");loadData()}catch(err){toast("Erreur: "+err.message,"error")}}
+function addTodo(e){e.preventDefault();const text=document.getElementById("todo-input").value;if(!text)return;state.todos.push({id:Date.now(),text,done:false});localStorage.setItem("admin-todos",JSON.stringify(state.todos));document.getElementById("todo-input").value="";updateUI()}
+function toggleTodo(id){const todo=state.todos.find(t=>t.id===id);if(todo){todo.done=!todo.done;localStorage.setItem("admin-todos",JSON.stringify(state.todos));updateUI()}}
+function deleteTodo(id){state.todos=state.todos.filter(t=>t.id!==id);localStorage.setItem("admin-todos",JSON.stringify(state.todos));updateUI()}
+function updateUI(){document.getElementById("stat-pending").textContent=state.pending.length;document.getElementById("stat-suggestions").textContent=state.suggestions.length;const pendingHtml=state.pending.map(p=>`<div class="pending-item"><div style="display:flex;align-items:center;flex:1"><span class="pending-item-emoji">${p.emoji||"📌"}</span><div class="pending-item-info"><strong>${p.summary}</strong><br/><span class="pending-item-date">${p.start} • ${p.categories.join(", ")}</span></div></div><button class="btn btn-small" style="background:var(--redd);color:var(--red)" onclick="deletePending('"'"'${p.id}'"'"')">Supprimer</button></div>`).join("");document.getElementById("pending-list").innerHTML=pendingHtml||"<p style=\"color:var(--t3)\">Aucun événement en attente</p>";const todoHtml=state.todos.map(t=>`<div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg3);border-radius:var(--r);margin-bottom:8px"><input type="checkbox" ${t.done?"checked":""} onchange="toggleTodo(${t.id})" style="cursor:pointer"/><span style="flex:1;${t.done?"text-decoration:line-through;color:var(--t3)":""}">${t.text}</span><button class="btn btn-small" style="background:var(--redd);color:var(--red)" onclick="deleteTodo(${t.id})">✕</button></div>`).join("");document.getElementById("todo-list").innerHTML=todoHtml||"<p style=\"color:var(--t3)\">Aucune note</p>";const suggHtml=state.suggestions.length?state.suggestions.map(s=>`<tr><td>${s.summary||"-"}</td><td>${s.email}</td><td>${s.date||"-"}</td><td><button class="btn btn-small" onclick="acceptSuggestion('"'"'${s.id}'"'"')">✓</button> <button class="btn btn-small" style="background:var(--redd);color:var(--red)" onclick="rejectSuggestion('"'"'${s.id}'"'"')">✕</button></td></tr>`).join(""):"<tr><td colspan=\"4\" style=\"text-align:center;color:var(--t3)\">Aucune suggestion</td></tr>";document.getElementById("suggestions-table").innerHTML=suggHtml;const eventCountDiv=document.getElementById("stat-events");if(eventCountDiv){fetch("/api/admin-calendar?count=true",{credentials:"same-origin"}).then(r=>r.json()).then(d=>{eventCountDiv.textContent=d.total||0}).catch(()=>{eventCountDiv.textContent="?"})}}
+async function logout(){await fetch("/api/admin-auth?action=logout",{method:"POST",credentials:"same-origin"});window.location.href="/admin/login"}
+function toast(msg,type="info"){const z=document.getElementById("toast");const d=document.createElement("div");d.className="toast";d.style.background=type==="success"?"var(--grn)":type==="error"?"var(--red)":"var(--acc)";d.textContent=msg;z.appendChild(d);setTimeout(()=>d.remove(),3000)}
+bootAdmin();
 </script>
 </body>
 </html>

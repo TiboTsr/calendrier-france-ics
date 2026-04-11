@@ -1,0 +1,40 @@
+{
+  "events": {
+    "Noël": "🎄",
+    "Épiphanie": "👑",
+    "Saint-Nicolas": "🎅",
+    "Saint-Valentin": "💕",
+    "Pâques": "🐣",
+    "Halloween": "🎃",
+    "Fête National": "🇫🇷",
+    "Fête du Travail": "👷",
+    "Sports": "⚽",
+    "Football": "⚽",
+    "Examens": "📝",
+    "École": "🎓",
+    "Éducation": "📚",
+    "Astronmie": "🌙",
+    "Lunaire": "🌕",
+    "Saisons": "🍂",
+    "Environnement": "🌍",
+    "Santé": "⚕️",
+    "Culture": "🎭",
+    "Cinéma": "🎬",
+    "Théâtre": "🎪",
+    "Musique": "🎵",
+    "Gastronomie": "🍽️",
+    "Agriculture": "🚜",
+    "Société": "👥",
+    "Mémoire": "🕯️",
+    "Dates spéciales": "⭐",
+    "Fêtes": "🎉",
+    "Commerce": "🛍️",
+    "Beaujolais Nouveau": "🍷",
+    "Braderie": "🏪"
+  },
+  "defaults": {
+    "Christianisme": "✝️",
+    "Jours fériés": "🏛️",
+    "Vacances scolaires": "🏖️"
+  }
+}

@@ -1,0 +1,2302 @@
+﻿<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin Â· Calendrier France</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="/img/icon-32.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<style>
+:root{
+  --bg0:#07070d;--bg1:#0e0e16;--bg2:#15151e;--bg3:#1c1c27;--bg4:#232330;
+  --b:rgba(255,255,255,.07);--bh:rgba(255,255,255,.14);--ba:rgba(255,255,255,.26);
+  --t1:#ededf4;--t2:#8080a0;--t3:#484860;
+  --acc:#6b8cff;--accd:rgba(107,140,255,.10);--accb:rgba(107,140,255,.28);
+  --red:#ff5a5a;--redd:rgba(255,90,90,.11);--redb:rgba(255,90,90,.30);
+  --grn:#3ecf8e;--grnd:rgba(62,207,142,.11);--grnb:rgba(62,207,142,.28);
+  --amb:#f5a020;--ambd:rgba(245,160,32,.11);--ambb:rgba(245,160,32,.28);
+  --vio:#a78bfa;--viod:rgba(167,139,250,.11);--viob:rgba(167,139,250,.28);
+  --cya:#22d3ee;--cyad:rgba(34,211,238,.10);--cyab:rgba(34,211,238,.28);
+  --r:10px;--rl:16px;--rxl:22px;
+  --ff:'DM Sans',sans-serif;--ffd:'Syne',sans-serif;--ffm:'DM Mono',monospace;
+  --sh:0 2px 8px rgba(0,0,0,.45),0 8px 32px rgba(0,0,0,.3);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden}
+body{font-family:var(--ff);background:var(--bg0);color:var(--t1);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--ff);cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:var(--ff);font-size:14px;color:var(--t1)}
+select option{background:var(--bg2)}
+*:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+.shell{display:grid;grid-template-columns:256px 1fr;min-height:100svh}
+.sidebar{background:var(--bg1);border-right:1px solid var(--b);position:sticky;top:0;height:100svh;overflow-y:auto;display:flex;flex-direction:column}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:99px}
+.sb-brand{padding:18px 18px 14px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--b)}
+.flag{width:22px;height:15px;border-radius:2px;overflow:hidden;display:flex;border:1px solid rgba(0,0,0,.2)}
+.flag span{flex:1;display:block}
+.sb-brand-name{font-family:var(--ffd);font-size:14px;font-weight:800;letter-spacing:-.2px}
+.sb-badge{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;background:var(--ambd);color:var(--amb);border:1px solid var(--ambb);padding:2px 7px;border-radius:999px;margin-left:auto}
+.sb-section{padding:10px 10px 4px}
+.sb-lbl{font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--t3);padding:0 8px;display:block;margin-bottom:3px}
+.nav-btn{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--r);font-size:13px;font-weight:500;color:var(--t2);width:100%;text-align:left;transition:.13s;border:1px solid transparent}
+.nav-btn:hover{background:var(--bg2);color:var(--t1)}
+.nav-btn.on{background:var(--accd);color:var(--acc);border-color:var(--accb);font-weight:600}
+.nav-btn i{width:14px;text-align:center;font-size:12px;flex-shrink:0}
+.nav-cnt{margin-left:auto;font-size:10px;font-weight:700;padding:1px 6px;border-radius:999px;background:var(--bg3);color:var(--t3)}
+.nav-btn.on .nav-cnt{background:rgba(107,140,255,.2);color:var(--acc)}
+.sb-cats{display:flex;flex-wrap:wrap;gap:5px;padding:0 8px 8px;max-height:180px;overflow:auto}
+.sb-cats::-webkit-scrollbar{width:3px}
+.sb-cats::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:99px}
+.sb-cat{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;border:1px solid var(--b);background:var(--bg2);color:var(--t2);font-size:11px;font-weight:600;cursor:pointer;transition:.13s}
+.sb-cat:hover{border-color:var(--bh);color:var(--t1)}
+.sb-cat.on{background:var(--accd);border-color:var(--accb);color:var(--acc)}
+.sb-cat .k{font-size:10px;opacity:.8}
+.sb-footer{margin-top:auto;padding:12px;border-top:1px solid var(--b);display:flex;flex-direction:column;gap:7px}
+.publish-btn{width:100%;padding:10px;border-radius:var(--r);background:var(--acc);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:.15s}
+.publish-btn:hover{opacity:.88}
+.publish-btn:disabled{opacity:.35;cursor:not-allowed}
+.sb-hint{font-size:10px;color:var(--t3);text-align:center}
+.main{min-width:0;display:flex;flex-direction:column}
+.topbar{position:sticky;top:0;z-index:40;height:52px;display:flex;align-items:center;gap:10px;padding:0 24px;border-bottom:1px solid var(--b);background:color-mix(in srgb,var(--bg0) 92%,transparent);backdrop-filter:blur(20px)}
+.tb-title{font-family:var(--ffd);font-size:15px;font-weight:700}
+.tb-sub{font-size:11px;color:var(--t3);margin-left:2px}
+.tb-r{margin-left:auto;display:flex;align-items:center;gap:8px}
+.status{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600}
+.status::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0}
+.s-ok{background:var(--grnd);color:var(--grn);border:1px solid var(--grnb)}
+.s-dirty{background:var(--ambd);color:var(--amb);border:1px solid var(--ambb)}
+.s-saving{background:var(--accd);color:var(--acc);border:1px solid var(--accb)}
+.s-err{background:var(--redd);color:var(--red);border:1px solid var(--redb)}
+.content{padding:24px;flex:1}
+.workspace-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:16px;margin-bottom:22px}
+.workspace-col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.workspace-card{border:1px solid var(--b);border-radius:var(--rl);background:var(--bg1);padding:16px 18px;box-shadow:0 10px 28px rgba(0,0,0,.3)}
+.workspace-card-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.workspace-card-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--t3);display:flex;align-items:center;gap:8px}
+.workspace-row{display:flex;flex-wrap:wrap;gap:8px}
+.overview-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.overview-metric{padding:12px 13px;border-radius:12px;border:1px solid var(--b);background:var(--bg2)}
+.overview-metric .k{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--t3)}
+.overview-metric .v{font-size:22px;font-weight:800;color:var(--t1);line-height:1;margin-top:6px}
+.overview-metric .m{font-size:11px;color:var(--t2);margin-top:4px}
+.focus-list{display:flex;flex-direction:column;gap:8px}
+.focus-item{padding:10px 12px;border-radius:12px;border:1px solid var(--b);background:var(--bg2)}
+.focus-item .t{font-size:13px;font-weight:700}
+.focus-item .m{font-size:11px;color:var(--t2);margin-top:2px}
+.focus-item-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.control-panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:20px}
+.control-card{border:1px solid var(--b);border-radius:var(--rl);background:var(--bg1);padding:16px 18px;box-shadow:0 12px 30px rgba(0,0,0,.28);display:flex;flex-direction:column;gap:10px}
+.control-card-header{font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:11px;color:var(--t3);display:flex;align-items:center;gap:8px}
+.control-card-actions{display:flex;flex-wrap:wrap;gap:8px}
+.quick-btn{padding:6px 10px;font-size:12px;border-radius:8px;background:var(--bg2);border:1px solid var(--b);color:var(--t2);display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.quick-btn:hover{border-color:var(--bh);color:var(--t1)}
+.control-card-note{font-size:12px;color:var(--t3)}
+.control-card-list{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--t2)}
+.cp-item{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:10px;border:1px solid var(--b);background:var(--bg2);font-weight:600}
+.cp-item-icon{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;background:var(--bg0);color:var(--acc);margin-right:8px;font-size:12px}
+.health-dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:22px}
+.health-card{border:1px solid var(--b);border-radius:var(--rl);background:var(--bg1);padding:16px 18px;display:flex;flex-direction:column;gap:10px;box-shadow:0 10px 28px rgba(0,0,0,.3)}
+.health-card-header{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--t3);display:flex;align-items:center;gap:8px}
+.health-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.health-summary{padding:10px 12px;border-radius:12px;border:1px solid var(--b);background:var(--bg2);display:flex;flex-direction:column;gap:3px}
+.health-summary .label{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:1px}
+.health-summary .value{font-size:16px;font-weight:800;color:var(--t1)}
+.health-list{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--t2)}
+.health-list span{display:flex;align-items:center;gap:6px}
+.file-list{display:flex;flex-direction:column;gap:8px}
+.file-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:flex-start;padding:12px 13px;border-radius:12px;border:1px solid var(--b);background:var(--bg2)}
+.file-row.is-dirty{border-color:var(--ambb);background:color-mix(in srgb,var(--ambd) 42%, var(--bg2))}
+.file-row.readonly{background:color-mix(in srgb,var(--accd) 24%, var(--bg2))}
+.file-meta{min-width:0}
+.file-name{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;line-height:1.4}
+.file-path{font-size:11px;color:var(--t2);margin-top:2px;word-break:break-all}
+.file-stats{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.mini-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:999px;border:1px solid var(--b);background:var(--bg1);font-size:10px;font-weight:700;color:var(--t2)}
+.mini-pill.warn{border-color:var(--ambb);color:var(--amb)}
+.mini-pill.bad{border-color:var(--redb);color:var(--red)}
+.mini-pill.good{border-color:var(--grnb);color:var(--grn)}
+.file-actions{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.file-empty{padding:12px;border-radius:12px;border:1px dashed var(--b);color:var(--t3);font-size:12px;text-align:center}
+.health-inline{display:flex;flex-wrap:wrap;gap:8px}
+.health-note{font-size:11px;color:var(--t3)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:var(--r);font-size:13px;font-weight:600;transition:.13s;border:none;cursor:pointer;font-family:var(--ff)}
+.bp{background:var(--acc);color:#fff}.bp:hover{opacity:.87}
+.bs{background:var(--bg2);color:var(--t2);border:1px solid var(--b)}.bs:hover{border-color:var(--bh);color:var(--t1)}
+.bd{background:var(--redd);color:var(--red);border:1px solid var(--redb)}.bd:hover{opacity:.8}
+.bg{background:var(--grnd);color:var(--grn);border:1px solid var(--grnb)}.bg:hover{opacity:.8}
+.bsm{padding:5px 10px;font-size:12px}
+.bico{width:28px;height:28px;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:8px}
+.sh{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.sh h1{font-family:var(--ffd);font-size:20px;font-weight:800;letter-spacing:-.4px}
+.sh p{font-size:12px;color:var(--t2);margin-top:3px}
+.sh-r{display:flex;gap:7px;align-items:center;flex-shrink:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:9px;margin-bottom:18px}
+.sc{background:var(--bg1);border:1px solid var(--b);border-radius:var(--rl);padding:13px 15px}
+.sc-v{font-family:var(--ffd);font-size:22px;font-weight:800;line-height:1}
+.sc-l{font-size:11px;color:var(--t2);margin-top:4px}
+.sc.hi{border-color:var(--accb);background:var(--accd)}
+.sc.hi .sc-v{color:var(--acc)}
+.tb{display:flex;gap:7px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.sw{position:relative;flex:1;min-width:150px}
+.sw i{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t3);font-size:11px;pointer-events:none}
+.si{width:100%;padding:7px 10px 7px 28px;border-radius:var(--r);border:1px solid var(--b);background:var(--bg2);color:var(--t1);font-size:13px;transition:.15s}
+.si:focus{outline:none;border-color:var(--acc);background:var(--bg1)}
+.si::placeholder{color:var(--t3)}
+.fsel{padding:7px 10px;border-radius:var(--r);border:1px solid var(--b);background:var(--bg2);color:var(--t1);font-size:13px;cursor:pointer}
+.fsel:focus{outline:none;border-color:var(--acc)}
+.tw{border:1px solid var(--b);border-radius:var(--rl);overflow:hidden}
+.thead{display:grid;padding:0 12px;background:var(--bg2);border-bottom:1px solid var(--b)}
+.trow{display:grid;padding:0 12px;border-bottom:1px solid var(--b);transition:.12s;align-items:center}
+.trow:last-child{border-bottom:none}
+.trow:hover{background:color-mix(in srgb,var(--bg2) 55%,transparent)}
+.th{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;color:var(--t3);padding:9px 5px}
+.td{padding:9px 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}
+.tdb{font-weight:600}
+.tdm{font-family:var(--ffm);font-size:11.5px;color:var(--t2)}
+.tda{display:flex;gap:4px;justify-content:flex-end;overflow:visible;white-space:normal}
+.gc{grid-template-columns:1fr 100px 100px 200px 68px}
+.chip{display:inline-flex;align-items:center;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;border:1px solid;white-space:nowrap;margin:1px}
+.cS{background:rgba(6,182,212,.12);color:#06b6d4;border-color:rgba(6,182,212,.28)}
+.cJ{background:rgba(3,105,161,.12);color:#0ea5e9;border-color:rgba(3,105,161,.28)}
+.cV{background:rgba(245,160,32,.12);color:var(--amb);border-color:var(--ambb)}
+.cF{background:rgba(255,90,90,.12);color:var(--red);border-color:var(--redb)}
+.cE{background:rgba(244,63,94,.12);color:#f43f5e;border-color:rgba(244,63,94,.28)}
+.cX{background:rgba(20,184,166,.12);color:#14b8a6;border-color:rgba(20,184,166,.28)}
+.cC{background:rgba(139,92,246,.12);color:var(--vio);border-color:var(--viob)}
+.cH{background:rgba(239,68,68,.12);color:#ef4444;border-color:rgba(239,68,68,.28)}
+.cM{background:rgba(148,163,184,.12);color:#94a3b8;border-color:rgba(148,163,184,.28)}
+.cN{background:rgba(16,185,129,.12);color:#10b981;border-color:rgba(16,185,129,.28)}
+.cA{background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.28)}
+.cK{background:rgba(34,211,238,.12);color:var(--cya);border-color:var(--cyab)}
+.cD{background:var(--accd);color:var(--acc);border-color:var(--accb)}
+.sbadge{display:inline-flex;align-items:center;padding:1px 6px;border-radius:5px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;border:1px solid;margin-left:5px}
+.ytag{display:inline-block;padding:1px 5px;border-radius:5px;font-size:9px;font-weight:700;background:var(--bg3);color:var(--t3);margin-left:4px;vertical-align:middle}
+.ytag.cy{background:var(--accd);color:var(--acc)}
+.ytag.ny{background:var(--grnd);color:var(--grn)}
+.empty{text-align:center;padding:56px 20px;color:var(--t3)}
+.empty-ico{font-size:36px;display:block;margin-bottom:10px}
+.mbg{position:fixed;inset:0;background:rgba(0,0,0,.76);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:16px;z-index:200}
+.mbg.on{display:flex;animation:fi .18s ease}
+.modal{width:min(680px,100%);background:var(--bg1);border:1px solid var(--ba);border-radius:var(--rxl);padding:24px;box-shadow:var(--sh);max-height:93svh;overflow-y:auto;position:relative}
+.modal::-webkit-scrollbar{width:4px}
+.modal::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:99px}
+.modal::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--acc),var(--vio));border-radius:var(--rxl) var(--rxl) 0 0}
+.mhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.mtitle{font-family:var(--ffd);font-size:16px;font-weight:800}
+.mclose{width:28px;height:28px;border-radius:8px;border:1px solid var(--b);background:var(--bg2);color:var(--t2);display:grid;place-items:center;cursor:pointer;transition:.13s}
+.mclose:hover{background:var(--redd);border-color:var(--redb);color:var(--red)}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg .full{grid-column:1/-1}
+.fgrp{display:flex;flex-direction:column;gap:4px}
+.flbl{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--t3)}
+.flbl.req::after{content:' *';color:var(--red);font-size:9px}
+.fi,.fs,.fta{padding:8px 10px;border-radius:var(--r);border:1px solid var(--b);background:var(--bg2);color:var(--t1);font-size:13px;width:100%;transition:.15s}
+.fi:focus,.fs:focus,.fta:focus{outline:none;border-color:var(--acc);background:var(--bg1)}
+.fi::placeholder,.fta::placeholder{color:var(--t3)}
+.fi.err,.fs.err{border-color:var(--red)!important}
+.fta{resize:vertical;min-height:72px;font-family:var(--ff)}
+.fhint{font-size:11px;color:var(--t3)}
+.ferr{font-size:11px;color:var(--red);display:none}
+.ferr.on{display:block}
+/* groups label in cat grid */
+.cat-group-label{width:100%;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);margin-top:10px;margin-bottom:3px;display:block}
+.cat-group-label:first-child{margin-top:0}
+.ctwrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:3px}
+.ctog{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;border:1.5px solid var(--b);background:var(--bg3);color:var(--t3);font-size:12px;font-weight:600;cursor:pointer;transition:.13s;user-select:none}
+.ctog:hover{border-color:var(--bh);color:var(--t1)}
+.ctog.on{background:var(--accd);color:var(--acc);border-color:var(--accb)}
+.auto-banner{display:none;align-items:center;gap:8px;padding:9px 12px;border-radius:var(--r);border:1px solid var(--grnb);background:var(--grnd);font-size:12px;color:var(--grn);margin-top:10px;font-weight:600}
+.auto-banner.on{display:flex}
+.facts{display:flex;justify-content:flex-end;gap:7px;margin-top:18px;padding-top:15px;border-top:1px solid var(--b)}
+.cbg{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);z-index:300;display:none;align-items:center;justify-content:center}
+.cbg.on{display:flex;animation:fi .15s ease}
+.cbox{background:var(--bg1);border:1px solid var(--ba);border-radius:var(--rl);padding:22px 26px;text-align:center;max-width:320px;width:100%;box-shadow:var(--sh)}
+.cico{font-size:28px;margin-bottom:8px}
+.ctitle{font-family:var(--ffd);font-size:14px;font-weight:800;margin-bottom:6px}
+.cmsg{font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:18px}
+.cacts{display:flex;gap:8px;justify-content:center}
+.cfile{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--bg2);border-radius:8px;border:1px solid var(--b);margin-bottom:6px;font-size:12px}
+.cfile i{color:var(--acc);font-size:11px}
+.cfile code{color:var(--t2);flex:1}
+.cfile-tag{font-size:9px;font-weight:800;text-transform:uppercase;padding:2px 7px;border-radius:999px;background:var(--ambd);color:var(--amb);border:1px solid var(--ambb)}
+.commit-result{background:var(--grnd);border:1px solid var(--grnb);border-radius:var(--r);padding:13px 15px;margin-top:12px;font-size:12px}
+.commit-result a{color:var(--grn);text-decoration:underline}
+.qbadge{display:inline-flex;align-items:center;padding:1px 6px;border-radius:6px;font-size:9px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;border:1px solid;margin-left:5px}
+.q-ok{background:var(--grnd);color:var(--grn);border-color:var(--grnb)}
+.q-mid{background:var(--ambd);color:var(--amb);border-color:var(--ambb)}
+.q-low{background:var(--redd);color:var(--red);border-color:var(--redb)}
+.preview-box{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;border:1px solid var(--b);background:var(--bg2);font-size:12px}
+.preview-box code{color:var(--t2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.quality-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.quality-item{font-size:11px;padding:3px 7px;border-radius:999px;border:1px solid;background:var(--bg3);color:var(--t2)}
+.quality-item.err{background:var(--redd);color:var(--red);border-color:var(--redb)}
+.quality-item.warn{background:var(--ambd);color:var(--amb);border-color:var(--ambb)}
+.diff-box{margin-top:10px;padding:10px;border-radius:10px;border:1px solid var(--b);background:var(--bg2)}
+.diff-row{display:flex;justify-content:space-between;gap:8px;font-size:12px;padding:4px 0}
+.diff-row b{font-family:var(--ffm);font-size:11px;color:var(--t2)}
+.bulk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bulk-grid .full{grid-column:1/-1}
+.alert{display:flex;gap:9px;align-items:flex-start;padding:11px 14px;border-radius:var(--r);border:1px solid;margin-bottom:14px;font-size:12px;line-height:1.6}
+.alert-warn{background:var(--ambd);border-color:var(--ambb)}
+.alert-warn i{color:var(--amb);flex-shrink:0;margin-top:1px}
+.alert-info{background:var(--accd);border-color:var(--accb)}
+.alert-info i{color:var(--acc);flex-shrink:0;margin-top:1px}
+#tz{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:5px;align-items:center;pointer-events:none}
+.toast{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid;white-space:nowrap;animation:toastIn .2s ease;pointer-events:none}
+.tok{background:var(--grnd);color:var(--grn);border-color:var(--grnb)}
+.terr{background:var(--redd);color:var(--red);border-color:var(--redb)}
+.tinfo{background:var(--accd);color:var(--acc);border-color:var(--accb)}
+.tout{animation:toastOut .2s ease forwards}
+#loader{position:fixed;inset:0;background:var(--bg0);z-index:9000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:opacity .3s,visibility .3s}
+#loader.gone{opacity:0;visibility:hidden}
+.ring{width:30px;height:30px;border:3px solid var(--b);border-top-color:var(--acc);border-radius:50%;animation:spin .75s linear infinite}
+.pv-summary{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.pv-row{display:grid;grid-template-columns:90px minmax(0,1fr) 220px 112px;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--b);transition:.11s}
+.pv-row:last-child{border-bottom:none}
+.pv-row:hover{background:var(--bg2)}
+.pv-date{font-family:var(--ffm);font-size:11px;color:var(--acc);width:90px;flex-shrink:0}
+.pv-main{min-width:0}
+.pv-title{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pv-meta{font-size:11px;color:var(--t2);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pv-cats{display:flex;gap:3px;flex-shrink:0;flex-wrap:wrap;max-width:200px}
+.pv-actions{display:flex;gap:4px;justify-content:flex-end;flex-wrap:wrap}
+.audit-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
+.audit-col{border:1px solid var(--b);border-radius:var(--rl);overflow:hidden;background:var(--bg1)}
+.audit-head{padding:10px 12px;border-bottom:1px solid var(--b);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:var(--t2)}
+.audit-list{max-height:58vh;overflow:auto}
+.audit-item{padding:10px 12px;border-bottom:1px solid var(--b);font-size:12px}
+.audit-item:last-child{border-bottom:none}
+.audit-item .t{font-weight:700;margin-bottom:3px}
+.audit-item .m{color:var(--t2);font-size:11px}
+.history-list{max-height:220px;overflow:auto;padding:8px}
+.history-item{padding:7px 9px;border:1px solid var(--b);border-radius:8px;background:var(--bg2);font-size:11px;margin-bottom:6px}
+.st-badge{display:inline-flex;align-items:center;padding:1px 6px;border-radius:6px;font-size:9px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;border:1px solid;margin-left:5px}
+.st-review{background:var(--ambd);color:var(--amb);border-color:var(--ambb)}
+.st-valid{background:var(--grnd);color:var(--grn);border-color:var(--grnb)}
+.sugg-row{padding:10px 12px;border-bottom:1px solid var(--b)}
+.sugg-row:last-child{border-bottom:none}
+.sugg-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.sugg-title{font-weight:700}
+.sugg-meta{font-size:11px;color:var(--t2);margin-top:3px}
+.sugg-actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.s-p{background:var(--ambd);color:var(--amb);border:1px solid var(--ambb);padding:1px 6px;border-radius:999px;font-size:9px;font-weight:800;text-transform:uppercase}
+.s-a{background:var(--grnd);color:var(--grn);border:1px solid var(--grnb);padding:1px 6px;border-radius:999px;font-size:9px;font-weight:800;text-transform:uppercase}
+.s-r{background:var(--redd);color:var(--red);border:1px solid var(--redb);padding:1px 6px;border-radius:999px;font-size:9px;font-weight:800;text-transform:uppercase}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes toastOut{to{opacity:0;transform:translateY(-5px)}}
+.ar{animation:fi .16s ease}
+@media(max-width:860px){.shell{grid-template-columns:1fr}.sidebar{display:none}.gc{grid-template-columns:1fr 85px 85px 60px}.content{padding:14px}.audit-wrap{grid-template-columns:1fr}.pv-row{grid-template-columns:1fr}.pv-date{width:auto}.pv-cats,.pv-actions{max-width:none}.file-row{grid-template-columns:1fr}.workspace-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="ring"></div><div style="font-size:12px;color:var(--t2)">Chargement des donnÃ©esâ€¦</div></div>
+
+<div class="shell">
+<aside class="sidebar">
+  <div class="sb-brand">
+    <div class="flag"><span style="background:#002395"></span><span style="background:#ECECEC"></span><span style="background:#ED2939"></span></div>
+    <span class="sb-brand-name">Calendrier FR</span>
+    <span class="sb-badge">ADMIN</span>
+  </div>
+  <div class="sb-section">
+    <span class="sb-lbl">Pilotage</span>
+    <button class="nav-btn on" data-p="workspace" onclick="nav('workspace')"><i class="fa-solid fa-gauge-high"></i> Vue d'ensemble</button>
+    <button class="nav-btn" data-p="all" onclick="nav('all')"><i class="fa-solid fa-calendar-days"></i> Tous les Ã©vÃ©nements<span class="nav-cnt" id="nb-all">0</span></button>
+    <button class="nav-btn" data-p="preview" onclick="nav('preview')"><i class="fa-regular fa-eye"></i> PrÃ©visualisation</button>
+  </div>
+  <div class="sb-section" style="margin-top:6px">
+    <span class="sb-lbl">Par fichier destination</span>
+    <button class="nav-btn" data-p="sports" onclick="nav('sports')"><i class="fa-solid fa-trophy"></i> Sports &amp; JO<span class="nav-cnt" id="nb-sports">0</span></button>
+    <button class="nav-btn" data-p="exams" onclick="nav('exams')"><i class="fa-solid fa-graduation-cap"></i> Examens<span class="nav-cnt" id="nb-exams">0</span></button>
+    <button class="nav-btn" data-p="specials" onclick="nav('specials')"><i class="fa-solid fa-sparkles"></i> SpÃ©ciaux &amp; Divers<span class="nav-cnt" id="nb-specials">0</span></button>
+    <button class="nav-btn" data-p="elections" onclick="nav('elections')"><i class="fa-solid fa-person-booth"></i> Ã‰lections<span class="nav-cnt" id="nb-elections">0</span></button>
+    <button class="nav-btn" data-p="generated" onclick="nav('generated')"><i class="fa-solid fa-layer-group"></i> Calendrier complet<span class="nav-cnt" id="nb-generated">0</span></button>
+    <button class="nav-btn" data-p="suggestions" onclick="nav('suggestions')"><i class="fa-solid fa-bullhorn"></i> Propositions<span class="nav-cnt" id="nb-suggestions">0</span></button>
+    <button class="nav-btn" data-p="audit" onclick="nav('audit')"><i class="fa-solid fa-shield-heart"></i> Audit qualitÃ©</button>
+  </div>
+  <div class="sb-section" style="margin-top:6px">
+    <span class="sb-lbl">CatÃ©gories</span>
+    <div id="sb-cats" class="sb-cats"></div>
+  </div>
+  <div class="sb-footer">
+    <button class="publish-btn" id="pub-btn" onclick="openCommit()" disabled><i class="fa-solid fa-code-branch"></i> Publier sur GitHub</button>
+    <div class="sb-hint" id="sb-hint">Aucune modification en attente</div>
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <span class="tb-title" id="tb-title">Tous les Ã©vÃ©nements</span>
+    <span class="tb-sub" id="tb-sub">Bloc-notes universel</span>
+    <div class="tb-r">
+      <span class="status s-ok" id="status">SynchronisÃ©</span>
+      <button class="btn bs bsm" id="undo-btn" onclick="undoLastAction()" disabled><i class="fa-solid fa-rotate-left"></i> Annuler</button>
+      <button class="btn bs bsm" onclick="logoutAdmin()"><i class="fa-solid fa-right-from-bracket"></i> DÃ©connexion</button>
+      <a href="/" target="_blank" class="btn bs bsm"><i class="fa-solid fa-external-link"></i> Site</a>
+    </div>
+  </header>
+
+  <div class="content">
+    <div id="p-workspace">
+      <div class="workspace-grid">
+        <div class="workspace-col">
+          <section class="workspace-card">
+            <div class="workspace-card-header">
+              <div class="workspace-card-title"><i class="fa-solid fa-bolt"></i> Actions immÃ©diates</div>
+              <button class="btn bs bsm" onclick="reloadAll()"><i class="fa-solid fa-rotate"></i> Recharger</button>
+            </div>
+            <div class="control-card-actions">
+              <button class="btn bs quick-btn" onclick="focusPreviewUpcoming(14)"><i class="fa-solid fa-calendar-day"></i> Prochaines 2 semaines</button>
+              <button class="btn bs quick-btn" onclick="focusPreviewMissing('description')"><i class="fa-solid fa-pen-nib"></i> Sans description</button>
+              <button class="btn bs quick-btn" onclick="focusPreviewMissing('categories')"><i class="fa-solid fa-tags"></i> Sans catÃ©gorie</button>
+              <button class="btn bs quick-btn" onclick="focusPreviewConflicts()"><i class="fa-solid fa-shuffle"></i> Conflits</button>
+              <button class="btn bs quick-btn" onclick="exportCurrentPreviewCsv()"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+              <button class="btn bs quick-btn" onclick="exportCurrentPreviewJson()"><i class="fa-solid fa-file-code"></i> Export JSON</button>
+              <button class="btn bp quick-btn" onclick="openAdd(null)"><i class="fa-solid fa-plus"></i> Ajouter un Ã©vÃ©nement</button>
+            </div>
+            <div class="control-card-note" id="cp-focus-note" aria-live="polite">Aucune mise au point.</div>
+          </section>
+          <section class="workspace-card">
+            <div class="workspace-card-header">
+              <div class="workspace-card-title"><i class="fa-solid fa-chart-column"></i> Vue globale</div>
+            </div>
+            <div class="overview-metrics" id="workspace-metrics"></div>
+          </section>
+          <section class="workspace-card">
+            <div class="workspace-card-header">
+              <div class="workspace-card-title"><i class="fa-solid fa-folder-tree"></i> Fichiers modifiables</div>
+            </div>
+            <div id="health-source-grid" class="file-list"></div>
+          </section>
+        </div>
+        <div class="workspace-col">
+          <section class="workspace-card">
+            <div class="workspace-card-header">
+              <div class="workspace-card-title"><i class="fa-solid fa-radar"></i> Ã€ traiter maintenant</div>
+              <button class="btn bs bsm" onclick="nav('audit')"><i class="fa-solid fa-shield-heart"></i> Audit</button>
+            </div>
+            <div id="workspace-focus" class="focus-list"></div>
+          </section>
+          <section class="workspace-card">
+            <div class="workspace-card-header">
+              <div class="workspace-card-title"><i class="fa-solid fa-calendar-check"></i> Suivi rapide</div>
+            </div>
+            <div class="control-card-list" id="cp-upcoming-list"></div>
+            <div class="control-card-note"><strong id="cp-duplicate-count">Conflits inconnus</strong></div>
+            <div id="health-detail" class="health-list" style="margin-top:10px"></div>
+          </section>
+          <section class="workspace-card">
+            <div class="workspace-card-header">
+              <div class="workspace-card-title"><i class="fa-solid fa-layer-group"></i> JSON gÃ©nÃ©rÃ©s par catÃ©gorie</div>
+              <button class="btn bs bsm" onclick="nav('generated')"><i class="fa-solid fa-eye"></i> Calendrier complet</button>
+            </div>
+            <div id="generated-files-grid" class="file-list"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- ALL -->
+    <div id="p-all" style="display:none">
+      <div class="sh">
+        <div><h1>Bloc-notes universel</h1><p>Tous les Ã©vÃ©nements statiques. La destination JSON est dÃ©tectÃ©e automatiquement selon les catÃ©gories choisies.</p></div>
+        <div class="sh-r">
+          <button class="btn bs bsm" onclick="reloadAll()"><i class="fa-solid fa-rotate"></i> Recharger</button>
+          <button class="btn bs bsm" onclick="openBulkEdit()"><i class="fa-solid fa-wand-magic-sparkles"></i> Ã‰dition en lot</button>
+          <button class="btn bp" onclick="openAdd(null)"><i class="fa-solid fa-plus"></i> Ajouter</button>
+        </div>
+      </div>
+      <div id="stats-all" class="stats"></div>
+      <div class="tb">
+        <div class="sw"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="si" id="sq-all" placeholder="Titre, description, catÃ©gorieâ€¦" oninput="renderTable('all')"/></div>
+        <select class="fsel" id="fy-all" onchange="renderTable('all')"><option value="">Toutes les annÃ©es</option></select>
+        <select class="fsel" id="fcat-all" onchange="renderTable('all')"><option value="">Toutes les catÃ©gories</option></select>
+        <select class="fsel" id="fsrc-all" onchange="renderTable('all')">
+          <option value="">Toutes les sources</option>
+          <option value="sports">Sports</option><option value="exams">Examens</option>
+          <option value="specials">SpÃ©ciaux</option><option value="elections">Ã‰lections</option><option value="generated">Calendrier complet</option>
+        </select>
+      </div>
+      <div class="tw">
+        <div class="thead gc"><div class="th">Titre</div><div class="th">DÃ©but</div><div class="th">Fin</div><div class="th">CatÃ©gories</div><div class="th"></div></div>
+        <div id="tbody-all"></div>
+      </div>
+    </div>
+
+    <!-- SPORTS -->
+    <div id="p-sports" style="display:none">
+      <div class="sh"><div><h1>Sports &amp; JO</h1><p><code>calendar_core/data/sports.json</code></p></div><div class="sh-r"><button class="btn bp" onclick="openAdd('sports')"><i class="fa-solid fa-plus"></i> Ajouter</button></div></div>
+      <div id="stats-sports" class="stats"></div>
+      <div class="tb"><div class="sw"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="si" id="sq-sports" placeholder="Rechercherâ€¦" oninput="renderTable('sports')"/></div><select class="fsel" id="fy-sports" onchange="renderTable('sports')"><option value="">Toutes les annÃ©es</option></select></div>
+      <div class="tw"><div class="thead gc"><div class="th">Titre</div><div class="th">DÃ©but</div><div class="th">Fin</div><div class="th">CatÃ©gories</div><div class="th"></div></div><div id="tbody-sports"></div></div>
+    </div>
+
+    <!-- EXAMS -->
+    <div id="p-exams" style="display:none">
+      <div class="sh"><div><h1>Examens nationaux</h1><p><code>calendar_core/data/exams.json</code></p></div><div class="sh-r"><button class="btn bp" onclick="openAdd('exams')"><i class="fa-solid fa-plus"></i> Ajouter</button></div></div>
+      <div class="alert alert-warn"><i class="fa-solid fa-triangle-exclamation"></i><span>Ces entrÃ©es <strong>remplacent</strong> le scraping du Bulletin Officiel. VÃ©rifier les dates sur education.gouv.fr.</span></div>
+      <div id="stats-exams" class="stats"></div>
+      <div class="tb"><div class="sw"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="si" id="sq-exams" placeholder="Rechercherâ€¦" oninput="renderTable('exams')"/></div><select class="fsel" id="fy-exams" onchange="renderTable('exams')"><option value="">Toutes les annÃ©es</option></select></div>
+      <div class="tw"><div class="thead gc"><div class="th">Titre</div><div class="th">DÃ©but</div><div class="th">Fin</div><div class="th">CatÃ©gories</div><div class="th"></div></div><div id="tbody-exams"></div></div>
+    </div>
+
+    <!-- SPECIALS -->
+    <div id="p-specials" style="display:none">
+      <div class="sh"><div><h1>SpÃ©ciaux &amp; Divers</h1><p><code>calendar_core/data/specials.json</code> â€” tout ce qui ne rentre pas ailleurs</p></div><div class="sh-r"><button class="btn bp" onclick="openAdd('specials')"><i class="fa-solid fa-plus"></i> Ajouter</button></div></div>
+      <div id="stats-specials" class="stats"></div>
+      <div class="tb"><div class="sw"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="si" id="sq-specials" placeholder="Rechercherâ€¦" oninput="renderTable('specials')"/></div><select class="fsel" id="fy-specials" onchange="renderTable('specials')"><option value="">Toutes les annÃ©es</option></select></div>
+      <div class="tw"><div class="thead gc"><div class="th">Titre</div><div class="th">DÃ©but</div><div class="th">Fin</div><div class="th">CatÃ©gories</div><div class="th"></div></div><div id="tbody-specials"></div></div>
+    </div>
+
+    <!-- ELECTIONS -->
+    <div id="p-elections" style="display:none">
+      <div class="sh"><div><h1>Ã‰lections manuelles</h1><p><code>calendar_core/data/elections_override.json</code></p></div><div class="sh-r"><button class="btn bp" onclick="openAdd('elections')"><i class="fa-solid fa-plus"></i> Ajouter</button></div></div>
+      <div class="alert alert-info"><i class="fa-solid fa-circle-info"></i><span>Ces entrÃ©es <strong>remplacent</strong> la dÃ©tection Wikipedia. Le champ <em>confirmed</em> dÃ©termine si la date est officielle.</span></div>
+      <div class="tw"><div class="thead" style="grid-template-columns:1fr 105px 90px 68px"><div class="th">Titre</div><div class="th">Date</div><div class="th">Statut</div><div class="th"></div></div><div id="tbody-elections"></div></div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div id="p-preview" style="display:none">
+      <div class="sh">
+        <div><h1>PrÃ©visualisation</h1><p>Vue consolidÃ©e avec actions directes</p></div>
+        <div class="sh-r">
+          <select class="fsel" id="pvy" onchange="renderPreview()"><option value="">Toutes les annÃ©es</option></select>
+          <select class="fsel" id="pvs" onchange="renderPreview()"><option value="">Toutes les sources</option><option value="sports">Sports</option><option value="exams">Examens</option><option value="specials">SpÃ©ciaux</option><option value="elections">Ã‰lections</option><option value="generated">Calendrier complet</option></select>
+        </div>
+      </div>
+      <div class="tw">
+        <div class="thead" style="grid-template-columns:90px 1fr 220px 112px"><div class="th">Date</div><div class="th">Ã‰vÃ©nement</div><div class="th">CatÃ©gories</div><div class="th">Actions</div></div>
+        <div id="pv-summary" class="pv-summary" style="display:none"></div>
+        <div id="tbody-pv" style="max-height:62vh;overflow-y:auto"></div>
+      </div>
+    </div>
+
+    <!-- GENERATED -->
+    <div id="p-generated" style="display:none">
+      <div class="sh"><div><h1>Calendrier complet</h1><p><code>/calendrier.json</code> â€” toutes les dates gÃ©nÃ©rÃ©es, toutes catÃ©gories.</p></div></div>
+      <div class="alert alert-info"><i class="fa-solid fa-circle-info"></i><span>Cette source est en lecture. Clique sur <strong>Dupliquer</strong> pour crÃ©er une entrÃ©e modifiable dans un fichier source.</span></div>
+      <div id="stats-generated" class="stats"></div>
+      <div class="tb"><div class="sw"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="si" id="sq-generated" placeholder="Rechercherâ€¦" oninput="renderTable('generated')"/></div><select class="fsel" id="fy-generated" onchange="renderTable('generated')"><option value="">Toutes les annÃ©es</option></select></div>
+      <div class="tw"><div class="thead gc"><div class="th">Titre</div><div class="th">DÃ©but</div><div class="th">Fin</div><div class="th">CatÃ©gories</div><div class="th"></div></div><div id="tbody-generated"></div></div>
+    </div>
+
+    <!-- AUDIT -->
+    <div id="p-audit" style="display:none">
+      <div class="sh"><div><h1>Audit qualitÃ©</h1><p>DÃ©tection des Ã©vÃ©nements Ã  corriger et conflits de calendrier.</p></div><div class="sh-r"><button class="btn bs bsm" onclick="renderAudit()"><i class="fa-solid fa-rotate"></i> Actualiser</button><button class="btn bs bsm" onclick="exportAuditCsv()"><i class="fa-solid fa-file-csv"></i> Export CSV</button></div></div>
+      <div class="audit-wrap">
+        <div class="audit-col">
+          <div class="audit-head">Ã‰vÃ©nements Ã  risque</div>
+          <div id="audit-quality" class="audit-list"></div>
+        </div>
+        <div class="audit-col">
+          <div class="audit-head">Conflits dÃ©tectÃ©s</div>
+          <div id="audit-conflicts" class="audit-list"></div>
+        </div>
+      </div>
+      <div class="audit-col" style="margin-top:12px">
+        <div class="audit-head">Historique des actions</div>
+        <div id="audit-history" class="history-list"></div>
+      </div>
+    </div>
+
+    <!-- SUGGESTIONS -->
+    <div id="p-suggestions" style="display:none">
+      <div class="sh">
+        <div><h1>Propositions publiques</h1><p>Validation des suggestions envoyees par les visiteurs.</p></div>
+        <div class="sh-r">
+          <select id="sugg-status" class="fsel" onchange="renderSuggestions()">
+            <option value="pending">En attente</option>
+            <option value="accepted">Acceptees</option>
+            <option value="rejected">Rejetees</option>
+            <option value="all">Toutes</option>
+          </select>
+          <button class="btn bs bsm" onclick="loadSuggestions()"><i class="fa-solid fa-rotate"></i> Recharger</button>
+        </div>
+      </div>
+      <div class="tb"><div class="sw"><i class="fa-solid fa-magnifying-glass"></i><input id="sugg-q" class="si" type="search" placeholder="Rechercher..." oninput="renderSuggestions()"/></div></div>
+      <div class="tw"><div id="sugg-root"></div></div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- MODAL ADD/EDIT -->
+<div class="mbg" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="mhead"><div class="mtitle" id="modal-title">Ajouter</div><button class="mclose" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button></div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- CONFIRM -->
+<div class="cbg" id="confirm" onclick="if(event.target===this)closeConfirm()">
+  <div class="cbox"><div class="cico">ðŸ—‘ï¸</div><div class="ctitle">Supprimer ?</div><div class="cmsg" id="cmsg"></div><div class="cacts"><button class="btn bs" onclick="closeConfirm()">Annuler</button><button class="btn bd" id="cok"><i class="fa-solid fa-trash"></i> Supprimer</button></div></div>
+</div>
+
+<!-- COMMIT MODAL -->
+<div class="mbg" id="commit-modal" onclick="if(event.target===this)closeCommit()">
+  <div class="modal" style="max-width:460px">
+    <div class="mhead"><div class="mtitle"><i class="fa-solid fa-code-branch" style="color:var(--grn);margin-right:8px"></i>Publier sur GitHub</div><button class="mclose" onclick="closeCommit()"><i class="fa-solid fa-xmark"></i></button></div>
+    <p style="font-size:12px;color:var(--t2);margin-bottom:14px;line-height:1.7">Un commit sera crÃ©Ã© sur <code style="color:var(--acc)">main</code> pour chaque fichier modifiÃ©. Le CI GitHub Actions se dÃ©clenchera automatiquement (~2 min).</p>
+    <div class="fgrp" style="margin-bottom:12px"><label class="flbl">Message de commit</label><input type="text" class="fi" id="cmsg-input" maxlength="120"/></div>
+    <div id="commit-files"></div>
+    <div id="commit-diff" class="diff-box" style="display:none"></div>
+    <div id="commit-result" style="display:none" class="commit-result"></div>
+    <div class="facts"><button class="btn bs" onclick="closeCommit()">Annuler</button><button class="btn bg" id="do-commit" onclick="doCommit()"><i class="fa-solid fa-code-commit"></i> Committer</button></div>
+  </div>
+</div>
+
+<!-- BULK EDIT MODAL -->
+<div class="mbg" id="bulk-modal" onclick="if(event.target===this)closeBulkEdit()">
+  <div class="modal" style="max-width:560px">
+    <div class="mhead"><div class="mtitle"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right:8px;color:var(--acc)"></i>Ã‰dition en lot</div><button class="mclose" onclick="closeBulkEdit()"><i class="fa-solid fa-xmark"></i></button></div>
+    <p style="font-size:12px;color:var(--t2);margin-bottom:12px">Applique des changements sur les Ã©vÃ©nements filtrÃ©s de la vue actuelle (hors source gÃ©nÃ©rÃ©e).</p>
+    <div class="bulk-grid">
+      <div class="fgrp full"><label class="flbl">Cible</label><input id="bulk-target" class="fi" disabled/></div>
+      <div class="fgrp"><label class="flbl">Ajouter catÃ©gorie</label><input id="bulk-add-cat" class="fi" placeholder="Ex : Culture"/></div>
+      <div class="fgrp"><label class="flbl">Retirer catÃ©gorie</label><input id="bulk-rem-cat" class="fi" placeholder="Ex : SociÃ©tÃ©"/></div>
+      <div class="fgrp"><label class="flbl">Rechercher (description)</label><input id="bulk-find" class="fi" placeholder="Texte Ã  remplacer"/></div>
+      <div class="fgrp"><label class="flbl">Remplacer par</label><input id="bulk-repl" class="fi" placeholder="Nouveau texte"/></div>
+    </div>
+    <div class="facts"><button class="btn bs" onclick="closeBulkEdit()">Annuler</button><button class="btn bp" onclick="applyBulkEdit()"><i class="fa-solid fa-bolt"></i> Appliquer</button></div>
+  </div>
+</div>
+
+<div id="tz"></div>
+
+<script>
+/* â•â• CATALOGUE CATÃ‰GORIES â•â• */
+const ALL_CATS = [
+  {n:'Sport',g:'Sport',c:'#06b6d4'},{n:'JO',g:'Sport',c:'#0ea5e9'},{n:'Jeux Paralympiques',g:'Sport',c:'#a78bfa'},
+  {n:'Football',g:'Sport',c:'#06b6d4'},{n:'Tennis',g:'Sport',c:'#06b6d4'},{n:'Cyclisme',g:'Sport',c:'#06b6d4'},
+  {n:'Rugby',g:'Sport',c:'#06b6d4'},{n:'Handball',g:'Sport',c:'#06b6d4'},{n:'AthlÃ©tisme',g:'Sport',c:'#06b6d4'},
+  {n:'Formule 1',g:'Sport',c:'#06b6d4'},{n:'Natation',g:'Sport',c:'#06b6d4'},{n:'Ski',g:'Sport',c:'#06b6d4'},
+  {n:'Ã‰ducation',g:'Ã‰ducation',c:'#14b8a6'},{n:'Examens',g:'Ã‰ducation',c:'#14b8a6'},
+  {n:'Ã‰lections',g:'Politique',c:'#f43f5e'},{n:'SociÃ©tÃ©',g:'Politique',c:'#94a3b8'},
+  {n:'Culture',g:'Culture',c:'#a78bfa'},{n:'FÃªtes',g:'Culture',c:'#8b5cf6'},{n:'Christianisme',g:'Culture',c:'#e2c074'},
+  {n:'Gastronomie',g:'Culture',c:'#f59e0b'},{n:'CinÃ©ma',g:'Culture',c:'#f97316'},{n:'ThÃ©Ã¢tre',g:'Culture',c:'#d946ef'},
+  {n:'Saisons',g:'Nature',c:'#22d3ee'},{n:'Astronomie',g:'Nature',c:'#60a5fa'},{n:'Lunaire',g:'Nature',c:'#4f46e5'},
+  {n:'Environnement',g:'Nature',c:'#10b981'},{n:"Changement d'heure",g:'Nature',c:'#3ecf8e'},
+  {n:'SantÃ©',g:'SantÃ©',c:'#ef4444'},
+  {n:'Vacances scolaires',g:'Scolaire',c:'#f5a020'},{n:'Jours fÃ©riÃ©s',g:'Scolaire',c:'#ff5a5a'},{n:'Ponts / CongÃ©s',g:'Scolaire',c:'#fb923c'},
+  {n:'MÃ©moire',g:'MÃ©moire',c:'#64748b'},
+  {n:'Commerce',g:'Autres',c:'#4f7cff'},{n:'Commercial',g:'Autres',c:'#ec4899'},
+  {n:'Agriculture',g:'Autres',c:'#84cc16'},{n:'Dates spÃ©ciales',g:'Autres',c:'#a78bfa'},
+];
+let CAT_CATALOG = [...ALL_CATS];
+let GROUPS = [...new Set(CAT_CATALOG.map(c=>c.g))];
+
+/* routage auto */
+const ROUTES = [
+  {cats:['Sport','JO','Jeux Paralympiques','Football','Tennis','Cyclisme','Rugby','Handball','AthlÃ©tisme','Formule 1','Natation','Ski'],dest:'sports'},
+  {cats:['Ã‰ducation','Examens'],dest:'exams'},
+  {cats:['Ã‰lections'],dest:'elections'},
+];
+function autoRoute(cats){ for(const r of ROUTES){if(cats.some(c=>r.cats.includes(c)))return r.dest;} return 'specials'; }
+
+/* â•â• STATE â•â• */
+const CY=new Date().getFullYear(), NY=CY+1;
+const store={sports:[],exams:[],specials:[],elections:[],generated:[]};
+const shas={sports:null,exams:null,specials:null,elections:null};
+const baseline={sports:[],exams:[],specials:[],elections:[]};
+const dirty=new Set();
+const undoStack=[];
+const actionHistory=[];
+let curP='workspace', editS=null, sideCat='';
+const UI_PREFS_KEY='admin_ui_prefs_v1';
+const STATUS_KEY='admin_status_tags_v1';
+const TABLE_PAGE_SIZE=300;
+const tableRenderState={};
+const VIRTUAL_ROW_HEIGHT=56;
+const VIRTUAL_OVERSCAN=10;
+const VIRTUAL_MIN_ITEMS=800;
+const virtualTableState={};
+let KNOWN_CATS_SET=new Set(ALL_CATS.map(c=>c.n));
+let statusMapCache={};
+const duplicateKeysBySource={sports:new Set(),exams:new Set(),specials:new Set(),elections:new Set(),generated:new Set()};
+const suggestionsState={items:[],pending:0,total:0};
+const generatedCategoryFilesState={loaded:false,loading:false,files:[]};
+
+const EDITABLE_SOURCES = ['sports','exams'];
+
+const DMETA={
+  sports:   {label:'Sports',   path:'calendar_core/data/sports.json',             color:'#06b6d4'},
+  exams:    {label:'Examens',  path:'calendar_core/data/exams.json',              color:'#14b8a6'},
+  specials: {label:'SpÃ©ciaux', path:'calendrier.json (source)',                   color:'#a78bfa'},
+  elections:{label:'Ã‰lections',path:'calendrier.json (source)',                   color:'#f43f5e'},
+  generated:{label:'Calendrier',path:'calendrier.json', color:'#6b8cff'},
+};
+
+/* â•â• INIT â•â• */
+async function init(){
+  await Promise.allSettled(EDITABLE_SOURCES.map(loadSrc));
+  loadStatusMap();
+  recomputeDuplicateKeys();
+  refreshCategoryCatalog();
+  buildAllFilters();
+  loadUiPrefs();
+  buildSidebarCats();
+  updateBadges();
+  nav(curP||'workspace');
+  bindUiPrefs();
+  updateUndoBtn();
+  renderActionHistory();
+  document.getElementById('loader').classList.add('gone');
+
+  // Load in background (don't block UI)
+  setTimeout(async () => {
+    try {
+      await Promise.allSettled([loadGenerated(), loadSuggestions()]);
+      recomputeDuplicateKeys();
+      refreshCategoryCatalog();
+      buildAllFilters();
+      buildSidebarCats();
+      updateBadges();
+      rerenderCurrentPage();
+      loadEventsMetaData();
+      loadGeneratedCategoryFiles();
+    } catch(e) {
+      console.error('Background load error:', e);
+    }
+  }, 500);
+}
+
+async function apiFetch(url, options = {}) {
+  const reqOptions = { ...options, credentials: 'same-origin' };
+  const r = await fetch(url, reqOptions);
+  if (r.status === 401) {
+    if (window.location.pathname !== '/admin/login') {
+      window.location.href = '/admin/login';
+    }
+    throw new Error('Session expirÃ©e');
+  }
+  return r;
+}
+
+async function ensureAdminSession() {
+  try {
+    const r = await fetch('/api/admin-auth?action=me', { credentials: 'same-origin' });
+    return r.ok;
+  } catch {
+    return false;
+  }
+}
+
+async function bootAdmin() {
+  const ok = await ensureAdminSession();
+  if (!ok) {
+    window.location.href = '/admin/login';
+    return;
+  }
+  try {
+    await init();
+  } catch (e) {
+    document.getElementById('loader').classList.add('gone');
+    toast('Chargement admin partiel: ' + (e.message || 'erreur'), 'err');
+  }
+}
+async function loadSrc(s){
+  if(s === 'specials' || s === 'elections') {
+    store[s] = [];
+    baseline[s] = [];
+    shas[s] = null;
+    return;
+  }
+  try{
+    const r=await apiFetch(`/api/admin-data?source=${s}`);
+    if(!r.ok)return;
+    const d=await r.json();
+    const p=JSON.parse(d.content);
+    store[s]=Array.isArray(p?.events)?p.events:Array.isArray(p)?p:[];
+    baseline[s]=deepClone(store[s]);
+    shas[s]=d.sha;
+  }catch{store[s]=[];baseline[s]=[];}
+}
+
+const loadGeneratedState = { loaded: false, loading: false, offset: 0 };
+
+function loadGenerated(){
+  return Promise.resolve();
+}
+
+async function loadGeneratedLazy(){
+  if(loadGeneratedState.loading) return;
+  if(!store.generated?.length && loadGeneratedState.loaded) return;
+  
+  loadGeneratedState.loading = true;
+  try{
+    const r = await fetch(`/api/admin-calendar?offset=0&limit=1000`);
+    if(!r.ok) {
+      loadGeneratedState.loaded = true;
+      loadGeneratedState.loading = false;
+      return;
+    }
+    const d = await r.json();
+    const evts = Array.isArray(d?.events) ? d.events : [];
+    store.generated = evts.map(e => ({
+      summary: e.summary || '',
+      start: e.start || '',
+      end: e.end || '',
+      categories: Array.isArray(e.categories) ? e.categories : [],
+      description: e.description || '',
+      zones: Array.isArray(e.zones) ? e.zones : [],
+    }));
+    loadGeneratedState.loaded = true;
+  }catch(e){
+    console.error('Load generated error:', e);
+    store.generated = [];
+    loadGeneratedState.loaded = true;
+  }
+  loadGeneratedState.loading = false;
+}
+
+async function loadGeneratedCategoryFiles(){
+  if(generatedCategoryFilesState.loading)return;
+  generatedCategoryFilesState.loading=true;
+  const categories=[...new Set((store.generated||[]).flatMap(e=>e.categories||[]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'fr'));
+  const files=await Promise.all(categories.map(async category=>{
+    const slug=categoryFileSlug(category);
+    const path=`/calendar_core/data/generated_events/${encodeURIComponent(slug)}.json`;
+    try{
+      const r=await fetch(path,{cache:'no-store'});
+      if(!r.ok)return null;
+      const items=await r.json();
+      if(!Array.isArray(items))return null;
+      const years=[...new Set(items.map(item=>String(item.start||'').slice(0,4)).filter(Boolean))].sort();
+      return {category,path,count:items.length,years};
+    }catch{
+      return null;
+    }
+  }));
+  generatedCategoryFilesState.files=files.filter(Boolean).sort((a,b)=>b.count-a.count || a.category.localeCompare(b.category,'fr'));
+  generatedCategoryFilesState.loaded=true;
+  generatedCategoryFilesState.loading=false;
+  renderHealthDashboard();
+  renderWorkspacePanels();
+}
+
+function refreshCategoryCatalog(){
+  const known = new Map(ALL_CATS.map(c => [norm(c.n), c]));
+  const catsFromData = [...new Set(Object.values(store).flatMap(e => (e.categories || [])))].filter(Boolean);
+  const merged = [...ALL_CATS];
+  catsFromData.forEach(name => {
+    if (!known.has(norm(name))) {
+      merged.push({ n: name, g: 'Autres', c: '#94a3b8' });
+    }
+  });
+  CAT_CATALOG = merged.sort((a,b) => a.g.localeCompare(b.g,'fr') || a.n.localeCompare(b.n,'fr'));
+  GROUPS = [...new Set(CAT_CATALOG.map(c => c.g))];
+  KNOWN_CATS_SET=new Set(CAT_CATALOG.map(c=>c.n));
+}
+
+function recomputeDuplicateKeys(){
+  Object.keys(duplicateKeysBySource).forEach(k=>{duplicateKeysBySource[k]=new Set();});
+  Object.entries(store).forEach(([src,arr])=>{
+    const counts=new Map();
+    (arr||[]).forEach(e=>{
+      const key=`${e.summary||''}|${e.start||''}`;
+      counts.set(key,(counts.get(key)||0)+1);
+    });
+    counts.forEach((count,key)=>{if(count>1)duplicateKeysBySource[src].add(key);});
+  });
+}
+
+function buildSidebarCats(){
+  const root = document.getElementById('sb-cats');
+  if(!root) return;
+  const counts = new Map();
+  Object.values(store).flat().forEach(e => {
+    (e.categories || []).forEach(c => counts.set(c, (counts.get(c) || 0) + 1));
+  });
+  const cats = [...counts.entries()].sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0],'fr'));
+  const allClass = sideCat ? '' : ' on';
+  root.innerHTML = `<button class="sb-cat${allClass}" onclick="setSideCat('')">Toutes<span class="k">${cats.reduce((n,[,v])=>n+v,0)}</span></button>` +
+    cats.map(([name, cnt]) => `<button class="sb-cat${sideCat===name?' on':''}" onclick="setSideCat('${esc(name).replace(/'/g,"\\'")}')">${esc(name)}<span class="k">${cnt}</span></button>`).join('');
+}
+
+function setSideCat(cat){
+  sideCat = cat || '';
+  saveUiPrefs();
+  buildSidebarCats();
+  rerenderCurrentPage();
+}
+
+async function reloadAll(){
+  toast('Rechargementâ€¦','info');
+  await Promise.allSettled(EDITABLE_SOURCES.map(loadSrc));
+  await loadGenerated();
+  await loadGeneratedCategoryFiles();
+  await loadSuggestions();
+  recomputeDuplicateKeys();
+  refreshCategoryCatalog();
+  buildAllFilters(); buildSidebarCats(); updateBadges(); rerenderCurrentPage();
+  toast('RechargÃ©','ok');
+}
+
+/* â•â• NAV â•â• */
+const PMETA={
+  workspace:{title:'Vue d\'ensemble',sub:'Pilotage, prioritÃ©s et Ã©tat des fichiers'},
+  all:      {title:'Tous les Ã©vÃ©nements',sub:'Bloc-notes universel'},
+  preview:  {title:'PrÃ©visualisation',   sub:'Vue consolidÃ©e triÃ©e par date'},
+  sports:   {title:'Sports & JO',        sub:'calendar_core/data/sports.json'},
+  exams:    {title:'Examens nationaux',  sub:'calendar_core/data/exams.json'},
+  specials: {title:'SpÃ©ciaux & Divers',  sub:'calendar_core/data/specials.json'},
+  elections:{title:'Ã‰lections manuelles',sub:'calendar_core/data/elections_override.json'},
+  generated:{title:'Calendrier complet',sub:'calendrier.json (lecture + duplication rapide)'},
+  suggestions:{title:'Propositions',sub:'Moderation des suggestions publiques'},
+  audit:    {title:'Audit qualitÃ©',sub:'ContrÃ´les donnÃ©es, conflits et historique'},
+};
+function nav(p){
+  curP=p;
+  saveUiPrefs();
+  
+  // Load full calendar lazily when navigating to specials, elections, preview, or audit
+  const needsCalendar = ['specials','elections','preview','audit'].includes(p);
+  if(needsCalendar && !loadGeneratedState.loaded && !store.generated?.length) {
+    const loader = document.getElementById('loader');
+    if(loader && loader.classList.contains('gone')) {
+      loader.classList.remove('gone');
+    }
+    loadGeneratedLazy().then(() => {
+      if(loader) loader.classList.add('gone');
+      completeNav(p);
+    }).catch(e => {
+      console.error('Failed to load calendar:', e);
+      if(loader) loader.classList.add('gone');
+      completeNav(p);
+    });
+    return;
+  }
+  
+  completeNav(p);
+}
+
+function completeNav(p){
+  document.querySelectorAll('[id^="p-"]').forEach(el=>el.style.display='none');
+  const panel=document.getElementById('p-'+p);
+  if(!panel){
+    curP='all';
+    document.getElementById('p-all').style.display='';
+  } else {
+    panel.style.display='';
+  }
+  document.querySelectorAll('.nav-btn[data-p]').forEach(b=>b.classList.toggle('on',b.dataset.p===p));
+  const m=PMETA[p]||{};
+  document.getElementById('tb-title').textContent=m.title||p;
+  document.getElementById('tb-sub').textContent=m.sub||'';
+  if(p==='workspace'){renderWorkspacePage();}
+  else if(p==='preview'){buildPvYears();renderPreview();}
+  else if(p==='suggestions'){renderSuggestions();}
+  else if(p==='audit'){renderAudit();}
+  else if(p==='elections' || p==='specials'){renderTable(p);}
+  else{renderTable(p);}
+}
+
+function rerenderCurrentPage(){
+  if(curP==='workspace') renderWorkspacePage();
+  else if(curP==='preview') renderPreview();
+  else if(curP==='suggestions') renderSuggestions();
+  else if(curP==='audit') renderAudit();
+  else if(curP==='elections') renderElections();
+  else renderTable(curP||'all');
+}
+
+/* â•â• FILTERS â•â• */
+function buildAllFilters(){['all','sports','exams','specials','generated'].forEach(buildYF);buildCatF();}
+function buildYF(s){
+  const sel=document.getElementById('fy-'+s);if(!sel)return;
+  const items=s==='all'?Object.values(store).flat():store[s]||[];
+  const years=[...new Set(items.map(e=>(e.start||'').slice(0,4)).filter(Boolean))].sort((a,b)=>b-a);
+  const cur=sel.value; sel.innerHTML='<option value="">Toutes les annÃ©es</option>';
+  years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;sel.appendChild(o);});
+  if(years.includes(cur))sel.value=cur;
+}
+function buildCatF(){
+  const sel=document.getElementById('fcat-all');if(!sel)return;
+  const cats=[...new Set(CAT_CATALOG.map(c=>c.n))].sort((a,b)=>a.localeCompare(b,'fr'));
+  sel.innerHTML='<option value="">Toutes les catÃ©gories</option>';
+  cats.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o);});
+}
+function buildPvYears(){
+  const sel=document.getElementById('pvy');if(!sel)return;
+  const years=[...new Set(Object.values(store).flat().map(e=>(e.start||'').slice(0,4)).filter(Boolean))].sort((a,b)=>b-a);
+  sel.innerHTML='<option value="">Toutes les annÃ©es</option>';
+  years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;sel.appendChild(o);});
+}
+
+function renderWorkspacePage(){
+  updateQuickPanel();
+  const metrics=document.getElementById('workspace-metrics');
+  if(metrics){
+    const editableTotal=EDITABLE_SOURCES.reduce((sum,src)=>sum+(store[src]||[]).length,0);
+    const dirtyCount=dirty.size;
+    const allAudit = getAllAuditItems();
+    const duplicates=findConflicts(allAudit).length;
+    const upcoming=allAudit.filter(e=>{const days=getDaysUntil(e.start);return days!==null && days>=0 && days<=14;}).length;
+    metrics.innerHTML=[
+      {k:'Ã‰ditables',v:editableTotal,m:'entrÃ©es dans les fichiers source'},
+      {k:'Ã€ publier',v:dirtyCount,m:dirtyCount?'fichier(s) modifiÃ©(s)':'aucun changement'},
+      {k:'Conflits',v:duplicates,m:'chevauchements dÃ©tectÃ©s'},
+      {k:'Ã€ venir',v:upcoming,m:'Ã©vÃ©nements sous 14 jours'},
+    ].map(card=>`<div class="overview-metric"><div class="k">${card.k}</div><div class="v">${card.v}</div><div class="m">${card.m}</div></div>`).join('');
+  }
+
+  const focus=document.getElementById('workspace-focus');
+  if(focus){
+    const items=[];
+    const duplicates=findConflicts(getAllAuditItems()).slice(0,2);
+    if(duplicates.length){
+      items.push(...duplicates.map(conflict=>({
+        title:conflict.title,
+        meta:conflict.msg,
+        actions:`<button class="btn bs bsm" onclick="focusPreviewConflicts()"><i class="fa-solid fa-shuffle"></i> Ouvrir les conflits</button><button class="btn bs bsm" onclick="nav('audit')"><i class="fa-solid fa-shield-heart"></i> Audit</button>`
+      })));
+    }
+    EDITABLE_SOURCES.forEach(src=>{
+      const missingDesc=countMissingForSource(src,'description');
+      const missingCats=countMissingForSource(src,'categories');
+      if(missingDesc || missingCats){
+        items.push({
+          title:`${DMETA[src]?.label||src}`,
+          meta:`${missingDesc} sans description Â· ${missingCats} sans catÃ©gorie`,
+          actions:`<button class="btn bs bsm" onclick="nav('${src}')"><i class="fa-solid fa-table"></i> Ouvrir</button><button class="btn bs bsm" onclick="focusPreviewMissing('${missingDesc?'description':'categories'}')"><i class="fa-solid fa-filter"></i> Filtrer</button>`
+        });
+      }
+    });
+    if(!items.length){
+      focus.innerHTML='<div class="file-empty">Aucun point bloquant immÃ©diat.</div>';
+    }else{
+      focus.innerHTML=items.slice(0,6).map(item=>`<div class="focus-item"><div class="t">${esc(item.title)}</div><div class="m">${esc(item.meta)}</div><div class="focus-item-actions">${item.actions}</div></div>`).join('');
+    }
+  }
+  renderWorkspacePanels();
+}
+
+/* â•â• BADGES & STATS â•â• */
+function updateBadges(){
+  document.getElementById('nb-all').textContent=Object.values(store).reduce((s,a)=>s+a.length,0);
+  Object.keys(store).forEach(s=>{const el=document.getElementById('nb-'+s);if(el)el.textContent=store[s].length;});
+}
+function renderStats(s){
+  const el=document.getElementById('stats-'+s);if(!el)return;
+  const items=s==='all'?Object.values(store).flat():store[s]||[];
+  const ty=items.filter(e=>(e.start||'').startsWith(String(CY))).length;
+  const ny=items.filter(e=>(e.start||'').startsWith(String(NY))).length;
+  const nc=new Set(items.flatMap(e=>e.categories||[])).size;
+  el.innerHTML=`<div class="sc hi"><div class="sc-v">${items.length}</div><div class="sc-l">Total</div></div><div class="sc"><div class="sc-v">${ty}</div><div class="sc-l">En ${CY}</div></div><div class="sc"><div class="sc-v">${ny}</div><div class="sc-l">En ${NY}</div></div><div class="sc"><div class="sc-v">${nc}</div><div class="sc-l">CatÃ©gories</div></div>`;
+}
+
+/* â•â• RENDER TABLE â•â• */
+function getItems(s){
+  if(s==='specials' || s==='elections') {
+    if(!store.generated?.length) return [];
+    const sportCats = ['Sport','JO','Football','Tennis','Cyclisme','Rugby','Handball','AthlÃ©tisme','Formule 1','Natation','Ski'];
+    const examsCats = ['Ã‰ducation','Examens'];
+    if(s === 'specials') {
+      return store.generated.filter(e => {
+        const isSport = e.categories?.some(c => sportCats.includes(c));
+        const isExam = e.categories?.some(c => examsCats.includes(c));
+        const isElection = e.categories?.includes('Ã‰lections');
+        return !isSport && !isExam && !isElection;
+      }).map((e,idx)=>({...e,_src:s,_idx:idx}));
+    } else {
+      return store.generated.filter(e => e.categories?.includes('Ã‰lections')).map((e,idx)=>({...e,_src:s,_idx:idx}));
+    }
+  }
+  if(s==='all')return Object.entries(store).flatMap(([k,arr])=>arr.map((e,idx)=>({...e,_src:k,_idx:idx})));
+  return(store[s]||[]).map((e,idx)=>({...e,_src:s,_idx:idx}));
+}
+
+function getFilteredItemsForTable(s){
+  const q=norm((document.getElementById('sq-'+s)||{}).value||'');
+  const yr=(document.getElementById('fy-'+s)||{}).value||'';
+  const cat=(document.getElementById('fcat-'+s)||{}).value||'';
+  const fsrc=(document.getElementById('fsrc-'+s)||{}).value||'';
+  return getItems(s).filter(e=>{
+    const t=norm(e.summary||''),cs=(e.categories||[]).join(' ').toLowerCase();
+    return(!yr||(e.start||'').startsWith(yr))&&(!cat||(e.categories||[]).includes(cat))&&(!q||t.includes(q)||cs.includes(q)||norm(e.description||'').includes(q))&&(!fsrc||e._src===fsrc)&&(!sideCat||(e.categories||[]).includes(sideCat));
+  }).sort((a,b)=>(a.start||'').localeCompare(b.start||''));
+}
+
+function getTableFilterKey(s){
+  const q=(document.getElementById('sq-'+s)||{}).value||'';
+  const yr=(document.getElementById('fy-'+s)||{}).value||'';
+  const cat=(document.getElementById('fcat-'+s)||{}).value||'';
+  const fsrc=(document.getElementById('fsrc-'+s)||{}).value||'';
+  return [q,yr,cat,fsrc,sideCat].join('|');
+}
+
+function showMoreRows(s){
+  const st=tableRenderState[s]||{key:'',count:TABLE_PAGE_SIZE};
+  st.count+=TABLE_PAGE_SIZE;
+  tableRenderState[s]=st;
+  renderTable(s);
+}
+
+function shouldVirtualizeTable(s, itemCount){
+  return (s==='all' || s==='generated') && itemCount>=VIRTUAL_MIN_ITEMS;
+}
+
+function buildTableRowHtml(e, showSrc){
+  const rs=e._src;
+  const ri=e._idx;
+  const ro=rs==='generated' || rs==='specials' || rs==='elections';
+  const chips=(e.categories||[]).slice(0,4).map(c=>chipHtml(c)).join('');
+  const y2=(e.start||'').slice(0,4);
+  const sb=showSrc?`<span class="sbadge" style="color:${DMETA[rs]?.color};background:${DMETA[rs]?.color}18;border-color:${DMETA[rs]?.color}44">${DMETA[rs]?.label||rs}</span>`:'';
+  const zoneTag=(e.zones||[]).length?`<span class="sbadge" style="color:var(--amb);background:var(--ambd);border-color:var(--ambb)">${(e.zones||[]).join(',')}</span>`:'';
+  const qv=getQualityReport(e, rs, ri, { duplicateSet: duplicateKeysBySource[rs] });
+  const qClass=qv.score>=85?'q-ok':qv.score>=65?'q-mid':'q-low';
+  const st=getStatusForEvent(e, rs);
+  const stBadge=st==='review'?'<span class="st-badge st-review">A revoir</span>':st==='valid'?'<span class="st-badge st-valid">ValidÃ©</span>':'';
+  return`<div class="trow gc ar">
+    <div class="td tdb" title="${esc(e.summary)}">${esc(e.summary)}${sb}${zoneTag}${stBadge}<span class="qbadge ${qClass}">Q ${qv.score}</span><span class="ytag ${yrClass(y2)}">${y2}</span></div>
+    <div class="td tdm">${e.start||'â€”'}</div>
+    <div class="td tdm">${e.end||'â€”'}</div>
+    <div class="td" style="overflow:visible;white-space:normal">${chips||'<span style="color:var(--t3)">â€”</span>'}</div>
+    <div class="td tda">
+      ${ro
+        ? `<button class="btn bs bsm" title="Dupliquer vers une source modifiable" onclick="openCloneFromGenerated(${ri})"><i class="fa-solid fa-copy"></i> Dupliquer</button>`
+        : `<button class="btn bs bsm bico" title="Basculer statut" onclick="toggleEventStatus('${rs}',${ri})"><i class="fa-solid fa-tag"></i></button>
+           <button class="btn bs bsm bico" title="Ã‰diter" onclick="openEdit('${rs}',${ri})"><i class="fa-solid fa-pen"></i></button>
+           <button class="btn bd bsm bico" title="Supprimer" onclick="askDelete('${rs}',${ri},'${esc(e.summary).replace(/'/g,"\\'")}')"><i class="fa-solid fa-trash"></i></button>`}
+    </div>
+  </div>`;
+}
+
+function disableVirtualTable(s, el){
+  const st=virtualTableState[s];
+  if(st?.el && st?.onScroll){
+    st.el.removeEventListener('scroll', st.onScroll);
+  }
+  delete virtualTableState[s];
+  el.style.maxHeight='';
+  el.style.overflowY='';
+}
+
+function bindVirtualTable(s, el, items, showSrc){
+  const existing=virtualTableState[s];
+  if(existing?.el!==el && existing?.el && existing?.onScroll){
+    existing.el.removeEventListener('scroll', existing.onScroll);
+  }
+
+  if(!existing || existing.el!==el){
+    let ticking=false;
+    const onScroll=()=>{
+      if(ticking)return;
+      ticking=true;
+      requestAnimationFrame(()=>{ticking=false;renderVirtualSlice(s);});
+    };
+    el.addEventListener('scroll', onScroll, { passive:true });
+    virtualTableState[s]={el,onScroll,items,showSrc};
+  }else{
+    virtualTableState[s].items=items;
+    virtualTableState[s].showSrc=showSrc;
+  }
+
+  el.style.maxHeight='68vh';
+  el.style.overflowY='auto';
+}
+
+function renderVirtualSlice(s){
+  const st=virtualTableState[s];
+  if(!st || !st.el || !Array.isArray(st.items))return;
+  const el=st.el;
+  const items=st.items;
+  const showSrc=st.showSrc;
+  const viewport=el.clientHeight||600;
+  const top=el.scrollTop||0;
+  const start=Math.max(0,Math.floor(top/VIRTUAL_ROW_HEIGHT)-VIRTUAL_OVERSCAN);
+  const end=Math.min(items.length,Math.ceil((top+viewport)/VIRTUAL_ROW_HEIGHT)+VIRTUAL_OVERSCAN);
+  const topPad=start*VIRTUAL_ROW_HEIGHT;
+  const bottomPad=(items.length-end)*VIRTUAL_ROW_HEIGHT;
+  const visible=items.slice(start,end);
+  el.innerHTML=`<div style="height:${topPad}px"></div>${visible.map(e=>buildTableRowHtml(e,showSrc)).join('')}<div style="height:${bottomPad}px"></div>`;
+}
+
+function renderTable(s){
+  renderStats(s==='all'?'all':s);
+  const q=norm((document.getElementById('sq-'+s)||{}).value||'');
+  const items=getFilteredItemsForTable(s);
+  const filterKey=getTableFilterKey(s);
+  const st=tableRenderState[s]||{key:'',count:TABLE_PAGE_SIZE};
+  const keyChanged=st.key!==filterKey;
+  if(keyChanged){st.key=filterKey;st.count=TABLE_PAGE_SIZE;}
+  tableRenderState[s]=st;
+  const el=document.getElementById('tbody-'+s);if(!el)return;
+  if(!items.length){disableVirtualTable(s, el);el.innerHTML=`<div class="empty"><span class="empty-ico">ðŸ“…</span><p>Aucun Ã©vÃ©nement${q?` pour "${q}"`:''}.</p></div>`;return;}
+  const showSrc=s==='all';
+
+  if(shouldVirtualizeTable(s, items.length)){
+    bindVirtualTable(s, el, items, showSrc);
+    if(keyChanged) el.scrollTop=0;
+    renderVirtualSlice(s);
+    return;
+  }
+
+  disableVirtualTable(s, el);
+
+  const visibleItems=items.slice(0,st.count);
+  el.innerHTML=visibleItems.map(e=>buildTableRowHtml(e, showSrc)).join('') + (items.length>visibleItems.length
+    ? `<div class="trow ar" style="grid-template-columns:1fr"><div class="td" style="text-align:center"><button class="btn bs bsm" onclick="showMoreRows('${s}')"><i class="fa-solid fa-chevron-down"></i> Voir ${Math.min(TABLE_PAGE_SIZE, items.length-visibleItems.length)} de plus (${items.length-visibleItems.length} restants)</button></div></div>`
+    : '');
+}
+function renderElections(){
+  const el=document.getElementById('tbody-elections');if(!el)return;
+  if(!store.elections.length){el.innerHTML=`<div class="empty"><span class="empty-ico">ðŸ—³ï¸</span><p>Aucune Ã©lection.</p></div>`;return;}
+  el.innerHTML=store.elections.map((e,i)=>{
+    const conf=e.confirmed!==false;
+    return`<div class="trow ar" style="grid-template-columns:1fr 105px 90px 68px">
+      <div class="td tdb">${esc(e.summary)}</div>
+      <div class="td tdm">${e.start||'â€”'}</div>
+      <div class="td"><span class="chip ${conf?'cD':'cE'}">${conf?'ConfirmÃ©':'EstimÃ©'}</span></div>
+      <div class="td tda">
+        <button class="btn bs bsm bico" onclick="openEdit('elections',${i})"><i class="fa-solid fa-pen"></i></button>
+        <button class="btn bd bsm bico" onclick="askDelete('elections',${i},'${esc(e.summary).replace(/'/g,"\\'")}')"><i class="fa-solid fa-trash"></i></button>
+      </div>
+    </div>`;
+  }).join('');
+}
+let PREVIEW_FILTER=null;
+let PREVIEW_FOCUS_LABEL='Aucun focus actif.';
+
+function previewItemMeta(e){
+  const srcLabel=DMETA[e._src]?.label||e._src;
+  const desc=String(e.description||'').trim();
+  const shortDesc=desc ? ` Â· ${esc(desc.slice(0,80))}${desc.length>80?'â€¦':''}` : '';
+  return `${esc(srcLabel)}${shortDesc}`;
+}
+
+function buildPreviewActions(e){
+  const eventHref=getEventPath(e);
+  const sourceColor=DMETA[e._src]?.color||'#6b8cff';
+  const openBtn=`<a class="btn bs bsm bico" title="Ouvrir la page" href="${eventHref}" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i></a>`;
+  if(e._src==='generated'){
+    return `<div class="pv-actions"><span class="sbadge" style="color:${sourceColor};background:${sourceColor}18;border-color:${sourceColor}44">${DMETA.generated.label}</span>${openBtn}<button class="btn bs bsm bico" title="Dupliquer" onclick="openCloneFromGenerated(${e._idx})"><i class="fa-solid fa-copy"></i></button></div>`;
+  }
+  return `<div class="pv-actions"><span class="sbadge" style="color:${sourceColor};background:${sourceColor}18;border-color:${sourceColor}44">${DMETA[e._src]?.label||e._src}</span>${openBtn}<button class="btn bs bsm bico" title="Statut" onclick="toggleEventStatus('${e._src}',${e._idx})"><i class="fa-solid fa-tag"></i></button><button class="btn bs bsm bico" title="Modifier" onclick="openEdit('${e._src}',${e._idx})"><i class="fa-solid fa-pen"></i></button><button class="btn bd bsm bico" title="Supprimer" onclick="askDelete('${e._src}',${e._idx},'${esc(e.summary).replace(/'/g,"\\'")}')"><i class="fa-solid fa-trash"></i></button></div>`;
+}
+
+function renderPreviewSummary(items){
+  const root=document.getElementById('pv-summary');
+  if(!root)return;
+  const source=(document.getElementById('pvs')||{}).value||'';
+  const year=(document.getElementById('pvy')||{}).value||'';
+  const bits=[
+    `<span class="mini-pill good">${items.length} Ã©lÃ©ment(s)</span>`,
+    source?`<span class="mini-pill">${esc(DMETA[source]?.label||source)}</span>`:'',
+    year?`<span class="mini-pill">${esc(year)}</span>`:'',
+    sideCat?`<span class="mini-pill">${esc(sideCat)}</span>`:'',
+    PREVIEW_FOCUS_LABEL && PREVIEW_FOCUS_LABEL!=='Aucun focus actif.'?`<span class="mini-pill warn">${esc(PREVIEW_FOCUS_LABEL)}</span>`:''
+  ].filter(Boolean).join('');
+  root.style.display=bits?'flex':'none';
+  root.innerHTML=bits;
+}
+
+function renderPreview(){
+  let all=getPreviewItems();
+  if(PREVIEW_FILTER) all=all.filter(PREVIEW_FILTER);
+  all.sort((a,b)=>(a.start||'').localeCompare(b.start||''));
+  renderPreviewSummary(all);
+  const el=document.getElementById('tbody-pv');if(!el)return;
+  if(!all.length){el.innerHTML=`<div class="empty"><span class="empty-ico">ðŸ“…</span><p>Aucun Ã©vÃ©nement.</p></div>`;return;}
+  el.innerHTML=all.slice(0,300).map(e=>`
+    <div class="pv-row">
+      <div class="pv-date">${e.start||'â€”'}</div>
+      <div class="pv-main">
+        <div class="pv-title" title="${esc(e.summary)}">${esc(e.summary)}</div>
+        <div class="pv-meta">${previewItemMeta(e)}</div>
+      </div>
+      <div class="pv-cats">${(e.categories||[]).slice(0,4).map(c=>chipHtml(c)).join('')}</div>
+      ${buildPreviewActions(e)}
+    </div>`).join('');
+  if(all.length>300)el.innerHTML+=`<div style="padding:10px 14px;font-size:11px;color:var(--t3);text-align:center">+${all.length-300} Ã©vÃ©nements (affinez)</div>`;
+}
+
+async function loadSuggestions(){
+  try{
+    const r=await apiFetch('/api/suggestions?admin=1');
+    if(!r.ok)return;
+    const d=await r.json();
+    suggestionsState.items=Array.isArray(d.items)?d.items:[];
+    suggestionsState.pending=Number(d.pending||0);
+    suggestionsState.total=Number(d.total||suggestionsState.items.length);
+    const badge=document.getElementById('nb-suggestions');
+    if(badge)badge.textContent=String(suggestionsState.pending||0);
+    if(curP==='suggestions')renderSuggestions();
+  }catch{}
+}
+
+function suggestionStatusClass(status){
+  if(status==='accepted')return 's-a';
+  if(status==='rejected')return 's-r';
+  return 's-p';
+}
+
+function renderSuggestions(){
+  const root=document.getElementById('sugg-root');
+  if(!root)return;
+  const q=norm((document.getElementById('sugg-q')||{}).value||'');
+  const status=(document.getElementById('sugg-status')||{}).value||'pending';
+  let list=[...suggestionsState.items];
+  if(status!=='all')list=list.filter(s=>String(s.status||'pending')===status);
+  if(q)list=list.filter(s=>norm(s.summary||'').includes(q)||norm(s.description||'').includes(q)||(s.categories||[]).some(c=>norm(c).includes(q)));
+
+  if(!list.length){
+    root.innerHTML='<div class="empty"><span class="empty-ico">ðŸ“¥</span><p>Aucune proposition.</p></div>';
+    return;
+  }
+
+  root.innerHTML=list.map(s=>`<div class="sugg-row">
+    <div class="sugg-head">
+      <div>
+        <div class="sugg-title">${esc(s.summary||'(sans titre)')}</div>
+        <div class="sugg-meta">${esc(s.start||'--')} ${s.end?`â†’ ${esc(s.end)}`:''} Â· ${(s.categories||[]).slice(0,4).map(c=>esc(c)).join(', ')||'Sans categorie'}</div>
+      </div>
+      <span class="${suggestionStatusClass(String(s.status||'pending'))}">${esc(String(s.status||'pending'))}</span>
+    </div>
+    <div class="sugg-meta" style="margin-top:6px">${esc((s.description||'').slice(0,220))}${(s.description||'').length>220?'...':''}</div>
+    <div class="sugg-actions">
+      <button class="btn bs bsm" onclick="useSuggestion('${esc(String(s.id||'')).replace(/'/g,"\\'")}')"><i class="fa-solid fa-arrow-up-right-from-square"></i> Pre-remplir</button>
+      <button class="btn bg bsm" onclick="setSuggestionStatus('${esc(String(s.id||'')).replace(/'/g,"\\'")}','accepted')"><i class="fa-solid fa-check"></i> Accepter</button>
+      <button class="btn bd bsm" onclick="setSuggestionStatus('${esc(String(s.id||'')).replace(/'/g,"\\'")}','rejected')"><i class="fa-solid fa-xmark"></i> Rejeter</button>
+      <button class="btn bs bsm" onclick="setSuggestionStatus('${esc(String(s.id||'')).replace(/'/g,"\\'")}','pending')"><i class="fa-solid fa-clock"></i> Remettre en attente</button>
+    </div>
+  </div>`).join('');
+}
+
+async function setSuggestionStatus(id,status){
+  try{
+    const r=await apiFetch('/api/suggestions',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,status})});
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok)throw new Error(d.error||'Erreur');
+    const idx=suggestionsState.items.findIndex(s=>s.id===id);
+    if(idx!==-1)suggestionsState.items[idx].status=status;
+    suggestionsState.pending=suggestionsState.items.filter(s=>String(s.status||'pending')==='pending').length;
+    const badge=document.getElementById('nb-suggestions');
+    if(badge)badge.textContent=String(suggestionsState.pending||0);
+    renderSuggestions();
+    addActionHistory(`Suggestion ${id} -> ${status}`);
+    toast('Statut mis a jour','ok');
+  }catch(e){
+    toast(e.message||'Erreur mise a jour','err');
+  }
+}
+
+function useSuggestion(id){
+  const s=suggestionsState.items.find(x=>x.id===id);
+  if(!s){toast('Suggestion introuvable','err');return;}
+  openAdd(null);
+  const setVal=(id,v)=>{const el=document.getElementById(id);if(el)el.value=v||'';};
+  setVal('f-sum',s.summary||'');
+  setVal('f-start',s.start||'');
+  setVal('f-end',s.end||'');
+  const desc=[s.description||'',s.sourceUrl?`\n\nSource: ${s.sourceUrl}`:'',s.email?`\nContact: ${s.email}`:''].join('');
+  setVal('f-desc',desc.trim());
+  setVal('f-zones',Array.isArray(s.zones)?s.zones.join(','):'' );
+  document.querySelectorAll('.ctog.on').forEach(x=>x.classList.remove('on'));
+  (Array.isArray(s.categories)?s.categories:[]).forEach(c=>{
+    const el=[...document.querySelectorAll('.ctog')].find(x=>x.dataset.cat===c);
+    if(el)el.classList.add('on');
+  });
+  watchCats();
+  refreshFormMeta();
+}
+
+function getPreviewItems(){
+  const yr=(document.getElementById('pvy')||{}).value||'';
+  const src=(document.getElementById('pvs')||{}).value||'';
+  let sources = src ? [src] : Object.keys(store);
+  
+  if(!src || !['specials','elections'].includes(src)) {
+    sources = (src ? [src] : Object.keys(store)).filter(s => !['specials','elections'].includes(s));
+  }
+  
+  let all=sources.flatMap(s=>(store[s]||[]).map((e,idx)=>({...e,_src:s,_idx:idx})));
+  
+  // Load specials/elections from calendar if requested
+  if(src === 'specials' && store.generated?.length) {
+    const sportCats = ['Sport','JO','Football','Tennis','Cyclisme','Rugby','Handball','AthlÃ©tisme','Formule 1','Natation','Ski'];
+    const examsCats = ['Ã‰ducation','Examens'];
+    all = store.generated.filter(e => {
+      const isSport = e.categories?.some(c => sportCats.includes(c));
+      const isExam = e.categories?.some(c => examsCats.includes(c));
+      const isElection = e.categories?.includes('Ã‰lections');
+      return !isSport && !isExam && !isElection;
+    }).map((e,idx) => ({...e, _src:'specials', _idx:idx}));
+  } else if(src === 'elections' && store.generated?.length) {
+    all = store.generated.filter(e => e.categories?.includes('Ã‰lections')).map((e,idx) => ({...e, _src:'elections', _idx:idx}));
+  }
+  
+  if(yr)all=all.filter(e=>(e.start||'').startsWith(yr));
+  if(sideCat)all=all.filter(e=>(e.categories||[]).includes(sideCat));
+  return all;
+}
+
+/* â•â• MODAL â•â• */
+function openAdd(forceDest){
+  editS={source:forceDest||null,idx:-1,forceDest:!!forceDest};
+  document.getElementById('modal-title').textContent='Ajouter un Ã©vÃ©nement';
+  document.getElementById('modal-body').innerHTML=buildForm(forceDest||null,null);
+  initCatToggles([],forceDest);
+  bindFormMeta();
+  document.getElementById('modal').classList.add('on');
+}
+function openEdit(src,idx){
+  editS={source:src,idx,forceDest:true};
+  const item=store[src][idx];
+  document.getElementById('modal-title').textContent='Modifier l\'Ã©vÃ©nement';
+  document.getElementById('modal-body').innerHTML=buildForm(src,item);
+  initCatToggles(item.categories||[],src);
+  bindFormMeta();
+  document.getElementById('modal').classList.add('on');
+}
+
+function openCloneFromGenerated(idx){
+  const item = store.generated[idx];
+  if(!item) return;
+  editS={source:null,idx:-1,forceDest:false};
+  document.getElementById('modal-title').textContent='Dupliquer depuis calendrier complet';
+  document.getElementById('modal-body').innerHTML=buildForm(null,item);
+  initCatToggles(item.categories||[],null);
+  bindFormMeta();
+  document.getElementById('modal').classList.add('on');
+}
+
+function closeModal(){document.getElementById('modal').classList.remove('on');editS=null;}
+
+function buildForm(dest,item){
+  const v=item||{},isElec=dest==='elections';
+  const dOpts=Object.entries(DMETA).map(([k,m])=>`<option value="${k}"${dest===k?' selected':''}>${m.label}</option>`).join('');
+  return`<div class="fg">
+    <div class="fgrp full">
+      <label class="flbl req">Titre</label>
+      <input type="text" class="fi" id="f-sum" value="${esc(v.summary||'')}" placeholder="Ex : Roland-Garros 2027, Ã‰lections municipales, ConfÃ©rence ONUâ€¦" autocomplete="off"/>
+      <span class="ferr" id="e-sum">Titre requis.</span>
+    </div>
+    <div class="fgrp">
+      <label class="flbl req">Date de dÃ©but</label>
+      <input type="date" class="fi" id="f-start" value="${v.start||''}"/>
+      <span class="ferr" id="e-start">Date requise.</span>
+    </div>
+    <div class="fgrp">
+      <label class="flbl">Date de fin</label>
+      <input type="date" class="fi" id="f-end" value="${v.end||''}"/>
+      <span class="fhint">Laisser vide si 1 seul jour.</span>
+      <span class="ferr" id="e-end">La fin doit Ãªtre â‰¥ dÃ©but.</span>
+    </div>
+    <div class="fgrp full">
+      <label class="flbl">Description</label>
+      <textarea class="fta" id="f-desc" rows="3" placeholder="Contexte, source officielle, notes personnellesâ€¦">${esc(v.description||'')}</textarea>
+    </div>
+    <div class="fgrp full">
+      <label class="flbl">Zones <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--t2)">â€” A, B, C, AM (optionnel)</span></label>
+      <input type="text" class="fi" id="f-zones" value="${esc(Array.isArray(v.zones)?v.zones.join(','):'')}" placeholder="Ex : A,B ou AM"/>
+      <span class="ferr" id="e-zones">Zones invalides. AutorisÃ©es : A,B,C,AM.</span>
+    </div>
+    <div class="fgrp full">
+      <label class="flbl">AperÃ§u page Ã©vÃ©nement</label>
+      <div class="preview-box"><i class="fa-solid fa-link"></i><code id="f-evt-url">/event/...</code><a id="f-evt-open" class="btn bs bsm" target="_blank" rel="noopener">Ouvrir</a></div>
+    </div>
+    <div class="fgrp full">
+      <label class="flbl">QualitÃ©</label>
+      <div id="f-quality" class="preview-box" style="flex-direction:column;align-items:flex-start">
+        <div id="f-quality-head" style="font-size:12px;font-weight:700">Score qualitÃ©: --</div>
+        <div id="f-quality-list" class="quality-list"></div>
+      </div>
+    </div>
+    <div class="fgrp full">
+      <label class="flbl">CatÃ©gories <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--t2)">â€” dÃ©terminent la destination automatiquement</span></label>
+      <div class="ctwrap" id="ctgrid"></div>
+    </div>
+    ${isElec?`<div class="fgrp"><label class="flbl">Statut</label><select class="fs" id="f-conf"><option value="true"${v.confirmed!==false?' selected':''}>ConfirmÃ© (dÃ©cret officiel)</option><option value="false"${v.confirmed===false?' selected':''}>EstimÃ© / Approximatif</option></select></div>`:''}
+    ${!editS?.forceDest?`
+    <div class="fgrp full" style="margin-top:4px">
+      <label class="flbl">Destination <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--t2)">â€” peut Ãªtre surchargÃ©e manuellement</span></label>
+      <select class="fs" id="f-dest">${dOpts}</select>
+    </div>
+    <div class="auto-banner" id="auto-banner"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="auto-msg">SÃ©lectionne des catÃ©gories pour dÃ©tecter automatiquement.</span></div>
+    `:''}
+  </div>
+  <div class="facts">
+    <button class="btn bs" onclick="closeModal()">Annuler</button>
+    <button class="btn bp" onclick="saveItem()"><i class="fa-solid fa-floppy-disk"></i> Enregistrer</button>
+  </div>`;
+}
+
+function initCatToggles(selected,dest){
+  const grid=document.getElementById('ctgrid');if(!grid)return;
+  let html='';
+  GROUPS.forEach(g=>{
+    const cats=CAT_CATALOG.filter(c=>c.g===g);
+    html+=`<span class="cat-group-label">${g}</span>`;
+    html+=cats.map(c=>`<span class="ctog${selected.includes(c.n)?' on':''}" data-cat="${esc(c.n)}" style="--cc:${c.c}" onclick="toggleCat(this)">${esc(c.n)}</span>`).join('');
+  });
+  grid.innerHTML=html;
+  if(!editS?.forceDest)watchCats();
+}
+function toggleCat(el){el.classList.toggle('on');if(!editS?.forceDest)watchCats();}
+function watchCats(){
+  const cats=getSelCats(),detected=autoRoute(cats);
+  const ds=document.getElementById('f-dest');if(ds)ds.value=detected;
+  const b=document.getElementById('auto-banner'),m=document.getElementById('auto-msg');
+  if(b&&m){b.classList.toggle('on',cats.length>0);if(cats.length>0)m.textContent=`Destination â†’ ${DMETA[detected]?.label} (${DMETA[detected]?.path.split('/').pop()})`;}
+  refreshFormMeta();
+}
+function getSelCats(){return[...document.querySelectorAll('.ctog.on')].map(t=>t.dataset.cat);}
+
+function bindFormMeta(){
+  ['f-sum','f-start','f-end','f-desc','f-zones'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.addEventListener('input',refreshFormMeta);
+  });
+  const ds=document.getElementById('f-dest');
+  if(ds)ds.addEventListener('change',refreshFormMeta);
+  refreshFormMeta();
+}
+
+function refreshFormMeta(){
+  const sum=(document.getElementById('f-sum')||{}).value?.trim()||'';
+  const start=(document.getElementById('f-start')||{}).value||'';
+  const end=(document.getElementById('f-end')||{}).value||'';
+  const desc=(document.getElementById('f-desc')||{}).value?.trim()||'';
+  const zonesRaw=(document.getElementById('f-zones')||{}).value?.trim()||'';
+  const cats=getSelCats();
+  const dest=(document.getElementById('f-dest')||{}).value||editS?.source||autoRoute(cats);
+  const item={ summary:sum,start,categories:cats,description:desc };
+  if(end)item.end=end;
+  if(zonesRaw)item.zones=zonesRaw.split(',').map(z=>z.trim()).filter(Boolean);
+  const previewPath=getEventPath(item);
+  const urlEl=document.getElementById('f-evt-url');
+  const openEl=document.getElementById('f-evt-open');
+  if(urlEl)urlEl.textContent=previewPath;
+  if(openEl)openEl.href=previewPath;
+
+  const q=getQualityReport(item,dest,-1,true);
+  const qHead=document.getElementById('f-quality-head');
+  const qList=document.getElementById('f-quality-list');
+  if(qHead)qHead.textContent=`Score qualitÃ©: ${q.score}/100`;
+  if(qList){
+    const issues=q.issues.slice(0,6);
+    qList.innerHTML=issues.length
+      ? issues.map(i=>`<span class="quality-item ${i.level==='error'?'err':'warn'}">${esc(i.msg)}</span>`).join('')
+      : '<span class="quality-item" style="color:var(--grn);border-color:var(--grnb);background:var(--grnd)">Aucune alerte</span>';
+  }
+}
+
+/* â•â• SAVE â•â• */
+function saveItem(){
+  const sum=(document.getElementById('f-sum')||{}).value?.trim()||'';
+  const start=(document.getElementById('f-start')||{}).value||'';
+  const end=(document.getElementById('f-end')||{}).value||'';
+  const desc=(document.getElementById('f-desc')||{}).value?.trim()||'';
+  const zonesRaw=(document.getElementById('f-zones')||{}).value?.trim()||'';
+  const cats=getSelCats();
+  let ok=true;
+  const err=(id,msg,show)=>{const e=document.getElementById(id),i=document.getElementById(id.replace('e-','f-'));if(e){e.textContent=msg;e.classList.toggle('on',show);}if(i)i.classList.toggle('err',show);if(show)ok=false;};
+  err('e-sum','Titre requis.',!sum);
+  err('e-start','Date requise.',!start);
+  err('e-end','Fin â‰¥ dÃ©but.',!!(end&&end<start));
+  let dest=editS.source;
+  if(!editS.forceDest||!dest)dest=(document.getElementById('f-dest')||{}).value||autoRoute(cats);
+  const isElec=dest==='elections';
+  const confirmed=isElec?((document.getElementById('f-conf')||{}).value==='true'):undefined;
+  const item={summary:sum,start,categories:cats,description:desc};
+  if(end)item.end=end;
+  const zones=zonesRaw?zonesRaw.split(',').map(z=>z.trim()).filter(Boolean):[];
+  if(zones.length)item.zones=zones;
+  const quality = getQualityReport(item, dest, editS.idx, false);
+  err('e-zones','Zones invalides. AutorisÃ©es : A,B,C,AM.',quality.issues.some(i=>i.code==='zones_invalid'));
+  if(quality.issues.some(i=>i.level==='error')) ok = false;
+  if(!ok)return;
+  pushUndoSnapshot(editS.idx===-1?`Ajout ${sum}`:`Modification ${sum}`);
+  if(isElec)item.confirmed=confirmed;
+  if(editS.idx===-1){store[dest].push(item);}
+  else{store[dest][editS.idx]=item;}
+  markDirty(dest);
+  refreshAfterDataChange();
+  addActionHistory(editS.idx===-1?`Ajout: ${sum} (${dest})`:`Modification: ${sum} (${dest})`);
+  closeModal();rerenderCurrentPage();
+  toast(editS.idx===-1?'Ã‰vÃ©nement ajoutÃ© âœ“':'Ã‰vÃ©nement modifiÃ© âœ“','ok');
+}
+
+/* â•â• DELETE â•â• */
+function askDelete(src,idx,label){
+  document.getElementById('cmsg').textContent=`"${label}" sera supprimÃ© de ${DMETA[src]?.label||src}.`;
+  document.getElementById('cok').onclick=()=>{
+    pushUndoSnapshot(`Suppression ${label}`);
+    store[src].splice(idx,1);
+    markDirty(src);
+    refreshAfterDataChange();
+    addActionHistory(`Suppression: ${label} (${src})`);
+    rerenderCurrentPage();closeConfirm();toast('SupprimÃ©','ok');
+  };
+  document.getElementById('confirm').classList.add('on');
+}
+function closeConfirm(){document.getElementById('confirm').classList.remove('on');}
+
+/* â•â• HISTORY / UNDO â•â• */
+function pushUndoSnapshot(label){
+  const snap={
+    at:new Date().toISOString(),
+    label,
+    data:{
+      sports:deepClone(store.sports),
+      exams:deepClone(store.exams),
+      specials:deepClone(store.specials),
+      elections:deepClone(store.elections),
+    }
+  };
+  undoStack.push(snap);
+  if(undoStack.length>30)undoStack.shift();
+  updateUndoBtn();
+}
+
+function addActionHistory(message){
+  actionHistory.unshift({at:new Date(),message});
+  if(actionHistory.length>80)actionHistory.pop();
+  renderActionHistory();
+}
+
+function renderActionHistory(){
+  const root=document.getElementById('audit-history');
+  if(!root)return;
+  if(!actionHistory.length){root.innerHTML='<div class="history-item">Aucune action pour le moment.</div>';return;}
+  root.innerHTML=actionHistory.map(h=>`<div class="history-item"><strong>${esc(new Intl.DateTimeFormat('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(h.at))}</strong> â€” ${esc(h.message)}</div>`).join('');
+}
+
+function updateUndoBtn(){
+  const btn=document.getElementById('undo-btn');
+  if(!btn)return;
+  btn.disabled=undoStack.length===0;
+}
+
+function recomputeDirtyFromStore(){
+  dirty.clear();
+  EDITABLE_SOURCES.forEach(src=>{
+    if(JSON.stringify(store[src])!==JSON.stringify(baseline[src]))dirty.add(src);
+  });
+  if(dirty.size){
+    const p=document.getElementById('status');
+    p.className='status s-dirty';
+    p.textContent=`${dirty.size} fichier${dirty.size>1?'s':''} modifiÃ©${dirty.size>1?'s':''}`;
+    document.getElementById('pub-btn').disabled=false;
+    document.getElementById('sb-hint').textContent=`${dirty.size} fichier${dirty.size>1?'s':''} Ã  publier`;
+  }else{
+    markClean();
+  }
+}
+
+function refreshAfterDataChange(){
+  EDITABLE_SOURCES.forEach(src=>store[src].sort((a,b)=>(a.start||'').localeCompare(b.start||'')));
+  recomputeDuplicateKeys();
+  refreshCategoryCatalog();
+  buildAllFilters();
+  buildSidebarCats();
+  updateBadges();
+  rerenderCurrentPage();
+
+  updateQuickPanel();
+}
+
+function bindUiPrefs(){
+  const ids=['sq-all','fy-all','fcat-all','fsrc-all','sq-sports','fy-sports','sq-exams','fy-exams','sq-specials','fy-specials','sq-generated','fy-generated','pvy','pvs'];
+  ids.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el || el.dataset.prefBound==='1')return;
+    el.dataset.prefBound='1';
+    const evt=(el.tagName==='INPUT')?'input':'change';
+    el.addEventListener(evt,saveUiPrefs);
+  });
+}
+
+function saveUiPrefs(){
+  const ids=['sq-all','fy-all','fcat-all','fsrc-all','sq-sports','fy-sports','sq-exams','fy-exams','sq-specials','fy-specials','sq-generated','fy-generated','pvy','pvs'];
+  const values={curP,sideCat};
+  ids.forEach(id=>{const el=document.getElementById(id);if(el)values[id]=el.value;});
+  try{localStorage.setItem(UI_PREFS_KEY,JSON.stringify(values));}catch{}
+}
+
+function loadUiPrefs(){
+  try{
+    const raw=localStorage.getItem(UI_PREFS_KEY);
+    if(!raw)return;
+    const prefs=JSON.parse(raw);
+    if(prefs.sideCat)sideCat=String(prefs.sideCat);
+    if(prefs.curP && document.getElementById('p-'+prefs.curP))curP=prefs.curP;
+    Object.entries(prefs).forEach(([id,val])=>{
+      const el=document.getElementById(id);
+      if(!el || typeof val!=='string')return;
+      if(el.tagName==='SELECT'){
+        const exists=[...el.options].some(o=>o.value===val);
+        if(exists)el.value=val;
+      }else el.value=val;
+    });
+  }catch{}
+}
+
+function getStatusMap(){
+  return statusMapCache;
+}
+
+function setStatusMap(map){
+  statusMapCache=map||{};
+  try{localStorage.setItem(STATUS_KEY,JSON.stringify(statusMapCache));}catch{}
+}
+
+function loadStatusMap(){
+  try{statusMapCache=JSON.parse(localStorage.getItem(STATUS_KEY)||'{}')||{};}catch{statusMapCache={};}
+}
+
+function eventKey(item, src){
+  return `${src}|${String(item?.summary||'')}|${String(item?.start||'')}`;
+}
+
+function getStatusForEvent(item, src){
+  const map=getStatusMap();
+  return map[eventKey(item,src)]||'';
+}
+
+function toggleEventStatus(src, idx){
+  const item=store[src]?.[idx];
+  if(!item)return;
+  const key=eventKey(item,src);
+  const map=getStatusMap();
+  const cur=map[key]||'';
+  const next=cur===''?'review':cur==='review'?'valid':'';
+  if(next)map[key]=next; else delete map[key];
+  setStatusMap(map);
+  addActionHistory(`Statut: ${item.summary} -> ${next||'aucun'}`);
+  rerenderCurrentPage();
+}
+
+function undoLastAction(){
+  const last=undoStack.pop();
+  updateUndoBtn();
+  if(!last){toast('Rien Ã  annuler','info');return;}
+  EDITABLE_SOURCES.forEach(src=>{store[src]=deepClone(last.data[src]||[]);});
+  recomputeDirtyFromStore();
+  refreshAfterDataChange();
+  addActionHistory(`Annulation: ${last.label}`);
+  toast('DerniÃ¨re action annulÃ©e','ok');
+}
+
+/* â•â• DIRTY â•â• */
+function markDirty(src){
+  dirty.add(src);
+  const p=document.getElementById('status');
+  p.className='status s-dirty';p.textContent=`${dirty.size} fichier${dirty.size>1?'s':''} modifiÃ©${dirty.size>1?'s':''}`;
+  document.getElementById('pub-btn').disabled=false;
+  document.getElementById('sb-hint').textContent=`${dirty.size} fichier${dirty.size>1?'s':''} Ã  publier`;
+}
+function markClean(){
+  dirty.clear();
+  const p=document.getElementById('status');
+  p.className='status s-ok';p.textContent='SynchronisÃ©';
+  document.getElementById('pub-btn').disabled=true;
+  document.getElementById('sb-hint').textContent='Aucune modification en attente';
+}
+
+/* â•â• COMMIT â•â• */
+function openCommit(){
+  if(!dirty.size)return;
+  const targets=[...dirty];
+  document.getElementById('cmsg-input').value=targets.length===1
+    ?`[admin] ${DMETA[targets[0]]?.path.split('/').pop()} â€” mise Ã  jour ðŸ¤–`
+    :`[admin] Mise Ã  jour donnÃ©es statiques (${targets.map(s=>DMETA[s]?.label).join(', ')}) ðŸ¤–`;
+  document.getElementById('commit-files').innerHTML=targets.map(s=>`<div class="cfile"><i class="fa-solid fa-file-code"></i><code>${DMETA[s]?.path}</code><span class="cfile-tag">MODIFIÃ‰</span></div>`).join('');
+  const diffRoot=document.getElementById('commit-diff');
+  const diffRows=targets.map(src=>{
+    const d=buildDiffForSource(src);
+    return `<div class="diff-row"><span><b>${esc(src)}</b></span><span>+${d.added} / ~${d.changed} / -${d.removed}</span></div>`;
+  }).join('');
+  diffRoot.style.display='';
+  diffRoot.innerHTML=`<div class="flbl" style="margin-bottom:4px">Diff avant publication</div>${diffRows}`;
+  document.getElementById('commit-result').style.display='none';
+  const btn=document.getElementById('do-commit');btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-code-commit"></i> Committer';
+  document.getElementById('commit-modal').classList.add('on');
+}
+function closeCommit(){document.getElementById('commit-modal').classList.remove('on');}
+async function doCommit(){
+  const msg=document.getElementById('cmsg-input').value.trim()||'[admin] Mise Ã  jour ðŸ¤–';
+  const btn=document.getElementById('do-commit');
+  btn.disabled=true;btn.innerHTML='<i class="fa-solid fa-circle-notch" style="animation:spin .75s linear infinite"></i> Publicationâ€¦';
+  const p=document.getElementById('status');p.className='status s-saving';p.textContent='Publicationâ€¦';
+  const targets=[...dirty];let lastUrl=null,errs=[];
+  for(const src of targets){
+    const content=JSON.stringify({events:store[src]},null,2);
+    try{
+      const r=await apiFetch('/api/admin-data',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({source:src,content,sha:shas[src],commitMessage:`${msg} [${src}]`})});
+      const d=await r.json();
+      if(!r.ok)throw new Error(d.error||`HTTP ${r.status}`);
+      shas[src]=d.sha;lastUrl=d.commitUrl;
+    }catch(e){errs.push(`${src}: ${e.message}`);}
+  }
+  if(!errs.length){
+    markClean();
+    targets.forEach(src=>{baseline[src]=deepClone(store[src]);});
+    addActionHistory(`Publication: ${targets.length} fichier(s)`);
+    await loadSuggestions();
+    const res=document.getElementById('commit-result');res.style.display='';
+    res.innerHTML=`<div style="display:flex;align-items:center;gap:7px;margin-bottom:6px"><i class="fa-solid fa-circle-check" style="color:var(--grn)"></i><strong style="color:var(--grn)">${targets.length} fichier${targets.length>1?'s':''} commitÃ©${targets.length>1?'s':''}.</strong></div><div style="color:var(--t2);margin-bottom:6px">Le CI rÃ©gÃ©nÃ¨re le calendrier automatiquement (~2 min).</div>${lastUrl?`<a href="${lastUrl}" target="_blank" rel="noopener"><i class="fa-solid fa-external-link" style="margin-right:4px"></i>Voir le commit</a>`:''}`;
+    btn.innerHTML='<i class="fa-solid fa-circle-check"></i> PubliÃ© !';toast('PubliÃ© sur GitHub âœ“','ok');
+  }else{
+    p.className='status s-err';p.textContent='Erreur';
+    toast('Erreur : '+errs.join(', '),'err');
+    btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-rotate"></i> RÃ©essayer';
+  }
+}
+
+function openBulkEdit(){
+  const targets=getBulkTargetItems();
+  if(!targets.length){toast('Aucun Ã©vÃ©nement Ã©ditable dans la vue actuelle','info');return;}
+  document.getElementById('bulk-target').value=`${targets.length} Ã©vÃ©nement(s) ciblÃ©(s)`;
+  document.getElementById('bulk-add-cat').value='';
+  document.getElementById('bulk-rem-cat').value='';
+  document.getElementById('bulk-find').value='';
+  document.getElementById('bulk-repl').value='';
+  document.getElementById('bulk-modal').classList.add('on');
+}
+
+function closeBulkEdit(){document.getElementById('bulk-modal').classList.remove('on');}
+
+function getBulkTargetItems(){
+  let items=[];
+  if(curP==='preview') items=getPreviewItems();
+  else if(curP==='elections') items=getItems('elections');
+  else items=getFilteredItemsForTable(curP);
+  return items.filter(i=>EDITABLE_SOURCES.includes(i._src));
+}
+
+function applyBulkEdit(){
+  const addCat=(document.getElementById('bulk-add-cat')||{}).value?.trim();
+  const remCat=(document.getElementById('bulk-rem-cat')||{}).value?.trim();
+  const findTxt=(document.getElementById('bulk-find')||{}).value||'';
+  const replTxt=(document.getElementById('bulk-repl')||{}).value||'';
+  const targets=getBulkTargetItems();
+  if(!targets.length){toast('Aucune cible','err');return;}
+  pushUndoSnapshot(`Ã‰dition en lot (${targets.length})`);
+
+  let changed=0;
+  for(const t of targets){
+    const e=store[t._src]?.[t._idx];
+    if(!e)continue;
+    let touched=false;
+
+    if(addCat){
+      e.categories=Array.isArray(e.categories)?e.categories:[];
+      if(!e.categories.includes(addCat)){e.categories.push(addCat);touched=true;}
+    }
+    if(remCat && Array.isArray(e.categories) && e.categories.includes(remCat)){
+      e.categories=e.categories.filter(c=>c!==remCat);
+      touched=true;
+    }
+    if(findTxt){
+      const oldDesc=String(e.description||'');
+      const nextDesc=oldDesc.split(findTxt).join(replTxt);
+      if(nextDesc!==oldDesc){e.description=nextDesc;touched=true;}
+    }
+
+    if(touched){changed+=1;markDirty(t._src);}    
+  }
+
+  if(!changed){toast('Aucun changement appliquÃ©','info');return;}
+
+  refreshAfterDataChange();
+  addActionHistory(`Ã‰dition en lot: ${changed} Ã©vÃ©nement(s)`);
+  closeBulkEdit();
+  toast(`${changed} Ã©vÃ©nement(s) mis Ã  jour`,'ok');
+}
+
+async function logoutAdmin(){
+  try{
+    await apiFetch('/api/admin-auth?action=logout',{method:'POST'});
+  }catch{}
+  window.location.href='/admin/login';
+}
+
+/* â•â• UTILS â•â• */
+function deepClone(v){return JSON.parse(JSON.stringify(v));}
+
+function slugify(str){
+  return String(str||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+
+function getEventPath(item){
+  const start=(item?.start||'').trim()||'date';
+  const sum=(item?.summary||'').trim()||'evenement';
+  return `/event/${slugify(sum)}-${start}`;
+}
+
+function categoryFileSlug(label){
+  const raw=String(label||'');
+  const out=[...raw].map(ch=>{
+    if(/\p{Letter}|\p{Number}/u.test(ch))return ch.toLowerCase();
+    if(ch===' ' || ch==='/' || ch==='-')return '_';
+    return '';
+  }).join('');
+  return out.replace(/^_+|_+$/g,'') || 'autre';
+}
+
+function downloadJsonFile(filename,payload){
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(a.href);
+}
+
+function exportSourceJson(src){
+  if(src==='generated'){
+    downloadJsonFile('calendrier.json',{events:store.generated||[]});
+    toast('Export du calendrier complet genere','ok');
+    return;
+  }
+  if(!EDITABLE_SOURCES.includes(src)){toast('Source non exportable','info');return;}
+  const filename=(DMETA[src]?.path||`${src}.json`).split('/').pop();
+  downloadJsonFile(filename,{events:store[src]||[]});
+  toast(`Export ${filename} genere`,'ok');
+}
+
+function normalizedZones(zones){
+  const allowed=new Set(['A','B','C','AM']);
+  const list=(zones||[]).map(z=>String(z).trim().toUpperCase()).filter(Boolean);
+  const invalid=list.filter(z=>!allowed.has(z));
+  return { list:[...new Set(list)], invalid };
+}
+
+function getQualityReport(item, src, idx, draft=false){
+  const opts=typeof draft==='object' ? draft : { draft: !!draft };
+  const isDraft=!!opts.draft;
+  const duplicateSet=opts.duplicateSet || null;
+  const issues=[];
+  const sum=String(item?.summary||'').trim();
+  const start=String(item?.start||'').trim();
+  const end=String(item?.end||'').trim();
+  const desc=String(item?.description||'').trim();
+  const cats=Array.isArray(item?.categories)?item.categories.filter(Boolean):[];
+
+  if(!sum)issues.push({level:'error',code:'summary_required',msg:'Titre requis'});
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(start))issues.push({level:'error',code:'start_invalid',msg:'Date de dÃ©but invalide'});
+  if(end && !/^\d{4}-\d{2}-\d{2}$/.test(end))issues.push({level:'error',code:'end_invalid',msg:'Date de fin invalide'});
+  if(start && end && end<start)issues.push({level:'error',code:'end_before_start',msg:'Date de fin avant dÃ©but'});
+  if(!cats.length)issues.push({level:'warn',code:'cats_empty',msg:'Aucune catÃ©gorie'});
+  if(desc.length<24)issues.push({level:'warn',code:'desc_short',msg:'Description courte'});
+
+  const unknownCats=cats.filter(c=>!KNOWN_CATS_SET.has(c));
+  if(unknownCats.length)issues.push({level:'warn',code:'cats_unknown',msg:`CatÃ©gories non rÃ©fÃ©rencÃ©es: ${unknownCats.join(', ')}`});
+
+  const z=normalizedZones(item?.zones||[]);
+  if(z.invalid.length)issues.push({level:'error',code:'zones_invalid',msg:`Zones invalides: ${z.invalid.join(', ')}`});
+
+  if(!isDraft && EDITABLE_SOURCES.includes(src)){
+    const dupKey=`${sum}|${start}`;
+    let duplicate=false;
+    if(duplicateSet) duplicate=duplicateSet.has(dupKey);
+    else {
+      const dup=(store[src]||[]).findIndex((e,i)=>i!==idx && e.summary===sum && e.start===start);
+      duplicate=dup!==-1;
+    }
+    if(duplicate)issues.push({level:'error',code:'duplicate',msg:'Doublon titre + date dans la source'});
+  }
+
+  let score=100;
+  issues.forEach(i=>{score-=i.level==='error'?22:8;});
+  score=Math.max(0,score);
+  return { score, issues };
+}
+
+function toFingerprint(e){
+  return JSON.stringify({
+    summary:e.summary||'',start:e.start||'',end:e.end||'',
+    categories:[...(e.categories||[])].sort(),
+    description:e.description||'',
+    zones:[...(e.zones||[])].sort(),
+    confirmed:e.confirmed,
+  });
+}
+
+function buildDiffForSource(src){
+  const before=baseline[src]||[];
+  const after=store[src]||[];
+  const key=(e)=>`${e.summary||''}|${e.start||''}`;
+
+  const beforeMap=new Map(before.map(e=>[key(e),toFingerprint(e)]));
+  const afterMap=new Map(after.map(e=>[key(e),toFingerprint(e)]));
+
+  let added=0, removed=0, changed=0;
+  for(const [k,v] of afterMap.entries()){
+    if(!beforeMap.has(k))added+=1;
+    else if(beforeMap.get(k)!==v)changed+=1;
+  }
+  for(const k of beforeMap.keys())if(!afterMap.has(k))removed+=1;
+  return { added, removed, changed };
+}
+
+function parseDateValue(v){
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(String(v||'')))return null;
+  const d=new Date(`${v}T00:00:00`);
+  return Number.isNaN(d.getTime())?null:d;
+}
+
+function rangesOverlap(aStart,aEnd,bStart,bEnd){
+  return aStart<=bEnd && bStart<=aEnd;
+}
+
+function getAllAuditItems(){
+  return Object.entries(store).flatMap(([src,arr])=>arr.map((e,idx)=>({...e,_src:src,_idx:idx})));
+}
+
+function findConflicts(items){
+  const conflicts=[];
+  const byTitle=new Map();
+
+  items.forEach(e=>{
+    const k=norm(e.summary||'');
+    if(!k)return;
+    if(!byTitle.has(k))byTitle.set(k,[]);
+    byTitle.get(k).push(e);
+  });
+
+  for(const group of byTitle.values()){
+    if(group.length<2)continue;
+    for(let i=0;i<group.length;i++){
+      for(let j=i+1;j<group.length;j++){
+        const a=group[i],b=group[j];
+        const aS=parseDateValue(a.start), bS=parseDateValue(b.start);
+        if(!aS || !bS)continue;
+        const aE=parseDateValue(a.end)||aS;
+        const bE=parseDateValue(b.end)||bS;
+        if(rangesOverlap(aS,aE,bS,bE)){
+          conflicts.push({
+            title:a.summary,
+            msg:`Chevauchement ${a.start}${a.end?`â†’${a.end}`:''} (${a._src}) / ${b.start}${b.end?`â†’${b.end}`:''} (${b._src})`
+          });
+        }
+      }
+    }
+  }
+
+  return conflicts.slice(0,250);
+}
+
+function getConflictKeys(items){
+  const keys=new Set();
+  const byTitle=new Map();
+  items.forEach(e=>{
+    const k=norm(e.summary||'');
+    if(!k)return;
+    if(!byTitle.has(k))byTitle.set(k,[]);
+    byTitle.get(k).push(e);
+  });
+
+  for(const group of byTitle.values()){
+    if(group.length<2)continue;
+    for(let i=0;i<group.length;i++){
+      for(let j=i+1;j<group.length;j++){
+        const a=group[i],b=group[j];
+        const aS=parseDateValue(a.start), bS=parseDateValue(b.start);
+        if(!aS || !bS)continue;
+        const aE=parseDateValue(a.end)||aS;
+        const bE=parseDateValue(b.end)||bS;
+        if(rangesOverlap(aS,aE,bS,bE)){
+          keys.add(`${a._src}|${a._idx}`);
+          keys.add(`${b._src}|${b._idx}`);
+        }
+      }
+    }
+  }
+  return keys;
+}
+
+function countMissingForSource(src, field){
+  return (store[src]||[]).filter(item=>{
+    const value=Array.isArray(item[field]) ? item[field].length : String(item[field]||'').trim().length;
+    return EDITABLE_SOURCES.includes(src) && value===0;
+  }).length;
+}
+
+function renderAudit(){
+  const qRoot=document.getElementById('audit-quality');
+  const cRoot=document.getElementById('audit-conflicts');
+  if(!qRoot || !cRoot)return;
+
+  const all=getAllAuditItems();
+  const quality=all.map(e=>({
+    src:e._src,
+    summary:e.summary,
+    start:e.start,
+    status:getStatusForEvent(e,e._src),
+    report:getQualityReport(e,e._src,e._idx,e._src==='generated')
+  })).sort((a,b)=>a.report.score-b.report.score)
+    .filter(x=>x.report.score<85 || x.report.issues.length>0)
+    .slice(0,300);
+
+  if(!quality.length){
+    qRoot.innerHTML='<div class="audit-item"><div class="t">Aucun problÃ¨me bloquant dÃ©tectÃ©</div><div class="m">Les Ã©vÃ©nements ont un bon score qualitÃ©.</div></div>';
+  }else{
+    qRoot.innerHTML=quality.map(q=>`<div class="audit-item"><div class="t">${esc(q.summary||'(sans titre)')} ${q.status==='review'?'<span class="st-badge st-review">A revoir</span>':q.status==='valid'?'<span class="st-badge st-valid">ValidÃ©</span>':''} <span class="qbadge ${q.report.score>=85?'q-ok':q.report.score>=65?'q-mid':'q-low'}">Q ${q.report.score}</span></div><div class="m">${esc(q.start||'--')} Â· ${esc(q.src)} Â· ${esc(q.report.issues.slice(0,3).map(i=>i.msg).join(' | ')||'Alerte')}</div></div>`).join('');
+  }
+
+  const conflicts=findConflicts(all);
+  if(!conflicts.length){
+    cRoot.innerHTML='<div class="audit-item"><div class="t">Aucun conflit dÃ©tectÃ©</div><div class="m">Pas de chevauchement suspect trouvÃ©.</div></div>';
+  }else{
+    cRoot.innerHTML=conflicts.map(c=>`<div class="audit-item"><div class="t">${esc(c.title)}</div><div class="m">${esc(c.msg)}</div></div>`).join('');
+  }
+
+  renderActionHistory();
+  updateQuickPanel();
+}
+
+function exportAuditCsv(){
+  const all=getAllAuditItems();
+  const rows=[['source','date','titre','score','niveau','problemes','statut']];
+  all.forEach(e=>{
+    const q=getQualityReport(e,e._src,e._idx,e._src==='generated');
+    if(q.score>=85 && !q.issues.length)return;
+    const maxLevel=q.issues.some(i=>i.level==='error')?'error':'warning';
+    rows.push([
+      e._src,
+      e.start||'',
+      e.summary||'',
+      String(q.score),
+      maxLevel,
+      q.issues.map(i=>i.msg).join(' | '),
+      getStatusForEvent(e,e._src)||''
+    ]);
+  });
+  if(rows.length===1){toast('Aucune anomalie Ã  exporter','info');return;}
+  const csv=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(';')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`audit-calendrier-${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(a.href);
+  toast('Export CSV gÃ©nÃ©rÃ©','ok');
+}
+
+function getAllEventsFlattened(){
+  return Object.entries(store).flatMap(([src,items])=>items.map((item,idx)=>({...item,_src:src,_idx:idx})));
+}
+
+function updateQuickPanel(){
+  const upcomingRoot=document.getElementById('cp-upcoming-list');
+  if(upcomingRoot){
+    const upcoming=getAllEventsFlattened()
+      .filter(e=>typeof e.start==='string' && e.start.length)
+      .sort((a,b)=>(a.start||'').localeCompare(b.start||''))
+      .filter(e=>{const days=getDaysUntil(e.start);return days!==null && days>=0;})
+      .slice(0,3);
+    if(!upcoming.length){
+      upcomingRoot.innerHTML='<div class="cp-item">Aucun Ã©vÃ©nement proche</div>';
+    }else{
+      upcomingRoot.innerHTML=upcoming.map(e=>`<div class="cp-item"><span><span class="cp-item-icon">ðŸ“…</span>${esc(e.summary)}</span><span>${esc(e.start)}</span></div>`).join('');
+    }
+  }
+  const dupCount=findConflicts(getAllAuditItems()).length;
+  const dupEl=document.getElementById('cp-duplicate-count');
+  if(dupEl)dupEl.textContent=dupCount?`${dupCount} conflit${dupCount>1?'s':''}`:'Aucun conflit';
+  const focusNote=document.getElementById('cp-focus-note');
+  if(focusNote)focusNote.textContent=PREVIEW_FOCUS_LABEL;
+  renderHealthDashboard();
+  renderWorkspacePanels();
+}
+
+function focusPreviewUpcoming(days){
+  PREVIEW_FILTER=item=>{
+    const delta=getDaysUntil(item.start);
+    return delta!==null && delta>=0 && delta<=days;
+  };
+  PREVIEW_FOCUS_LABEL=`Filtre sur ${days} jour${days>1?'s':''} Ã  venir`;
+  nav('preview');
+  renderPreview();
+  updateQuickPanel();
+}
+
+function focusPreviewMissing(field){
+  PREVIEW_FILTER=item=>{
+    const value=Array.isArray(item[field])? item[field].length : String(item[field]||'').trim().length;
+    return EDITABLE_SOURCES.includes(item._src) && value===0;
+  };
+  PREVIEW_FOCUS_LABEL=field==='categories'?'Sans catÃ©gorie':'Sans description';
+  nav('preview');
+  renderPreview();
+  updateQuickPanel();
+}
+
+function focusPreviewConflicts(){
+  const conflicts=getConflictKeys(getAllAuditItems());
+  PREVIEW_FILTER=item=>conflicts.has(`${item._src}|${item._idx}`);
+  PREVIEW_FOCUS_LABEL='Conflits dÃ©tectÃ©s';
+  nav('preview');
+  renderPreview();
+  updateQuickPanel();
+}
+
+function resetPreviewFocus(){
+  PREVIEW_FILTER=null;
+  PREVIEW_FOCUS_LABEL='Aucun focus actif.';
+  nav('preview');
+  renderPreview();
+  updateQuickPanel();
+}
+
+function exportCurrentPreviewCsv(){
+  let items=getPreviewItems();
+  if(PREVIEW_FILTER)items=items.filter(PREVIEW_FILTER);
+  if(!items.length){toast('Aucun Ã©vÃ©nement filtrÃ©','info');return;}
+  const rows=[['Date','Titre','CatÃ©gories','Source']];
+  items.forEach(item=>{
+    rows.push([
+      item.start||'',
+      item.summary||'',
+      (item.categories||[]).join('; '),
+      item._src||''
+    ]);
+  });
+  const csv=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(';')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`preview-export-${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(a.href);
+  toast('Export CSV gÃ©nÃ©rÃ©','ok');
+}
+
+function exportCurrentPreviewJson(){
+  let items=getPreviewItems();
+  if(PREVIEW_FILTER)items=items.filter(PREVIEW_FILTER);
+  if(!items.length){toast('Aucun Ã©vÃ©nement filtrÃ©','info');return;}
+  downloadJsonFile(`preview-export-${new Date().toISOString().slice(0,10)}.json`,items);
+  toast('Export JSON gÃ©nÃ©rÃ©','ok');
+}
+
+let eventsMetaData = null;
+
+async function loadEventsMetaData(){
+  try{
+    const r=await fetch('/events-meta.json',{cache:'no-store'});
+    if(!r.ok) return;
+    eventsMetaData=await r.json();
+  }catch{eventsMetaData=null;}
+  renderHealthDashboard();
+  renderWorkspacePanels();
+}
+
+function renderHealthDashboard(){
+  const grid=document.getElementById('health-source-grid');
+  if(grid){
+    const html=EDITABLE_SOURCES.map(src=>{
+      const count=(store[src]||[]).length;
+      const dup=(duplicateKeysBySource[src]||new Set()).size;
+      return `<div class="health-summary"><div class="label">${src}</div><div class="value">${count}</div><div class="stat-hint">${dup} doublon${dup>1?'s':''}</div></div>`;
+    }).join('');
+    grid.innerHTML=html||'<div class="health-summary">Aucune donnÃ©e chargÃ©e</div>';
+  }
+  const detail=document.getElementById('health-detail');
+  if(detail){
+    const duplicates=findConflicts(getAllAuditItems()).length;
+    const upcoming=getPreviewItems().filter(e=>typeof e.start==='string' && getDaysUntil(e.start)>=0 && getDaysUntil(e.start)<=14).length;
+    const lastUpdate=eventsMetaData?.generatedAt ? formatDateFR(eventsMetaData.generatedAt) : 'Indisponible';
+    const newEvents=eventsMetaData?.newEventsThisWeek ?? 'â€”';
+    detail.innerHTML=`<span><i class="fa-solid fa-calendar-day"></i>DerniÃ¨re gÃ©nÃ©ration: ${escapeHtml(lastUpdate)}</span><span><i class="fa-solid fa-plus-circle"></i>${escapeHtml(String(newEvents))} nouveautÃ©s cette semaine</span><span><i class="fa-solid fa-dna"></i>${duplicates} conflit${duplicates>1?'s':''}</span><span><i class="fa-solid fa-calendar-days"></i>${upcoming} Ã©vÃ©nements prochain${upcoming>1?'s':''}</span>`;
+  }
+}
+
+function renderWorkspacePanels(){
+  const grid=document.getElementById('health-source-grid');
+  if(grid){
+    const editableRows=EDITABLE_SOURCES.map(src=>{
+      const count=(store[src]||[]).length;
+      const dup=(duplicateKeysBySource[src]||new Set()).size;
+      const missingDesc=countMissingForSource(src,'description');
+      const missingCats=countMissingForSource(src,'categories');
+      const isDirty=dirty.has(src);
+      return `<div class="file-row${isDirty?' is-dirty':''}"><div class="file-meta"><div class="file-name">${esc(DMETA[src]?.label||src)}${isDirty?'<span class="mini-pill warn">Ã  publier</span>':''}</div><div class="file-path"><code>${esc(DMETA[src]?.path||src)}</code></div><div class="file-stats"><span class="mini-pill">${count} entrÃ©e(s)</span><span class="mini-pill${dup?' bad':' good'}">${dup} doublon${dup>1?'s':''}</span><span class="mini-pill${missingDesc?' warn':''}">${missingDesc} sans description</span><span class="mini-pill${missingCats?' warn':''}">${missingCats} sans catÃ©gorie</span></div></div><div class="file-actions"><button class="btn bs bsm" onclick="nav('${src}')"><i class="fa-solid fa-table"></i> Ouvrir</button><button class="btn bs bsm" onclick="openAdd('${src}')"><i class="fa-solid fa-plus"></i> Ajouter</button><button class="btn bs bsm" onclick="exportSourceJson('${src}')"><i class="fa-solid fa-file-code"></i> JSON</button></div></div>`;
+    }).join('');
+    const generatedCount=(store.generated||[]).length;
+    const generatedDup=(duplicateKeysBySource.generated||new Set()).size;
+    const generatedRow=`<div class="file-row readonly"><div class="file-meta"><div class="file-name">${esc(DMETA.generated.label)}<span class="mini-pill">lecture seule</span></div><div class="file-path"><code>${esc(DMETA.generated.path)}</code></div><div class="file-stats"><span class="mini-pill">${generatedCount} entrÃ©e(s)</span><span class="mini-pill${generatedDup?' bad':' good'}">${generatedDup} doublon${generatedDup>1?'s':''}</span></div></div><div class="file-actions"><button class="btn bs bsm" onclick="nav('generated')"><i class="fa-solid fa-table"></i> Ouvrir</button><button class="btn bs bsm" onclick="exportSourceJson('generated')"><i class="fa-solid fa-file-code"></i> JSON</button></div></div>`;
+    grid.innerHTML=(editableRows+generatedRow)||'<div class="file-empty">Aucune donnÃ©e chargÃ©e</div>';
+  }
+
+  const detail=document.getElementById('health-detail');
+  if(detail){
+    const duplicates=findConflicts(getAllAuditItems()).length;
+    const upcoming=getPreviewItems().filter(e=>{const days=getDaysUntil(e.start);return days!==null && days>=0 && days<=14;}).length;
+    const lastUpdate=eventsMetaData?.generatedAt ? formatDateFR(eventsMetaData.generatedAt) : 'Indisponible';
+    const newEvents=eventsMetaData?.newEventsThisWeek ?? 'â€”';
+    const editableTotal=EDITABLE_SOURCES.reduce((sum,src)=>sum+(store[src]||[]).length,0);
+    const missingDesc=EDITABLE_SOURCES.reduce((sum,src)=>sum+countMissingForSource(src,'description'),0);
+    const missingCats=EDITABLE_SOURCES.reduce((sum,src)=>sum+countMissingForSource(src,'categories'),0);
+    detail.innerHTML=`<div class="health-inline"><span class="mini-pill">${editableTotal} entrÃ©e(s) Ã©ditables</span><span class="mini-pill">${upcoming} Ã  venir sous 14 j</span><span class="mini-pill${duplicates?' bad':' good'}">${duplicates} conflit${duplicates>1?'s':''}</span><span class="mini-pill${missingDesc?' warn':''}">${missingDesc} sans description</span><span class="mini-pill${missingCats?' warn':''}">${missingCats} sans catÃ©gorie</span></div><span><i class="fa-solid fa-calendar-day"></i>DerniÃ¨re gÃ©nÃ©ration: ${esc(lastUpdate)}</span><span><i class="fa-solid fa-plus-circle"></i>${esc(String(newEvents))} nouveautÃ©(s) cette semaine</span><div class="file-actions" style="justify-content:flex-start;margin-top:4px"><button class="btn bs bsm" onclick="focusPreviewUpcoming(14)"><i class="fa-solid fa-calendar-day"></i> 14 jours</button><button class="btn bs bsm" onclick="focusPreviewMissing('description')"><i class="fa-solid fa-pen-nib"></i> Sans description</button><button class="btn bs bsm" onclick="focusPreviewMissing('categories')"><i class="fa-solid fa-tags"></i> Sans catÃ©gorie</button></div>`;
+  }
+
+  const generatedGrid=document.getElementById('generated-files-grid');
+  if(generatedGrid){
+    if(!generatedCategoryFilesState.loaded){
+      generatedGrid.innerHTML='<div class="file-empty">Chargement des JSON gÃ©nÃ©rÃ©sâ€¦</div>';
+    }else if(!generatedCategoryFilesState.files.length){
+      generatedGrid.innerHTML='<div class="file-empty">Aucun fichier dÃ©tectÃ© dans <code>calendar_core/data/generated_events</code>.</div>';
+    }else{
+      generatedGrid.innerHTML=generatedCategoryFilesState.files.slice(0,12).map(file=>`<div class="file-row readonly"><div class="file-meta"><div class="file-name">${esc(file.category)}</div><div class="file-path"><code>${esc(file.path.replace(/^\//,''))}</code></div><div class="file-stats"><span class="mini-pill">${file.count} entrÃ©e(s)</span><span class="mini-pill">${esc(file.years[0]||'â€”')} â†’ ${esc(file.years[file.years.length-1]||'â€”')}</span></div></div><div class="file-actions"><a class="btn bs bsm" href="${file.path}" target="_blank" rel="noopener"><i class="fa-solid fa-file-code"></i> JSON</a><button class="btn bs bsm" onclick="setSideCat('${esc(file.category).replace(/'/g,"\\'")}'); const pvs=document.getElementById('pvs'); if(pvs)pvs.value='generated'; PREVIEW_FILTER=null; PREVIEW_FOCUS_LABEL='JSON catÃ©gorie'; nav('preview');"><i class="fa-solid fa-eye"></i> AperÃ§u</button></div></div>`).join('');
+    }
+  }
+}
+
+function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function escapeHtml(s){return esc(s);}
+function yrClass(y){return y==CY?'cy':y==NY?'ny':'';}
+function getDaysUntil(dateStr){
+  if(!dateStr || !/^\d{4}-\d{2}-\d{2}$/.test(String(dateStr)))return null;
+  const today=new Date();
+  today.setHours(0,0,0,0);
+  const target=new Date(`${dateStr}T00:00:00`);
+  if(Number.isNaN(target.getTime()))return null;
+  const ms=target-today;
+  return Math.floor(ms/(1000*60*60*24));
+}
+
+function formatDateFR(dateStr){
+  const date=new Date(dateStr);
+  if(Number.isNaN(date.getTime()))return 'Indisponible';
+  return new Intl.DateTimeFormat('fr-FR',{year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(date);
+}
+
+function chipHtml(c){
+  const k=c.replace(/[\s\/\-']/g,'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const cls=k.startsWith('vacanc')?'cV':k.startsWith('jours')||k.startsWith('ferier')?'cF':k.startsWith('jo')||k.startsWith('jeux')?'cJ':k.startsWith('sport')||['football','tennis','cycl','rugby','hand','athl','formule','natation','ski'].some(x=>k.includes(x))?'cS':k.startsWith('elect')?'cE':k.startsWith('examen')||k.startsWith('educat')?'cX':k.startsWith('cult')||k.startsWith('fetes')||k.startsWith('cinema')||k.startsWith('theat')?'cC':k.startsWith('sante')?'cH':k.startsWith('soci')||k.startsWith('memo')?'cM':k.startsWith('envir')?'cN':k.startsWith('astro')||k.startsWith('lunaire')?'cA':k.startsWith('saison')||k.startsWith('changement')?'cK':'cD';
+  return`<span class="chip ${cls}">${esc(c)}</span>`;
+}
+function toast(msg,type='ok'){
+  const z=document.getElementById('tz');const d=document.createElement('div');
+  d.className=`toast t${type==='ok'?'ok':type==='err'?'err':'info'}`;
+  d.innerHTML=`<i class="fa-solid fa-${type==='ok'?'circle-check':type==='err'?'triangle-exclamation':'circle-info'}"></i> ${esc(msg)}`;
+  z.appendChild(d);setTimeout(()=>{d.classList.add('tout');setTimeout(()=>d.remove(),220);},3200);
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeConfirm();closeCommit();closeBulkEdit();}});
+bootAdmin();
+</script>
+</body>
+</html>
+
