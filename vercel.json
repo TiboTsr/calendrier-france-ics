@@ -21,6 +21,10 @@
     },
     { "src": "/api/admin-data", "dest": "/api/admin-data.js" },
     {
+      "src": "/((?:calendrier(?:-[^/]+)?\\.ics|zone-[abc]\\.ics|calendrier\\.json|events-meta\\.json|calendrier\\.csv|calendrier\\.xml|sitemap\\.xml))",
+      "dest": "/api/generated-file.js?name=$1"
+    },
+    {
       "handle": "filesystem"
     },
     {
