@@ -383,6 +383,14 @@ module.exports = async function handler(req, res) {
       },
     );
 
+    // Filtrer pour garder uniquement les événements à partir d'aujourd'hui
+    const today = new Date();
+    const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+    const futureEvents = filtered.filter(event => {
+      const eventDate = String(event.start || "");
+      return eventDate >= todayStr;
+    });
+
     const dtstamp = new Date()
       .toISOString()
       .replace(/[-:]/g, "")
@@ -397,7 +405,7 @@ module.exports = async function handler(req, res) {
       "X-WR-TIMEZONE:Europe/Paris",
     ];
 
-    for (const event of filtered) {
+    for (const event of futureEvents) {
       const start = toIcsDate(event.start);
       if (!start) continue;
       const endExclusive = addOneDay(
