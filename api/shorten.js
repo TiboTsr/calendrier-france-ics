@@ -6,7 +6,10 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN,
 });
 
-const ALLOWED_HOSTNAME = 'api.calendrier-fr.tibotsr.dev';
+const ALLOWED_HOSTNAMES = new Set([
+  'api.calendrier-fr.tibotsr.dev',
+  'calendrier-fr.tibotsr.dev',
+]);
 const ALLOWED_SCHEMES = ['https:', 'webcal:'];
 const MAX_URL_LENGTH = 4096;
 const RATE_LIMIT_MAX = 20;
@@ -25,7 +28,7 @@ function validateUrl(raw) {
 
   const scheme = raw.toLowerCase().startsWith('webcal:') ? 'webcal:' : parsed.protocol;
   if (!ALLOWED_SCHEMES.includes(scheme)) return { ok: false, reason: `Schéma non autorisé : ${scheme}` };
-  if (parsed.hostname !== ALLOWED_HOSTNAME) return { ok: false, reason: `Domaine non autorisé : ${parsed.hostname}` };
+  if (!ALLOWED_HOSTNAMES.has(parsed.hostname)) return { ok: false, reason: `Domaine non autorisé : ${parsed.hostname}` };
   return { ok: true };
 }
 

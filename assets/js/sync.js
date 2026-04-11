@@ -309,8 +309,7 @@ function setQrState(enabled) {
 
 function updateQrCodes(url) {
   const qrUrl = String(url || '')
-    .replace(/^webcal:\/\//i, 'https://')
-    .replace(/^https:\/\/api\.calendrier-fr\.tibotsr\.dev\//i, 'https://calendrier-fr.tibotsr.dev/');
+    .replace(/^https:\/\//i, 'webcal://');
   const src  = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&data=${encodeURIComponent(qrUrl)}`;
   const link = document.getElementById('qr-link-main');
   const img  = document.getElementById('qr-img-main');
@@ -389,12 +388,10 @@ async function buildAdvUrl() {
     });
     if (personal.length) p.set('pe', JSON.stringify(personal));
 
-    const API_HOST  = typeof window.CALENDAR_API_BASE !== 'undefined'
-      ? window.CALENDAR_API_BASE
-      : (['localhost', '127.0.0.1'].includes(window.location.hostname) || window.location.hostname.endsWith('.local')
-        ? 'calendrier-fr.tibotsr.dev'
-        : window.location.host);
-    const longUrl   = `https://${API_HOST}/api/calendrier.ics?${p}`;
+    const SUBSCRIBE_HOST = (window.CALENDAR_SUBSCRIBE_HOST || window.CALENDAR_API_BASE || window.location.host)
+      .replace(/^https?:\/\//, '')
+      .replace(/\/$/, '');
+    const longUrl   = `https://${SUBSCRIBE_HOST}/api/calendrier.ics?${p}`;
 
     let shortId = null;
 
@@ -423,10 +420,10 @@ async function buildAdvUrl() {
 
     let wc, wcGoogle;
     if (shortId) {
-      wc       = `webcal://${API_HOST}/api/calendrier.ics?id=${shortId}`;
-      wcGoogle = `https://${API_HOST}/api/calendrier.ics?id=${shortId}`;
+      wc       = `webcal://${SUBSCRIBE_HOST}/api/calendrier.ics?id=${shortId}`;
+      wcGoogle = `https://${SUBSCRIBE_HOST}/api/calendrier.ics?id=${shortId}`;
     } else {
-      wc       = `webcal://${API_HOST}/api/calendrier.ics?${p}`;
+      wc       = `webcal://${SUBSCRIBE_HOST}/api/calendrier.ics?${p}`;
       wcGoogle = longUrl;
     }
 
