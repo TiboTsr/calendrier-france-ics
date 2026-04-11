@@ -355,6 +355,7 @@ module.exports = async function handler(req, res) {
     const alarmFeries = (finalParams.get("alarm_feries") || "none").trim();
     const alarmVacances = (finalParams.get("alarm_vacances") || "none").trim();
     const useEmojis = finalParams.get("emojis") === "1";
+    const startDateParam = finalParams.get("start_date");
 
     const sourceUrl =
       process.env.CALENDAR_JSON_URL ||
@@ -383,12 +384,15 @@ module.exports = async function handler(req, res) {
       },
     );
 
-    // Filtrer pour garder uniquement les événements à partir d'aujourd'hui
-    const today = new Date();
-    const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+    // Filtrer pour garder uniquement les événements à partir de la date spécifiée (ou aujourd'hui par défaut)
+    let startDateStr = startDateParam;
+    if (!startDateStr) {
+      const today = new Date();
+      startDateStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+    }
     const futureEvents = filtered.filter(event => {
       const eventDate = String(event.start || "");
-      return eventDate >= todayStr;
+      return eventDate >= startDateStr;
     });
 
     const dtstamp = new Date()
@@ -447,7 +451,6 @@ module.exports = async function handler(req, res) {
         `DESCRIPTION:${escapeIcsText(descParts)}`,
       ];
       if (categoryLine) eventLines.push(categoryLine);
-      eventLines.push(...alarmBlock(currentAlarm, start));
       eventLines.push("END:VEVENT");
       lines.push(...eventLines);
     }
