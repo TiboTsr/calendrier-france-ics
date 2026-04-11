@@ -312,7 +312,6 @@
 
   document.addEventListener("keydown", (e) => {
     if (!overlay?.classList.contains("visible")) return;
-    if (e.key === "Escape") endTuto();
     if (e.key === "Enter" && step >= STEPS.length - 1) endTuto();
   });
 

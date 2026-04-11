@@ -733,6 +733,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     document.body.classList.remove('modal-open');
     document.getElementById('ev-modal').classList.remove('on');
+    e.stopPropagation();
     return;
   }
   if (e.key === 'ArrowLeft'  && _modalPrev) { e.preventDefault(); openModal(_modalPrev, _modalEvts); }
