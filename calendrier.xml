@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 19 Apr 2026 03:38:11 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 03:39:35 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
       <guid>4fd3950c4437b5d309c15a15@calendrier-fr.tibotsr.dev</guid>
       <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
       <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Vacances de Printemps - Zone A</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-04-04</link>
-      <guid>7a7b44736c7cb43a9b59be63@calendrier-fr.tibotsr.dev</guid>
-      <description>Vacances de Printemps pour la zone scolaire A. Durée : 16 jours, du 04/04/2026 au 19/04/2026. Le découpage en zones A, B et C a été instauré en 1972.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Vacances de Printemps - Zone B</title>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-29</link>
       <guid>ac792ed0a7ca189e038c7637@calendrier-fr.tibotsr.dev</guid>
       <description>Une année solaire dure 365,2422 jours. 2028 est l'une des années rares à 366 jours.</description>
+      <pubDate>Tue, 29 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Mardi Gras</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-02-29</link>
+      <guid>3df3aac217bb79cf1323b180@calendrier-fr.tibotsr.dev</guid>
+      <description>Dernier jour avant le Carême, où la tradition voulait qu'on fasse bombance avant l'abstinence.</description>
       <pubDate>Tue, 29 Feb 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
