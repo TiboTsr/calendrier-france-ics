@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Wed, 22 Apr 2026 03:30:07 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2026 03:34:01 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
@@ -26,13 +26,6 @@
       <guid>ca1a4a186e86cd5446bf28af@calendrier-fr.tibotsr.dev</guid>
       <description>Vacances de Printemps pour la zone scolaire C. Durée : 16 jours, du 18/04/2026 au 03/05/2026. Le découpage en zones A, B et C a été instauré en 1972.</description>
       <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Jour de la Terre</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-04-22</link>
-      <guid>c21cbc89bfd3b63514a7df71@calendrier-fr.tibotsr.dev</guid>
-      <description>Né le 22 avril 1970 après une marée noire en Californie.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Fête du Travail</title>
@@ -1405,6 +1398,13 @@
       <guid>3df3aac217bb79cf1323b180@calendrier-fr.tibotsr.dev</guid>
       <description>Dernier jour avant le Carême, où la tradition voulait qu'on fasse bombance avant l'abstinence.</description>
       <pubDate>Tue, 29 Feb 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Début du Carême</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-03-01</link>
+      <guid>6ed88632670ea9e01f32621a@calendrier-fr.tibotsr.dev</guid>
+      <description>Le Carême commence le Mercredi des Cendres, 46 jours avant Pâques.</description>
+      <pubDate>Wed, 01 Mar 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
