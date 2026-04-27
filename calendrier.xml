@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 26 Apr 2026 03:42:51 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 03:48:16 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
       <guid>4fd3950c4437b5d309c15a15@calendrier-fr.tibotsr.dev</guid>
       <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
       <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Vacances de Printemps - Zone B</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-04-11</link>
-      <guid>05c9487c44de0d7396b3eab8@calendrier-fr.tibotsr.dev</guid>
-      <description>Vacances de Printemps pour la zone scolaire B. Durée : 16 jours, du 11/04/2026 au 26/04/2026. Le découpage en zones A, B et C a été instauré en 1972.</description>
-      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Vacances de Printemps - Zone C</title>
@@ -1405,6 +1398,13 @@
       <guid>6ed88632670ea9e01f32621a@calendrier-fr.tibotsr.dev</guid>
       <description>Le Carême commence le Mercredi des Cendres, 46 jours avant Pâques.</description>
       <pubDate>Wed, 01 Mar 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fête des Grands-Mères</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-03-05</link>
+      <guid>943c497d9653e82ae08f0c46@calendrier-fr.tibotsr.dev</guid>
+      <description>Créée en 1987 par la marque de café Grand'Mère.</description>
+      <pubDate>Sun, 05 Mar 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
