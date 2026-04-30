@@ -7,7 +7,7 @@ X-WR-CALNAME:Calendrier Complet France
 X-WR-TIMEZONE:Europe/Paris
 BEGIN:VEVENT
 UID:4fd3950c4437b5d309c15a15@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Ligue 1 2025-2026
 DESCRIPTION:88e édition du championnat de France\, 2e sous l'appellation Li
  gue 1 McDonald's.
@@ -17,7 +17,7 @@ DTEND;VALUE=DATE:20260517
 END:VEVENT
 BEGIN:VEVENT
 UID:ca1a4a186e86cd5446bf28af@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances de Printemps - Zone C
 DESCRIPTION:Vacances de Printemps pour la zone scolaire C. Durée : 16 jours
  \, du 18/04/2026 au 03/05/2026. Le découpage en zones A\, B et C a été inst
@@ -28,7 +28,7 @@ DTEND;VALUE=DATE:20260504
 END:VEVENT
 BEGIN:VEVENT
 UID:17617e8815f0d514d63a5095@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -39,7 +39,7 @@ DTSTART;VALUE=DATE:20260501
 END:VEVENT
 BEGIN:VEVENT
 UID:4ae2769e3d162780b996bc60@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -49,7 +49,7 @@ DTSTART;VALUE=DATE:20260508
 END:VEVENT
 BEGIN:VEVENT
 UID:1e31e0bee3edc24326d19b54@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Abolition de l'esclavage en France — Commémoration
 DESCRIPTION:Journée nationale instaurée par la loi Taubira de 2001.
 CATEGORIES:Mémoire,Société
@@ -57,7 +57,7 @@ DTSTART;VALUE=DATE:20260510
 END:VEVENT
 BEGIN:VEVENT
 UID:e9bf3d59ab2d44b754d684c2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival de Cannes — Ouverture
 DESCRIPTION:Le Festival International du Film de Cannes\, créé en 1946.
 CATEGORIES:Culture,Cinéma
@@ -65,7 +65,7 @@ DTSTART;VALUE=DATE:20260512
 END:VEVENT
 BEGIN:VEVENT
 UID:57170bbe9ab63e13d2d569f4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -75,7 +75,7 @@ DTSTART;VALUE=DATE:20260514
 END:VEVENT
 BEGIN:VEVENT
 UID:ea15e1d228d34746c56791bf@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont de l'Ascension - Zones A\, B et C
 DESCRIPTION:Pont de l'Ascension pour toutes les zones (A\, B et C). Durée :
   4 jours\, du 14/05/2026 au 17/05/2026.
@@ -85,7 +85,7 @@ DTEND;VALUE=DATE:20260518
 END:VEVENT
 BEGIN:VEVENT
 UID:7761444ba2ea0453e2056a31@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 14/05/2026. Le vendredi 15/05/2026 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -94,7 +94,7 @@ DTSTART;VALUE=DATE:20260515
 END:VEVENT
 BEGIN:VEVENT
 UID:f2189bfe0484f6618b9dd869@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Musées
 DESCRIPTION:Créée en France en 2005 et étendue à toute l'Europe.
 CATEGORIES:Culture
@@ -102,7 +102,7 @@ DTSTART;VALUE=DATE:20260516
 END:VEVENT
 BEGIN:VEVENT
 UID:00a23a80569a0467ee2f7f78@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:BTS — Épreuves écrites
 DESCRIPTION:Le Brevet de Technicien Supérieur (BTS) est un diplôme bac+2 de
   l'enseignement supérieur court. Les épreuves écrites communes se déroulent
@@ -113,7 +113,7 @@ DTEND;VALUE=DATE:20260522
 END:VEVENT
 BEGIN:VEVENT
 UID:c9fe8e96dd3e73a1ffd98e2d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Baccalauréat professionnel — Épreuves écrites
 DESCRIPTION:Le baccalauréat professionnel valide une formation en lycée pro
  fessionnel ou en alternance. Ses épreuves écrites se déroulent de fin mai à
@@ -124,7 +124,7 @@ DTEND;VALUE=DATE:20260606
 END:VEVENT
 BEGIN:VEVENT
 UID:49c043643ca989349933b3a6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Finale UEFA Europa League 2025-2026
 DESCRIPTION:Au Beşiktaş Park d'Istanbul\, Turquie.
 CATEGORIES:Sport
@@ -133,7 +133,7 @@ DTEND;VALUE=DATE:20260521
 END:VEVENT
 BEGIN:VEVENT
 UID:ef973e8741f2652a353995fb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la biodiversité
 DESCRIPTION:Commémore l'adoption de la Convention sur la Diversité Biologiq
  ue à Rio.
@@ -142,7 +142,7 @@ DTSTART;VALUE=DATE:20260522
 END:VEVENT
 BEGIN:VEVENT
 UID:79c59c148ce5325a6d1b9ca4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pentecôte
 DESCRIPTION:Célèbre la descente de l'Esprit Saint sur les apôtres\, 50 jour
  s après Pâques.
@@ -151,7 +151,7 @@ DTSTART;VALUE=DATE:20260524
 END:VEVENT
 BEGIN:VEVENT
 UID:36add3062acbf337dcf8e17f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Roland-Garros 2026
 DESCRIPTION:Grand Chelem sur terre battue à Paris.
 CATEGORIES:Sport
@@ -160,7 +160,7 @@ DTEND;VALUE=DATE:20260608
 END:VEVENT
 BEGIN:VEVENT
 UID:641ee9eb4e0f679644ed0830@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -171,7 +171,7 @@ DTSTART;VALUE=DATE:20260525
 END:VEVENT
 BEGIN:VEVENT
 UID:85ac7360ff2a576b9dbd879a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Résistance
 DESCRIPTION:Le 27 mai 1943\, Jean Moulin préside la première réunion secrèt
  e du CNR.
@@ -180,7 +180,7 @@ DTSTART;VALUE=DATE:20260527
 END:VEVENT
 BEGIN:VEVENT
 UID:54eb8c826648ebf274449341@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Voisins
 DESCRIPTION:Créée en 2000 pour lutter contre l'isolement urbain.
 CATEGORIES:Société
@@ -188,7 +188,7 @@ DTSTART;VALUE=DATE:20260529
 END:VEVENT
 BEGIN:VEVENT
 UID:58c335dcfaf35e2b5ff13f04@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Finale UEFA Ligue des Champions 2025-2026
 DESCRIPTION:À la Puskás Aréna de Budapest\, Hongrie. 71e édition de la comp
  étition.
@@ -198,7 +198,7 @@ DTEND;VALUE=DATE:20260531
 END:VEVENT
 BEGIN:VEVENT
 UID:ce1e314ff109a5f9f88ac5a6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Mères
 DESCRIPTION:Célébrée le dernier dimanche de mai\, sauf si c'est la Pentecôt
  e.
@@ -207,7 +207,7 @@ DTSTART;VALUE=DATE:20260531
 END:VEVENT
 BEGIN:VEVENT
 UID:9efc93e951553d4034fb42cf@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans tabac
 DESCRIPTION:Lancée par l'OMS en 1987.
 CATEGORIES:Santé
@@ -215,7 +215,7 @@ DTSTART;VALUE=DATE:20260531
 END:VEVENT
 BEGIN:VEVENT
 UID:51274c8849086112d8036e77@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Débarquement en Normandie — Commémoration du Jour J
 DESCRIPTION:Le 6 juin 1944\, 156 000 soldats alliés débarquent sur les plag
  es de Normandie.
@@ -224,7 +224,7 @@ DTSTART;VALUE=DATE:20260606
 END:VEVENT
 BEGIN:VEVENT
 UID:0df6902f78de06dfbaf61434@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:CAP — Épreuves écrites d'enseignement général
 DESCRIPTION:Le Certificat d'Aptitude Professionnelle (CAP) certifie des com
  pétences dans un métier précis. Les épreuves écrites d'enseignement général
@@ -235,7 +235,7 @@ DTEND;VALUE=DATE:20260610
 END:VEVENT
 BEGIN:VEVENT
 UID:b696672d5af48758ecf3af71@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'océan
 DESCRIPTION:Proposée lors du Sommet de la Terre de Rio en 1992.
 CATEGORIES:Environnement
@@ -243,7 +243,7 @@ DTSTART;VALUE=DATE:20260608
 END:VEVENT
 BEGIN:VEVENT
 UID:8dbcc4f3b42c79165459edac@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Baccalauréat — Épreuve anticipée de français (1re)
 DESCRIPTION:L'épreuve écrite anticipée de français se passe en classe de Pr
  emière\, un an avant le bac. Elle compte dans la note finale du baccalauréa
@@ -254,7 +254,7 @@ DTEND;VALUE=DATE:20260612
 END:VEVENT
 BEGIN:VEVENT
 UID:a38cdabcddef10a366bf6cf0@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Coupe du monde de football 2026
 DESCRIPTION:Première édition à 48 équipes\, organisée aux États-Unis\, au C
  anada et au Mexique.
@@ -264,7 +264,7 @@ DTEND;VALUE=DATE:20260720
 END:VEVENT
 BEGIN:VEVENT
 UID:5447710cb085a600577b355b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:24 Heures du Mans 2026
 DESCRIPTION:94e édition sur le circuit de la Sarthe.
 CATEGORIES:Sport
@@ -273,7 +273,7 @@ DTEND;VALUE=DATE:20260615
 END:VEVENT
 BEGIN:VEVENT
 UID:657e883b43e4b445fd6bc52e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Baccalauréat général et technologique — Philosophie
 DESCRIPTION:L'épreuve de philosophie est l'épreuve d'ouverture du bac\, tra
  ditionnellement le premier jour. Unique en Europe\, cette épreuve de 4 heur
@@ -285,7 +285,7 @@ DTEND;VALUE=DATE:20260616
 END:VEVENT
 BEGIN:VEVENT
 UID:d9a5cd255239e09ad4eff44e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Baccalauréat général et technologique — Épreuves de spécialité
 DESCRIPTION:Épreuves terminales écrites de spécialité du baccalauréat génér
  al et technologique. Créé par Napoléon en 1808\, le baccalauréat est l'un d
@@ -297,7 +297,7 @@ DTEND;VALUE=DATE:20260619
 END:VEVENT
 BEGIN:VEVENT
 UID:2a6834370fa316bda2fac46a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Match France - Sénégal
 DESCRIPTION:Premier match de la coupe du monde pour l'équipe de France cont
  re le Sénégal. Nous sommes dans la phase de poules. Les deux premières équi
@@ -308,7 +308,7 @@ DTEND;VALUE=DATE:20260617
 END:VEVENT
 BEGIN:VEVENT
 UID:997078dd6accd4ad97be178b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Appel du 18 juin 1940 — Anniversaire
 DESCRIPTION:Le 18 juin 1940\, de Gaulle lance depuis Londres un appel à la 
  Résistance sur la BBC.
@@ -317,7 +317,7 @@ DTSTART;VALUE=DATE:20260618
 END:VEVENT
 BEGIN:VEVENT
 UID:e283f886c2d34454c1d3466b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Été — Solstice d'été
 DESCRIPTION:Le solstice d'été est le jour le plus long de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -325,7 +325,7 @@ DTSTART;VALUE=DATE:20260621
 END:VEVENT
 BEGIN:VEVENT
 UID:5e8ffc7fef10c1c7db6dd8e9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Musique
 DESCRIPTION:Créée en 1982 par le ministre Jack Lang.
 CATEGORIES:Culture,Fêtes
@@ -333,7 +333,7 @@ DTSTART;VALUE=DATE:20260621
 END:VEVENT
 BEGIN:VEVENT
 UID:deae48b8676ae8a7496ab4b4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Pères
 DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les anné
  es 1950.
@@ -342,7 +342,7 @@ DTSTART;VALUE=DATE:20260621
 END:VEVENT
 BEGIN:VEVENT
 UID:5ac9d4ea7dc16103a83dd8db@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus long de l'année
 DESCRIPTION:Le 21 June est le jour le plus long de l'année 2026.
 CATEGORIES:Saisons,Astronomie
@@ -350,7 +350,7 @@ DTSTART;VALUE=DATE:20260621
 END:VEVENT
 BEGIN:VEVENT
 UID:9e5e6484fb14772544c2605e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Baccalauréat général et technologique — Grand Oral
 DESCRIPTION:Le Grand Oral évalue la capacité des candidats à présenter et d
  éfendre un projet à l'oral. Introduit par la réforme du bac de 2019\, il re
@@ -361,7 +361,7 @@ DTEND;VALUE=DATE:20260702
 END:VEVENT
 BEGIN:VEVENT
 UID:b5beb0a7472c30129b627cc7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'été
 DESCRIPTION:Les soldes d'été débutent le dernier mercredi de juin et durent
   4 semaines.
@@ -371,7 +371,7 @@ DTEND;VALUE=DATE:20260723
 END:VEVENT
 BEGIN:VEVENT
 UID:078127c3429c226f9c2b8914@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Brevet des collèges (DNB) — Épreuves écrites
 DESCRIPTION:Le diplôme national du brevet sanctionne la fin du collège. Il 
  se déroule sur trois jours fin juin. Près de 800 000 élèves le passent chaq
@@ -382,7 +382,7 @@ DTEND;VALUE=DATE:20260701
 END:VEVENT
 BEGIN:VEVENT
 UID:2ebd050b2cbca26c7454dacc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Cinéma
 DESCRIPTION:Créée en 1985\, elle propose chaque fin juin des places à tarif
   réduit.
@@ -391,7 +391,7 @@ DTSTART;VALUE=DATE:20260628
 END:VEVENT
 BEGIN:VEVENT
 UID:6f973a994092f25e31bc9be3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Milieu de l'année
 DESCRIPTION:Ce jour marque le point médian exact de l'année 2026.
 CATEGORIES:Dates spéciales
@@ -399,7 +399,7 @@ DTSTART;VALUE=DATE:20260702
 END:VEVENT
 BEGIN:VEVENT
 UID:cd0784061eb79c76db047ef9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Tour de France 2026
 DESCRIPTION:113e édition. Grand départ à Barcelone\, arrivée à Paris.
 CATEGORIES:Sport
@@ -408,7 +408,7 @@ DTEND;VALUE=DATE:20260727
 END:VEVENT
 BEGIN:VEVENT
 UID:2c891049f493bf7f7be227bc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances d'Été - Zones A\, B et C
 DESCRIPTION:Vacances d'Été pour toutes les zones (A\, B et C). Durée : 59 j
  ours\, du 04/07/2026 au 31/08/2026.
@@ -418,7 +418,7 @@ DTEND;VALUE=DATE:20260901
 END:VEVENT
 BEGIN:VEVENT
 UID:2cae8332972eddb233d2c466@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival d'Avignon — Ouverture
 DESCRIPTION:Créé par Jean Vilar en 1947 dans la cour du Palais des Papes.
 CATEGORIES:Culture,Théâtre
@@ -426,7 +426,7 @@ DTSTART;VALUE=DATE:20260705
 END:VEVENT
 BEGIN:VEVENT
 UID:82eabe612fe7b7e0fdb6a338@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Commémoration de la Rafle du Vél d'Hiv
 DESCRIPTION:Les 16-17 juillet 1942\, la police française arrêta 13 152 Juif
  s à Paris.
@@ -435,7 +435,7 @@ DTSTART;VALUE=DATE:20260712
 END:VEVENT
 BEGIN:VEVENT
 UID:d1dadad3689ec53abfb297d9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Fête nationale
 DESCRIPTION:Fête nationale tombe un mardi le 14/07/2026. Le lundi 13/07/202
  6 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -444,7 +444,7 @@ DTSTART;VALUE=DATE:20260713
 END:VEVENT
 BEGIN:VEVENT
 UID:4de6885772fbd80be7b6fdb7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -452,7 +452,7 @@ DTSTART;VALUE=DATE:20260714
 END:VEVENT
 BEGIN:VEVENT
 UID:31aa86178022d54b2788f451@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -463,7 +463,7 @@ DTSTART;VALUE=DATE:20260714
 END:VEVENT
 BEGIN:VEVENT
 UID:96669724d2b77a56a8366153@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Étoiles
 DESCRIPTION:Organisée chaque premier week-end d'août par l'Association Fran
  çaise d'Astronomie depuis 1991.
@@ -472,7 +472,7 @@ DTSTART;VALUE=DATE:20260801
 END:VEVENT
 BEGIN:VEVENT
 UID:baeafd7eb958fefc57fe989e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -482,7 +482,7 @@ DTSTART;VALUE=DATE:20260815
 END:VEVENT
 BEGIN:VEVENT
 UID:b88502f66517aa35959cd07c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -490,7 +490,7 @@ DTSTART;VALUE=DATE:20260815
 END:VEVENT
 BEGIN:VEVENT
 UID:c2228d0e2faf3baf1dab2871@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Rentrée des classes
 DESCRIPTION:La rentrée de septembre mobilise 12 millions d'élèves et 870 00
  0 enseignants en France.
@@ -499,7 +499,7 @@ DTSTART;VALUE=DATE:20260902
 END:VEVENT
 BEGIN:VEVENT
 UID:fde705663f1df9994f1ae6f6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Braderie de Lille
 DESCRIPTION:Plus grande braderie d'Europe\, organisée le premier week-end d
  e septembre à Lille.
@@ -508,7 +508,7 @@ DTSTART;VALUE=DATE:20260905
 END:VEVENT
 BEGIN:VEVENT
 UID:3fa95aa89f50e914b9f2adb1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journées du Patrimoine
 DESCRIPTION:Créées en France en 1984 par Jack Lang\, étendues à toute l'Eur
  ope en 1991.
@@ -517,7 +517,7 @@ DTSTART;VALUE=DATE:20260919
 END:VEVENT
 BEGIN:VEVENT
 UID:eb2e2ce392c7cb6f45edaf8b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Automne — Équinoxe d'automne
 DESCRIPTION:L'équinoxe d'automne marque le début de l'automne.
 CATEGORIES:Saisons,Astronomie
@@ -525,7 +525,7 @@ DTSTART;VALUE=DATE:20260922
 END:VEVENT
 BEGIN:VEVENT
 UID:00bad90e4cd1ce35f4623a21@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans voiture
 DESCRIPTION:Lancée en France en 1998 par La Rochelle.
 CATEGORIES:Environnement,Société
@@ -533,7 +533,7 @@ DTSTART;VALUE=DATE:20260922
 END:VEVENT
 BEGIN:VEVENT
 UID:a20ae0c068acf55e35c69106@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du cacao et du chocolat
 DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internatio
  nale du cacao (ICCO).
@@ -542,7 +542,7 @@ DTSTART;VALUE=DATE:20261001
 END:VEVENT
 BEGIN:VEVENT
 UID:3e4df8017f3d3e5a5190c232@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement d'Octobre Rose
 DESCRIPTION:Tout octobre est dédié à la sensibilisation au cancer du sein.
 CATEGORIES:Santé
@@ -550,7 +550,7 @@ DTSTART;VALUE=DATE:20261001
 END:VEVENT
 BEGIN:VEVENT
 UID:28c0f8a8ee26852f81405ae3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit Blanche
 DESCRIPTION:Initiée à Paris en 2002 par le maire Bertrand Delanoë.
 CATEGORIES:Culture
@@ -558,7 +558,7 @@ DTSTART;VALUE=DATE:20261003
 END:VEVENT
 BEGIN:VEVENT
 UID:e9709b18daf3fe0847049b28@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Pères
 DESCRIPTION:Créée en 2008\, elle a lieu chaque premier dimanche d'octobre.
 CATEGORIES:Fêtes,Culture
@@ -566,7 +566,7 @@ DTSTART;VALUE=DATE:20261004
 END:VEVENT
 BEGIN:VEVENT
 UID:527cf78df6277e39ece9d1d7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la santé mentale
 DESCRIPTION:Créée par la Fédération Mondiale pour la Santé Mentale en 1992.
 CATEGORIES:Santé,Société
@@ -574,7 +574,7 @@ DTSTART;VALUE=DATE:20261010
 END:VEVENT
 BEGIN:VEVENT
 UID:0480655f6dc620ad7a8963ba@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Semaine du Goût
 DESCRIPTION:Créée en 1990 par le chef Joël Robuchon.
 CATEGORIES:Gastronomie,Culture
@@ -582,7 +582,7 @@ DTSTART;VALUE=DATE:20261012
 END:VEVENT
 BEGIN:VEVENT
 UID:57d4dac8de0ac595c5a44c08@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'alimentation
 DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945.
 CATEGORIES:Gastronomie,Société,Santé
@@ -590,7 +590,7 @@ DTSTART;VALUE=DATE:20261016
 END:VEVENT
 BEGIN:VEVENT
 UID:35922e0de9dff394f3af3515@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances de la Toussaint - Zones A\, B et C
 DESCRIPTION:Vacances de la Toussaint pour toutes les zones (A\, B et C). Du
  rée : 16 jours\, du 17/10/2026 au 01/11/2026.
@@ -600,7 +600,7 @@ DTEND;VALUE=DATE:20261102
 END:VEVENT
 BEGIN:VEVENT
 UID:f3eaa611ba33466017ae9fe1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -609,7 +609,7 @@ DTSTART;VALUE=DATE:20261025
 END:VEVENT
 BEGIN:VEVENT
 UID:6f619142e0bb89a3f97863b8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Halloween
 DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis 
  popularisée par la diaspora irlandaise.
@@ -618,7 +618,7 @@ DTSTART;VALUE=DATE:20261031
 END:VEVENT
 BEGIN:VEVENT
 UID:38709bab68a61ff68ff0b21b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement du Mois sans Tabac
 DESCRIPTION:Lancé en France en 2016 par Santé Publique France.
 CATEGORIES:Santé
@@ -626,7 +626,7 @@ DTSTART;VALUE=DATE:20261101
 END:VEVENT
 BEGIN:VEVENT
 UID:32d5f97c38992f22dbc90379@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -637,7 +637,7 @@ DTSTART;VALUE=DATE:20261101
 END:VEVENT
 BEGIN:VEVENT
 UID:1d9e3d498cf2821bd1385159@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de l'arbre
 DESCRIPTION:Célébrée chaque premier jeudi de novembre.
 CATEGORIES:Environnement
@@ -645,7 +645,7 @@ DTSTART;VALUE=DATE:20261105
 END:VEVENT
 BEGIN:VEVENT
 UID:812630998bd0913a810f4e97@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -656,7 +656,7 @@ DTSTART;VALUE=DATE:20261111
 END:VEVENT
 BEGIN:VEVENT
 UID:aad929bdea1e4f502d6db53c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -665,7 +665,7 @@ DTSTART;VALUE=DATE:20261111
 END:VEVENT
 BEGIN:VEVENT
 UID:bc05c77ee90c8be0ea7f4275@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Beaujolais Nouveau
 DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est 
  mis en vente.
@@ -674,7 +674,7 @@ DTSTART;VALUE=DATE:20261119
 END:VEVENT
 BEGIN:VEVENT
 UID:fb20842dd53f32671206f78c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des droits de l'enfant
 DESCRIPTION:Commémore l'adoption de la Convention des Nations Unies relativ
  e aux droits de l'enfant.
@@ -683,7 +683,7 @@ DTSTART;VALUE=DATE:20261120
 END:VEVENT
 BEGIN:VEVENT
 UID:c2da93daa742a6193d46c248@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Bretagne
 DESCRIPTION:Célébrée le 30 novembre (Saint-André) depuis les années 1990.
 CATEGORIES:Culture,Société
@@ -691,7 +691,7 @@ DTSTART;VALUE=DATE:20261130
 END:VEVENT
 BEGIN:VEVENT
 UID:b14cfa50339f4c7b9d885607@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des personnes handicapées
 DESCRIPTION:Instaurée par l'ONU en 1992.
 CATEGORIES:Société
@@ -699,7 +699,7 @@ DTSTART;VALUE=DATE:20261203
 END:VEVENT
 BEGIN:VEVENT
 UID:403a6cf55a12af9d642e42c6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du Bénévolat
 DESCRIPTION:Créée par l'ONU en 1985.
 CATEGORIES:Société
@@ -707,7 +707,7 @@ DTSTART;VALUE=DATE:20261205
 END:VEVENT
 BEGIN:VEVENT
 UID:016c6de3188af0aebebe9f88@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Nicolas
 DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron de
  s enfants.
@@ -716,7 +716,7 @@ DTSTART;VALUE=DATE:20261206
 END:VEVENT
 BEGIN:VEVENT
 UID:afff5f5d2f1203914ffa84a6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée de la Laïcité
 DESCRIPTION:Commémore la loi du 9 décembre 1905 séparant les Églises de l'É
  tat.
@@ -725,7 +725,7 @@ DTSTART;VALUE=DATE:20261209
 END:VEVENT
 BEGIN:VEVENT
 UID:ca0a6edd69d6bffef35ae20c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances de Noël - Zones A\, B et C
 DESCRIPTION:Vacances de Noël pour toutes les zones (A\, B et C). Durée : 16
   jours\, du 19/12/2026 au 03/01/2027.
@@ -735,7 +735,7 @@ DTEND;VALUE=DATE:20270104
 END:VEVENT
 BEGIN:VEVENT
 UID:d1100120ca6e8b977646d6f4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Hiver — Solstice d'hiver
 DESCRIPTION:Le solstice d'hiver est le jour le plus court de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -743,7 +743,7 @@ DTSTART;VALUE=DATE:20261221
 END:VEVENT
 BEGIN:VEVENT
 UID:88e2d91e0594a6d30942c9bd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus court de l'année
 DESCRIPTION:Le 21 December est le jour le plus court de l'année 2026.
 CATEGORIES:Saisons,Astronomie
@@ -751,7 +751,7 @@ DTSTART;VALUE=DATE:20261221
 END:VEVENT
 BEGIN:VEVENT
 UID:adb51ac987e73e1380728039@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -762,7 +762,7 @@ DTSTART;VALUE=DATE:20261225
 END:VEVENT
 BEGIN:VEVENT
 UID:8036ba8390df33480fa1e4f1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -771,7 +771,7 @@ DTSTART;VALUE=DATE:20261226
 END:VEVENT
 BEGIN:VEVENT
 UID:0caf20b367142c685cb12ede@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Année avec 53e semaine ISO
 DESCRIPTION:L'année 2026 comporte une semaine 53 dans le calendrier ISO.
 CATEGORIES:Dates spéciales
@@ -779,7 +779,7 @@ DTSTART;VALUE=DATE:20261228
 END:VEVENT
 BEGIN:VEVENT
 UID:74ea2dd4d281998e6119665a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dernier jour de l'année
 DESCRIPTION:Clôture de l'année civile 2026.
 CATEGORIES:Dates spéciales
@@ -787,7 +787,7 @@ DTSTART;VALUE=DATE:20261231
 END:VEVENT
 BEGIN:VEVENT
 UID:949519ec7d2272ec8b3ac81e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
 DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier m
  ort ce jour en 335.
@@ -796,7 +796,7 @@ DTSTART;VALUE=DATE:20261231
 END:VEVENT
 BEGIN:VEVENT
 UID:6f5a38fae550e9984b4b6183@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour de l'an
 DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœ
  ux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une cout
@@ -806,7 +806,7 @@ DTSTART;VALUE=DATE:20270101
 END:VEVENT
 BEGIN:VEVENT
 UID:4a3dff3802ef9e3bc9a669b4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Épiphanie
 DESCRIPTION:Célèbre la visite des Rois Mages à Jésus\, 12 jours après Noël.
 CATEGORIES:Christianisme,Culture,Gastronomie
@@ -814,7 +814,7 @@ DTSTART;VALUE=DATE:20270106
 END:VEVENT
 BEGIN:VEVENT
 UID:ef98c39142dd05c8dd9f7083@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'hiver
 DESCRIPTION:Les soldes d'hiver débutent le deuxième mercredi de janvier et 
  durent 4 semaines.
@@ -824,7 +824,7 @@ DTEND;VALUE=DATE:20270211
 END:VEVENT
 BEGIN:VEVENT
 UID:c91cf69e067a5bf1a74e5650@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale de l'Éducation
 DESCRIPTION:Proclamée par l'ONU en 2019.
 CATEGORIES:Éducation,Société
@@ -832,7 +832,7 @@ DTSTART;VALUE=DATE:20270124
 END:VEVENT
 BEGIN:VEVENT
 UID:2b33ed93bdafa1c06e766808@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Mémoire de la Shoah
 DESCRIPTION:Commémore la libération du camp d'Auschwitz le 27 janvier 1945.
 CATEGORIES:Mémoire,Société
@@ -840,7 +840,7 @@ DTSTART;VALUE=DATE:20270127
 END:VEVENT
 BEGIN:VEVENT
 UID:a7cf54754bea5b6fd354ad1a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Chandeleur
 DESCRIPTION:Fête de la Présentation de Jésus au Temple\, 40 jours après Noë
  l.
@@ -849,7 +849,7 @@ DTSTART;VALUE=DATE:20270202
 END:VEVENT
 BEGIN:VEVENT
 UID:079ddc9a417ad2485dbf1257@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des zones humides
 DESCRIPTION:Commémore la Convention de Ramsar signée le 2 février 1971.
 CATEGORIES:Environnement
@@ -857,7 +857,7 @@ DTSTART;VALUE=DATE:20270202
 END:VEVENT
 BEGIN:VEVENT
 UID:4829f4e6b2948634128c0d64@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale contre le cancer
 DESCRIPTION:Initiée par l'Union Internationale Contre le Cancer depuis 2000
  .
@@ -866,7 +866,7 @@ DTSTART;VALUE=DATE:20270204
 END:VEVENT
 BEGIN:VEVENT
 UID:3b4d0936912f666a57bb14de@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances d'Hiver - Zone C
 DESCRIPTION:Vacances d'Hiver pour la zone scolaire C. Durée : 16 jours\, du
   06/02/2027 au 21/02/2027. Le découpage en zones A\, B et C a été instauré 
@@ -877,7 +877,7 @@ DTEND;VALUE=DATE:20270222
 END:VEVENT
 BEGIN:VEVENT
 UID:5486d8684dde18d840cee5d3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Mardi Gras
 DESCRIPTION:Dernier jour avant le Carême\, où la tradition voulait qu'on fa
  sse bombance avant l'abstinence.
@@ -886,7 +886,7 @@ DTSTART;VALUE=DATE:20270209
 END:VEVENT
 BEGIN:VEVENT
 UID:ed8f8ff4c33fe3a4096bdaf7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début du Carême
 DESCRIPTION:Le Carême commence le Mercredi des Cendres\, 46 jours avant Pâq
  ues.
@@ -895,7 +895,7 @@ DTSTART;VALUE=DATE:20270210
 END:VEVENT
 BEGIN:VEVENT
 UID:52925c2ac3f3ee5fcf8c867a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances d'Hiver - Zone A
 DESCRIPTION:Vacances d'Hiver pour la zone scolaire A. Durée : 16 jours\, du
   13/02/2027 au 28/02/2027. Le découpage en zones A\, B et C a été instauré 
@@ -906,7 +906,7 @@ DTEND;VALUE=DATE:20270301
 END:VEVENT
 BEGIN:VEVENT
 UID:a4bae4b5410291d5e78211b5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Valentin
 DESCRIPTION:Fête des amoureux le 14 février.
 CATEGORIES:Fêtes,Culture
@@ -914,7 +914,7 @@ DTSTART;VALUE=DATE:20270214
 END:VEVENT
 BEGIN:VEVENT
 UID:1eda6a6474847f46977b5d80@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances d'Hiver - Zone B
 DESCRIPTION:Vacances d'Hiver pour la zone scolaire B. Durée : 16 jours\, du
   20/02/2027 au 07/03/2027. Le découpage en zones A\, B et C a été instauré 
@@ -925,7 +925,7 @@ DTEND;VALUE=DATE:20270308
 END:VEVENT
 BEGIN:VEVENT
 UID:d4aa681cf1556db6ed26ec97@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Salon de l'Agriculture — Ouverture
 DESCRIPTION:Le Salon International de l'Agriculture se tient chaque fin fév
  rier à Paris.
@@ -934,7 +934,7 @@ DTSTART;VALUE=DATE:20270227
 END:VEVENT
 BEGIN:VEVENT
 UID:63b0d36ced0207ed04175239@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Mères
 DESCRIPTION:Créée en 1987 par la marque de café Grand'Mère.
 CATEGORIES:Fêtes,Culture
@@ -942,7 +942,7 @@ DTSTART;VALUE=DATE:20270307
 END:VEVENT
 BEGIN:VEVENT
 UID:c1d7e13e17219c13657aa2f2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des femmes
 DESCRIPTION:Issue des luttes ouvrières du début du XXe siècle en Europe et 
  aux États-Unis.
@@ -951,7 +951,7 @@ DTSTART;VALUE=DATE:20270308
 END:VEVENT
 BEGIN:VEVENT
 UID:99f8427a5e85ffc8ce768a11@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Patrick
 DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de s
  aint Patrick (461).
@@ -960,7 +960,7 @@ DTSTART;VALUE=DATE:20270317
 END:VEVENT
 BEGIN:VEVENT
 UID:e81445734f46de0dc69efde2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début du Printemps — Équinoxe de printemps
 DESCRIPTION:L'équinoxe de printemps marque le début astronomique du printem
  ps.
@@ -969,7 +969,7 @@ DTSTART;VALUE=DATE:20270320
 END:VEVENT
 BEGIN:VEVENT
 UID:78805a2b84861a7616c9dbb1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dimanche des Rameaux
 DESCRIPTION:Ouvre la Semaine Sainte en rappelant l'entrée triomphale de Jés
  us à Jérusalem.
@@ -978,7 +978,7 @@ DTSTART;VALUE=DATE:20270321
 END:VEVENT
 BEGIN:VEVENT
 UID:8b14905139c8581d80b15184@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de lutte contre les discriminations
 DESCRIPTION:Créée par l'ONU en 1966 en mémoire du massacre de Sharpeville.
 CATEGORIES:Société
@@ -986,7 +986,7 @@ DTSTART;VALUE=DATE:20270321
 END:VEVENT
 BEGIN:VEVENT
 UID:b838e04e46b627c39ed9e536@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'eau
 DESCRIPTION:Proclamée par l'ONU en 1993.
 CATEGORIES:Environnement,Société
@@ -994,7 +994,7 @@ DTSTART;VALUE=DATE:20270322
 END:VEVENT
 BEGIN:VEVENT
 UID:b3cfa701472144f09259fb41@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -1003,7 +1003,7 @@ DTSTART;VALUE=DATE:20270326
 END:VEVENT
 BEGIN:VEVENT
 UID:d1893395b111ac9e793334a4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Non férié en France depuis 
  la loi de 1905 — sauf en Alsace-Moselle.
@@ -1012,7 +1012,7 @@ DTSTART;VALUE=DATE:20270326
 END:VEVENT
 BEGIN:VEVENT
 UID:fdf2d5b8bf47e09939490375@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'été
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres avancent d'une
   heure (2h → 3h).
@@ -1021,7 +1021,7 @@ DTSTART;VALUE=DATE:20270328
 END:VEVENT
 BEGIN:VEVENT
 UID:cc187116abe4acb142ab0e35@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pâques
 DESCRIPTION:Fête chrétienne célébrant la résurrection du Christ. Sa date va
  rie chaque année car elle suit le calendrier lunaire.
@@ -1030,7 +1030,7 @@ DTSTART;VALUE=DATE:20270328
 END:VEVENT
 BEGIN:VEVENT
 UID:30a60144d37644d35ce84da9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -1040,7 +1040,7 @@ DTSTART;VALUE=DATE:20270329
 END:VEVENT
 BEGIN:VEVENT
 UID:276eba8bf4be6cd9a906d82c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Poisson d'avril
 DESCRIPTION:Journée des farces et des canulars.
 CATEGORIES:Culture
@@ -1048,7 +1048,7 @@ DTSTART;VALUE=DATE:20270401
 END:VEVENT
 BEGIN:VEVENT
 UID:b6712384ba83e7d8ac9dd5fb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances de Printemps - Zone C
 DESCRIPTION:Vacances de Printemps pour la zone scolaire C. Durée : 16 jours
  \, du 03/04/2027 au 18/04/2027. Le découpage en zones A\, B et C a été inst
@@ -1059,7 +1059,7 @@ DTEND;VALUE=DATE:20270419
 END:VEVENT
 BEGIN:VEVENT
 UID:4dbf6f4c2f48b15a90cd4c4b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la Santé
 DESCRIPTION:Commémore la fondation de l'OMS le 7 avril 1948.
 CATEGORIES:Santé
@@ -1067,7 +1067,7 @@ DTSTART;VALUE=DATE:20270407
 END:VEVENT
 BEGIN:VEVENT
 UID:ed11f2ba22ba20ed724a0e73@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances de Printemps - Zone A
 DESCRIPTION:Vacances de Printemps pour la zone scolaire A. Durée : 16 jours
  \, du 10/04/2027 au 25/04/2027. Le découpage en zones A\, B et C a été inst
@@ -1078,7 +1078,7 @@ DTEND;VALUE=DATE:20270426
 END:VEVENT
 BEGIN:VEVENT
 UID:3a335d955a66a7446e2e4bee@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances de Printemps - Zone B
 DESCRIPTION:Vacances de Printemps pour la zone scolaire B. Durée : 16 jours
  \, du 17/04/2027 au 02/05/2027. Le découpage en zones A\, B et C a été inst
@@ -1089,7 +1089,7 @@ DTEND;VALUE=DATE:20270503
 END:VEVENT
 BEGIN:VEVENT
 UID:307fc530341f39618a2b0f38@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour de la Terre
 DESCRIPTION:Né le 22 avril 1970 après une marée noire en Californie.
 CATEGORIES:Environnement,Société
@@ -1097,7 +1097,7 @@ DTSTART;VALUE=DATE:20270422
 END:VEVENT
 BEGIN:VEVENT
 UID:e9362f9cd210f305893d8734@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -1108,7 +1108,7 @@ DTSTART;VALUE=DATE:20270501
 END:VEVENT
 BEGIN:VEVENT
 UID:14dddc8b694173ef6a28017c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -1118,7 +1118,7 @@ DTSTART;VALUE=DATE:20270506
 END:VEVENT
 BEGIN:VEVENT
 UID:3151189f97d776e993c21205@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont de l'Ascension - Zones A\, B et C
 DESCRIPTION:Pont de l'Ascension pour toutes les zones (A\, B et C). Durée :
   0 jours\, du 07/05/2027 au 06/05/2027.
@@ -1128,7 +1128,7 @@ DTEND;VALUE=DATE:20270507
 END:VEVENT
 BEGIN:VEVENT
 UID:3e3f89d02fc61a4b18ba0228@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 06/05/2027. Le vendredi 07/05/2027 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -1137,7 +1137,7 @@ DTSTART;VALUE=DATE:20270507
 END:VEVENT
 BEGIN:VEVENT
 UID:13c3ad6f857fd5e93024a3d2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -1147,7 +1147,7 @@ DTSTART;VALUE=DATE:20270508
 END:VEVENT
 BEGIN:VEVENT
 UID:79c7154733fab9eeb1cd71c2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Abolition de l'esclavage en France — Commémoration
 DESCRIPTION:Journée nationale instaurée par la loi Taubira de 2001.
 CATEGORIES:Mémoire,Société
@@ -1155,7 +1155,7 @@ DTSTART;VALUE=DATE:20270510
 END:VEVENT
 BEGIN:VEVENT
 UID:e130c481f1cebce59d04969f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival de Cannes — Ouverture
 DESCRIPTION:Le Festival International du Film de Cannes\, créé en 1946.
 CATEGORIES:Culture,Cinéma
@@ -1163,7 +1163,7 @@ DTSTART;VALUE=DATE:20270512
 END:VEVENT
 BEGIN:VEVENT
 UID:da47596ee874a6a9c032e402@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Musées
 DESCRIPTION:Créée en France en 2005 et étendue à toute l'Europe.
 CATEGORIES:Culture
@@ -1171,7 +1171,7 @@ DTSTART;VALUE=DATE:20270515
 END:VEVENT
 BEGIN:VEVENT
 UID:c3fa8d9dab47b8613a89b4b1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pentecôte
 DESCRIPTION:Célèbre la descente de l'Esprit Saint sur les apôtres\, 50 jour
  s après Pâques.
@@ -1180,7 +1180,7 @@ DTSTART;VALUE=DATE:20270516
 END:VEVENT
 BEGIN:VEVENT
 UID:ef35bc70743c1083a24f6f83@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -1191,7 +1191,7 @@ DTSTART;VALUE=DATE:20270517
 END:VEVENT
 BEGIN:VEVENT
 UID:db41a5b47530de3699fd2145@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la biodiversité
 DESCRIPTION:Commémore l'adoption de la Convention sur la Diversité Biologiq
  ue à Rio.
@@ -1200,7 +1200,7 @@ DTSTART;VALUE=DATE:20270522
 END:VEVENT
 BEGIN:VEVENT
 UID:222a93d7a6d0337e2bbe0d36@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Résistance
 DESCRIPTION:Le 27 mai 1943\, Jean Moulin préside la première réunion secrèt
  e du CNR.
@@ -1209,7 +1209,7 @@ DTSTART;VALUE=DATE:20270527
 END:VEVENT
 BEGIN:VEVENT
 UID:3ffaa6575f24ddafba3d7443@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Voisins
 DESCRIPTION:Créée en 2000 pour lutter contre l'isolement urbain.
 CATEGORIES:Société
@@ -1217,7 +1217,7 @@ DTSTART;VALUE=DATE:20270528
 END:VEVENT
 BEGIN:VEVENT
 UID:599708db78e66bafa5367f44@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Mères
 DESCRIPTION:Célébrée le dernier dimanche de mai\, sauf si c'est la Pentecôt
  e.
@@ -1226,7 +1226,7 @@ DTSTART;VALUE=DATE:20270530
 END:VEVENT
 BEGIN:VEVENT
 UID:c5f4db398bde18eb89b7c1e3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans tabac
 DESCRIPTION:Lancée par l'OMS en 1987.
 CATEGORIES:Santé
@@ -1234,7 +1234,7 @@ DTSTART;VALUE=DATE:20270531
 END:VEVENT
 BEGIN:VEVENT
 UID:141cc3dce5157cb58fc73f43@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Débarquement en Normandie — Commémoration du Jour J
 DESCRIPTION:Le 6 juin 1944\, 156 000 soldats alliés débarquent sur les plag
  es de Normandie.
@@ -1243,7 +1243,7 @@ DTSTART;VALUE=DATE:20270606
 END:VEVENT
 BEGIN:VEVENT
 UID:ac92b703c6cd74669597abc9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'océan
 DESCRIPTION:Proposée lors du Sommet de la Terre de Rio en 1992.
 CATEGORIES:Environnement
@@ -1251,7 +1251,7 @@ DTSTART;VALUE=DATE:20270608
 END:VEVENT
 BEGIN:VEVENT
 UID:48394adcfc111cf58e13201b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Appel du 18 juin 1940 — Anniversaire
 DESCRIPTION:Le 18 juin 1940\, de Gaulle lance depuis Londres un appel à la 
  Résistance sur la BBC.
@@ -1260,7 +1260,7 @@ DTSTART;VALUE=DATE:20270618
 END:VEVENT
 BEGIN:VEVENT
 UID:a86f1437a289f7e264ba3f2a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Pères
 DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les anné
  es 1950.
@@ -1269,7 +1269,7 @@ DTSTART;VALUE=DATE:20270620
 END:VEVENT
 BEGIN:VEVENT
 UID:676b4d7769e43158bea90420@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Été — Solstice d'été
 DESCRIPTION:Le solstice d'été est le jour le plus long de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -1277,7 +1277,7 @@ DTSTART;VALUE=DATE:20270621
 END:VEVENT
 BEGIN:VEVENT
 UID:ea277ffd7cf242130ea75ee8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Musique
 DESCRIPTION:Créée en 1982 par le ministre Jack Lang.
 CATEGORIES:Culture,Fêtes
@@ -1285,7 +1285,7 @@ DTSTART;VALUE=DATE:20270621
 END:VEVENT
 BEGIN:VEVENT
 UID:7df463affdab06cc08e42bae@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus long de l'année
 DESCRIPTION:Le 21 June est le jour le plus long de l'année 2027.
 CATEGORIES:Saisons,Astronomie
@@ -1293,7 +1293,7 @@ DTSTART;VALUE=DATE:20270621
 END:VEVENT
 BEGIN:VEVENT
 UID:86515e89852bd9d243f38615@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Cinéma
 DESCRIPTION:Créée en 1985\, elle propose chaque fin juin des places à tarif
   réduit.
@@ -1302,7 +1302,7 @@ DTSTART;VALUE=DATE:20270627
 END:VEVENT
 BEGIN:VEVENT
 UID:b0d78b2ee022ef96b4ca3458@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Milieu de l'année
 DESCRIPTION:Ce jour marque le point médian exact de l'année 2027.
 CATEGORIES:Dates spéciales
@@ -1310,7 +1310,7 @@ DTSTART;VALUE=DATE:20270702
 END:VEVENT
 BEGIN:VEVENT
 UID:311d1f546eb17b51ca2218c5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vacances d'Été - Zones A\, B et C
 DESCRIPTION:Vacances d'Été pour toutes les zones (A\, B et C). Durée : 0 jo
  urs\, du 03/07/2027 au 02/07/2027.
@@ -1320,7 +1320,7 @@ DTEND;VALUE=DATE:20270703
 END:VEVENT
 BEGIN:VEVENT
 UID:dcb6bcbf4681d0151154e205@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival d'Avignon — Ouverture
 DESCRIPTION:Créé par Jean Vilar en 1947 dans la cour du Palais des Papes.
 CATEGORIES:Culture,Théâtre
@@ -1328,7 +1328,7 @@ DTSTART;VALUE=DATE:20270705
 END:VEVENT
 BEGIN:VEVENT
 UID:9ba5f587bec9fb3c3aa07499@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'été
 DESCRIPTION:Les soldes d'été débutent le dernier mercredi de juin et durent
   4 semaines.
@@ -1338,7 +1338,7 @@ DTEND;VALUE=DATE:20270805
 END:VEVENT
 BEGIN:VEVENT
 UID:c719cf2d09d16764522665d7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Commémoration de la Rafle du Vél d'Hiv
 DESCRIPTION:Les 16-17 juillet 1942\, la police française arrêta 13 152 Juif
  s à Paris.
@@ -1347,7 +1347,7 @@ DTSTART;VALUE=DATE:20270711
 END:VEVENT
 BEGIN:VEVENT
 UID:eb7fd8d52f710d8c15b3ba3f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -1355,7 +1355,7 @@ DTSTART;VALUE=DATE:20270714
 END:VEVENT
 BEGIN:VEVENT
 UID:97d447e166db31f6f1648ffd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -1366,7 +1366,7 @@ DTSTART;VALUE=DATE:20270714
 END:VEVENT
 BEGIN:VEVENT
 UID:c7befc778c9c74b21f029980@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Étoiles
 DESCRIPTION:Organisée chaque premier week-end d'août par l'Association Fran
  çaise d'Astronomie depuis 1991.
@@ -1375,7 +1375,7 @@ DTSTART;VALUE=DATE:20270807
 END:VEVENT
 BEGIN:VEVENT
 UID:4b25dae386cc6460eb1b1f68@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -1385,7 +1385,7 @@ DTSTART;VALUE=DATE:20270815
 END:VEVENT
 BEGIN:VEVENT
 UID:202d29147d75a5aef75230dc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -1393,7 +1393,7 @@ DTSTART;VALUE=DATE:20270815
 END:VEVENT
 BEGIN:VEVENT
 UID:7188ab1dff1f06817d58df90@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Rentrée des classes
 DESCRIPTION:La rentrée de septembre mobilise 12 millions d'élèves et 870 00
  0 enseignants en France.
@@ -1402,7 +1402,7 @@ DTSTART;VALUE=DATE:20270902
 END:VEVENT
 BEGIN:VEVENT
 UID:f1e528a4a785697b79cffe18@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Braderie de Lille
 DESCRIPTION:Plus grande braderie d'Europe\, organisée le premier week-end d
  e septembre à Lille.
@@ -1411,7 +1411,7 @@ DTSTART;VALUE=DATE:20270904
 END:VEVENT
 BEGIN:VEVENT
 UID:53b97dfac6e13323e5c09c0a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journées du Patrimoine
 DESCRIPTION:Créées en France en 1984 par Jack Lang\, étendues à toute l'Eur
  ope en 1991.
@@ -1420,7 +1420,7 @@ DTSTART;VALUE=DATE:20270918
 END:VEVENT
 BEGIN:VEVENT
 UID:878729328b3e2f816f21f084@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Automne — Équinoxe d'automne
 DESCRIPTION:L'équinoxe d'automne marque le début de l'automne.
 CATEGORIES:Saisons,Astronomie
@@ -1428,7 +1428,7 @@ DTSTART;VALUE=DATE:20270922
 END:VEVENT
 BEGIN:VEVENT
 UID:de7053144e196edd1addd0c2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans voiture
 DESCRIPTION:Lancée en France en 1998 par La Rochelle.
 CATEGORIES:Environnement,Société
@@ -1436,7 +1436,7 @@ DTSTART;VALUE=DATE:20270922
 END:VEVENT
 BEGIN:VEVENT
 UID:a64808bee1bd40c78b0ae3ff@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Coupe du monde de rugby à XV 2027
 DESCRIPTION:Organisée en Australie. Première édition à 24 équipes avec huit
  ièmes de finale.
@@ -1446,7 +1446,7 @@ DTEND;VALUE=DATE:20271114
 END:VEVENT
 BEGIN:VEVENT
 UID:90fa35edb982b4e0baea69be@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du cacao et du chocolat
 DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internatio
  nale du cacao (ICCO).
@@ -1455,7 +1455,7 @@ DTSTART;VALUE=DATE:20271001
 END:VEVENT
 BEGIN:VEVENT
 UID:15fe190fa6e14ed19ab8761e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement d'Octobre Rose
 DESCRIPTION:Tout octobre est dédié à la sensibilisation au cancer du sein.
 CATEGORIES:Santé
@@ -1463,7 +1463,7 @@ DTSTART;VALUE=DATE:20271001
 END:VEVENT
 BEGIN:VEVENT
 UID:d06eb5ad9fef65b39e41fade@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit Blanche
 DESCRIPTION:Initiée à Paris en 2002 par le maire Bertrand Delanoë.
 CATEGORIES:Culture
@@ -1471,7 +1471,7 @@ DTSTART;VALUE=DATE:20271002
 END:VEVENT
 BEGIN:VEVENT
 UID:ff82ad5eb142cdb9c6d87b2f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Pères
 DESCRIPTION:Créée en 2008\, elle a lieu chaque premier dimanche d'octobre.
 CATEGORIES:Fêtes,Culture
@@ -1479,7 +1479,7 @@ DTSTART;VALUE=DATE:20271003
 END:VEVENT
 BEGIN:VEVENT
 UID:dfbf3cc31d42f4d647dab7c3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la santé mentale
 DESCRIPTION:Créée par la Fédération Mondiale pour la Santé Mentale en 1992.
 CATEGORIES:Santé,Société
@@ -1487,7 +1487,7 @@ DTSTART;VALUE=DATE:20271010
 END:VEVENT
 BEGIN:VEVENT
 UID:3d7b80ad2f0eb72915055d5e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Semaine du Goût
 DESCRIPTION:Créée en 1990 par le chef Joël Robuchon.
 CATEGORIES:Gastronomie,Culture
@@ -1495,7 +1495,7 @@ DTSTART;VALUE=DATE:20271011
 END:VEVENT
 BEGIN:VEVENT
 UID:5991885a0125288f57900816@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'alimentation
 DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945.
 CATEGORIES:Gastronomie,Société,Santé
@@ -1503,7 +1503,7 @@ DTSTART;VALUE=DATE:20271016
 END:VEVENT
 BEGIN:VEVENT
 UID:d9b26d165df3c8c5ee092ca8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Halloween
 DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis 
  popularisée par la diaspora irlandaise.
@@ -1512,7 +1512,7 @@ DTSTART;VALUE=DATE:20271031
 END:VEVENT
 BEGIN:VEVENT
 UID:b70ec6f97344882638e6bede@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -1521,7 +1521,7 @@ DTSTART;VALUE=DATE:20271031
 END:VEVENT
 BEGIN:VEVENT
 UID:fff2fa15c317b64fa5d4336d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement du Mois sans Tabac
 DESCRIPTION:Lancé en France en 2016 par Santé Publique France.
 CATEGORIES:Santé
@@ -1529,7 +1529,7 @@ DTSTART;VALUE=DATE:20271101
 END:VEVENT
 BEGIN:VEVENT
 UID:ff845ce5cf2ad13c81c58c9d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -1540,7 +1540,7 @@ DTSTART;VALUE=DATE:20271101
 END:VEVENT
 BEGIN:VEVENT
 UID:468ff00e09fcea920606577c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de l'arbre
 DESCRIPTION:Célébrée chaque premier jeudi de novembre.
 CATEGORIES:Environnement
@@ -1548,7 +1548,7 @@ DTSTART;VALUE=DATE:20271104
 END:VEVENT
 BEGIN:VEVENT
 UID:a9f85eb4c6e8331ebe15a515@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -1559,7 +1559,7 @@ DTSTART;VALUE=DATE:20271111
 END:VEVENT
 BEGIN:VEVENT
 UID:f3fb0828e965797d1b8bb21c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -1568,7 +1568,7 @@ DTSTART;VALUE=DATE:20271111
 END:VEVENT
 BEGIN:VEVENT
 UID:3ba44915d95ba790f578812d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Armistice 1918
 DESCRIPTION:Armistice 1918 tombe un jeudi le 11/11/2027. Le vendredi 12/11/
  2027 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -1577,7 +1577,7 @@ DTSTART;VALUE=DATE:20271112
 END:VEVENT
 BEGIN:VEVENT
 UID:f582e02496fe287a49f5f584@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Beaujolais Nouveau
 DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est 
  mis en vente.
@@ -1586,7 +1586,7 @@ DTSTART;VALUE=DATE:20271118
 END:VEVENT
 BEGIN:VEVENT
 UID:5a62b79972919eefacfa6d5b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des droits de l'enfant
 DESCRIPTION:Commémore l'adoption de la Convention des Nations Unies relativ
  e aux droits de l'enfant.
@@ -1595,7 +1595,7 @@ DTSTART;VALUE=DATE:20271120
 END:VEVENT
 BEGIN:VEVENT
 UID:65c8027b06eeb1e6f21efda2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Bretagne
 DESCRIPTION:Célébrée le 30 novembre (Saint-André) depuis les années 1990.
 CATEGORIES:Culture,Société
@@ -1603,7 +1603,7 @@ DTSTART;VALUE=DATE:20271130
 END:VEVENT
 BEGIN:VEVENT
 UID:535040aaad3b123fc19d60cb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des personnes handicapées
 DESCRIPTION:Instaurée par l'ONU en 1992.
 CATEGORIES:Société
@@ -1611,7 +1611,7 @@ DTSTART;VALUE=DATE:20271203
 END:VEVENT
 BEGIN:VEVENT
 UID:e6bb61aa121ada7043d4f34d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du Bénévolat
 DESCRIPTION:Créée par l'ONU en 1985.
 CATEGORIES:Société
@@ -1619,7 +1619,7 @@ DTSTART;VALUE=DATE:20271205
 END:VEVENT
 BEGIN:VEVENT
 UID:fe4352a8aefea92b93fec35d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Nicolas
 DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron de
  s enfants.
@@ -1628,7 +1628,7 @@ DTSTART;VALUE=DATE:20271206
 END:VEVENT
 BEGIN:VEVENT
 UID:643452763ef908b323fb5c85@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée de la Laïcité
 DESCRIPTION:Commémore la loi du 9 décembre 1905 séparant les Églises de l'É
  tat.
@@ -1637,7 +1637,7 @@ DTSTART;VALUE=DATE:20271209
 END:VEVENT
 BEGIN:VEVENT
 UID:36ea1c33db5435fbfacb32ef@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Hiver — Solstice d'hiver
 DESCRIPTION:Le solstice d'hiver est le jour le plus court de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -1645,7 +1645,7 @@ DTSTART;VALUE=DATE:20271221
 END:VEVENT
 BEGIN:VEVENT
 UID:3169ed493e26d03f157a3f3a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus court de l'année
 DESCRIPTION:Le 21 December est le jour le plus court de l'année 2027.
 CATEGORIES:Saisons,Astronomie
@@ -1653,7 +1653,7 @@ DTSTART;VALUE=DATE:20271221
 END:VEVENT
 BEGIN:VEVENT
 UID:91900ff7a42f580260b62b1c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -1664,7 +1664,7 @@ DTSTART;VALUE=DATE:20271225
 END:VEVENT
 BEGIN:VEVENT
 UID:fc4d3372f488a211a1851123@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -1673,7 +1673,7 @@ DTSTART;VALUE=DATE:20271226
 END:VEVENT
 BEGIN:VEVENT
 UID:67e2d39999c3f19f697d2ccb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dernier jour de l'année
 DESCRIPTION:Clôture de l'année civile 2027.
 CATEGORIES:Dates spéciales
@@ -1681,7 +1681,7 @@ DTSTART;VALUE=DATE:20271231
 END:VEVENT
 BEGIN:VEVENT
 UID:15ec94cab0ce814495052bc1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
 DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier m
  ort ce jour en 335.
@@ -1690,7 +1690,7 @@ DTSTART;VALUE=DATE:20271231
 END:VEVENT
 BEGIN:VEVENT
 UID:0ebdffce2d69d7255e21dbf5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour de l'an
 DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœ
  ux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une cout
@@ -1700,7 +1700,7 @@ DTSTART;VALUE=DATE:20280101
 END:VEVENT
 BEGIN:VEVENT
 UID:ca1d453621722d3bb2504dfe@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Épiphanie
 DESCRIPTION:Célèbre la visite des Rois Mages à Jésus\, 12 jours après Noël.
 CATEGORIES:Christianisme,Culture,Gastronomie
@@ -1708,7 +1708,7 @@ DTSTART;VALUE=DATE:20280106
 END:VEVENT
 BEGIN:VEVENT
 UID:be10283eb6e7fabc93681176@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'hiver
 DESCRIPTION:Les soldes d'hiver débutent le deuxième mercredi de janvier et 
  durent 4 semaines.
@@ -1718,7 +1718,7 @@ DTEND;VALUE=DATE:20280210
 END:VEVENT
 BEGIN:VEVENT
 UID:3d3d1999d5fb83ce84c694fc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale de l'Éducation
 DESCRIPTION:Proclamée par l'ONU en 2019.
 CATEGORIES:Éducation,Société
@@ -1726,7 +1726,7 @@ DTSTART;VALUE=DATE:20280124
 END:VEVENT
 BEGIN:VEVENT
 UID:21f1966f09560e4ed1bd2205@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Mémoire de la Shoah
 DESCRIPTION:Commémore la libération du camp d'Auschwitz le 27 janvier 1945.
 CATEGORIES:Mémoire,Société
@@ -1734,7 +1734,7 @@ DTSTART;VALUE=DATE:20280127
 END:VEVENT
 BEGIN:VEVENT
 UID:c79f754d1f9a4c153214ac1d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Chandeleur
 DESCRIPTION:Fête de la Présentation de Jésus au Temple\, 40 jours après Noë
  l.
@@ -1743,7 +1743,7 @@ DTSTART;VALUE=DATE:20280202
 END:VEVENT
 BEGIN:VEVENT
 UID:fd5e4ac1b4fc6e28c1475b90@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des zones humides
 DESCRIPTION:Commémore la Convention de Ramsar signée le 2 février 1971.
 CATEGORIES:Environnement
@@ -1751,7 +1751,7 @@ DTSTART;VALUE=DATE:20280202
 END:VEVENT
 BEGIN:VEVENT
 UID:4cb74190c3b2793dd086ee19@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale contre le cancer
 DESCRIPTION:Initiée par l'Union Internationale Contre le Cancer depuis 2000
  .
@@ -1760,7 +1760,7 @@ DTSTART;VALUE=DATE:20280204
 END:VEVENT
 BEGIN:VEVENT
 UID:fcfa39064d0c04d899e2372e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Valentin
 DESCRIPTION:Fête des amoureux le 14 février.
 CATEGORIES:Fêtes,Culture
@@ -1768,7 +1768,7 @@ DTSTART;VALUE=DATE:20280214
 END:VEVENT
 BEGIN:VEVENT
 UID:940b6b6514d9e86bc54c9a9c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Salon de l'Agriculture — Ouverture
 DESCRIPTION:Le Salon International de l'Agriculture se tient chaque fin fév
  rier à Paris.
@@ -1777,7 +1777,7 @@ DTSTART;VALUE=DATE:20280226
 END:VEVENT
 BEGIN:VEVENT
 UID:ac792ed0a7ca189e038c7637@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour supplémentaire (année bissextile)
 DESCRIPTION:Une année solaire dure 365\,2422 jours. 2028 est l'une des anné
  es rares à 366 jours.
@@ -1786,7 +1786,7 @@ DTSTART;VALUE=DATE:20280229
 END:VEVENT
 BEGIN:VEVENT
 UID:3df3aac217bb79cf1323b180@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Mardi Gras
 DESCRIPTION:Dernier jour avant le Carême\, où la tradition voulait qu'on fa
  sse bombance avant l'abstinence.
@@ -1795,7 +1795,7 @@ DTSTART;VALUE=DATE:20280229
 END:VEVENT
 BEGIN:VEVENT
 UID:6ed88632670ea9e01f32621a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début du Carême
 DESCRIPTION:Le Carême commence le Mercredi des Cendres\, 46 jours avant Pâq
  ues.
@@ -1804,7 +1804,7 @@ DTSTART;VALUE=DATE:20280301
 END:VEVENT
 BEGIN:VEVENT
 UID:943c497d9653e82ae08f0c46@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Mères
 DESCRIPTION:Créée en 1987 par la marque de café Grand'Mère.
 CATEGORIES:Fêtes,Culture
@@ -1812,7 +1812,7 @@ DTSTART;VALUE=DATE:20280305
 END:VEVENT
 BEGIN:VEVENT
 UID:e380b16908035a550713f4c2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des femmes
 DESCRIPTION:Issue des luttes ouvrières du début du XXe siècle en Europe et 
  aux États-Unis.
@@ -1821,7 +1821,7 @@ DTSTART;VALUE=DATE:20280308
 END:VEVENT
 BEGIN:VEVENT
 UID:4a08b37944081950305e2ae2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Patrick
 DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de s
  aint Patrick (461).
@@ -1830,7 +1830,7 @@ DTSTART;VALUE=DATE:20280317
 END:VEVENT
 BEGIN:VEVENT
 UID:1cfc97f8889fed89dbf67fa7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début du Printemps — Équinoxe de printemps
 DESCRIPTION:L'équinoxe de printemps marque le début astronomique du printem
  ps.
@@ -1839,7 +1839,7 @@ DTSTART;VALUE=DATE:20280320
 END:VEVENT
 BEGIN:VEVENT
 UID:a5e17d388d77d594980cd8d9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de lutte contre les discriminations
 DESCRIPTION:Créée par l'ONU en 1966 en mémoire du massacre de Sharpeville.
 CATEGORIES:Société
@@ -1847,7 +1847,7 @@ DTSTART;VALUE=DATE:20280321
 END:VEVENT
 BEGIN:VEVENT
 UID:9256d69f05b861d065070db7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'eau
 DESCRIPTION:Proclamée par l'ONU en 1993.
 CATEGORIES:Environnement,Société
@@ -1855,7 +1855,7 @@ DTSTART;VALUE=DATE:20280322
 END:VEVENT
 BEGIN:VEVENT
 UID:9cdf8c1d557a63341acebfd3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'été
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres avancent d'une
   heure (2h → 3h).
@@ -1864,7 +1864,7 @@ DTSTART;VALUE=DATE:20280326
 END:VEVENT
 BEGIN:VEVENT
 UID:4cb566067166147f12f062c5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Poisson d'avril
 DESCRIPTION:Journée des farces et des canulars.
 CATEGORIES:Culture
@@ -1872,7 +1872,7 @@ DTSTART;VALUE=DATE:20280401
 END:VEVENT
 BEGIN:VEVENT
 UID:407c635b089471821d87518d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la Santé
 DESCRIPTION:Commémore la fondation de l'OMS le 7 avril 1948.
 CATEGORIES:Santé
@@ -1880,7 +1880,7 @@ DTSTART;VALUE=DATE:20280407
 END:VEVENT
 BEGIN:VEVENT
 UID:8b58f7518f860db1c29810a4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dimanche des Rameaux
 DESCRIPTION:Ouvre la Semaine Sainte en rappelant l'entrée triomphale de Jés
  us à Jérusalem.
@@ -1889,7 +1889,7 @@ DTSTART;VALUE=DATE:20280409
 END:VEVENT
 BEGIN:VEVENT
 UID:ab2a464a5af229851d3aa588@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -1898,7 +1898,7 @@ DTSTART;VALUE=DATE:20280414
 END:VEVENT
 BEGIN:VEVENT
 UID:0df3bf7bc19e27351c291797@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Non férié en France depuis 
  la loi de 1905 — sauf en Alsace-Moselle.
@@ -1907,7 +1907,7 @@ DTSTART;VALUE=DATE:20280414
 END:VEVENT
 BEGIN:VEVENT
 UID:f3f86b0e57266b1d1de02ff8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pâques
 DESCRIPTION:Fête chrétienne célébrant la résurrection du Christ. Sa date va
  rie chaque année car elle suit le calendrier lunaire.
@@ -1916,7 +1916,7 @@ DTSTART;VALUE=DATE:20280416
 END:VEVENT
 BEGIN:VEVENT
 UID:f4752e9806e707258b2d3ea4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -1926,7 +1926,7 @@ DTSTART;VALUE=DATE:20280417
 END:VEVENT
 BEGIN:VEVENT
 UID:6af8b1a134e0ecff0bbe0c96@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour de la Terre
 DESCRIPTION:Né le 22 avril 1970 après une marée noire en Californie.
 CATEGORIES:Environnement,Société
@@ -1934,7 +1934,7 @@ DTSTART;VALUE=DATE:20280422
 END:VEVENT
 BEGIN:VEVENT
 UID:49dfdd9f2e4575d0fc960a6a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -1945,7 +1945,7 @@ DTSTART;VALUE=DATE:20280501
 END:VEVENT
 BEGIN:VEVENT
 UID:6b25c09ed62f4e1921bb9778@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -1955,7 +1955,7 @@ DTSTART;VALUE=DATE:20280508
 END:VEVENT
 BEGIN:VEVENT
 UID:bb1a978701193c3e945fcde7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Abolition de l'esclavage en France — Commémoration
 DESCRIPTION:Journée nationale instaurée par la loi Taubira de 2001.
 CATEGORIES:Mémoire,Société
@@ -1963,7 +1963,7 @@ DTSTART;VALUE=DATE:20280510
 END:VEVENT
 BEGIN:VEVENT
 UID:2054ab6c9004f7f7b23c13a5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival de Cannes — Ouverture
 DESCRIPTION:Le Festival International du Film de Cannes\, créé en 1946.
 CATEGORIES:Culture,Cinéma
@@ -1971,7 +1971,7 @@ DTSTART;VALUE=DATE:20280512
 END:VEVENT
 BEGIN:VEVENT
 UID:af0999be6ca70374fe384b90@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Musées
 DESCRIPTION:Créée en France en 2005 et étendue à toute l'Europe.
 CATEGORIES:Culture
@@ -1979,7 +1979,7 @@ DTSTART;VALUE=DATE:20280520
 END:VEVENT
 BEGIN:VEVENT
 UID:0b32619e7bb50e07b4ead667@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la biodiversité
 DESCRIPTION:Commémore l'adoption de la Convention sur la Diversité Biologiq
  ue à Rio.
@@ -1988,7 +1988,7 @@ DTSTART;VALUE=DATE:20280522
 END:VEVENT
 BEGIN:VEVENT
 UID:06e4d9dcc3c68ddcb625dcbd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -1998,7 +1998,7 @@ DTSTART;VALUE=DATE:20280525
 END:VEVENT
 BEGIN:VEVENT
 UID:56141e906432ee78636dd8bb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Voisins
 DESCRIPTION:Créée en 2000 pour lutter contre l'isolement urbain.
 CATEGORIES:Société
@@ -2006,7 +2006,7 @@ DTSTART;VALUE=DATE:20280526
 END:VEVENT
 BEGIN:VEVENT
 UID:6f621ba93e9d2fc9179405ca@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 25/05/2028. Le vendredi 26/05/2028 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -2015,7 +2015,7 @@ DTSTART;VALUE=DATE:20280526
 END:VEVENT
 BEGIN:VEVENT
 UID:c56b79cd066c3c5202f7e917@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Résistance
 DESCRIPTION:Le 27 mai 1943\, Jean Moulin préside la première réunion secrèt
  e du CNR.
@@ -2024,7 +2024,7 @@ DTSTART;VALUE=DATE:20280527
 END:VEVENT
 BEGIN:VEVENT
 UID:8a659fdb632df84cd5ed3b0b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Mères
 DESCRIPTION:Célébrée le dernier dimanche de mai\, sauf si c'est la Pentecôt
  e.
@@ -2033,7 +2033,7 @@ DTSTART;VALUE=DATE:20280528
 END:VEVENT
 BEGIN:VEVENT
 UID:83ef2dcec07893be8d79f38d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans tabac
 DESCRIPTION:Lancée par l'OMS en 1987.
 CATEGORIES:Santé
@@ -2041,7 +2041,7 @@ DTSTART;VALUE=DATE:20280531
 END:VEVENT
 BEGIN:VEVENT
 UID:cefa8363f05cfd20180c1049@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pentecôte
 DESCRIPTION:Célèbre la descente de l'Esprit Saint sur les apôtres\, 50 jour
  s après Pâques.
@@ -2050,7 +2050,7 @@ DTSTART;VALUE=DATE:20280604
 END:VEVENT
 BEGIN:VEVENT
 UID:816fa7ae3a9b6028ff1c1fb9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -2061,7 +2061,7 @@ DTSTART;VALUE=DATE:20280605
 END:VEVENT
 BEGIN:VEVENT
 UID:b222e451d02f002d334392b1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Débarquement en Normandie — Commémoration du Jour J
 DESCRIPTION:Le 6 juin 1944\, 156 000 soldats alliés débarquent sur les plag
  es de Normandie.
@@ -2070,7 +2070,7 @@ DTSTART;VALUE=DATE:20280606
 END:VEVENT
 BEGIN:VEVENT
 UID:ec732e2731bc438a2462e636@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'océan
 DESCRIPTION:Proposée lors du Sommet de la Terre de Rio en 1992.
 CATEGORIES:Environnement
@@ -2078,7 +2078,7 @@ DTSTART;VALUE=DATE:20280608
 END:VEVENT
 BEGIN:VEVENT
 UID:eeb8fded715a8112f6aaedb9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:UEFA Euro 2028
 DESCRIPTION:Organisé en Angleterre\, Écosse\, Pays de Galles et Irlande.
 CATEGORIES:Sport
@@ -2087,7 +2087,7 @@ DTEND;VALUE=DATE:20280710
 END:VEVENT
 BEGIN:VEVENT
 UID:305f223ddc469e14878f6dd4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Appel du 18 juin 1940 — Anniversaire
 DESCRIPTION:Le 18 juin 1940\, de Gaulle lance depuis Londres un appel à la 
  Résistance sur la BBC.
@@ -2096,7 +2096,7 @@ DTSTART;VALUE=DATE:20280618
 END:VEVENT
 BEGIN:VEVENT
 UID:d52abc2ffaaa460ccc60d2f6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Pères
 DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les anné
  es 1950.
@@ -2105,7 +2105,7 @@ DTSTART;VALUE=DATE:20280618
 END:VEVENT
 BEGIN:VEVENT
 UID:abab810e7bf3b73eb83a33e3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Été — Solstice d'été
 DESCRIPTION:Le solstice d'été est le jour le plus long de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -2113,7 +2113,7 @@ DTSTART;VALUE=DATE:20280621
 END:VEVENT
 BEGIN:VEVENT
 UID:b8f769308f5c86fc8b5fdc0f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Musique
 DESCRIPTION:Créée en 1982 par le ministre Jack Lang.
 CATEGORIES:Culture,Fêtes
@@ -2121,7 +2121,7 @@ DTSTART;VALUE=DATE:20280621
 END:VEVENT
 BEGIN:VEVENT
 UID:4dbe51df074ab4cf6c2e0bee@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus long de l'année
 DESCRIPTION:Le 21 June est le jour le plus long de l'année 2028.
 CATEGORIES:Saisons,Astronomie
@@ -2129,7 +2129,7 @@ DTSTART;VALUE=DATE:20280621
 END:VEVENT
 BEGIN:VEVENT
 UID:e34ec446b9daaf3e63260779@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Cinéma
 DESCRIPTION:Créée en 1985\, elle propose chaque fin juin des places à tarif
   réduit.
@@ -2138,7 +2138,7 @@ DTSTART;VALUE=DATE:20280625
 END:VEVENT
 BEGIN:VEVENT
 UID:32e955b28ab6005cc2b65d83@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'été
 DESCRIPTION:Les soldes d'été débutent le dernier mercredi de juin et durent
   4 semaines.
@@ -2148,7 +2148,7 @@ DTEND;VALUE=DATE:20280727
 END:VEVENT
 BEGIN:VEVENT
 UID:845be58ea2e2ffc5d0ff4072@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Milieu de l'année
 DESCRIPTION:Ce jour marque le point médian exact de l'année 2028.
 CATEGORIES:Dates spéciales
@@ -2156,7 +2156,7 @@ DTSTART;VALUE=DATE:20280701
 END:VEVENT
 BEGIN:VEVENT
 UID:42ee0449803cace1d278720f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival d'Avignon — Ouverture
 DESCRIPTION:Créé par Jean Vilar en 1947 dans la cour du Palais des Papes.
 CATEGORIES:Culture,Théâtre
@@ -2164,7 +2164,7 @@ DTSTART;VALUE=DATE:20280705
 END:VEVENT
 BEGIN:VEVENT
 UID:6ee384b5c427f8bde5d47b91@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Commémoration de la Rafle du Vél d'Hiv
 DESCRIPTION:Les 16-17 juillet 1942\, la police française arrêta 13 152 Juif
  s à Paris.
@@ -2173,7 +2173,7 @@ DTSTART;VALUE=DATE:20280709
 END:VEVENT
 BEGIN:VEVENT
 UID:1ffd69c5ae9ddd70693e2bb2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -2181,7 +2181,7 @@ DTSTART;VALUE=DATE:20280714
 END:VEVENT
 BEGIN:VEVENT
 UID:4dc657163bbf8ae6a80dfdb7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -2192,7 +2192,7 @@ DTSTART;VALUE=DATE:20280714
 END:VEVENT
 BEGIN:VEVENT
 UID:cfdbc8729dd3c8b4b89defe6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jeux Olympiques de Los Angeles 2028
 DESCRIPTION:XXXIVes Jeux Olympiques d'été à Los Angeles\, États-Unis.
 CATEGORIES:Sport
@@ -2201,7 +2201,7 @@ DTEND;VALUE=DATE:20280731
 END:VEVENT
 BEGIN:VEVENT
 UID:058b9b9beaaf4365c9963665@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Étoiles
 DESCRIPTION:Organisée chaque premier week-end d'août par l'Association Fran
  çaise d'Astronomie depuis 1991.
@@ -2210,7 +2210,7 @@ DTSTART;VALUE=DATE:20280805
 END:VEVENT
 BEGIN:VEVENT
 UID:e5b280a41bd73470022bfa20@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Assomption
 DESCRIPTION:Assomption tombe un mardi le 15/08/2028. Le lundi 14/08/2028 es
  t un pont potentiel — vérifiez auprès de votre employeur.
@@ -2219,7 +2219,7 @@ DTSTART;VALUE=DATE:20280814
 END:VEVENT
 BEGIN:VEVENT
 UID:afd828d0e2e6416a49b49f5a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -2229,7 +2229,7 @@ DTSTART;VALUE=DATE:20280815
 END:VEVENT
 BEGIN:VEVENT
 UID:88c72ae3b6fd3c18fd85937f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -2237,7 +2237,7 @@ DTSTART;VALUE=DATE:20280815
 END:VEVENT
 BEGIN:VEVENT
 UID:9019c477a028f9051cb109d2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jeux Paralympiques de Los Angeles 2028
 DESCRIPTION:XVIIIes Jeux Paralympiques d'été à Los Angeles\, États-Unis.
 CATEGORIES:Sport
@@ -2246,7 +2246,7 @@ DTEND;VALUE=DATE:20280828
 END:VEVENT
 BEGIN:VEVENT
 UID:c6d50194794f194a64977f63@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Braderie de Lille
 DESCRIPTION:Plus grande braderie d'Europe\, organisée le premier week-end d
  e septembre à Lille.
@@ -2255,7 +2255,7 @@ DTSTART;VALUE=DATE:20280902
 END:VEVENT
 BEGIN:VEVENT
 UID:50ed68f3c455ae062581f87d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Rentrée des classes
 DESCRIPTION:La rentrée de septembre mobilise 12 millions d'élèves et 870 00
  0 enseignants en France.
@@ -2264,7 +2264,7 @@ DTSTART;VALUE=DATE:20280902
 END:VEVENT
 BEGIN:VEVENT
 UID:f5fb5270354095f1d2c59013@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journées du Patrimoine
 DESCRIPTION:Créées en France en 1984 par Jack Lang\, étendues à toute l'Eur
  ope en 1991.
@@ -2273,7 +2273,7 @@ DTSTART;VALUE=DATE:20280916
 END:VEVENT
 BEGIN:VEVENT
 UID:cf5bfffe0375ba761908db76@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Automne — Équinoxe d'automne
 DESCRIPTION:L'équinoxe d'automne marque le début de l'automne.
 CATEGORIES:Saisons,Astronomie
@@ -2281,7 +2281,7 @@ DTSTART;VALUE=DATE:20280922
 END:VEVENT
 BEGIN:VEVENT
 UID:d4c739a29366c9144ba3b020@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans voiture
 DESCRIPTION:Lancée en France en 1998 par La Rochelle.
 CATEGORIES:Environnement,Société
@@ -2289,7 +2289,7 @@ DTSTART;VALUE=DATE:20280922
 END:VEVENT
 BEGIN:VEVENT
 UID:13e05d95d27d2c4e00d92453@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Pères
 DESCRIPTION:Créée en 2008\, elle a lieu chaque premier dimanche d'octobre.
 CATEGORIES:Fêtes,Culture
@@ -2297,7 +2297,7 @@ DTSTART;VALUE=DATE:20281001
 END:VEVENT
 BEGIN:VEVENT
 UID:ad3dcc3c60909896b3b2371d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du cacao et du chocolat
 DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internatio
  nale du cacao (ICCO).
@@ -2306,7 +2306,7 @@ DTSTART;VALUE=DATE:20281001
 END:VEVENT
 BEGIN:VEVENT
 UID:d171457404ef040677e17ef4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement d'Octobre Rose
 DESCRIPTION:Tout octobre est dédié à la sensibilisation au cancer du sein.
 CATEGORIES:Santé
@@ -2314,7 +2314,7 @@ DTSTART;VALUE=DATE:20281001
 END:VEVENT
 BEGIN:VEVENT
 UID:83842768716fb5f440580bc2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit Blanche
 DESCRIPTION:Initiée à Paris en 2002 par le maire Bertrand Delanoë.
 CATEGORIES:Culture
@@ -2322,7 +2322,7 @@ DTSTART;VALUE=DATE:20281007
 END:VEVENT
 BEGIN:VEVENT
 UID:a2bf927a15f426c8898ce580@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Semaine du Goût
 DESCRIPTION:Créée en 1990 par le chef Joël Robuchon.
 CATEGORIES:Gastronomie,Culture
@@ -2330,7 +2330,7 @@ DTSTART;VALUE=DATE:20281009
 END:VEVENT
 BEGIN:VEVENT
 UID:9e317b4e83d44dd7760d1d3f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la santé mentale
 DESCRIPTION:Créée par la Fédération Mondiale pour la Santé Mentale en 1992.
 CATEGORIES:Santé,Société
@@ -2338,7 +2338,7 @@ DTSTART;VALUE=DATE:20281010
 END:VEVENT
 BEGIN:VEVENT
 UID:6d78f4e6e9c7eb084c381a30@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'alimentation
 DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945.
 CATEGORIES:Gastronomie,Société,Santé
@@ -2346,7 +2346,7 @@ DTSTART;VALUE=DATE:20281016
 END:VEVENT
 BEGIN:VEVENT
 UID:aa57e94d6106fd6089968c17@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -2355,7 +2355,7 @@ DTSTART;VALUE=DATE:20281029
 END:VEVENT
 BEGIN:VEVENT
 UID:ba8264553a26e587c9f3d0cc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Halloween
 DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis 
  popularisée par la diaspora irlandaise.
@@ -2364,7 +2364,7 @@ DTSTART;VALUE=DATE:20281031
 END:VEVENT
 BEGIN:VEVENT
 UID:4826143f8f7fbec923829c7e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement du Mois sans Tabac
 DESCRIPTION:Lancé en France en 2016 par Santé Publique France.
 CATEGORIES:Santé
@@ -2372,7 +2372,7 @@ DTSTART;VALUE=DATE:20281101
 END:VEVENT
 BEGIN:VEVENT
 UID:011e73fbfe0a1746d5d327ed@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -2383,7 +2383,7 @@ DTSTART;VALUE=DATE:20281101
 END:VEVENT
 BEGIN:VEVENT
 UID:0e233cbfd0fd29340f5b2887@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de l'arbre
 DESCRIPTION:Célébrée chaque premier jeudi de novembre.
 CATEGORIES:Environnement
@@ -2391,7 +2391,7 @@ DTSTART;VALUE=DATE:20281102
 END:VEVENT
 BEGIN:VEVENT
 UID:e15df3a64efba7be0277ff52@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -2402,7 +2402,7 @@ DTSTART;VALUE=DATE:20281111
 END:VEVENT
 BEGIN:VEVENT
 UID:6a113b7b475e021adcd5827f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -2411,7 +2411,7 @@ DTSTART;VALUE=DATE:20281111
 END:VEVENT
 BEGIN:VEVENT
 UID:ccc2618b879126b53638a534@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Beaujolais Nouveau
 DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est 
  mis en vente.
@@ -2420,7 +2420,7 @@ DTSTART;VALUE=DATE:20281116
 END:VEVENT
 BEGIN:VEVENT
 UID:c132090a211bc6b769504c3d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des droits de l'enfant
 DESCRIPTION:Commémore l'adoption de la Convention des Nations Unies relativ
  e aux droits de l'enfant.
@@ -2429,7 +2429,7 @@ DTSTART;VALUE=DATE:20281120
 END:VEVENT
 BEGIN:VEVENT
 UID:1c07516c98a9caa698f0b170@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Bretagne
 DESCRIPTION:Célébrée le 30 novembre (Saint-André) depuis les années 1990.
 CATEGORIES:Culture,Société
@@ -2437,7 +2437,7 @@ DTSTART;VALUE=DATE:20281130
 END:VEVENT
 BEGIN:VEVENT
 UID:ea711e5f6fe8302e94806988@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des personnes handicapées
 DESCRIPTION:Instaurée par l'ONU en 1992.
 CATEGORIES:Société
@@ -2445,7 +2445,7 @@ DTSTART;VALUE=DATE:20281203
 END:VEVENT
 BEGIN:VEVENT
 UID:88a225b0f80381e405bc3b29@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du Bénévolat
 DESCRIPTION:Créée par l'ONU en 1985.
 CATEGORIES:Société
@@ -2453,7 +2453,7 @@ DTSTART;VALUE=DATE:20281205
 END:VEVENT
 BEGIN:VEVENT
 UID:657632e1ac08595153f4c6fd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Nicolas
 DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron de
  s enfants.
@@ -2462,7 +2462,7 @@ DTSTART;VALUE=DATE:20281206
 END:VEVENT
 BEGIN:VEVENT
 UID:a4997745449cc9c49f0b18d7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée de la Laïcité
 DESCRIPTION:Commémore la loi du 9 décembre 1905 séparant les Églises de l'É
  tat.
@@ -2471,7 +2471,7 @@ DTSTART;VALUE=DATE:20281209
 END:VEVENT
 BEGIN:VEVENT
 UID:9681d5e718a063ad510ad942@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Hiver — Solstice d'hiver
 DESCRIPTION:Le solstice d'hiver est le jour le plus court de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -2479,7 +2479,7 @@ DTSTART;VALUE=DATE:20281221
 END:VEVENT
 BEGIN:VEVENT
 UID:312de13f26326bba8aba8e08@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus court de l'année
 DESCRIPTION:Le 21 December est le jour le plus court de l'année 2028.
 CATEGORIES:Saisons,Astronomie
@@ -2487,7 +2487,7 @@ DTSTART;VALUE=DATE:20281221
 END:VEVENT
 BEGIN:VEVENT
 UID:b857af26284412efcfdbfbcd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -2498,7 +2498,7 @@ DTSTART;VALUE=DATE:20281225
 END:VEVENT
 BEGIN:VEVENT
 UID:3055ba13e321fcd15b28cbf6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -2507,7 +2507,7 @@ DTSTART;VALUE=DATE:20281226
 END:VEVENT
 BEGIN:VEVENT
 UID:4190b0ef99c54eec35268dd2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dernier jour de l'année
 DESCRIPTION:Clôture de l'année civile 2028.
 CATEGORIES:Dates spéciales
@@ -2515,7 +2515,7 @@ DTSTART;VALUE=DATE:20281231
 END:VEVENT
 BEGIN:VEVENT
 UID:afa3d916c819dfdeee1fe95b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
 DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier m
  ort ce jour en 335.
@@ -2524,7 +2524,7 @@ DTSTART;VALUE=DATE:20281231
 END:VEVENT
 BEGIN:VEVENT
 UID:2454c34bdbf6d4d8f24e1cbc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour de l'an
 DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœ
  ux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une cout
@@ -2534,7 +2534,7 @@ DTSTART;VALUE=DATE:20290101
 END:VEVENT
 BEGIN:VEVENT
 UID:a5235df528d8b5cbd06f1acd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Épiphanie
 DESCRIPTION:Célèbre la visite des Rois Mages à Jésus\, 12 jours après Noël.
 CATEGORIES:Christianisme,Culture,Gastronomie
@@ -2542,7 +2542,7 @@ DTSTART;VALUE=DATE:20290106
 END:VEVENT
 BEGIN:VEVENT
 UID:5342e9b383d1ba4473430ca9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'hiver
 DESCRIPTION:Les soldes d'hiver débutent le deuxième mercredi de janvier et 
  durent 4 semaines.
@@ -2552,7 +2552,7 @@ DTEND;VALUE=DATE:20290208
 END:VEVENT
 BEGIN:VEVENT
 UID:0709647db176c4213d99cfd5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale de l'Éducation
 DESCRIPTION:Proclamée par l'ONU en 2019.
 CATEGORIES:Éducation,Société
@@ -2560,7 +2560,7 @@ DTSTART;VALUE=DATE:20290124
 END:VEVENT
 BEGIN:VEVENT
 UID:de59b8797e758c1c8f0b4865@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Mémoire de la Shoah
 DESCRIPTION:Commémore la libération du camp d'Auschwitz le 27 janvier 1945.
 CATEGORIES:Mémoire,Société
@@ -2568,7 +2568,7 @@ DTSTART;VALUE=DATE:20290127
 END:VEVENT
 BEGIN:VEVENT
 UID:2e170f31ad1966c52aeaf45e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Chandeleur
 DESCRIPTION:Fête de la Présentation de Jésus au Temple\, 40 jours après Noë
  l.
@@ -2577,7 +2577,7 @@ DTSTART;VALUE=DATE:20290202
 END:VEVENT
 BEGIN:VEVENT
 UID:c23d71fbbcacfb8901e388f2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des zones humides
 DESCRIPTION:Commémore la Convention de Ramsar signée le 2 février 1971.
 CATEGORIES:Environnement
@@ -2585,7 +2585,7 @@ DTSTART;VALUE=DATE:20290202
 END:VEVENT
 BEGIN:VEVENT
 UID:e3b9cfa84d4fa23a7ad5b337@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale contre le cancer
 DESCRIPTION:Initiée par l'Union Internationale Contre le Cancer depuis 2000
  .
@@ -2594,7 +2594,7 @@ DTSTART;VALUE=DATE:20290204
 END:VEVENT
 BEGIN:VEVENT
 UID:8fedc4ea6666733a95e0777c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Mardi Gras
 DESCRIPTION:Dernier jour avant le Carême\, où la tradition voulait qu'on fa
  sse bombance avant l'abstinence.
@@ -2603,7 +2603,7 @@ DTSTART;VALUE=DATE:20290213
 END:VEVENT
 BEGIN:VEVENT
 UID:6c91a3e66e7efba137329b39@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début du Carême
 DESCRIPTION:Le Carême commence le Mercredi des Cendres\, 46 jours avant Pâq
  ues.
@@ -2612,7 +2612,7 @@ DTSTART;VALUE=DATE:20290214
 END:VEVENT
 BEGIN:VEVENT
 UID:c59afe80bd235246a0ba144c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Valentin
 DESCRIPTION:Fête des amoureux le 14 février.
 CATEGORIES:Fêtes,Culture
@@ -2620,7 +2620,7 @@ DTSTART;VALUE=DATE:20290214
 END:VEVENT
 BEGIN:VEVENT
 UID:b5b38b65753de395faab18d9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Salon de l'Agriculture — Ouverture
 DESCRIPTION:Le Salon International de l'Agriculture se tient chaque fin fév
  rier à Paris.
@@ -2629,7 +2629,7 @@ DTSTART;VALUE=DATE:20290224
 END:VEVENT
 BEGIN:VEVENT
 UID:dfeb4e8b4ddb2c2e5a8aca7b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Mères
 DESCRIPTION:Créée en 1987 par la marque de café Grand'Mère.
 CATEGORIES:Fêtes,Culture
@@ -2637,7 +2637,7 @@ DTSTART;VALUE=DATE:20290304
 END:VEVENT
 BEGIN:VEVENT
 UID:f6a5c6e6df9e245b4a786493@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des femmes
 DESCRIPTION:Issue des luttes ouvrières du début du XXe siècle en Europe et 
  aux États-Unis.
@@ -2646,7 +2646,7 @@ DTSTART;VALUE=DATE:20290308
 END:VEVENT
 BEGIN:VEVENT
 UID:b93cacbf084da6c454a0f3e0@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Patrick
 DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de s
  aint Patrick (461).
@@ -2655,7 +2655,7 @@ DTSTART;VALUE=DATE:20290317
 END:VEVENT
 BEGIN:VEVENT
 UID:ba52d902af3c961ded50102f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début du Printemps — Équinoxe de printemps
 DESCRIPTION:L'équinoxe de printemps marque le début astronomique du printem
  ps.
@@ -2664,7 +2664,7 @@ DTSTART;VALUE=DATE:20290320
 END:VEVENT
 BEGIN:VEVENT
 UID:6905288829d876a2516e9424@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de lutte contre les discriminations
 DESCRIPTION:Créée par l'ONU en 1966 en mémoire du massacre de Sharpeville.
 CATEGORIES:Société
@@ -2672,7 +2672,7 @@ DTSTART;VALUE=DATE:20290321
 END:VEVENT
 BEGIN:VEVENT
 UID:74de420d128c93cee9810e8c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'eau
 DESCRIPTION:Proclamée par l'ONU en 1993.
 CATEGORIES:Environnement,Société
@@ -2680,7 +2680,7 @@ DTSTART;VALUE=DATE:20290322
 END:VEVENT
 BEGIN:VEVENT
 UID:849d7bb0695845bcb042482d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dimanche des Rameaux
 DESCRIPTION:Ouvre la Semaine Sainte en rappelant l'entrée triomphale de Jés
  us à Jérusalem.
@@ -2689,7 +2689,7 @@ DTSTART;VALUE=DATE:20290325
 END:VEVENT
 BEGIN:VEVENT
 UID:c52eddb5a3ee96304e95d388@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'été
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres avancent d'une
   heure (2h → 3h).
@@ -2698,7 +2698,7 @@ DTSTART;VALUE=DATE:20290325
 END:VEVENT
 BEGIN:VEVENT
 UID:e6fc6273e4f63a3cb29e05b5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -2707,7 +2707,7 @@ DTSTART;VALUE=DATE:20290330
 END:VEVENT
 BEGIN:VEVENT
 UID:7317e750e8894e860080773f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Non férié en France depuis 
  la loi de 1905 — sauf en Alsace-Moselle.
@@ -2716,7 +2716,7 @@ DTSTART;VALUE=DATE:20290330
 END:VEVENT
 BEGIN:VEVENT
 UID:22866dfb9d167bb0f785815a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Poisson d'avril
 DESCRIPTION:Journée des farces et des canulars.
 CATEGORIES:Culture
@@ -2724,7 +2724,7 @@ DTSTART;VALUE=DATE:20290401
 END:VEVENT
 BEGIN:VEVENT
 UID:50fc20428473a260f957faec@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pâques
 DESCRIPTION:Fête chrétienne célébrant la résurrection du Christ. Sa date va
  rie chaque année car elle suit le calendrier lunaire.
@@ -2733,7 +2733,7 @@ DTSTART;VALUE=DATE:20290401
 END:VEVENT
 BEGIN:VEVENT
 UID:e4ba015c14f409a880de8775@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -2743,7 +2743,7 @@ DTSTART;VALUE=DATE:20290402
 END:VEVENT
 BEGIN:VEVENT
 UID:bc263e47bc95688eb50350b6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la Santé
 DESCRIPTION:Commémore la fondation de l'OMS le 7 avril 1948.
 CATEGORIES:Santé
@@ -2751,7 +2751,7 @@ DTSTART;VALUE=DATE:20290407
 END:VEVENT
 BEGIN:VEVENT
 UID:26e1ffc358bd59faa9ddc631@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour de la Terre
 DESCRIPTION:Né le 22 avril 1970 après une marée noire en Californie.
 CATEGORIES:Environnement,Société
@@ -2759,7 +2759,7 @@ DTSTART;VALUE=DATE:20290422
 END:VEVENT
 BEGIN:VEVENT
 UID:277ad2335c8741c0a90ee192@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Fête du Travail
 DESCRIPTION:Fête du Travail tombe un mardi le 01/05/2029. Le lundi 30/04/20
  29 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -2768,7 +2768,7 @@ DTSTART;VALUE=DATE:20290430
 END:VEVENT
 BEGIN:VEVENT
 UID:b88bd6f555d3fcddbe55385f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -2779,7 +2779,7 @@ DTSTART;VALUE=DATE:20290501
 END:VEVENT
 BEGIN:VEVENT
 UID:69534736a0b4be933de5d4eb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Fête de la Victoire
 DESCRIPTION:Fête de la Victoire tombe un mardi le 08/05/2029. Le lundi 07/0
  5/2029 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -2788,7 +2788,7 @@ DTSTART;VALUE=DATE:20290507
 END:VEVENT
 BEGIN:VEVENT
 UID:e2f5a961ade61eeed8965e0c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -2798,7 +2798,7 @@ DTSTART;VALUE=DATE:20290508
 END:VEVENT
 BEGIN:VEVENT
 UID:5e8033a4e307ff8de6e39ff5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Abolition de l'esclavage en France — Commémoration
 DESCRIPTION:Journée nationale instaurée par la loi Taubira de 2001.
 CATEGORIES:Mémoire,Société
@@ -2806,7 +2806,7 @@ DTSTART;VALUE=DATE:20290510
 END:VEVENT
 BEGIN:VEVENT
 UID:566e29c39532e9fb8c755485@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -2816,7 +2816,7 @@ DTSTART;VALUE=DATE:20290510
 END:VEVENT
 BEGIN:VEVENT
 UID:dd9b46b2db7ff52134cac681@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 10/05/2029. Le vendredi 11/05/2029 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -2825,7 +2825,7 @@ DTSTART;VALUE=DATE:20290511
 END:VEVENT
 BEGIN:VEVENT
 UID:ac9b041e3317ed4caaa17a96@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival de Cannes — Ouverture
 DESCRIPTION:Le Festival International du Film de Cannes\, créé en 1946.
 CATEGORIES:Culture,Cinéma
@@ -2833,7 +2833,7 @@ DTSTART;VALUE=DATE:20290512
 END:VEVENT
 BEGIN:VEVENT
 UID:317e008627f9553c22f2928d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Musées
 DESCRIPTION:Créée en France en 2005 et étendue à toute l'Europe.
 CATEGORIES:Culture
@@ -2841,7 +2841,7 @@ DTSTART;VALUE=DATE:20290519
 END:VEVENT
 BEGIN:VEVENT
 UID:a05be6d75f55e7806f070161@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pentecôte
 DESCRIPTION:Célèbre la descente de l'Esprit Saint sur les apôtres\, 50 jour
  s après Pâques.
@@ -2850,7 +2850,7 @@ DTSTART;VALUE=DATE:20290520
 END:VEVENT
 BEGIN:VEVENT
 UID:90c3e8317f7618294b0a5145@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -2861,7 +2861,7 @@ DTSTART;VALUE=DATE:20290521
 END:VEVENT
 BEGIN:VEVENT
 UID:47feb58572f9ecc8130a76fb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la biodiversité
 DESCRIPTION:Commémore l'adoption de la Convention sur la Diversité Biologiq
  ue à Rio.
@@ -2870,7 +2870,7 @@ DTSTART;VALUE=DATE:20290522
 END:VEVENT
 BEGIN:VEVENT
 UID:27e25717a1ddce4b9e3e269d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Voisins
 DESCRIPTION:Créée en 2000 pour lutter contre l'isolement urbain.
 CATEGORIES:Société
@@ -2878,7 +2878,7 @@ DTSTART;VALUE=DATE:20290525
 END:VEVENT
 BEGIN:VEVENT
 UID:abbc1465637af2e370df5cd3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Mères
 DESCRIPTION:Célébrée le dernier dimanche de mai\, sauf si c'est la Pentecôt
  e.
@@ -2887,7 +2887,7 @@ DTSTART;VALUE=DATE:20290527
 END:VEVENT
 BEGIN:VEVENT
 UID:506396576c7e4c2815bb4151@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Résistance
 DESCRIPTION:Le 27 mai 1943\, Jean Moulin préside la première réunion secrèt
  e du CNR.
@@ -2896,7 +2896,7 @@ DTSTART;VALUE=DATE:20290527
 END:VEVENT
 BEGIN:VEVENT
 UID:4ced9ed95e4ab667716a8c3c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans tabac
 DESCRIPTION:Lancée par l'OMS en 1987.
 CATEGORIES:Santé
@@ -2904,7 +2904,7 @@ DTSTART;VALUE=DATE:20290531
 END:VEVENT
 BEGIN:VEVENT
 UID:2221c29130f93829aa528407@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Débarquement en Normandie — Commémoration du Jour J
 DESCRIPTION:Le 6 juin 1944\, 156 000 soldats alliés débarquent sur les plag
  es de Normandie.
@@ -2913,7 +2913,7 @@ DTSTART;VALUE=DATE:20290606
 END:VEVENT
 BEGIN:VEVENT
 UID:e215c592364d5aab488efd44@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'océan
 DESCRIPTION:Proposée lors du Sommet de la Terre de Rio en 1992.
 CATEGORIES:Environnement
@@ -2921,7 +2921,7 @@ DTSTART;VALUE=DATE:20290608
 END:VEVENT
 BEGIN:VEVENT
 UID:4c424bf5c4d0fb895d8dcfef@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Pères
 DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les anné
  es 1950.
@@ -2930,7 +2930,7 @@ DTSTART;VALUE=DATE:20290617
 END:VEVENT
 BEGIN:VEVENT
 UID:469564061f4336a86cc19549@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Appel du 18 juin 1940 — Anniversaire
 DESCRIPTION:Le 18 juin 1940\, de Gaulle lance depuis Londres un appel à la 
  Résistance sur la BBC.
@@ -2939,7 +2939,7 @@ DTSTART;VALUE=DATE:20290618
 END:VEVENT
 BEGIN:VEVENT
 UID:7611c8d9c01ea633214ed81e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Été — Solstice d'été
 DESCRIPTION:Le solstice d'été est le jour le plus long de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -2947,7 +2947,7 @@ DTSTART;VALUE=DATE:20290621
 END:VEVENT
 BEGIN:VEVENT
 UID:f0d886dca6a7e6cffcf4e670@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Musique
 DESCRIPTION:Créée en 1982 par le ministre Jack Lang.
 CATEGORIES:Culture,Fêtes
@@ -2955,7 +2955,7 @@ DTSTART;VALUE=DATE:20290621
 END:VEVENT
 BEGIN:VEVENT
 UID:fa209507d10e91f180547952@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus long de l'année
 DESCRIPTION:Le 21 June est le jour le plus long de l'année 2029.
 CATEGORIES:Saisons,Astronomie
@@ -2963,7 +2963,7 @@ DTSTART;VALUE=DATE:20290621
 END:VEVENT
 BEGIN:VEVENT
 UID:04d4fbfda58d3f157c9a7200@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Cinéma
 DESCRIPTION:Créée en 1985\, elle propose chaque fin juin des places à tarif
   réduit.
@@ -2972,7 +2972,7 @@ DTSTART;VALUE=DATE:20290624
 END:VEVENT
 BEGIN:VEVENT
 UID:d9a756400793583a89ea25f2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'été
 DESCRIPTION:Les soldes d'été débutent le dernier mercredi de juin et durent
   4 semaines.
@@ -2982,7 +2982,7 @@ DTEND;VALUE=DATE:20290726
 END:VEVENT
 BEGIN:VEVENT
 UID:5bcbc4dbe35e50f058b57611@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Milieu de l'année
 DESCRIPTION:Ce jour marque le point médian exact de l'année 2029.
 CATEGORIES:Dates spéciales
@@ -2990,7 +2990,7 @@ DTSTART;VALUE=DATE:20290702
 END:VEVENT
 BEGIN:VEVENT
 UID:a38ca15b7480379d1b51bfb0@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival d'Avignon — Ouverture
 DESCRIPTION:Créé par Jean Vilar en 1947 dans la cour du Palais des Papes.
 CATEGORIES:Culture,Théâtre
@@ -2998,7 +2998,7 @@ DTSTART;VALUE=DATE:20290705
 END:VEVENT
 BEGIN:VEVENT
 UID:ebf00f412be87ed964f4e2c0@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Commémoration de la Rafle du Vél d'Hiv
 DESCRIPTION:Les 16-17 juillet 1942\, la police française arrêta 13 152 Juif
  s à Paris.
@@ -3007,7 +3007,7 @@ DTSTART;VALUE=DATE:20290708
 END:VEVENT
 BEGIN:VEVENT
 UID:2991f32d4fd0625b169bf480@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -3015,7 +3015,7 @@ DTSTART;VALUE=DATE:20290714
 END:VEVENT
 BEGIN:VEVENT
 UID:aaa4170f91bf6964d55eacdc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -3026,7 +3026,7 @@ DTSTART;VALUE=DATE:20290714
 END:VEVENT
 BEGIN:VEVENT
 UID:81b648c4335560cbf534d2af@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Étoiles
 DESCRIPTION:Organisée chaque premier week-end d'août par l'Association Fran
  çaise d'Astronomie depuis 1991.
@@ -3035,7 +3035,7 @@ DTSTART;VALUE=DATE:20290804
 END:VEVENT
 BEGIN:VEVENT
 UID:8f48fc8c7bd29f01fb936ca6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -3045,7 +3045,7 @@ DTSTART;VALUE=DATE:20290815
 END:VEVENT
 BEGIN:VEVENT
 UID:8fcca01f43420530c6d9d505@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -3053,7 +3053,7 @@ DTSTART;VALUE=DATE:20290815
 END:VEVENT
 BEGIN:VEVENT
 UID:11bd4d39823ff32221aa13d7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Braderie de Lille
 DESCRIPTION:Plus grande braderie d'Europe\, organisée le premier week-end d
  e septembre à Lille.
@@ -3062,7 +3062,7 @@ DTSTART;VALUE=DATE:20290901
 END:VEVENT
 BEGIN:VEVENT
 UID:9bb17166415e0dd3cc71b92f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Rentrée des classes
 DESCRIPTION:La rentrée de septembre mobilise 12 millions d'élèves et 870 00
  0 enseignants en France.
@@ -3071,7 +3071,7 @@ DTSTART;VALUE=DATE:20290902
 END:VEVENT
 BEGIN:VEVENT
 UID:28b051f0817e807812c27e3a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journées du Patrimoine
 DESCRIPTION:Créées en France en 1984 par Jack Lang\, étendues à toute l'Eur
  ope en 1991.
@@ -3080,7 +3080,7 @@ DTSTART;VALUE=DATE:20290915
 END:VEVENT
 BEGIN:VEVENT
 UID:c1023f8f24077f3816fe82a6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Automne — Équinoxe d'automne
 DESCRIPTION:L'équinoxe d'automne marque le début de l'automne.
 CATEGORIES:Saisons,Astronomie
@@ -3088,7 +3088,7 @@ DTSTART;VALUE=DATE:20290922
 END:VEVENT
 BEGIN:VEVENT
 UID:1eb479587d8264b97469720a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans voiture
 DESCRIPTION:Lancée en France en 1998 par La Rochelle.
 CATEGORIES:Environnement,Société
@@ -3096,7 +3096,7 @@ DTSTART;VALUE=DATE:20290922
 END:VEVENT
 BEGIN:VEVENT
 UID:1ff14e704519b1130f332bfe@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du cacao et du chocolat
 DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internatio
  nale du cacao (ICCO).
@@ -3105,7 +3105,7 @@ DTSTART;VALUE=DATE:20291001
 END:VEVENT
 BEGIN:VEVENT
 UID:2eaac33749e4b260028169ee@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement d'Octobre Rose
 DESCRIPTION:Tout octobre est dédié à la sensibilisation au cancer du sein.
 CATEGORIES:Santé
@@ -3113,7 +3113,7 @@ DTSTART;VALUE=DATE:20291001
 END:VEVENT
 BEGIN:VEVENT
 UID:bc670ec92f5c423cf1d127e2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit Blanche
 DESCRIPTION:Initiée à Paris en 2002 par le maire Bertrand Delanoë.
 CATEGORIES:Culture
@@ -3121,7 +3121,7 @@ DTSTART;VALUE=DATE:20291006
 END:VEVENT
 BEGIN:VEVENT
 UID:b833d43a4f2e2097f4123971@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Pères
 DESCRIPTION:Créée en 2008\, elle a lieu chaque premier dimanche d'octobre.
 CATEGORIES:Fêtes,Culture
@@ -3129,7 +3129,7 @@ DTSTART;VALUE=DATE:20291007
 END:VEVENT
 BEGIN:VEVENT
 UID:581197918a67f52e42940cf1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Semaine du Goût
 DESCRIPTION:Créée en 1990 par le chef Joël Robuchon.
 CATEGORIES:Gastronomie,Culture
@@ -3137,7 +3137,7 @@ DTSTART;VALUE=DATE:20291008
 END:VEVENT
 BEGIN:VEVENT
 UID:8bcd171d9e83cdaeb6d3ca62@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la santé mentale
 DESCRIPTION:Créée par la Fédération Mondiale pour la Santé Mentale en 1992.
 CATEGORIES:Santé,Société
@@ -3145,7 +3145,7 @@ DTSTART;VALUE=DATE:20291010
 END:VEVENT
 BEGIN:VEVENT
 UID:8eece5e051a0c3234957d2f5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'alimentation
 DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945.
 CATEGORIES:Gastronomie,Société,Santé
@@ -3153,7 +3153,7 @@ DTSTART;VALUE=DATE:20291016
 END:VEVENT
 BEGIN:VEVENT
 UID:b4ac8992a41104483b972cb2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -3162,7 +3162,7 @@ DTSTART;VALUE=DATE:20291028
 END:VEVENT
 BEGIN:VEVENT
 UID:37cdb151df9a779eae9ecd56@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Halloween
 DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis 
  popularisée par la diaspora irlandaise.
@@ -3171,7 +3171,7 @@ DTSTART;VALUE=DATE:20291031
 END:VEVENT
 BEGIN:VEVENT
 UID:4a2cc5215469960d5042b998@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de l'arbre
 DESCRIPTION:Célébrée chaque premier jeudi de novembre.
 CATEGORIES:Environnement
@@ -3179,7 +3179,7 @@ DTSTART;VALUE=DATE:20291101
 END:VEVENT
 BEGIN:VEVENT
 UID:d1a4a1f07981f82ccf26434d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement du Mois sans Tabac
 DESCRIPTION:Lancé en France en 2016 par Santé Publique France.
 CATEGORIES:Santé
@@ -3187,7 +3187,7 @@ DTSTART;VALUE=DATE:20291101
 END:VEVENT
 BEGIN:VEVENT
 UID:060d7f4d2b2ec8d68f0d5fdb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -3198,7 +3198,7 @@ DTSTART;VALUE=DATE:20291101
 END:VEVENT
 BEGIN:VEVENT
 UID:b5a0baa8413888c02b65151a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Toussaint
 DESCRIPTION:Toussaint tombe un jeudi le 01/11/2029. Le vendredi 02/11/2029 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -3207,7 +3207,7 @@ DTSTART;VALUE=DATE:20291102
 END:VEVENT
 BEGIN:VEVENT
 UID:719f1e74771f44d85959c352@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -3218,7 +3218,7 @@ DTSTART;VALUE=DATE:20291111
 END:VEVENT
 BEGIN:VEVENT
 UID:f86b94e9ede539e656382369@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -3227,7 +3227,7 @@ DTSTART;VALUE=DATE:20291111
 END:VEVENT
 BEGIN:VEVENT
 UID:cae6e89d961175efd79575c2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Beaujolais Nouveau
 DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est 
  mis en vente.
@@ -3236,7 +3236,7 @@ DTSTART;VALUE=DATE:20291115
 END:VEVENT
 BEGIN:VEVENT
 UID:57ffb86c19a4dc119462ec77@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des droits de l'enfant
 DESCRIPTION:Commémore l'adoption de la Convention des Nations Unies relativ
  e aux droits de l'enfant.
@@ -3245,7 +3245,7 @@ DTSTART;VALUE=DATE:20291120
 END:VEVENT
 BEGIN:VEVENT
 UID:8277d434fc5c98020d862ffd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Bretagne
 DESCRIPTION:Célébrée le 30 novembre (Saint-André) depuis les années 1990.
 CATEGORIES:Culture,Société
@@ -3253,7 +3253,7 @@ DTSTART;VALUE=DATE:20291130
 END:VEVENT
 BEGIN:VEVENT
 UID:a3c1cd210a24aa1528cfc955@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des personnes handicapées
 DESCRIPTION:Instaurée par l'ONU en 1992.
 CATEGORIES:Société
@@ -3261,7 +3261,7 @@ DTSTART;VALUE=DATE:20291203
 END:VEVENT
 BEGIN:VEVENT
 UID:38f611aa83ab687143ef1d11@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du Bénévolat
 DESCRIPTION:Créée par l'ONU en 1985.
 CATEGORIES:Société
@@ -3269,7 +3269,7 @@ DTSTART;VALUE=DATE:20291205
 END:VEVENT
 BEGIN:VEVENT
 UID:8e37f36f10551e34909b314f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Nicolas
 DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron de
  s enfants.
@@ -3278,7 +3278,7 @@ DTSTART;VALUE=DATE:20291206
 END:VEVENT
 BEGIN:VEVENT
 UID:b4d2e35b090dcf44d105042f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée de la Laïcité
 DESCRIPTION:Commémore la loi du 9 décembre 1905 séparant les Églises de l'É
  tat.
@@ -3287,7 +3287,7 @@ DTSTART;VALUE=DATE:20291209
 END:VEVENT
 BEGIN:VEVENT
 UID:c21de33ec02ff7c91630be01@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Hiver — Solstice d'hiver
 DESCRIPTION:Le solstice d'hiver est le jour le plus court de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -3295,7 +3295,7 @@ DTSTART;VALUE=DATE:20291221
 END:VEVENT
 BEGIN:VEVENT
 UID:5609f000542de13946654867@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus court de l'année
 DESCRIPTION:Le 21 December est le jour le plus court de l'année 2029.
 CATEGORIES:Saisons,Astronomie
@@ -3303,7 +3303,7 @@ DTSTART;VALUE=DATE:20291221
 END:VEVENT
 BEGIN:VEVENT
 UID:bcb80945eed258ac5b1e094b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Noël
 DESCRIPTION:Noël tombe un mardi le 25/12/2029. Le lundi 24/12/2029 est un p
  ont potentiel — vérifiez auprès de votre employeur.
@@ -3312,7 +3312,7 @@ DTSTART;VALUE=DATE:20291224
 END:VEVENT
 BEGIN:VEVENT
 UID:74b25b0d2011f570f7335bba@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -3323,7 +3323,7 @@ DTSTART;VALUE=DATE:20291225
 END:VEVENT
 BEGIN:VEVENT
 UID:4ddc9507399c3f48c00bf7f7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -3332,7 +3332,7 @@ DTSTART;VALUE=DATE:20291226
 END:VEVENT
 BEGIN:VEVENT
 UID:2da15ce58fa98fd38f884065@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dernier jour de l'année
 DESCRIPTION:Clôture de l'année civile 2029.
 CATEGORIES:Dates spéciales
@@ -3340,7 +3340,7 @@ DTSTART;VALUE=DATE:20291231
 END:VEVENT
 BEGIN:VEVENT
 UID:19db3f2c4dbf727367db3c24@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fin d'une décennie
 DESCRIPTION:Le 31 décembre 2029 clôture la décennie 2020–2029.
 CATEGORIES:Dates spéciales
@@ -3348,7 +3348,7 @@ DTSTART;VALUE=DATE:20291231
 END:VEVENT
 BEGIN:VEVENT
 UID:ed19f6607f6012dfd20d2d18@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Jour de l'an
 DESCRIPTION:Jour de l'an tombe un mardi le 01/01/2030. Le lundi 31/12/2029 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -3357,7 +3357,7 @@ DTSTART;VALUE=DATE:20291231
 END:VEVENT
 BEGIN:VEVENT
 UID:5c370053f8e00643d639b257@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
 DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier m
  ort ce jour en 335.
@@ -3366,7 +3366,7 @@ DTSTART;VALUE=DATE:20291231
 END:VEVENT
 BEGIN:VEVENT
 UID:f1dd343cfbcff2c87c587711@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début d'une nouvelle décennie
 DESCRIPTION:Le 1er janvier 2030 ouvre la décennie 2030–2039.
 CATEGORIES:Dates spéciales
@@ -3374,7 +3374,7 @@ DTSTART;VALUE=DATE:20300101
 END:VEVENT
 BEGIN:VEVENT
 UID:85f7ae92f5465a96ab1723a5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour de l'an
 DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœ
  ux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une cout
@@ -3384,7 +3384,7 @@ DTSTART;VALUE=DATE:20300101
 END:VEVENT
 BEGIN:VEVENT
 UID:84efcd64ef501eeaed1dc97c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Épiphanie
 DESCRIPTION:Célèbre la visite des Rois Mages à Jésus\, 12 jours après Noël.
 CATEGORIES:Christianisme,Culture,Gastronomie
@@ -3392,7 +3392,7 @@ DTSTART;VALUE=DATE:20300106
 END:VEVENT
 BEGIN:VEVENT
 UID:fca46552a9545d50e8507c09@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'hiver
 DESCRIPTION:Les soldes d'hiver débutent le deuxième mercredi de janvier et 
  durent 4 semaines.
@@ -3402,7 +3402,7 @@ DTEND;VALUE=DATE:20300207
 END:VEVENT
 BEGIN:VEVENT
 UID:6fa40178df16f167fcdb9795@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale de l'Éducation
 DESCRIPTION:Proclamée par l'ONU en 2019.
 CATEGORIES:Éducation,Société
@@ -3410,7 +3410,7 @@ DTSTART;VALUE=DATE:20300124
 END:VEVENT
 BEGIN:VEVENT
 UID:a2f058d907c26d25410edcaa@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Mémoire de la Shoah
 DESCRIPTION:Commémore la libération du camp d'Auschwitz le 27 janvier 1945.
 CATEGORIES:Mémoire,Société
@@ -3418,7 +3418,7 @@ DTSTART;VALUE=DATE:20300127
 END:VEVENT
 BEGIN:VEVENT
 UID:bcea944581da95e66c036346@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Chandeleur
 DESCRIPTION:Fête de la Présentation de Jésus au Temple\, 40 jours après Noë
  l.
@@ -3427,7 +3427,7 @@ DTSTART;VALUE=DATE:20300202
 END:VEVENT
 BEGIN:VEVENT
 UID:4be3473eb09bc7a0af1de54f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des zones humides
 DESCRIPTION:Commémore la Convention de Ramsar signée le 2 février 1971.
 CATEGORIES:Environnement
@@ -3435,7 +3435,7 @@ DTSTART;VALUE=DATE:20300202
 END:VEVENT
 BEGIN:VEVENT
 UID:e61bcedba2c2bab855597477@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Date palindrome
 DESCRIPTION:La date du 03/02/2030 se lit de la même façon dans les deux sen
  s (03022030).
@@ -3444,7 +3444,7 @@ DTSTART;VALUE=DATE:20300203
 END:VEVENT
 BEGIN:VEVENT
 UID:981e722048aa22d2596a594b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale contre le cancer
 DESCRIPTION:Initiée par l'Union Internationale Contre le Cancer depuis 2000
  .
@@ -3453,7 +3453,7 @@ DTSTART;VALUE=DATE:20300204
 END:VEVENT
 BEGIN:VEVENT
 UID:bf80b946f9eef4ea0fc1d4fa@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Valentin
 DESCRIPTION:Fête des amoureux le 14 février.
 CATEGORIES:Fêtes,Culture
@@ -3461,7 +3461,7 @@ DTSTART;VALUE=DATE:20300214
 END:VEVENT
 BEGIN:VEVENT
 UID:9c885d6a87540278f3d9a41c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Salon de l'Agriculture — Ouverture
 DESCRIPTION:Le Salon International de l'Agriculture se tient chaque fin fév
  rier à Paris.
@@ -3470,7 +3470,7 @@ DTSTART;VALUE=DATE:20300223
 END:VEVENT
 BEGIN:VEVENT
 UID:8a02a5578b6e8b110163f80b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Mères
 DESCRIPTION:Créée en 1987 par la marque de café Grand'Mère.
 CATEGORIES:Fêtes,Culture
@@ -3478,7 +3478,7 @@ DTSTART;VALUE=DATE:20300303
 END:VEVENT
 BEGIN:VEVENT
 UID:eaeb08b5c2867976756ee1b1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Mardi Gras
 DESCRIPTION:Dernier jour avant le Carême\, où la tradition voulait qu'on fa
  sse bombance avant l'abstinence.
@@ -3487,7 +3487,7 @@ DTSTART;VALUE=DATE:20300305
 END:VEVENT
 BEGIN:VEVENT
 UID:6f0142e88a7697214ba41dd5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début du Carême
 DESCRIPTION:Le Carême commence le Mercredi des Cendres\, 46 jours avant Pâq
  ues.
@@ -3496,7 +3496,7 @@ DTSTART;VALUE=DATE:20300306
 END:VEVENT
 BEGIN:VEVENT
 UID:2f3ee3ea41e039918341be8d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des femmes
 DESCRIPTION:Issue des luttes ouvrières du début du XXe siècle en Europe et 
  aux États-Unis.
@@ -3505,7 +3505,7 @@ DTSTART;VALUE=DATE:20300308
 END:VEVENT
 BEGIN:VEVENT
 UID:3788f7f5acc5340179aaf2b4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Patrick
 DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de s
  aint Patrick (461).
@@ -3514,7 +3514,7 @@ DTSTART;VALUE=DATE:20300317
 END:VEVENT
 BEGIN:VEVENT
 UID:6a94f2c1fd702e85f2a716db@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début du Printemps — Équinoxe de printemps
 DESCRIPTION:L'équinoxe de printemps marque le début astronomique du printem
  ps.
@@ -3523,7 +3523,7 @@ DTSTART;VALUE=DATE:20300320
 END:VEVENT
 BEGIN:VEVENT
 UID:4113a5e218e4b3cfe2177707@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de lutte contre les discriminations
 DESCRIPTION:Créée par l'ONU en 1966 en mémoire du massacre de Sharpeville.
 CATEGORIES:Société
@@ -3531,7 +3531,7 @@ DTSTART;VALUE=DATE:20300321
 END:VEVENT
 BEGIN:VEVENT
 UID:a3d8905e7bf9408b9d418474@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'eau
 DESCRIPTION:Proclamée par l'ONU en 1993.
 CATEGORIES:Environnement,Société
@@ -3539,7 +3539,7 @@ DTSTART;VALUE=DATE:20300322
 END:VEVENT
 BEGIN:VEVENT
 UID:63b71c4179c766fb1c1e0111@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'été
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres avancent d'une
   heure (2h → 3h).
@@ -3548,7 +3548,7 @@ DTSTART;VALUE=DATE:20300331
 END:VEVENT
 BEGIN:VEVENT
 UID:73fe71273bb1e17f0c3215ef@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Poisson d'avril
 DESCRIPTION:Journée des farces et des canulars.
 CATEGORIES:Culture
@@ -3556,7 +3556,7 @@ DTSTART;VALUE=DATE:20300401
 END:VEVENT
 BEGIN:VEVENT
 UID:4b387bc30a49875966bdfa3f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la Santé
 DESCRIPTION:Commémore la fondation de l'OMS le 7 avril 1948.
 CATEGORIES:Santé
@@ -3564,7 +3564,7 @@ DTSTART;VALUE=DATE:20300407
 END:VEVENT
 BEGIN:VEVENT
 UID:3af46ffaf1eb3145ffdbe43d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dimanche des Rameaux
 DESCRIPTION:Ouvre la Semaine Sainte en rappelant l'entrée triomphale de Jés
  us à Jérusalem.
@@ -3573,7 +3573,7 @@ DTSTART;VALUE=DATE:20300414
 END:VEVENT
 BEGIN:VEVENT
 UID:2110c666b5020bf9ccf9276c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -3582,7 +3582,7 @@ DTSTART;VALUE=DATE:20300419
 END:VEVENT
 BEGIN:VEVENT
 UID:708764b301d605fb812e7e03@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Non férié en France depuis 
  la loi de 1905 — sauf en Alsace-Moselle.
@@ -3591,7 +3591,7 @@ DTSTART;VALUE=DATE:20300419
 END:VEVENT
 BEGIN:VEVENT
 UID:75deea071b1d101324893c71@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pâques
 DESCRIPTION:Fête chrétienne célébrant la résurrection du Christ. Sa date va
  rie chaque année car elle suit le calendrier lunaire.
@@ -3600,7 +3600,7 @@ DTSTART;VALUE=DATE:20300421
 END:VEVENT
 BEGIN:VEVENT
 UID:0aae5a3fb4b2de1b7872efe0@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour de la Terre
 DESCRIPTION:Né le 22 avril 1970 après une marée noire en Californie.
 CATEGORIES:Environnement,Société
@@ -3608,7 +3608,7 @@ DTSTART;VALUE=DATE:20300422
 END:VEVENT
 BEGIN:VEVENT
 UID:b5e593183ee86f3d3be9b0b8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -3618,7 +3618,7 @@ DTSTART;VALUE=DATE:20300422
 END:VEVENT
 BEGIN:VEVENT
 UID:baf3489774d1edf2644fded3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -3629,7 +3629,7 @@ DTSTART;VALUE=DATE:20300501
 END:VEVENT
 BEGIN:VEVENT
 UID:8ca94127eefe57f3a8a79e1d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -3639,7 +3639,7 @@ DTSTART;VALUE=DATE:20300508
 END:VEVENT
 BEGIN:VEVENT
 UID:6dc13bc23b7e6c803f578816@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Abolition de l'esclavage en France — Commémoration
 DESCRIPTION:Journée nationale instaurée par la loi Taubira de 2001.
 CATEGORIES:Mémoire,Société
@@ -3647,7 +3647,7 @@ DTSTART;VALUE=DATE:20300510
 END:VEVENT
 BEGIN:VEVENT
 UID:b1374f9e37356d9889259720@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival de Cannes — Ouverture
 DESCRIPTION:Le Festival International du Film de Cannes\, créé en 1946.
 CATEGORIES:Culture,Cinéma
@@ -3655,7 +3655,7 @@ DTSTART;VALUE=DATE:20300512
 END:VEVENT
 BEGIN:VEVENT
 UID:71bd552c981469308659168d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Musées
 DESCRIPTION:Créée en France en 2005 et étendue à toute l'Europe.
 CATEGORIES:Culture
@@ -3663,7 +3663,7 @@ DTSTART;VALUE=DATE:20300518
 END:VEVENT
 BEGIN:VEVENT
 UID:d0f560ecf3c47265e271aa5d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la biodiversité
 DESCRIPTION:Commémore l'adoption de la Convention sur la Diversité Biologiq
  ue à Rio.
@@ -3672,7 +3672,7 @@ DTSTART;VALUE=DATE:20300522
 END:VEVENT
 BEGIN:VEVENT
 UID:2e40cafe128787d60eac4472@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Mères
 DESCRIPTION:Célébrée le dernier dimanche de mai\, sauf si c'est la Pentecôt
  e.
@@ -3681,7 +3681,7 @@ DTSTART;VALUE=DATE:20300526
 END:VEVENT
 BEGIN:VEVENT
 UID:5c863ae77fd0915dc957fbf7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Résistance
 DESCRIPTION:Le 27 mai 1943\, Jean Moulin préside la première réunion secrèt
  e du CNR.
@@ -3690,7 +3690,7 @@ DTSTART;VALUE=DATE:20300527
 END:VEVENT
 BEGIN:VEVENT
 UID:bd56330120ca07a821042abe@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -3700,7 +3700,7 @@ DTSTART;VALUE=DATE:20300530
 END:VEVENT
 BEGIN:VEVENT
 UID:1c8252a478c766ef9a130a83@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Voisins
 DESCRIPTION:Créée en 2000 pour lutter contre l'isolement urbain.
 CATEGORIES:Société
@@ -3708,7 +3708,7 @@ DTSTART;VALUE=DATE:20300531
 END:VEVENT
 BEGIN:VEVENT
 UID:2e9b6dfab82bdb02e4f2b56d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans tabac
 DESCRIPTION:Lancée par l'OMS en 1987.
 CATEGORIES:Santé
@@ -3716,7 +3716,7 @@ DTSTART;VALUE=DATE:20300531
 END:VEVENT
 BEGIN:VEVENT
 UID:431baac120bef78e97e2fc45@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 30/05/2030. Le vendredi 31/05/2030 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -3725,7 +3725,7 @@ DTSTART;VALUE=DATE:20300531
 END:VEVENT
 BEGIN:VEVENT
 UID:22b19e9f62965e454f8345e3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Débarquement en Normandie — Commémoration du Jour J
 DESCRIPTION:Le 6 juin 1944\, 156 000 soldats alliés débarquent sur les plag
  es de Normandie.
@@ -3734,7 +3734,7 @@ DTSTART;VALUE=DATE:20300606
 END:VEVENT
 BEGIN:VEVENT
 UID:bc1c909adc7102003cc51a5d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'océan
 DESCRIPTION:Proposée lors du Sommet de la Terre de Rio en 1992.
 CATEGORIES:Environnement
@@ -3742,7 +3742,7 @@ DTSTART;VALUE=DATE:20300608
 END:VEVENT
 BEGIN:VEVENT
 UID:0f31674a5c6b409ba3ef6c4f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pentecôte
 DESCRIPTION:Célèbre la descente de l'Esprit Saint sur les apôtres\, 50 jour
  s après Pâques.
@@ -3751,7 +3751,7 @@ DTSTART;VALUE=DATE:20300609
 END:VEVENT
 BEGIN:VEVENT
 UID:ba3f55a217cd7337b3e7075a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -3762,7 +3762,7 @@ DTSTART;VALUE=DATE:20300610
 END:VEVENT
 BEGIN:VEVENT
 UID:e3bd230e8e0b8f922193919e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Pères
 DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les anné
  es 1950.
@@ -3771,7 +3771,7 @@ DTSTART;VALUE=DATE:20300616
 END:VEVENT
 BEGIN:VEVENT
 UID:528f432ba362442555474ead@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Appel du 18 juin 1940 — Anniversaire
 DESCRIPTION:Le 18 juin 1940\, de Gaulle lance depuis Londres un appel à la 
  Résistance sur la BBC.
@@ -3780,7 +3780,7 @@ DTSTART;VALUE=DATE:20300618
 END:VEVENT
 BEGIN:VEVENT
 UID:8833e371fb78dceb5bcf9c77@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Été — Solstice d'été
 DESCRIPTION:Le solstice d'été est le jour le plus long de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -3788,7 +3788,7 @@ DTSTART;VALUE=DATE:20300621
 END:VEVENT
 BEGIN:VEVENT
 UID:48aa2f52926bcdcc5e727b7a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Musique
 DESCRIPTION:Créée en 1982 par le ministre Jack Lang.
 CATEGORIES:Culture,Fêtes
@@ -3796,7 +3796,7 @@ DTSTART;VALUE=DATE:20300621
 END:VEVENT
 BEGIN:VEVENT
 UID:48b14e0661a33e2809ab27d0@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus long de l'année
 DESCRIPTION:Le 21 June est le jour le plus long de l'année 2030.
 CATEGORIES:Saisons,Astronomie
@@ -3804,7 +3804,7 @@ DTSTART;VALUE=DATE:20300621
 END:VEVENT
 BEGIN:VEVENT
 UID:01fa17c1291cc1546e5dfb06@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Cinéma
 DESCRIPTION:Créée en 1985\, elle propose chaque fin juin des places à tarif
   réduit.
@@ -3813,7 +3813,7 @@ DTSTART;VALUE=DATE:20300623
 END:VEVENT
 BEGIN:VEVENT
 UID:bfa546a224fbf6ca6c55bcb6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'été
 DESCRIPTION:Les soldes d'été débutent le dernier mercredi de juin et durent
   4 semaines.
@@ -3823,7 +3823,7 @@ DTEND;VALUE=DATE:20300725
 END:VEVENT
 BEGIN:VEVENT
 UID:169cec487dd7555228d02c8e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Milieu de l'année
 DESCRIPTION:Ce jour marque le point médian exact de l'année 2030.
 CATEGORIES:Dates spéciales
@@ -3831,7 +3831,7 @@ DTSTART;VALUE=DATE:20300702
 END:VEVENT
 BEGIN:VEVENT
 UID:c912fac3543bf5b9e801c21c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival d'Avignon — Ouverture
 DESCRIPTION:Créé par Jean Vilar en 1947 dans la cour du Palais des Papes.
 CATEGORIES:Culture,Théâtre
@@ -3839,7 +3839,7 @@ DTSTART;VALUE=DATE:20300705
 END:VEVENT
 BEGIN:VEVENT
 UID:a4594995e498c71781ccb812@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Commémoration de la Rafle du Vél d'Hiv
 DESCRIPTION:Les 16-17 juillet 1942\, la police française arrêta 13 152 Juif
  s à Paris.
@@ -3848,7 +3848,7 @@ DTSTART;VALUE=DATE:20300714
 END:VEVENT
 BEGIN:VEVENT
 UID:1f50a2f5ca1a7a7215860d1d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -3856,7 +3856,7 @@ DTSTART;VALUE=DATE:20300714
 END:VEVENT
 BEGIN:VEVENT
 UID:c6e2c8497c56dad39f27d4de@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -3867,7 +3867,7 @@ DTSTART;VALUE=DATE:20300714
 END:VEVENT
 BEGIN:VEVENT
 UID:86c21ee5a68285a59b3274e4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Étoiles
 DESCRIPTION:Organisée chaque premier week-end d'août par l'Association Fran
  çaise d'Astronomie depuis 1991.
@@ -3876,7 +3876,7 @@ DTSTART;VALUE=DATE:20300803
 END:VEVENT
 BEGIN:VEVENT
 UID:098b84248c7d82aab59bbeba@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -3886,7 +3886,7 @@ DTSTART;VALUE=DATE:20300815
 END:VEVENT
 BEGIN:VEVENT
 UID:5aaf9facfb07d612e3c8c88f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -3894,7 +3894,7 @@ DTSTART;VALUE=DATE:20300815
 END:VEVENT
 BEGIN:VEVENT
 UID:9080bf036adfa46eea59e2a6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Assomption
 DESCRIPTION:Assomption tombe un jeudi le 15/08/2030. Le vendredi 16/08/2030
   est un pont potentiel — vérifiez auprès de votre employeur.
@@ -3903,7 +3903,7 @@ DTSTART;VALUE=DATE:20300816
 END:VEVENT
 BEGIN:VEVENT
 UID:6fe3597f69f9c2b201a5dd69@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Rentrée des classes
 DESCRIPTION:La rentrée de septembre mobilise 12 millions d'élèves et 870 00
  0 enseignants en France.
@@ -3912,7 +3912,7 @@ DTSTART;VALUE=DATE:20300902
 END:VEVENT
 BEGIN:VEVENT
 UID:12523d5332292d7c14852a6e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Braderie de Lille
 DESCRIPTION:Plus grande braderie d'Europe\, organisée le premier week-end d
  e septembre à Lille.
@@ -3921,7 +3921,7 @@ DTSTART;VALUE=DATE:20300907
 END:VEVENT
 BEGIN:VEVENT
 UID:74a425a0440f70d15dea699b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journées du Patrimoine
 DESCRIPTION:Créées en France en 1984 par Jack Lang\, étendues à toute l'Eur
  ope en 1991.
@@ -3930,7 +3930,7 @@ DTSTART;VALUE=DATE:20300921
 END:VEVENT
 BEGIN:VEVENT
 UID:62bb8e8ebd70ceb9fa3a1e55@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Automne — Équinoxe d'automne
 DESCRIPTION:L'équinoxe d'automne marque le début de l'automne.
 CATEGORIES:Saisons,Astronomie
@@ -3938,7 +3938,7 @@ DTSTART;VALUE=DATE:20300922
 END:VEVENT
 BEGIN:VEVENT
 UID:92ac98c0ed009af44d8c1212@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans voiture
 DESCRIPTION:Lancée en France en 1998 par La Rochelle.
 CATEGORIES:Environnement,Société
@@ -3946,7 +3946,7 @@ DTSTART;VALUE=DATE:20300922
 END:VEVENT
 BEGIN:VEVENT
 UID:0a88d46f280856bb1c2f2f49@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du cacao et du chocolat
 DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internatio
  nale du cacao (ICCO).
@@ -3955,7 +3955,7 @@ DTSTART;VALUE=DATE:20301001
 END:VEVENT
 BEGIN:VEVENT
 UID:bd73e7f822dab2e7f9fa1093@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement d'Octobre Rose
 DESCRIPTION:Tout octobre est dédié à la sensibilisation au cancer du sein.
 CATEGORIES:Santé
@@ -3963,7 +3963,7 @@ DTSTART;VALUE=DATE:20301001
 END:VEVENT
 BEGIN:VEVENT
 UID:06f0a2bf312ff481b92012bb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit Blanche
 DESCRIPTION:Initiée à Paris en 2002 par le maire Bertrand Delanoë.
 CATEGORIES:Culture
@@ -3971,7 +3971,7 @@ DTSTART;VALUE=DATE:20301005
 END:VEVENT
 BEGIN:VEVENT
 UID:a15d81fc2e1d6b35d0346ce5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Pères
 DESCRIPTION:Créée en 2008\, elle a lieu chaque premier dimanche d'octobre.
 CATEGORIES:Fêtes,Culture
@@ -3979,7 +3979,7 @@ DTSTART;VALUE=DATE:20301006
 END:VEVENT
 BEGIN:VEVENT
 UID:4db24c30a2c57b9fd34c9683@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la santé mentale
 DESCRIPTION:Créée par la Fédération Mondiale pour la Santé Mentale en 1992.
 CATEGORIES:Santé,Société
@@ -3987,7 +3987,7 @@ DTSTART;VALUE=DATE:20301010
 END:VEVENT
 BEGIN:VEVENT
 UID:34702fb5029a87d65223cc91@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Semaine du Goût
 DESCRIPTION:Créée en 1990 par le chef Joël Robuchon.
 CATEGORIES:Gastronomie,Culture
@@ -3995,7 +3995,7 @@ DTSTART;VALUE=DATE:20301014
 END:VEVENT
 BEGIN:VEVENT
 UID:1b75bc116119ac9b7f1c8214@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'alimentation
 DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945.
 CATEGORIES:Gastronomie,Société,Santé
@@ -4003,7 +4003,7 @@ DTSTART;VALUE=DATE:20301016
 END:VEVENT
 BEGIN:VEVENT
 UID:626200687250cfe39477ff4c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -4012,7 +4012,7 @@ DTSTART;VALUE=DATE:20301027
 END:VEVENT
 BEGIN:VEVENT
 UID:317a630f35b6d880f06f1279@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Halloween
 DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis 
  popularisée par la diaspora irlandaise.
@@ -4021,7 +4021,7 @@ DTSTART;VALUE=DATE:20301031
 END:VEVENT
 BEGIN:VEVENT
 UID:b994388bf6c227a365fe6730@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement du Mois sans Tabac
 DESCRIPTION:Lancé en France en 2016 par Santé Publique France.
 CATEGORIES:Santé
@@ -4029,7 +4029,7 @@ DTSTART;VALUE=DATE:20301101
 END:VEVENT
 BEGIN:VEVENT
 UID:95ca691dda4a2a084453e993@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -4040,7 +4040,7 @@ DTSTART;VALUE=DATE:20301101
 END:VEVENT
 BEGIN:VEVENT
 UID:103defcee2fb2f6c7c16ee5b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de l'arbre
 DESCRIPTION:Célébrée chaque premier jeudi de novembre.
 CATEGORIES:Environnement
@@ -4048,7 +4048,7 @@ DTSTART;VALUE=DATE:20301107
 END:VEVENT
 BEGIN:VEVENT
 UID:fb3c694b843f362fd7a4a6ab@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -4059,7 +4059,7 @@ DTSTART;VALUE=DATE:20301111
 END:VEVENT
 BEGIN:VEVENT
 UID:0fbd6d6e24afa1c3c0f97ccb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -4068,7 +4068,7 @@ DTSTART;VALUE=DATE:20301111
 END:VEVENT
 BEGIN:VEVENT
 UID:a7cb86eb929352e455360509@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des droits de l'enfant
 DESCRIPTION:Commémore l'adoption de la Convention des Nations Unies relativ
  e aux droits de l'enfant.
@@ -4077,7 +4077,7 @@ DTSTART;VALUE=DATE:20301120
 END:VEVENT
 BEGIN:VEVENT
 UID:6c52bdbb32622685791f1284@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Beaujolais Nouveau
 DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est 
  mis en vente.
@@ -4086,7 +4086,7 @@ DTSTART;VALUE=DATE:20301121
 END:VEVENT
 BEGIN:VEVENT
 UID:110a730964301b069adce1a9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Bretagne
 DESCRIPTION:Célébrée le 30 novembre (Saint-André) depuis les années 1990.
 CATEGORIES:Culture,Société
@@ -4094,7 +4094,7 @@ DTSTART;VALUE=DATE:20301130
 END:VEVENT
 BEGIN:VEVENT
 UID:05b4defad6abb65739eb51fe@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des personnes handicapées
 DESCRIPTION:Instaurée par l'ONU en 1992.
 CATEGORIES:Société
@@ -4102,7 +4102,7 @@ DTSTART;VALUE=DATE:20301203
 END:VEVENT
 BEGIN:VEVENT
 UID:1baa5473468669e0de8e6079@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du Bénévolat
 DESCRIPTION:Créée par l'ONU en 1985.
 CATEGORIES:Société
@@ -4110,7 +4110,7 @@ DTSTART;VALUE=DATE:20301205
 END:VEVENT
 BEGIN:VEVENT
 UID:2a3861c82cb5903780a2fe1b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Nicolas
 DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron de
  s enfants.
@@ -4119,7 +4119,7 @@ DTSTART;VALUE=DATE:20301206
 END:VEVENT
 BEGIN:VEVENT
 UID:890c84ee58e8167c1877c717@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée de la Laïcité
 DESCRIPTION:Commémore la loi du 9 décembre 1905 séparant les Églises de l'É
  tat.
@@ -4128,7 +4128,7 @@ DTSTART;VALUE=DATE:20301209
 END:VEVENT
 BEGIN:VEVENT
 UID:404a2230e3ec54fe16ac8d07@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Hiver — Solstice d'hiver
 DESCRIPTION:Le solstice d'hiver est le jour le plus court de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -4136,7 +4136,7 @@ DTSTART;VALUE=DATE:20301221
 END:VEVENT
 BEGIN:VEVENT
 UID:f98632fb6a10a0111c7dfd0a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus court de l'année
 DESCRIPTION:Le 21 December est le jour le plus court de l'année 2030.
 CATEGORIES:Saisons,Astronomie
@@ -4144,7 +4144,7 @@ DTSTART;VALUE=DATE:20301221
 END:VEVENT
 BEGIN:VEVENT
 UID:c8744fc47930debe76e0e078@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -4155,7 +4155,7 @@ DTSTART;VALUE=DATE:20301225
 END:VEVENT
 BEGIN:VEVENT
 UID:7f3c0c52451425c1837fe94e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -4164,7 +4164,7 @@ DTSTART;VALUE=DATE:20301226
 END:VEVENT
 BEGIN:VEVENT
 UID:e5aee6bbdbb164256f9de510@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dernier jour de l'année
 DESCRIPTION:Clôture de l'année civile 2030.
 CATEGORIES:Dates spéciales
@@ -4172,7 +4172,7 @@ DTSTART;VALUE=DATE:20301231
 END:VEVENT
 BEGIN:VEVENT
 UID:b32ea0a5c91780e04523bb01@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
 DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier m
  ort ce jour en 335.
@@ -4181,7 +4181,7 @@ DTSTART;VALUE=DATE:20301231
 END:VEVENT
 BEGIN:VEVENT
 UID:483c43e345d61facd7a84ff2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour de l'an
 DESCRIPTION:Premier jour de l'année civile grégorienne. La tradition des vœ
  ux existe depuis l'Antiquité romaine. Le gui porte-bonheur vient d'une cout
@@ -4191,7 +4191,7 @@ DTSTART;VALUE=DATE:20310101
 END:VEVENT
 BEGIN:VEVENT
 UID:ce14e80232138205ff0f2789@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Épiphanie
 DESCRIPTION:Célèbre la visite des Rois Mages à Jésus\, 12 jours après Noël.
 CATEGORIES:Christianisme,Culture,Gastronomie
@@ -4199,7 +4199,7 @@ DTSTART;VALUE=DATE:20310106
 END:VEVENT
 BEGIN:VEVENT
 UID:d08e0ccd6e5a65756ef576ea@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'hiver
 DESCRIPTION:Les soldes d'hiver débutent le deuxième mercredi de janvier et 
  durent 4 semaines.
@@ -4209,7 +4209,7 @@ DTEND;VALUE=DATE:20310206
 END:VEVENT
 BEGIN:VEVENT
 UID:bf0a4e6ad407a7606e139fd7@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale de l'Éducation
 DESCRIPTION:Proclamée par l'ONU en 2019.
 CATEGORIES:Éducation,Société
@@ -4217,7 +4217,7 @@ DTSTART;VALUE=DATE:20310124
 END:VEVENT
 BEGIN:VEVENT
 UID:b770adf6e732f178996bc441@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Mémoire de la Shoah
 DESCRIPTION:Commémore la libération du camp d'Auschwitz le 27 janvier 1945.
 CATEGORIES:Mémoire,Société
@@ -4225,7 +4225,7 @@ DTSTART;VALUE=DATE:20310127
 END:VEVENT
 BEGIN:VEVENT
 UID:a18d8b7863ea4aabac0008bd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Chandeleur
 DESCRIPTION:Fête de la Présentation de Jésus au Temple\, 40 jours après Noë
  l.
@@ -4234,7 +4234,7 @@ DTSTART;VALUE=DATE:20310202
 END:VEVENT
 BEGIN:VEVENT
 UID:8a7278c86af6ae3325c73b6a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des zones humides
 DESCRIPTION:Commémore la Convention de Ramsar signée le 2 février 1971.
 CATEGORIES:Environnement
@@ -4242,7 +4242,7 @@ DTSTART;VALUE=DATE:20310202
 END:VEVENT
 BEGIN:VEVENT
 UID:deca8e14516b9cbcdba70c93@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale contre le cancer
 DESCRIPTION:Initiée par l'Union Internationale Contre le Cancer depuis 2000
  .
@@ -4251,7 +4251,7 @@ DTSTART;VALUE=DATE:20310204
 END:VEVENT
 BEGIN:VEVENT
 UID:7fcec3983b82d26a02fbc51f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Date palindrome
 DESCRIPTION:La date du 13/02/2031 se lit de la même façon dans les deux sen
  s (13022031).
@@ -4260,7 +4260,7 @@ DTSTART;VALUE=DATE:20310213
 END:VEVENT
 BEGIN:VEVENT
 UID:d49f40448b7bacca33943e3e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Valentin
 DESCRIPTION:Fête des amoureux le 14 février.
 CATEGORIES:Fêtes,Culture
@@ -4268,7 +4268,7 @@ DTSTART;VALUE=DATE:20310214
 END:VEVENT
 BEGIN:VEVENT
 UID:ca4441f2ead65dee668b0523@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Salon de l'Agriculture — Ouverture
 DESCRIPTION:Le Salon International de l'Agriculture se tient chaque fin fév
  rier à Paris.
@@ -4277,7 +4277,7 @@ DTSTART;VALUE=DATE:20310222
 END:VEVENT
 BEGIN:VEVENT
 UID:f71a4f4412a4d9ee37647497@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Mardi Gras
 DESCRIPTION:Dernier jour avant le Carême\, où la tradition voulait qu'on fa
  sse bombance avant l'abstinence.
@@ -4286,7 +4286,7 @@ DTSTART;VALUE=DATE:20310225
 END:VEVENT
 BEGIN:VEVENT
 UID:ecbb76df0a7170eb00b885f8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début du Carême
 DESCRIPTION:Le Carême commence le Mercredi des Cendres\, 46 jours avant Pâq
  ues.
@@ -4295,7 +4295,7 @@ DTSTART;VALUE=DATE:20310226
 END:VEVENT
 BEGIN:VEVENT
 UID:c2a35cb142965941ff85ff40@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Mères
 DESCRIPTION:Créée en 1987 par la marque de café Grand'Mère.
 CATEGORIES:Fêtes,Culture
@@ -4303,7 +4303,7 @@ DTSTART;VALUE=DATE:20310302
 END:VEVENT
 BEGIN:VEVENT
 UID:9e1731d2c52e02ac6aeedf70@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des femmes
 DESCRIPTION:Issue des luttes ouvrières du début du XXe siècle en Europe et 
  aux États-Unis.
@@ -4312,7 +4312,7 @@ DTSTART;VALUE=DATE:20310308
 END:VEVENT
 BEGIN:VEVENT
 UID:e854234eeb675185df787c2f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Patrick
 DESCRIPTION:Fête nationale irlandaise le 17 mars\, commémorant la mort de s
  aint Patrick (461).
@@ -4321,7 +4321,7 @@ DTSTART;VALUE=DATE:20310317
 END:VEVENT
 BEGIN:VEVENT
 UID:b1e599e4d263f36ed1558487@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début du Printemps — Équinoxe de printemps
 DESCRIPTION:L'équinoxe de printemps marque le début astronomique du printem
  ps.
@@ -4330,7 +4330,7 @@ DTSTART;VALUE=DATE:20310320
 END:VEVENT
 BEGIN:VEVENT
 UID:69a6d9a30cfe875e86e0fb65@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de lutte contre les discriminations
 DESCRIPTION:Créée par l'ONU en 1966 en mémoire du massacre de Sharpeville.
 CATEGORIES:Société
@@ -4338,7 +4338,7 @@ DTSTART;VALUE=DATE:20310321
 END:VEVENT
 BEGIN:VEVENT
 UID:cff7d58c93fb94ae29d2df4d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'eau
 DESCRIPTION:Proclamée par l'ONU en 1993.
 CATEGORIES:Environnement,Société
@@ -4346,7 +4346,7 @@ DTSTART;VALUE=DATE:20310322
 END:VEVENT
 BEGIN:VEVENT
 UID:f2b8fecda63a6c6d5728ed5f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'été
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres avancent d'une
   heure (2h → 3h).
@@ -4355,7 +4355,7 @@ DTSTART;VALUE=DATE:20310330
 END:VEVENT
 BEGIN:VEVENT
 UID:580a75eebac0754cc1baf8c1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Poisson d'avril
 DESCRIPTION:Journée des farces et des canulars.
 CATEGORIES:Culture
@@ -4363,7 +4363,7 @@ DTSTART;VALUE=DATE:20310401
 END:VEVENT
 BEGIN:VEVENT
 UID:4839d4af416112ab0de06253@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dimanche des Rameaux
 DESCRIPTION:Ouvre la Semaine Sainte en rappelant l'entrée triomphale de Jés
  us à Jérusalem.
@@ -4372,7 +4372,7 @@ DTSTART;VALUE=DATE:20310406
 END:VEVENT
 BEGIN:VEVENT
 UID:a569fcdf6be0efb8206d5bba@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la Santé
 DESCRIPTION:Commémore la fondation de l'OMS le 7 avril 1948.
 CATEGORIES:Santé
@@ -4380,7 +4380,7 @@ DTSTART;VALUE=DATE:20310407
 END:VEVENT
 BEGIN:VEVENT
 UID:0071414bfbc18ead1ca708d9@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Jour férié uniquement en Al
  sace-Moselle (départements 57\, 67\, 68) en vertu du régime concordataire.
@@ -4389,7 +4389,7 @@ DTSTART;VALUE=DATE:20310411
 END:VEVENT
 BEGIN:VEVENT
 UID:e4205ced785f913d11d64a3e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Vendredi Saint
 DESCRIPTION:Commémore la crucifixion du Christ. Non férié en France depuis 
  la loi de 1905 — sauf en Alsace-Moselle.
@@ -4398,7 +4398,7 @@ DTSTART;VALUE=DATE:20310411
 END:VEVENT
 BEGIN:VEVENT
 UID:bed097474d2166f8833b5f4a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pâques
 DESCRIPTION:Fête chrétienne célébrant la résurrection du Christ. Sa date va
  rie chaque année car elle suit le calendrier lunaire.
@@ -4407,7 +4407,7 @@ DTSTART;VALUE=DATE:20310413
 END:VEVENT
 BEGIN:VEVENT
 UID:84c50ef3ebafd3e31f80ee3c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pâques
 DESCRIPTION:Jour férié qui prolonge le dimanche de Pâques. La tradition des
   œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours\,
@@ -4417,7 +4417,7 @@ DTSTART;VALUE=DATE:20310414
 END:VEVENT
 BEGIN:VEVENT
 UID:ca8b791bd5a37df18ae6cda5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour de la Terre
 DESCRIPTION:Né le 22 avril 1970 après une marée noire en Californie.
 CATEGORIES:Environnement,Société
@@ -4425,7 +4425,7 @@ DTSTART;VALUE=DATE:20310422
 END:VEVENT
 BEGIN:VEVENT
 UID:1fe4a42dbada05fa9d17197c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Travail
 DESCRIPTION:Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures
   de travail\, réprimée dans le sang. Férié et chômé en France depuis 1947. 
@@ -4436,7 +4436,7 @@ DTSTART;VALUE=DATE:20310501
 END:VEVENT
 BEGIN:VEVENT
 UID:dd821e04c90d4fa3dae5896a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Fête du Travail
 DESCRIPTION:Fête du Travail tombe un jeudi le 01/05/2031. Le vendredi 02/05
  /2031 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -4445,7 +4445,7 @@ DTSTART;VALUE=DATE:20310502
 END:VEVENT
 BEGIN:VEVENT
 UID:90a863d5ac2dbd4141e7ae9d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Victoire 1945
 DESCRIPTION:Le 8 mai 1945\, l'Allemagne nazie signe sa capitulation sans co
  ndition\, mettant fin à la guerre en Europe. Férié depuis 1953\, supprimé p
@@ -4455,7 +4455,7 @@ DTSTART;VALUE=DATE:20310508
 END:VEVENT
 BEGIN:VEVENT
 UID:6ac490faaddd2c97bb4e2bea@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Fête de la Victoire
 DESCRIPTION:Fête de la Victoire tombe un jeudi le 08/05/2031. Le vendredi 0
  9/05/2031 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -4464,7 +4464,7 @@ DTSTART;VALUE=DATE:20310509
 END:VEVENT
 BEGIN:VEVENT
 UID:cf80e895f72302578e1845a6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Abolition de l'esclavage en France — Commémoration
 DESCRIPTION:Journée nationale instaurée par la loi Taubira de 2001.
 CATEGORIES:Mémoire,Société
@@ -4472,7 +4472,7 @@ DTSTART;VALUE=DATE:20310510
 END:VEVENT
 BEGIN:VEVENT
 UID:1f62bd340fe47d6c9ec32ba1@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival de Cannes — Ouverture
 DESCRIPTION:Le Festival International du Film de Cannes\, créé en 1946.
 CATEGORIES:Culture,Cinéma
@@ -4480,7 +4480,7 @@ DTSTART;VALUE=DATE:20310512
 END:VEVENT
 BEGIN:VEVENT
 UID:de3017dec9939dc01f9a7179@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Musées
 DESCRIPTION:Créée en France en 2005 et étendue à toute l'Europe.
 CATEGORIES:Culture
@@ -4488,7 +4488,7 @@ DTSTART;VALUE=DATE:20310517
 END:VEVENT
 BEGIN:VEVENT
 UID:a6edb6e77ae99a2e357cf1e2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Ascension
 DESCRIPTION:Fête chrétienne commémorant la montée du Christ au ciel\, 40 jo
  urs après Pâques. Toujours un jeudi\, ce qui en fait naturellement un pont 
@@ -4498,7 +4498,7 @@ DTSTART;VALUE=DATE:20310522
 END:VEVENT
 BEGIN:VEVENT
 UID:6ef55a9c1c90a0680f2a5248@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la biodiversité
 DESCRIPTION:Commémore l'adoption de la Convention sur la Diversité Biologiq
  ue à Rio.
@@ -4507,7 +4507,7 @@ DTSTART;VALUE=DATE:20310522
 END:VEVENT
 BEGIN:VEVENT
 UID:b9ad060cc24dae9ac7536307@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Ascension
 DESCRIPTION:Ascension tombe un jeudi le 22/05/2031. Le vendredi 23/05/2031 
  est un pont potentiel — vérifiez auprès de votre employeur.
@@ -4516,7 +4516,7 @@ DTSTART;VALUE=DATE:20310523
 END:VEVENT
 BEGIN:VEVENT
 UID:20b77d340e03d9aca335c5f0@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Mères
 DESCRIPTION:Célébrée le dernier dimanche de mai\, sauf si c'est la Pentecôt
  e.
@@ -4525,7 +4525,7 @@ DTSTART;VALUE=DATE:20310525
 END:VEVENT
 BEGIN:VEVENT
 UID:77770b42801e26f1741f9037@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de la Résistance
 DESCRIPTION:Le 27 mai 1943\, Jean Moulin préside la première réunion secrèt
  e du CNR.
@@ -4534,7 +4534,7 @@ DTSTART;VALUE=DATE:20310527
 END:VEVENT
 BEGIN:VEVENT
 UID:e2f71c8aa20aa8b6e9c51729@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Voisins
 DESCRIPTION:Créée en 2000 pour lutter contre l'isolement urbain.
 CATEGORIES:Société
@@ -4542,7 +4542,7 @@ DTSTART;VALUE=DATE:20310530
 END:VEVENT
 BEGIN:VEVENT
 UID:0859a59d1c29d1c293377da8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans tabac
 DESCRIPTION:Lancée par l'OMS en 1987.
 CATEGORIES:Santé
@@ -4550,7 +4550,7 @@ DTSTART;VALUE=DATE:20310531
 END:VEVENT
 BEGIN:VEVENT
 UID:08d3ac78b798290083ce3a95@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pentecôte
 DESCRIPTION:Célèbre la descente de l'Esprit Saint sur les apôtres\, 50 jour
  s après Pâques.
@@ -4559,7 +4559,7 @@ DTSTART;VALUE=DATE:20310601
 END:VEVENT
 BEGIN:VEVENT
 UID:5f57acce1f532d9465e4d61c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lundi de Pentecôte
 DESCRIPTION:Jour férié désigné depuis 2004 Journée de solidarité envers les
   personnes âgées. Les salariés travaillent ce jour sans rémunération supplé
@@ -4570,7 +4570,7 @@ DTSTART;VALUE=DATE:20310602
 END:VEVENT
 BEGIN:VEVENT
 UID:a2a44ac3b03f9618beb0b0f6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Débarquement en Normandie — Commémoration du Jour J
 DESCRIPTION:Le 6 juin 1944\, 156 000 soldats alliés débarquent sur les plag
  es de Normandie.
@@ -4579,7 +4579,7 @@ DTSTART;VALUE=DATE:20310606
 END:VEVENT
 BEGIN:VEVENT
 UID:d8f046659c1d38c06ba79952@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'océan
 DESCRIPTION:Proposée lors du Sommet de la Terre de Rio en 1992.
 CATEGORIES:Environnement
@@ -4587,7 +4587,7 @@ DTSTART;VALUE=DATE:20310608
 END:VEVENT
 BEGIN:VEVENT
 UID:9963e362964e092f48eb5281@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Pères
 DESCRIPTION:Née aux États-Unis en 1910\, introduite en France dans les anné
  es 1950.
@@ -4596,7 +4596,7 @@ DTSTART;VALUE=DATE:20310615
 END:VEVENT
 BEGIN:VEVENT
 UID:5db0d3a960319d366acf8319@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Appel du 18 juin 1940 — Anniversaire
 DESCRIPTION:Le 18 juin 1940\, de Gaulle lance depuis Londres un appel à la 
  Résistance sur la BBC.
@@ -4605,7 +4605,7 @@ DTSTART;VALUE=DATE:20310618
 END:VEVENT
 BEGIN:VEVENT
 UID:ff1d48bfac4129d2841dbcea@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Été — Solstice d'été
 DESCRIPTION:Le solstice d'été est le jour le plus long de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -4613,7 +4613,7 @@ DTSTART;VALUE=DATE:20310621
 END:VEVENT
 BEGIN:VEVENT
 UID:2277c049773c483a2f302822@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Musique
 DESCRIPTION:Créée en 1982 par le ministre Jack Lang.
 CATEGORIES:Culture,Fêtes
@@ -4621,7 +4621,7 @@ DTSTART;VALUE=DATE:20310621
 END:VEVENT
 BEGIN:VEVENT
 UID:5bc69feec81838523a58f953@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus long de l'année
 DESCRIPTION:Le 21 June est le jour le plus long de l'année 2031.
 CATEGORIES:Saisons,Astronomie
@@ -4629,7 +4629,7 @@ DTSTART;VALUE=DATE:20310621
 END:VEVENT
 BEGIN:VEVENT
 UID:89f904e617d73748a03774b6@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête du Cinéma
 DESCRIPTION:Créée en 1985\, elle propose chaque fin juin des places à tarif
   réduit.
@@ -4638,7 +4638,7 @@ DTSTART;VALUE=DATE:20310622
 END:VEVENT
 BEGIN:VEVENT
 UID:93a78a073422e5b2233bb647@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Soldes d'été
 DESCRIPTION:Les soldes d'été débutent le dernier mercredi de juin et durent
   4 semaines.
@@ -4648,7 +4648,7 @@ DTEND;VALUE=DATE:20310724
 END:VEVENT
 BEGIN:VEVENT
 UID:5ca8dca875cbef1e9842ca85@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Milieu de l'année
 DESCRIPTION:Ce jour marque le point médian exact de l'année 2031.
 CATEGORIES:Dates spéciales
@@ -4656,7 +4656,7 @@ DTSTART;VALUE=DATE:20310702
 END:VEVENT
 BEGIN:VEVENT
 UID:f001613004ed91cbd3895e44@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Festival d'Avignon — Ouverture
 DESCRIPTION:Créé par Jean Vilar en 1947 dans la cour du Palais des Papes.
 CATEGORIES:Culture,Théâtre
@@ -4664,7 +4664,7 @@ DTSTART;VALUE=DATE:20310705
 END:VEVENT
 BEGIN:VEVENT
 UID:e4212eb5fa5381dd7211ca52@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Commémoration de la Rafle du Vél d'Hiv
 DESCRIPTION:Les 16-17 juillet 1942\, la police française arrêta 13 152 Juif
  s à Paris.
@@ -4673,7 +4673,7 @@ DTSTART;VALUE=DATE:20310713
 END:VEVENT
 BEGIN:VEVENT
 UID:57a4990c1a25249d679a945a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête Nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789.
 CATEGORIES:Jours fériés,Société,Dates spéciales
@@ -4681,7 +4681,7 @@ DTSTART;VALUE=DATE:20310714
 END:VEVENT
 BEGIN:VEVENT
 UID:9fb314f4024fe687c2f1e12f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête nationale
 DESCRIPTION:Commémore la prise de la Bastille le 14 juillet 1789\, symbole 
  de la Révolution française. Jour férié depuis 1880. Défilé militaire sur le
@@ -4692,7 +4692,7 @@ DTSTART;VALUE=DATE:20310714
 END:VEVENT
 BEGIN:VEVENT
 UID:5b6e7b4a288438cba52cc68b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit des Étoiles
 DESCRIPTION:Organisée chaque premier week-end d'août par l'Association Fran
  çaise d'Astronomie depuis 1991.
@@ -4701,7 +4701,7 @@ DTSTART;VALUE=DATE:20310802
 END:VEVENT
 BEGIN:VEVENT
 UID:05de32e960e3dcd3c6a71c08@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne
   ancienne\, jour férié en France depuis le Concordat de 1802. Elle tombe en
@@ -4711,7 +4711,7 @@ DTSTART;VALUE=DATE:20310815
 END:VEVENT
 BEGIN:VEVENT
 UID:fb9f534ed0a88f00d352a3dd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Assomption de Marie
 DESCRIPTION:Célèbre l'élévation de la Vierge Marie au ciel.
 CATEGORIES:Christianisme,Jours fériés
@@ -4719,7 +4719,7 @@ DTSTART;VALUE=DATE:20310815
 END:VEVENT
 BEGIN:VEVENT
 UID:2370b440602c6d3d7dea18dd@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Rentrée des classes
 DESCRIPTION:La rentrée de septembre mobilise 12 millions d'élèves et 870 00
  0 enseignants en France.
@@ -4728,7 +4728,7 @@ DTSTART;VALUE=DATE:20310902
 END:VEVENT
 BEGIN:VEVENT
 UID:f0cf54bb8b11cad2f3c25d32@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Braderie de Lille
 DESCRIPTION:Plus grande braderie d'Europe\, organisée le premier week-end d
  e septembre à Lille.
@@ -4737,7 +4737,7 @@ DTSTART;VALUE=DATE:20310906
 END:VEVENT
 BEGIN:VEVENT
 UID:9d86e10dc2dae7624f679285@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journées du Patrimoine
 DESCRIPTION:Créées en France en 1984 par Jack Lang\, étendues à toute l'Eur
  ope en 1991.
@@ -4746,7 +4746,7 @@ DTSTART;VALUE=DATE:20310920
 END:VEVENT
 BEGIN:VEVENT
 UID:6830df236696fc9449782dda@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Automne — Équinoxe d'automne
 DESCRIPTION:L'équinoxe d'automne marque le début de l'automne.
 CATEGORIES:Saisons,Astronomie
@@ -4754,7 +4754,7 @@ DTSTART;VALUE=DATE:20310922
 END:VEVENT
 BEGIN:VEVENT
 UID:b0662b0f92cf6f91839d24ff@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale sans voiture
 DESCRIPTION:Lancée en France en 1998 par La Rochelle.
 CATEGORIES:Environnement,Société
@@ -4762,7 +4762,7 @@ DTSTART;VALUE=DATE:20310922
 END:VEVENT
 BEGIN:VEVENT
 UID:b08c7812162ba55c50616931@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du cacao et du chocolat
 DESCRIPTION:Célébrée le 1er octobre et associée à l'Organisation internatio
  nale du cacao (ICCO).
@@ -4771,7 +4771,7 @@ DTSTART;VALUE=DATE:20311001
 END:VEVENT
 BEGIN:VEVENT
 UID:49a8dd2b37908ca982fd68e8@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement d'Octobre Rose
 DESCRIPTION:Tout octobre est dédié à la sensibilisation au cancer du sein.
 CATEGORIES:Santé
@@ -4779,7 +4779,7 @@ DTSTART;VALUE=DATE:20311001
 END:VEVENT
 BEGIN:VEVENT
 UID:74d2364ff10a2ea042700111@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Nuit Blanche
 DESCRIPTION:Initiée à Paris en 2002 par le maire Bertrand Delanoë.
 CATEGORIES:Culture
@@ -4787,7 +4787,7 @@ DTSTART;VALUE=DATE:20311004
 END:VEVENT
 BEGIN:VEVENT
 UID:8f6f24fa44a5b869f06bd103@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête des Grands-Pères
 DESCRIPTION:Créée en 2008\, elle a lieu chaque premier dimanche d'octobre.
 CATEGORIES:Fêtes,Culture
@@ -4795,7 +4795,7 @@ DTSTART;VALUE=DATE:20311005
 END:VEVENT
 BEGIN:VEVENT
 UID:231b6296a197fd592dc92c6f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de la santé mentale
 DESCRIPTION:Créée par la Fédération Mondiale pour la Santé Mentale en 1992.
 CATEGORIES:Santé,Société
@@ -4803,7 +4803,7 @@ DTSTART;VALUE=DATE:20311010
 END:VEVENT
 BEGIN:VEVENT
 UID:9eb0106a730233f6d5350b88@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Semaine du Goût
 DESCRIPTION:Créée en 1990 par le chef Joël Robuchon.
 CATEGORIES:Gastronomie,Culture
@@ -4811,7 +4811,7 @@ DTSTART;VALUE=DATE:20311013
 END:VEVENT
 BEGIN:VEVENT
 UID:e11f21e30dedbbc3668cfbbc@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale de l'alimentation
 DESCRIPTION:Commémore la fondation de la FAO le 16 octobre 1945.
 CATEGORIES:Gastronomie,Société,Santé
@@ -4819,7 +4819,7 @@ DTSTART;VALUE=DATE:20311016
 END:VEVENT
 BEGIN:VEVENT
 UID:81a657de0964c600abf109da@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Passage à l'heure d'hiver
 DESCRIPTION:Dans la nuit du samedi au dimanche\, les montres reculent d'une
   heure (3h → 2h).
@@ -4828,7 +4828,7 @@ DTSTART;VALUE=DATE:20311026
 END:VEVENT
 BEGIN:VEVENT
 UID:d730e7bf76038a809f69cd77@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Halloween
 DESCRIPTION:Fête d'origine celtique (la nuit de Samain) christianisée puis 
  popularisée par la diaspora irlandaise.
@@ -4837,7 +4837,7 @@ DTSTART;VALUE=DATE:20311031
 END:VEVENT
 BEGIN:VEVENT
 UID:e072821af644c6ab6fbb5261@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Lancement du Mois sans Tabac
 DESCRIPTION:Lancé en France en 2016 par Santé Publique France.
 CATEGORIES:Santé
@@ -4845,7 +4845,7 @@ DTSTART;VALUE=DATE:20311101
 END:VEVENT
 BEGIN:VEVENT
 UID:27aaf36fd5c439d347765a3d@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Toussaint
 DESCRIPTION:Fête de tous les saints\, instituée par le pape Grégoire IV en 
  835. En France\, la tradition de fleurir les tombes avec des chrysanthèmes 
@@ -4856,7 +4856,7 @@ DTSTART;VALUE=DATE:20311101
 END:VEVENT
 BEGIN:VEVENT
 UID:3b57680e6cf6f5ee9863d818@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée nationale de l'arbre
 DESCRIPTION:Célébrée chaque premier jeudi de novembre.
 CATEGORIES:Environnement
@@ -4864,7 +4864,7 @@ DTSTART;VALUE=DATE:20311106
 END:VEVENT
 BEGIN:VEVENT
 UID:8762f425198b1624bc01eaad@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Armistice 1918
 DESCRIPTION:Armistice 1918 tombe un mardi le 11/11/2031. Le lundi 10/11/203
  1 est un pont potentiel — vérifiez auprès de votre employeur.
@@ -4873,7 +4873,7 @@ DTSTART;VALUE=DATE:20311110
 END:VEVENT
 BEGIN:VEVENT
 UID:1a2acf70940655da5f988eef@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice 1918
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale après quatre ans de combats. Jour férié depuis 1922. Chaque 
@@ -4884,7 +4884,7 @@ DTSTART;VALUE=DATE:20311111
 END:VEVENT
 BEGIN:VEVENT
 UID:124cc7ac1e6f58addb7ffd28@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Armistice de 1918 — Journée du Souvenir
 DESCRIPTION:Le 11 novembre 1918 à 11h\, l'armistice met fin à la Première G
  uerre mondiale.
@@ -4893,7 +4893,7 @@ DTSTART;VALUE=DATE:20311111
 END:VEVENT
 BEGIN:VEVENT
 UID:7966137fddd5e678e73cf6e2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Beaujolais Nouveau
 DESCRIPTION:Chaque troisième jeudi de novembre\, le Beaujolais Nouveau est 
  mis en vente.
@@ -4902,7 +4902,7 @@ DTSTART;VALUE=DATE:20311120
 END:VEVENT
 BEGIN:VEVENT
 UID:b24243b156d62317f85c2986@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée internationale des droits de l'enfant
 DESCRIPTION:Commémore l'adoption de la Convention des Nations Unies relativ
  e aux droits de l'enfant.
@@ -4911,7 +4911,7 @@ DTSTART;VALUE=DATE:20311120
 END:VEVENT
 BEGIN:VEVENT
 UID:509da1d4eeb11b8e3220613e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Fête de la Bretagne
 DESCRIPTION:Célébrée le 30 novembre (Saint-André) depuis les années 1990.
 CATEGORIES:Culture,Société
@@ -4919,7 +4919,7 @@ DTSTART;VALUE=DATE:20311130
 END:VEVENT
 BEGIN:VEVENT
 UID:78bac4475ef42755ea015631@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale des personnes handicapées
 DESCRIPTION:Instaurée par l'ONU en 1992.
 CATEGORIES:Société
@@ -4927,7 +4927,7 @@ DTSTART;VALUE=DATE:20311203
 END:VEVENT
 BEGIN:VEVENT
 UID:29ba0ea1ef40ed7f8d18c2ca@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée mondiale du Bénévolat
 DESCRIPTION:Créée par l'ONU en 1985.
 CATEGORIES:Société
@@ -4935,7 +4935,7 @@ DTSTART;VALUE=DATE:20311205
 END:VEVENT
 BEGIN:VEVENT
 UID:a68ae73f832875509e5f14e5@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Nicolas
 DESCRIPTION:Fête de Nicolas de Myre\, évêque du IVe siècle devenu patron de
  s enfants.
@@ -4944,7 +4944,7 @@ DTSTART;VALUE=DATE:20311206
 END:VEVENT
 BEGIN:VEVENT
 UID:092f39569e74e199a5fbf533@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Journée de la Laïcité
 DESCRIPTION:Commémore la loi du 9 décembre 1905 séparant les Églises de l'É
  tat.
@@ -4953,7 +4953,7 @@ DTSTART;VALUE=DATE:20311209
 END:VEVENT
 BEGIN:VEVENT
 UID:177c178968866967fcdd28b4@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Début de l'Hiver — Solstice d'hiver
 DESCRIPTION:Le solstice d'hiver est le jour le plus court de l'année.
 CATEGORIES:Saisons,Astronomie
@@ -4961,7 +4961,7 @@ DTSTART;VALUE=DATE:20311221
 END:VEVENT
 BEGIN:VEVENT
 UID:cbe5e24a088dc15d1949174f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Jour le plus court de l'année
 DESCRIPTION:Le 21 December est le jour le plus court de l'année 2031.
 CATEGORIES:Saisons,Astronomie
@@ -4969,7 +4969,7 @@ DTSTART;VALUE=DATE:20311221
 END:VEVENT
 BEGIN:VEVENT
 UID:9e17c7ef1f55de017036f37e@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Noël
 DESCRIPTION:Célèbre la naissance du Christ. La date du 25 décembre a été fi
  xée au IVe siècle sur une fête solaire romaine préexistante. Le sapin\, la 
@@ -4980,7 +4980,7 @@ DTSTART;VALUE=DATE:20311225
 END:VEVENT
 BEGIN:VEVENT
 UID:a0f7fb462f01916a3f1154eb@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Pont possible — Noël
 DESCRIPTION:Noël tombe un jeudi le 25/12/2031. Le vendredi 26/12/2031 est u
  n pont potentiel — vérifiez auprès de votre employeur.
@@ -4989,7 +4989,7 @@ DTSTART;VALUE=DATE:20311226
 END:VEVENT
 BEGIN:VEVENT
 UID:d830ded64a3d5b74adaff80a@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Étienne
 DESCRIPTION:Le 26 décembre est férié uniquement en Alsace-Moselle (depts 57
  \, 67\, 68). Fête de saint Étienne\, premier martyr chrétien.
@@ -4998,7 +4998,7 @@ DTSTART;VALUE=DATE:20311226
 END:VEVENT
 BEGIN:VEVENT
 UID:9904bbc39c2996629d0ea728@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Dernier jour de l'année
 DESCRIPTION:Clôture de l'année civile 2031.
 CATEGORIES:Dates spéciales
@@ -5006,7 +5006,7 @@ DTSTART;VALUE=DATE:20311231
 END:VEVENT
 BEGIN:VEVENT
 UID:2c169ca5ee2882324eb70a99@calendrier-fr.tibotsr.dev
-DTSTAMP:20260429T035030Z
+DTSTAMP:20260430T035123Z
 SUMMARY:Saint-Sylvestre / Réveillon du Nouvel An
 DESCRIPTION:Dernier jour de l'année\, nommé d'après le pape Sylvestre Ier m
  ort ce jour en 335.
