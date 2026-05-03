@@ -8,6 +8,7 @@ const redis = new Redis({
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const ADMIN_SESSION_SECRET = process.env.ADMIN_SESSION_SECRET;
+const SUGGESTION_INDEX_KEY = 'suggestions:index';
 
 if (!ADMIN_PASSWORD) {
   throw new Error('Missing required environment variable: ADMIN_PASSWORD');
@@ -52,6 +53,7 @@ function mapFormToSuggestion(body) {
     email: String(body.email || '').trim(),
     timestamp: body.timestamp || new Date().toISOString(),
     url: String(body.url || ''),
+    sourceUrl: String(body.url || ''),
     status: 'pending',
     categories: mapTypeToCategory(String(body.type || 'autre')),
     start: '',
@@ -99,16 +101,26 @@ function deserializeSuggestion(json) {
 async function handleGet(req, res) {
   try {
     const isAdmin = req.query.admin === '1' && verifyAdminSession(req);
-    const keyPattern = 'suggestion:*';
-
-    // Fetch all suggestion keys
     let keys = [];
+
+    // Primary path: explicit index of suggestion keys
     try {
-      keys = await redis.keys(keyPattern);
+      const indexed = await redis.lrange(SUGGESTION_INDEX_KEY, 0, 999);
+      keys = Array.isArray(indexed) ? indexed.filter(Boolean) : [];
     } catch {
-      // If keys() is not available, fallback to scanning
       keys = [];
     }
+
+    // Backward-compatible fallback for older entries
+    if (!keys.length) {
+      try {
+        keys = await redis.keys('suggestion:*');
+      } catch {
+        keys = [];
+      }
+    }
+
+    keys = [...new Set(keys)];
 
     const items = [];
     for (const key of keys || []) {
@@ -168,6 +180,12 @@ async function handlePost(req, res) {
     await redis.set(key, serializeSuggestion(suggestion), {
       ex: 7776000, // 90 days
     });
+    try {
+      await redis.lpush(SUGGESTION_INDEX_KEY, key);
+      await redis.ltrim(SUGGESTION_INDEX_KEY, 0, 999);
+    } catch (indexErr) {
+      console.error('[suggestions] index update error:', indexErr);
+    }
 
     res.status(201).json({
       success: true,

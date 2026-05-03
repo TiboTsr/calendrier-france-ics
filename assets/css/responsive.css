@@ -157,6 +157,13 @@ html { overflow-x: clip; }
     max-width: 148px;
     border-radius: 10px;
   }
+  .rc--ongoing .rc-delay {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.15;
+    padding: 3px 7px;
+  }
   .rc-date { font-size: 10px; line-height: 1.15; }
   .rc-name { font-size: 12px; line-height: 1.32; white-space: normal; min-height: 32px; }
 
@@ -261,11 +268,35 @@ html { overflow-x: clip; }
   .faq-a { margin-left: 0; padding: 4px 16px 20px; }
 }
 
+@media (max-width: 420px) {
+  .radar-sc {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+    gap: 8px;
+    padding: 0;
+  }
+  .rc {
+    flex: auto;
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+  }
+  .rc-ongoing-label {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .rc-name {
+    min-height: 0;
+  }
+}
+
 @media (max-width: 380px) {
   .pcards { grid-template-columns: 1fr; }
   .m-meta-main { grid-template-columns: 1fr; }
   .m-meta-main .mbox.acc { grid-column: auto; }
   .m-meta-more { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .radar-sc { grid-template-columns: 1fr; }
 }
 
 @media (hover: none) {
