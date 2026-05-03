@@ -281,19 +281,6 @@ html { overflow-x: clip; }
 }
 
 @media (max-width: 420px) {
-  .radar-sc {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    overflow: visible;
-    gap: 8px;
-    padding: 0;
-  }
-  .rc {
-    flex: auto;
-    min-width: 0;
-    max-width: none;
-    width: 100%;
-  }
   .rc-ongoing-label {
     flex-wrap: wrap;
     align-items: flex-start;
@@ -308,7 +295,6 @@ html { overflow-x: clip; }
   .m-meta-main { grid-template-columns: 1fr; }
   .m-meta-main .mbox.acc { grid-column: auto; }
   .m-meta-more { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .radar-sc { grid-template-columns: 1fr; }
 }
 
 @media (hover: none) {
