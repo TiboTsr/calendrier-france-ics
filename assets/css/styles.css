@@ -1129,12 +1129,12 @@ html.no-js body > :not(noscript) {
 .rc {
   flex-shrink: 0; padding: 10px 13px; border-radius: var(--r);
   border: 1px solid var(--b); background: var(--bg2);
-  min-width: 140px; max-width: 180px; cursor: pointer; transition: .15s;
-  scroll-snap-align: start;
+  min-width: 140px; max-width: min(320px, 36vw); width: max-content; cursor: pointer; transition: .15s;
+  scroll-snap-align: start; overflow: visible;
 }
 .rc:hover { border-color: var(--bh); }
 .rc-date { font-size: 11px; font-weight: 700; color: var(--acc); margin-bottom: 4px; text-transform: capitalize; }
-.rc-name { font-size: 13px; font-weight: 500; line-height: 1.35; }
+.rc-name { font-size: 13px; font-weight: 500; line-height: 1.35; min-height: 36px; max-width: 18ch; overflow-wrap: anywhere; word-break: break-word; }
 
 /* Timeline */
 .tl-sentinel { height: 40px; flex-shrink: 0; }
@@ -1705,7 +1705,7 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   display: flex;
   flex-direction: column;
   gap: 5px;
-  min-height: 108px;
+  min-height: auto;
 }
 .rc-top-row {
   display: flex;
@@ -1717,11 +1717,11 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
 .rc-delay {
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
+  padding: 3px 12px;
   border-radius: 999px;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: .3px;
+  letter-spacing: normal;
   border: 1px solid;
   white-space: nowrap;
   flex-shrink: 0;
@@ -1736,14 +1736,8 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   margin-top: 1px;
 }
 .rc--ongoing { border-width: 1.5px; }
-.rc--ongoing .rc-top-row {
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 5px;
-}
-.rc--ongoing .rc-delay {
-  align-self: flex-start;
+.rc--ongoing .rc-inner {
+  min-height: 118px;
 }
 .rc-ongoing-label {
   display: flex;
@@ -1754,6 +1748,7 @@ footer { border-top: 1px solid var(--b); padding: 28px 0; text-align: center; }
   letter-spacing: .4px;
   text-transform: uppercase;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .ev-tag--ongoing {

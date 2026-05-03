@@ -152,20 +152,32 @@ html { overflow-x: clip; }
   }
   .radar-sc::-webkit-scrollbar { height: 5px; }
   .rc {
-    flex: 0 0 148px;
-    min-width: 148px;
-    max-width: 148px;
+    flex: 0 0 auto;
+    min-width: 140px;
+    max-width: min(320px, 90vw);
+    width: max-content;
     border-radius: 10px;
+    overflow: visible;
+  }
+  .rc-top-row {
+    gap: 5px;
+  }
+  .rc-ongoing-label {
+    font-size: 9px;
+    letter-spacing: .25px;
   }
   .rc--ongoing .rc-delay {
-    max-width: 100%;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: calc(100% - 64px);
     white-space: normal;
     text-align: center;
     line-height: 1.15;
-    padding: 3px 7px;
+    padding: 3px 12px;
   }
   .rc-date { font-size: 10px; line-height: 1.15; }
-  .rc-name { font-size: 12px; line-height: 1.32; white-space: normal; min-height: 32px; }
+  .rc-name { font-size: 12px; line-height: 1.32; white-space: normal; min-height: 44px; max-width: 16ch; overflow-wrap: anywhere; }
+  .rc--ongoing .rc-inner { min-height: auto; }
 
   .ex-tb {
     padding: 8px 10px; gap: 6px;

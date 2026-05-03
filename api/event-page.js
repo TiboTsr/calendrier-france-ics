@@ -172,6 +172,15 @@ function getDaysUntil(dateStr) {
   return Math.round((target - today) / 86400000);
 }
 
+function getEventTiming(event) {
+  const daysUntilStart = getDaysUntil(event.start);
+  const endDate =
+    event.end && event.end !== event.start ? event.end : event.start;
+  const daysUntilEnd = getDaysUntil(endDate);
+  const isOngoing = daysUntilStart < 0 && daysUntilEnd >= 0;
+  return { daysUntilStart, daysUntilEnd, isOngoing };
+}
+
 const CAT_COLORS = {
   "Jours fériés": {
     c: "#ff5a5a",
@@ -323,7 +332,25 @@ function getCatEmoji(cats, summary) {
   return "📅";
 }
 
-function countdownLabel(days) {
+function countdownLabel(days, options = {}) {
+  if (options.isOngoing) {
+    if (days === 0) return { text: "Se termine aujourd'hui", past: false };
+    if (days === 1) return { text: "Se termine demain", past: false };
+    if (days < 7)
+      return {
+        text: `Encore ${days} jour${days > 1 ? "s" : ""}`,
+        past: false,
+      };
+    if (days < 30)
+      return {
+        text: `Encore ${Math.round(days / 7)} semaine${Math.round(days / 7) > 1 ? "s" : ""}`,
+        past: false,
+      };
+    return {
+      text: `Encore ${Math.round(days / 30)} mois`,
+      past: false,
+    };
+  }
   if (days < 0)
     return {
       text: `Il y a ${Math.abs(days)} jour${Math.abs(days) > 1 ? "s" : ""}`,
@@ -441,9 +468,10 @@ function formatShortId(value) {
   return value.slice(0, 8);
 }
 
-function badgeList(daysUntil, duration, zones, hasMultipleOccurrences) {
+function badgeList(daysUntil, duration, zones, hasMultipleOccurrences, isOngoing) {
   const badges = [];
-  if (daysUntil < 0) badges.push({ label: "Passé", tone: "term" });
+  if (isOngoing) badges.push({ label: "En cours", tone: "warn" });
+  else if (daysUntil < 0) badges.push({ label: "Passé", tone: "term" });
   else if (daysUntil <= 3) badges.push({ label: "Imminent", tone: "warn" });
   else badges.push({ label: "À venir", tone: "info" });
   if (hasMultipleOccurrences) badges.push({ label: "Récurrent", tone: "info" });
@@ -513,8 +541,12 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
   const emoji = getCatEmoji(event.categories, event.summary);
   const duration = getDurationDays(event.start, event.end);
   const isRange = event.end && event.end !== event.start;
-  const daysUntil = getDaysUntil(event.start);
-  const cd = countdownLabel(daysUntil);
+  const timing = getEventTiming(event);
+  const daysUntil = timing.daysUntilStart;
+  const cd = countdownLabel(
+    timing.isOngoing ? timing.daysUntilEnd : timing.daysUntilStart,
+    { isOngoing: timing.isOngoing },
+  );
   const isoWeek = getISOWeek(event.start);
   const dayOfYear = getDayOfYear(event.start);
   const year = Number(event.start.slice(0, 4));
@@ -552,7 +584,13 @@ function buildHtml(event, siblings, allOccurrences, siteUrl, icsUrl, meta) {
       ? allOccurrences[occIndex + 1]
       : null;
   const eventIcsHref = `${canonicalUrl}?format=ics`;
-  const badges = badgeList(daysUntil, duration, zones, hasMultipleOccurrences);
+  const badges = badgeList(
+    daysUntil,
+    duration,
+    zones,
+    hasMultipleOccurrences,
+    timing.isOngoing,
+  );
   const generatedAt = meta?.generatedAt
     ? new Intl.DateTimeFormat("fr-FR", { day: "2-digit", month: "long", year: "numeric" }).format(
         new Date(meta.generatedAt)
