@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-03T18:02:20.639732+00:00",
-  "contentVersion": "a9afdd2d0c669e81",
+  "generatedAt": "2026-05-03T18:42:56.217555+00:00",
+  "contentVersion": "f03b8b066f4dceb7",
   "totalEvents": 4754,
   "profiles": [
     "essentiel",
@@ -13197,20 +13197,9 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2008-06-20",
+      "start": "2008-06-21",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2008-06-20",
-      "end": null,
-      "description": "Le 20 June est le jour le plus long de l'année 2008.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -13225,6 +13214,17 @@
       "categories": [
         "Culture",
         "Fêtes"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2008-06-21",
+      "end": null,
+      "description": "Le 21 June est le jour le plus long de l'année 2008.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -16616,6 +16616,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2010-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2010-09-22",
       "end": null,
@@ -16623,17 +16634,6 @@
       "categories": [
         "Environnement",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2010-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -18168,6 +18168,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2011-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2011-09-22",
       "end": null,
@@ -18175,17 +18186,6 @@
       "categories": [
         "Environnement",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2011-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -18559,7 +18559,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2011-12-22",
+      "start": "2011-12-21",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -18570,9 +18570,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2011-12-22",
+      "start": "2011-12-21",
       "end": null,
-      "description": "Le 22 December est le jour le plus court de l'année 2011.",
+      "description": "Le 21 December est le jour le plus court de l'année 2011.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -19423,20 +19423,9 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2012-06-20",
+      "start": "2012-06-21",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2012-06-20",
-      "end": null,
-      "description": "Le 20 June est le jour le plus long de l'année 2012.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -19451,6 +19440,17 @@
       "categories": [
         "Culture",
         "Fêtes"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2012-06-21",
+      "end": null,
+      "description": "Le 21 June est le jour le plus long de l'année 2012.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -22822,6 +22822,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2014-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2014-09-22",
       "end": null,
@@ -22829,17 +22840,6 @@
       "categories": [
         "Environnement",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2014-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -24384,6 +24384,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2015-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2015-09-22",
       "end": null,
@@ -24391,17 +24402,6 @@
       "categories": [
         "Environnement",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2015-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -24765,7 +24765,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2015-12-22",
+      "start": "2015-12-21",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -24776,9 +24776,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2015-12-22",
+      "start": "2015-12-21",
       "end": null,
-      "description": "Le 22 December est le jour le plus court de l'année 2015.",
+      "description": "Le 21 December est le jour le plus court de l'année 2015.",
       "categories": [
         "Saisons",
         "Astronomie"
