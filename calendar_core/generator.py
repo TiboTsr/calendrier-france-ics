@@ -152,7 +152,12 @@ def generate_all() -> None:
 	base_events = [event for event in events if hasattr(event, "categories") and "Lunaire" not in event.categories]
 	ics_base_events = [event for event in base_events if event_is_exportable(event, today, STRICT_FUTURE_ONLY)]
 
-	global_ics, global_uids = serialize_calendar(ics_base_events, "Calendrier Complet France", DOMAIN)
+	global_ics, global_uids = serialize_calendar(
+		ics_base_events,
+		"Calendrier Complet France",
+		DOMAIN,
+		compact_long_events=True,
+	)
 	MAIN_ICS_FILE.write_text(global_ics, encoding="utf-8")
 
 	for zone, path in ZONE_FILES.items():
@@ -173,7 +178,12 @@ def generate_all() -> None:
 		]
 		
 		profile_file = Path(f"calendrier-{profile}.ics")
-		profile_ics, _ = serialize_calendar(profile_events, f"Calendrier France - Profil {profile}", DOMAIN)
+		profile_ics, _ = serialize_calendar(
+			profile_events,
+			f"Calendrier France - Profil {profile}",
+			DOMAIN,
+			compact_long_events=True,
+		)
 		profile_file.write_text(profile_ics, encoding="utf-8")
 
 	CALENDAR_CSV_FILE.write_text(serialize_csv(events), encoding="utf-8")

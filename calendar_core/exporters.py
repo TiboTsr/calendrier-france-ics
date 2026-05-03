@@ -5,6 +5,8 @@ from xml.sax.saxutils import escape
 
 from .models import CalendarEvent
 
+LONG_EVENT_COMPACT_AFTER_DAYS = 7
+
 
 def escape_ics_text(value: str) -> str:
     return (
@@ -29,7 +31,70 @@ def fold_ics_line(line: str, max_len: int = 75) -> str:
     return "\r\n".join(chunks)
 
 
-def serialize_calendar(events: list[CalendarEvent], cal_name: str, domain: str, timezone_name: str = "Europe/Paris") -> tuple[str, set[str]]:
+def event_duration_days(event: CalendarEvent) -> int:
+    if not event.end:
+        return 1
+    return (event.end - event.start).days + 1
+
+
+def format_date_range(event: CalendarEvent) -> str:
+    if not event.end:
+        return event.start.strftime("%d/%m/%Y")
+    return f"du {event.start.strftime('%d/%m/%Y')} au {event.end.strftime('%d/%m/%Y')}"
+
+
+def build_ics_description(event: CalendarEvent, include_range: bool = False) -> str:
+    description = event.description
+    if include_range:
+        range_note = f"Période complète : {format_date_range(event)}."
+        if description:
+            return f"{description}\n\n{range_note}"
+        return range_note
+    return description
+
+
+def append_ics_event(
+    lines: list[str],
+    event: CalendarEvent,
+    uid: str,
+    dtstamp: str,
+    summary: str | None = None,
+    start=None,
+    include_range: bool = False,
+    include_end: bool = True,
+) -> None:
+    event_start = start or event.start
+    lines.extend(
+        [
+            "BEGIN:VEVENT",
+            f"UID:{uid}",
+            f"DTSTAMP:{dtstamp}",
+            f"SUMMARY:{escape_ics_text(summary or event.summary)}",
+            f"DESCRIPTION:{escape_ics_text(build_ics_description(event, include_range))}",
+            f"CATEGORIES:{','.join(escape_ics_text(category) for category in event.categories)}",
+            f"DTSTART;VALUE=DATE:{event_start.strftime('%Y%m%d')}",
+        ]
+    )
+    if include_end and event.end:
+        # RFC 5545 : DTEND est exclusif pour les événements all-day.
+        # On ajoute toujours +1 jour ici — providers.py ne doit PAS soustraire de son côté.
+        dtend_exclusive = event.end + timedelta(days=1)
+        lines.append(f"DTEND;VALUE=DATE:{dtend_exclusive.strftime('%Y%m%d')}")
+    lines.append("END:VEVENT")
+
+
+def marker_uid(uid: str, marker: str) -> str:
+    local_part, domain = uid.rsplit("@", 1)
+    return f"{local_part}-{marker}@{domain}"
+
+
+def serialize_calendar(
+    events: list[CalendarEvent],
+    cal_name: str,
+    domain: str,
+    timezone_name: str = "Europe/Paris",
+    compact_long_events: bool = False,
+) -> tuple[str, set[str]]:
     dtstamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     lines = [
         "BEGIN:VCALENDAR",
@@ -46,24 +111,34 @@ def serialize_calendar(events: list[CalendarEvent], cal_name: str, domain: str, 
 
     for event in sorted_events:
         uid = event.uid(domain)
+        if compact_long_events and event_duration_days(event) > LONG_EVENT_COMPACT_AFTER_DAYS:
+            start_uid = marker_uid(uid, "start")
+            end_uid = marker_uid(uid, "end")
+            uids.update({start_uid, end_uid})
+            append_ics_event(
+                lines,
+                event,
+                start_uid,
+                dtstamp,
+                summary=f"Début : {event.summary}",
+                start=event.start,
+                include_range=True,
+                include_end=False,
+            )
+            append_ics_event(
+                lines,
+                event,
+                end_uid,
+                dtstamp,
+                summary=f"Fin : {event.summary}",
+                start=event.end,
+                include_range=True,
+                include_end=False,
+            )
+            continue
+
         uids.add(uid)
-        lines.extend(
-            [
-                "BEGIN:VEVENT",
-                f"UID:{uid}",
-                f"DTSTAMP:{dtstamp}",
-                f"SUMMARY:{escape_ics_text(event.summary)}",
-                f"DESCRIPTION:{escape_ics_text(event.description)}",
-                f"CATEGORIES:{','.join(escape_ics_text(category) for category in event.categories)}",
-                f"DTSTART;VALUE=DATE:{event.start.strftime('%Y%m%d')}",
-            ]
-        )
-        if event.end:
-            # RFC 5545 : DTEND est exclusif pour les événements all-day.
-            # On ajoute toujours +1 jour ici — providers.py ne doit PAS soustraire de son côté.
-            dtend_exclusive = event.end + timedelta(days=1)
-            lines.append(f"DTEND;VALUE=DATE:{dtend_exclusive.strftime('%Y%m%d')}")
-        lines.append("END:VEVENT")
+        append_ics_event(lines, event, uid, dtstamp)
 
     lines.append("END:VCALENDAR")
     folded = [fold_ics_line(line) for line in lines]

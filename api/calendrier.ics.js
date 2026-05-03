@@ -10,6 +10,7 @@ const redis = hasRedis ? new Redis({
 }) : null;
 
 const UPSTREAM_CACHE_TTL_MS = 5 * 60 * 1000;
+const LONG_EVENT_COMPACT_AFTER_DAYS = 7;
 const PE_MAX_EVENTS = 50;
 const PE_MAX_TITLE_LEN = 200;
 const PE_MAX_PAYLOAD_KB = 10;
@@ -100,6 +101,29 @@ function addOneDay(dateStr) {
   const dt = new Date(Date.UTC(y, m - 1, d));
   dt.setUTCDate(dt.getUTCDate() + 1);
   return `${dt.getUTCFullYear()}-${String(dt.getUTCMonth() + 1).padStart(2, "0")}-${String(dt.getUTCDate()).padStart(2, "0")}`;
+}
+
+function eventDurationDays(event) {
+  if (!event?.start || !event?.end || event.end === event.start) return 1;
+  const start = new Date(`${event.start}T00:00:00Z`);
+  const end = new Date(`${event.end}T00:00:00Z`);
+  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return 1;
+  return Math.floor((end - start) / 86400000) + 1;
+}
+
+function formatIsoDateFr(dateStr) {
+  const [y, m, d] = String(dateStr || "").split("-");
+  if (!y || !m || !d) return dateStr || "";
+  return `${d}/${m}/${y}`;
+}
+
+function formatEventRange(event) {
+  if (!event?.end || event.end === event.start) return formatIsoDateFr(event.start);
+  return `du ${formatIsoDateFr(event.start)} au ${formatIsoDateFr(event.end)}`;
+}
+
+function shouldCompactLongEvent(event) {
+  return eventDurationDays(event) > LONG_EVENT_COMPACT_AFTER_DAYS;
 }
 
 async function makeUid(event) {
@@ -391,7 +415,7 @@ module.exports = async function handler(req, res) {
       startDateStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
     }
     const futureEvents = filtered.filter(event => {
-      const eventDate = String(event.start || "");
+      const eventDate = String(event.end || event.start || "");
       return eventDate >= startDateStr;
     });
 
@@ -412,10 +436,11 @@ module.exports = async function handler(req, res) {
     for (const event of futureEvents) {
       const start = toIcsDate(event.start);
       if (!start) continue;
-      const endExclusive = addOneDay(
-        event.end && event.end !== event.start ? event.end : event.start,
-      );
-      if (!endExclusive) continue;
+      const compactLongEvent = shouldCompactLongEvent(event);
+      const endExclusive = compactLongEvent
+        ? null
+        : addOneDay(event.end && event.end !== event.start ? event.end : event.start);
+      if (!compactLongEvent && !endExclusive) continue;
 
       const cats = Array.isArray(event.categories) ? event.categories : [];
       const zones = Array.isArray(event.zones) ? event.zones : [];
@@ -425,6 +450,7 @@ module.exports = async function handler(req, res) {
       const descParts = [
         event.description || "",
         zones.length ? `Zones: ${zones.join(", ")}` : "",
+        compactLongEvent ? `Période complète : ${formatEventRange(event)}.` : "",
       ]
         .filter(Boolean)
         .join("\\n\\n");
@@ -441,15 +467,45 @@ module.exports = async function handler(req, res) {
         ? `${getEmojiForEvent(event)} ${event.summary}`
         : event.summary;
 
+      if (compactLongEvent) {
+        const markerEvents = [
+          { label: "Début", marker: "start", date: event.start },
+          { label: "Fin", marker: "end", date: event.end },
+        ];
+        for (const markerEvent of markerEvents) {
+          if (String(markerEvent.date || "") < startDateStr) continue;
+          const markerStart = toIcsDate(markerEvent.date);
+          if (!markerStart) continue;
+          const markerTitle = `${markerEvent.label} : ${title || "Événement"}`;
+          const markerLines = [
+            "BEGIN:VEVENT",
+            `UID:${await makeUid({
+              ...event,
+              summary: `${markerEvent.marker}:${event.summary || ""}`,
+              start: markerEvent.date,
+              end: markerEvent.date,
+            })}`,
+            `DTSTAMP:${dtstamp}`,
+            `DTSTART;VALUE=DATE:${markerStart}`,
+            `SUMMARY:${escapeIcsText(markerTitle)}`,
+            `DESCRIPTION:${escapeIcsText(descParts)}`,
+          ];
+          if (categoryLine) markerLines.push(categoryLine);
+          markerLines.push("END:VEVENT");
+          lines.push(...markerLines);
+        }
+        continue;
+      }
+
       const eventLines = [
         "BEGIN:VEVENT",
         `UID:${await makeUid(event)}`,
         `DTSTAMP:${dtstamp}`,
         `DTSTART;VALUE=DATE:${start}`,
-        `DTEND;VALUE=DATE:${toIcsDate(endExclusive)}`,
         `SUMMARY:${escapeIcsText(title || "Événement")}`,
         `DESCRIPTION:${escapeIcsText(descParts)}`,
       ];
+      eventLines.splice(4, 0, `DTEND;VALUE=DATE:${toIcsDate(endExclusive)}`);
       if (categoryLine) eventLines.push(categoryLine);
       eventLines.push("END:VEVENT");
       lines.push(...eventLines);
