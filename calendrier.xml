@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 08 May 2026 03:41:24 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 09 May 2026 03:42:26 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
       <guid>4fd3950c4437b5d309c15a15@calendrier-fr.tibotsr.dev</guid>
       <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
       <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fête de la Victoire 1945</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-08</link>
-      <guid>4ae2769e3d162780b996bc60@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 8 mai 1945, l'Allemagne nazie signe sa capitulation sans condition, mettant fin à la guerre en Europe. Férié depuis 1953, supprimé par Giscard en 1975, puis rétabli par Mitterrand en 1981.</description>
-      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Abolition de l'esclavage en France — Commémoration</title>
@@ -1405,6 +1398,13 @@
       <guid>4a08b37944081950305e2ae2@calendrier-fr.tibotsr.dev</guid>
       <description>Fête nationale irlandaise le 17 mars, commémorant la mort de saint Patrick (461).</description>
       <pubDate>Fri, 17 Mar 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Début du Printemps — Équinoxe de printemps</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-03-20</link>
+      <guid>1cfc97f8889fed89dbf67fa7@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe de printemps marque le début astronomique du printemps.</description>
+      <pubDate>Mon, 20 Mar 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
