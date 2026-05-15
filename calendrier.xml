@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 14 May 2026 04:01:57 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2026 04:06:51 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
       <guid>654a2c1cc2663ea42ebfcfca@calendrier-fr.tibotsr.dev</guid>
       <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
       <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Ascension</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-14</link>
-      <guid>57170bbe9ab63e13d2d569f4@calendrier-fr.tibotsr.dev</guid>
-      <description>Fête chrétienne commémorant la montée du Christ au ciel, 40 jours après Pâques. Toujours un jeudi, ce qui en fait naturellement un pont avec le vendredi.</description>
-      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Pont de l'Ascension - Zones A, B et C</title>
@@ -1405,6 +1398,13 @@
       <guid>9256d69f05b861d065070db7@calendrier-fr.tibotsr.dev</guid>
       <description>Proclamée par l'ONU en 1993.</description>
       <pubDate>Wed, 22 Mar 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Passage à l'heure d'été</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-03-26</link>
+      <guid>9cdf8c1d557a63341acebfd3@calendrier-fr.tibotsr.dev</guid>
+      <description>Dans la nuit du samedi au dimanche, les montres avancent d'une heure (2h → 3h).</description>
+      <pubDate>Sun, 26 Mar 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
