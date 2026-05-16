@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-16T03:49:21.589354+00:00",
-  "contentVersion": "aceedbdaeae3bab7",
+  "generatedAt": "2026-05-16T10:46:31.863302+00:00",
+  "contentVersion": "4bb7019e680ea121",
   "totalEvents": 4754,
   "profiles": [
     "essentiel",
@@ -573,16 +573,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2000-05-20",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2000-05-22",
       "end": null,
@@ -621,6 +611,16 @@
       "categories": [
         "Mémoire",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2000-05-27",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -2144,16 +2144,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2001-05-19",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2001-05-22",
       "end": null,
@@ -2202,6 +2192,16 @@
       "description": "Ascension tombe un jeudi le 24/05/2001. Le vendredi 25/05/2001 est un pont potentiel — vérifiez auprès de votre employeur.",
       "categories": [
         "Ponts / Congés"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2001-05-26",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -3716,16 +3716,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2002-05-18",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pentecôte",
       "start": "2002-05-19",
       "end": null,
@@ -3764,6 +3754,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2002-05-25",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -5247,16 +5247,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2003-05-17",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2003-05-22",
       "end": null,
@@ -5274,6 +5264,16 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2003-05-24",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -6798,16 +6798,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2004-05-15",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Nouvelle Lune",
       "start": "2004-05-19",
       "end": null,
@@ -6846,6 +6836,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2004-05-22",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -8382,16 +8382,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2005-05-21",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2005-05-22",
       "end": null,
@@ -8430,6 +8420,16 @@
       "categories": [
         "Mémoire",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2005-05-28",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -9882,16 +9882,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2006-05-20",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2006-05-22",
       "end": null,
@@ -9951,6 +9941,16 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2006-05-27",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -11444,16 +11444,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2007-05-19",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2007-05-22",
       "end": null,
@@ -11481,6 +11471,16 @@
       "description": "Créée en 2000 pour lutter contre l'isolement urbain.",
       "categories": [
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2007-05-26",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -13036,16 +13036,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2008-05-17",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pleine Lune",
       "start": "2008-05-20",
       "end": null,
@@ -13063,6 +13053,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2008-05-24",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -13197,20 +13197,9 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2008-06-20",
+      "start": "2008-06-21",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2008-06-20",
-      "end": null,
-      "description": "Le 20 June est le jour le plus long de l'année 2008.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -13225,6 +13214,17 @@
       "categories": [
         "Culture",
         "Fêtes"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2008-06-21",
+      "end": null,
+      "description": "Le 21 June est le jour le plus long de l'année 2008.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -14535,16 +14535,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2009-05-16",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Dernier Quartier de Lune",
       "start": "2009-05-17",
       "end": null,
@@ -14583,6 +14573,16 @@
       "description": "Ascension tombe un jeudi le 21/05/2009. Le vendredi 22/05/2009 est un pont potentiel — vérifiez auprès de votre employeur.",
       "categories": [
         "Ponts / Congés"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2009-05-23",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -16128,16 +16128,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2010-05-15",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Premier Quartier",
       "start": "2010-05-21",
       "end": null,
@@ -16155,6 +16145,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2010-05-22",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -17649,16 +17649,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2011-05-21",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2011-05-22",
       "end": null,
@@ -17697,6 +17687,16 @@
       "categories": [
         "Mémoire",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2011-05-28",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -19241,16 +19241,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2012-05-19",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Nouvelle Lune",
       "start": "2012-05-21",
       "end": null,
@@ -19278,6 +19268,16 @@
       "description": "Créée en 2000 pour lutter contre l'isolement urbain.",
       "categories": [
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2012-05-26",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -20782,16 +20782,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2013-05-18",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Premier Quartier",
       "start": "2013-05-18",
       "end": null,
@@ -20830,6 +20820,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2013-05-25",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -22313,16 +22313,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2014-05-17",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Dernier Quartier de Lune",
       "start": "2014-05-21",
       "end": null,
@@ -22340,6 +22330,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2014-05-24",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -22822,6 +22822,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2014-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2014-09-22",
       "end": null,
@@ -22829,17 +22840,6 @@
       "categories": [
         "Environnement",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2014-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -23875,16 +23875,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2015-05-16",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Nouvelle Lune",
       "start": "2015-05-18",
       "end": null,
@@ -23902,6 +23892,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2015-05-23",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -25448,16 +25448,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2016-05-21",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pleine Lune",
       "start": "2016-05-21",
       "end": null,
@@ -25496,6 +25486,16 @@
       "categories": [
         "Mémoire",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2016-05-28",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -25597,28 +25597,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Été — Solstice d'été",
-      "start": "2016-06-20",
-      "end": null,
-      "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2016-06-20",
-      "end": null,
-      "description": "Le 20 June est le jour le plus long de l'année 2016.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pleine Lune",
       "start": "2016-06-20",
       "end": null,
@@ -25630,6 +25608,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Été — Solstice d'été",
+      "start": "2016-06-21",
+      "end": null,
+      "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Fête de la Musique",
       "start": "2016-06-21",
       "end": null,
@@ -25637,6 +25626,17 @@
       "categories": [
         "Culture",
         "Fêtes"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2016-06-21",
+      "end": null,
+      "description": "Le 21 June est le jour le plus long de l'année 2016.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -26948,16 +26948,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2017-05-20",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2017-05-22",
       "end": null,
@@ -27017,6 +27007,16 @@
       "categories": [
         "Mémoire",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2017-05-27",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -28610,16 +28610,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2018-05-19",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pentecôte",
       "start": "2018-05-20",
       "end": null,
@@ -28668,6 +28658,16 @@
       "description": "Créée en 2000 pour lutter contre l'isolement urbain.",
       "categories": [
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2018-05-26",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -29112,6 +29112,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2018-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2018-09-22",
       "end": null,
@@ -29119,17 +29130,6 @@
       "categories": [
         "Environnement",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2018-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -30244,16 +30244,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2019-05-18",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pleine Lune",
       "start": "2019-05-18",
       "end": null,
@@ -30271,6 +30261,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2019-05-25",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -31968,16 +31968,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2020-05-16",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pont de l'Ascension - Zones A, B et C",
       "start": "2020-05-20",
       "end": "2020-05-24",
@@ -32030,6 +32020,16 @@
       "description": "Ascension tombe un jeudi le 21/05/2020. Le vendredi 22/05/2020 est un pont potentiel — vérifiez auprès de votre employeur.",
       "categories": [
         "Ponts / Congés"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2020-05-23",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -33722,16 +33722,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2021-05-15",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Premier Quartier",
       "start": "2021-05-19",
       "end": null,
@@ -33749,6 +33739,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2021-05-22",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -35489,16 +35489,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2022-05-21",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Dernier Quartier de Lune",
       "start": "2022-05-22",
       "end": null,
@@ -35584,6 +35574,16 @@
       "description": "Ascension tombe un jeudi le 26/05/2022. Le vendredi 27/05/2022 est un pont potentiel — vérifiez auprès de votre employeur.",
       "categories": [
         "Ponts / Congés"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2022-05-28",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -37302,16 +37302,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2023-05-20",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2023-05-22",
       "end": null,
@@ -37339,6 +37329,16 @@
       "categories": [
         "Mémoire",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2023-05-27",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -39069,16 +39069,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2024-05-18",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pentecôte",
       "start": "2024-05-19",
       "end": null,
@@ -39131,6 +39121,16 @@
       "zones": [
         "all"
       ]
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2024-05-25",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
+      ],
+      "zones": []
     },
     {
       "summary": "Fête des Mères",
@@ -40857,16 +40857,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2025-05-17",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Dernier Quartier de Lune",
       "start": "2025-05-20",
       "end": null,
@@ -40910,6 +40900,16 @@
       "zones": [
         "all"
       ]
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2025-05-24",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
+      ],
+      "zones": []
     },
     {
       "summary": "Fête des Mères",
@@ -42783,16 +42783,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2026-05-16",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "BTS — Épreuves écrites",
       "start": "2026-05-18",
       "end": "2026-05-21",
@@ -42833,6 +42823,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2026-05-23",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -44614,16 +44614,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2027-05-15",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pentecôte",
       "start": "2027-05-16",
       "end": null,
@@ -44662,6 +44652,16 @@
       "description": "Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.",
       "categories": [
         "Environnement"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2027-05-22",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -45116,17 +45116,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2027-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2027-09-22",
       "end": null,
@@ -45145,6 +45134,17 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2027-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -45530,7 +45530,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2027-12-21",
+      "start": "2027-12-22",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -45541,9 +45541,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2027-12-21",
+      "start": "2027-12-22",
       "end": null,
-      "description": "Le 21 December est le jour le plus court de l'année 2027.",
+      "description": "Le 22 December est le jour le plus court de l'année 2027.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -46161,16 +46161,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2028-05-20",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2028-05-22",
       "end": null,
@@ -46230,6 +46220,16 @@
       "categories": [
         "Mémoire",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2028-05-27",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -47759,16 +47759,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2029-05-19",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Pentecôte",
       "start": "2029-05-20",
       "end": null,
@@ -47817,6 +47807,16 @@
       "description": "Créée en 2000 pour lutter contre l'isolement urbain.",
       "categories": [
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2029-05-26",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -49320,16 +49320,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2030-05-18",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale de la biodiversité",
       "start": "2030-05-22",
       "end": null,
@@ -49347,6 +49337,16 @@
       "categories": [
         "Astronomie",
         "Lunaire"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2030-05-25",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },
@@ -50871,16 +50871,6 @@
       "zones": []
     },
     {
-      "summary": "Nuit des Musées",
-      "start": "2031-05-17",
-      "end": null,
-      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
-      "categories": [
-        "Culture"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Nouvelle Lune",
       "start": "2031-05-21",
       "end": null,
@@ -50919,6 +50909,16 @@
       "description": "Ascension tombe un jeudi le 22/05/2031. Le vendredi 23/05/2031 est un pont potentiel — vérifiez auprès de votre employeur.",
       "categories": [
         "Ponts / Congés"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Nuit des Musées",
+      "start": "2031-05-24",
+      "end": null,
+      "description": "Créée en France en 2005 et étendue à toute l'Europe.",
+      "categories": [
+        "Culture"
       ],
       "zones": []
     },

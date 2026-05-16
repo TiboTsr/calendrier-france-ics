@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 16 May 2026 03:49:21 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2026 10:46:31 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
@@ -19,13 +19,6 @@
       <guid>ea15e1d228d34746c56791bf@calendrier-fr.tibotsr.dev</guid>
       <description>Pont de l'Ascension pour toutes les zones (A, B et C). Durée : 4 jours, du 14/05/2026 au 17/05/2026.</description>
       <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Nuit des Musées</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-16</link>
-      <guid>f2189bfe0484f6618b9dd869@calendrier-fr.tibotsr.dev</guid>
-      <description>Créée en France en 2005 et étendue à toute l'Europe.</description>
-      <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>BTS — Épreuves écrites</title>
@@ -54,6 +47,13 @@
       <guid>ef973e8741f2652a353995fb@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.</description>
       <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Nuit des Musées</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-23</link>
+      <guid>539e8e19ad3ae2926a5d1b4e@calendrier-fr.tibotsr.dev</guid>
+      <description>Créée en France en 2005 et étendue à toute l'Europe.</description>
+      <pubDate>Sat, 23 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Pentecôte</title>
@@ -840,13 +840,6 @@
       <pubDate>Wed, 12 May 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Nuit des Musées</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-05-15</link>
-      <guid>da47596ee874a6a9c032e402@calendrier-fr.tibotsr.dev</guid>
-      <description>Créée en France en 2005 et étendue à toute l'Europe.</description>
-      <pubDate>Sat, 15 May 2027 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Pentecôte</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2027-05-16</link>
       <guid>c3fa8d9dab47b8613a89b4b1@calendrier-fr.tibotsr.dev</guid>
@@ -865,6 +858,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2027-05-22</link>
       <guid>db41a5b47530de3699fd2145@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.</description>
+      <pubDate>Sat, 22 May 2027 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Nuit des Musées</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-05-22</link>
+      <guid>84bbc2929aa111f559e91dc2@calendrier-fr.tibotsr.dev</guid>
+      <description>Créée en France en 2005 et étendue à toute l'Europe.</description>
       <pubDate>Sat, 22 May 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -1043,18 +1043,18 @@
       <pubDate>Sat, 18 Sep 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Début de l'Automne — Équinoxe d'automne</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-22</link>
-      <guid>878729328b3e2f816f21f084@calendrier-fr.tibotsr.dev</guid>
-      <description>L'équinoxe d'automne marque le début de l'automne.</description>
-      <pubDate>Wed, 22 Sep 2027 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Journée mondiale sans voiture</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-22</link>
       <guid>de7053144e196edd1addd0c2@calendrier-fr.tibotsr.dev</guid>
       <description>Lancée en France en 1998 par La Rochelle.</description>
       <pubDate>Wed, 22 Sep 2027 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Début de l'Automne — Équinoxe d'automne</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-23</link>
+      <guid>c8557eb43055444634d74978@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe d'automne marque le début de l'automne.</description>
+      <pubDate>Thu, 23 Sep 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Coupe du monde de rugby à XV 2027</title>
@@ -1219,17 +1219,17 @@
     </item>
     <item>
       <title>Début de l'Hiver — Solstice d'hiver</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-21</link>
-      <guid>36ea1c33db5435fbfacb32ef@calendrier-fr.tibotsr.dev</guid>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-22</link>
+      <guid>5e7645acaa62c43ea5181ec5@calendrier-fr.tibotsr.dev</guid>
       <description>Le solstice d'hiver est le jour le plus court de l'année.</description>
-      <pubDate>Tue, 21 Dec 2027 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 22 Dec 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Jour le plus court de l'année</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-21</link>
-      <guid>3169ed493e26d03f157a3f3a@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 21 December est le jour le plus court de l'année 2027.</description>
-      <pubDate>Tue, 21 Dec 2027 00:00:00 GMT</pubDate>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-22</link>
+      <guid>405896484caeaa6b37d6dd1c@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 22 December est le jour le plus court de l'année 2027.</description>
+      <pubDate>Wed, 22 Dec 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Noël</title>
