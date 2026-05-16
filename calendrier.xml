@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 15 May 2026 04:06:51 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2026 03:49:21 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
@@ -19,13 +19,6 @@
       <guid>ea15e1d228d34746c56791bf@calendrier-fr.tibotsr.dev</guid>
       <description>Pont de l'Ascension pour toutes les zones (A, B et C). Durée : 4 jours, du 14/05/2026 au 17/05/2026.</description>
       <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Pont possible — Ascension</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-15</link>
-      <guid>7761444ba2ea0453e2056a31@calendrier-fr.tibotsr.dev</guid>
-      <description>Ascension tombe un jeudi le 14/05/2026. Le vendredi 15/05/2026 est un pont potentiel — vérifiez auprès de votre employeur.</description>
-      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Nuit des Musées</title>
@@ -1405,6 +1398,13 @@
       <guid>9cdf8c1d557a63341acebfd3@calendrier-fr.tibotsr.dev</guid>
       <description>Dans la nuit du samedi au dimanche, les montres avancent d'une heure (2h → 3h).</description>
       <pubDate>Sun, 26 Mar 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Poisson d'avril</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-04-01</link>
+      <guid>4cb566067166147f12f062c5@calendrier-fr.tibotsr.dev</guid>
+      <description>Journée des farces et des canulars.</description>
+      <pubDate>Sat, 01 Apr 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
