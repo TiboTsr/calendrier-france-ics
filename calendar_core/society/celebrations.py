@@ -86,7 +86,7 @@ def build_celebrations_events(year: int) -> list[CalendarEvent]:
         CalendarEvent("Journée mondiale de l'alimentation", date(year, 10, 16), categories=["Gastronomie", "Société", "Santé"], description="Commémore la fondation de la FAO le 16 octobre 1945."),
         CalendarEvent("Semaine du Goût", nth_weekday(year, 10, 0, 2), categories=["Gastronomie", "Culture"], description="Créée en 1990 par le chef Joël Robuchon."),
         CalendarEvent("Journée mondiale du cacao et du chocolat", date(year, 10, 1), categories=["Gastronomie", "Culture"], description="Célébrée le 1er octobre et associée à l'Organisation internationale du cacao (ICCO)."),
-        CalendarEvent("Nuit des Musées", nth_weekday(year, 5, 5, 3), categories=["Culture"], description="Créée en France en 2005 et étendue à toute l'Europe."),
+        CalendarEvent("Nuit des Musées", nth_weekday(year, 5, 5, 4), categories=["Culture"], description="Créée en France en 2005 et étendue à toute l'Europe."),
         CalendarEvent("Festival de Cannes — Ouverture", date(year, 5, 12), categories=["Culture", "Cinéma"], description="Le Festival International du Film de Cannes, créé en 1946."),
         CalendarEvent("Fête du Cinéma", nth_weekday(year, 6, 6, 4), categories=["Culture", "Cinéma"], description="Créée en 1985, elle propose chaque fin juin des places à tarif réduit."),
         CalendarEvent("Festival d'Avignon — Ouverture", date(year, 7, 5), categories=["Culture", "Théâtre"], description="Créé par Jean Vilar en 1947 dans la cour du Palais des Papes."),
