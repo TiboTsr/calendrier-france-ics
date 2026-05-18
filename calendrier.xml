@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 17 May 2026 04:06:52 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 04:19:23 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
       <guid>654a2c1cc2663ea42ebfcfca@calendrier-fr.tibotsr.dev</guid>
       <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
       <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Pont de l'Ascension - Zones A, B et C</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-14</link>
-      <guid>ea15e1d228d34746c56791bf@calendrier-fr.tibotsr.dev</guid>
-      <description>Pont de l'Ascension pour toutes les zones (A, B et C). Durée : 4 jours, du 14/05/2026 au 17/05/2026.</description>
-      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>BTS — Épreuves écrites</title>
@@ -1405,6 +1398,13 @@
       <guid>4cb566067166147f12f062c5@calendrier-fr.tibotsr.dev</guid>
       <description>Journée des farces et des canulars.</description>
       <pubDate>Sat, 01 Apr 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Journée mondiale de la Santé</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-04-07</link>
+      <guid>407c635b089471821d87518d@calendrier-fr.tibotsr.dev</guid>
+      <description>Commémore la fondation de l'OMS le 7 avril 1948.</description>
+      <pubDate>Fri, 07 Apr 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
