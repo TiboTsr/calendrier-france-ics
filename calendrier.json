@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-19T04:14:22.414026+00:00",
-  "contentVersion": "14e37fa317f55595",
+  "generatedAt": "2026-05-20T04:15:03.334069+00:00",
+  "contentVersion": "6a584497953b8dc7",
   "totalEvents": 4754,
   "profiles": [
     "essentiel",
@@ -46365,9 +46365,20 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2028-06-21",
+      "start": "2028-06-20",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2028-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2028.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -46382,17 +46393,6 @@
       "categories": [
         "Culture",
         "Fêtes"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2028-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2028.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
