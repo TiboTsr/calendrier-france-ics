@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-20T04:15:03.334069+00:00",
-  "contentVersion": "6a584497953b8dc7",
+  "generatedAt": "2026-05-21T04:23:18.485177+00:00",
+  "contentVersion": "b129c2e2ea09dac7",
   "totalEvents": 4754,
   "profiles": [
     "essentiel",
@@ -16616,17 +16616,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2010-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2010-09-22",
       "end": null,
@@ -16634,6 +16623,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2010-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -19423,9 +19423,20 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2012-06-21",
+      "start": "2012-06-20",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2012-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2012.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -19440,17 +19451,6 @@
       "categories": [
         "Culture",
         "Fêtes"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2012-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2012.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -22822,17 +22822,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2014-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2014-09-22",
       "end": null,
@@ -22840,6 +22829,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2014-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -24384,17 +24384,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2015-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2015-09-22",
       "end": null,
@@ -24402,6 +24391,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2015-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -24765,7 +24765,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2015-12-21",
+      "start": "2015-12-22",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -24776,9 +24776,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2015-12-21",
+      "start": "2015-12-22",
       "end": null,
-      "description": "Le 21 December est le jour le plus court de l'année 2015.",
+      "description": "Le 22 December est le jour le plus court de l'année 2015.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -25597,6 +25597,28 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Été — Solstice d'été",
+      "start": "2016-06-20",
+      "end": null,
+      "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2016-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2016.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Pleine Lune",
       "start": "2016-06-20",
       "end": null,
@@ -25608,17 +25630,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Été — Solstice d'été",
-      "start": "2016-06-21",
-      "end": null,
-      "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Fête de la Musique",
       "start": "2016-06-21",
       "end": null,
@@ -25626,17 +25637,6 @@
       "categories": [
         "Culture",
         "Fêtes"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2016-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2016.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -46365,20 +46365,9 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2028-06-20",
+      "start": "2028-06-21",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2028-06-20",
-      "end": null,
-      "description": "Le 20 June est le jour le plus long de l'année 2028.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -46393,6 +46382,17 @@
       "categories": [
         "Culture",
         "Fêtes"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2028-06-21",
+      "end": null,
+      "description": "Le 21 June est le jour le plus long de l'année 2028.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },

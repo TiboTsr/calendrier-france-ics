@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Wed, 20 May 2026 04:15:03 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2026 04:23:18 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
@@ -25,13 +25,6 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-20</link>
       <guid>c9fe8e96dd3e73a1ffd98e2d@calendrier-fr.tibotsr.dev</guid>
       <description>Le baccalauréat professionnel valide une formation en lycée professionnel ou en alternance. Ses épreuves écrites se déroulent de fin mai à début juin.</description>
-      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Finale UEFA Europa League 2025-2026</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-20</link>
-      <guid>49c043643ca989349933b3a6@calendrier-fr.tibotsr.dev</guid>
-      <description>Au Beşiktaş Park d'Istanbul, Turquie.</description>
       <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -1405,6 +1398,13 @@
       <guid>407c635b089471821d87518d@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore la fondation de l'OMS le 7 avril 1948.</description>
       <pubDate>Fri, 07 Apr 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Dimanche des Rameaux</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-04-09</link>
+      <guid>8b58f7518f860db1c29810a4@calendrier-fr.tibotsr.dev</guid>
+      <description>Ouvre la Semaine Sainte en rappelant l'entrée triomphale de Jésus à Jérusalem.</description>
+      <pubDate>Sun, 09 Apr 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
