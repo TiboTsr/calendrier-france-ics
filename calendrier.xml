@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 21 May 2026 04:23:18 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2026 04:18:53 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
       <guid>654a2c1cc2663ea42ebfcfca@calendrier-fr.tibotsr.dev</guid>
       <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
       <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>BTS — Épreuves écrites</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-18</link>
-      <guid>00a23a80569a0467ee2f7f78@calendrier-fr.tibotsr.dev</guid>
-      <description>Le Brevet de Technicien Supérieur (BTS) est un diplôme bac+2 de l'enseignement supérieur court. Les épreuves écrites communes se déroulent en mai sur quatre jours.</description>
-      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Baccalauréat professionnel — Épreuves écrites</title>
@@ -1405,6 +1398,13 @@
       <guid>8b58f7518f860db1c29810a4@calendrier-fr.tibotsr.dev</guid>
       <description>Ouvre la Semaine Sainte en rappelant l'entrée triomphale de Jésus à Jérusalem.</description>
       <pubDate>Sun, 09 Apr 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Vendredi Saint</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-04-14</link>
+      <guid>ab2a464a5af229851d3aa588@calendrier-fr.tibotsr.dev</guid>
+      <description>Commémore la crucifixion du Christ. Jour férié uniquement en Alsace-Moselle (départements 57, 67, 68) en vertu du régime concordataire.</description>
+      <pubDate>Fri, 14 Apr 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
