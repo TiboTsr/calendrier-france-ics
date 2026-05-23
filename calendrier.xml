@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 22 May 2026 04:18:53 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 23 May 2026 03:57:02 GMT</lastBuildDate>
     <item>
       <title>Ligue 1 2025-2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
@@ -19,13 +19,6 @@
       <guid>c9fe8e96dd3e73a1ffd98e2d@calendrier-fr.tibotsr.dev</guid>
       <description>Le baccalauréat professionnel valide une formation en lycée professionnel ou en alternance. Ses épreuves écrites se déroulent de fin mai à début juin.</description>
       <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée mondiale de la biodiversité</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-22</link>
-      <guid>ef973e8741f2652a353995fb@calendrier-fr.tibotsr.dev</guid>
-      <description>Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.</description>
-      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Nuit des Musées</title>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-04-14</link>
       <guid>ab2a464a5af229851d3aa588@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore la crucifixion du Christ. Jour férié uniquement en Alsace-Moselle (départements 57, 67, 68) en vertu du régime concordataire.</description>
+      <pubDate>Fri, 14 Apr 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Vendredi Saint</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-04-14</link>
+      <guid>0df3bf7bc19e27351c291797@calendrier-fr.tibotsr.dev</guid>
+      <description>Commémore la crucifixion du Christ. Non férié en France depuis la loi de 1905 — sauf en Alsace-Moselle.</description>
       <pubDate>Fri, 14 Apr 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
