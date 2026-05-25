@@ -5,27 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 24 May 2026 04:17:06 GMT</lastBuildDate>
-    <item>
-      <title>Ligue 1 2025-2026</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2025-08-15</link>
-      <guid>654a2c1cc2663ea42ebfcfca@calendrier-fr.tibotsr.dev</guid>
-      <description>88e édition du championnat de France, 2e sous l'appellation Ligue 1 McDonald's.</description>
-      <pubDate>Fri, 15 Aug 2025 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Mon, 25 May 2026 04:28:36 GMT</lastBuildDate>
     <item>
       <title>Baccalauréat professionnel — Épreuves écrites</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-20</link>
       <guid>c9fe8e96dd3e73a1ffd98e2d@calendrier-fr.tibotsr.dev</guid>
       <description>Le baccalauréat professionnel valide une formation en lycée professionnel ou en alternance. Ses épreuves écrites se déroulent de fin mai à début juin.</description>
       <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Pentecôte</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-24</link>
-      <guid>79c59c148ce5325a6d1b9ca4@calendrier-fr.tibotsr.dev</guid>
-      <description>Célèbre la descente de l'Esprit Saint sur les apôtres, 50 jours après Pâques.</description>
-      <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Roland-Garros 2026</title>
@@ -301,18 +287,18 @@
       <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Début de l'Automne — Équinoxe d'automne</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
+      <guid>eb2e2ce392c7cb6f45edaf8b@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe d'automne marque le début de l'automne.</description>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Journée mondiale sans voiture</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
       <guid>00bad90e4cd1ce35f4623a21@calendrier-fr.tibotsr.dev</guid>
       <description>Lancée en France en 1998 par La Rochelle.</description>
       <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Début de l'Automne — Équinoxe d'automne</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-23</link>
-      <guid>3e61f46655e6a9ed06645243@calendrier-fr.tibotsr.dev</guid>
-      <description>L'équinoxe d'automne marque le début de l'automne.</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Journée mondiale du cacao et du chocolat</title>
@@ -1405,6 +1391,20 @@
       <guid>f3f86b0e57266b1d1de02ff8@calendrier-fr.tibotsr.dev</guid>
       <description>Fête chrétienne célébrant la résurrection du Christ. Sa date varie chaque année car elle suit le calendrier lunaire.</description>
       <pubDate>Sun, 16 Apr 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Lundi de Pâques</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-04-17</link>
+      <guid>f4752e9806e707258b2d3ea4@calendrier-fr.tibotsr.dev</guid>
+      <description>Jour férié qui prolonge le dimanche de Pâques. La tradition des œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours, on offrait donc à Pâques ceux accumulés.</description>
+      <pubDate>Mon, 17 Apr 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jour de la Terre</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-04-22</link>
+      <guid>6af8b1a134e0ecff0bbe0c96@calendrier-fr.tibotsr.dev</guid>
+      <description>Né le 22 avril 1970 après une marée noire en Californie.</description>
+      <pubDate>Sat, 22 Apr 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
