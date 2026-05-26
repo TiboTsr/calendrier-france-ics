@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Mon, 25 May 2026 04:28:36 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2026 04:14:29 GMT</lastBuildDate>
     <item>
       <title>Baccalauréat professionnel — Épreuves écrites</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-20</link>
@@ -19,13 +19,6 @@
       <guid>36add3062acbf337dcf8e17f@calendrier-fr.tibotsr.dev</guid>
       <description>Grand Chelem sur terre battue à Paris.</description>
       <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Lundi de Pentecôte</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-25</link>
-      <guid>641ee9eb4e0f679644ed0830@calendrier-fr.tibotsr.dev</guid>
-      <description>Jour férié désigné depuis 2004 Journée de solidarité envers les personnes âgées. Les salariés travaillent ce jour sans rémunération supplémentaire, finançant ainsi la prise en charge de la dépendance — instauré après la canicule de 2003 qui fit 15 000 morts en France.</description>
-      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Journée nationale de la Résistance</title>
@@ -1405,6 +1398,13 @@
       <guid>6af8b1a134e0ecff0bbe0c96@calendrier-fr.tibotsr.dev</guid>
       <description>Né le 22 avril 1970 après une marée noire en Californie.</description>
       <pubDate>Sat, 22 Apr 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fête du Travail</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-01</link>
+      <guid>49dfdd9f2e4575d0fc960a6a@calendrier-fr.tibotsr.dev</guid>
+      <description>Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures de travail, réprimée dans le sang. Férié et chômé en France depuis 1947. La tradition d'offrir du muguet vient d'une coutume de Charles IX datant de 1561.</description>
+      <pubDate>Mon, 01 May 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
