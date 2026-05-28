@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Wed, 27 May 2026 04:28:12 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2026 04:17:33 GMT</lastBuildDate>
     <item>
       <title>Baccalauréat professionnel — Épreuves écrites</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-20</link>
@@ -19,13 +19,6 @@
       <guid>36add3062acbf337dcf8e17f@calendrier-fr.tibotsr.dev</guid>
       <description>Grand Chelem sur terre battue à Paris.</description>
       <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée nationale de la Résistance</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-27</link>
-      <guid>85ac7360ff2a576b9dbd879a@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 27 mai 1943, Jean Moulin préside la première réunion secrète du CNR.</description>
-      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Fête des Voisins</title>
@@ -1405,6 +1398,13 @@
       <guid>49dfdd9f2e4575d0fc960a6a@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures de travail, réprimée dans le sang. Férié et chômé en France depuis 1947. La tradition d'offrir du muguet vient d'une coutume de Charles IX datant de 1561.</description>
       <pubDate>Mon, 01 May 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fête de la Victoire 1945</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-08</link>
+      <guid>6b25c09ed62f4e1921bb9778@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 8 mai 1945, l'Allemagne nazie signe sa capitulation sans condition, mettant fin à la guerre en Europe. Férié depuis 1953, supprimé par Giscard en 1975, puis rétabli par Mitterrand en 1981.</description>
+      <pubDate>Mon, 08 May 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
