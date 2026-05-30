@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 29 May 2026 04:20:10 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 04:05:02 GMT</lastBuildDate>
     <item>
       <title>Baccalauréat professionnel — Épreuves écrites</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-20</link>
@@ -19,13 +19,6 @@
       <guid>36add3062acbf337dcf8e17f@calendrier-fr.tibotsr.dev</guid>
       <description>Grand Chelem sur terre battue à Paris.</description>
       <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fête des Voisins</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-29</link>
-      <guid>54eb8c826648ebf274449341@calendrier-fr.tibotsr.dev</guid>
-      <description>Créée en 2000 pour lutter contre l'isolement urbain.</description>
-      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Finale UEFA Ligue des Champions 2025-2026</title>
@@ -1405,6 +1398,13 @@
       <guid>6b25c09ed62f4e1921bb9778@calendrier-fr.tibotsr.dev</guid>
       <description>Le 8 mai 1945, l'Allemagne nazie signe sa capitulation sans condition, mettant fin à la guerre en Europe. Férié depuis 1953, supprimé par Giscard en 1975, puis rétabli par Mitterrand en 1981.</description>
       <pubDate>Mon, 08 May 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Abolition de l'esclavage en France — Commémoration</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-10</link>
+      <guid>bb1a978701193c3e945fcde7@calendrier-fr.tibotsr.dev</guid>
+      <description>Journée nationale instaurée par la loi Taubira de 2001.</description>
+      <pubDate>Wed, 10 May 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>

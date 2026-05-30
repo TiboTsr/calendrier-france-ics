@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-29T04:20:11.017840+00:00",
-  "contentVersion": "08345cde14ddd8da",
+  "generatedAt": "2026-05-30T04:05:02.789779+00:00",
+  "contentVersion": "64a9f0ce6b3f0f5b",
   "totalEvents": 4754,
   "profiles": [
     "essentiel",
@@ -36096,17 +36096,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2022-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2022-09-22",
       "end": null,
@@ -36114,6 +36103,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2022-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
