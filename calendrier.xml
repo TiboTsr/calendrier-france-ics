@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 30 May 2026 04:05:02 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2026 04:40:13 GMT</lastBuildDate>
     <item>
       <title>Baccalauréat professionnel — Épreuves écrites</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-20</link>
@@ -19,13 +19,6 @@
       <guid>36add3062acbf337dcf8e17f@calendrier-fr.tibotsr.dev</guid>
       <description>Grand Chelem sur terre battue à Paris.</description>
       <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Finale UEFA Ligue des Champions 2025-2026</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-30</link>
-      <guid>58c335dcfaf35e2b5ff13f04@calendrier-fr.tibotsr.dev</guid>
-      <description>À la Puskás Aréna de Budapest, Hongrie. 71e édition de la compétition.</description>
-      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Fête des Mères</title>
@@ -1405,6 +1398,13 @@
       <guid>bb1a978701193c3e945fcde7@calendrier-fr.tibotsr.dev</guid>
       <description>Journée nationale instaurée par la loi Taubira de 2001.</description>
       <pubDate>Wed, 10 May 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Festival de Cannes — Ouverture</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-12</link>
+      <guid>2054ab6c9004f7f7b23c13a5@calendrier-fr.tibotsr.dev</guid>
+      <description>Le Festival International du Film de Cannes, créé en 1946.</description>
+      <pubDate>Fri, 12 May 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
