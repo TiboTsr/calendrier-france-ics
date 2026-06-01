@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 31 May 2026 04:40:13 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2026 05:02:01 GMT</lastBuildDate>
     <item>
       <title>Baccalauréat professionnel — Épreuves écrites</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-20</link>
@@ -19,20 +19,6 @@
       <guid>36add3062acbf337dcf8e17f@calendrier-fr.tibotsr.dev</guid>
       <description>Grand Chelem sur terre battue à Paris.</description>
       <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fête des Mères</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-31</link>
-      <guid>ce1e314ff109a5f9f88ac5a6@calendrier-fr.tibotsr.dev</guid>
-      <description>Célébrée le dernier dimanche de mai, sauf si c'est la Pentecôte.</description>
-      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée mondiale sans tabac</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-31</link>
-      <guid>9efc93e951553d4034fb42cf@calendrier-fr.tibotsr.dev</guid>
-      <description>Lancée par l'OMS en 1987.</description>
-      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Débarquement en Normandie — Commémoration du Jour J</title>
@@ -1405,6 +1391,20 @@
       <guid>2054ab6c9004f7f7b23c13a5@calendrier-fr.tibotsr.dev</guid>
       <description>Le Festival International du Film de Cannes, créé en 1946.</description>
       <pubDate>Fri, 12 May 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Journée mondiale de la biodiversité</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-22</link>
+      <guid>0b32619e7bb50e07b4ead667@calendrier-fr.tibotsr.dev</guid>
+      <description>Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.</description>
+      <pubDate>Mon, 22 May 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ascension</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-25</link>
+      <guid>06e4d9dcc3c68ddcb625dcbd@calendrier-fr.tibotsr.dev</guid>
+      <description>Fête chrétienne commémorant la montée du Christ au ciel, 40 jours après Pâques. Toujours un jeudi, ce qui en fait naturellement un pont avec le vendredi.</description>
+      <pubDate>Thu, 25 May 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
