@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-03T04:58:19.293368+00:00",
-  "contentVersion": "e91079b45956d709",
+  "generatedAt": "2026-06-04T04:51:38.842462+00:00",
+  "contentVersion": "087763fa2dd50953",
   "totalEvents": 4754,
   "profiles": [
     "essentiel",
@@ -13197,9 +13197,20 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2008-06-21",
+      "start": "2008-06-20",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2008-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2008.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -13214,17 +13225,6 @@
       "categories": [
         "Culture",
         "Fêtes"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2008-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2008.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -16616,17 +16616,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2010-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2010-09-22",
       "end": null,
@@ -16634,6 +16623,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2010-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
