@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-05T04:26:02.516563+00:00",
-  "contentVersion": "b6dadf289ad6b6e2",
-  "newEventsThisWeek": 69,
+  "generatedAt": "2026-06-06T04:08:53.049856+00:00",
+  "contentVersion": "e91079b45956d709",
+  "newEventsThisWeek": 67,
   "newEventUids": [
     "1eda6a6474847f46977b5d80-end@calendrier-fr.tibotsr.dev",
     "1eda6a6474847f46977b5d80-start@calendrier-fr.tibotsr.dev",
@@ -50,9 +50,9 @@
     "bfa546a224fbf6ca6c55bcb6-end@calendrier-fr.tibotsr.dev",
     "bfa546a224fbf6ca6c55bcb6-start@calendrier-fr.tibotsr.dev",
     "c06e0217b1ae3ffcaef4d9bd@calendrier-fr.tibotsr.dev",
-    "c9fe8e96dd3e73a1ffd98e2d-end@calendrier-fr.tibotsr.dev",
-    "c9fe8e96dd3e73a1ffd98e2d-start@calendrier-fr.tibotsr.dev",
-    "ca0a6edd69d6bffef35ae20c-end@calendrier-fr.tibotsr.dev"
+    "ca0a6edd69d6bffef35ae20c-end@calendrier-fr.tibotsr.dev",
+    "ca0a6edd69d6bffef35ae20c-start@calendrier-fr.tibotsr.dev",
+    "cd0784061eb79c76db047ef9-end@calendrier-fr.tibotsr.dev"
   ],
-  "totalEvents": 574
+  "totalEvents": 572
 }

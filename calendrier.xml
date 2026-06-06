@@ -5,14 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 05 Jun 2026 04:26:02 GMT</lastBuildDate>
-    <item>
-      <title>Baccalauréat professionnel — Épreuves écrites</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-20</link>
-      <guid>c9fe8e96dd3e73a1ffd98e2d@calendrier-fr.tibotsr.dev</guid>
-      <description>Le baccalauréat professionnel valide une formation en lycée professionnel ou en alternance. Ses épreuves écrites se déroulent de fin mai à début juin.</description>
-      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Sat, 06 Jun 2026 04:08:52 GMT</lastBuildDate>
     <item>
       <title>Roland-Garros 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-24</link>
@@ -1405,6 +1398,13 @@
       <guid>06e4d9dcc3c68ddcb625dcbd@calendrier-fr.tibotsr.dev</guid>
       <description>Fête chrétienne commémorant la montée du Christ au ciel, 40 jours après Pâques. Toujours un jeudi, ce qui en fait naturellement un pont avec le vendredi.</description>
       <pubDate>Thu, 25 May 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fête des Voisins</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-26</link>
+      <guid>56141e906432ee78636dd8bb@calendrier-fr.tibotsr.dev</guid>
+      <description>Créée en 2000 pour lutter contre l'isolement urbain.</description>
+      <pubDate>Fri, 26 May 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
