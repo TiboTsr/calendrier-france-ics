@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 06 Jun 2026 04:08:52 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2026 04:45:17 GMT</lastBuildDate>
     <item>
       <title>Roland-Garros 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-24</link>
       <guid>36add3062acbf337dcf8e17f@calendrier-fr.tibotsr.dev</guid>
       <description>Grand Chelem sur terre battue à Paris.</description>
       <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Débarquement en Normandie — Commémoration du Jour J</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-06</link>
-      <guid>51274c8849086112d8036e77@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 6 juin 1944, 156 000 soldats alliés débarquent sur les plages de Normandie.</description>
-      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>CAP — Épreuves écrites d'enseignement général</title>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-26</link>
       <guid>56141e906432ee78636dd8bb@calendrier-fr.tibotsr.dev</guid>
       <description>Créée en 2000 pour lutter contre l'isolement urbain.</description>
+      <pubDate>Fri, 26 May 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Pont possible — Ascension</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-26</link>
+      <guid>6f621ba93e9d2fc9179405ca@calendrier-fr.tibotsr.dev</guid>
+      <description>Ascension tombe un jeudi le 25/05/2028. Le vendredi 26/05/2028 est un pont potentiel — vérifiez auprès de votre employeur.</description>
       <pubDate>Fri, 26 May 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
