@@ -5,14 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 07 Jun 2026 04:45:17 GMT</lastBuildDate>
-    <item>
-      <title>Roland-Garros 2026</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-05-24</link>
-      <guid>36add3062acbf337dcf8e17f@calendrier-fr.tibotsr.dev</guid>
-      <description>Grand Chelem sur terre battue à Paris.</description>
-      <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Mon, 08 Jun 2026 04:50:14 GMT</lastBuildDate>
     <item>
       <title>CAP — Épreuves écrites d'enseignement général</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-08</link>
@@ -1405,6 +1398,13 @@
       <guid>6f621ba93e9d2fc9179405ca@calendrier-fr.tibotsr.dev</guid>
       <description>Ascension tombe un jeudi le 25/05/2028. Le vendredi 26/05/2028 est un pont potentiel — vérifiez auprès de votre employeur.</description>
       <pubDate>Fri, 26 May 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Journée nationale de la Résistance</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-27</link>
+      <guid>c56b79cd066c3c5202f7e917@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 27 mai 1943, Jean Moulin préside la première réunion secrète du CNR.</description>
+      <pubDate>Sat, 27 May 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
