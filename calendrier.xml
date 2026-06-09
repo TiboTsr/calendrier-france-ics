@@ -5,19 +5,12 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Mon, 08 Jun 2026 04:50:14 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 04:12:55 GMT</lastBuildDate>
     <item>
       <title>CAP — Épreuves écrites d'enseignement général</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-08</link>
       <guid>0df6902f78de06dfbaf61434@calendrier-fr.tibotsr.dev</guid>
       <description>Le Certificat d'Aptitude Professionnelle (CAP) certifie des compétences dans un métier précis. Les épreuves écrites d'enseignement général se déroulent sur deux jours en juin.</description>
-      <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Journée mondiale de l'océan</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-08</link>
-      <guid>b696672d5af48758ecf3af71@calendrier-fr.tibotsr.dev</guid>
-      <description>Proposée lors du Sommet de la Terre de Rio en 1992.</description>
       <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-27</link>
       <guid>c56b79cd066c3c5202f7e917@calendrier-fr.tibotsr.dev</guid>
       <description>Le 27 mai 1943, Jean Moulin préside la première réunion secrète du CNR.</description>
+      <pubDate>Sat, 27 May 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Nuit des Musées</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-05-27</link>
+      <guid>8853af450d34f841f38ffe26@calendrier-fr.tibotsr.dev</guid>
+      <description>Créée en France en 2005 et étendue à toute l'Europe.</description>
       <pubDate>Sat, 27 May 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
