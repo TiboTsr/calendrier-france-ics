@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-12T04:48:15.492734+00:00",
-  "contentVersion": "2850b83ad4e67051",
-  "newEventsThisWeek": 71,
+  "generatedAt": "2026-06-13T04:27:15.152484+00:00",
+  "contentVersion": "1656790ab412269e",
+  "newEventsThisWeek": 65,
   "newEventUids": [
     "1eda6a6474847f46977b5d80-end@calendrier-fr.tibotsr.dev",
     "1eda6a6474847f46977b5d80-start@calendrier-fr.tibotsr.dev",
@@ -18,14 +18,10 @@
     "3a335d955a66a7446e2e4bee-start@calendrier-fr.tibotsr.dev",
     "3b4d0936912f666a57bb14de-end@calendrier-fr.tibotsr.dev",
     "3b4d0936912f666a57bb14de-start@calendrier-fr.tibotsr.dev",
-    "3e61f46655e6a9ed06645243@calendrier-fr.tibotsr.dev",
-    "405896484caeaa6b37d6dd1c@calendrier-fr.tibotsr.dev",
-    "4e52949ac0c13e77982b063c@calendrier-fr.tibotsr.dev",
     "52925c2ac3f3ee5fcf8c867a-end@calendrier-fr.tibotsr.dev",
     "52925c2ac3f3ee5fcf8c867a-start@calendrier-fr.tibotsr.dev",
     "5342e9b383d1ba4473430ca9-end@calendrier-fr.tibotsr.dev",
     "5342e9b383d1ba4473430ca9-start@calendrier-fr.tibotsr.dev",
-    "5e7645acaa62c43ea5181ec5@calendrier-fr.tibotsr.dev",
     "84bbc2929aa111f559e91dc2@calendrier-fr.tibotsr.dev",
     "8853af450d34f841f38ffe26@calendrier-fr.tibotsr.dev",
     "9019c477a028f9051cb109d2-end@calendrier-fr.tibotsr.dev",
@@ -52,7 +48,11 @@
     "bfa546a224fbf6ca6c55bcb6-end@calendrier-fr.tibotsr.dev",
     "bfa546a224fbf6ca6c55bcb6-start@calendrier-fr.tibotsr.dev",
     "c06e0217b1ae3ffcaef4d9bd@calendrier-fr.tibotsr.dev",
-    "c8557eb43055444634d74978@calendrier-fr.tibotsr.dev"
+    "ca0a6edd69d6bffef35ae20c-end@calendrier-fr.tibotsr.dev",
+    "ca0a6edd69d6bffef35ae20c-start@calendrier-fr.tibotsr.dev",
+    "cd0784061eb79c76db047ef9-end@calendrier-fr.tibotsr.dev",
+    "cd0784061eb79c76db047ef9-start@calendrier-fr.tibotsr.dev",
+    "cfdbc8729dd3c8b4b89defe6-end@calendrier-fr.tibotsr.dev"
   ],
   "totalEvents": 566
 }
