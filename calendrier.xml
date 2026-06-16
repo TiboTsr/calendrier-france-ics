@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Mon, 15 Jun 2026 05:11:34 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 05:13:49 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
       <guid>a38cdabcddef10a366bf6cf0@calendrier-fr.tibotsr.dev</guid>
       <description>Première édition à 48 équipes, organisée aux États-Unis, au Canada et au Mexique.</description>
       <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Baccalauréat général et technologique — Philosophie</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-15</link>
-      <guid>657e883b43e4b445fd6bc52e@calendrier-fr.tibotsr.dev</guid>
-      <description>L'épreuve de philosophie est l'épreuve d'ouverture du bac, traditionnellement le premier jour. Unique en Europe, cette épreuve de 4 heures fait de la France le seul pays où la philo est une matière obligatoire pour tous les lycéens jusqu'au baccalauréat.</description>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Baccalauréat général et technologique — Épreuves de spécialité</title>
@@ -1405,6 +1398,13 @@
       <guid>cefa8363f05cfd20180c1049@calendrier-fr.tibotsr.dev</guid>
       <description>Célèbre la descente de l'Esprit Saint sur les apôtres, 50 jours après Pâques.</description>
       <pubDate>Sun, 04 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Lundi de Pentecôte</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-05</link>
+      <guid>816fa7ae3a9b6028ff1c1fb9@calendrier-fr.tibotsr.dev</guid>
+      <description>Jour férié désigné depuis 2004 Journée de solidarité envers les personnes âgées. Les salariés travaillent ce jour sans rémunération supplémentaire, finançant ainsi la prise en charge de la dépendance — instauré après la canicule de 2003 qui fit 15 000 morts en France.</description>
+      <pubDate>Mon, 05 Jun 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
