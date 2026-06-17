@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Tue, 16 Jun 2026 05:13:49 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2026 04:56:41 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
@@ -18,13 +18,6 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-16</link>
       <guid>d9a5cd255239e09ad4eff44e@calendrier-fr.tibotsr.dev</guid>
       <description>Épreuves terminales écrites de spécialité du baccalauréat général et technologique. Créé par Napoléon en 1808, le baccalauréat est l'un des plus anciens examens nationaux. Environ 500 000 candidats passent ces épreuves chaque année.</description>
-      <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Match France - Sénégal</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-16</link>
-      <guid>2a6834370fa316bda2fac46a@calendrier-fr.tibotsr.dev</guid>
-      <description>Premier match de la coupe du monde pour l'équipe de France contre le Sénégal. Nous sommes dans la phase de poules. Les deux premières équipes de chaque groupe se qualifient pour la suite</description>
       <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -1405,6 +1398,13 @@
       <guid>816fa7ae3a9b6028ff1c1fb9@calendrier-fr.tibotsr.dev</guid>
       <description>Jour férié désigné depuis 2004 Journée de solidarité envers les personnes âgées. Les salariés travaillent ce jour sans rémunération supplémentaire, finançant ainsi la prise en charge de la dépendance — instauré après la canicule de 2003 qui fit 15 000 morts en France.</description>
       <pubDate>Mon, 05 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Débarquement en Normandie — Commémoration du Jour J</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-06</link>
+      <guid>b222e451d02f002d334392b1@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 6 juin 1944, 156 000 soldats alliés débarquent sur les plages de Normandie.</description>
+      <pubDate>Tue, 06 Jun 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
