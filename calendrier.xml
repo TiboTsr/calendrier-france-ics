@@ -5,27 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 18 Jun 2026 04:47:56 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 05:07:49 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
       <guid>a38cdabcddef10a366bf6cf0@calendrier-fr.tibotsr.dev</guid>
       <description>Première édition à 48 équipes, organisée aux États-Unis, au Canada et au Mexique.</description>
       <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Baccalauréat général et technologique — Épreuves de spécialité</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-16</link>
-      <guid>d9a5cd255239e09ad4eff44e@calendrier-fr.tibotsr.dev</guid>
-      <description>Épreuves terminales écrites de spécialité du baccalauréat général et technologique. Créé par Napoléon en 1808, le baccalauréat est l'un des plus anciens examens nationaux. Environ 500 000 candidats passent ces épreuves chaque année.</description>
-      <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Appel du 18 juin 1940 — Anniversaire</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-18</link>
-      <guid>997078dd6accd4ad97be178b@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 18 juin 1940, de Gaulle lance depuis Londres un appel à la Résistance sur la BBC.</description>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Début de l'Été — Solstice d'été</title>
@@ -1405,6 +1391,20 @@
       <guid>b222e451d02f002d334392b1@calendrier-fr.tibotsr.dev</guid>
       <description>Le 6 juin 1944, 156 000 soldats alliés débarquent sur les plages de Normandie.</description>
       <pubDate>Tue, 06 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Journée mondiale de l'océan</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-08</link>
+      <guid>ec732e2731bc438a2462e636@calendrier-fr.tibotsr.dev</guid>
+      <description>Proposée lors du Sommet de la Terre de Rio en 1992.</description>
+      <pubDate>Thu, 08 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>UEFA Euro 2028</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-09</link>
+      <guid>eeb8fded715a8112f6aaedb9@calendrier-fr.tibotsr.dev</guid>
+      <description>Organisé en Angleterre, Écosse, Pays de Galles et Irlande.</description>
+      <pubDate>Fri, 09 Jun 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
