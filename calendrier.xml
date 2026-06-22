@@ -5,41 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 21 Jun 2026 05:04:25 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 05:12:17 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
       <guid>a38cdabcddef10a366bf6cf0@calendrier-fr.tibotsr.dev</guid>
       <description>Première édition à 48 équipes, organisée aux États-Unis, au Canada et au Mexique.</description>
       <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Début de l'Été — Solstice d'été</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-21</link>
-      <guid>e283f886c2d34454c1d3466b@calendrier-fr.tibotsr.dev</guid>
-      <description>Le solstice d'été est le jour le plus long de l'année.</description>
-      <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fête de la Musique</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-21</link>
-      <guid>5e8ffc7fef10c1c7db6dd8e9@calendrier-fr.tibotsr.dev</guid>
-      <description>Créée en 1982 par le ministre Jack Lang.</description>
-      <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fête des Pères</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-21</link>
-      <guid>deae48b8676ae8a7496ab4b4@calendrier-fr.tibotsr.dev</guid>
-      <description>Née aux États-Unis en 1910, introduite en France dans les années 1950.</description>
-      <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Jour le plus long de l'année</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-21</link>
-      <guid>5ac9d4ea7dc16103a83dd8db@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 21 June est le jour le plus long de l'année 2026.</description>
-      <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Baccalauréat général et technologique — Grand Oral</title>
@@ -1405,6 +1377,34 @@
       <guid>eeb8fded715a8112f6aaedb9@calendrier-fr.tibotsr.dev</guid>
       <description>Organisé en Angleterre, Écosse, Pays de Galles et Irlande.</description>
       <pubDate>Fri, 09 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Appel du 18 juin 1940 — Anniversaire</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-18</link>
+      <guid>305f223ddc469e14878f6dd4@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 18 juin 1940, de Gaulle lance depuis Londres un appel à la Résistance sur la BBC.</description>
+      <pubDate>Sun, 18 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fête des Pères</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-18</link>
+      <guid>d52abc2ffaaa460ccc60d2f6@calendrier-fr.tibotsr.dev</guid>
+      <description>Née aux États-Unis en 1910, introduite en France dans les années 1950.</description>
+      <pubDate>Sun, 18 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Début de l'Été — Solstice d'été</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-21</link>
+      <guid>abab810e7bf3b73eb83a33e3@calendrier-fr.tibotsr.dev</guid>
+      <description>Le solstice d'été est le jour le plus long de l'année.</description>
+      <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fête de la Musique</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-21</link>
+      <guid>b8f769308f5c86fc8b5fdc0f@calendrier-fr.tibotsr.dev</guid>
+      <description>Créée en 1982 par le ministre Jack Lang.</description>
+      <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
