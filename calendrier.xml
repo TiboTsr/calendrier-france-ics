@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 28 Jun 2026 04:28:36 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 04:47:46 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
@@ -33,13 +33,6 @@
       <guid>078127c3429c226f9c2b8914@calendrier-fr.tibotsr.dev</guid>
       <description>Le diplôme national du brevet sanctionne la fin du collège. Il se déroule sur trois jours fin juin. Près de 800 000 élèves le passent chaque année en France.</description>
       <pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Fête du Cinéma</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-28</link>
-      <guid>2ebd050b2cbca26c7454dacc@calendrier-fr.tibotsr.dev</guid>
-      <description>Créée en 1985, elle propose chaque fin juin des places à tarif réduit.</description>
-      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Milieu de l'année</title>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-21</link>
       <guid>b8f769308f5c86fc8b5fdc0f@calendrier-fr.tibotsr.dev</guid>
       <description>Créée en 1982 par le ministre Jack Lang.</description>
+      <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jour le plus long de l'année</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-21</link>
+      <guid>4dbe51df074ab4cf6c2e0bee@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 21 June est le jour le plus long de l'année 2028.</description>
       <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
