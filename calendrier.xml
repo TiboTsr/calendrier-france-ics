@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Tue, 30 Jun 2026 04:14:15 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 04:52:03 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
@@ -26,13 +26,6 @@
       <guid>b5beb0a7472c30129b627cc7@calendrier-fr.tibotsr.dev</guid>
       <description>Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.</description>
       <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Brevet des collèges (DNB) — Épreuves écrites</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-26</link>
-      <guid>078127c3429c226f9c2b8914@calendrier-fr.tibotsr.dev</guid>
-      <description>Le diplôme national du brevet sanctionne la fin du collège. Il se déroule sur trois jours fin juin. Près de 800 000 élèves le passent chaque année en France.</description>
-      <pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Milieu de l'année</title>
@@ -581,6 +574,13 @@
       <pubDate>Sat, 17 Apr 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Élection présidentielle</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-04-18</link>
+      <guid>393965e98be680c295706e16@calendrier-fr.tibotsr.dev</guid>
+      <description>Élection présidentielle française : le président de la République est élu au suffrage universel direct pour un mandat de 5 ans. Date confirmée par décret.</description>
+      <pubDate>Sun, 18 Apr 2027 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Jour de la Terre</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2027-04-22</link>
       <guid>307fc530341f39618a2b0f38@calendrier-fr.tibotsr.dev</guid>
@@ -593,6 +593,13 @@
       <guid>e9362f9cd210f305893d8734@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures de travail, réprimée dans le sang. Férié et chômé en France depuis 1947. La tradition d'offrir du muguet vient d'une coutume de Charles IX datant de 1561.</description>
       <pubDate>Sat, 01 May 2027 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Élection présidentielle</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-05-02</link>
+      <guid>6f113fe348c45ea4d6ffe915@calendrier-fr.tibotsr.dev</guid>
+      <description>Élection présidentielle française : le président de la République est élu au suffrage universel direct pour un mandat de 5 ans. Date confirmée par décret.</description>
+      <pubDate>Sun, 02 May 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Ascension</title>
@@ -1397,13 +1404,6 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-21</link>
       <guid>b8f769308f5c86fc8b5fdc0f@calendrier-fr.tibotsr.dev</guid>
       <description>Créée en 1982 par le ministre Jack Lang.</description>
-      <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Jour le plus long de l'année</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-21</link>
-      <guid>4dbe51df074ab4cf6c2e0bee@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 21 June est le jour le plus long de l'année 2028.</description>
       <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
