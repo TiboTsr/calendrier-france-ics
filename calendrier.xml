@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Wed, 01 Jul 2026 04:52:03 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 04:10:09 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
       <guid>a38cdabcddef10a366bf6cf0@calendrier-fr.tibotsr.dev</guid>
       <description>Première édition à 48 équipes, organisée aux États-Unis, au Canada et au Mexique.</description>
       <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Baccalauréat général et technologique — Grand Oral</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-22</link>
-      <guid>9e5e6484fb14772544c2605e@calendrier-fr.tibotsr.dev</guid>
-      <description>Le Grand Oral évalue la capacité des candidats à présenter et défendre un projet à l'oral. Introduit par la réforme du bac de 2019, il remplace l'ancien oral de TPE.</description>
-      <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Soldes d'été</title>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-21</link>
       <guid>b8f769308f5c86fc8b5fdc0f@calendrier-fr.tibotsr.dev</guid>
       <description>Créée en 1982 par le ministre Jack Lang.</description>
+      <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jour le plus long de l'année</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-21</link>
+      <guid>4dbe51df074ab4cf6c2e0bee@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 21 June est le jour le plus long de l'année 2028.</description>
       <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
