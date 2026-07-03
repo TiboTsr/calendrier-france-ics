@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 02 Jul 2026 04:10:09 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 03:56:25 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
@@ -19,13 +19,6 @@
       <guid>b5beb0a7472c30129b627cc7@calendrier-fr.tibotsr.dev</guid>
       <description>Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.</description>
       <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Milieu de l'année</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-07-02</link>
-      <guid>6f973a994092f25e31bc9be3@calendrier-fr.tibotsr.dev</guid>
-      <description>Ce jour marque le point médian exact de l'année 2026.</description>
-      <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Tour de France 2026</title>
@@ -840,18 +833,18 @@
       <pubDate>Sat, 18 Sep 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Début de l'Automne — Équinoxe d'automne</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-22</link>
-      <guid>878729328b3e2f816f21f084@calendrier-fr.tibotsr.dev</guid>
-      <description>L'équinoxe d'automne marque le début de l'automne.</description>
-      <pubDate>Wed, 22 Sep 2027 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Journée mondiale sans voiture</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-22</link>
       <guid>de7053144e196edd1addd0c2@calendrier-fr.tibotsr.dev</guid>
       <description>Lancée en France en 1998 par La Rochelle.</description>
       <pubDate>Wed, 22 Sep 2027 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Début de l'Automne — Équinoxe d'automne</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-23</link>
+      <guid>c8557eb43055444634d74978@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe d'automne marque le début de l'automne.</description>
+      <pubDate>Thu, 23 Sep 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Coupe du monde de rugby à XV 2027</title>
@@ -1016,17 +1009,17 @@
     </item>
     <item>
       <title>Début de l'Hiver — Solstice d'hiver</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-21</link>
-      <guid>36ea1c33db5435fbfacb32ef@calendrier-fr.tibotsr.dev</guid>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-22</link>
+      <guid>5e7645acaa62c43ea5181ec5@calendrier-fr.tibotsr.dev</guid>
       <description>Le solstice d'hiver est le jour le plus court de l'année.</description>
-      <pubDate>Tue, 21 Dec 2027 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 22 Dec 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Jour le plus court de l'année</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-21</link>
-      <guid>3169ed493e26d03f157a3f3a@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 21 December est le jour le plus court de l'année 2027.</description>
-      <pubDate>Tue, 21 Dec 2027 00:00:00 GMT</pubDate>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-22</link>
+      <guid>405896484caeaa6b37d6dd1c@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 22 December est le jour le plus court de l'année 2027.</description>
+      <pubDate>Wed, 22 Dec 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Noël</title>
@@ -1387,10 +1380,17 @@
     </item>
     <item>
       <title>Début de l'Été — Solstice d'été</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-21</link>
-      <guid>abab810e7bf3b73eb83a33e3@calendrier-fr.tibotsr.dev</guid>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-20</link>
+      <guid>fc94f0ea05d1d0afa7c8f4b2@calendrier-fr.tibotsr.dev</guid>
       <description>Le solstice d'été est le jour le plus long de l'année.</description>
-      <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 20 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jour le plus long de l'année</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-20</link>
+      <guid>4e52949ac0c13e77982b063c@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 20 June est le jour le plus long de l'année 2028.</description>
+      <pubDate>Tue, 20 Jun 2028 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Fête de la Musique</title>
@@ -1400,11 +1400,11 @@
       <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Jour le plus long de l'année</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-21</link>
-      <guid>4dbe51df074ab4cf6c2e0bee@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 21 June est le jour le plus long de l'année 2028.</description>
-      <pubDate>Wed, 21 Jun 2028 00:00:00 GMT</pubDate>
+      <title>Fête du Cinéma</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-25</link>
+      <guid>e34ec446b9daaf3e63260779@calendrier-fr.tibotsr.dev</guid>
+      <description>Créée en 1985, elle propose chaque fin juin des places à tarif réduit.</description>
+      <pubDate>Sun, 25 Jun 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
