@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-05T04:17:39.019912+00:00",
-  "contentVersion": "fed92dcde155821c",
+  "generatedAt": "2026-07-06T04:14:42.057520+00:00",
+  "contentVersion": "dbb7c11f114241de",
   "newEventsThisWeek": 64,
   "newEventUids": [
     "1eda6a6474847f46977b5d80-end@calendrier-fr.tibotsr.dev",
@@ -54,5 +54,5 @@
     "cfdbc8729dd3c8b4b89defe6-end@calendrier-fr.tibotsr.dev",
     "cfdbc8729dd3c8b4b89defe6-start@calendrier-fr.tibotsr.dev"
   ],
-  "totalEvents": 554
+  "totalEvents": 553
 }

@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 05 Jul 2026 04:17:38 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 04:14:41 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
@@ -33,13 +33,6 @@
       <guid>2c891049f493bf7f7be227bc@calendrier-fr.tibotsr.dev</guid>
       <description>Vacances d'Été pour toutes les zones (A, B et C). Durée : 59 jours, du 04/07/2026 au 31/08/2026.</description>
       <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Festival d'Avignon — Ouverture</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-07-05</link>
-      <guid>2cae8332972eddb233d2c466@calendrier-fr.tibotsr.dev</guid>
-      <description>Créé par Jean Vilar en 1947 dans la cour du Palais des Papes.</description>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Commémoration de la Rafle du Vél d'Hiv</title>
@@ -1405,6 +1398,13 @@
       <guid>e34ec446b9daaf3e63260779@calendrier-fr.tibotsr.dev</guid>
       <description>Créée en 1985, elle propose chaque fin juin des places à tarif réduit.</description>
       <pubDate>Sun, 25 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Soldes d'été</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-06-28</link>
+      <guid>32e955b28ab6005cc2b65d83@calendrier-fr.tibotsr.dev</guid>
+      <description>Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.</description>
+      <pubDate>Wed, 28 Jun 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
