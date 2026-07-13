@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 12 Jul 2026 03:37:37 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2026 03:49:19 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
@@ -33,13 +33,6 @@
       <guid>2c891049f493bf7f7be227bc@calendrier-fr.tibotsr.dev</guid>
       <description>Vacances d'Été pour toutes les zones (A, B et C). Durée : 59 jours, du 04/07/2026 au 31/08/2026.</description>
       <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Commémoration de la Rafle du Vél d'Hiv</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-07-12</link>
-      <guid>82eabe612fe7b7e0fdb6a338@calendrier-fr.tibotsr.dev</guid>
-      <description>Les 16-17 juillet 1942, la police française arrêta 13 152 Juifs à Paris.</description>
-      <pubDate>Sun, 12 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Pont possible — Fête nationale</title>
@@ -1405,6 +1398,13 @@
       <guid>32e955b28ab6005cc2b65d83@calendrier-fr.tibotsr.dev</guid>
       <description>Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.</description>
       <pubDate>Wed, 28 Jun 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Milieu de l'année</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-07-01</link>
+      <guid>845be58ea2e2ffc5d0ff4072@calendrier-fr.tibotsr.dev</guid>
+      <description>Ce jour marque le point médian exact de l'année 2028.</description>
+      <pubDate>Sat, 01 Jul 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
