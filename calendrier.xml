@@ -5,7 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Mon, 13 Jul 2026 03:49:19 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2026 03:15:24 GMT</lastBuildDate>
     <item>
       <title>Coupe du monde de football 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
@@ -33,13 +33,6 @@
       <guid>2c891049f493bf7f7be227bc@calendrier-fr.tibotsr.dev</guid>
       <description>Vacances d'Été pour toutes les zones (A, B et C). Durée : 59 jours, du 04/07/2026 au 31/08/2026.</description>
       <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Pont possible — Fête nationale</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-07-13</link>
-      <guid>d1dadad3689ec53abfb297d9@calendrier-fr.tibotsr.dev</guid>
-      <description>Fête nationale tombe un mardi le 14/07/2026. Le lundi 13/07/2026 est un pont potentiel — vérifiez auprès de votre employeur.</description>
-      <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Fête Nationale</title>
@@ -1405,6 +1398,13 @@
       <guid>845be58ea2e2ffc5d0ff4072@calendrier-fr.tibotsr.dev</guid>
       <description>Ce jour marque le point médian exact de l'année 2028.</description>
       <pubDate>Sat, 01 Jul 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Festival d'Avignon — Ouverture</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-07-05</link>
+      <guid>42ee0449803cace1d278720f@calendrier-fr.tibotsr.dev</guid>
+      <description>Créé par Jean Vilar en 1947 dans la cour du Palais des Papes.</description>
+      <pubDate>Wed, 05 Jul 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
