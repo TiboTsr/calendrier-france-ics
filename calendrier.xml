@@ -5,14 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 19 Jul 2026 03:33:47 GMT</lastBuildDate>
-    <item>
-      <title>Coupe du monde de football 2026</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-11</link>
-      <guid>a38cdabcddef10a366bf6cf0@calendrier-fr.tibotsr.dev</guid>
-      <description>Première édition à 48 équipes, organisée aux États-Unis, au Canada et au Mexique.</description>
-      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Mon, 20 Jul 2026 03:48:25 GMT</lastBuildDate>
     <item>
       <title>Soldes d'été</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-24</link>
@@ -798,18 +791,18 @@
       <pubDate>Sat, 18 Sep 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Début de l'Automne — Équinoxe d'automne</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-22</link>
-      <guid>878729328b3e2f816f21f084@calendrier-fr.tibotsr.dev</guid>
-      <description>L'équinoxe d'automne marque le début de l'automne.</description>
-      <pubDate>Wed, 22 Sep 2027 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>Journée mondiale sans voiture</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-22</link>
       <guid>de7053144e196edd1addd0c2@calendrier-fr.tibotsr.dev</guid>
       <description>Lancée en France en 1998 par La Rochelle.</description>
       <pubDate>Wed, 22 Sep 2027 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Début de l'Automne — Équinoxe d'automne</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-09-23</link>
+      <guid>c8557eb43055444634d74978@calendrier-fr.tibotsr.dev</guid>
+      <description>L'équinoxe d'automne marque le début de l'automne.</description>
+      <pubDate>Thu, 23 Sep 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Coupe du monde de rugby à XV 2027</title>
@@ -974,17 +967,17 @@
     </item>
     <item>
       <title>Début de l'Hiver — Solstice d'hiver</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-21</link>
-      <guid>36ea1c33db5435fbfacb32ef@calendrier-fr.tibotsr.dev</guid>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-22</link>
+      <guid>5e7645acaa62c43ea5181ec5@calendrier-fr.tibotsr.dev</guid>
       <description>Le solstice d'hiver est le jour le plus court de l'année.</description>
-      <pubDate>Tue, 21 Dec 2027 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 22 Dec 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Jour le plus court de l'année</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-21</link>
-      <guid>3169ed493e26d03f157a3f3a@calendrier-fr.tibotsr.dev</guid>
-      <description>Le 21 December est le jour le plus court de l'année 2027.</description>
-      <pubDate>Tue, 21 Dec 2027 00:00:00 GMT</pubDate>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2027-12-22</link>
+      <guid>405896484caeaa6b37d6dd1c@calendrier-fr.tibotsr.dev</guid>
+      <description>Le 22 December est le jour le plus court de l'année 2027.</description>
+      <pubDate>Wed, 22 Dec 2027 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Noël</title>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-07-14</link>
       <guid>1ffd69c5ae9ddd70693e2bb2@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore la prise de la Bastille le 14 juillet 1789.</description>
+      <pubDate>Fri, 14 Jul 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fête nationale</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-07-14</link>
+      <guid>4dc657163bbf8ae6a80dfdb7@calendrier-fr.tibotsr.dev</guid>
+      <description>Commémore la prise de la Bastille le 14 juillet 1789, symbole de la Révolution française. Jour férié depuis 1880. Défilé militaire sur les Champs-Élysées, bals des pompiers et feux d'artifice dans toute la France.</description>
       <pubDate>Fri, 14 Jul 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
