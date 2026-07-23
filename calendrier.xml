@@ -5,14 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Wed, 22 Jul 2026 03:26:28 GMT</lastBuildDate>
-    <item>
-      <title>Soldes d'été</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-06-24</link>
-      <guid>b5beb0a7472c30129b627cc7@calendrier-fr.tibotsr.dev</guid>
-      <description>Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.</description>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Thu, 23 Jul 2026 03:32:12 GMT</lastBuildDate>
     <item>
       <title>Tour de France 2026</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-07-04</link>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-07-14</link>
       <guid>4dc657163bbf8ae6a80dfdb7@calendrier-fr.tibotsr.dev</guid>
       <description>Commémore la prise de la Bastille le 14 juillet 1789, symbole de la Révolution française. Jour férié depuis 1880. Défilé militaire sur les Champs-Élysées, bals des pompiers et feux d'artifice dans toute la France.</description>
+      <pubDate>Fri, 14 Jul 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jeux Olympiques de Los Angeles 2028</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-07-14</link>
+      <guid>cfdbc8729dd3c8b4b89defe6@calendrier-fr.tibotsr.dev</guid>
+      <description>XXXIVes Jeux Olympiques d'été à Los Angeles, États-Unis.</description>
       <pubDate>Fri, 14 Jul 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
