@@ -5,20 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 01 Aug 2026 03:36:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 03:36:51 GMT</lastBuildDate>
     <item>
       <title>Vacances d'Été - Zones A, B et C</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-07-04</link>
       <guid>2c891049f493bf7f7be227bc@calendrier-fr.tibotsr.dev</guid>
       <description>Vacances d'Été pour toutes les zones (A, B et C). Durée : 59 jours, du 04/07/2026 au 31/08/2026.</description>
       <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Nuit des Étoiles</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-08-01</link>
-      <guid>96669724d2b77a56a8366153@calendrier-fr.tibotsr.dev</guid>
-      <description>Organisée chaque premier week-end d'août par l'Association Française d'Astronomie depuis 1991.</description>
-      <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Assomption</title>
@@ -1405,6 +1398,13 @@
       <guid>058b9b9beaaf4365c9963665@calendrier-fr.tibotsr.dev</guid>
       <description>Organisée chaque premier week-end d'août par l'Association Française d'Astronomie depuis 1991.</description>
       <pubDate>Sat, 05 Aug 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Pont possible — Assomption</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-08-14</link>
+      <guid>e5b280a41bd73470022bfa20@calendrier-fr.tibotsr.dev</guid>
+      <description>Assomption tombe un mardi le 15/08/2028. Le lundi 14/08/2028 est un pont potentiel — vérifiez auprès de votre employeur.</description>
+      <pubDate>Mon, 14 Aug 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
