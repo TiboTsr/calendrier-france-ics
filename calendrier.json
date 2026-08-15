@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-14T02:29:57.445165+00:00",
-  "contentVersion": "44b013df2c0efa76",
+  "generatedAt": "2026-08-15T01:40:31.686623+00:00",
+  "contentVersion": "56daa55cbfb7e203",
   "totalEvents": 4756,
   "profiles": [
     "essentiel",
@@ -25597,6 +25597,28 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Été — Solstice d'été",
+      "start": "2016-06-20",
+      "end": null,
+      "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2016-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2016.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Pleine Lune",
       "start": "2016-06-20",
       "end": null,
@@ -25608,17 +25630,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Été — Solstice d'été",
-      "start": "2016-06-21",
-      "end": null,
-      "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Fête de la Musique",
       "start": "2016-06-21",
       "end": null,
@@ -25626,17 +25637,6 @@
       "categories": [
         "Culture",
         "Fêtes"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2016-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2016.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -29112,17 +29112,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2018-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2018-09-22",
       "end": null,
@@ -29130,6 +29119,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2018-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -30814,17 +30814,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2019-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2019-09-22",
       "end": null,
@@ -30832,6 +30821,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2019-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -31208,28 +31208,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2019-12-21",
-      "end": null,
-      "description": "Le solstice d'hiver est le jour le plus court de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus court de l'année",
-      "start": "2019-12-21",
-      "end": null,
-      "description": "Le 21 December est le jour le plus court de l'année 2019.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Vacances de Noël - Zones A, B et C",
       "start": "2019-12-21",
       "end": "2020-01-05",
@@ -31242,6 +31220,28 @@
         "B",
         "C"
       ]
+    },
+    {
+      "summary": "Début de l'Hiver — Solstice d'hiver",
+      "start": "2019-12-22",
+      "end": null,
+      "description": "Le solstice d'hiver est le jour le plus court de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus court de l'année",
+      "start": "2019-12-22",
+      "end": null,
+      "description": "Le 22 December est le jour le plus court de l'année 2019.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
     },
     {
       "summary": "Noël",
@@ -32163,9 +32163,20 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2020-06-21",
+      "start": "2020-06-20",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2020-06-20",
+      "end": null,
+      "description": "Le 20 June est le jour le plus long de l'année 2020.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -32191,17 +32202,6 @@
       "categories": [
         "Fêtes",
         "Culture"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2020-06-21",
-      "end": null,
-      "description": "Le 21 June est le jour le plus long de l'année 2020.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
