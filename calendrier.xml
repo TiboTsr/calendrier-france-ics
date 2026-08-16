@@ -5,27 +5,13 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 15 Aug 2026 01:40:31 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 01:48:01 GMT</lastBuildDate>
     <item>
       <title>Vacances d'Été - Zones A, B et C</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-07-04</link>
       <guid>2c891049f493bf7f7be227bc@calendrier-fr.tibotsr.dev</guid>
       <description>Vacances d'Été pour toutes les zones (A, B et C). Durée : 59 jours, du 04/07/2026 au 31/08/2026.</description>
       <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Assomption</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-08-15</link>
-      <guid>baeafd7eb958fefc57fe989e@calendrier-fr.tibotsr.dev</guid>
-      <description>Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne ancienne, jour férié en France depuis le Concordat de 1802. Elle tombe en plein cœur de l'été, au milieu des grandes vacances.</description>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Assomption de Marie</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-08-15</link>
-      <guid>b88502f66517aa35959cd07c@calendrier-fr.tibotsr.dev</guid>
-      <description>Célèbre l'élévation de la Vierge Marie au ciel.</description>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Rentrée des classes</title>
@@ -1405,6 +1391,20 @@
       <guid>e5b280a41bd73470022bfa20@calendrier-fr.tibotsr.dev</guid>
       <description>Assomption tombe un mardi le 15/08/2028. Le lundi 14/08/2028 est un pont potentiel — vérifiez auprès de votre employeur.</description>
       <pubDate>Mon, 14 Aug 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Assomption</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-08-15</link>
+      <guid>afd828d0e2e6416a49b49f5a@calendrier-fr.tibotsr.dev</guid>
+      <description>Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne ancienne, jour férié en France depuis le Concordat de 1802. Elle tombe en plein cœur de l'été, au milieu des grandes vacances.</description>
+      <pubDate>Tue, 15 Aug 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Assomption de Marie</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-08-15</link>
+      <guid>88c72ae3b6fd3c18fd85937f@calendrier-fr.tibotsr.dev</guid>
+      <description>Célèbre l'élévation de la Vierge Marie au ciel.</description>
+      <pubDate>Tue, 15 Aug 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
