@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-22T01:39:49.668538+00:00",
-  "contentVersion": "55772a38814a51f5",
+  "generatedAt": "2026-08-23T01:49:37.252538+00:00",
+  "contentVersion": "8d6dc89ccc20a17d",
   "totalEvents": 4756,
   "profiles": [
     "essentiel",
@@ -43467,17 +43467,6 @@
       "zones": []
     },
     {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2026-09-22",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
       "summary": "Journée mondiale sans voiture",
       "start": "2026-09-22",
       "end": null,
@@ -43485,6 +43474,17 @@
       "categories": [
         "Environnement",
         "Société"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2026-09-23",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
@@ -46387,20 +46387,9 @@
     },
     {
       "summary": "Début de l'Été — Solstice d'été",
-      "start": "2028-06-20",
+      "start": "2028-06-21",
       "end": null,
       "description": "Le solstice d'été est le jour le plus long de l'année.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Jour le plus long de l'année",
-      "start": "2028-06-20",
-      "end": null,
-      "description": "Le 20 June est le jour le plus long de l'année 2028.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -46415,6 +46404,17 @@
       "categories": [
         "Culture",
         "Fêtes"
+      ],
+      "zones": []
+    },
+    {
+      "summary": "Jour le plus long de l'année",
+      "start": "2028-06-21",
+      "end": null,
+      "description": "Le 21 June est le jour le plus long de l'année 2028.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
       ],
       "zones": []
     },
