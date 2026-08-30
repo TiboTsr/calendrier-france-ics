@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-29T06:48:00.626426+00:00",
-  "contentVersion": "45ab6aa3ffd95850",
-  "newEventsThisWeek": 61,
+  "generatedAt": "2026-08-30T05:00:43.710954+00:00",
+  "contentVersion": "44b013df2c0efa76",
+  "newEventsThisWeek": 58,
   "newEventUids": [
     "1eda6a6474847f46977b5d80-end@calendrier-fr.tibotsr.dev",
     "1eda6a6474847f46977b5d80-start@calendrier-fr.tibotsr.dev",
@@ -13,18 +13,15 @@
     "32e955b28ab6005cc2b65d83-start@calendrier-fr.tibotsr.dev",
     "35922e0de9dff394f3af3515-end@calendrier-fr.tibotsr.dev",
     "35922e0de9dff394f3af3515-start@calendrier-fr.tibotsr.dev",
-    "35d10f7616c721c82ee49dd7@calendrier-fr.tibotsr.dev",
     "393965e98be680c295706e16@calendrier-fr.tibotsr.dev",
     "3a335d955a66a7446e2e4bee-end@calendrier-fr.tibotsr.dev",
     "3a335d955a66a7446e2e4bee-start@calendrier-fr.tibotsr.dev",
     "3b4d0936912f666a57bb14de-end@calendrier-fr.tibotsr.dev",
     "3b4d0936912f666a57bb14de-start@calendrier-fr.tibotsr.dev",
-    "419bce1ab4745a9a12a51f3e@calendrier-fr.tibotsr.dev",
     "52925c2ac3f3ee5fcf8c867a-end@calendrier-fr.tibotsr.dev",
     "52925c2ac3f3ee5fcf8c867a-start@calendrier-fr.tibotsr.dev",
     "5342e9b383d1ba4473430ca9-end@calendrier-fr.tibotsr.dev",
     "5342e9b383d1ba4473430ca9-start@calendrier-fr.tibotsr.dev",
-    "6b1be7d8414f576983c493de@calendrier-fr.tibotsr.dev",
     "6f113fe348c45ea4d6ffe915@calendrier-fr.tibotsr.dev",
     "84bbc2929aa111f559e91dc2@calendrier-fr.tibotsr.dev",
     "8853af450d34f841f38ffe26@calendrier-fr.tibotsr.dev",
@@ -52,7 +49,10 @@
     "cfdbc8729dd3c8b4b89defe6-start@calendrier-fr.tibotsr.dev",
     "d08e0ccd6e5a65756ef576ea-end@calendrier-fr.tibotsr.dev",
     "d08e0ccd6e5a65756ef576ea-start@calendrier-fr.tibotsr.dev",
-    "d9a756400793583a89ea25f2-end@calendrier-fr.tibotsr.dev"
+    "d9a756400793583a89ea25f2-end@calendrier-fr.tibotsr.dev",
+    "d9a756400793583a89ea25f2-start@calendrier-fr.tibotsr.dev",
+    "e130c481f1cebce59d04969f@calendrier-fr.tibotsr.dev",
+    "ed11f2ba22ba20ed724a0e73-end@calendrier-fr.tibotsr.dev"
   ],
   "totalEvents": 540
 }
