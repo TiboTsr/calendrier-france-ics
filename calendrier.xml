@@ -5,14 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Mon, 31 Aug 2026 05:07:13 GMT</lastBuildDate>
-    <item>
-      <title>Vacances d'Été - Zones A, B et C</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-07-04</link>
-      <guid>2c891049f493bf7f7be227bc@calendrier-fr.tibotsr.dev</guid>
-      <description>Vacances d'Été pour toutes les zones (A, B et C). Durée : 59 jours, du 04/07/2026 au 31/08/2026.</description>
-      <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Tue, 01 Sep 2026 04:44:04 GMT</lastBuildDate>
     <item>
       <title>Rentrée des classes</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-02</link>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-08-15</link>
       <guid>88c72ae3b6fd3c18fd85937f@calendrier-fr.tibotsr.dev</guid>
       <description>Célèbre l'élévation de la Vierge Marie au ciel.</description>
+      <pubDate>Tue, 15 Aug 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jeux Paralympiques de Los Angeles 2028</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-08-15</link>
+      <guid>9019c477a028f9051cb109d2@calendrier-fr.tibotsr.dev</guid>
+      <description>XVIIIes Jeux Paralympiques d'été à Los Angeles, États-Unis.</description>
       <pubDate>Tue, 15 Aug 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
