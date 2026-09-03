@@ -5,14 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Wed, 02 Sep 2026 04:05:46 GMT</lastBuildDate>
-    <item>
-      <title>Rentrée des classes</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-02</link>
-      <guid>c2228d0e2faf3baf1dab2871@calendrier-fr.tibotsr.dev</guid>
-      <description>La rentrée de septembre mobilise 12 millions d'élèves et 870 000 enseignants en France.</description>
-      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Thu, 03 Sep 2026 04:04:17 GMT</lastBuildDate>
     <item>
       <title>Braderie de Lille</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-05</link>
@@ -1405,6 +1398,13 @@
       <guid>9019c477a028f9051cb109d2@calendrier-fr.tibotsr.dev</guid>
       <description>XVIIIes Jeux Paralympiques d'été à Los Angeles, États-Unis.</description>
       <pubDate>Tue, 15 Aug 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Braderie de Lille</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-09-02</link>
+      <guid>c6d50194794f194a64977f63@calendrier-fr.tibotsr.dev</guid>
+      <description>Plus grande braderie d'Europe, organisée le premier week-end de septembre à Lille.</description>
+      <pubDate>Sat, 02 Sep 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
