@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-10T04:15:27.248279+00:00",
-  "contentVersion": "dbb7c11f114241de",
+  "generatedAt": "2026-09-11T04:15:12.711372+00:00",
+  "contentVersion": "7d3cbbd81f660bab",
   "totalEvents": 4756,
   "profiles": [
     "essentiel",
@@ -10390,6 +10390,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2006-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2006-09-22",
       "end": null,
@@ -10408,17 +10419,6 @@
       "categories": [
         "Astronomie",
         "Lunaire"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2006-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -10782,7 +10782,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2006-12-22",
+      "start": "2006-12-21",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -10793,9 +10793,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2006-12-22",
+      "start": "2006-12-21",
       "end": null,
-      "description": "Le 22 December est le jour le plus court de l'année 2006.",
+      "description": "Le 21 December est le jour le plus court de l'année 2006.",
       "categories": [
         "Saisons",
         "Astronomie"
@@ -11146,7 +11146,7 @@
     },
     {
       "summary": "Début du Printemps — Équinoxe de printemps",
-      "start": "2007-03-21",
+      "start": "2007-03-20",
       "end": null,
       "description": "L'équinoxe de printemps marque le début astronomique du printemps.",
       "categories": [
@@ -11932,6 +11932,17 @@
       "zones": []
     },
     {
+      "summary": "Début de l'Automne — Équinoxe d'automne",
+      "start": "2007-09-22",
+      "end": null,
+      "description": "L'équinoxe d'automne marque le début de l'automne.",
+      "categories": [
+        "Saisons",
+        "Astronomie"
+      ],
+      "zones": []
+    },
+    {
       "summary": "Journée mondiale sans voiture",
       "start": "2007-09-22",
       "end": null,
@@ -11939,17 +11950,6 @@
       "categories": [
         "Environnement",
         "Société"
-      ],
-      "zones": []
-    },
-    {
-      "summary": "Début de l'Automne — Équinoxe d'automne",
-      "start": "2007-09-23",
-      "end": null,
-      "description": "L'équinoxe d'automne marque le début de l'automne.",
-      "categories": [
-        "Saisons",
-        "Astronomie"
       ],
       "zones": []
     },
@@ -12323,7 +12323,7 @@
     },
     {
       "summary": "Début de l'Hiver — Solstice d'hiver",
-      "start": "2007-12-22",
+      "start": "2007-12-21",
       "end": null,
       "description": "Le solstice d'hiver est le jour le plus court de l'année.",
       "categories": [
@@ -12334,9 +12334,9 @@
     },
     {
       "summary": "Jour le plus court de l'année",
-      "start": "2007-12-22",
+      "start": "2007-12-21",
       "end": null,
-      "description": "Le 22 December est le jour le plus court de l'année 2007.",
+      "description": "Le 21 December est le jour le plus court de l'année 2007.",
       "categories": [
         "Saisons",
         "Astronomie"
