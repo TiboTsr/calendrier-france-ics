@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-18T04:19:43.178596+00:00",
-  "contentVersion": "7d3cbbd81f660bab",
-  "totalEvents": 4756,
+  "generatedAt": "2026-09-19T04:16:12.865566+00:00",
+  "contentVersion": "6b2554c6c4ea2ce8",
+  "totalEvents": 4766,
   "profiles": [
     "essentiel",
     "culturel",
@@ -44884,8 +44884,8 @@
     {
       "summary": "Vacances d'Été - Zones A, B et C",
       "start": "2027-07-03",
-      "end": "2027-07-02",
-      "description": "Vacances d'Été pour toutes les zones (A, B et C). Durée : 0 jours, du 03/07/2027 au 02/07/2027.",
+      "end": "2027-09-01",
+      "description": "Vacances d'Été pour toutes les zones (A, B et C). Durée : 61 jours, du 03/07/2027 au 01/09/2027.",
       "categories": [
         "Vacances scolaires"
       ],
@@ -45303,6 +45303,20 @@
       "zones": []
     },
     {
+      "summary": "Vacances de la Toussaint - Zones A, B et C",
+      "start": "2027-10-23",
+      "end": "2027-11-07",
+      "description": "Vacances de la Toussaint pour toutes les zones (A, B et C). Durée : 16 jours, du 23/10/2027 au 07/11/2027.",
+      "categories": [
+        "Vacances scolaires"
+      ],
+      "zones": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
       "summary": "Nouvelle Lune",
       "start": "2027-10-29",
       "end": null,
@@ -45540,6 +45554,20 @@
       "zones": []
     },
     {
+      "summary": "Vacances de Noël - Zones A, B et C",
+      "start": "2027-12-18",
+      "end": "2028-01-02",
+      "description": "Vacances de Noël pour toutes les zones (A, B et C). Durée : 16 jours, du 18/12/2027 au 02/01/2028.",
+      "categories": [
+        "Vacances scolaires"
+      ],
+      "zones": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
       "summary": "Dernier Quartier de Lune",
       "start": "2027-12-20",
       "end": null,
@@ -45772,6 +45800,18 @@
       "zones": []
     },
     {
+      "summary": "Vacances d'Hiver - Zone B",
+      "start": "2028-02-05",
+      "end": "2028-02-20",
+      "description": "Vacances d'Hiver pour la zone scolaire B. Durée : 16 jours, du 05/02/2028 au 20/02/2028. Le découpage en zones A, B et C a été instauré en 1972.",
+      "categories": [
+        "Vacances scolaires"
+      ],
+      "zones": [
+        "B"
+      ]
+    },
+    {
       "summary": "Pleine Lune",
       "start": "2028-02-10",
       "end": null,
@@ -45781,6 +45821,18 @@
         "Lunaire"
       ],
       "zones": []
+    },
+    {
+      "summary": "Vacances d'Hiver - Zone C",
+      "start": "2028-02-12",
+      "end": "2028-02-27",
+      "description": "Vacances d'Hiver pour la zone scolaire C. Durée : 16 jours, du 12/02/2028 au 27/02/2028. Le découpage en zones A, B et C a été instauré en 1972.",
+      "categories": [
+        "Vacances scolaires"
+      ],
+      "zones": [
+        "C"
+      ]
     },
     {
       "summary": "Saint-Valentin",
@@ -45803,6 +45855,18 @@
         "Lunaire"
       ],
       "zones": []
+    },
+    {
+      "summary": "Vacances d'Hiver - Zone A",
+      "start": "2028-02-19",
+      "end": "2028-03-05",
+      "description": "Vacances d'Hiver pour la zone scolaire A. Durée : 16 jours, du 19/02/2028 au 05/03/2028. Le découpage en zones A, B et C a été instauré en 1972.",
+      "categories": [
+        "Vacances scolaires"
+      ],
+      "zones": [
+        "A"
+      ]
     },
     {
       "summary": "Nouvelle Lune",
@@ -46009,6 +46073,18 @@
       "zones": []
     },
     {
+      "summary": "Vacances de Printemps - Zone B",
+      "start": "2028-04-08",
+      "end": "2028-04-23",
+      "description": "Vacances de Printemps pour la zone scolaire B. Durée : 16 jours, du 08/04/2028 au 23/04/2028. Le découpage en zones A, B et C a été instauré en 1972.",
+      "categories": [
+        "Vacances scolaires"
+      ],
+      "zones": [
+        "B"
+      ]
+    },
+    {
       "summary": "Dimanche des Rameaux",
       "start": "2028-04-09",
       "end": null,
@@ -46053,6 +46129,18 @@
       "zones": []
     },
     {
+      "summary": "Vacances de Printemps - Zone C",
+      "start": "2028-04-15",
+      "end": "2028-05-01",
+      "description": "Vacances de Printemps pour la zone scolaire C. Durée : 17 jours, du 15/04/2028 au 01/05/2028. Le découpage en zones A, B et C a été instauré en 1972.",
+      "categories": [
+        "Vacances scolaires"
+      ],
+      "zones": [
+        "C"
+      ]
+    },
+    {
       "summary": "Dernier Quartier de Lune",
       "start": "2028-04-16",
       "end": null,
@@ -46094,6 +46182,18 @@
         "Société"
       ],
       "zones": []
+    },
+    {
+      "summary": "Vacances de Printemps - Zone A",
+      "start": "2028-04-22",
+      "end": "2028-05-08",
+      "description": "Vacances de Printemps pour la zone scolaire A. Durée : 17 jours, du 22/04/2028 au 08/05/2028. Le découpage en zones A, B et C a été instauré en 1972.",
+      "categories": [
+        "Vacances scolaires"
+      ],
+      "zones": [
+        "A"
+      ]
     },
     {
       "summary": "Nouvelle Lune",
@@ -46213,6 +46313,20 @@
         "Christianisme"
       ],
       "zones": []
+    },
+    {
+      "summary": "Pont de l'Ascension - Zones A, B et C",
+      "start": "2028-05-25",
+      "end": "2028-05-28",
+      "description": "Pont de l'Ascension pour toutes les zones (A, B et C). Durée : 4 jours, du 25/05/2028 au 28/05/2028.",
+      "categories": [
+        "Vacances scolaires"
+      ],
+      "zones": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "summary": "Fête des Voisins",
@@ -46471,6 +46585,20 @@
         "Dates spéciales"
       ],
       "zones": []
+    },
+    {
+      "summary": "Vacances d'Été - Zones A, B et C",
+      "start": "2028-07-04",
+      "end": "2028-07-03",
+      "description": "Vacances d'Été pour toutes les zones (A, B et C). Durée : 0 jours, du 04/07/2028 au 03/07/2028.",
+      "categories": [
+        "Vacances scolaires"
+      ],
+      "zones": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "summary": "Festival d'Avignon — Ouverture",

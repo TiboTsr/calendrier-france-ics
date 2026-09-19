@@ -4110,7 +4110,7 @@ Jour le plus long de l'année,2027-06-21,,Saisons|Astronomie,Le 21 June est le j
 Dernier Quartier de Lune,2027-06-27,,Astronomie|Lunaire,La moitié gauche de la Lune est éclairée. C'est la fin du cycle lunaire.,
 Fête du Cinéma,2027-06-27,,Culture|Cinéma,"Créée en 1985, elle propose chaque fin juin des places à tarif réduit.",
 Milieu de l'année,2027-07-02,,Dates spéciales,Ce jour marque le point médian exact de l'année 2027.,
-"Vacances d'Été - Zones A, B et C",2027-07-03,2027-07-02,Vacances scolaires,"Vacances d'Été pour toutes les zones (A, B et C). Durée : 0 jours, du 03/07/2027 au 02/07/2027.",A|B|C
+"Vacances d'Été - Zones A, B et C",2027-07-03,2027-09-01,Vacances scolaires,"Vacances d'Été pour toutes les zones (A, B et C). Durée : 61 jours, du 03/07/2027 au 01/09/2027.",A|B|C
 Nouvelle Lune,2027-07-04,,Astronomie|Lunaire,La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.,
 Festival d'Avignon — Ouverture,2027-07-05,,Culture|Théâtre,Créé par Jean Vilar en 1947 dans la cour du Palais des Papes.,
 Soldes d'été,2027-07-07,2027-08-04,Commerce|Société,Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.,
@@ -4148,6 +4148,7 @@ Semaine du Goût,2027-10-11,,Gastronomie|Culture,Créée en 1990 par le chef Jo�
 Pleine Lune,2027-10-15,,Astronomie|Lunaire,La face de la Lune est entièrement éclairée par le Soleil.,
 Journée mondiale de l'alimentation,2027-10-16,,Gastronomie|Société|Santé,Commémore la fondation de la FAO le 16 octobre 1945.,
 Dernier Quartier de Lune,2027-10-22,,Astronomie|Lunaire,La moitié gauche de la Lune est éclairée. C'est la fin du cycle lunaire.,
+"Vacances de la Toussaint - Zones A, B et C",2027-10-23,2027-11-07,Vacances scolaires,"Vacances de la Toussaint pour toutes les zones (A, B et C). Durée : 16 jours, du 23/10/2027 au 07/11/2027.",A|B|C
 Nouvelle Lune,2027-10-29,,Astronomie|Lunaire,La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.,
 Halloween,2027-10-31,,Culture|Fêtes,Fête d'origine celtique (la nuit de Samain) christianisée puis popularisée par la diaspora irlandaise.,
 Passage à l'heure d'hiver,2027-10-31,,Changement d'heure,"Dans la nuit du samedi au dimanche, les montres reculent d'une heure (3h → 2h).",
@@ -4170,6 +4171,7 @@ Premier Quartier,2027-12-06,,Astronomie|Lunaire,La moitié droite de la Lune est
 Saint-Nicolas,2027-12-06,,Christianisme|Culture|Fêtes,"Fête de Nicolas de Myre, évêque du IVe siècle devenu patron des enfants.",
 Journée de la Laïcité,2027-12-09,,Société|Dates spéciales,Commémore la loi du 9 décembre 1905 séparant les Églises de l'État.,
 Pleine Lune,2027-12-13,,Astronomie|Lunaire,La face de la Lune est entièrement éclairée par le Soleil.,
+"Vacances de Noël - Zones A, B et C",2027-12-18,2028-01-02,Vacances scolaires,"Vacances de Noël pour toutes les zones (A, B et C). Durée : 16 jours, du 18/12/2027 au 02/01/2028.",A|B|C
 Dernier Quartier de Lune,2027-12-20,,Astronomie|Lunaire,La moitié gauche de la Lune est éclairée. C'est la fin du cycle lunaire.,
 Début de l'Hiver — Solstice d'hiver,2027-12-21,,Saisons|Astronomie,Le solstice d'hiver est le jour le plus court de l'année.,
 Jour le plus court de l'année,2027-12-21,,Saisons|Astronomie,Le 21 December est le jour le plus court de l'année 2027.,
@@ -4191,9 +4193,12 @@ Chandeleur,2028-02-02,,Culture|Christianisme|Gastronomie,"Fête de la Présentat
 Journée mondiale des zones humides,2028-02-02,,Environnement,Commémore la Convention de Ramsar signée le 2 février 1971.,
 Premier Quartier,2028-02-03,,Astronomie|Lunaire,La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.,
 Journée mondiale contre le cancer,2028-02-04,,Santé,Initiée par l'Union Internationale Contre le Cancer depuis 2000.,
+Vacances d'Hiver - Zone B,2028-02-05,2028-02-20,Vacances scolaires,"Vacances d'Hiver pour la zone scolaire B. Durée : 16 jours, du 05/02/2028 au 20/02/2028. Le découpage en zones A, B et C a été instauré en 1972.",B
 Pleine Lune,2028-02-10,,Astronomie|Lunaire,La face de la Lune est entièrement éclairée par le Soleil.,
+Vacances d'Hiver - Zone C,2028-02-12,2028-02-27,Vacances scolaires,"Vacances d'Hiver pour la zone scolaire C. Durée : 16 jours, du 12/02/2028 au 27/02/2028. Le découpage en zones A, B et C a été instauré en 1972.",C
 Saint-Valentin,2028-02-14,,Fêtes|Culture,Fête des amoureux le 14 février.,
 Dernier Quartier de Lune,2028-02-17,,Astronomie|Lunaire,La moitié gauche de la Lune est éclairée. C'est la fin du cycle lunaire.,
+Vacances d'Hiver - Zone A,2028-02-19,2028-03-05,Vacances scolaires,"Vacances d'Hiver pour la zone scolaire A. Durée : 16 jours, du 19/02/2028 au 05/03/2028. Le découpage en zones A, B et C a été instauré en 1972.",A
 Nouvelle Lune,2028-02-25,,Astronomie|Lunaire,La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.,
 Salon de l'Agriculture — Ouverture,2028-02-26,,Gastronomie|Agriculture|Culture,Le Salon International de l'Agriculture se tient chaque fin février à Paris.,
 Jour supplémentaire (année bissextile),2028-02-29,,Dates spéciales,"Une année solaire dure 365,2422 jours. 2028 est l'une des années rares à 366 jours.",
@@ -4213,14 +4218,17 @@ Passage à l'heure d'été,2028-03-26,,Changement d'heure,"Dans la nuit du samed
 Poisson d'avril,2028-04-01,,Culture,Journée des farces et des canulars.,
 Premier Quartier,2028-04-02,,Astronomie|Lunaire,La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.,
 Journée mondiale de la Santé,2028-04-07,,Santé,Commémore la fondation de l'OMS le 7 avril 1948.,
+Vacances de Printemps - Zone B,2028-04-08,2028-04-23,Vacances scolaires,"Vacances de Printemps pour la zone scolaire B. Durée : 16 jours, du 08/04/2028 au 23/04/2028. Le découpage en zones A, B et C a été instauré en 1972.",B
 Dimanche des Rameaux,2028-04-09,,Christianisme,Ouvre la Semaine Sainte en rappelant l'entrée triomphale de Jésus à Jérusalem.,
 Pleine Lune,2028-04-09,,Astronomie|Lunaire,La face de la Lune est entièrement éclairée par le Soleil.,
 Vendredi Saint,2028-04-14,,Jours fériés|Christianisme,"Commémore la crucifixion du Christ. Jour férié uniquement en Alsace-Moselle (départements 57, 67, 68) en vertu du régime concordataire.",AM
 Vendredi Saint,2028-04-14,,Christianisme,Commémore la crucifixion du Christ. Non férié en France depuis la loi de 1905 — sauf en Alsace-Moselle.,
+Vacances de Printemps - Zone C,2028-04-15,2028-05-01,Vacances scolaires,"Vacances de Printemps pour la zone scolaire C. Durée : 17 jours, du 15/04/2028 au 01/05/2028. Le découpage en zones A, B et C a été instauré en 1972.",C
 Dernier Quartier de Lune,2028-04-16,,Astronomie|Lunaire,La moitié gauche de la Lune est éclairée. C'est la fin du cycle lunaire.,
 Pâques,2028-04-16,,Christianisme,Fête chrétienne célébrant la résurrection du Christ. Sa date varie chaque année car elle suit le calendrier lunaire.,
 Lundi de Pâques,2028-04-17,,Jours fériés|Christianisme,"Jour férié qui prolonge le dimanche de Pâques. La tradition des œufs vient du Carême : l'Église interdisait d'en manger pendant 40 jours, on offrait donc à Pâques ceux accumulés.",
 Jour de la Terre,2028-04-22,,Environnement|Société,Né le 22 avril 1970 après une marée noire en Californie.,
+Vacances de Printemps - Zone A,2028-04-22,2028-05-08,Vacances scolaires,"Vacances de Printemps pour la zone scolaire A. Durée : 17 jours, du 22/04/2028 au 08/05/2028. Le découpage en zones A, B et C a été instauré en 1972.",A
 Nouvelle Lune,2028-04-24,,Astronomie|Lunaire,La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.,
 Fête du Travail,2028-05-01,,Jours fériés|Société,"Commémore la grève de Chicago du 1er mai 1886 pour les 8 heures de travail, réprimée dans le sang. Férié et chômé en France depuis 1947. La tradition d'offrir du muguet vient d'une coutume de Charles IX datant de 1561.",
 Premier Quartier,2028-05-02,,Astronomie|Lunaire,La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.,
@@ -4232,6 +4240,7 @@ Dernier Quartier de Lune,2028-05-16,,Astronomie|Lunaire,La moitié gauche de la 
 Journée mondiale de la biodiversité,2028-05-22,,Environnement,Commémore l'adoption de la Convention sur la Diversité Biologique à Rio.,
 Nouvelle Lune,2028-05-24,,Astronomie|Lunaire,La face de la Lune tournée vers la Terre n'est pas éclairée — elle est invisible dans le ciel.,
 Ascension,2028-05-25,,Jours fériés|Christianisme,"Fête chrétienne commémorant la montée du Christ au ciel, 40 jours après Pâques. Toujours un jeudi, ce qui en fait naturellement un pont avec le vendredi.",
+"Pont de l'Ascension - Zones A, B et C",2028-05-25,2028-05-28,Vacances scolaires,"Pont de l'Ascension pour toutes les zones (A, B et C). Durée : 4 jours, du 25/05/2028 au 28/05/2028.",A|B|C
 Fête des Voisins,2028-05-26,,Société,Créée en 2000 pour lutter contre l'isolement urbain.,
 Pont possible — Ascension,2028-05-26,,Ponts / Congés,Ascension tombe un jeudi le 25/05/2028. Le vendredi 26/05/2028 est un pont potentiel — vérifiez auprès de votre employeur.,
 Journée nationale de la Résistance,2028-05-27,,Mémoire|Société,"Le 27 mai 1943, Jean Moulin préside la première réunion secrète du CNR.",
@@ -4256,6 +4265,7 @@ Fête du Cinéma,2028-06-25,,Culture|Cinéma,"Créée en 1985, elle propose chaq
 Soldes d'été,2028-06-28,2028-07-26,Commerce|Société,Les soldes d'été débutent le dernier mercredi de juin et durent 4 semaines.,
 Premier Quartier,2028-06-29,,Astronomie|Lunaire,La moitié droite de la Lune est éclairée. Mi-chemin entre la Nouvelle Lune et la Pleine Lune.,
 Milieu de l'année,2028-07-01,,Dates spéciales,Ce jour marque le point médian exact de l'année 2028.,
+"Vacances d'Été - Zones A, B et C",2028-07-04,2028-07-03,Vacances scolaires,"Vacances d'Été pour toutes les zones (A, B et C). Durée : 0 jours, du 04/07/2028 au 03/07/2028.",A|B|C
 Festival d'Avignon — Ouverture,2028-07-05,,Culture|Théâtre,Créé par Jean Vilar en 1947 dans la cour du Palais des Papes.,
 Pleine Lune,2028-07-06,,Astronomie|Lunaire,La face de la Lune est entièrement éclairée par le Soleil.,
 Commémoration de la Rafle du Vél d'Hiv,2028-07-09,,Mémoire|Société,"Les 16-17 juillet 1942, la police française arrêta 13 152 Juifs à Paris.",
