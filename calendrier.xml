@@ -5,14 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 19 Sep 2026 04:16:12 GMT</lastBuildDate>
-    <item>
-      <title>Journées du Patrimoine</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-19</link>
-      <guid>3fa95aa89f50e914b9f2adb1@calendrier-fr.tibotsr.dev</guid>
-      <description>Créées en France en 1984 par Jack Lang, étendues à toute l'Europe en 1991.</description>
-      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Sun, 20 Sep 2026 04:35:18 GMT</lastBuildDate>
     <item>
       <title>Début de l'Automne — Équinoxe d'automne</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-09-22</link>
@@ -1405,6 +1398,13 @@
       <guid>6ee384b5c427f8bde5d47b91@calendrier-fr.tibotsr.dev</guid>
       <description>Les 16-17 juillet 1942, la police française arrêta 13 152 Juifs à Paris.</description>
       <pubDate>Sun, 09 Jul 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fête Nationale</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-07-14</link>
+      <guid>1ffd69c5ae9ddd70693e2bb2@calendrier-fr.tibotsr.dev</guid>
+      <description>Commémore la prise de la Bastille le 14 juillet 1789.</description>
+      <pubDate>Fri, 14 Jul 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>

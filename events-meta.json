@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T04:16:12.906130+00:00",
+  "generatedAt": "2026-09-20T04:35:18.436984+00:00",
   "contentVersion": "6b2554c6c4ea2ce8",
   "newEventsThisWeek": 76,
   "newEventUids": [
@@ -54,5 +54,5 @@
     "bfa546a224fbf6ca6c55bcb6-end@calendrier-fr.tibotsr.dev",
     "bfa546a224fbf6ca6c55bcb6-start@calendrier-fr.tibotsr.dev"
   ],
-  "totalEvents": 555
+  "totalEvents": 554
 }
