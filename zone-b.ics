@@ -7,7 +7,7 @@ X-WR-CALNAME:Vacances Scolaires\, jours fériés & Examens - Zone B
 X-WR-TIMEZONE:Europe/Paris
 BEGIN:VEVENT
 UID:35922e0de9dff394f3af3515@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Vacances de la Toussaint - Zones A\, B et C
 DESCRIPTION:Vacances de la Toussaint pour toutes les zones (A\, B et C). Du
  rée : 16 jours\, du 17/10/2026 au 01/11/2026.
@@ -17,7 +17,7 @@ DTEND;VALUE=DATE:20261102
 END:VEVENT
 BEGIN:VEVENT
 UID:ca0a6edd69d6bffef35ae20c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Vacances de Noël - Zones A\, B et C
 DESCRIPTION:Vacances de Noël pour toutes les zones (A\, B et C). Durée : 16
   jours\, du 19/12/2026 au 03/01/2027.
@@ -27,7 +27,7 @@ DTEND;VALUE=DATE:20270104
 END:VEVENT
 BEGIN:VEVENT
 UID:1eda6a6474847f46977b5d80@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Vacances d'Hiver - Zone B
 DESCRIPTION:Vacances d'Hiver pour la zone scolaire B. Durée : 16 jours\, du
   20/02/2027 au 07/03/2027. Le découpage en zones A\, B et C a été instauré 
@@ -38,7 +38,7 @@ DTEND;VALUE=DATE:20270308
 END:VEVENT
 BEGIN:VEVENT
 UID:3a335d955a66a7446e2e4bee@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Vacances de Printemps - Zone B
 DESCRIPTION:Vacances de Printemps pour la zone scolaire B. Durée : 16 jours
  \, du 17/04/2027 au 02/05/2027. Le découpage en zones A\, B et C a été inst
@@ -49,7 +49,7 @@ DTEND;VALUE=DATE:20270503
 END:VEVENT
 BEGIN:VEVENT
 UID:3151189f97d776e993c21205@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Pont de l'Ascension - Zones A\, B et C
 DESCRIPTION:Pont de l'Ascension pour toutes les zones (A\, B et C). Durée :
   0 jours\, du 07/05/2027 au 06/05/2027.
@@ -59,7 +59,7 @@ DTEND;VALUE=DATE:20270507
 END:VEVENT
 BEGIN:VEVENT
 UID:37304fafad138d9a93056492@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Vacances d'Été - Zones A\, B et C
 DESCRIPTION:Vacances d'Été pour toutes les zones (A\, B et C). Durée : 61 j
  ours\, du 03/07/2027 au 01/09/2027.
@@ -69,7 +69,7 @@ DTEND;VALUE=DATE:20270902
 END:VEVENT
 BEGIN:VEVENT
 UID:9e28af8c06c69249411623a3@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Vacances de la Toussaint - Zones A\, B et C
 DESCRIPTION:Vacances de la Toussaint pour toutes les zones (A\, B et C). Du
  rée : 16 jours\, du 23/10/2027 au 07/11/2027.
@@ -79,7 +79,7 @@ DTEND;VALUE=DATE:20271108
 END:VEVENT
 BEGIN:VEVENT
 UID:3d5227eb8b5e574efa3c528b@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Vacances de Noël - Zones A\, B et C
 DESCRIPTION:Vacances de Noël pour toutes les zones (A\, B et C). Durée : 16
   jours\, du 18/12/2027 au 02/01/2028.
@@ -89,7 +89,7 @@ DTEND;VALUE=DATE:20280103
 END:VEVENT
 BEGIN:VEVENT
 UID:312a8d57fc0d16066b00594c@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Vacances d'Hiver - Zone B
 DESCRIPTION:Vacances d'Hiver pour la zone scolaire B. Durée : 16 jours\, du
   05/02/2028 au 20/02/2028. Le découpage en zones A\, B et C a été instauré 
@@ -100,7 +100,7 @@ DTEND;VALUE=DATE:20280221
 END:VEVENT
 BEGIN:VEVENT
 UID:d7fd672c3776ede9b98a3e1f@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Vacances de Printemps - Zone B
 DESCRIPTION:Vacances de Printemps pour la zone scolaire B. Durée : 16 jours
  \, du 08/04/2028 au 23/04/2028. Le découpage en zones A\, B et C a été inst
@@ -111,7 +111,7 @@ DTEND;VALUE=DATE:20280424
 END:VEVENT
 BEGIN:VEVENT
 UID:b4f63a9e21e8768430b03344@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Pont de l'Ascension - Zones A\, B et C
 DESCRIPTION:Pont de l'Ascension pour toutes les zones (A\, B et C). Durée :
   4 jours\, du 25/05/2028 au 28/05/2028.
@@ -121,7 +121,7 @@ DTEND;VALUE=DATE:20280529
 END:VEVENT
 BEGIN:VEVENT
 UID:dc26f3a2b01d1c1fb48a56f2@calendrier-fr.tibotsr.dev
-DTSTAMP:20260924T042239Z
+DTSTAMP:20260925T043359Z
 SUMMARY:Vacances d'Été - Zones A\, B et C
 DESCRIPTION:Vacances d'Été pour toutes les zones (A\, B et C). Durée : 0 jo
  urs\, du 04/07/2028 au 03/07/2028.
