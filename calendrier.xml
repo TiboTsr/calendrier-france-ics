@@ -5,21 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 01 Oct 2026 05:26:54 GMT</lastBuildDate>
-    <item>
-      <title>Journée mondiale du cacao et du chocolat</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-10-01</link>
-      <guid>a20ae0c068acf55e35c69106@calendrier-fr.tibotsr.dev</guid>
-      <description>Célébrée le 1er octobre et associée à l'Organisation internationale du cacao (ICCO).</description>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Lancement d'Octobre Rose</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-10-01</link>
-      <guid>3e4df8017f3d3e5a5190c232@calendrier-fr.tibotsr.dev</guid>
-      <description>Tout octobre est dédié à la sensibilisation au cancer du sein.</description>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Fri, 02 Oct 2026 05:13:26 GMT</lastBuildDate>
     <item>
       <title>Nuit Blanche</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-10-03</link>
@@ -1405,6 +1391,20 @@
       <guid>cfdbc8729dd3c8b4b89defe6@calendrier-fr.tibotsr.dev</guid>
       <description>XXXIVes Jeux Olympiques d'été à Los Angeles, États-Unis.</description>
       <pubDate>Fri, 14 Jul 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Nuit des Étoiles</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-08-05</link>
+      <guid>058b9b9beaaf4365c9963665@calendrier-fr.tibotsr.dev</guid>
+      <description>Organisée chaque premier week-end d'août par l'Association Française d'Astronomie depuis 1991.</description>
+      <pubDate>Sat, 05 Aug 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Pont possible — Assomption</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-08-14</link>
+      <guid>e5b280a41bd73470022bfa20@calendrier-fr.tibotsr.dev</guid>
+      <description>Assomption tombe un mardi le 15/08/2028. Le lundi 14/08/2028 est un pont potentiel — vérifiez auprès de votre employeur.</description>
+      <pubDate>Mon, 14 Aug 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
