@@ -5,14 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 03 Oct 2026 04:57:32 GMT</lastBuildDate>
-    <item>
-      <title>Nuit Blanche</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-10-03</link>
-      <guid>28c0f8a8ee26852f81405ae3@calendrier-fr.tibotsr.dev</guid>
-      <description>Initiée à Paris en 2002 par le maire Bertrand Delanoë.</description>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Sun, 04 Oct 2026 05:30:22 GMT</lastBuildDate>
     <item>
       <title>Fête des Grands-Pères</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-10-04</link>
@@ -1405,6 +1398,13 @@
       <guid>e5b280a41bd73470022bfa20@calendrier-fr.tibotsr.dev</guid>
       <description>Assomption tombe un mardi le 15/08/2028. Le lundi 14/08/2028 est un pont potentiel — vérifiez auprès de votre employeur.</description>
       <pubDate>Mon, 14 Aug 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Assomption</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-08-15</link>
+      <guid>afd828d0e2e6416a49b49f5a@calendrier-fr.tibotsr.dev</guid>
+      <description>Célèbre l'élévation de la Vierge Marie au ciel. Fête chrétienne ancienne, jour férié en France depuis le Concordat de 1802. Elle tombe en plein cœur de l'été, au milieu des grandes vacances.</description>
+      <pubDate>Tue, 15 Aug 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
