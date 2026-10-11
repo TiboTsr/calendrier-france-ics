@@ -5,14 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Sat, 10 Oct 2026 05:28:06 GMT</lastBuildDate>
-    <item>
-      <title>Journée mondiale de la santé mentale</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-10-10</link>
-      <guid>527cf78df6277e39ece9d1d7@calendrier-fr.tibotsr.dev</guid>
-      <description>Créée par la Fédération Mondiale pour la Santé Mentale en 1992.</description>
-      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Sun, 11 Oct 2026 05:21:36 GMT</lastBuildDate>
     <item>
       <title>Semaine du Goût</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-10-12</link>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-08-15</link>
       <guid>88c72ae3b6fd3c18fd85937f@calendrier-fr.tibotsr.dev</guid>
       <description>Célèbre l'élévation de la Vierge Marie au ciel.</description>
+      <pubDate>Tue, 15 Aug 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Jeux Paralympiques de Los Angeles 2028</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-08-15</link>
+      <guid>9019c477a028f9051cb109d2@calendrier-fr.tibotsr.dev</guid>
+      <description>XVIIIes Jeux Paralympiques d'été à Los Angeles, États-Unis.</description>
       <pubDate>Tue, 15 Aug 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
