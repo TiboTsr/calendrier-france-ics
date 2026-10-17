@@ -5,14 +5,7 @@
     <link>https://calendrier-fr.tibotsr.dev/</link>
     <description>Mises à jour du calendrier France.</description>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 16 Oct 2026 04:09:41 GMT</lastBuildDate>
-    <item>
-      <title>Journée mondiale de l'alimentation</title>
-      <link>https://calendrier-fr.tibotsr.dev/?date=2026-10-16</link>
-      <guid>57d4dac8de0ac595c5a44c08@calendrier-fr.tibotsr.dev</guid>
-      <description>Commémore la fondation de la FAO le 16 octobre 1945.</description>
-      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
-    </item>
+    <lastBuildDate>Sat, 17 Oct 2026 04:00:09 GMT</lastBuildDate>
     <item>
       <title>Vacances de la Toussaint - Zones A, B et C</title>
       <link>https://calendrier-fr.tibotsr.dev/?date=2026-10-17</link>
@@ -1404,6 +1397,13 @@
       <link>https://calendrier-fr.tibotsr.dev/?date=2028-09-02</link>
       <guid>c6d50194794f194a64977f63@calendrier-fr.tibotsr.dev</guid>
       <description>Plus grande braderie d'Europe, organisée le premier week-end de septembre à Lille.</description>
+      <pubDate>Sat, 02 Sep 2028 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Rentrée des classes</title>
+      <link>https://calendrier-fr.tibotsr.dev/?date=2028-09-02</link>
+      <guid>50ed68f3c455ae062581f87d@calendrier-fr.tibotsr.dev</guid>
+      <description>La rentrée de septembre mobilise 12 millions d'élèves et 870 000 enseignants en France.</description>
       <pubDate>Sat, 02 Sep 2028 00:00:00 GMT</pubDate>
     </item>
   </channel>
